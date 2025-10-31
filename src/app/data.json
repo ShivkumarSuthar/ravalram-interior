@@ -1,0 +1,56 @@
+{
+    "navbar": [
+        {
+            "name": "Home",
+            "href": "/"
+        },
+        {
+            "name": "About",
+            "href": "/about"
+        },
+        {
+            "name": "Server",
+            "href": "#",
+            "dropdown": [
+                {
+                    "name": "Hosting",
+                    "href": "/server/hosting"
+                },
+                {
+                    "name": "Maintenance",
+                    "href": "/server/maintenance"
+                },
+                {
+                    "name": "Security",
+                    "href": "/server/security"
+                }
+            ]
+        },
+        {
+            "name": "Our Work",
+            "href": "/work"
+        },
+        {
+            "name": "Pages",
+            "href": "#",
+            "dropdown": [
+                {
+                    "name": "Blog",
+                    "href": "/blog"
+                },
+                {
+                    "name": "News",
+                    "href": "/news"
+                },
+                {
+                    "name": "FAQ",
+                    "href": "/faq"
+                }
+            ]
+        },
+        {
+            "name": "Contact Us",
+            "href": "/contact"
+        }
+    ]
+}
