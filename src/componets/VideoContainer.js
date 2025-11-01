@@ -7,7 +7,7 @@ export default function VideoContainer() {
     <div className="video-container">
       <div className="video-bg">
         <Image
-          src="/images/h1-slider1.jpg" // your image
+          src="/images/h1-banner09.jpg"
           alt="Video Thumbnail"
           fill
           className="video-image"

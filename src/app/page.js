@@ -11,6 +11,8 @@ import ProjectPage from "@/componets/ProjectPage";
 import TestimonialsSection from "@/componets/TestimonialsSection";
 import BlogSection from "@/componets/BlogSection";
 import VideoContainer from "@/componets/VideoContainer";
+import Footer from "@/componets/Footer";
+import Gallery from "@/componets/Gallery";
 
 function page() {
   const filePath = path.join(process.cwd(), "src/app/data.json");
@@ -35,8 +37,10 @@ function page() {
       <ProcessSection />
       <ProjectPage />
       <TestimonialsSection />
-      <BlogSection />
       <VideoContainer />
+      <BlogSection />
+      <Gallery/>
+      <Footer />
     </section>
   );
 }

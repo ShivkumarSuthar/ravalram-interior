@@ -8,7 +8,7 @@ const blogPosts = [
     title: "Elevate Every Corner With Sleek Interior Concepts",
     author: "Admin",
     desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living.",
-    image: "/project-7-1536x1080.jpg",
+    image: "/images/blog-13.jpg",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const blogPosts = [
     title: "The Art Of Space: Smart Designs For Elegant Living",
     author: "Admin",
     desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living.",
-    image: "/project-8-1536x1080.jpg",
+    image: "/images/blog-14.jpg",
   },
   {
     id: 3,
@@ -24,13 +24,13 @@ const blogPosts = [
     title: "Inspired Spaces: Blending Function And Aesthetic",
     author: "Admin",
     desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living.",
-    image: "/project-9-1536x1080.jpg",
+    image: "/images/blog-15.jpg",
   },
 ];
 
 export default function BlogSection() {
   return (
-    <section className="blog-section">
+    <section className="blog-section px-6 py-20">
       <div className="container">
         <div className="blog-header">
           <span className="section-badge">• STRAIGHT FROM THE NEWSROOM</span>
