@@ -1,5 +1,9 @@
 /* ✅ Import Google Fonts FIRST */
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;600;700&family=Golos+Text:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: "hertical";
+  src: url("../../public/fonts/Hertical\ Sans.ttf") format("truetype");
+}
 
 /* ✅ Then import Tailwind */
 @import "tailwindcss";
@@ -10,6 +14,7 @@
 :root {
   --font-heading: "Cal Sans", sans-serif;
   --font-body: "Golos Text", sans-serif;
+  --font-hertical: "hertical";
   --color-primary: #d4a053;
   --color-dark-primary: #f5c542;
   --color-secondary: #101010;
@@ -73,22 +78,57 @@ body {
   background-attachment: fixed;
 }
 
+
+.navbar-container {
+  color: var(--color-bg);
+  font-family: var(--font-hertical);
+  position: relative;
+  z-index: 1000;
+}
+
 .logo-text {
-  font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 1px;
 }
 
 .nav-link {
-  font-size: 16px;
+  font-size: 0.8rem;
   letter-spacing: 1px;
 }
 
-.navbar-container {
-  font-family: var(--font-heading);
+.nav-dropdown-container {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0;
+  width: 14rem; /* 56 * 0.25rem */
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item {
+  font-size: 0.8rem;
+  display: block;
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  color: var(--color-gray);
+  border-bottom: 1px solid var(--navbar-border);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.dropdown-item:last-child {
+  border-bottom: 0;
+}
+
+.dropdown-item:hover {
+  /* background: color-mix(in srgb, var(--color-brand) 10%, transparent); */
   color: var(--color-bg);
+  background-color: var(--color-brand);
+  /* border: 1px solid var(--color-brand-hover); */
 }
 
 .get-quote-btn {
@@ -96,12 +136,6 @@ body {
   color: var(--color-bg);
   border-radius: 100vmax;
   padding: 5px 10px;
-}
-
-/* Dropdown animations */
-.navbar-container {
-  position: relative;
-  z-index: 1000;
 }
 
 /* Ensure dropdown stays on top */
@@ -211,7 +245,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.hero-page-banner a:hover {
+.dropdown-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 160, 83, 0.4);
 }

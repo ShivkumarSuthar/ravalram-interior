@@ -1,18 +1,18 @@
-import Hero from "@/componets/HeroSection";
-import Navbar from "@/componets/Navbar";
-import React from "react";
-import fs from "fs";
-import path from "path";
+
 import AboutSection from "@/componets/AboutSection";
-import ServiceSection from "@/componets/ServicesSection";
-import Image from "next/image";
-import ProcessSection from "@/componets/ProcessSection";
-import ProjectPage from "@/componets/ProjectPage";
-import TestimonialsSection from "@/componets/TestimonialsSection";
 import BlogSection from "@/componets/BlogSection";
-import VideoContainer from "@/componets/VideoContainer";
 import Footer from "@/componets/Footer";
 import Gallery from "@/componets/Gallery";
+import HeroSection from "@/componets/Hero/HeroSection";
+import NavbarWithSkeleton from "@/componets/Navbar/NavbarShell";
+import ProcessSection from "@/componets/ProcessSection";
+import ProjectPage from "@/componets/ProjectPage";
+import ServiceSection from "@/componets/ServicesSection";
+import ClientTestimonials from "@/componets/TestimonialsSection";
+import VideoContainer from "@/componets/VideoContainer";
+import fs from "fs";
+import Image from "next/image";
+import path from "path";
 
 function page() {
   const filePath = path.join(process.cwd(), "src/app/data.json");
@@ -21,10 +21,10 @@ function page() {
   return (
     <section>
       <div className="hero-page-banner">
-        <Navbar data={navbar} />
-        <Hero />
+        <NavbarWithSkeleton data={navbar} />
+        <HeroSection />
       </div>
-      <AboutSection />
+       <AboutSection />
       <ServiceSection />
       <div className="relative w-full aspect-[16/9]">
         <Image
@@ -36,10 +36,10 @@ function page() {
       </div>
       <ProcessSection />
       <ProjectPage />
-      <TestimonialsSection />
+      <ClientTestimonials />
       <VideoContainer />
       <BlogSection />
-      <Gallery/>
+      <Gallery />
       <Footer />
     </section>
   );
