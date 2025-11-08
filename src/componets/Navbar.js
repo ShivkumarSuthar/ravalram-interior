@@ -1,174 +1,450 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import styled from "styled-components";
+import { useState, useRef } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, ChevronUp, PhoneIcon } from "lucide-react";
 import data from "@/app/data.json";
 
 const menu = data.navbar;
 
+/* ===========================
+   STYLED COMPONENTS
+=========================== */
+
+const NavbarWrapper = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-hertical);
+`;
+
+const NavContainer = styled.nav`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const LogoText = styled(Link)`
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+`;
+
+const DesktopMenu = styled.ul`
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+`;
+
+const NavItem = styled.li`
+  position: relative;
+`;
+
+const NavLink = styled(Link)`
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.2s;
+  &:hover {
+    color: var(--color-brand);
+  }
+  ${({ $active }) => $active && `color: var(--color-brand);`}
+`;
+
+/* --- Mega Menu --- */
+const MegaMenuWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 56px;
+  left: 0;
+  right: 0;
+  display: ${({ $show }) => ($show ? "flex" : "none")};
+  justify-content: center;
+  z-index: 900;
+`;
+
+const MegaMenuContainer = styled.div`
+  display: flex;
+  background: #34495e;
+  border-radius: 6px;
+  overflow: hidden;
+  min-width: 700px;
+`;
+
+const MegaMenuSidebar = styled.div`
+  background: #2c3e50;
+  min-width: 220px;
+`;
+
+const MegaMenuContent = styled.div`
+  flex: 1;
+  padding: 32px 40px;
+  color: #fff;
+`;
+
+const SidebarItem = styled(Link)`
+  display: block;
+  padding: 16px 22px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: ${({ $active }) =>
+    $active ? "rgba(212,160,83,0.9)" : "transparent"};
+  border-left: 3px solid
+    ${({ $active }) => ($active ? "#d4a053" : "transparent")};
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+const ContentTitle = styled.h3`
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+`;
+
+const ContentDescription = styled.p`
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 16px;
+`;
+
+const ContentItem = styled(Link)`
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: 0.2s;
+  &:hover {
+    color: #fff;
+    padding-left: 8px;
+  }
+`;
+
+/* --- Mobile --- */
+const MobileToggle = styled.button`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  background: none;
+  border: none;
+  color: #333;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background: #f3f3f3;
+  }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+  opacity: ${({ $open }) => ($open ? 1 : 0)};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+  transition: opacity 0.3s ease;
+`;
+
+const MobileMenu = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80%;
+  background: #fff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 0.35s ease-in-out;
+`;
+
+const MobileCloseBtn = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+`;
+
+const MobileItemRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
+const MobileMainLink = styled(Link)`
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 500;
+`;
+
+const MobileIconBtn = styled.button`
+  color: rgba(0, 0, 0, 0.6);
+  padding: 6px;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+const MobileDropdown = styled.ul`
+  background: #fafafa;
+  padding-left: 18px;
+  margin: 0;
+  padding-bottom: 8px;
+`;
+
+const MobileSubDropdown = styled.ul`
+  background: #f0f0f0;
+  padding-left: 18px;
+  margin: 0;
+  padding-bottom: 8px;
+`;
+
+const MobileDropItem = styled(Link)`
+  display: block;
+  padding: 10px 12px;
+  color: var(--color-gray);
+  text-decoration: none;
+  &:hover {
+    color: var(--color-brand);
+  }
+`;
+
+const MobilePhoneBtn = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  font-weight: 500;
+  color: var(--color-brand);
+  text-decoration: none;
+`;
+
+/* ===========================
+        COMPONENT LOGIC
+=========================== */
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState(null);
   const [desktopHoverDropdown, setDesktopHoverDropdown] = useState(null);
-  const dropdownRef = useRef(null);
+  const [activeSidebarItem, setActiveSidebarItem] = useState(0);
 
-  const toggleDropdown = (index) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
+  const hoverTimeout = useRef(null);
+  const navWrapperRef = useRef(null);
+
+  const handleNavItemMouseEnter = (idx) => {
+    clearTimeout(hoverTimeout.current);
+    setDesktopHoverDropdown(idx);
+    setActiveSidebarItem(0);
   };
 
-  // Close mobile dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setActiveDropdown(null);
-      }
-    };
+  const handleMouseLeaveAll = (e) => {
+    clearTimeout(hoverTimeout.current);
+    const related = e.relatedTarget;
+    const wrapper = navWrapperRef.current;
+    hoverTimeout.current = setTimeout(() => {
+      if (!wrapper || (related && wrapper.contains(related))) return;
+      setDesktopHoverDropdown(null);
+    }, 200);
+  };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const toggleDropdown = (i) => {
+    setActiveDropdown(activeDropdown === i ? null : i);
+    setActiveSubDropdown(null);
+  };
+
+  const toggleSubDropdown = (i) => {
+    setActiveSubDropdown(activeSubDropdown === i ? null : i);
+  };
 
   return (
-    <header className="navbar-container">
-      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link href="/" className="logo-text">
-          Ravalram Interior
-        </Link>
+    <NavbarWrapper ref={navWrapperRef}>
+      <NavContainer>
+        <LogoText href="/">Ravalram Interior</LogoText>
 
-        {/* Desktop Menu */}
-        <ul className="hidden lg:flex items-center gap-6">
+        {/* === Desktop Menu === */}
+        <DesktopMenu>
           {menu.map((item, idx) => (
-            <li 
-              key={item.name} 
-              className="relative"
-              onMouseEnter={() => setDesktopHoverDropdown(idx)}
-              onMouseLeave={() => setDesktopHoverDropdown(null)}
+            <NavItem
+              key={item.name}
+              onMouseEnter={() => handleNavItemMouseEnter(idx)}
+              onMouseLeave={handleMouseLeaveAll}
             >
-              <Link 
-                href={item.href} 
-                className="nav-link flex items-center gap-1 px-3 py-2 rounded-md transition-colors duration-200 hover:bg-[--color-brand]/10"
-              >
+              <NavLink href={item.href} $active={desktopHoverDropdown === idx}>
                 {item.name}
-                {item.dropdown && <ChevronDown size={14} />}
-              </Link>
+                {item.dropdown?.length ? <ChevronDown size={14} /> : ""}
+              </NavLink>
 
-              {item.dropdown && (
-                <ul className={`absolute left-0 top-full mt-0 w-56 bg-white text-black/60 shadow-lg z-50 transition-all duration-300 ${
-                  desktopHoverDropdown === idx 
-                    ? "opacity-100 visible translate-y-0" 
-                    : "opacity-0 invisible -translate-y-2"
-                }`}>
-                  {item.dropdown.map((drop) => (
+              {item.dropdown?.length ? (
+                <MegaMenuWrapper
+                  $show={desktopHoverDropdown === idx}
+                  onMouseLeave={handleMouseLeaveAll}
+                >
+                  <MegaMenuContainer>
+                    <MegaMenuSidebar>
+                      {item.dropdown.map((drop, dropIdx) => (
+                        <SidebarItem
+                          key={drop.name}
+                          href={drop.href}
+                          $active={activeSidebarItem === dropIdx}
+                          onMouseEnter={() => setActiveSidebarItem(dropIdx)}
+                        >
+                          {drop.name}
+                        </SidebarItem>
+                      ))}
+                    </MegaMenuSidebar>
+
+                    <MegaMenuContent>
+                      {item.dropdown[activeSidebarItem] && (
+                        <>
+                          <ContentTitle>
+                            {item.dropdown[activeSidebarItem].name}
+                          </ContentTitle>
+                          {item.dropdown[activeSidebarItem].description && (
+                            <ContentDescription>
+                              {item.dropdown[activeSidebarItem].description}
+                            </ContentDescription>
+                          )}
+                          {item.dropdown[activeSidebarItem].dropdown?.length >
+                            0 &&
+                            item.dropdown[activeSidebarItem].dropdown.map(
+                              (sub) => (
+                                <ContentItem key={sub.name} href={sub.href}>
+                                  {sub.name}
+                                </ContentItem>
+                              )
+                            )}
+                        </>
+                      )}
+                    </MegaMenuContent>
+                  </MegaMenuContainer>
+                </MegaMenuWrapper>
+              ) : null}
+            </NavItem>
+          ))}
+        </DesktopMenu>
+
+        <a
+          href="tel:+919004538149"
+          aria-label="Call us at +91 90045 38149"
+          style={{
+            color: "#333",
+            fontSize: "0.9rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+          }}
+          className="sm:hidden"
+        >
+          <PhoneIcon />
+          +91 90045 38149
+        </a>
+
+        {/* === Mobile Toggle === */}
+        <MobileToggle onClick={() => setOpen(!open)}>
+          {open ? <X size={26} /> : <Menu size={26} />}
+        </MobileToggle>
+      </NavContainer>
+
+      {/* === Mobile Menu === */}
+      {open && <Overlay $open={open} onClick={() => setOpen(false)} />}
+      <MobileMenu $open={open}>
+        <MobileCloseBtn onClick={() => setOpen(false)}>
+          <X size={26} />
+        </MobileCloseBtn>
+
+        <ul>
+          {menu.map((item, idx) => (
+            <li key={item.name}>
+              <MobileItemRow>
+                <MobileMainLink href={item.href}>{item.name}</MobileMainLink>
+                {item.dropdown && (
+                  <MobileIconBtn onClick={() => toggleDropdown(idx)}>
+                    {activeDropdown === idx ? (
+                      <ChevronUp size={18} />
+                    ) : (
+                      <ChevronDown size={18} />
+                    )}
+                  </MobileIconBtn>
+                )}
+              </MobileItemRow>
+
+              {item.dropdown?.length > 0 && activeDropdown === idx && (
+                <MobileDropdown>
+                  {item.dropdown.map((drop, dropIdx) => (
                     <li key={drop.name}>
-                      <Link
-                        href={drop.href}
-                        className="block px-4 py-3 text-[--color-gray] hover:bg-[--color-brand]/10 hover:text-[--color-brand] transition-colors border-b border-[--navbar-border] last:border-b-0"
-                      >
-                        {drop.name}
-                      </Link>
+                      <MobileItemRow>
+                        <MobileDropItem href={drop.href}>
+                          {drop.name}
+                        </MobileDropItem>
+                        {drop.dropdown && (
+                          <MobileIconBtn
+                            onClick={() => toggleSubDropdown(dropIdx)}
+                          >
+                            {activeSubDropdown === dropIdx ? (
+                              <ChevronUp size={16} />
+                            ) : (
+                              <ChevronDown size={16} />
+                            )}
+                          </MobileIconBtn>
+                        )}
+                      </MobileItemRow>
+
+                      {drop.dropdown && activeSubDropdown === dropIdx && (
+                        <MobileSubDropdown>
+                          {drop.dropdown.map((sub) => (
+                            <li key={sub.name}>
+                              <MobileDropItem href={sub.href}>
+                                {sub.name}
+                              </MobileDropItem>
+                            </li>
+                          ))}
+                        </MobileSubDropdown>
+                      )}
                     </li>
                   ))}
-                </ul>
+                </MobileDropdown>
               )}
             </li>
           ))}
         </ul>
 
-        {/* Desktop Buttons */}
-        <div className="hidden lg:flex items-center gap-4">
-          <a 
-            href="tel:+919004538149" 
-            className="flex items-center gap-2 text-[--color-dark] hover:text-[--color-brand] transition-colors"
-          >
-            <Phone size={16} /> +91 9004538149
-          </a>
-          <Link 
-            href="/quote" 
-            className="get-quote-btn hover:bg-[--color-brand-hover] transition-colors"
-          >
-            Get Quote
-          </Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden text-[--color-dark] p-2 rounded-md hover:bg-gray-100 transition-colors"
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      {open && (
-        <div 
-          ref={dropdownRef}
-          className="lg:hidden bg-[--color-light] border-t border-[--navbar-border] shadow-lg animate-fadeIn"
-        >
-          <ul className="flex flex-col p-4 space-y-1">
-            {menu.map((item, idx) => (
-              <li key={item.name} className="flex flex-col border-b border-[--navbar-border] last:border-b-0">
-                <div className="flex justify-between items-center py-3">
-                  <Link
-                    href={item.href}
-                    className="block text-[--color-gray] hover:text-[--color-brand] transition-colors font-medium"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-
-                  {item.dropdown && (
-                    <button 
-                      onClick={() => toggleDropdown(idx)}
-                      className="p-1 rounded-md hover:bg-gray-100 transition-colors"
-                    >
-                      {activeDropdown === idx ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                    </button>
-                  )}
-                </div>
-
-                {/* Mobile Dropdown */}
-                {item.dropdown && activeDropdown === idx && (
-                  <ul className="pl-4 ml-2 mb-2 bg-white">
-                    {item.dropdown.map((drop) => (
-                      <li key={drop.name}>
-                        <Link
-                          href={drop.href}
-                          className="block text-[--color-gray] py-2 px-3 rounded-md hover:bg-[--color-brand]/10 hover:text-[--color-brand] transition-colors"
-                          onClick={() => setOpen(false)}
-                        >
-                          {drop.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-
-            {/* Mobile buttons */}
-            <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-[--navbar-border]">
-              <a
-                href="tel:+919004538149"
-                className="text-center border border-[--color-brand] text-[--color-brand] px-4 py-3 rounded-md hover:bg-[--color-brand] hover:text-[--color-light] transition-all font-medium"
-                onClick={() => setOpen(false)}
-              >
-                Call Now
-              </a>
-              <Link
-                href="/quote"
-                className="text-center bg-[--color-brand] text-[--color-light] px-4 py-3 rounded-md hover:bg-[--color-brand-hover] transition-all font-medium"
-                onClick={() => setOpen(false)}
-              >
-                Get Quote
-              </Link>
-            </div>
-          </ul>
-        </div>
-      )}
-    </header>
+        <MobilePhoneBtn href="tel:+919004538149">
+          <Phone size={18} /> +91 9004538149
+        </MobilePhoneBtn>
+      </MobileMenu>
+    </NavbarWrapper>
   );
 }

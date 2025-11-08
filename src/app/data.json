@@ -1,56 +1,91 @@
 {
-    "navbar": [
+  "navbar": [
+    { "name": "Home", "href": "/", "dropdown": [] },
+    {
+      "name": "About",
+      "href": "/about",
+      "dropdown": [
+        { "name": "Our Story", "href": "/about/our-story", "description": "Learn about our journey and values", "dropdown": [] },
+        { "name": "Our Team", "href": "/about/team", "description": "Meet our talented team members", "dropdown": [] },
+        { "name": "Why Choose Us", "href": "/about/why-choose-us", "description": "Reasons to trust our expertise", "dropdown": [] },
+        { "name": "Testimonials", "href": "/about/testimonials", "description": "Hear from our happy clients", "dropdown": [] }
+      ]
+    },
+    {
+      "name": "Services",
+      "href": "/services",
+      "dropdown": [
         {
-            "name": "Home",
-            "href": "/"
+          "name": "Interior Work",
+          "href": "/services/interior",
+          "description": "Complete interior design solutions",
+          "dropdown": [
+            { "name": "Full Interior Design", "href": "/services/interior/full-design", "description": "Comprehensive design for every room", "dropdown": [] },
+            { "name": "Living Room Design", "href": "/services/interior/living-room", "description": "Stylish and functional living spaces", "dropdown": [] },
+            { "name": "Bedroom Design", "href": "/services/interior/bedroom", "description": "Comfortable and elegant bedrooms", "dropdown": [] },
+            { "name": "Kitchen & Dining Design", "href": "/services/interior/kitchen-dining", "description": "Functional and aesthetic kitchen spaces", "dropdown": [] },
+            { "name": "Bathroom Design", "href": "/services/interior/bathroom", "description": "Modern and relaxing bathrooms", "dropdown": [] },
+            { "name": "Study/Office Room Design", "href": "/services/interior/study-office", "description": "Productive workspaces at home", "dropdown": [] },
+            { "name": "Hallway & Entryway Design", "href": "/services/interior/hallway-entryway", "description": "Make a great first impression", "dropdown": [] }
+          ]
         },
         {
-            "name": "About",
-            "href": "/about"
+          "name": "Carpentry",
+          "href": "/services/carpentry",
+          "description": "Custom woodwork solutions",
+          "dropdown": [
+            { "name": "Custom Furniture", "href": "/services/carpentry/furniture", "description": "Tailor-made furniture for every need", "dropdown": [] },
+            { "name": "Wardrobes & Cabinets", "href": "/services/carpentry/wardrobes", "description": "Stylish storage solutions", "dropdown": [] },
+            { "name": "Doors & Windows", "href": "/services/carpentry/doors-windows", "description": "Durable and elegant fixtures", "dropdown": [] },
+            { "name": "Shelving & Storage Solutions", "href": "/services/carpentry/shelving-storage", "description": "Organize spaces efficiently", "dropdown": [] },
+            { "name": "Outdoor Wooden Structures", "href": "/services/carpentry/outdoor-structures", "description": "Patios, pergolas, and more", "dropdown": [] }
+          ]
         },
         {
-            "name": "Server",
-            "href": "#",
-            "dropdown": [
-                {
-                    "name": "Hosting",
-                    "href": "/server/hosting"
-                },
-                {
-                    "name": "Maintenance",
-                    "href": "/server/maintenance"
-                },
-                {
-                    "name": "Security",
-                    "href": "/server/security"
-                }
-            ]
+          "name": "Painting & Finishing",
+          "href": "/services/painting",
+          "description": "High-quality painting services",
+          "dropdown": [
+            { "name": "Wall Painting & Textures", "href": "/services/painting/wall-textures", "description": "Transform walls with colors & textures", "dropdown": [] },
+            { "name": "Ceiling Design & Painting", "href": "/services/painting/ceiling-design", "description": "Decorative and elegant ceilings", "dropdown": [] },
+            { "name": "Decorative Finishes", "href": "/services/painting/decorative-finishes", "description": "Stylish finishing touches for interiors", "dropdown": [] },
+            { "name": "Exterior Painting", "href": "/services/painting/exterior", "description": "Durable and attractive outdoor paint", "dropdown": [] }
+          ]
         },
         {
-            "name": "Our Work",
-            "href": "/work"
-        },
-        {
-            "name": "Pages",
-            "href": "#",
-            "dropdown": [
-                {
-                    "name": "Blog",
-                    "href": "/blog"
-                },
-                {
-                    "name": "News",
-                    "href": "/news"
-                },
-                {
-                    "name": "FAQ",
-                    "href": "/faq"
-                }
-            ]
-        },
-        {
-            "name": "Contact Us",
-            "href": "/contact"
+          "name": "Flooring",
+          "href": "/services/flooring",
+          "description": "Premium flooring solutions",
+          "dropdown": [
+            { "name": "Tile & Marble Flooring", "href": "/services/flooring/tile-marble", "description": "Durable and elegant floor options", "dropdown": [] },
+            { "name": "Wooden Flooring", "href": "/services/flooring/wooden", "description": "Warm and natural wood finishes", "dropdown": [] },
+            { "name": "Laminate & Vinyl Flooring", "href": "/services/flooring/laminate-vinyl", "description": "Affordable and stylish alternatives", "dropdown": [] },
+            { "name": "Outdoor Flooring", "href": "/services/flooring/outdoor", "description": "Patios, decks, and garden paths", "dropdown": [] }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "name": "Our Work",
+      "href": "/work",
+      "dropdown": [
+        { "name": "Residential Projects", "href": "/work/residential", "description": "Beautiful homes we’ve designed", "dropdown": [] },
+        { "name": "Commercial Projects", "href": "/work/commercial", "description": "Office and commercial spaces", "dropdown": [] },
+        { "name": "Before & After", "href": "/work/before-after", "description": "See transformations we’ve done", "dropdown": [] },
+        { "name": "Client Case Studies", "href": "/work/case-studies", "description": "Detailed project insights", "dropdown": [] },
+        { "name": "Awards & Recognition", "href": "/work/awards", "description": "Our achievements and honors", "dropdown": [] }
+      ]
+    },
+    {
+      "name": "Contact",
+      "href": "/contact",
+      "dropdown": [
+        { "name": "Request a Quote", "href": "/contact/quote", "description": "Get a quote for your project", "dropdown": [] },
+        { "name": "Book a Consultation", "href": "/contact/consultation", "description": "Schedule a meeting with us", "dropdown": [] },
+        { "name": "FAQs", "href": "/contact/faqs", "description": "Frequently asked questions", "dropdown": [] },
+        { "name": "Service Areas", "href": "/contact/service-areas", "description": "Areas we cover", "dropdown": [] },
+        { "name": "Feedback", "href": "/contact/feedback", "description": "Share your experience with us", "dropdown": [] }
+      ]
+    }
+  ]
 }
