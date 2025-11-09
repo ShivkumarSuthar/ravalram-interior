@@ -1,81 +1,351 @@
-"use client";
-import {
-  PanelsTopLeft,
-  LayoutDashboard,
-  Lightbulb,
-  Layers,
-  ArrowUpRight,
-  ArrowRight,
-} from "lucide-react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+'use client';
+import { useState, useEffect } from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+`;
 
 const services = [
   {
     id: 1,
-    title: "Residential Interior Design",
-    desc: "Tailored design services for private homes, including room makeovers and complete home transformations.",
-    img: "/images/service-1.jpg",
+    title: "Interior Design & Home Styling",
+    desc: "Transform your space with comprehensive interior design solutions. We create personalized layouts, select premium materials, and curate custom furniture pieces that reflect your unique style and personality.",
+    img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop",
   },
   {
     id: 2,
-    title: "Outdoor & Landscape Design",
-    desc: "Crafting outdoor environments that blend beauty with function — gardens, patios, and open spaces.",
-    img: "/images/service-2.jpg",
+    title: "Custom Carpentry & Woodwork",
+    desc: "Expert craftsmanship in bespoke furniture and woodwork. From elegant modular kitchens and spacious wardrobes to sophisticated TV units and intricate wall paneling, every piece is built to perfection.",
+    img: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=600&fit=crop",
   },
   {
     id: 3,
-    title: "Interior Design Consultation",
-    desc: "Get expert advice and professional insight to refine your design ideas into actionable plans.",
-    img: "/images/service-3.jpg",
+    title: "Home Renovation & Remodeling",
+    desc: "Breathe new life into existing spaces with complete renovation services. We handle structural changes, modern upgrades, and aesthetic enhancements to create homes that are both beautiful and functional.",
+    img: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&h=600&fit=crop",
   },
   {
     id: 4,
-    title: "Commercial Interior Design",
-    desc: "Designing smart and aesthetic commercial spaces that elevate productivity and brand experience.",
-    img: "/images/service-4.jpg",
+    title: "Painting & Surface Finishing",
+    desc: "Professional painting services with impeccable attention to detail. We offer interior and exterior painting, decorative textures, and specialty finishes that bring walls to life with lasting beauty.",
+    img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop",
   },
   {
     id: 5,
-    title: "Renovation And Remodeling",
-    desc: "Revive your old spaces with modern design ideas and efficient remodeling strategies.",
-    img: "/images/service-5.jpg",
+    title: "Flooring & Surface Solutions",
+    desc: "Premium flooring installation for every style and budget. Choose from elegant marble, warm hardwood, practical vinyl, or durable laminate options, all installed with precision for long-lasting results.",
+    img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
   },
   {
     id: 6,
-    title: "Interior 2D/3D Layouts",
-    desc: "Visualize your dream spaces before they come to life with our advanced 3D rendering services.",
-    img: "/images/service-6.jpg",
+    title: "Ceiling Design & Lighting Planning",
+    desc: "Elevate your space with innovative ceiling designs and strategic lighting. We create stunning false ceilings and plan ambient lighting schemes that enhance mood, comfort, and architectural beauty.",
+    img: "https://images.unsplash.com/photo-1513694797617-eeb43f68b3c4?w=800&h=600&fit=crop",
   },
 ];
 
 const stats = [
   {
-    number: "2013",
+    number: "12+",
     title: "Years Experience",
-    desc: "Improving homes with expert craftsmanship for years",
+    desc: "Over a decade of transforming homes with expert craftsmanship and innovative design solutions",
   },
   {
-    number: "190+",
+    number: "250+",
     title: "Projects Completed",
-    desc: "Over 250 successful projects delivered with quality and care",
+    desc: "Successfully delivered hundreds of residential and commercial projects across the region",
   },
   {
-    number: "260+",
-    title: "Skilled Tradespeople",
-    desc: "Our team of 30 experts ensures top-quality results",
+    number: "30+",
+    title: "Skilled Professionals",
+    desc: "A dedicated team of designers, carpenters, and craftsmen committed to excellence",
   },
   {
-    number: "328+",
+    number: "100%",
     title: "Client Satisfaction",
-    desc: "All of our clients are satisfied with our work and service",
+    desc: "Every project completed with attention to detail and commitment to quality",
   },
 ];
 
-export default function ServiceSection() {
+const Container = styled.section`
+  font-family: 'Inter', 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+`;
+
+const ServiceSection = styled.div`
+  padding: 2.5rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 4rem 3rem;
+  }
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 4rem;
+  }
+`;
+
+const TagBox = styled.span`
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.039);
+  backdrop-filter: blur(2px);
+  border: 1px solid #e5e5e5;
+  color: #333333;
+  padding: 8px 12px 5px 10px;
+  border-radius: 100vmax;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  gap: 10px;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: #d4a053;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+`;
+
+const HeaderContent = styled.div`
+  flex: 1;
+`;
+
+const SectionHeading = styled.h2`
+  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #101010;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  letter-spacing: 1px;
+
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 4rem;
+  }
+`;
+
+const HighlightText = styled.span`
+  color: #d4a053;
+`;
+
+const SectionDesc = styled.p`
+  color: #666666;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin: 0 auto;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+`;
+
+const ImageWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+`;
+
+const ServiceImage = styled.img`
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.7s ease-in-out;
+
+  ${ImageWrapper}:hover & {
+    transform: scale(1.05);
+  }
+`;
+
+const ImageOverlay = styled.div`
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: rgba(51, 51, 51, 0.8);
+  color: white;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  max-width: 28rem;
+  backdrop-filter: blur(10px);
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+`;
+
+const ServiceList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const ServiceListItem = styled.li`
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  color: ${props => props.$active ? '#d4a053' : '#333333'};
+  border-color: ${props => props.$active ? '#d4a053' : '#e5e5e5'};
+
+  &:hover {
+    color: #d4a053;
+    border-color: #d4a053;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+  }
+`;
+
+const ServiceItemContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+`;
+
+const IndexText = styled.span`
+  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const ServiceTitle = styled.span`
+  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const StatsSection = styled.div`
+  padding: 2.5rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 4rem 3rem;
+  }
+`;
+
+const StatsGrid = styled.div`
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+  }
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+`;
+
+const StatNumber = styled.h3`
+  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+  color: #333333;
+  margin: 0 0 1rem 0;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+const StatTitle = styled.h4`
+  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-size: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  color: #333333;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+  }
+`;
+
+const StatDesc = styled.p`
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export default function ServiceSectionComponent() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-change service every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % services.length);
@@ -84,99 +354,83 @@ export default function ServiceSection() {
   }, []);
 
   return (
-    <section className="services-container">
-      <div className="service-section px-6 py-10">
+    <>
+      <GlobalStyle />
+      <Container>
+      <ServiceSection>
         <div>
-          {/* Top Header */}
-          <div className="flex justify-between items-start mb-6">
+          <Header>
             <div>
-              <span className="tag-box mt-2">Our Services</span>
+              <TagBox>Our Services</TagBox>
             </div>
 
-            <div>
-              <h2 className="section-heading">
-                Explore our{" "}
-                <span className="highlight-text">
-                  comprehensive interior design
-                </span>
-                <br /> services
-              </h2>
-              <p className="section-desc">
-                We specialize in transforming visions into reality. Explore our
-                portfolio of innovative architectural and interior design
-                projects crafted with precision.
-              </p>
-            </div>
-          </div>
+            <HeaderContent>
+              <SectionHeading>
+                Discover our{" "}
+                <HighlightText>
+                  full-service interior design
+                </HighlightText> {" "} and renovation expertise
+              </SectionHeading>
+              <SectionDesc>
+                From concept to completion, we bring your dream spaces to life. Our team combines creative vision with technical expertise to deliver stunning interiors that reflect your style and enhance your lifestyle.
+              </SectionDesc>
+            </HeaderContent>
+          </Header>
 
-          {/* Service Layout */}
-          <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Left Image */}
-            <div className="relative">
-              <div className="overflow-hidden rounded-3xl shadow-lg">
-                <Image
+          <Grid>
+            <ImageContainer>
+              <ImageWrapper>
+                <ServiceImage
                   key={services[activeIndex].img}
                   src={services[activeIndex].img}
                   alt={services[activeIndex].title}
-                  width={700}
-                  height={500}
-                  className="object-cover w-full h-[500px] transition-all duration-700 ease-in-out"
                 />
-              </div>
+              </ImageWrapper>
 
-              <div className="absolute bottom-5 left-5 bg-[#333]/80 text-white p-5 rounded-2xl max-w-md">
-                <p className="text-sm md:text-base">
-                  {services[activeIndex].desc}
-                </p>
-              </div>
-            </div>
+              <ImageOverlay>
+                <p>{services[activeIndex].desc}</p>
+              </ImageOverlay>
+            </ImageContainer>
 
-            {/* Right List */}
             <div>
-              <ul>
+              <ServiceList>
                 {services.map((service, i) => (
-                  <li
+                  <ServiceListItem
                     key={i}
-                    className={`service-list-item ${
-                      i === activeIndex ? "active" : ""
-                    }`}
+                    $active={i === activeIndex}
                     onMouseEnter={() => setActiveIndex(i)}
                   >
-                    <div className="flex items-center gap-5">
-                      <span className="index-text">
+                    <ServiceItemContent>
+                      <IndexText>
                         {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-service-title">
-                        {service.title}
-                      </span>
-                    </div>
+                      </IndexText>
+                      <ServiceTitle>{service.title}</ServiceTitle>
+                    </ServiceItemContent>
                     {i === activeIndex ? (
-                      <ArrowUpRight
-                        size={30}
-                        className="text-[var(--color-brand)]"
-                      />
+                      <ArrowUpRight size={30} />
                     ) : (
-                      <ArrowRight size={30} className="text-gray-400" />
+                      <ArrowRight size={30} style={{ color: '#999' }} />
                     )}
-                  </li>
+                  </ServiceListItem>
                 ))}
-              </ul>
+              </ServiceList>
             </div>
-          </div>
+          </Grid>
         </div>
-      </div>
+      </ServiceSection>
 
-      <div className="py-10 px-6">
-        <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20">
+      <StatsSection>
+        <StatsGrid>
           {stats.map((stat, i) => (
-            <div key={i}>
-              <h3 className="text-client-number">{stat.number}</h3>
-              <h4 className="text-client-title">{stat.title}</h4>
-              <p className="">{stat.desc}</p>
-            </div>
+            <StatItem key={i}>
+              <StatNumber>{stat.number}</StatNumber>
+              <StatTitle>{stat.title}</StatTitle>
+              <StatDesc>{stat.desc}</StatDesc>
+            </StatItem>
           ))}
-        </div>
-      </div>
-    </section>
+        </StatsGrid>
+      </StatsSection>
+    </Container>
+    </>
   );
 }
