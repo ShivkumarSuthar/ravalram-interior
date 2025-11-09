@@ -25,7 +25,6 @@ function page() {
         <HeroSection />
       </div>
        <AboutSection />
-      <ServiceSection />
       <div className="relative w-full aspect-[16/9]">
         <Image
           src="/images/gallery-9.jpg"
@@ -34,12 +33,13 @@ function page() {
           className="object-cover"
         />
       </div>
+      <ServiceSection />
       <ProcessSection />
-      <ProjectPage />
-      <ClientTestimonials />
+      {/* <ProjectPage /> */}
+      {/* <ClientTestimonials /> */}
       <VideoContainer />
-      <BlogSection />
-      <Gallery />
+      {/* <BlogSection /> */}
+      {/* <Gallery /> */}
       <Footer />
     </section>
   );
