@@ -1,7 +1,7 @@
 
 import AboutSection from "@/componets/AboutSection";
 import BlogSection from "@/componets/BlogSection";
-import Footer from "@/componets/Footer";
+import Footer from "@/componets/footer/Footer";
 import Gallery from "@/componets/Gallery";
 import HeroSection from "@/componets/Hero/HeroSection";
 import NavbarWithSkeleton from "@/componets/Navbar/NavbarShell";
