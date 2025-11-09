@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import styled from "styled-components";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -45,37 +46,200 @@ const testimonials = [
   },
 ];
 
+// ===================== Styled Components =====================
+const Section = styled.section`
+  padding: 5rem 1.5rem;
+  font-family: var(--font-body);
+`;
+
+const Header = styled.div`
+  margin-bottom: 3rem;
+  text-align: left;
+
+  @media (min-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const TagBox = styled.span`
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-primary);
+  border: 1px solid var(--navbar-border);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  margin-bottom: 1rem;
+`;
+
+const SectionHeading = styled.h2`
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  line-height: 1.05;
+  margin: 0.25rem 0 0;
+
+  span {
+    color: var(--color-primary);
+  }
+`;
+
+const SwiperWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const TestimonialWrapper = styled.div`
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+`;
+
+const TestimonialLeft = styled.div`
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+`;
+
+const TestimonialRight = styled.div`
+  flex: 1 1 52%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+
+  @media (max-width: 1024px) {
+    flex: 1 1 100%;
+  }
+`;
+
+const RatingRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+`;
+
+const RatingNumber = styled.div`
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  line-height: 1;
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+`;
+
+const RatingBadge = styled.div`
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(212,160,83,0.18);
+  transform: translateY(-4px);
+  .stars {
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+  }
+`;
+
+const ReviewsText = styled.div`
+  color: #666;
+  font-size: 0.8125rem;
+`;
+
+const TestimonialTitle = styled.h3`
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-secondary);
+  font-size: 1rem;
+`;
+
+const TestimonialQuote = styled.div`
+  font-size: 1.125rem;
+  color: #333;
+  line-height: 1.7;
+`;
+
+const ClientInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+`;
+
+const ClientAvatar = styled(Image)`
+  border-radius: 9999px;
+  border: 3px solid var(--color-primary);
+  object-fit: cover;
+`;
+
+const ClientName = styled.div`
+  font-weight: 600;
+`;
+
+const ClientRole = styled.div`
+  font-size: 0.875rem;
+  color: #666;
+`;
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-top: 1rem;
+`;
+
+// ===================== Component =====================
 export default function ClientTestimonials() {
   return (
-    <section className="client-section px-6 py-20">
-      {/* Header */}
-      <div className="mb-12 text-left md:text-center">
-        <span className="inline-block tag-box mb-4">OUR CLIENTS SAY</span>
-        <h2 className="section-heading">
-          Here’s What <span className="highlight-text">Warm Words</span> Our Clients Say
-        </h2>
-      </div>
+    <Section>
+      <Header>
+        <TagBox>OUR CLIENTS SAY</TagBox>
+        <SectionHeading>
+          Here’s What <span>Warm Words</span> Our Clients Say
+        </SectionHeading>
+      </Header>
 
-      {/* Swiper wrapper - keep a parent so pagination element can be positioned below the image */}
-      <div className="client-swiper-wrap mx-auto">
+      <SwiperWrapper>
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{
-            // use the custom element below as pagination container
             el: ".client-pagination",
             clickable: true,
           }}
           autoplay={{ delay: 4500, disableOnInteraction: false }}
           spaceBetween={40}
           slidesPerView={1}
-          className="client-swiper"
         >
           {testimonials.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="testimonial-wrapper">
-                {/* LEFT - IMAGE + custom pagination container below it */}
-                <div className="testimonial-left">
-                  <div className="testimonial-image-wrapper">
+              <TestimonialWrapper>
+                <TestimonialLeft>
+                  <ImageWrapper>
                     <Image
                       src={item.projectImg}
                       alt="project"
@@ -83,51 +247,41 @@ export default function ClientTestimonials() {
                       className="testimonial-img"
                       priority={index === 0}
                     />
-                  </div>
+                  </ImageWrapper>
+                </TestimonialLeft>
 
-                  {/* pagination for this swiper is shared, but placed visually below the image */}
-                  {/* The .client-pagination element is outside the slide so it persists; Swiper will populate it. */}
-                </div>
-
-                {/* RIGHT - content */}
-                <div className="testimonial-right">
-                  <div className="rating-row">
-                    <div className="rating-number">{item.rating.toFixed(2)}</div>
-                    <div className="rating-badge">
+                <TestimonialRight>
+                  <RatingRow>
+                    <RatingNumber>{item.rating.toFixed(2)}</RatingNumber>
+                    <RatingBadge>
                       <div className="stars">★★★★★</div>
-                    </div>
-                    <div className="reviews-text">{item.reviews}</div>
-                  </div>
+                    </RatingBadge>
+                    <ReviewsText>{item.reviews}</ReviewsText>
+                  </RatingRow>
 
-                  <h3 className="testimonial-title">{item.title}</h3>
+                  <TestimonialTitle>{item.title}</TestimonialTitle>
+                  <TestimonialQuote>“{item.quote}”</TestimonialQuote>
 
-                  <div className="testimonial-quote">“{item.quote}”</div>
-
-                  <div className="client-info">
-                    <div className="avatar-wrap">
-                      <Image
-                        src={item.avatar}
-                        alt={item.name}
-                        width={64}
-                        height={64}
-                        className="client-avatar"
-                      />
-                    </div>
+                  <ClientInfo>
+                    <ClientAvatar
+                      src={item.avatar}
+                      alt={item.name}
+                      width={64}
+                      height={64}
+                    />
                     <div>
-                      <div className="client-name">{item.name}</div>
-                      <div className="client-role">{item.role}</div>
+                      <ClientName>{item.name}</ClientName>
+                      <ClientRole>{item.role}</ClientRole>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </ClientInfo>
+                </TestimonialRight>
+              </TestimonialWrapper>
             </SwiperSlide>
           ))}
         </Swiper>
 
-          <div className="client-pagination" />
-        {/* CUSTOM PAGINATION: positioned below the left image visually via CSS */}
-        
-      </div>
-    </section>
+        <PaginationWrapper className="client-pagination" />
+      </SwiperWrapper>
+    </Section>
   );
 }

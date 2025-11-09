@@ -14,9 +14,9 @@ export default function HeroClient() {
   /* ----------------------------- Slides ------------------------------ */
   const slides = [
     <HeroSlide1 key="slide1" isAnimating={isAnimating} />,
-    <HeroSlide2 key="slide2" isAnimating={isAnimating} />,
-    <HeroSlide3 key="slide3" isAnimating={isAnimating} />,
-    <HeroSlide4 key="slide4" isAnimating={isAnimating} />,
+    // <HeroSlide2 key="slide2" isAnimating={isAnimating} />,
+    // <HeroSlide3 key="slide3" isAnimating={isAnimating} />,
+    // <HeroSlide4 key="slide4" isAnimating={isAnimating} />,
   ];
 
   /* ---------------------------- Auto Slide --------------------------- */

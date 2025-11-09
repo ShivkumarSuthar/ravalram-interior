@@ -1,14 +1,11 @@
 
+
 import AboutSection from "@/componets/AboutSection";
-import BlogSection from "@/componets/BlogSection";
 import Footer from "@/componets/footer/Footer";
-import Gallery from "@/componets/Gallery";
-import HeroSection from "@/componets/Hero/HeroSection";
+import HeroClient from "@/componets/Hero/HeroClient";
 import NavbarWithSkeleton from "@/componets/Navbar/NavbarShell";
-import ProcessSection from "@/componets/ProcessSection";
-import ProjectPage from "@/componets/ProjectPage";
-import ServiceSection from "@/componets/ServicesSection";
-import ClientTestimonials from "@/componets/TestimonialsSection";
+import ProcessSectionComponent from "@/componets/ProcessSection";
+import ServiceSectionComponent from "@/componets/ServicesSection";
 import VideoContainer from "@/componets/VideoContainer";
 import fs from "fs";
 import Image from "next/image";
@@ -22,7 +19,7 @@ function page() {
     <section>
       <div className="hero-page-banner">
         <NavbarWithSkeleton data={navbar} />
-        <HeroSection />
+        <HeroClient />
       </div>
        <AboutSection />
       <div className="relative w-full aspect-[16/9]">
@@ -33,13 +30,9 @@ function page() {
           className="object-cover"
         />
       </div>
-      <ServiceSection />
-      <ProcessSection />
-      {/* <ProjectPage /> */}
-      {/* <ClientTestimonials /> */}
+      <ServiceSectionComponent />
+      <ProcessSectionComponent />
       <VideoContainer />
-      {/* <BlogSection /> */}
-      {/* <Gallery /> */}
       <Footer />
     </section>
   );

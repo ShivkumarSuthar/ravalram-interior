@@ -2,9 +2,10 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import styled from "styled-components";
 import "swiper/css";
 import "swiper/css/navigation";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
@@ -51,45 +52,214 @@ const projects = [
   },
 ];
 
+// ===================== Styled Components =====================
+const Section = styled.section`
+  font-family: var(--font-body);
+  background: color-mix(in srgb, var(--color-brand) 4%, transparent);
+  padding: 5rem 1.5rem;
+  position: relative;
+`;
+
+const Header = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  padding: 0 2.5rem;
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--color-secondary);
+    margin-bottom: 0.75rem;
+
+    span {
+      color: var(--color-brand);
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--color-gray);
+    max-width: 700px;
+  }
+`;
+
+const TagBox = styled.span`
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.039);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 12px 5px 10px;
+  border-radius: 100vmax;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+  gap: 10px;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+`;
+
+const CarouselWrapper = styled.div`
+  position: relative;
+`;
+
+const NavButton = styled.button`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bg);
+  border: 1.5px solid rgba(212, 160, 83, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 30%;
+  z-index: 10;
+
+  &:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.08);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+const PrevButton = styled(NavButton)`
+  left: 10px;
+`;
+
+const NextButton = styled(NavButton)`
+  right: 10px;
+`;
+
+const ProjectCard = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+
+  ${ProjectCard}:hover & {
+    opacity: 1;
+  }
+`;
+
+const ViewButton = styled.div`
+  width: 80px;
+  height: 80px;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+`;
+
+const TagsWrapper = styled.div`
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+`;
+
+const Tag = styled.span`
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+`;
+
+const ProjectText = styled.div`
+  margin-top: 1.25rem;
+
+  h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: #555;
+  }
+`;
+
+// ===================== Component =====================
 export default function ProjectPage() {
   return (
-    <section className="project-page-container py-20 px-6 relative">
-      {/* Header */}
-      <div className="px-10 flex gap-[20px] items-start mb-10">
-        <div className="w-[30%]">
-          <span className="tag-box ">Our Projects</span>
+    <Section>
+      <Header>
+        <div style={{ width: "30%" }}>
+          <TagBox>Our Projects</TagBox>
         </div>
         <div>
-          <h2 className="section-heading">
-            Creative{" "}
-            <span className="highlight-text">Projects That Define</span>&nbsp;
-            Our Style
+          <h2>
+            Creative <span>Projects That Define</span> Our Style
           </h2>
-          <p className="section-desc">
-            Our portfolio showcases a diverse range of projects, from
-            beautifully crafted residential spaces to functional and stylish
-            commercial interiors.
+          <p>
+            Our portfolio showcases a diverse range of projects, from beautifully
+            crafted residential spaces to functional and stylish commercial interiors.
           </p>
         </div>
-      </div>
+      </Header>
 
-
-      {/* Carousel */}
-      <div className="relative">
-      {/* Custom Nav Buttons */}
-      <div className="absolute left-2 top-[30%] translate-y-1/2 z-10">
-        <button className="custom-nav-btn prev-btn">
+      <CarouselWrapper>
+        <PrevButton as="button">
           <ChevronLeft className="w-6 h-6" />
-        </button>
-      </div>
-      <div className="absolute right-2 top-[30%] translate-y-1/2 z-10">
-        <button className="custom-nav-btn next-btn">
+        </PrevButton>
+        <NextButton as="button">
           <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
+        </NextButton>
+
         <Swiper
           modules={[Navigation, Autoplay]}
-          navigation={{ nextEl: ".next-btn", prevEl: ".prev-btn" }}
+          navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           loop
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           spaceBetween={40}
@@ -100,53 +270,37 @@ export default function ProjectPage() {
             1024: { slidesPerView: 3 },
           }}
         >
-          {projects.map((p, i) => (
-            <SwiperSlide key={i}>
-              <div className="relative group overflow-hidden rounded-2xl shadow-md">
+          {projects.map((project, idx) => (
+            <SwiperSlide key={idx}>
+              <ProjectCard>
                 <Image
-                  src={p.img}
-                  alt={p.title}
+                  src={project.img}
+                  alt={project.title}
                   width={600}
                   height={400}
-                  className="object-cover w-full h-[450px] transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover w-full h-[450px] transition-transform duration-700 hover:scale-105"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-[var(--color-primary)] text-white flex items-center justify-center rounded-full text-sm uppercase font-semibold">
-                    View
-                  </div>
-                </div>
+                <Overlay>
+                  <ViewButton>View</ViewButton>
+                </Overlay>
 
-                {/* Tags */}
-                <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
-                  {p.tags.map((t, j) => (
-                    <span
-                      key={j}
-                      className="text-xs font-semibold bg-white/90 text-gray-800 px-3 py-1 rounded-full"
-                    >
-                      {t}
-                    </span>
+                <TagsWrapper>
+                  {project.tags.map((tag, i) => (
+                    <Tag key={i}>{tag}</Tag>
                   ))}
-                </div>
-              </div>
+                </TagsWrapper>
+              </ProjectCard>
 
-              {/* Text */}
-              <div className="mt-5">
-                <h3 className="text-lg font-bold font-[var(--font-heading)]">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-gray-600 font-[var(--font-body)]">
-                  {p.location}
-                </p>
-                <p className="text-sm text-gray-600 font-[var(--font-body)]">
-                  {p.year}
-                </p>
-              </div>
+              <ProjectText>
+                <h3>{project.title}</h3>
+                <p>{project.location}</p>
+                <p>{project.year}</p>
+              </ProjectText>
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </section>
+      </CarouselWrapper>
+    </Section>
   );
 }

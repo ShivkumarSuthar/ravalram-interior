@@ -2,7 +2,14 @@
 import styled from "styled-components";
 import { useState, useRef } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, ChevronDown, ChevronUp, PhoneIcon } from "lucide-react";
+import {
+  Phone,
+  Menu,
+  X,
+  ChevronDown,
+  ChevronUp,
+  PhoneIcon,
+} from "lucide-react";
 import data from "@/app/data.json";
 
 const menu = data.navbar;
@@ -18,6 +25,11 @@ const NavbarWrapper = styled.header`
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-family: var(--font-hertical);
+
+  /* Mobile view: remove background and shadow */
+  @media (max-width: 768px) {
+  padding: 0px 16px;
+  }
 `;
 
 const NavContainer = styled.nav`
@@ -250,6 +262,20 @@ const MobilePhoneBtn = styled.a`
   text-decoration: none;
 `;
 
+const PhoneLink = styled.a`
+  color: #333;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+
+  /* Hide on mobile devices (below 640px) */
+  @media (max-width: 639px) {
+    display: none;
+  }
+`;
+
 /* ===========================
         COMPONENT LOGIC
 =========================== */
@@ -356,21 +382,13 @@ export default function Navbar() {
           ))}
         </DesktopMenu>
 
-        <a
+        <PhoneLink
           href="tel:+919004538149"
           aria-label="Call us at +91 90045 38149"
-          style={{
-            color: "#333",
-            fontSize: "0.9rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "6px",
-          }}
-          className="sm:hidden"
         >
           <PhoneIcon />
           +91 90045 38149
-        </a>
+        </PhoneLink>
 
         {/* === Mobile Toggle === */}
         <MobileToggle onClick={() => setOpen(!open)}>

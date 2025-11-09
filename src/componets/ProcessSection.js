@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -30,11 +30,11 @@ const processSteps = [
 ];
 
 const Container = styled.section`
-  background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&h=1080&fit=crop&q=20&blur=200');
+  background: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&h=1080&fit=crop&q=20&blur=200");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: 'Inter', 'Golos Text', sans-serif;
+  font-family: "Inter", "Golos Text", sans-serif;
 `;
 
 const ProcessSection = styled.div`
@@ -78,7 +78,7 @@ const ProcessTag = styled.span`
 `;
 
 const ProcessTitle = styled.h2`
-  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-family: "Playfair Display", "Cal Sans", Georgia, serif;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -166,7 +166,7 @@ const ProcessContent = styled.div`
 `;
 
 const ProcessContentTitle = styled.h3`
-  font-family: 'Playfair Display', 'Cal Sans', Georgia, serif;
+  font-family: "Playfair Display", "Cal Sans", Georgia, serif;
   font-size: 1.375rem;
   font-weight: 600;
   margin-bottom: 0.625rem;
@@ -214,11 +214,15 @@ export default function ProcessSectionComponent() {
           <HeaderLeft>
             <ProcessTag>HOW WE WORK</ProcessTag>
             <ProcessTitle>
-              Our proven <span>design & renovation</span> process for exceptional spaces
+              Our proven <span>design & renovation</span> process for
+              exceptional spaces
             </ProcessTitle>
           </HeaderLeft>
           <ProcessDesc>
-            From initial concept to final reveal, we guide you through every step with transparency and expertise. Our streamlined process ensures your home transformation is stress-free and exceeds expectations.
+            From initial concept to final reveal, we guide you through every
+            step with transparency and expertise. Our streamlined process
+            ensures your home transformation is stress-free and exceeds
+            expectations.
           </ProcessDesc>
         </ProcessHeader>
 
@@ -226,10 +230,7 @@ export default function ProcessSectionComponent() {
           {processSteps.map((step, i) => (
             <ProcessCard key={i} className={`step-${i + 1}`}>
               <ProcessImageWrapper>
-                <ProcessImage
-                  src={step.img}
-                  alt={step.title}
-                />
+                <ProcessImage src={step.img} alt={step.title} />
               </ProcessImageWrapper>
               <ProcessContent>
                 <ProcessContentTitle>
@@ -242,7 +243,10 @@ export default function ProcessSectionComponent() {
         </ProcessGrid>
 
         <BelowProcessText>
-          Ready to transform your space? <span className="highlight-text">Let's start your journey today</span>
+          Ready to transform your space?{" "}
+          <span className="highlight-text">
+            Let&apos;s start your journey today
+          </span>
         </BelowProcessText>
       </ProcessSection>
     </Container>

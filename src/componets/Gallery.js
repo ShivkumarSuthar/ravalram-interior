@@ -3,9 +3,58 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styled from "styled-components";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ==================== Styled Components ====================
+const Section = styled.section`
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  padding: 8rem 1.5rem;
+`;
+
+const BackgroundText = styled.h1`
+  position: absolute;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10rem;
+  font-weight: 800;
+  color: #e5e7eb;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    font-size: 6rem;
+  }
+`;
+
+const RowsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
+  z-index: 10;
+`;
+
+const Row = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const GalleryImage = styled.img`
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+`;
+
+// ==================== Component ====================
 export default function Gallery() {
   const container = useRef(null);
 
@@ -32,30 +81,24 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section
-      ref={container}
-      className="relative overflow-hidden bg-gray-100 py-32"
-    >
-      {/* Faded Background Text */}
-      <h1 className="absolute top-10 left-1/2 -translate-x-1/2 text-[10rem] font-extrabold text-gray-200 uppercase pointer-events-none select-none z-0">
-        Gallery
-      </h1>
+    <Section ref={container}>
+      <BackgroundText>Gallery</BackgroundText>
 
-      <div className="flex flex-col gap-20 relative z-10">
+      <RowsContainer>
         {/* Row 1 (moves right) */}
-        <div className="gallery-row flex gap-6 justify-center flex-wrap">
-          <img src="/images/h1-banner01.jpg" className="rounded-xl shadow-lg object-cover w-[280px] h-[220px]" alt="" />
-          <img src="/images/h1-banner02.png" className="rounded-xl shadow-lg object-cover w-[400px] h-[280px]" alt="" />
-          <img src="/images/h1-banner04.jpg" className="rounded-xl shadow-lg object-cover w-[300px] h-[200px]" alt="" />
-        </div>
+        <Row className="gallery-row">
+          <GalleryImage src="/images/h1-banner01.jpg" alt="" style={{ width: 280, height: 220 }} />
+          <GalleryImage src="/images/h1-banner02.png" alt="" style={{ width: 400, height: 280 }} />
+          <GalleryImage src="/images/h1-banner04.jpg" alt="" style={{ width: 300, height: 200 }} />
+        </Row>
 
         {/* Row 2 (moves left) */}
-        <div className="gallery-row flex gap-6 justify-center flex-wrap">
-          <img src="/images/project-7-1536x1080.jpg" className="rounded-xl shadow-lg object-cover w-[400px] h-[250px]" alt="" />
-          <img src="/images/project-8-1536x1080.jpg" className="rounded-xl shadow-lg object-cover w-[300px] h-[220px]" alt="" />
-          <img src="/images/project-9-1536x1080.jpg" className="rounded-xl shadow-lg object-cover w-[420px] h-[300px]" alt="" />
-        </div>
-      </div>
-    </section>
+        <Row className="gallery-row">
+          <GalleryImage src="/images/project-7-1536x1080.jpg" alt="" style={{ width: 400, height: 250 }} />
+          <GalleryImage src="/images/project-8-1536x1080.jpg" alt="" style={{ width: 300, height: 220 }} />
+          <GalleryImage src="/images/project-9-1536x1080.jpg" alt="" style={{ width: 420, height: 300 }} />
+        </Row>
+      </RowsContainer>
+    </Section>
   );
 }

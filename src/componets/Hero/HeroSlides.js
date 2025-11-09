@@ -16,9 +16,9 @@ export const HeroSlide1 = ({ isAnimating }) => (
         </Heading>
         <BottomDiv>
           <Description>
-            Whether it's your home, office, or a commercial project, we are
-            always dedicated to bringing your vision to life.
+            Whether it&apos;s your home, office, or a commercial project...
           </Description>
+
           <CTAButton href="#">
             Take Counsel
             <span className="icon">
@@ -150,10 +150,11 @@ export const HeroSlide4 = ({ isAnimating }) => (
         Remarkable Design
       </SlideHeading>
       <SlideDescription>
-        At EffiXpert, we reimagine spaces with precision, passion, and purpose.
-        From kitchens to living rooms, we elevate your home's potential without
-        the stress, delay, or confusion.
-      </SlideDescription>
+  At EffiXpert, we reimagine spaces with precision, passion, and purpose.
+  From kitchens to living rooms, we elevate your home&apos;s potential without
+  the stress, delay, or confusion.
+</SlideDescription>
+
       <SlideButtonGroup>
         <PrimaryButton href="#">Get Your Free Plan</PrimaryButton>
         <SecondaryButton href="#">
