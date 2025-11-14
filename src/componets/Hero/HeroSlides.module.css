@@ -1,0 +1,425 @@
+/* Base Slide */
+.baseSlide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 1rem;
+}
+
+/* Hero Slide Backgrounds */
+.heroSlide1 {
+    background: linear-gradient(rgba(16, 8, 1, 0.46), rgba(16, 8, 1, 0.46)), var(--hero-slide-img1);
+}
+
+.heroSlide2 {
+    background: linear-gradient(rgba(16, 8, 1, 0.46), rgba(16, 8, 1, 0.46)), var(--hero-slide-img2);
+}
+
+.heroSlide3 {
+    background: linear-gradient(rgba(16, 8, 1, 0.5), rgba(16, 8, 1, 0.5)), var(--hero-slide-img3);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+.heroSlide4 {
+    background: linear-gradient(rgba(16, 8, 1, 0.7), rgba(16, 8, 1, 0.7)), var(--hero-slide-img4);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 0 5%;
+}
+
+@media (max-width:1024px) {
+    .heroSlide4 {
+        grid-template-columns: 1fr;
+        padding: 5%;
+    }
+}
+
+/* Container & Text */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+@media(max-width:768px) {
+    .container {
+        align-items: center;
+    }
+}
+
+.textWrapper {
+    width: 100%;
+    color: #fff;
+}
+
+@media(max-width:768px) {
+    .textWrapper {
+        text-align: center;
+    }
+}
+
+.tagBox {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 100vmax;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.tagBox::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.heading {
+    font-weight: 400;
+    line-height: 1.1;
+    font-size: clamp(2.5rem, 6vw, 7rem);
+    color: #fff;
+}
+
+.heading span {
+    color: var(--color-primary);
+}
+
+.bottomDiv {
+    padding-top: 2rem;
+    max-width: 600px;
+}
+
+@media(max-width:1024px) {
+    .bottomDiv {
+        max-width: 100%;
+    }
+}
+
+.description {
+    padding-bottom: 20px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #fff;
+    line-height: 1.6;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ctaButton .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-primary);
+}
+
+.ctaButton:hover .icon {
+    transform: rotate(45deg);
+}
+
+/* Stats Card Left */
+.statsCardLeft {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 3;
+}
+
+.statsCardLeft h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.statsCardLeft .subtitle {
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.statsCardLeft .details {
+    color: #555;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.statsCardLeft .details p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.statsCardLeft .details .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+@media(max-width:1024px) {
+    .statsCardLeft {
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
+@media(max-width:768px) {
+    .statsCardLeft {
+        position: relative;
+        margin: 2rem auto 0;
+        max-width: 320px;
+        text-align: center;
+    }
+}
+
+@media(max-width:480px) {
+    .statsCardLeft {
+        padding: 20px;
+    }
+
+    .statsCardLeft h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Image Card Right */
+.imageCardRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 16px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 3;
+}
+
+.imageCardRight .imageWrapper {
+    width: 100%;
+    height: 200px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.imageCardRight .caption {
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media(max-width:1024px) {
+    .imageCardRight {
+        right: 20px;
+        max-width: 220px;
+    }
+
+    .imageCardRight .imageWrapper {
+        height: 160px;
+    }
+}
+
+@media(max-width:768px) {
+    .imageCardRight {
+        display: none;
+    }
+}
+
+/* Image Placeholder */
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/project-11-1536x1080.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Slide3 Cards */
+.styleCardsWrapper {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.styleCard {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    width: 200px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.styleCard:hover {
+    transform: translateY(-8px);
+}
+
+.styleCard .cardImage {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+}
+
+.styleCard .style1 {
+    background: linear-gradient(135deg, #c9a15e 0%, #b18a49 100%);
+}
+
+.styleCard .style2 {
+    background: linear-gradient(135deg, #d4a574 0%, #c9a15e 100%);
+}
+
+.styleCard .style3 {
+    background: linear-gradient(135deg, #8d7f6f 0%, #6b5d52 100%);
+}
+
+.styleCard .cardContent {
+    padding: 16px;
+}
+
+.styleCard .cardContent h4 {
+    font-size: 1rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.styleCard .cardContent a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: gap 0.3s ease;
+}
+
+.styleCard .cardContent a:hover {
+    gap: 10px;
+}
+
+/* Slide4 Right Image Grid */
+.imageGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.gridImage {
+    height: 300px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.img1 {
+    background: linear-gradient(135deg, #d4a574 0%, #c9a15e 100%);
+}
+
+.img2 {
+    background: linear-gradient(135deg, #8d7f6f 0%, #6b5d52 100%);
+}
+
+.img3 {
+    background: linear-gradient(135deg, #f5e6d3 0%, #e8d5bb 100%);
+}
+
+.imageLabel {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gridDots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.gridDots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.gridDots .active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--color-primary);
+}

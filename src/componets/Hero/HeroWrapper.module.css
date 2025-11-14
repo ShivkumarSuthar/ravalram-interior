@@ -1,0 +1,82 @@
+/* HeroWrapper.module.css */
+
+/* ---------------------- Hero Wrapper ---------------------- */
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ---------------------- Individual Slide ---------------------- */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.slideActive {
+  opacity: 1;
+  z-index: 10;
+}
+
+/* ---------------------- Slide Indicators ---------------------- */
+.slideIndicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicatorActive {
+  width: 40px;
+  background: var(--color-primary, #c9a15e);
+}
+
+.heroWrapper {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.slides {
+  display: flex;
+  width: 400%; /* 4 slides */
+  animation: slideAnimation 20s infinite;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Horizontal slide keyframes */
+@keyframes slideAnimation {
+  0% { transform: translateX(0%); }
+  20% { transform: translateX(0%); }
+  25% { transform: translateX(-100%); }
+  45% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  70% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  95% { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}

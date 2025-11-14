@@ -1,12 +1,13 @@
 
 
-import AboutSection from "@/componets/AboutSection";
+import AboutSection from "@/componets/About/AboutSection";
 import Footer from "@/componets/footer/Footer";
 import HeroClient from "@/componets/Hero/HeroClient";
-import NavbarWithSkeleton from "@/componets/Navbar/NavbarShell";
-import ProcessSectionComponent from "@/componets/ProcessSection";
-import ServiceSectionComponent from "@/componets/ServicesSection";
-import VideoContainer from "@/componets/VideoContainer";
+import NavigationBar from "@/componets/Navbar/Navbar";
+import ProcessSectionComponent from "@/componets/ProcessSection/ProcessSection";
+import ProjectPage from "@/componets/ProjectPage";
+import ServiceSectionComponent from "@/componets/Services/ServicesSection";
+import VideoContainer from "@/componets/VideoContainer/VideoContainer";
 import fs from "fs";
 import Image from "next/image";
 import path from "path";
@@ -15,10 +16,11 @@ function page() {
   const filePath = path.join(process.cwd(), "src/app/data.json");
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const { navbar } = JSON.parse(jsonData);
+  console.log("navbar", navbar)
   return (
     <section>
       <div className="hero-page-banner">
-        <NavbarWithSkeleton data={navbar} />
+        <NavigationBar menu={navbar} /> 
         <HeroClient />
       </div>
        <AboutSection />
@@ -32,8 +34,9 @@ function page() {
       </div>
       <ServiceSectionComponent />
       <ProcessSectionComponent />
-      <VideoContainer />
-      <Footer />
+      {/* <ProjectPage/> */}
+      <VideoContainer />      
+       <Footer />
     </section>
   );
 }
