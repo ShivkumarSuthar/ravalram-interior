@@ -71,7 +71,6 @@ body {
     linear-gradient(rgba(16, 8, 1, 0.46),
       rgba(16, 8, 1, 0.46)),
     var(--hero-slide-img2);
-  min-height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -113,10 +112,6 @@ body {
     padding: 2rem 0;
   }
 
-  .hero-page-banner h1 {
-    font-size: 3rem;
-  }
-
   .hero-page-banner .absolute {
     position: relative;
     bottom: auto;
@@ -130,14 +125,5 @@ body {
 @media (max-width: 480px) {
   .hero-page-banner{
     padding: 0;
-  }
-  .hero-page-banner h1 {
-    font-size: 2.5rem;
-  }
-
-  .tag-box {
-    min-height: fit-content;
-    font-size: 12px;
-    padding: 6px 16px;
   }
 }

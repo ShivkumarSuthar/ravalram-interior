@@ -6,17 +6,17 @@ export const HeroSlide1 = () => (
   <div className={`${styles.baseSlide} ${styles.heroSlide1}`}>
     <div className={styles.container}>
       <div className={styles.textWrapper}>
-        <div className={styles.tagBox}>FAST AND RELIABLE</div>
+        <div className={styles.tagBox}>Fast, Reliable & Expert</div>
         <h1 className={styles.heading}>
-          Find Your Inspired <br /> <span>Interior Design</span>
+          Bring Your <span>Dream Home</span> to Life
         </h1>
         <div className={styles.bottomDiv}>
           <p className={styles.description}>
-            Whether it's your home, office, or a commercial project...
+           Transform your space with expert interior carpentry and complete home renovations — tailored to your style and needs
           </p>
           <a href="#" className={styles.ctaButton}>
-            Take Counsel
-            <span className="icon"><ArrowUpRight size={18} /></span>
+            Get A Quote
+            <span className={styles.icon}><ArrowUpRight size={18} /></span>
           </a>
         </div>
       </div>
@@ -40,7 +40,7 @@ export const HeroSlide2 = () => (
           </p>
           <a href="#" className={styles.ctaButton}>
             Start Your Project
-            <span className="icon"><ArrowUpRight size={18} /></span>
+            <span className={styles.icon}><ArrowUpRight size={18} /></span>
           </a>
         </div>
       </div>

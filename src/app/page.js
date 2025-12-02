@@ -34,7 +34,6 @@ function page() {
       </div>
       <ServiceSectionComponent />
       <ProcessSectionComponent />
-      {/* <ProjectPage/> */}
       <VideoContainer />      
        <Footer />
     </section>

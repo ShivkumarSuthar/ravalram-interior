@@ -58,7 +58,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className={styles.desktopMenu}>
-          {menu.map((item, idx) => (
+          {menu?.length > 0 && menu.map((item, idx) => (
             <li
               key={item.name}
               className={styles.navItem}
@@ -75,7 +75,7 @@ export default function Navbar() {
                 {item.dropdown?.length ? <ChevronDown size={14} /> : ""}
               </Link>
 
-              {item.dropdown?.length && (
+              {item.dropdown?.length >0 && (
                 <div
                   className={`${styles.megaMenuWrapper} ${
                     desktopHoverDropdown === idx ? styles.megaMenuWrapperShow : ""
@@ -142,7 +142,7 @@ export default function Navbar() {
           className={styles.mobileToggle}
           onClick={() => setOpen(!open)}
         >
-          {open ? <X size={26} /> : <Menu size={26} />}
+          {open ? <X size={26} /> : <Menu size={21} />}
         </button>
       </nav>
 
@@ -160,13 +160,13 @@ export default function Navbar() {
         </button>
 
         <ul>
-          {menu.map((item, idx) => (
+          {menu?.length > 0 && menu.map((item, idx) => (
             <li key={item.name}>
               <div className={styles.mobileItemRow}>
                 <Link href={item.href} className={styles.mobileMainLink}>
                   {item.name}
                 </Link>
-                {item.dropdown?.length > 0 && (
+                {item.dropdown.length > 0 && (
                   <button
                     className={styles.mobileIconBtn}
                     onClick={() => toggleDropdown(idx)}

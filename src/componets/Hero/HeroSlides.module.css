@@ -1,7 +1,5 @@
 /* Base Slide */
 .baseSlide {
-    position: absolute;
-    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,13 +34,6 @@
     padding: 0 5%;
 }
 
-@media (max-width:1024px) {
-    .heroSlide4 {
-        grid-template-columns: 1fr;
-        padding: 5%;
-    }
-}
-
 /* Container & Text */
 .container {
     width: 100%;
@@ -52,21 +43,9 @@
     z-index: 2;
 }
 
-@media(max-width:768px) {
-    .container {
-        align-items: center;
-    }
-}
-
 .textWrapper {
     width: 100%;
     color: #fff;
-}
-
-@media(max-width:768px) {
-    .textWrapper {
-        text-align: center;
-    }
 }
 
 .tagBox {
@@ -98,7 +77,7 @@
 .heading {
     font-weight: 400;
     line-height: 1.1;
-    font-size: clamp(2.5rem, 6vw, 7rem);
+    font-size: clamp(2rem, 6vw, 7rem);
     color: #fff;
 }
 
@@ -111,11 +90,6 @@
     max-width: 600px;
 }
 
-@media(max-width:1024px) {
-    .bottomDiv {
-        max-width: 100%;
-    }
-}
 
 .description {
     padding-bottom: 20px;
@@ -138,13 +112,13 @@
     transition: all 0.3s ease;
 }
 
-.ctaButton .icon {
+.icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 32px;
     height: 32px;
-    background-color: var(--color-primary);
+    background: var(--color-primary);
     color: #fff;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -211,32 +185,6 @@
     flex-shrink: 0;
 }
 
-@media(max-width:1024px) {
-    .statsCardLeft {
-        bottom: 20px;
-        left: 20px;
-    }
-}
-
-@media(max-width:768px) {
-    .statsCardLeft {
-        position: relative;
-        margin: 2rem auto 0;
-        max-width: 320px;
-        text-align: center;
-    }
-}
-
-@media(max-width:480px) {
-    .statsCardLeft {
-        padding: 20px;
-    }
-
-    .statsCardLeft h3 {
-        font-size: 1.5rem;
-    }
-}
-
 /* Image Card Right */
 .imageCardRight {
     position: absolute;
@@ -266,23 +214,6 @@
     font-size: 0.95rem;
     font-weight: 600;
     text-align: center;
-}
-
-@media(max-width:1024px) {
-    .imageCardRight {
-        right: 20px;
-        max-width: 220px;
-    }
-
-    .imageCardRight .imageWrapper {
-        height: 160px;
-    }
-}
-
-@media(max-width:768px) {
-    .imageCardRight {
-        display: none;
-    }
 }
 
 /* Image Placeholder */
@@ -422,4 +353,110 @@
     width: 24px;
     border-radius: 4px;
     background: var(--color-primary);
+}
+
+
+@media(max-width:1024px) {
+    .imageCardRight {
+        right: 20px;
+        max-width: 220px;
+    }
+
+    .imageCardRight .imageWrapper {
+        height: 160px;
+    }
+
+    .heroSlide4 {
+        grid-template-columns: 1fr;
+        padding: 5%;
+    }
+
+    .imageCardRight {
+        right: 20px;
+        max-width: 220px;
+    }
+
+    .imageCardRight .imageWrapper {
+        height: 160px;
+    }
+
+    .imageCardRight {
+        right: 20px;
+        max-width: 220px;
+    }
+
+    .imageCardRight .imageWrapper {
+        height: 160px;
+    }
+
+    .statsCardLeft {
+        padding: 20px;
+    }
+
+    .statsCardLeft h3 {
+        font-size: 1.5rem;
+    }
+
+    .tagBox {
+        margin-bottom: 20px;
+    }
+
+    .statsCardLeft {
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
+
+
+@media(max-width:768px) {
+    .imageCardRight {
+        display: none;
+    }
+
+    .imageCardRight {
+        display: none;
+    }
+
+    .textWrapper {
+        text-align: start;
+    }
+
+    .statsCardLeft {
+        position: relative;
+        margin: 2rem auto 0;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    .container {
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .bottomDiv{
+        padding-top: 1rem;
+    }
+    .description{
+        padding-bottom: 0;
+        font-size: 0.9rem;
+    }
+    .heading{
+        margin-bottom: 0;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
+    }
+    .tagBox{
+        margin-bottom: 1.2rem;
+        font-size: 0.9rem;
+    }
+    .ctaButton{
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    .textWrapper {
+        padding: 50px 0;
+    }
 }

@@ -40,6 +40,14 @@ const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
+  @media (max-width: 768px) {
+    min-height: 70vh;
+  }
+    @media (max-width: 480px) {
+    min-height: 60vh;
+    max-height: max-content;
+    overflow: visible;
+  }
 `;
 
 const Slide = styled.div`
