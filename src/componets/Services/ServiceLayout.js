@@ -40,7 +40,7 @@ const services = [
   },
 ];
 
-export default function ServiceSectionSSR() {
+export default function ServiceLayout() {
   return (
     <section className={styles.container}>
       <div className={styles.header}>

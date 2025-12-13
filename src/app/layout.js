@@ -1,24 +1,89 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./globals.css";
-import Loader from "./Loader"; // <-- import the loader
+// src/app/layout.jsx 
+// FINAL VERSION - Global SEO, Schema, and Performance Configuration
 
+import "./globals.css";
+// NOTE: Remove "bootstrap/dist/css/bootstrap.min.css" import if you use Tailwind/CSS modules primarily.
+
+import { Inter } from 'next/font/google'; 
+const inter = Inter({ subsets: ['latin'] });  
+
+
+// 🔑 CRITICAL SEO METADATA
 export const metadata = {
-  title: "Next.js SSR Navbar",
-  description: "Server-rendered Tailwind navbar with JSON config",
+  title: {
+    template: '%s | Suthar Interior Contractors',
+    default: 'Suthar Interior Contractors: Renovation & Fit-out Services in Mumbai, Goa & Karnataka', 
+  },
+  
+  description: 
+    'Suthar Interior Contractors specializes in **turnkey project execution, full renovation, and commercial fit-outs** across **Mumbai, Goa, Hubli, Kumta, and Honnavar**. Expert project management led by Ravalram Suthar.',
+  
+  openGraph: {
+    title: 'Suthar Interior Contractors: Multi-Regional Renovation Experts (Mumbai to Goa)',
+    url: 'https://www.sutharinteriorstudio.in/', 
+    siteName: 'Suthar Interior Contractors',
+    images: [{ url: 'https://www.sutharinteriorstudio.in/opengraph-image.jpg', width: 1200, height: 630, alt: 'Suthar Interior Renovation Team at work on a site' }],
+  },
 };
+
+// 🔑 ADVANCED SEO: JSON-LD Schema Markup for a Service Area Business (E-A-T)
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      // LocalBusiness Schema (For Service Area Businesses)
+      '@type': 'LocalBusiness',
+      name: 'Suthar Interior Contractors',
+      url: 'https://www.sutharinteriorstudio.in/',
+      logo: 'https://www.sutharinteriorstudio.in/images/logo.png',
+      telephone: '+919004538149', // YOUR PHONE NUMBER
+      priceRange: '₹₹₹',
+      
+      // IMPORTANT: Define the Service Area (required for door-service businesses)
+      areaServed: [
+        { '@type': 'State', name: 'Maharashtra' }, 
+        { '@type': 'State', name: 'Goa' },
+        { '@type': 'State', name: 'Karnataka' },
+        { '@type': 'City', name: 'Mumbai' },
+        { '@type': 'City', name: 'Hubli' },
+        { '@type': 'City', name: 'Kumta' },
+        { '@type': 'City', name: 'Honnavar' },
+      ],
+      owner: { '@id': '#ravalram' },
+    },
+    {
+      // Person Schema for E-A-T
+      '@type': 'Person',
+      '@id': '#ravalram',
+      name: 'Ravalram Suthar',
+      url: 'https://www.sutharinteriorstudio.in/about', 
+    },
+  ],
+};
+
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col relative">
-        {/* Wrap children with loader */}
-        <Loader>{children}</Loader>
+    <html lang="en" className={inter.className}> 
+      <head>
+        {/* 🔑 SEO: Embed the Schema Markup in the <head> */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+        />
+      </head>
 
-        {/* Floating WhatsApp Button */}
+      <body className="min-h-screen flex flex-col relative">
+        <main className="flex-grow"> 
+          {children} 
+        </main>
+        
+        {/* Floating WhatsApp Button (Using provided number) */}
         <a
-          href="https://wa.me/1234567890"
+          href="https://wa.me/919004538149" 
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Contact us on WhatsApp for Renovation Quote" 
           className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-transform duration-300 hover:scale-110 z-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className="w-7 h-7">

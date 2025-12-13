@@ -1,7 +1,7 @@
 import HeroSlidesController from "./HeroSlidesController";
 import { HeroSlide1, HeroSlide2, HeroSlide3, HeroSlide4 } from "./HeroSlides";
 
-export default function Hero() {
+export default function HeroLayout() {
   const slides = [
     <HeroSlide1 key="slide1" />,
     // <HeroSlide2 key="slide2" />,

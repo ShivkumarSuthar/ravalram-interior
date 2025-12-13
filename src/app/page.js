@@ -1,12 +1,10 @@
-
-
 import AboutSection from "@/componets/About/AboutSection";
-import Footer from "@/componets/footer/Footer";
-import HeroClient from "@/componets/Hero/HeroClient";
-import NavigationBar from "@/componets/Navbar/Navbar";
+import ContactLayout from "@/componets/contact/ContactLayout";
+import FooterLayout from "@/componets/footer/FooterLayout";
+import HeroLayout from "@/componets/Hero/HeroLayout";
+import Navbar from "@/componets/Navbar/Navbar";
 import ProcessSectionComponent from "@/componets/ProcessSection/ProcessSection";
-import ProjectPage from "@/componets/ProjectPage";
-import ServiceSectionComponent from "@/componets/Services/ServicesSection";
+import ServiceLayout from "@/componets/Services/ServiceLayout";
 import VideoContainer from "@/componets/VideoContainer/VideoContainer";
 import fs from "fs";
 import Image from "next/image";
@@ -20,8 +18,8 @@ function page() {
   return (
     <section>
       <div className="hero-page-banner">
-        <NavigationBar menu={navbar} /> 
-        <HeroClient />
+        <Navbar menu={navbar} /> 
+        <HeroLayout />
       </div>
        <AboutSection />
       <div className="relative w-full aspect-[16/9]">
@@ -32,10 +30,11 @@ function page() {
           className="object-cover"
         />
       </div>
-      <ServiceSectionComponent />
+      <ServiceLayout />
       <ProcessSectionComponent />
-      <VideoContainer />      
-       <Footer />
+      <VideoContainer />
+      <ContactLayout/>      
+      <FooterLayout />
     </section>
   );
 }

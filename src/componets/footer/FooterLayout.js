@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaPinterest, FaLinkedinIn } from "react-icons
 import data from "@/app/data.json";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default function FooterLayout() {
   const menu = data.navbar || [];
 
   return (
