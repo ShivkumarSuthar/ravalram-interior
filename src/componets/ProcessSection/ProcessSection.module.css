@@ -1,113 +1,105 @@
-/* Container & Section */
+/* ---------------------- Container & Section ---------------------- */
 .container {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body, "Golos Text", sans-serif);
   background: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&h=1080&fit=crop&q=20&blur=200");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .processSection {
-  padding: 2.5rem 1.5rem;
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 3vw, 3rem); 
 }
 
-@media (min-width: 768px) {
-  .processSection {
-    padding: 5rem 3rem;
-  }
+@media (max-width: 480px) {
+    .processSection {
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    }
 }
 
-/* Header */
+/* ---------------------- Header ---------------------- */
 .processHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 2.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 @media (max-width: 900px) {
-  .processHeader {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .processHeader {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 }
 
 .headerLeft {
   flex: 1;
   min-width: 280px;
+  max-width: 600px;
 }
 
 .processTag {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #d4a053;
-  background: #fff;
+  color: var(--color-primary, #d4a053);
+  background: var(--color-light, #fff);
   padding: 8px 18px;
   border-radius: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   display: inline-block;
   margin-top: 0.5rem;
+  text-transform: uppercase;
 }
 
 .processTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
+    font-family: var(--font-heading, "Cal Sans", sans-serif); 
+  font-size: clamp(2.5rem, 5vw, 3.375rem); 
   font-weight: 700;
   line-height: 1.2;
-  color: #1a1a1a;
+  color: var(--color-secondary, #1a1a1a);
   margin-top: 1.25rem;
 }
 
-@media (min-width: 768px) {
-  .processTitle {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .processTitle {
-    font-size: 3.375rem;
-  }
-}
-
 .processTitle span {
-  color: #d4a053;
+  color: var(--color-primary, #d4a053);
 }
 
 .processDesc {
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem); /* Fluid typography */
   line-height: 1.8;
-  color: #444;
+  color: var(--color-text, #444);
   max-width: 550px;
   margin-top: 1.25rem;
 }
 
-@media (min-width: 768px) {
-  .processDesc {
-    font-size: 1.125rem;
-  }
-}
-
-/* Process Grid */
+/* ---------------------- Process Grid (FIXED FOR SPLITTING) ---------------------- */
 .processGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 1fr; 
+  gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   .processGrid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Cards */
+@media (min-width: 992px) {
+  .processGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------------------- Cards ---------------------- */
 .processCard {
-  background: #fff;
+  background: var(--color-light, #fff);
   border-radius: 1rem;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
   overflow: hidden;
@@ -116,7 +108,7 @@
   padding: 0.625rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto; 
 }
 
 .processCard:hover {
@@ -127,12 +119,22 @@
 .processImageWrapper {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 0; 
+  padding-bottom: 56.25%; 
   overflow: hidden;
   border-radius: 0.75rem;
 }
 
+@media (max-width: 550px) {
+  .processImageWrapper {
+    padding-bottom: 75%; 
+  }
+}
+
 .processImage {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -140,58 +142,46 @@
 }
 
 .processCard:hover .processImage {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .processContent {
-  padding: 1.25rem 0.625rem 1.25rem;
+  padding: 1rem 0.625rem 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .processContentTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 1.375rem;
+  font-family: var(--font-heading, "Cal Sans", sans-serif); 
+  font-size: clamp(1.375rem, 2vw, 1.5rem);
   font-weight: 600;
-  margin-bottom: 0.625rem;
-  color: #111;
-}
-
-@media (min-width: 768px) {
-  .processContentTitle {
-    font-size: 1.5rem;
-  }
+  margin-bottom: 0.5rem; 
+  color: var(--color-secondary, #111);
 }
 
 .stepId {
-  color: #d4a053;
+  color: var(--color-primary, #d4a053);
   font-weight: 700;
 }
 
 .processContentDesc {
   font-size: 0.9375rem;
-  color: #555;
+  color: var(--color-text, #555);
   line-height: 1.7;
   margin: 0;
 }
 
-/* Below Section */
+/* ---------------------- Below Section ---------------------- */
 .belowProcessText {
-  color: #333333;
+  color: var(--color-text, #333333);
   margin-top: 3rem;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
   line-height: 1.6;
 }
 
-@media (min-width: 768px) {
-  .belowProcessText {
-    font-size: 1.25rem;
-  }
-}
-
 .highlightText {
-  color: #d4a053;
+  color: var(--color-primary, #d4a053);
   font-weight: 600;
 }
