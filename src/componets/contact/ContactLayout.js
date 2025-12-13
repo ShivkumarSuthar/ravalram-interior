@@ -3,7 +3,14 @@ import styles from "./contact.module.css";
 export default function ContactLayout() {
   return (
     <section className={styles.contactSection}>
-      {/* TOP INFO */}
+      
+      {/* HEADER SECTION */}
+      <div className={styles.header}>
+        <h2>Get In Touch</h2>
+        <p>We're excited to start a new project with you. Fill out the form below or use our direct contact info, and we'll get back to you within 24 hours.</p>
+      </div>
+
+      {/* TOP INFO (Now includes Service Area) */}
       <div className={styles.topRow}>
         <div className={styles.infoBox}>
           <h4>Address</h4>
@@ -16,47 +23,79 @@ export default function ContactLayout() {
 
         <div className={styles.infoBox}>
           <h4>Support</h4>
-          <p className={styles.phone}>+(084) 456-0789</p>
-          <p className={styles.email}>Support@Example.com</p>
+          <p className={styles.phone}>+(91) 9004538149</p>
+          <p className={styles.email}>hello@sutharinteriorstudio.in</p>
+        </div>
+
+        {/* NEW SERVICE AREA BOX */}
+        <div className={styles.infoBox}>
+          <h4>Service Area</h4>
+          <p>
+            **Mumbai**<br />
+            **Karnataka**<br />
+            **Goa**
+          </p>
         </div>
       </div>
 
-      {/* CONTENT */}
+      {/* CONTENT: IMAGE AND FORM */}
       <div className={styles.content}>
-        {/* LEFT IMAGE */}
         <div className={styles.imageWrap}>
-          <img src="./images/contact.jpg" alt="Interior" />
+          <img src="./images/contact.jpg" alt="Modern interior design example" />
         </div>
 
-        {/* RIGHT FORM */}
         <form className={styles.form}>
           <div className={styles.row}>
             <div className={styles.field}>
-              <label>Full Name *</label>
-              <input type="text" placeholder="Your Name *" />
+              <label htmlFor="fullName">Full Name *</label>
+              <input 
+                id="fullName" 
+                type="text" 
+                placeholder="Your Name *" 
+                required 
+              />
             </div>
 
             <div className={styles.field}>
-              <label>Phone *</label>
-              <input type="text" placeholder="Phone" />
+              <label htmlFor="phone">Phone *</label>
+              <input 
+                id="phone" 
+                type="tel" 
+                placeholder="Phone" 
+                required 
+              />
             </div>
           </div>
 
           <div className={styles.row}>
             <div className={styles.field}>
-              <label>Email Address *</label>
-              <input type="email" placeholder="Email Address *" />
+              <label htmlFor="emailAddress">Email Address *</label>
+              <input 
+                id="emailAddress" 
+                type="email" 
+                placeholder="Email Address *" 
+                required 
+              />
             </div>
 
             <div className={styles.field}>
-              <label>Subject *</label>
-              <input type="text" placeholder="I want to…" />
+              <label htmlFor="subject">Subject *</label>
+              <input 
+                id="subject" 
+                type="text" 
+                placeholder="I want to…" 
+                required 
+              />
             </div>
           </div>
 
           <div className={styles.field}>
-            <label>Your Message *</label>
-            <textarea placeholder="Your Message…" />
+            <label htmlFor="message">Your Message *</label>
+            <textarea 
+              id="message" 
+              placeholder="Your Message…" 
+              required 
+            />
           </div>
 
           <button type="submit" className={styles.submitBtn}>
