@@ -11,18 +11,23 @@ const inter = Inter({ subsets: ['latin'] });
 // 🔑 CRITICAL SEO METADATA
 export const metadata = {
   title: {
-    template: '%s | Suthar Interior Contractors',
-    default: 'Suthar Interior Contractors: Renovation & Fit-out Services in Mumbai, Goa & Karnataka', 
+    template: '%s | Suthar Interior Studio',
+    default: 'Suthar Interior Studio: Renovation & Fit-out Services in Mumbai, Goa & Karnataka', 
   },
   
   description: 
-    'Suthar Interior Contractors specializes in **turnkey project execution, full renovation, and commercial fit-outs** across **Mumbai, Goa, Hubli, Kumta, and Honnavar**. Expert project management led by Ravalram Suthar.',
+    'Suthar Interior Studio specializes in **turnkey project execution, full renovation, and commercial fit-outs** across **Mumbai, Goa, Hubli, Kumta, and Honnavar**. Expert project management led by Ravalram Suthar.',
   
+  icons: {
+    icon: '/Suthar interior studio.ico',          // Browser tab
+    apple: '/Suthar interior studio.icog',         // iOS
+    shortcut: '/Suthar interior studio.ico',      // Legacy support
+  },
   openGraph: {
-    title: 'Suthar Interior Contractors: Multi-Regional Renovation Experts (Mumbai to Goa)',
+    title: 'Suthar Interior Studio: Multi-Regional Renovation Experts (Mumbai to Goa)',
     url: 'https://www.sutharinteriorstudio.in/', 
-    siteName: 'Suthar Interior Contractors',
-    images: [{ url: 'https://www.sutharinteriorstudio.in/opengraph-image.jpg', width: 1200, height: 630, alt: 'Suthar Interior Renovation Team at work on a site' }],
+    siteName: 'Suthar Interior Studio',
+    images: [{ url: 'https://www.sutharinteriorstudio.in/Suthar interior studio.png', width: 1200, height: 630, alt: 'Suthar Interior Renovation Team at work on a site' }],
   },
 };
 
@@ -35,7 +40,7 @@ const jsonLdSchema = {
       '@type': 'LocalBusiness',
       name: 'Suthar Interior Contractors',
       url: 'https://www.sutharinteriorstudio.in/',
-      logo: 'https://www.sutharinteriorstudio.in/images/logo.png',
+      logo: 'https://www.sutharinteriorstudio.in/images/Suthar interior studio.png',
       telephone: '+919004538149', // YOUR PHONE NUMBER
       priceRange: '₹₹₹',
       
