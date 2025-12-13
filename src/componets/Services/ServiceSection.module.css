@@ -1,113 +1,122 @@
-/* Container & Header */
+/* ---------------------- Container & Header ---------------------- */
 .container {
-  font-family: 'Inter', sans-serif;
-  background-color: #fff;
-  padding: 2.5rem 1.5rem;
+  font-family: var(--font-body, 'Golos Text', sans-serif);
+  background-color: var(--color-light, #fff);
+  /* APPLIED FLUID PADDING: Vertical padding scales smoothly between 2rem and 4rem */
+  padding: clamp(2rem, 5vw, 4rem) 1.5rem; 
+  margin: 0 auto;
 }
 
-@media(min-width:768px){
+@media (min-width: 768px) {
   .container {
-    padding: 4rem 3rem;
+      /* No fixed padding needed here due to clamp(), but keep the block for other future 768px styles */
   }
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
 }
 
-@media(min-width:1024px){
+@media (min-width: 1024px) {
   .header {
-    flex-direction: row;
-    gap: 4rem;
-    align-items: flex-start;
+      flex-direction: row;
+      gap: 4rem;
+      align-items: flex-start;
   }
 }
 
+/* ---------------------- Tag Box ---------------------- */
 .tagBox {
   display: inline-flex;
   align-items: center;
-  background: rgba(255,255,255,0.039);
-  border: 1px solid #e5e5e5;
+  background: transparent;
+  border: 1px solid var(--navbar-border, #e5e5e5);
   border-radius: 100vmax;
-  padding: 8px 12px 5px 10px;
+  padding: 8px 12px;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   gap: 10px;
   white-space: nowrap;
+  color: var(--color-secondary, #101010);
+  
+  /* Alignment adjustments */
+  flex-shrink: 0;
+  margin-top: 0.25rem; 
 }
 
 .tagBox::before {
   content: '';
   width: 6px;
   height: 6px;
-  background-color: #d4a053;
+  background-color: var(--color-primary, #d4a053);
   border-radius: 50%;
-  display: inline-block;
   flex-shrink: 0;
 }
 
+/* ---------------------- Heading Content ---------------------- */
 .headerContent {
   flex: 1;
 }
 
 .sectionHeading {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading, 'Cal Sans', sans-serif);
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 1.25rem;
   letter-spacing: 1px;
-  color: #101010;
+  color: var(--color-secondary, #101010);
 }
 
 @media(min-width:768px){
   .sectionHeading {
-    font-size: 3.5rem;
+      font-size: 3.5rem;
   }
 }
 
 @media(min-width:1024px){
   .sectionHeading {
-    font-size: 4rem;
+      font-size: 4rem;
   }
 }
 
 .highlightText {
-  color: #d4a053;
+  color: var(--color-brand, #d4a053);
 }
 
 .sectionDesc {
+  font-family: var(--font-body, 'Golos Text', sans-serif); 
   font-size: 1rem;
   line-height: 1.6;
-  color: #666666;
-  max-width: 600px;
+  color: var(--color-text, #333333);
 }
 
 @media(min-width:768px){
   .sectionDesc {
-    font-size: 1.1rem;
+      font-size: 1.1rem;
   }
 }
 
-/* Grid Layout */
+/* ---------------------- Grid Layout ---------------------- */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
 }
 
-@media(min-width:1024px){
+@media (min-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr; 
+      gap: 4rem;
   }
 }
 
-/* Image Section */
+/* ---------------------- Image Section ---------------------- */
 .imageContainer {
   position: relative;
 }
@@ -123,6 +132,7 @@
   height: 500px;
   object-fit: cover;
   transition: transform 0.7s ease-in-out;
+  display: block;
 }
 
 .imageWrapper:hover .serviceImage {
@@ -133,15 +143,17 @@
   position: absolute;
   bottom: 1.25rem;
   left: 1.25rem;
-  background: rgba(51,51,51,0.8);
-  color: white;
+  background: rgba(16, 16, 16, 0.85); 
+  color: var(--color-light, #fff);
   padding: 1.25rem;
   border-radius: 1rem;
   max-width: 28rem;
   backdrop-filter: blur(10px);
+  z-index: 10;
 }
 
 .imageOverlay p {
+  font-family: var(--font-body, 'Golos Text', sans-serif); 
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.6;
@@ -149,11 +161,11 @@
 
 @media(min-width:768px){
   .imageOverlay p {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 }
 
-/* Service List */
+/* ---------------------- Service List ---------------------- */
 .serviceList {
   list-style: none;
   padding: 0;
@@ -165,21 +177,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid var(--navbar-border, #e5e5e5);
+  border-bottom: 1px solid var(--navbar-border, #e5e5e5);
   cursor: pointer;
-  transition: all 0.4s ease;
-  color: #333333;
+  transition: all 0.3s ease;
+  color: var(--color-secondary, #101010);
 }
 
-.serviceListItem:hover {
-  color: #d4a053;
-  border-color: #d4a053;
-}
-
+.serviceListItem:hover, 
 .serviceListItem.active {
-  color: #d4a053;
-  border-color: #d4a053;
+  color: var(--color-primary, #d4a053);
+  border-color: var(--color-primary, #d4a053);
 }
 
 .serviceItemContent {
@@ -190,31 +198,33 @@
 }
 
 .indexText {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading, 'Cal Sans', sans-serif);
   font-size: 1.125rem;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 @media(max-width:768px){
   .indexText {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 }
 
 .serviceTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading, 'Cal Sans', sans-serif);
   font-size: 1.5rem;
   font-weight: 500;
+  line-height: 1.3;
 }
 
 @media(max-width:768px){
   .serviceTitle {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 }
 
 @media(max-width:480px){
   .serviceTitle {
-    font-size: 0.9rem;
+      font-size: 0.9rem;
   }
 }

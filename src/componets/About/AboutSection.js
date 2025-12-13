@@ -44,7 +44,7 @@ export default function AboutSection() {
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
             <div className={`${styles.tag} ${styles.dark}`}>Since 1991</div>
-            <h2>Building Better Homes, Where <span className={styles.highlightLight}>Design Meets Craftsmanship</span></h2>
+            <h2 className={`${styles.descriptionText}`}>Building Better Homes, Where <span className={styles.highlightLight}>Design Meets Craftsmanship</span></h2>
             <ul className={styles.featuresList}>
               <li>30+ Years Experience</li>
               <li>Quality-Assured Work</li>

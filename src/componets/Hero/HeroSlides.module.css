@@ -1,4 +1,6 @@
-/* Base Slide */
+/* --- 1. Base Structure & Shared Styles --- */
+
+/* Base Slide - Defines height, background, and center alignment of the content block */
 .baseSlide {
     display: flex;
     align-items: center;
@@ -6,46 +8,79 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 0 1rem;
+    /* Added min-height for visibility */
+    height: 100%; 
+    padding: clamp(2rem, 5vw, 4rem) 1.5rem;
+    position: relative; /* Essential for absolute positioning of cards in other slides */
 }
 
 /* Hero Slide Backgrounds */
 .heroSlide1 {
     background: linear-gradient(rgba(16, 8, 1, 0.46), rgba(16, 8, 1, 0.46)), var(--hero-slide-img1);
 }
-
 .heroSlide2 {
     background: linear-gradient(rgba(16, 8, 1, 0.46), rgba(16, 8, 1, 0.46)), var(--hero-slide-img2);
 }
-
 .heroSlide3 {
     background: linear-gradient(rgba(16, 8, 1, 0.5), rgba(16, 8, 1, 0.5)), var(--hero-slide-img3);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Center horizontally for this layout */
     justify-content: center;
     padding: 0 5%;
 }
-
 .heroSlide4 {
     background: linear-gradient(rgba(16, 8, 1, 0.7), rgba(16, 8, 1, 0.7)), var(--hero-slide-img4);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    padding: 0 5%;
+    padding: 50px 5%;
+    align-items: center;
 }
 
 /* Container & Text */
 .container {
     width: 100%;
+    max-width: 1400px; 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     z-index: 2;
 }
 
+/* --- DESKTOP ALIGNMENT RULES (Default) --- */
+
+/* Slides 1, 2, 4: Left alignment */
+.heroSlide1 .container, 
+.heroSlide2 .container, 
+.heroSlide4 .container {
+    align-items: flex-start; 
+}
+.heroSlide1 .textWrapper,
+.heroSlide2 .textWrapper,
+.heroSlide4 .textWrapper {
+    text-align: left; 
+}
+.heroSlide1 .ctaButton,
+.heroSlide2 .ctaButton {
+    align-self: flex-start;
+}
+
+/* Slide 3: Center alignment (to match visual request) */
+.heroSlide3 .container {
+    align-items: center;
+}
+.heroSlide3 .textWrapper {
+    text-align: center;
+}
+.heroSlide3 .ctaButton {
+    align-self: center;
+}
+
+
 .textWrapper {
     width: 100%;
     color: #fff;
+    max-width: 700px; /* Added max-width for better control */
 }
 
 .tagBox {
@@ -64,7 +99,6 @@
     gap: 10px;
     margin-bottom: 24px;
 }
-
 .tagBox::before {
     content: "";
     width: 6px;
@@ -73,36 +107,33 @@
     border-radius: 50%;
     display: inline-block;
 }
-
 .heading {
-    font-weight: 400;
+    font-weight: 700; /* Adjusted from 400 for stronger impact */
     line-height: 1.1;
-    font-size: clamp(2rem, 6vw, 7rem);
+    font-size: clamp(3rem, 7vw, 6.5rem); /* Updated clamp for larger desktop size */
     color: #fff;
+    margin-bottom: 20px; /* Added margin */
 }
-
 .heading span {
     color: var(--color-primary);
 }
-
 .bottomDiv {
-    padding-top: 2rem;
+    padding-top: 0; /* Reset top padding */
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
 }
-
-
 .description {
-    padding-bottom: 20px;
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    padding-bottom: 30px; /* Adjusted padding */
+    font-size: clamp(1.1rem, 2vw, 1.35rem); /* Adjusted clamp for better readability */
     color: #fff;
     line-height: 1.6;
 }
-
 .ctaButton {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 20px;
+    padding: 14px 24px; /* Adjusted padding */
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     font-size: 1rem;
@@ -110,8 +141,8 @@
     color: #fff;
     text-decoration: none;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
-
 .icon {
     display: inline-flex;
     align-items: center;
@@ -123,17 +154,15 @@
     border-radius: 50%;
     transition: all 0.3s ease;
 }
-
 .ctaButton:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border-color: var(--color-primary);
 }
-
 .ctaButton:hover .icon {
     transform: rotate(45deg);
 }
 
-/* Stats Card Left */
+/* --- 3. Slide 2 Cards --- */
 .statsCardLeft {
     position: absolute;
     bottom: 40px;
@@ -148,44 +177,12 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 3;
 }
+.statsCardLeft h3 { font-size: 2rem; font-weight: 700; color: #111; margin-bottom: 8px; }
+.statsCardLeft .subtitle { color: #555; font-size: 0.9rem; font-weight: 500; margin-bottom: 1rem; }
+.statsCardLeft .details { color: #555; font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; }
+.statsCardLeft .details p { display: flex; align-items: center; gap: 10px; }
+.statsCardLeft .details .dot { width: 8px; height: 8px; background-color: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
 
-.statsCardLeft h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 8px;
-}
-
-.statsCardLeft .subtitle {
-    color: #555;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-}
-
-.statsCardLeft .details {
-    color: #555;
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.statsCardLeft .details p {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.statsCardLeft .details .dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-primary);
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-/* Image Card Right */
 .imageCardRight {
     position: absolute;
     top: 50%;
@@ -200,42 +197,19 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 3;
 }
+.imageCardRight .imageWrapper { width: 100%; height: 200px; border-radius: 0.75rem; overflow: hidden; margin-bottom: 12px; }
+.imagePlaceholder { width: 100%; height: 100%; background-image: url("/images/project-11-1536x1080.jpg"); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
 
-.imageCardRight .imageWrapper {
-    width: 100%;
-    height: 200px;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    margin-bottom: 12px;
-}
-
-.imageCardRight .caption {
-    color: #333;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* Image Placeholder */
-.imagePlaceholder {
-    width: 100%;
-    height: 100%;
-    background-image: url("/images/project-11-1536x1080.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Slide3 Cards */
+/* --- 4. Slide 3 Cards --- */
 .styleCardsWrapper {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 3rem; 
+    width: 100%; 
+    max-width: 1000px;
 }
-
 .styleCard {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -245,55 +219,17 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
+.styleCard:hover { transform: translateY(-8px); }
+.styleCard .cardImage { height: 120px; background-size: cover; background-position: center; }
+.styleCard .style1 { background: linear-gradient(135deg, #c9a15e 0%, #b18a49 100%); }
+.styleCard .style2 { background: linear-gradient(135deg, #d4a574 0%, #c9a15e 100%); }
+.styleCard .style3 { background: linear-gradient(135deg, #8d7f6f 0%, #6b5d52 100%); }
+.styleCard .cardContent { padding: 16px; }
+.styleCard .cardContent h4 { font-size: 1rem; color: #1a1a1a; margin-bottom: 8px; }
+.styleCard .cardContent a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--color-primary); text-decoration: none; font-weight: 600; transition: gap 0.3s ease; }
+.styleCard .cardContent a:hover { gap: 10px; }
 
-.styleCard:hover {
-    transform: translateY(-8px);
-}
-
-.styleCard .cardImage {
-    height: 120px;
-    background-size: cover;
-    background-position: center;
-}
-
-.styleCard .style1 {
-    background: linear-gradient(135deg, #c9a15e 0%, #b18a49 100%);
-}
-
-.styleCard .style2 {
-    background: linear-gradient(135deg, #d4a574 0%, #c9a15e 100%);
-}
-
-.styleCard .style3 {
-    background: linear-gradient(135deg, #8d7f6f 0%, #6b5d52 100%);
-}
-
-.styleCard .cardContent {
-    padding: 16px;
-}
-
-.styleCard .cardContent h4 {
-    font-size: 1rem;
-    color: #1a1a1a;
-    margin-bottom: 8px;
-}
-
-.styleCard .cardContent a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.875rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: gap 0.3s ease;
-}
-
-.styleCard .cardContent a:hover {
-    gap: 10px;
-}
-
-/* Slide4 Right Image Grid */
+/* --- 5. Slide 4 Grid --- */
 .imageGrid {
     position: relative;
     display: grid;
@@ -301,162 +237,133 @@
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
-
-.gridImage {
-    height: 300px;
-    border-radius: 12px;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-.img1 {
-    background: linear-gradient(135deg, #d4a574 0%, #c9a15e 100%);
-}
-
-.img2 {
-    background: linear-gradient(135deg, #8d7f6f 0%, #6b5d52 100%);
-}
-
-.img3 {
-    background: linear-gradient(135deg, #f5e6d3 0%, #e8d5bb 100%);
-}
-
-.imageLabel {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    color: #1a1a1a;
-    font-size: 0.875rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.gridDots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.gridDots .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-}
-
-.gridDots .active {
-    width: 24px;
-    border-radius: 4px;
-    background: var(--color-primary);
-}
+.gridImage { height: 300px; border-radius: 12px; background-size: cover; background-position: center; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); }
+.img1 { background: linear-gradient(135deg, #d4a574 0%, #c9a15e 100%); }
+.img2 { background: linear-gradient(135deg, #8d7f6f 0%, #6b5d52 100%); }
+.img3 { background: linear-gradient(135deg, #f5e6d3 0%, #e8d5bb 100%); }
+.imageLabel { position: absolute; bottom: 1rem; left: 1rem; background: rgba(255, 255, 255, 0.95); padding: 10px 20px; border-radius: 8px; font-weight: 600; color: #1a1a1a; font-size: 0.875rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+.gridDots { display: flex; justify-content: center; gap: 8px; }
+.gridDots .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); transition: all 0.3s ease; }
+.gridDots .active { width: 24px; border-radius: 4px; background: var(--color-primary); }
 
 
+/* --- 6. Media Queries (Mobile Centering and Stacking) --- */
+
+/* Tablet and Smaller Desktop Adjustments (max-width: 1024px) */
 @media(max-width:1024px) {
+    /* Slide 2 Card Adjustments */
     .imageCardRight {
         right: 20px;
         max-width: 220px;
+        display: none; /* Hide for cleaner tablet layout */
     }
-
-    .imageCardRight .imageWrapper {
-        height: 160px;
-    }
-
-    .heroSlide4 {
-        grid-template-columns: 1fr;
-        padding: 5%;
-    }
-
-    .imageCardRight {
-        right: 20px;
-        max-width: 220px;
-    }
-
-    .imageCardRight .imageWrapper {
-        height: 160px;
-    }
-
-    .imageCardRight {
-        right: 20px;
-        max-width: 220px;
-    }
-
-    .imageCardRight .imageWrapper {
-        height: 160px;
-    }
-
     .statsCardLeft {
         padding: 20px;
+        bottom: 20px;
+        left: 20px;
+        max-width: 220px;
     }
-
     .statsCardLeft h3 {
         font-size: 1.5rem;
     }
 
-    .tagBox {
-        margin-bottom: 20px;
-    }
-
-    .statsCardLeft {
-        bottom: 20px;
-        left: 20px;
+    /* Slide 4 Layout Change */
+    .heroSlide4 {
+        grid-template-columns: 1fr; /* Stack text and image grid */
+        padding: 5%;
+        gap: 2rem;
     }
 }
 
-
-
+/* Tablet and Mobile Layout (max-width: 768px): **GLOBAL CENTERING & STACKING** */
 @media(max-width:768px) {
-    .imageCardRight {
-        display: none;
+    .baseSlide {
+        padding: 5rem 1.5rem; 
+        min-height: 65vh; 
     }
-
-    .imageCardRight {
-        display: none;
-    }
-
-    .textWrapper {
-        text-align: start;
-    }
-
-    .statsCardLeft {
-        position: relative;
-        margin: 2rem auto 0;
-        max-width: 320px;
-        text-align: center;
-    }
-
+    
+    /* GLOBAL ALIGNMENT OVERRIDE: Center all containers and text */
     .container {
         align-items: center;
     }
+    .textWrapper {
+        text-align: center;
+        max-width: 100%;
+    }
+    .ctaButton {
+        align-self: center !important; /* Force center for all buttons */
+    }
+
+    /* SLIDE 2: Stack cards vertically and center them */
+    .imageCardRight {
+        display: none; 
+    }
+    .statsCardLeft {
+        position: relative; /* Remove absolute positioning */
+        margin: 2rem auto 0;
+        max-width: 320px;
+        text-align: center;
+        left: auto;
+        bottom: auto;
+    }
+    .statsCardLeft .details {
+        align-items: center; 
+    }
+    
+    /* SLIDE 3: Vertical stacking of cards */
+    .styleCardsWrapper {
+        flex-direction: column; 
+        align-items: center; 
+        padding-top: 2rem;
+        gap: 1rem;
+    }
+    .styleCard {
+        width: 100%; 
+        max-width: 300px; 
+        display: block; 
+    }
+    .styleCard .cardImage {
+        width: 100%;
+        height: 100px;
+    }
+    .styleCard .cardContent {
+        padding: 16px;
+        text-align: center;
+    }
 }
 
+/* Small Mobile Adjustments (max-width: 480px) */
 @media only screen and (max-width: 480px) {
+    .baseSlide {
+        padding: 4rem 1rem; 
+    }
+    .heading{
+        margin-bottom: 10px;
+        font-size: 2.5rem; 
+        line-height: 1.2;
+    }
+    .description{
+        padding-bottom: 15px;
+        font-size: 0.95rem;
+    }
     .bottomDiv{
         padding-top: 1rem;
     }
-    .description{
-        padding-bottom: 0;
-        font-size: 0.9rem;
-    }
-    .heading{
-        margin-bottom: 0;
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-        line-height: 1.2;
-    }
     .tagBox{
         margin-bottom: 1.2rem;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .ctaButton{
-        padding: 10px 16px;
+        padding: 10px 18px;
         font-size: 0.9rem;
     }
-    .textWrapper {
-        padding: 50px 0;
+
+    /* SLIDE 4: Full stack of images */
+    .imageGrid {
+        grid-template-columns: 1fr; 
+        gap: 0.5rem;
+    }
+    .gridImage {
+        height: 150px;
     }
 }

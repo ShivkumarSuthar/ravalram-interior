@@ -1,7 +1,6 @@
 .contactSection {
   font-family: var(--font-body);
   padding: clamp(2rem, 5vw, 4rem) 1.5rem;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
