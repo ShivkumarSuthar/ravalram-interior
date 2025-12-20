@@ -1,56 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
 import styles from "./contact.module.css";
 import Swal from "sweetalert2";
 
 export default function ContactLayout() {
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
 
-  const validateForm = (formData) => {
-    const newErrors = {};
+  // Yup validation schema
+  const validationSchema = Yup.object({
+    full_name: Yup.string().required("Full Name is required"),
+    phone: Yup.string().required("Phone is required"),
+    email: Yup.string().email("Email is invalid").required("Email is required"),
+    subject: Yup.string().required("Please select a subject"),
+    message: Yup.string().required("Message cannot be empty"),
+  });
 
-    if (!formData.full_name.trim()) newErrors.full_name = "Full Name is required";
-    if (!formData.phone.trim()) newErrors.phone = "Phone is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-    }
-    if (!formData.subject.trim()) newErrors.subject = "Please select a subject";
-    if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
-
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (values, { resetForm }) => {
     setLoading(true);
-
-    const formData = {
-      full_name: e.target.fullName.value,
-      phone: e.target.phone.value,
-      email: e.target.emailAddress.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-
-    const validationErrors = validateForm(formData);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      setLoading(false);
-      return;
-    }
-
-    setErrors({}); // clear previous errors
 
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        formData,
+        values,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
@@ -66,8 +42,7 @@ export default function ContactLayout() {
             confirmButton: "swal-theme-button",
           },
         });
-
-        e.target.reset();
+        resetForm();
       })
       .catch(() => {
         Swal.fire({
@@ -129,7 +104,7 @@ export default function ContactLayout() {
         </div>
       </div>
 
-      {/* CONTENT */}
+      {/* FORM CONTENT */}
       <div className={styles.content}>
         <div className={styles.imageWrap}>
           <img
@@ -138,72 +113,105 @@ export default function ContactLayout() {
           />
         </div>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.row}>
-            <div className={styles.field}>
-              <label htmlFor="fullName">Full Name *</label>
-              <input id="fullName" name="fullName" autoComplete="name" />
-              {errors.full_name && (
-                <p className={styles.helperText}>{errors.full_name}</p>
-              )}
-            </div>
+        <Formik
+          initialValues={{
+            full_name: "",
+            phone: "",
+            email: "",
+            subject: "",
+            message: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ errors, touched }) => (
+            <Form className={styles.form}>
+              <div className={styles.row}>
+                <div className={styles.field}>
+                  <label htmlFor="full_name">Full Name *</label>
+                  <Field id="full_name" name="full_name" autoComplete="name" />
+                  <ErrorMessage
+                    name="full_name"
+                    component="p"
+                    className={styles.helperText}
+                  />
+                </div>
 
-            <div className={styles.field}>
-              <label htmlFor="phone">Phone *</label>
-              <input id="phone" name="phone" autoComplete="tel" />
-              {errors.phone && (
-                <p className={styles.helperText}>{errors.phone}</p>
-              )}
-            </div>
-          </div>
+                <div className={styles.field}>
+                  <label htmlFor="phone">Phone *</label>
+                  <Field id="phone" name="phone" autoComplete="tel" />
+                  <ErrorMessage
+                    name="phone"
+                    component="p"
+                    className={styles.helperText}
+                  />
+                </div>
+              </div>
 
-          <div className={styles.row}>
-            <div className={styles.field}>
-              <label htmlFor="emailAddress">Email Address *</label>
-              <input
-                id="emailAddress"
-                name="emailAddress"
-                type="email"
-                autoComplete="email"
-              />
-              {errors.email && (
-                <p className={styles.helperText}>{errors.email}</p>
-              )}
-            </div>
+              <div className={styles.row}>
+                <div className={styles.field}>
+                  <label htmlFor="email">Email Address *</label>
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="p"
+                    className={styles.helperText}
+                  />
+                </div>
 
-            <div className={styles.field}>
-              <label htmlFor="subject">Subject *</label>
-              <select id="subject" name="subject">
-                <option value="">-- Select a Subject --</option>
-                <option value="Interior Design Consultation">
-                  Interior Design Consultation
-                </option>
-                <option value="Project Quote Request">
-                  Project Quote Request
-                </option>
-                <option value="Collaboration / Partnership">
-                  Collaboration / Partnership
-                </option>
-                <option value="Other">Other</option>
-              </select>
-              {errors.subject && (
-                <p className={styles.helperText}>{errors.subject}</p>
-              )}
-            </div>
-          </div>
+                <div className={styles.field}>
+                  <label htmlFor="subject">Subject *</label>
+                  <Field as="select" id="subject" name="subject">
+                    <option value="">-- Select a Subject --</option>
+                    <option value="Interior Design Consultation">
+                      Interior Design Consultation
+                    </option>
+                    <option value="Project Quote Request">
+                      Project Quote Request
+                    </option>
+                    <option value="Collaboration / Partnership">
+                      Collaboration / Partnership
+                    </option>
+                    <option value="Other">Other</option>
+                  </Field>
+                  <ErrorMessage
+                    name="subject"
+                    component="p"
+                    className={styles.helperText}
+                  />
+                </div>
+              </div>
 
-          <div className={styles.field}>
-            <label htmlFor="message">Your Message *</label>
-            <textarea id="message" name="message" autoComplete="off" />
-            {errors.message && (
-              <p className={styles.helperText}>{errors.message}</p>
-            )}
-          </div>
+              <div className={styles.field}>
+                <label htmlFor="message">Your Message *</label>
+                <Field
+                  as="textarea"
+                  id="message"
+                  name="message"
+                  autoComplete="off"
+                />
+                <ErrorMessage
+                  name="message"
+                  component="p"
+                  className={styles.helperText}
+                />
+              </div>
 
-          <button type="submit" className={styles.submitBtn} disabled={loading}>
-            {loading ? "Sending..." : "Send Message →"}
-          </button>
-        </form>
+              <button
+                type="submit"
+                className={styles.submitBtn}
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "Send Message →"}
+              </button>
+            </Form>
+          )}
+        </Formik>
       </div>
     </section>
   );
