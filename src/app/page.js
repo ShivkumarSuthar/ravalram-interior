@@ -14,14 +14,20 @@ function page() {
   const filePath = path.join(process.cwd(), "src/app/data.json");
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const { navbar } = JSON.parse(jsonData);
-  console.log("navbar", navbar)
+
   return (
     <section>
-      <div className="hero-page-banner">
-        <Navbar menu={navbar} /> 
+      {/* HERO */}
+      <div className="hero-page-banner" data-section="home">
         <HeroLayout />
       </div>
-       <AboutSection />
+
+      {/* ABOUT */}
+      <section data-section="about">
+        <AboutSection />
+      </section>
+
+      {/* IMAGE DIVIDER */}
       <div className="relative w-full aspect-[16/9]">
         <Image
           src="/images/gallery-9.jpg"
@@ -30,10 +36,26 @@ function page() {
           className="object-cover"
         />
       </div>
-      <ServiceLayout />
-      <ProcessSectionComponent />
+
+      {/* SERVICES */}
+      <section data-section="services">
+        <ServiceLayout />
+      </section>
+
+      {/* PROCESS / WORK */}
+      <section data-section="work">
+        <ProcessSectionComponent />
+      </section>
+
+      {/* VIDEO */}
       <VideoContainer />
-      <ContactLayout/>      
+
+      {/* CONTACT */}
+      <section data-section="contact">
+        <ContactLayout />
+      </section>
+
+      {/* FOOTER */}
       <FooterLayout />
     </section>
   );

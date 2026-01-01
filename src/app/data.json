@@ -1,9 +1,9 @@
 {
   "navbar": [
-    { "name": "Home", "href": "/", "dropdown": [] },
+    { "name": "Home", "href": "/#home", "dropdown": [] },
     {
       "name": "About",
-      "href": "/about",
+      "href": "/#about",
       "dropdown": [
         { "name": "Our Story", "href": "/about/our-story", "description": "Learn about our journey and values", "dropdown": [] },
         { "name": "Our Team", "href": "/about/team", "description": "Meet our talented team members", "dropdown": [] },
@@ -13,7 +13,7 @@
     },
     {
       "name": "Services",
-      "href": "/services",
+      "href": "/#services",
       "dropdown": [
         {
           "name": "Interior Work",
@@ -67,7 +67,7 @@
     },
     {
       "name": "Our Work",
-      "href": "/work",
+      "href": "/#work",
       "dropdown": [
         { "name": "Residential Projects", "href": "/work/residential", "description": "Beautiful homes we’ve designed", "dropdown": [] },
         { "name": "Commercial Projects", "href": "/work/commercial", "description": "Office and commercial spaces", "dropdown": [] },
@@ -78,7 +78,7 @@
     },
     {
       "name": "Contact",
-      "href": "/contact",
+      "href": "/#contact",
       "dropdown": [
         { "name": "Request a Quote", "href": "/contact/quote", "description": "Get a quote for your project", "dropdown": [] },
         { "name": "Book a Consultation", "href": "/contact/consultation", "description": "Schedule a meeting with us", "dropdown": [] },

@@ -1,5 +1,4 @@
-/* Navbar.module.css */
-
+/* ===================== NAVBAR WRAPPER ===================== */
 .navbarWrapper {
   position: sticky;
   top: 0;
@@ -7,14 +6,17 @@
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-family: var(--font-hertical);
+  transition: transform 0.3s ease;
 }
 
+/* Padding for small screens */
 @media (max-width: 768px) {
   .navbarWrapper {
     padding: 0 16px;
   }
 }
 
+/* ===================== NAV CONTAINER ===================== */
 .navContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -24,6 +26,7 @@
   align-items: center;
 }
 
+/* ===================== LOGO ===================== */
 .logoText {
   font-size: 1.2rem;
   font-weight: 700;
@@ -31,6 +34,7 @@
   text-decoration: none;
 }
 
+/* ===================== DESKTOP MENU ===================== */
 .desktopMenu {
   display: none;
 }
@@ -68,7 +72,7 @@
   color: var(--color-brand);
 }
 
-/* Mega Menu */
+/* ===================== MEGA MENU ===================== */
 .megaMenuWrapper {
   position: absolute;
   width: 100%;
@@ -150,11 +154,10 @@
   padding-left: 8px;
 }
 
-/* Mobile */
+/* ===================== MOBILE MENU ===================== */
+
+/* Toggle button */
 .mobileToggle {
-  @media (min-width: 1024px) {
-    display: none;
-  }
   background: none;
   border: none;
   color: #333;
@@ -167,6 +170,7 @@
   background: #f3f3f3;
 }
 
+/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -182,6 +186,7 @@
   pointer-events: auto;
 }
 
+/* Mobile menu container */
 .mobileMenu {
   position: fixed;
   top: 0;
@@ -198,16 +203,18 @@
   transform: translateX(100%);
   transition: transform 0.35s ease-in-out;
 }
-.mobileMenu ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
 .mobileMenuOpen {
   transform: translateX(0);
 }
 
+.mobileMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Close button */
 .mobileCloseBtn {
   position: absolute;
   top: 16px;
@@ -218,6 +225,7 @@
   cursor: pointer;
 }
 
+/* Mobile menu items */
 .mobileItemRow {
   display: flex;
   justify-content: space-between;
@@ -242,6 +250,7 @@
   cursor: pointer;
 }
 
+/* Mobile dropdowns */
 .mobileDropdown {
   background: #fafafa;
   padding-left: 18px;
@@ -264,18 +273,20 @@
   text-align: start;
 }
 
-.mobileSubDropdownItem{
+.mobileSubDropdownItem {
   display: block;
-  padding: 10px 0  10px 52px;
+  padding: 10px 0 10px 52px;
   color: var(--color-gray);
   text-decoration: none;
   text-align: start;
 }
 
-.mobileDropItem:hover {
+.mobileDropItem:hover,
+.mobileSubDropdownItem:hover {
   color: var(--color-brand);
 }
 
+/* Mobile phone button */
 .mobilePhoneBtn {
   display: flex;
   align-items: center;
@@ -286,6 +297,7 @@
   text-decoration: none;
 }
 
+/* Phone link desktop */
 .phoneLink {
   color: #333;
   font-size: 0.9rem;
@@ -300,9 +312,30 @@
   }
 }
 
-
-@media screen and (max-width : 321px) {
- .mobileMainLink, .sidebarItem , .logoText, .logoText, .mobileSubDropdownItem, .mobileDropItem{
+/* ===================== RESPONSIVE ADJUSTMENTS ===================== */
+@media screen and (max-width: 321px) {
+  .mobileMainLink,
+  .sidebarItem,
+  .logoText,
+  .mobileSubDropdownItem,
+  .mobileDropItem {
     font-size: 0.8rem;
- } 
+  }
+}
+
+/* ===================== MEDIA QUERIES FOR RESPONSIVENESS ===================== */
+/* Hide mobile on desktop */
+@media (min-width: 1024px) {
+  .mobileToggle,
+  .mobileMenu,
+  .overlay {
+    display: none;
+  }
+}
+
+/* Hide desktop menu on mobile */
+@media (max-width: 1023px) {
+  .desktopMenu {
+    display: none;
+  }
 }

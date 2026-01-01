@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
   Phone,
@@ -13,6 +13,7 @@ import data from "@/app/data.json";
 import styles from "./navbar.module.css";
 
 const menu = data.navbar;
+const ENABLE_SUBMENU = false; // change to true if you want dropdowns
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,17 +21,89 @@ export default function Navbar() {
   const [activeSubDropdown, setActiveSubDropdown] = useState(null);
   const [desktopHoverDropdown, setDesktopHoverDropdown] = useState(null);
   const [activeSidebarItem, setActiveSidebarItem] = useState(0);
+  const [activeLink, setActiveLink] = useState("/#home");
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [forceShow, setForceShow] = useState(false); // Force navbar to show on click
 
-  const hoverTimeout = useRef(null);
+  const lastScrollY = useRef(0);
   const navWrapperRef = useRef(null);
+  const hoverTimeout = useRef(null);
 
+  // =========================
+  // Scroll hide/show with threshold
+  // =========================
+  useEffect(() => {
+    const SCROLL_THRESHOLD = 80;
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      if (forceShow) {
+        setShowNavbar(true);
+      } else {
+        if (currentScroll > lastScrollY.current && currentScroll > SCROLL_THRESHOLD) {
+          setShowNavbar(false);
+        } else {
+          setShowNavbar(true);
+        }
+      }
+      lastScrollY.current = currentScroll;
+
+      // reset forceShow after scroll
+      if (forceShow && currentScroll !== 0) setForceShow(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [forceShow]);
+
+  // =========================
+  // Scrollspy: active link & URL
+  // =========================
+  useEffect(() => {
+    const sections = document.querySelectorAll("[data-section]");
+    if (!sections) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute("data-section");
+            let matchingLink = menu.find(
+              (m) => m.href === `/#${sectionId}` || m.href === `/${sectionId}`
+            );
+            if (!matchingLink) {
+              menu.forEach((m) => {
+                m.dropdown?.forEach((sub) => {
+                  if (sub.href === `/#${sectionId}` || sub.href === `/${sectionId}`) {
+                    matchingLink = m;
+                  }
+                });
+              });
+            }
+            if (matchingLink) {
+              setActiveLink(matchingLink.href);
+              window.history.replaceState(null, "", `/#${sectionId}`);
+            }
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -70% 0px", threshold: 0 }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+    return () => sections.forEach((sec) => observer.unobserve(sec));
+  }, []);
+
+  // =========================
+  // Desktop submenu hover
+  // =========================
   const handleNavItemMouseEnter = (idx) => {
+    if (!ENABLE_SUBMENU) return;
     clearTimeout(hoverTimeout.current);
     setDesktopHoverDropdown(idx);
     setActiveSidebarItem(0);
   };
 
   const handleMouseLeaveAll = (e) => {
+    if (!ENABLE_SUBMENU) return;
     clearTimeout(hoverTimeout.current);
     const related = e.relatedTarget;
     const wrapper = navWrapperRef.current;
@@ -41,16 +114,47 @@ export default function Navbar() {
   };
 
   const toggleDropdown = (i) => {
+    if (!ENABLE_SUBMENU) return;
     setActiveDropdown(activeDropdown === i ? null : i);
     setActiveSubDropdown(null);
   };
 
   const toggleSubDropdown = (i) => {
+    if (!ENABLE_SUBMENU) return;
     setActiveSubDropdown(activeSubDropdown === i ? null : i);
   };
 
+  // =========================
+  // Scroll to section
+  // =========================
+  const handleScrollTo = (href) => {
+    if (href.startsWith("/#")) {
+      const section = href.replace("/#", "");
+      const el = document.querySelector(`[data-section="${section}"]`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        setOpen(false);
+        setActiveLink(href);
+        setForceShow(true); // navbar stays visible after click
+        window.history.replaceState(null, "", href);
+      }
+    } else {
+      setActiveLink(href);
+    }
+  };
+
+  // =========================
+  // Render
+  // =========================
   return (
-    <header className={styles.navbarWrapper} ref={navWrapperRef}>
+    <header
+      ref={navWrapperRef}
+      className={styles.navbarWrapper}
+      style={{
+        transform: showNavbar ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 0.3s ease",
+      }}
+    >
       <nav className={styles.navContainer}>
         <Link href="/" className={styles.logoText}>
           Ravalram Interior
@@ -58,24 +162,31 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className={styles.desktopMenu}>
-          {menu?.length > 0 && menu.map((item, idx) => (
+          {menu.map((item, idx) => (
             <li
               key={item.name}
               className={styles.navItem}
-              onMouseEnter={() => handleNavItemMouseEnter(idx)}
-              onMouseLeave={handleMouseLeaveAll}
+              onMouseEnter={() => ENABLE_SUBMENU && handleNavItemMouseEnter(idx)}
+              onMouseLeave={(e) => ENABLE_SUBMENU && handleMouseLeaveAll(e)}
             >
               <Link
                 href={item.href}
                 className={`${styles.navLink} ${
-                  desktopHoverDropdown === idx ? styles.navLinkActive : ""
+                  activeLink === item.href ? styles.navLinkActive : ""
                 }`}
+                onClick={(e) => {
+                  if (item.href.startsWith("/#")) {
+                    e.preventDefault();
+                    handleScrollTo(item.href);
+                  }
+                }}
               >
                 {item.name}
-                {item.dropdown?.length ? <ChevronDown size={14} /> : ""}
+                {ENABLE_SUBMENU && item.dropdown?.length > 0 && <ChevronDown size={14} />}
               </Link>
 
-              {item.dropdown?.length >0 && (
+              {/* Mega Menu */}
+              {ENABLE_SUBMENU && item.dropdown?.length > 0 && (
                 <div
                   className={`${styles.megaMenuWrapper} ${
                     desktopHoverDropdown === idx ? styles.megaMenuWrapperShow : ""
@@ -89,16 +200,21 @@ export default function Navbar() {
                           key={drop.name}
                           href={drop.href}
                           className={`${styles.sidebarItem} ${
-                            activeSidebarItem === dropIdx
-                              ? styles.sidebarItemActive
-                              : ""
+                            activeLink === drop.href ? styles.sidebarItemActive : ""
                           }`}
+                          onClick={(e) => {
+                            if (drop.href.startsWith("/#")) {
+                              e.preventDefault();
+                              handleScrollTo(drop.href);
+                            }
+                          }}
                           onMouseEnter={() => setActiveSidebarItem(dropIdx)}
                         >
                           {drop.name}
                         </Link>
                       ))}
                     </div>
+
                     <div className={styles.megaMenuContent}>
                       {item.dropdown[activeSidebarItem] && (
                         <>
@@ -110,16 +226,6 @@ export default function Navbar() {
                               {item.dropdown[activeSidebarItem].description}
                             </p>
                           )}
-                          {item.dropdown[activeSidebarItem].dropdown?.length > 0 &&
-                            item.dropdown[activeSidebarItem].dropdown.map((sub) => (
-                              <Link
-                                key={sub.name}
-                                href={sub.href}
-                                className={styles.contentItem}
-                              >
-                                {sub.name}
-                              </Link>
-                            ))}
                         </>
                       )}
                     </div>
@@ -130,18 +236,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="tel:+919004538149"
-          className={styles.phoneLink}
-          aria-label="Call us at +91 90045 38149"
-        >
+        {/* Desktop Phone */}
+        <a href="tel:+919004538149" className={styles.phoneLink}>
           <PhoneIcon /> +91 90045 38149
         </a>
 
-        <button
-          className={styles.mobileToggle}
-          onClick={() => setOpen(!open)}
-        >
+        {/* Mobile Toggle */}
+        <button className={styles.mobileToggle} onClick={() => setOpen(!open)}>
           {open ? <X size={26} /> : <Menu size={21} />}
         </button>
       </nav>
@@ -152,60 +253,72 @@ export default function Navbar() {
         onClick={() => setOpen(false)}
       />
       <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}>
-        <button
-          className={styles.mobileCloseBtn}
-          onClick={() => setOpen(false)}
-        >
+        <button className={styles.mobileCloseBtn} onClick={() => setOpen(false)}>
           <X size={26} />
         </button>
 
         <ul>
-          {menu?.length > 0 && menu.map((item, idx) => (
+          {menu.map((item, idx) => (
             <li key={item.name}>
-              <div className={styles.mobileItemRow}>
-                <Link href={item.href} className={styles.mobileMainLink}>
-                  {item.name}
-                </Link>
-                {item.dropdown.length > 0 && (
-                  <button
-                    className={styles.mobileIconBtn}
-                    onClick={() => toggleDropdown(idx)}
-                  >
-                    {activeDropdown === idx ? (
-                      <ChevronUp size={18} />
-                    ) : (
-                      <ChevronDown size={18} />
-                    )}
-                  </button>
-                )}
-              </div>
+              <Link
+                href={item.href}
+                className={`${styles.mobileMainLink} ${
+                  activeLink === item.href ? styles.navLinkActive : ""
+                }`}
+                onClick={(e) => {
+                  if (item.href.startsWith("/#")) {
+                    e.preventDefault();
+                    handleScrollTo(item.href);
+                  }
+                }}
+              >
+                {item.name}
+              </Link>
+
+              {ENABLE_SUBMENU && item.dropdown?.length > 0 && (
+                <button
+                  className={styles.mobileIconBtn}
+                  onClick={() => toggleDropdown(idx)}
+                >
+                  {activeDropdown === idx ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                </button>
+              )}
 
               {item.dropdown?.length > 0 && activeDropdown === idx && (
                 <ul className={styles.mobileDropdown}>
                   {item.dropdown.map((drop, dropIdx) => (
                     <li key={drop.name}>
-                      <div className={styles.mobileItemRow}>
-                        <Link href={drop.href} className={styles.mobileDropItem}>
-                          {drop.name}
-                        </Link>
-                        {drop.dropdown?.length > 0 && (
-                          <button
-                            className={styles.mobileIconBtn}
-                            onClick={() => toggleSubDropdown(dropIdx)}
-                          >
-                            {activeSubDropdown === dropIdx ? (
-                              <ChevronUp size={16} />
-                            ) : (
-                              <ChevronDown size={16} />
-                            )}
-                          </button>
-                        )}
-                      </div>
+                      <Link
+                        href={drop.href}
+                        className={`${styles.mobileDropItem} ${
+                          activeLink === drop.href ? styles.navLinkActive : ""
+                        }`}
+                        onClick={(e) => {
+                          if (drop.href.startsWith("/#")) {
+                            e.preventDefault();
+                            handleScrollTo(drop.href);
+                          }
+                        }}
+                      >
+                        {drop.name}
+                      </Link>
+
                       {drop.dropdown?.length > 0 && activeSubDropdown === dropIdx && (
                         <ul className={styles.mobileSubDropdown}>
                           {drop.dropdown.map((sub) => (
                             <li key={sub.name}>
-                              <Link href={sub.href} className={styles.mobileSubDropdownItem}>
+                              <Link
+                                href={sub.href}
+                                className={`${styles.mobileSubDropdownItem} ${
+                                  activeLink === sub.href ? styles.navLinkActive : ""
+                                }`}
+                                onClick={(e) => {
+                                  if (sub.href.startsWith("/#")) {
+                                    e.preventDefault();
+                                    handleScrollTo(sub.href);
+                                  }
+                                }}
+                              >
                                 {sub.name}
                               </Link>
                             </li>
@@ -221,7 +334,7 @@ export default function Navbar() {
         </ul>
 
         <a href="tel:+919004538149" className={styles.mobilePhoneBtn}>
-          <Phone size={18} /> +91 9004538149
+          <Phone size={18} /> +91 90045 38149
         </a>
       </div>
     </header>
