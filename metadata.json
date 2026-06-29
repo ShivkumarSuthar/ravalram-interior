@@ -1,0 +1,6 @@
+{
+  "name": "Antra Interior",
+  "description": "A premium, responsive, and beautifully animated interior design website with interactive project showcases, team introductions, awards, and spatial showcases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
