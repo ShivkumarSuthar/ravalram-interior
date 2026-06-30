@@ -7,31 +7,31 @@ import heroImg3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
 const slides = [
   {
     image: heroImg1,
-    label: "TRUSTED DESIGN PARTNER",
-    titlePrefix: "Find Your ",
-    titleItalic: "Inspired",
-    titleSuffix: " Interior Design",
-    subtitle: "Transform your vision into reality with our innovative designs, creating modern spaces that blend functionality, aesthetics, and sustainability."
+    label: "30+ YEARS OF FAMILY CRAFTSMANSHIP",
+    titlePrefix: "Designing ",
+    titleItalic: "Spaces",
+    titleSuffix: " Built Around You.",
+    subtitle: "Architect-led interiors, custom furniture, and complete project execution crafted with precision, honesty, and over three decades of experience."
   },
   {
     image: heroImg2,
-    label: "RARE MATERIAL PALETTES",
-    titlePrefix: "Sculpted ",
-    titleItalic: "Masterpieces",
-    titleSuffix: " of High Living",
-    subtitle: "Merging rare marble slab accents, tailored hand-brushed bronzes, and architectural rhythm to forge striking, functional luxury sanctuaries."
+    label: "ARCHITECTURE • INTERIORS • FURNITURE",
+    titlePrefix: "Crafted with ",
+    titleItalic: "Precision.",
+    titleSuffix: " Built to Last.",
+    subtitle: "From elegant homes to inspiring workplaces, every project is thoughtfully designed and expertly executed."
   },
   {
     image: heroImg3,
-    label: "ORGANIC QUIET LUXURY",
-    titlePrefix: "Serene Spaces Rooted in ",
-    titleItalic: "Stillness",
-    titleSuffix: " & Modernity",
-    subtitle: "Creating quiet, organic sanctuaries that blend native timber textures and soft ambient natural illumination to promote sophisticated architectural rest."
+    label: "HONEST PRICING • CUSTOM SOLUTIONS",
+    titlePrefix: "Your ",
+    titleItalic: "Vision.",
+    titleSuffix: " Our Commitment.",
+    subtitle: "Flexible execution, premium craftsmanship, and material choices tailored to your needs."
   }
 ];
 
-export default function Hero() {
+export default function Hero({ setView }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
 
@@ -150,7 +150,7 @@ export default function Hero() {
             {/* Top Tagline Badge */}
             <motion.div
               variants={textVariants}
-              className="inline-flex items-center space-x-2 border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full"
+              className="inline-flex items-center space-x-2 border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-none"
             >
               <span className="text-gold-500 text-xs">✦</span>
               <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-semibold text-stone-200">
@@ -170,24 +170,37 @@ export default function Hero() {
               {slide.titleSuffix}
             </motion.h1>
 
-            {/* Circular Start Project Button */}
-            <motion.div variants={textVariants} className="pt-2">
+            {/* Action Buttons */}
+            <motion.div 
+              variants={textVariants} 
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 z-10 w-full"
+            >
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-white flex flex-col items-center justify-center text-stone-950 hover:bg-[#c5a880] hover:text-stone-950 transition-colors duration-500 cursor-pointer shadow-2xl relative group"
+                whileHover={{ scale: 1.02, backgroundColor: "#b28e57" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-[#c5a880] text-stone-950 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-colors duration-300 rounded-none shadow-lg text-center min-w-[220px]"
                 id="hero-start-project-btn"
               >
-                <span className="text-[10px] uppercase font-bold tracking-[0.2em] leading-tight">Start</span>
-                <span className="text-[10px] uppercase font-bold tracking-[0.2em] leading-tight mt-0.5">Project</span>
-                <div className="mt-1 text-stone-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </div>
+                Start Your Project
               </motion.a>
+              <motion.button
+                onClick={() => {
+                  if (typeof setView === "function") {
+                    setView("gallery");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    const el = document.getElementById("gallery");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                whileHover={{ scale: 1.02, borderColor: "#c5a880", color: "#c5a880" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md min-w-[220px] cursor-pointer text-center"
+                id="hero-view-work-btn"
+              >
+                View Our Work
+              </motion.button>
             </motion.div>
           </motion.div>
         </AnimatePresence>
@@ -195,10 +208,10 @@ export default function Hero() {
 
       {/* Bottom Horizontal Card & Nav Overlays (Exactly like the Reference Image) */}
       <div className="absolute bottom-10 left-0 w-full z-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto bg-stone-900/60 backdrop-blur-xl border border-white/10 p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="max-w-7xl mx-auto bg-stone-900/60 backdrop-blur-xl border border-white/10 p-5 rounded-none flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           {/* Left: Thumbnail & Text */}
           <div className="flex items-center space-x-4 max-w-2xl">
-            <div className="w-12 h-12 rounded-full overflow-hidden border border-white/20 shrink-0 shadow-inner">
+            <div className="w-12 h-12 rounded-none overflow-hidden border border-white/20 shrink-0 shadow-inner">
               <img
                 src={slide.image}
                 alt="Active Project Thumbnail"
@@ -214,7 +227,7 @@ export default function Hero() {
           <div className="flex items-center space-x-3 shrink-0">
             <button
               onClick={prevSlide}
-              className="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+              className="w-10 h-10 rounded-none border border-white/10 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
               aria-label="Previous Slide"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -223,7 +236,7 @@ export default function Hero() {
             </button>
             <button
               onClick={nextSlide}
-              className="w-10 h-10 rounded-full bg-[#c5a880] text-stone-950 hover:bg-[#b28e57] flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg"
+              className="w-10 h-10 rounded-none bg-[#c5a880] text-stone-950 hover:bg-[#b28e57] flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg"
               aria-label="Next Slide"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

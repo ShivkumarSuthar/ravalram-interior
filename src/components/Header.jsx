@@ -42,7 +42,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
     setTimeout(() => {
       setFormSubmitted(false);
       setIsConsultModalOpen(false);
-    }, 2500);
+      setView("thank-you");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 1500);
   };
 
   // Safe navigation function
@@ -85,7 +87,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             id="header-logo-link"
           >
             <span className="text-2xl md:text-3xl font-serif tracking-wider text-white font-medium">
-              antra<span className="text-gold-500">.</span>
+              suthar<span className="text-gold-500">.</span>
             </span>
           </button>
 
@@ -314,8 +316,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
             {/* 6. Direct Contact Link */}
             <button
-              onClick={() => navigateToSection("home", "#contact")}
-              className="text-stone-300 hover:text-gold-500 text-sm font-medium tracking-wide transition-colors duration-300 py-2 cursor-pointer"
+              onClick={() => navigateToSection("contact", null)}
+              className={`text-sm font-medium tracking-wide transition-colors duration-300 py-2 cursor-pointer ${
+                currentView === "contact" ? "text-gold-500 font-bold" : "text-stone-300 hover:text-gold-500"
+              }`}
             >
               Contact Us
             </button>
@@ -388,7 +392,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               <div>
                 <div className="flex items-center justify-between mb-12">
                   <span className="text-2xl font-serif text-white tracking-widest font-medium">
-                    antra<span className="text-gold-500">.</span>
+                    suthar<span className="text-gold-500">.</span>
                   </span>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -559,8 +563,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   </button>
 
                   <button
-                    onClick={() => navigateToSection("home", "#contact")}
-                    className="text-stone-300 hover:text-gold-500 py-2 text-base font-semibold text-left border-b border-white/5"
+                    onClick={() => navigateToSection("contact", null)}
+                    className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
+                      currentView === "contact" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                    }`}
                   >
                     Contact Us
                   </button>

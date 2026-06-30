@@ -7,27 +7,27 @@ import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
 const services = [
   {
     id: "01",
-    title: "Residential Interior Design",
+    title: "Architectural Interiors",
     image: coastalImg,
-    description: "Tailored design services for private homes, including room crossovers and complete home transformations."
+    description: "Honest, architect-supervised layouts designed for quiet, luxury living. Every project is planned from structure to sensory completion."
   },
   {
     id: "02",
-    title: "Commercial Interior Design",
+    title: "Custom Furniture & Cabinets",
     image: loftImg,
-    description: "Creating functional, beautiful interiors for corporate, hospitality, retail, and commercial structures."
+    description: "Crafted in our family-owned workshops since 1989. Handpicked timber, precise joins, and finishes built to develop a timeless patina."
   },
   {
     id: "03",
-    title: "Interior Design Consultation",
+    title: "Commercial & Retail Spaces",
     image: transitionImg,
-    description: "Bespoke consultations on materials, color palettes, spacing metrics, and furniture curation plans."
+    description: "High-end corporate offices, hospitality structures, and luxury boutiques engineered for seamless performance and raw architectural beauty."
   },
   {
     id: "04",
-    title: "Outdoor & Landscaping Design",
+    title: "Turnkey Execution Supervision",
     image: aboutImg,
-    description: "Expanding elegant architecture outward, synthesizing luxury patios, terracing, and curated flora."
+    description: "Total project delivery. From blueprint drafts and municipal approvals to final curated furniture installations under strict family-led standards."
   }
 ];
 
@@ -41,11 +41,11 @@ export default function Services() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 35 },
+    hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
@@ -53,16 +53,16 @@ export default function Services() {
     <section id="services" className="bg-[#faf9f6] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
+        <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-gold-500 text-xs">✦</span>
+            <span className="text-[#c5a880] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               OUR EXPERTISE
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight">
-            Explore Our <span className="font-serif italic text-gold-500 font-normal">Comprehensive</span> <br className="hidden sm:block" />
-            Interior Design <span className="font-serif italic text-gold-500 font-normal">Services</span>
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
+            Bespoke Solutions <span className="font-serif italic text-[#c5a880] font-normal lowercase">for Every</span> <br className="hidden sm:block" />
+            Architectural <span className="font-serif italic text-[#c5a880] font-normal lowercase">Scale</span>
           </h2>
         </div>
 
@@ -78,39 +78,33 @@ export default function Services() {
             <motion.div
               key={svc.id}
               variants={cardVariants}
-              className="group flex flex-col items-start bg-white p-5 rounded-2xl border border-stone-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-2xl hover:border-gold-500/20 transition-all duration-500"
+              className="group flex flex-col items-start bg-transparent transition-all duration-500"
             >
               {/* Image with ID */}
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-stone-100">
+              <div className="relative w-full aspect-[4/5] overflow-hidden mb-6 bg-stone-100 rounded-sm">
                 {/* ID badge top-left */}
-                <div className="absolute top-3 left-3 z-20 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center font-serif text-sm text-stone-900 font-medium">
+                <div className="absolute top-4 left-4 z-20 w-8 h-8 bg-stone-900/90 text-white flex items-center justify-center font-mono text-xs tracking-wider">
                   {svc.id}
                 </div>
 
                 <img
                   src={svc.image}
                   alt={svc.title}
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover filter brightness-[0.93] transform scale-100 group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
 
-                {/* Centered hover View circle */}
-                <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                  <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-950 shadow-xl scale-90 group-hover:scale-100 transition-transform duration-300">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </div>
-                </div>
+                {/* Ambient dark layer on hover */}
+                <div className="absolute inset-0 bg-stone-950/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Title and description */}
-              <div className="space-y-2 text-left">
-                <h3 className="text-base font-semibold text-stone-900 group-hover:text-gold-500 transition-colors duration-300">
+              <div className="space-y-3 text-left w-full">
+                <h3 className="text-lg font-serif font-medium tracking-tight text-stone-900 group-hover:text-[#c5a880] transition-colors duration-300">
                   {svc.title}
                 </h3>
-                <p className="text-stone-500 text-xs font-light leading-relaxed">
+                <div className="w-8 h-[1px] bg-stone-300 group-hover:w-16 transition-all duration-500" />
+                <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
                   {svc.description}
                 </p>
               </div>

@@ -9,35 +9,35 @@ const tabsData = [
   {
     id: 0,
     num: "01",
-    title: "Renovation And Remodeling",
+    title: "Renovations & Structural Planning",
     image: coastalImg,
     description: "We orchestrate complete structural transformations. Our certified site engineering team handles load-bearing evaluations, custom demolition blueprints, ceiling re-leveling, and wall displacement to maximize volume flow."
   },
   {
     id: 1,
     num: "02",
-    title: "Custom Design Consultation",
+    title: "Materiality & Curation",
     image: loftImg,
     description: "Co-authoring the look and feel of your residence. During these workshops, we review material tactile boards, test paint light interaction, draft initial hand sketches, and define the absolute budget boundaries."
   },
   {
     id: 2,
     num: "03",
-    title: "Space Planning And Layout",
+    title: "Spatial Architecture & Drafting",
     image: transitionImg,
     description: "We treat empty space as a canvas for motion. Our planners calculate ergonomics, visual focal directions, shadow zones, and furniture spacing to make sure pathways are generous and comfortable."
   },
   {
     id: 3,
     num: "04",
-    title: "3D Design Visualization",
+    title: "Virtual 3D Spatial Walkthroughs",
     image: aboutImg,
     description: "Walk inside your finished home before laying a single brick. We render full-scale photorealistic 3D spatial models showing real material textures, specific custom lighting, and customized art installations."
   }
 ];
 
 export default function InteractiveTabs() {
-  const [activeTab, setActiveTab] = useState(1); // Default active is 02 Custom Design Consultation (index 1)
+  const [activeTab, setActiveTab] = useState(1); // Default active is 02 Materiality & Curation (index 1)
 
   return (
     <section className="relative w-full min-h-[60vh] md:min-h-[75vh] flex flex-col justify-between overflow-hidden bg-stone-900 text-white">
@@ -55,7 +55,7 @@ export default function InteractiveTabs() {
             <img
               src={tabsData[activeTab].image}
               alt={tabsData[activeTab].title}
-              className="w-full h-full object-cover opacity-35"
+              className="w-full h-full object-cover opacity-35 filter brightness-75"
               referrerPolicy="no-referrer"
             />
           </motion.div>
@@ -74,7 +74,7 @@ export default function InteractiveTabs() {
             transition={{ duration: 0.5 }}
             className="space-y-4 max-w-3xl"
           >
-            <span className="text-gold-500 text-sm tracking-[0.3em] uppercase font-bold font-mono">
+            <span className="text-[#c5a880] text-sm tracking-[0.3em] uppercase font-bold font-mono">
               {tabsData[activeTab].num}
             </span>
             <h3 className="text-3xl md:text-5xl font-serif tracking-tight font-medium">
@@ -96,7 +96,7 @@ export default function InteractiveTabs() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`py-6 md:py-8 px-6 text-left transition-all duration-300 cursor-pointer relative ${
+                className={`py-6 md:py-8 px-6 text-left transition-all duration-300 cursor-pointer relative rounded-none ${
                   isActive ? "bg-white/10" : "hover:bg-white/5"
                 }`}
               >
@@ -104,12 +104,12 @@ export default function InteractiveTabs() {
                 {isActive && (
                   <motion.div
                     layoutId="activeTabUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-gold-500"
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-[#c5a880]"
                   />
                 )}
                 
                 <div className="space-y-1">
-                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-gold-500" : "text-stone-500"}`}>
+                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-[#c5a880]" : "text-stone-500"}`}>
                     {tab.num}
                   </span>
                   <h4 className={`text-xs md:text-sm font-semibold tracking-wider uppercase ${isActive ? "text-white" : "text-stone-400"}`}>

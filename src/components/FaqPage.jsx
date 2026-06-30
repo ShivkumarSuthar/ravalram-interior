@@ -43,7 +43,7 @@ const faqsData = [
     id: 3,
     category: "contracting",
     question: "Are your interior contracting services fully licensed and insured?",
-    answer: "Absolutely. Antra is fully licensed, bonded, and carries comprehensive general liability insurance alongside full workers' compensation coverage. All works strictly conform to local municipal structural regulations, building codes, and safety procedures."
+    answer: "Absolutely. Suthar is fully licensed, bonded, and carries comprehensive general liability insurance alongside full workers' compensation coverage. All works strictly conform to local municipal structural regulations, building codes, and safety procedures."
   },
   {
     id: 4,
@@ -277,7 +277,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
               </div>
               <div>
                 <span className="text-[10px] text-stone-500 uppercase tracking-widest font-mono block">Email Us</span>
-                <span className="text-xs font-medium text-stone-200">contact@antra-studio.com</span>
+                <span className="text-xs font-medium text-stone-200">contact@suthar-studio.com</span>
               </div>
             </div>
 

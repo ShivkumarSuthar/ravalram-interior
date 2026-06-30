@@ -6,7 +6,7 @@ const awards = [
     year: "2025",
     title: "Best Residential Design",
     category: "Interior Design",
-    description: "Awarded to Antra's Malibu Coastal Villa for seamless integration of natural outdoor sightlines with minimalist indoor travertine architecture."
+    description: "Awarded to Suthar's Malibu Coastal Villa for seamless integration of natural outdoor sightlines with minimalist indoor travertine architecture."
   },
   {
     year: "2024",
@@ -30,7 +30,7 @@ const awards = [
     year: "2020",
     title: "Emerging Designer Of The Year",
     category: "Interior Design",
-    description: "Honoring Antra's initial signature layouts showing high potential in premium, eye-safe warm lighting systems and raw stone finishes."
+    description: "Honoring Suthar's initial signature layouts showing high potential in premium, eye-safe warm lighting systems and raw stone finishes."
   }
 ];
 
@@ -40,7 +40,7 @@ export default function Awards() {
   return (
     <section className="bg-stone-950 text-white py-24 md:py-32 relative overflow-hidden">
       {/* Absolute Radial Gradient background glow */}
-      <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500/10 via-stone-950/0 to-stone-950/0 opacity-60 pointer-events-none" />
+      <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#c5a880]/10 via-stone-950/0 to-stone-950/0 opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -49,37 +49,37 @@ export default function Awards() {
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-gold-500 text-xs">✦</span>
+                <span className="text-[#c5a880] text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-400 block">
                   HALL OF EXCELLENCE
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight">
-                Design That <span className="font-serif italic text-gold-500 font-normal">Speaks Our</span> <br />
-                <span className="font-serif italic text-gold-500 font-normal">Industry</span> Awards
+              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight uppercase">
+                Design That <span className="font-serif italic text-[#c5a880] font-normal lowercase">Speaks Our</span> <br />
+                <span className="font-serif italic text-[#c5a880] font-normal lowercase">Industry</span> Awards
               </h2>
             </div>
 
             {/* Glowing Golden Trophy Card exactly like the reference image */}
-            <div className="relative w-64 aspect-square bg-stone-900 border border-gold-500/20 flex flex-col items-center justify-center p-8 shadow-2xl overflow-hidden group rounded-3xl">
+            <div className="relative w-64 aspect-square bg-stone-900 border border-[#c5a880]/20 flex flex-col items-center justify-center p-8 shadow-2xl overflow-hidden group rounded-none">
               {/* Gold glowing grid overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gold-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#c5a880]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               {/* Ribbon decoration "BEST" */}
-              <div className="absolute top-4 left-4 bg-gold-500 text-stone-950 text-[9px] uppercase font-black tracking-widest px-3 py-1">
+              <div className="absolute top-4 left-4 bg-[#c5a880] text-stone-950 text-[9px] uppercase font-black tracking-widest px-3 py-1">
                 BEST
               </div>
 
               {/* Sculpted Trophy Art */}
-              <div className="relative w-20 h-20 bg-stone-950 border border-gold-500/30 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-500">
-                <svg className="w-10 h-10 text-gold-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <div className="relative w-20 h-20 bg-stone-950 border border-[#c5a880]/30 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <svg className="w-10 h-10 text-[#c5a880]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
                   <path strokeLinecap="round" d="M12 18v3m-3 0h6" />
                 </svg>
               </div>
 
-              <span className="text-[10px] tracking-[0.3em] uppercase text-stone-500 font-bold font-mono mt-4">EST. 2013</span>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-stone-500 font-bold font-mono mt-4">EST. 1989</span>
               <h3 className="text-white font-medium text-sm text-center mt-2 font-serif tracking-wide">Gold Standard Craft</h3>
             </div>
           </div>
@@ -93,12 +93,12 @@ export default function Awards() {
                   key={award.year}
                   onMouseEnter={() => setActiveAward(index)}
                   className={`border-b border-stone-800 pb-5 pt-3 transition-colors duration-300 cursor-pointer text-left ${
-                    isSelected ? "border-gold-500/50" : "border-stone-800"
+                    isSelected ? "border-[#c5a880]/50" : "border-stone-800"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-6">
-                      <span className={`text-sm font-mono tracking-wider font-semibold ${isSelected ? "text-gold-500" : "text-stone-500"}`}>
+                      <span className={`text-sm font-mono tracking-wider font-semibold ${isSelected ? "text-[#c5a880]" : "text-stone-500"}`}>
                         {award.year}
                       </span>
                       <h3 className={`text-base md:text-lg font-serif transition-colors duration-300 ${isSelected ? "text-white" : "text-stone-400"}`}>
@@ -106,7 +106,7 @@ export default function Awards() {
                       </h3>
                     </div>
                     <span className={`text-xs uppercase font-bold font-mono tracking-widest hidden md:inline transition-colors duration-300 ${
-                      isSelected ? "text-gold-500" : "text-stone-600"
+                      isSelected ? "text-[#c5a880]" : "text-stone-600"
                     }`}>
                       {award.category}
                     </span>

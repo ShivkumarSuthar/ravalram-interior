@@ -29,12 +29,12 @@ function ProgressBar({ label, targetValue }) {
         <span>{label}</span>
         <span>{val}%</span>
       </div>
-      <div className="w-full h-1.5 bg-stone-200/80 rounded-none overflow-hidden">
+      <div className="w-full h-[3px] bg-stone-200/80 rounded-none overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${targetValue}%` } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="h-full bg-gold-500"
+          className="h-full bg-[#c5a880]"
         />
       </div>
     </div>
@@ -44,10 +44,10 @@ function ProgressBar({ label, targetValue }) {
 export default function ExpertBento() {
   return (
     <section className="bg-[#faf9f6] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
-      {/* Background large ghost outline 'antra' */}
+      {/* Background large ghost outline 'suthar' */}
       <div className="absolute left-6 bottom-6 select-none pointer-events-none z-0">
         <span className="text-[12vw] font-serif font-black text-stone-900/[0.015] uppercase tracking-widest leading-none">
-          antra
+          suthar
         </span>
       </div>
 
@@ -58,14 +58,14 @@ export default function ExpertBento() {
           <div className="lg:col-span-6 space-y-8 text-left">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-gold-500 text-xs">✦</span>
+                <span className="text-[#c5a880] text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   CRAFT SKILLS
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                 Trusted Expert In <br />
-                <span className="font-serif italic text-gold-500 font-normal">Architectural Design</span> <br />
+                <span className="font-serif italic text-[#c5a880] font-normal lowercase">Architectural Design</span> <br />
                 And Innovation.
               </h2>
               <p className="text-stone-500 font-light text-sm leading-relaxed max-w-xl">
@@ -75,22 +75,22 @@ export default function ExpertBento() {
 
             {/* Progress Bars */}
             <div className="space-y-6 max-w-lg">
-              <ProgressBar label="Interior Design" targetValue={90} />
-              <ProgressBar label="3D Modeling" targetValue={95} />
-              <ProgressBar label="2D Planning" targetValue={65} />
+              <ProgressBar label="Custom Furniture & Cabinets" targetValue={95} />
+              <ProgressBar label="Architectural Interiors" targetValue={90} />
+              <ProgressBar label="Turnkey Project Delivery" targetValue={85} />
             </div>
           </div>
 
-          {/* Right Column: Beautiful Bento Arched Layout Box */}
+          {/* Right Column: Beautiful Bento Layout Box */}
           <div className="lg:col-span-6">
             <div className="grid grid-cols-12 gap-6">
               {/* Main Arched Frame */}
-              <div className="col-span-8 bg-white border border-stone-200/60 p-4 rounded-3xl rounded-b-none shadow-2xl relative overflow-hidden">
-                <div className="w-full aspect-[3/4] overflow-hidden rounded-t-[100px] bg-stone-100">
+              <div className="col-span-8 bg-white border border-stone-200/60 p-4 rounded-none shadow-sm relative overflow-hidden">
+                <div className="w-full aspect-[3/4] overflow-hidden rounded-none bg-stone-100">
                   <img
                     src={aboutImg}
-                    alt="Elegant arched architectural render"
-                    className="w-full h-full object-cover filter brightness-95 saturate-110"
+                    alt="Elegant architectural space"
+                    className="w-full h-full object-cover filter brightness-95"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -98,21 +98,21 @@ export default function ExpertBento() {
 
               {/* Smaller bento components */}
               <div className="col-span-4 flex flex-col justify-between gap-6">
-                <div className="bg-white border border-stone-200/60 p-5 rounded-2xl shadow-lg text-left space-y-2">
-                  <span className="text-xs font-bold text-gold-500 font-mono">98%</span>
-                  <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">HAPPY CLIENTS</p>
+                <div className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm text-left space-y-2">
+                  <span className="text-xs font-bold text-[#c5a880] font-mono">250+</span>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">SPACES DESIGNED</p>
                 </div>
 
                 {/* Styled Round Mirror mockup widget */}
-                <div className="bg-white border border-stone-200/60 p-5 aspect-square rounded-full shadow-lg flex items-center justify-center flex-col relative overflow-hidden">
-                  <div className="absolute inset-2 rounded-full border border-dashed border-stone-300" />
+                <div className="bg-white border border-stone-200/60 p-5 aspect-square rounded-none shadow-sm flex items-center justify-center flex-col relative overflow-hidden">
+                  <div className="absolute inset-2 border border-dashed border-stone-300" />
                   <span className="text-xs font-serif italic text-stone-700">Artisan</span>
                   <span className="text-[8px] uppercase tracking-widest text-stone-400 font-bold mt-1">MIRROR_VIBE</span>
                 </div>
 
-                <div className="bg-stone-900 text-white p-5 rounded-2xl shadow-lg text-left space-y-1">
-                  <span className="text-xs font-bold text-gold-500 font-mono">A+</span>
-                  <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">RATING</p>
+                <div className="bg-stone-900 text-white p-5 rounded-none shadow-sm text-left space-y-1">
+                  <span className="text-xs font-bold text-[#c5a880] font-mono">35+</span>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">LEGACY YEARS</p>
                 </div>
               </div>
             </div>

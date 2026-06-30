@@ -7,7 +7,7 @@ const INITIAL_MESSAGES = [
   {
     id: "init-1",
     sender: "assistant",
-    text: "Welcome to Antra Studio. I'm Julian, Lead Spatial Architect. How may I assist in clarifying your design aspirations today?",
+    text: "Welcome to Suthar Interior Studio. I'm Padam, Lead Spatial Architect. How may I assist in clarifying your design aspirations today?",
     time: "Now"
   }
 ];
@@ -174,12 +174,12 @@ export default function LuxuryChatbot() {
             </button>
             <div className="flex items-start space-x-3 pr-4">
               <div className="w-8 h-8 rounded-full bg-gold-500/10 border border-gold-500 flex items-center justify-center shrink-0 mt-0.5 text-gold-500 text-xs font-serif italic">
-                J
+                P
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] uppercase font-bold tracking-widest text-gold-500">Lead Architect</p>
                 <p className="text-stone-300 text-xs font-light leading-relaxed">
-                  Hi, Julian here. Seeking quiet luxury interior guidance? Let's chat.
+                  Hi, Padam here. Seeking architectural or custom furniture guidance? Let's chat.
                 </p>
               </div>
             </div>
@@ -252,13 +252,13 @@ export default function LuxuryChatbot() {
               <div className="flex items-center space-x-3">
                 <div className="relative">
                   <div className="w-10 h-10 rounded-full bg-stone-800 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif italic text-base">
-                    J
+                    P
                   </div>
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-stone-900" />
                 </div>
                 <div>
                   <div className="flex items-center space-x-1">
-                    <h4 className="text-white text-xs font-bold uppercase tracking-wider">Julian Vance</h4>
+                    <h4 className="text-white text-xs font-bold uppercase tracking-wider">Padam Sutar</h4>
                     <Sparkles size={10} className="text-gold-500" />
                   </div>
                   <p className="text-[10px] text-stone-400 font-light">Lead Architectural Consultant</p>
@@ -285,7 +285,7 @@ export default function LuxuryChatbot() {
                   >
                     {isBot ? (
                       <div className="w-7 h-7 rounded-full bg-stone-800 border border-gold-500/20 flex items-center justify-center text-gold-500 text-[10px] font-serif italic shrink-0">
-                        J
+                        P
                       </div>
                     ) : (
                       <div className="w-7 h-7 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 shrink-0">
@@ -316,7 +316,7 @@ export default function LuxuryChatbot() {
               {isTyping && (
                 <div className="flex items-start gap-2.5">
                   <div className="w-7 h-7 rounded-full bg-stone-800 border border-gold-500/20 flex items-center justify-center text-gold-500 text-[10px] font-serif italic shrink-0">
-                    J
+                    P
                   </div>
                   <div className="bg-stone-900/80 border border-white/5 p-3 px-4 flex items-center space-x-1 max-w-[75%]">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold-500/60 animate-bounce delay-100" />
@@ -365,9 +365,9 @@ export default function LuxuryChatbot() {
 
             {/* Branded Footer accent */}
             <div className="bg-stone-950 py-1.5 px-4 border-t border-white/5 text-[9px] text-stone-600 font-mono tracking-widest uppercase flex items-center justify-between select-none">
-              <span>Julian AI Advisor</span>
+              <span>Padam AI Advisor</span>
               <div className="flex items-center space-x-1 text-gold-500/60 font-serif lowercase">
-                <span>antra</span>
+                <span>suthar</span>
                 <span className="w-1 h-1 bg-gold-500 rounded-full" />
               </div>
             </div>

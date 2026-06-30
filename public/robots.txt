@@ -1,0 +1,6 @@
+# Suthar Interior Studio SEO Robots Configuration
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://sutharinteriors.com/sitemap.xml

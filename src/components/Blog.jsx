@@ -8,26 +8,26 @@ const sideArticles = [
   {
     id: 1,
     image: loftImg,
-    tag: "Tips & Trick",
-    date: "July 28, 2025",
-    title: "How Does One Go About Buying Furniture?",
-    desc: "We believe that every space has the power to inspire, and that great design..."
+    tag: "Woodcraft Heritage",
+    date: "June 25, 2026",
+    title: "The Patina of Timber: Sourcing Hardwoods for Heirloom Joinery",
+    desc: "How handpicked solid teak and Indian rosewood mature under natural oil applications to develop timeless architectural character."
   },
   {
     id: 2,
     image: transitionImg,
-    tag: "Tips & Trick",
-    date: "July 28, 2025",
-    title: "How Does One Go About Buying Furniture?",
-    desc: "We believe that every space has the power to inspire, and that great design..."
+    tag: "Materiality",
+    date: "May 18, 2026",
+    title: "Luxurious Travertine: Balancing Raw Finishes with Indirect Light",
+    desc: "Unlocking the volumetric depth of modern bathrooms and lounges through textured plaster and warm recessed light channels."
   },
   {
     id: 3,
     image: aboutImg,
-    tag: "Tips & Trick",
-    date: "July 28, 2025",
-    title: "How Does One Go About Buying Furniture?",
-    desc: "We believe that every space has the power to inspire, and that great design..."
+    tag: "Execution",
+    date: "April 02, 2026",
+    title: "Honest Supervision: The Critical Value of Architect-Led Remodeling",
+    desc: "Why on-site family-led quality control and municipal blueprint compliance guarantee zero hidden construction delays."
   }
 ];
 
@@ -36,16 +36,16 @@ export default function Blog() {
     <section id="blog" className="bg-[#faf9f6] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
+        <div className="text-left mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-gold-500 text-xs">✦</span>
+            <span className="text-[#c5a880] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-              OUR ARTICLES
+              OUR JOURNAL
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight text-center">
-            Take A Look At <span className="font-serif italic text-gold-500 font-normal">Our Latest</span> <br />
-            <span className="font-serif italic text-gold-500 font-normal">Blog</span> & Articles.
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
+            Architectural Insights <span className="font-serif italic text-[#c5a880] font-normal lowercase">&amp;</span> <br />
+            <span className="font-serif italic text-[#c5a880] font-normal lowercase">Craftsman</span> Chronicles
           </h2>
         </div>
 
@@ -59,25 +59,25 @@ export default function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-white border border-stone-200/60 p-5 rounded-3xl shadow-xl space-y-6 group cursor-pointer text-left"
+              className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm space-y-6 group cursor-pointer text-left"
             >
-              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100 relative">
+              <div className="w-full aspect-[4/3] rounded-none overflow-hidden bg-stone-100 relative">
                 <img
                   src={coastalImg}
                   alt="Extra space design"
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover filter brightness-95 transform scale-100 group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
               </div>
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-[10px] font-mono tracking-wider text-stone-400 font-bold">
-                  <span className="text-gold-500 uppercase">{ "Tips & Trick" }</span>
+                  <span className="text-[#c5a880] uppercase">Structural Curation</span>
                   <span>&bull;</span>
-                  <span>July 28, 2025</span>
+                  <span>June 29, 2026</span>
                 </div>
-                <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-gold-500 transition-colors duration-300 leading-snug">
-                  Four Ways For Creating Extra Space In Small Homes
+                <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-[#c5a880] transition-colors duration-300 leading-snug">
+                  Four Ways to Create Volumetric Space in Residential Architecture
                 </h3>
                 <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
                   We believe that every space has the power to inspire, and that great design brings that inspiration to life. Our mission is to craft environments that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.
@@ -95,14 +95,14 @@ export default function Blog() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-white border border-stone-200/60 p-4 rounded-2xl shadow-md hover:shadow-xl hover:border-gold-500/25 transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center group cursor-pointer text-left"
+                className="bg-white border border-stone-200/60 p-4 rounded-none shadow-sm hover:border-[#c5a880]/20 transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center group cursor-pointer text-left"
               >
                 {/* Small image frame */}
-                <div className="w-full sm:w-28 aspect-video sm:aspect-square rounded-xl overflow-hidden bg-stone-100 shrink-0">
+                <div className="w-full sm:w-28 aspect-video sm:aspect-square rounded-none overflow-hidden bg-stone-100 shrink-0">
                   <img
                     src={art.image}
                     alt={art.title}
-                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover filter brightness-95 transform scale-100 group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -110,11 +110,11 @@ export default function Blog() {
                 {/* Article details */}
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3 text-[10px] font-mono tracking-wider text-stone-400 font-bold">
-                    <span className="text-gold-500 uppercase">{art.tag}</span>
+                    <span className="text-[#c5a880] uppercase">{art.tag}</span>
                     <span>&bull;</span>
                     <span>{art.date}</span>
                   </div>
-                  <h4 className="text-sm md:text-base font-semibold text-stone-900 group-hover:text-gold-500 transition-colors duration-300 leading-snug">
+                  <h4 className="text-sm md:text-base font-serif font-medium text-stone-900 group-hover:text-[#c5a880] transition-colors duration-300 leading-snug">
                     {art.title}
                   </h4>
                   <p className="text-stone-500 text-xs font-light leading-relaxed line-clamp-2">

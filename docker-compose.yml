@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: suthar_interior_studio_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: suthar-interior-studio:latest
+    restart: unless-stopped
+    ports:
+      # Map host port 8080 to container's Nginx port 80
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    # Resource constraints for container scheduling best practices
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

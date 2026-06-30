@@ -32,7 +32,7 @@ export default function Footer({ onNavigate = () => {} }) {
               onClick={() => handleNavigate("home", null)}
               className="text-3xl font-serif tracking-widest text-white font-bold block uppercase cursor-pointer"
             >
-              antra<span className="text-gold-500">.</span>
+              suthar<span className="text-gold-500">.</span>
             </button>
             <p className="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
               We engineer quiet, sophisticated architectural layouts. Each design synthesizes raw organic textures with luxurious material palettes to co-create spatial masterpieces.
@@ -97,6 +97,14 @@ export default function Footer({ onNavigate = () => {} }) {
                   className="hover:text-gold-500 transition-colors duration-300 cursor-pointer text-left font-semibold text-gold-500"
                 >
                   Coming Soon Launch
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("contact", null)}
+                  className="hover:text-gold-500 transition-colors duration-300 cursor-pointer text-left font-semibold text-[#c5a880]"
+                >
+                  Contact Us
                 </button>
               </li>
             </ul>
@@ -166,11 +174,11 @@ export default function Footer({ onNavigate = () => {} }) {
               </li>
               <li className="flex items-center">
                 <Mail size={14} className="text-gold-500 mr-2 shrink-0" />
-                <a href="mailto:Support@example.com" className="hover:text-gold-500 transition-colors duration-300">Support@example.com</a>
+                <a href="mailto:studio@sutharinterior.com" className="hover:text-gold-500 transition-colors duration-300">studio@sutharinterior.com</a>
               </li>
               <li className="flex items-center">
                 <span className="text-gold-500 text-xs font-bold uppercase tracking-wider mr-2 font-mono">TEL:</span>
-                <a href="tel:+0844560789" className="hover:text-gold-500 transition-colors duration-300 font-medium">+(084) 456-0789</a>
+                <a href="tel:+14804560789" className="hover:text-gold-500 transition-colors duration-300 font-medium">+1 (480) 456-0789</a>
               </li>
             </ul>
           </div>
@@ -178,22 +186,32 @@ export default function Footer({ onNavigate = () => {} }) {
         </div>
       </div>
 
-      {/* SECTION 2: MAJESTIC typography backdrop "antra" overlay exactly like the image */}
+      {/* SECTION 2: MAJESTIC typography backdrop "suthar" overlay exactly like the image */}
       <div className="relative w-full h-32 md:h-52 flex items-center justify-center select-none overflow-hidden border-b border-white/5">
         <h2 className="text-[12vw] font-serif tracking-[0.1em] text-stone-900/60 font-bold leading-none translate-y-4 text-center select-none uppercase pointer-events-none">
-          antra
+          suthar
         </h2>
       </div>
 
       {/* SECTION 3: COPYRIGHT BOTTOM BAR */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-600">
         <div>
-          <span>© 2026 Antra Interior Design Studio. All Rights Reserved.</span>
+          <span>© 1989-2026 Suthar Interior Studio. All Rights Reserved.</span>
         </div>
         
         <div className="flex items-center space-x-6">
-          <a href="#" className="hover:text-gold-500 transition-colors duration-300">Terms of Service</a>
-          <a href="#" className="hover:text-gold-500 transition-colors duration-300">Privacy Policy</a>
+          <button
+            onClick={() => handleNavigate("terms", null)}
+            className="hover:text-gold-500 transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+          >
+            Terms of Service
+          </button>
+          <button
+            onClick={() => handleNavigate("privacy", null)}
+            className="hover:text-gold-500 transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+          >
+            Privacy Policy
+          </button>
           
           <button
             onClick={scrollToTop}
