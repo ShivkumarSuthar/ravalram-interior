@@ -30,15 +30,7 @@ import {
   Layers
 } from "lucide-react";
 
-// Local asset imports for visual and brand consistency
-import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import heroSlide2 from "../assets/images/antra_hero_slide2_1782747378004.jpg";
-import heroSlide3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import lobbyBanner from "../assets/images/antra_lobby_banner_1782744283860.jpg";
-import projectCoastal from "../assets/images/antra_project_coastal_1782744299850.jpg";
-import projectLoft from "../assets/images/antra_project_loft_1782744318019.jpg";
-import transitionLuxury from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import {images} from "../lib/images";
 
 export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -107,7 +99,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["architecture", "residential", "turnkey"],
       location: "Goa",
       description: "A breath-taking sea-facing estate combining monolithic concrete slabs with traditional wooden ceiling grids.",
-      image: projectCoastal,
+      image: images.coastal,
       materials: "Pre-cast Structural Concrete, Teakwood Ceiling Beams, Warm Travertine cladding"
     },
     {
@@ -127,7 +119,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["renovation", "residential", "living-room"],
       location: "Bengaluru",
       description: "Complete overhaul of a vintage industrial brick loft into a contemporary, light-flooded multi-level home.",
-      image: projectLoft,
+      image: images.loft,
       materials: "Exposed Heritage Brick, Black Powder-Coated Steel, Restored Solid Oak Floors"
     },
     {
@@ -137,7 +129,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["office", "commercial", "turnkey"],
       location: "Pune",
       description: "Premium collaborative corporate workspace featuring acoustic comfort and fluted privacy partition screens.",
-      image: transitionLuxury,
+      image: images.transition,
       materials: "Fluted Charcoal Glass, Acoustic Fabric Panels, Matte Metal Framing"
     },
     {
@@ -147,7 +139,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["furniture", "wardrobe", "residential"],
       location: "Kumta",
       description: "A high-precision custom master bedroom walk-in closet with internal automated sensor lighting arrays.",
-      image: aboutImg,
+      image: images.about,
       materials: "Veneered Marine Ply, Tinted Tempered Glass, Hand-stitched Leather Drawer Pulls"
     },
     {
@@ -157,7 +149,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["office", "commercial", "architecture"],
       location: "Mumbai",
       description: "Monolithic reception counter framed by geometric timber screens and indirect architectural light wells.",
-      image: lobbyBanner,
+      image: images.lobbyBanner,
       materials: "Hand-carved Travertine Stone, Solid European Oak Slats, Warm LED Profiles"
     },
     {
@@ -167,7 +159,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["residential", "bedroom", "turnkey"],
       location: "Mumbai",
       description: "A serene, resort-style bedroom utilizing soft tones, floating wood frames, and organic linen panels.",
-      image: heroSlide2,
+      image: images.heroSlide2,
       materials: "Stained Ashwood, Bouclé headboards, Dimmable warm light wells"
     },
     {
@@ -408,10 +400,10 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   // Featured Collection Layout Images
   const featuredLarge = "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200";
   const featuredSupport = [
-    projectCoastal,
-    transitionLuxury,
+    images.projectCoastal,
+    images.transitionLuxury,
     "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600",
-    projectLoft
+    images.projectLoft
   ];
 
   // Craftsmanship Cards config
@@ -436,9 +428,9 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   // Instagram Post Mockups
   const instagramPosts = [
     { id: "ig-1", img: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=600", likes: "1,240", comments: "48", title: "Refining the final grain on our custom American Walnut credenza." },
-    { id: "ig-2", img: projectCoastal, likes: "2,150", comments: "92", title: "Waking up to ocean breezes. Coastal residential masterpiece handed over in Goa." },
+    { id: "ig-2", img: images.projectCoastal, likes: "2,150", comments: "92", title: "Waking up to ocean breezes. Coastal residential masterpiece handed over in Goa." },
     { id: "ig-3", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600", likes: "982", comments: "31", title: "Flawless modular kitchen design combining warm teakwood & matte charcoal panels." },
-    { id: "ig-4", img: projectLoft, likes: "1,530", comments: "54", title: "Industrial restoration. Bridging heritage brickwork with clean black steel structures." }
+    { id: "ig-4", img: images.projectLoft, likes: "1,530", comments: "54", title: "Industrial restoration. Bridging heritage brickwork with clean black steel structures." }
   ];
 
   const handleOpenConsultation = () => {

@@ -1,34 +1,38 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import heroImg1 from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import heroImg2 from "../assets/images/antra_hero_slide2_1782747378004.jpg";
-import heroImg3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
+import Image from "next/image";
+import { images } from "../lib/images";
 
 const slides = [
   {
-    image: heroImg1,
+    image: images.hero,
     label: "30+ YEARS OF FAMILY CRAFTSMANSHIP",
     titlePrefix: "Designing ",
     titleItalic: "Spaces",
     titleSuffix: " Built Around You.",
-    subtitle: "Architect-led interiors, custom furniture, and complete project execution crafted with precision, honesty, and over three decades of experience."
+    subtitle:
+      "Architect-led interiors, custom furniture, and complete project execution crafted with precision, honesty, and over three decades of experience.",
   },
   {
-    image: heroImg2,
+    image: images.heroSlide2,
     label: "ARCHITECTURE • INTERIORS • FURNITURE",
     titlePrefix: "Crafted with ",
     titleItalic: "Precision.",
     titleSuffix: " Built to Last.",
-    subtitle: "From elegant homes to inspiring workplaces, every project is thoughtfully designed and expertly executed."
+    subtitle:
+      "From elegant homes to inspiring workplaces, every project is thoughtfully designed and expertly executed.",
   },
   {
-    image: heroImg3,
+    image: images.heroSlide3,
     label: "HONEST PRICING • CUSTOM SOLUTIONS",
     titlePrefix: "Your ",
     titleItalic: "Vision.",
     titleSuffix: " Our Commitment.",
-    subtitle: "Flexible execution, premium craftsmanship, and material choices tailored to your needs."
-  }
+    subtitle:
+      "Flexible execution, premium craftsmanship, and material choices tailored to your needs.",
+  },
 ];
 
 export default function Hero({ setView }) {

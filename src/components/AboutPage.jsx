@@ -18,13 +18,8 @@ import {
   Award,
   BookOpen
 } from "lucide-react";
-
-// local images
-import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
-import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import bannerImg from "../assets/images/antra_lobby_banner_1782744283860.jpg";
+import {images} from "../lib/images";
+import Image from "next/image";
 
 const timelineEvents = [
   {
@@ -243,11 +238,14 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   transition={{ duration: 1 }}
                   className="col-span-8 aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl border border-stone-200/50"
                 >
-                  <img
-                    src={aboutImg}
+                  <Image
+                    src={images.aboutImg}
                     alt="Foundry of legacy"
                     className="w-full h-full object-cover filter brightness-95"
                     referrerPolicy="no-referrer"
+                    fill
+                    sizes= "100vw"
+                    priority="high"
                   />
                 </motion.div>
 
@@ -258,11 +256,14 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   transition={{ duration: 1, delay: 0.2 }}
                   className="col-span-6 aspect-[4/5] rounded-xl overflow-hidden shadow-2xl border-4 border-white absolute right-2 bottom-[-40px] z-10 w-48 sm:w-64"
                 >
-                  <img
-                    src={transitionImg}
+                  <Image
+                    src={images.transitionImg}
                     alt="Exquisite details"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    fill
+                    sizes= "100vw"
+                    priority="high"
                   />
                 </motion.div>
               </div>
@@ -483,27 +484,36 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
             <div className="lg:col-span-6 relative">
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-12 aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border border-stone-200/55">
-                  <img
-                    src={coastalImg}
+                  <Image
+                    src={images.coastalImg}
                     alt="Premium living space design"
                     className="w-full h-full object-cover filter brightness-[0.92]"
                     referrerPolicy="no-referrer"
+                    fill
+                    sizes= "100vw"
+                    priority="high"
                   />
                 </div>
                 <div className="col-span-6 aspect-[1/1] rounded-2xl overflow-hidden shadow-lg border border-stone-200/55">
-                  <img
-                    src={loftImg}
+                  <Image
+                    src={images.loftImg}
                     alt="Modern workshop furniture finish"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    fill
+                    sizes= "100vw"
+                    priority="high"
                   />
                 </div>
                 <div className="col-span-6 aspect-[1/1] rounded-2xl overflow-hidden shadow-lg border border-stone-200/55">
-                  <img
-                    src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600"
+                  <Image
+                    src={images.transitionImg}
                     alt="Modular premium kitchen layout"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    fill
+                    sizes= "100vw"
+                    priority="high"
                   />
                 </div>
               </div>
@@ -611,11 +621,13 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               >
                 {/* Image Frame */}
                 <div className="aspect-[4/3] bg-stone-950 overflow-hidden relative border-b border-stone-100">
-                  <img
+                  <Image
                     src={leader.image}
                     alt={leader.name}
                     className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-1000"
-                    referrerPolicy="no-referrer"
+                    fill
+                    sizes="100vw"
+                    priority="high"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

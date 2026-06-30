@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "motion/react";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-
+import { images } from "../lib/images";
 function CountUp({ to, duration = 1.5, suffix = "" }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -90,11 +90,13 @@ export default function Stats() {
                 </div>
                 {/* Image */}
                 <div className="w-full aspect-[16/10] overflow-hidden rounded-none">
-                  <img
-                    src={transitionImg}
+                  <Image
+                    src={images.transition}
                     alt="Luxury interior architecture detail"
                     className="w-full h-full object-cover filter brightness-95"
                     referrerPolicy="no-referrer"
+                    sizes="100vw"
+                    fill
                   />
                 </div>
               </div>

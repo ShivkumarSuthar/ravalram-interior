@@ -22,12 +22,8 @@ import {
   Globe
 } from "lucide-react";
 
-// Local asset imports for high-fidelity brand consistency
-import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
-import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import bannerImg from "../assets/images/antra_lobby_banner_1782744283860.jpg";
+import { images } from "../lib/images";
+import Image from "next/image";
 
 export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
   // Form submission state
@@ -203,11 +199,14 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
         {/* Full-width premium background image with subtle dark overlay */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2000"
+          <Image
+            src={images.banner}
             alt="Premium spatial architecture Suthar Studio"
             className="w-full h-full object-cover opacity-25 filter brightness-[0.3]"
             referrerPolicy="no-referrer"
+            fill
+            sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-stone-950/40" />
         </div>

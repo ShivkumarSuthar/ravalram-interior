@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
+import Image from "next/image";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
 
 export default function About({ setView }) {
   const containerVariants = {
@@ -61,13 +62,14 @@ export default function About({ setView }) {
 
                 {/* Overlapping small custom furniture image with perfect razor-sharp corners */}
                 <div className="w-full max-w-[280px] sm:w-64 aspect-[3/4] relative sm:-ml-8 md:-ml-12 mt-2 sm:mt-12 z-10 shadow-2xl rounded-none overflow-hidden border-4 border-[#faf9f6] group">
-                  <img
+                  <Image
                     src={loftImg}
                     alt="Bespoke luxury custom furniture setup"
                     className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                     loading="lazy"
                     decoding="async"
+                    fill
                   />
                 </div>
               </div>

@@ -22,15 +22,9 @@ import {
   Users
 } from "lucide-react";
 
-// Local asset imports
-import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
-import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import bannerImg from "../assets/images/antra_lobby_banner_1782744283860.jpg";
+import {images} from "../lib/images";
 
 export default function ServicesPage({ onBackToHome, onOpenQuote }) {
-  // FAQ state
   const [activeFaq, setActiveFaq] = useState(null);
 
   const coreServices = [
@@ -59,7 +53,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Dining Areas",
         "Complete Home Interiors"
       ],
-      image: coastalImg,
+      image: images.coastal,
       accent: "CURATED HOMES"
     },
     {
@@ -73,7 +67,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Restaurants",
         "Commercial Buildings"
       ],
-      image: transitionImg,
+      image: images.transition,
       accent: "PRODUCTIVE SPACES"
     },
     {
@@ -89,7 +83,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Beds",
         "Reception Counters"
       ],
-      image: loftImg,
+      image: images.loft,
       accent: "HERITAGE JOINERY"
     },
     {
@@ -102,7 +96,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Interior Upgrades",
         "Space Transformation"
       ],
-      image: aboutImg,
+      image: images.about,
       accent: "STRUCTURAL RENEWAL"
     },
     {
@@ -117,7 +111,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Electrical",
         "Quality Inspection"
       ],
-      image: bannerImg,
+      image: images.banner,
       accent: "COMPLETE CONTRACTING"
     }
   ];

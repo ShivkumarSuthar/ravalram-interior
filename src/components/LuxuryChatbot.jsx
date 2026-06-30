@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageSquare, X, Send, Sparkles, User, ArrowRight, CornerDownLeft, MapPin } from "lucide-react";

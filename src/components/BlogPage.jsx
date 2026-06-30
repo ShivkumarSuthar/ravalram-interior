@@ -27,17 +27,7 @@ import {
   Award
 } from "lucide-react";
 
-// Asset imports (as requested and present in the project tree)
-import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import heroSlide2 from "../assets/images/antra_hero_slide2_1782747378004.jpg";
-import heroSlide3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import lobbyBanner from "../assets/images/antra_lobby_banner_1782744283860.jpg";
-import projectCoastal from "../assets/images/antra_project_coastal_1782744299850.jpg";
-import projectLoft from "../assets/images/antra_project_loft_1782744318019.jpg";
-import transitionLuxury from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-
-// Category definitions (13 tags as requested)
+import { images } from "../lib/images";
 const filterTabs = [
   { id: "all", label: "All" },
   { id: "interior-design", label: "Interior Design" },
@@ -60,7 +50,7 @@ const featuredArticle = {
   title: "Complete Guide to Planning Your Dream Home Interior",
   category: "interior-design",
   categoryLabel: "Interior Design",
-  image: projectCoastal,
+  image: images.projectCoastal,
   date: "June 28, 2026",
   author: "Elena Suthar",
   readTime: "8 min read",
@@ -93,7 +83,7 @@ const blogArticles = [
     title: "How to Choose the Right Interior Designer",
     category: "interior-design",
     categoryLabel: "Interior Design",
-    image: transitionLuxury,
+    image: images.transitionLuxury,
     date: "June 25, 2026",
     author: "Elena Suthar",
     readTime: "6 min read",
@@ -114,7 +104,7 @@ Your designer will be in your life for months. You must feel comfortable discuss
     title: "Modern Living Room Design Ideas",
     category: "living-rooms",
     categoryLabel: "Living Rooms",
-    image: heroSlide3,
+    image: images.heroSlide3,
     date: "June 22, 2026",
     author: "Rajesh Suthar",
     readTime: "5 min read",
@@ -135,7 +125,7 @@ An elegant living room needs an anchor point. A book-matched marble slab or a te
     title: "Best Materials for Custom Furniture",
     category: "furniture",
     categoryLabel: "Furniture",
-    image: aboutImg,
+    image: images.aboutImg,
     date: "June 19, 2026",
     author: "Karan Suthar",
     readTime: "7 min read",
@@ -158,7 +148,7 @@ Avoid heavy polyurethane coatings that suffocate wood. Instead, opt for hand-pol
     title: "How Much Does Interior Design Cost?",
     category: "budget-planning",
     categoryLabel: "Budget Planning",
-    image: lobbyBanner,
+    image: images.lobbyBanner,
     date: "June 14, 2026",
     author: "Elena Suthar",
     readTime: "9 min read",
@@ -181,7 +171,7 @@ If you need to optimize costs, do not do it on your kitchen base cabinets or bat
     title: "Kitchen Design Trends for Modern Homes",
     category: "modular-kitchen",
     categoryLabel: "Modular Kitchen",
-    image: heroBg,
+    image: images.heroBg,
     date: "June 10, 2026",
     author: "Rajesh Suthar",
     readTime: "6 min read",
@@ -205,7 +195,7 @@ Instead of traditional tiled walls with grout lines that accumulate oils, run th
     title: "Wardrobe Design Ideas",
     category: "bedrooms",
     categoryLabel: "Bedrooms",
-    image: projectLoft,
+    image: images.projectLoft,
     date: "June 05, 2026",
     author: "Karan Suthar",
     readTime: "5 min read",
@@ -226,7 +216,7 @@ Incorporate shallow, customized valet drawers lined with soft velvet or Alcantar
     title: "Office Interior Design Tips",
     category: "office-design",
     categoryLabel: "Office Design",
-    image: transitionLuxury,
+    image: images.transitionLuxury,
     date: "May 28, 2026",
     author: "Rajesh Suthar",
     readTime: "7 min read",
@@ -247,7 +237,7 @@ Avoid direct blue light fluorescent ceiling grids. Set up smart indirect lights 
     title: "Luxury Bedroom Inspiration",
     category: "bedrooms",
     categoryLabel: "Bedrooms",
-    image: heroSlide2,
+    image: images.heroSlide2,
     date: "May 22, 2026",
     author: "Elena Suthar",
     readTime: "6 min read",
@@ -268,7 +258,7 @@ True luxury is tactile. Skip shiny synthetic fabrics and embrace pure Belgian fl
     title: "Mistakes to Avoid During Home Renovation",
     category: "renovation",
     categoryLabel: "Renovation",
-    image: projectLoft,
+    image: images.projectLoft,
     date: "May 15, 2026",
     author: "Karan Suthar",
     readTime: "10 min read",
@@ -289,7 +279,7 @@ A beautiful living room drywall will quickly ruin if there's minor water seepage
     title: "Choosing the Right Plywood",
     category: "materials",
     categoryLabel: "Materials",
-    image: aboutImg,
+    image: images.aboutImg,
     date: "May 08, 2026",
     author: "Rajesh Suthar",
     readTime: "8 min read",
@@ -309,7 +299,7 @@ Medium-Density Fiberboard (MDF) and Particle Board are made from compressed wood
     title: "Benefits of Turnkey Interior Solutions",
     category: "interior-design",
     categoryLabel: "Interior Design",
-    image: lobbyBanner,
+    image: images.lobbyBanner,
     date: "May 01, 2026",
     author: "Elena Suthar",
     readTime: "7 min read",
@@ -330,7 +320,7 @@ Separate contractors often provide low initial quotes only to hit you with major
     title: "How to Plan a Small Apartment",
     category: "home-tips",
     categoryLabel: "Home Tips",
-    image: projectCoastal,
+    image: images.projectCoastal,
     date: "April 24, 2026",
     author: "Karan Suthar",
     readTime: "6 min read",
@@ -351,7 +341,7 @@ Replace solid brick partitions with clear or fluted black-framed glass walls. Th
     title: "Restoring Historic Archways",
     category: "architecture",
     categoryLabel: "Architecture",
-    image: heroBg,
+    image: images.heroBg,
     date: "April 15, 2026",
     author: "Rajesh Suthar",
     readTime: "7 min read",
@@ -372,7 +362,7 @@ To make historical spaces livable, we carefully integrate electrical conduits an
     title: "Aesthetics of Boutique Showrooms",
     category: "commercial",
     categoryLabel: "Commercial",
-    image: transitionLuxury,
+    image: images.transitionLuxury,
     date: "April 05, 2026",
     author: "Elena Suthar",
     readTime: "8 min read",

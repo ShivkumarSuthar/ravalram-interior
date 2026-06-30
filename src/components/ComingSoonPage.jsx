@@ -14,9 +14,8 @@ import {
   Construction
 } from "lucide-react";
 
-// Asset imports
-import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import transitionLuxury from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import { images } from "../lib/images";
+import Image from "next/image";
 
 export default function ComingSoonPage({ onBackToHome }) {
   const [email, setEmail] = useState("");
@@ -69,11 +68,14 @@ export default function ComingSoonPage({ onBackToHome }) {
       
       {/* Background Image & Immersive Gradients */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={transitionLuxury}
+        <Image
+          src={images.transition}
           alt="Luxury Architectural Background"
           className="w-full h-full object-cover opacity-25 filter grayscale contrast-125 scale-105"
           referrerPolicy="no-referrer"
+          fill
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-stone-950 via-stone-950/90 to-transparent" />
         <div className="absolute inset-0 bg-stone-950/40 backdrop-blur-[2px]" />

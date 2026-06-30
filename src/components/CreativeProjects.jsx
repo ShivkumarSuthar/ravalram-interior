@@ -1,7 +1,9 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
-import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
+import Image from "next/image";
+import { images } from "../lib/images";
 
 const projects = [
   {
@@ -9,33 +11,37 @@ const projects = [
     title: "Luxury Residence",
     category: "Residential Interior",
     filterKey: "Residential",
-    image: coastalImg,
-    description: "A warm contemporary home designed with custom furniture, premium finishes, and carefully planned lighting to create elegant everyday living."
+    image: images.coastal,
+    description:
+      "A warm contemporary home designed with custom furniture, premium finishes, and carefully planned lighting to create elegant everyday living.",
   },
   {
     id: 2,
     title: "Modern Office Workspace",
     category: "Commercial Interior",
     filterKey: "Commercial",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200",
-    description: "A productive and inspiring workspace balancing functionality, comfort, and modern aesthetics for growing businesses."
+    image: images.transition, // replace Unsplash with your own image
+    description:
+      "A productive and inspiring workspace balancing functionality, comfort, and modern aesthetics for growing businesses.",
   },
   {
     id: 3,
     title: "Premium Modular Kitchen",
     category: "Custom Furniture",
     filterKey: "Furniture",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200",
-    description: "A beautifully crafted modular kitchen designed around efficiency, premium materials, and timeless style."
+    image: images.about, // replace Unsplash with your own image
+    description:
+      "A beautifully crafted modular kitchen designed around efficiency, premium materials, and timeless style.",
   },
   {
     id: 4,
     title: "Home Renovation",
     category: "Renovation",
     filterKey: "Renovation",
-    image: loftImg,
-    description: "Transforming an existing home into a brighter, more functional, and contemporary living environment while preserving its character."
-  }
+    image: images.loft,
+    description:
+      "Transforming an existing home into a brighter, more functional, and contemporary living environment while preserving its character.",
+  },
 ];
 
 const filters = ["All", "Residential", "Commercial", "Furniture", "Renovation"];
