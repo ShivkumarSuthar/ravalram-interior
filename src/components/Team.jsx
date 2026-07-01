@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { motion } from "motion/react";
 
 const team = [
@@ -107,7 +108,7 @@ export default function Team() {
               <div>
                 {/* Image Frame */}
                 <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-stone-100 rounded-none">
-                  <img
+                  <AppImage
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover filter brightness-[0.93] grayscale group-hover:grayscale-0 transition-all duration-700 transform scale-100 group-hover:scale-105"

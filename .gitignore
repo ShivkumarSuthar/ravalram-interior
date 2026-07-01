@@ -1,23 +1,9 @@
-# dependencies
 node_modules/
-
-# production
 build/
 dist/
-
-# coverage
 coverage/
-
-# misc
 .DS_Store
 *.log
-
-# env files
 .env*
 !.env.example
-
-# Next.js
-.next/
-
-# TypeScript
-next-env.d.ts
+.next

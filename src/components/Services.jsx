@@ -1,36 +1,36 @@
+import AppImage from "./AppImage";
 import { motion } from "motion/react";
-import Image from "next/image";
-import { images } from "../lib/images";
+
+const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
+const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
 
 const services = [
   {
     id: "01",
     title: "Architectural Interiors",
-    image: images.coastal,
-    description:
-      "Honest, architect-supervised layouts designed for quiet, luxury living. Every project is planned from structure to sensory completion.",
+    image: coastalImg,
+    description: "Honest, architect-supervised layouts designed for quiet, luxury living. Every project is planned from structure to sensory completion."
   },
   {
     id: "02",
     title: "Custom Furniture & Cabinets",
-    image: images.loft,
-    description:
-      "Crafted in our family-owned workshops since 1989. Handpicked timber, precise joins, and finishes built to develop a timeless patina.",
+    image: loftImg,
+    description: "Crafted in our family-owned workshops since 1989. Handpicked timber, precise joins, and finishes built to develop a timeless patina."
   },
   {
     id: "03",
     title: "Commercial & Retail Spaces",
-    image: images.transition,
-    description:
-      "High-end corporate offices, hospitality structures, and luxury boutiques engineered for seamless performance and raw architectural beauty.",
+    image: transitionImg,
+    description: "High-end corporate offices, hospitality structures, and luxury boutiques engineered for seamless performance and raw architectural beauty."
   },
   {
     id: "04",
     title: "Turnkey Execution Supervision",
-    image: images.about,
-    description:
-      "Total project delivery. From blueprint drafts and municipal approvals to final curated furniture installations under strict family-led standards.",
-  },
+    image: aboutImg,
+    description: "Total project delivery. From blueprint drafts and municipal approvals to final curated furniture installations under strict family-led standards."
+  }
 ];
 
 export default function Services() {
@@ -89,7 +89,7 @@ export default function Services() {
                   {svc.id}
                 </div>
 
-                <img
+                <AppImage
                   src={svc.image}
                   alt={svc.title}
                   className="w-full h-full object-cover filter brightness-[0.93] transform scale-100 group-hover:scale-105 transition-transform duration-700"

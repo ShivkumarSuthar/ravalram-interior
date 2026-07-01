@@ -1,34 +1,36 @@
-"use client";
-
+import AppImage from "./AppImage";
 import { motion } from "motion/react";
-import Image from "next/image";
-import { images } from "../lib/images";
+
+const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
+const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
 
 const sideArticles = [
   {
     id: 1,
-    image: images.loft,
+    image: loftImg,
     tag: "Woodcraft Heritage",
     date: "June 25, 2026",
     title: "The Patina of Timber: Sourcing Hardwoods for Heirloom Joinery",
-    desc: "How handpicked solid teak and Indian rosewood mature under natural oil applications to develop timeless architectural character.",
+    desc: "How handpicked solid teak and Indian rosewood mature under natural oil applications to develop timeless architectural character."
   },
   {
     id: 2,
-    image: images.transition,
+    image: transitionImg,
     tag: "Materiality",
     date: "May 18, 2026",
     title: "Luxurious Travertine: Balancing Raw Finishes with Indirect Light",
-    desc: "Unlocking the volumetric depth of modern bathrooms and lounges through textured plaster and warm recessed light channels.",
+    desc: "Unlocking the volumetric depth of modern bathrooms and lounges through textured plaster and warm recessed light channels."
   },
   {
     id: 3,
-    image: images.about,
+    image: aboutImg,
     tag: "Execution",
     date: "April 02, 2026",
     title: "Honest Supervision: The Critical Value of Architect-Led Remodeling",
-    desc: "Why on-site family-led quality control and municipal blueprint compliance guarantee zero hidden construction delays.",
-  },
+    desc: "Why on-site family-led quality control and municipal blueprint compliance guarantee zero hidden construction delays."
+  }
 ];
 
 export default function Blog() {
@@ -62,14 +64,11 @@ export default function Blog() {
               className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm space-y-6 group cursor-pointer text-left"
             >
               <div className="w-full aspect-[4/3] rounded-none overflow-hidden bg-stone-100 relative">
-                <Image
-                  src={images.coastal}
+                <AppImage
+                  src={coastalImg}
                   alt="Extra space design"
                   className="w-full h-full object-cover filter brightness-95 transform scale-100 group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
-                  fill
-                  priority
-                  sizes="100vw"
                 />
               </div>
 
@@ -102,7 +101,7 @@ export default function Blog() {
               >
                 {/* Small image frame */}
                 <div className="w-full sm:w-28 aspect-video sm:aspect-square rounded-none overflow-hidden bg-stone-100 shrink-0">
-                  <img
+                  <AppImage
                     src={art.image}
                     alt={art.title}
                     className="w-full h-full object-cover filter brightness-95 transform scale-100 group-hover:scale-105 transition-transform duration-700"

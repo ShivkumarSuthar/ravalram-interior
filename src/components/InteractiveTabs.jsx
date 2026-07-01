@@ -1,43 +1,41 @@
-"use client";
-
+import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { images } from "../lib/images";
+
+const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
+const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
 
 const tabsData = [
   {
     id: 0,
     num: "01",
     title: "Renovations & Structural Planning",
-    image: images.coastal,
-    description:
-      "We orchestrate complete structural transformations. Our certified site engineering team handles load-bearing evaluations, custom demolition blueprints, ceiling re-leveling, and wall displacement to maximize volume flow.",
+    image: coastalImg,
+    description: "We orchestrate complete structural transformations. Our certified site engineering team handles load-bearing evaluations, custom demolition blueprints, ceiling re-leveling, and wall displacement to maximize volume flow."
   },
   {
     id: 1,
     num: "02",
     title: "Materiality & Curation",
-    image: images.loft,
-    description:
-      "Co-authoring the look and feel of your residence. During these workshops, we review material tactile boards, test paint light interaction, draft initial hand sketches, and define the absolute budget boundaries.",
+    image: loftImg,
+    description: "Co-authoring the look and feel of your residence. During these workshops, we review material tactile boards, test paint light interaction, draft initial hand sketches, and define the absolute budget boundaries."
   },
   {
     id: 2,
     num: "03",
     title: "Spatial Architecture & Drafting",
-    image: images.transition,
-    description:
-      "We treat empty space as a canvas for motion. Our planners calculate ergonomics, visual focal directions, shadow zones, and furniture spacing to make sure pathways are generous and comfortable.",
+    image: transitionImg,
+    description: "We treat empty space as a canvas for motion. Our planners calculate ergonomics, visual focal directions, shadow zones, and furniture spacing to make sure pathways are generous and comfortable."
   },
   {
     id: 3,
     num: "04",
     title: "Virtual 3D Spatial Walkthroughs",
-    image: images.about,
-    description:
-      "Walk inside your finished home before laying a single brick. We render full-scale photorealistic 3D spatial models showing real material textures, specific custom lighting, and customized art installations.",
-  },
+    image: aboutImg,
+    description: "Walk inside your finished home before laying a single brick. We render full-scale photorealistic 3D spatial models showing real material textures, specific custom lighting, and customized art installations."
+  }
 ];
 
 export default function InteractiveTabs() {
@@ -56,14 +54,11 @@ export default function InteractiveTabs() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0 w-full h-full"
           >
-            <Image
+            <AppImage
               src={tabsData[activeTab].image}
               alt={tabsData[activeTab].title}
               className="w-full h-full object-cover opacity-35 filter brightness-75"
               referrerPolicy="no-referrer"
-              fill
-              priority
-              sizes="100vw"
             />
           </motion.div>
         </AnimatePresence>

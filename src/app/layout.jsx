@@ -6,6 +6,10 @@ export const metadata = {
   description: "Exquisite spatial layouts and master timber joinery. Elevating luxury residential and commercial spaces with generational woodworking heritage.",
 };
 
+export const viewport = {
+  themeColor: "#0c0a09",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">

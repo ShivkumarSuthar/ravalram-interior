@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -22,9 +23,15 @@ import {
   Users
 } from "lucide-react";
 
-import {images} from "../lib/images";
+// Local asset imports
+const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
+const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+const bannerImg = "/images/antra_lobby_banner_1782744283860.jpg";
 
 export default function ServicesPage({ onBackToHome, onOpenQuote }) {
+  // FAQ state
   const [activeFaq, setActiveFaq] = useState(null);
 
   const coreServices = [
@@ -53,7 +60,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Dining Areas",
         "Complete Home Interiors"
       ],
-      image: images.coastal,
+      image: coastalImg,
       accent: "CURATED HOMES"
     },
     {
@@ -67,7 +74,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Restaurants",
         "Commercial Buildings"
       ],
-      image: images.transition,
+      image: transitionImg,
       accent: "PRODUCTIVE SPACES"
     },
     {
@@ -83,7 +90,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Beds",
         "Reception Counters"
       ],
-      image: images.loft,
+      image: loftImg,
       accent: "HERITAGE JOINERY"
     },
     {
@@ -96,7 +103,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Interior Upgrades",
         "Space Transformation"
       ],
-      image: images.about,
+      image: aboutImg,
       accent: "STRUCTURAL RENEWAL"
     },
     {
@@ -111,7 +118,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         "Electrical",
         "Quality Inspection"
       ],
-      image: images.banner,
+      image: bannerImg,
       accent: "COMPLETE CONTRACTING"
     }
   ];
@@ -211,7 +218,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
         {/* Full width premium background image */}
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
             alt="Luxurious spatial architecture Suthar Studio"
             className="w-full h-full object-cover opacity-25 filter brightness-[0.3] scale-105"
@@ -347,7 +354,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 <div className={`lg:col-span-6 relative ${isEven ? "" : "lg:order-2"}`}>
                   <div className="relative bg-white border border-stone-200/50 p-4 rounded-3xl shadow-xl overflow-hidden group">
                     <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
-                      <img
+                      <AppImage
                         src={service.image}
                         alt={service.title}
                         className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-[1.2s]"
@@ -690,7 +697,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       {/* FINAL CTA */}
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white">
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000"
             alt="Magnificent spatial architecture Suthar Studio final"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"

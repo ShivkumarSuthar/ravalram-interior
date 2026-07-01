@@ -1,38 +1,36 @@
-"use client";
-
+import AppImage from "./AppImage";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { images } from "../lib/images";
+
+const heroImg1 = "/images/antra_hero_bg_1782744248753.jpg";
+const heroImg2 = "/images/antra_hero_slide2_1782747378004.jpg";
+const heroImg3 = "/images/antra_hero_slide3_1782747396078.jpg";
 
 const slides = [
   {
-    image: images.hero,
+    image: heroImg1,
     label: "30+ YEARS OF FAMILY CRAFTSMANSHIP",
     titlePrefix: "Designing ",
     titleItalic: "Spaces",
     titleSuffix: " Built Around You.",
-    subtitle:
-      "Architect-led interiors, custom furniture, and complete project execution crafted with precision, honesty, and over three decades of experience.",
+    subtitle: "Architect-led interiors, custom furniture, and complete project execution crafted with precision, honesty, and over three decades of experience."
   },
   {
-    image: images.heroSlide2,
+    image: heroImg2,
     label: "ARCHITECTURE • INTERIORS • FURNITURE",
     titlePrefix: "Crafted with ",
     titleItalic: "Precision.",
     titleSuffix: " Built to Last.",
-    subtitle:
-      "From elegant homes to inspiring workplaces, every project is thoughtfully designed and expertly executed.",
+    subtitle: "From elegant homes to inspiring workplaces, every project is thoughtfully designed and expertly executed."
   },
   {
-    image: images.heroSlide3,
+    image: heroImg3,
     label: "HONEST PRICING • CUSTOM SOLUTIONS",
     titlePrefix: "Your ",
     titleItalic: "Vision.",
     titleSuffix: " Our Commitment.",
-    subtitle:
-      "Flexible execution, premium craftsmanship, and material choices tailored to your needs.",
-  },
+    subtitle: "Flexible execution, premium craftsmanship, and material choices tailored to your needs."
+  }
 ];
 
 export default function Hero({ setView }) {
@@ -115,7 +113,7 @@ export default function Hero({ setView }) {
             exit="exit"
             className="absolute inset-0 w-full h-full"
           >
-            <img
+            <AppImage
               src={slide.image}
               alt={slide.label}
               className="w-full h-full object-cover opacity-60 select-none pointer-events-none"
@@ -216,7 +214,7 @@ export default function Hero({ setView }) {
           {/* Left: Thumbnail & Text */}
           <div className="flex items-center space-x-4 max-w-2xl">
             <div className="w-12 h-12 rounded-none overflow-hidden border border-white/20 shrink-0 shadow-inner">
-              <img
+              <AppImage
                 src={slide.image}
                 alt="Active Project Thumbnail"
                 className="w-full h-full object-cover filter sepia hue-rotate-[20deg] saturate-120 brightness-90"

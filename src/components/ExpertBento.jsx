@@ -1,7 +1,8 @@
+import AppImage from "./AppImage";
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import {images} from "../lib/images";
-import Image from "next/image";
+
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
 
 function ProgressBar({ label, targetValue }) {
   const [val, setVal] = useState(0);
@@ -88,13 +89,11 @@ export default function ExpertBento() {
               {/* Main Arched Frame */}
               <div className="col-span-8 bg-white border border-stone-200/60 p-4 rounded-none shadow-sm relative overflow-hidden">
                 <div className="w-full aspect-[3/4] overflow-hidden rounded-none bg-stone-100">
-                  <Image
-                    src={images.about}
+                  <AppImage
+                    src={aboutImg}
                     alt="Elegant architectural space"
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="object-cover filter brightness-95"
+                    className="w-full h-full object-cover filter brightness-95"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
               </div>

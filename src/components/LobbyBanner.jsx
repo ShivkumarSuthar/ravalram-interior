@@ -1,9 +1,8 @@
-"use client";
-
+import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { images } from "../lib/images";
+
+const bannerImg = "/images/antra_lobby_banner_1782744283860.jpg";
 
 export default function LobbyBanner() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -12,14 +11,12 @@ export default function LobbyBanner() {
     <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden bg-stone-950 flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
-  src={images.lobby}
-  alt="Suthar Luxury Studio Wide Banner"
-  fill
-  priority
-  sizes="100vw"
-  className="object-cover brightness-[0.7] contrast-105"
-/>
+        <AppImage
+          src={bannerImg}
+          alt="Suthar Luxury Studio Wide Banner"
+          className="w-full h-full object-cover filter brightness-[0.7] contrast-105"
+          referrerPolicy="no-referrer"
+        />
         {/* Subtle radial dark overlay */}
         <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_40%,_rgba(0,0,0,0.6)_100%] opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-b from-stone-950/40 via-transparent to-stone-950/40" />

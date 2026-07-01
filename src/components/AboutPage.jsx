@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -18,8 +19,12 @@ import {
   Award,
   BookOpen
 } from "lucide-react";
-import {images} from "../lib/images";
-import Image from "next/image";
+
+const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
+const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+const bannerImg = "/images/antra_lobby_banner_1782744283860.jpg";
 
 const timelineEvents = [
   {
@@ -147,7 +152,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
         {/* Parallax style background image with dark luxurious overlay */}
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000"
             alt="Suthar Interior Studio Legacy"
             className="w-full h-full object-cover opacity-25 filter brightness-[0.3] scale-105"
@@ -238,14 +243,11 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   transition={{ duration: 1 }}
                   className="col-span-8 aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl border border-stone-200/50"
                 >
-                  <Image
-                    src={images.aboutImg}
+                  <AppImage
+                    src={aboutImg}
                     alt="Foundry of legacy"
                     className="w-full h-full object-cover filter brightness-95"
                     referrerPolicy="no-referrer"
-                    fill
-                    sizes= "100vw"
-                    priority="high"
                   />
                 </motion.div>
 
@@ -256,14 +258,11 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   transition={{ duration: 1, delay: 0.2 }}
                   className="col-span-6 aspect-[4/5] rounded-xl overflow-hidden shadow-2xl border-4 border-white absolute right-2 bottom-[-40px] z-10 w-48 sm:w-64"
                 >
-                  <Image
-                    src={images.transitionImg}
+                  <AppImage
+                    src={transitionImg}
                     alt="Exquisite details"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
-                    fill
-                    sizes= "100vw"
-                    priority="high"
                   />
                 </motion.div>
               </div>
@@ -484,36 +483,27 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
             <div className="lg:col-span-6 relative">
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-12 aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border border-stone-200/55">
-                  <Image
-                    src={images.coastalImg}
+                  <AppImage
+                    src={coastalImg}
                     alt="Premium living space design"
                     className="w-full h-full object-cover filter brightness-[0.92]"
                     referrerPolicy="no-referrer"
-                    fill
-                    sizes= "100vw"
-                    priority="high"
                   />
                 </div>
                 <div className="col-span-6 aspect-[1/1] rounded-2xl overflow-hidden shadow-lg border border-stone-200/55">
-                  <Image
-                    src={images.loftImg}
+                  <AppImage
+                    src={loftImg}
                     alt="Modern workshop furniture finish"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
-                    fill
-                    sizes= "100vw"
-                    priority="high"
                   />
                 </div>
                 <div className="col-span-6 aspect-[1/1] rounded-2xl overflow-hidden shadow-lg border border-stone-200/55">
-                  <Image
-                    src={images.transitionImg}
+                  <AppImage
+                    src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600"
                     alt="Modular premium kitchen layout"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
-                    fill
-                    sizes= "100vw"
-                    priority="high"
                   />
                 </div>
               </div>
@@ -621,13 +611,11 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               >
                 {/* Image Frame */}
                 <div className="aspect-[4/3] bg-stone-950 overflow-hidden relative border-b border-stone-100">
-                  <Image
+                  <AppImage
                     src={leader.image}
                     alt={leader.name}
                     className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-1000"
-                    fill
-                    sizes="100vw"
-                    priority="high"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -757,7 +745,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
       {/* FINAL CTA */}
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white border-t border-white/5">
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
             alt="Beautiful spatial transition"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"

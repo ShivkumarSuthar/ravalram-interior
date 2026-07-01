@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -27,7 +28,16 @@ import {
   Award
 } from "lucide-react";
 
-import { images } from "../lib/images";
+const heroBg = "/images/antra_hero_bg_1782744248753.jpg";
+const heroSlide2 = "/images/antra_hero_slide2_1782747378004.jpg";
+const heroSlide3 = "/images/antra_hero_slide3_1782747396078.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+const lobbyBanner = "/images/antra_lobby_banner_1782744283860.jpg";
+const projectCoastal = "/images/antra_project_coastal_1782744299850.jpg";
+const projectLoft = "/images/antra_project_loft_1782744318019.jpg";
+const transitionLuxury = "/images/antra_transition_luxury_1782747459033.jpg";
+
+// Category definitions (13 tags as requested)
 const filterTabs = [
   { id: "all", label: "All" },
   { id: "interior-design", label: "Interior Design" },
@@ -50,7 +60,7 @@ const featuredArticle = {
   title: "Complete Guide to Planning Your Dream Home Interior",
   category: "interior-design",
   categoryLabel: "Interior Design",
-  image: images.projectCoastal,
+  image: projectCoastal,
   date: "June 28, 2026",
   author: "Elena Suthar",
   readTime: "8 min read",
@@ -83,7 +93,7 @@ const blogArticles = [
     title: "How to Choose the Right Interior Designer",
     category: "interior-design",
     categoryLabel: "Interior Design",
-    image: images.transitionLuxury,
+    image: transitionLuxury,
     date: "June 25, 2026",
     author: "Elena Suthar",
     readTime: "6 min read",
@@ -104,7 +114,7 @@ Your designer will be in your life for months. You must feel comfortable discuss
     title: "Modern Living Room Design Ideas",
     category: "living-rooms",
     categoryLabel: "Living Rooms",
-    image: images.heroSlide3,
+    image: heroSlide3,
     date: "June 22, 2026",
     author: "Rajesh Suthar",
     readTime: "5 min read",
@@ -125,7 +135,7 @@ An elegant living room needs an anchor point. A book-matched marble slab or a te
     title: "Best Materials for Custom Furniture",
     category: "furniture",
     categoryLabel: "Furniture",
-    image: images.aboutImg,
+    image: aboutImg,
     date: "June 19, 2026",
     author: "Karan Suthar",
     readTime: "7 min read",
@@ -148,7 +158,7 @@ Avoid heavy polyurethane coatings that suffocate wood. Instead, opt for hand-pol
     title: "How Much Does Interior Design Cost?",
     category: "budget-planning",
     categoryLabel: "Budget Planning",
-    image: images.lobbyBanner,
+    image: lobbyBanner,
     date: "June 14, 2026",
     author: "Elena Suthar",
     readTime: "9 min read",
@@ -171,7 +181,7 @@ If you need to optimize costs, do not do it on your kitchen base cabinets or bat
     title: "Kitchen Design Trends for Modern Homes",
     category: "modular-kitchen",
     categoryLabel: "Modular Kitchen",
-    image: images.heroBg,
+    image: heroBg,
     date: "June 10, 2026",
     author: "Rajesh Suthar",
     readTime: "6 min read",
@@ -195,7 +205,7 @@ Instead of traditional tiled walls with grout lines that accumulate oils, run th
     title: "Wardrobe Design Ideas",
     category: "bedrooms",
     categoryLabel: "Bedrooms",
-    image: images.projectLoft,
+    image: projectLoft,
     date: "June 05, 2026",
     author: "Karan Suthar",
     readTime: "5 min read",
@@ -216,7 +226,7 @@ Incorporate shallow, customized valet drawers lined with soft velvet or Alcantar
     title: "Office Interior Design Tips",
     category: "office-design",
     categoryLabel: "Office Design",
-    image: images.transitionLuxury,
+    image: transitionLuxury,
     date: "May 28, 2026",
     author: "Rajesh Suthar",
     readTime: "7 min read",
@@ -237,7 +247,7 @@ Avoid direct blue light fluorescent ceiling grids. Set up smart indirect lights 
     title: "Luxury Bedroom Inspiration",
     category: "bedrooms",
     categoryLabel: "Bedrooms",
-    image: images.heroSlide2,
+    image: heroSlide2,
     date: "May 22, 2026",
     author: "Elena Suthar",
     readTime: "6 min read",
@@ -258,7 +268,7 @@ True luxury is tactile. Skip shiny synthetic fabrics and embrace pure Belgian fl
     title: "Mistakes to Avoid During Home Renovation",
     category: "renovation",
     categoryLabel: "Renovation",
-    image: images.projectLoft,
+    image: projectLoft,
     date: "May 15, 2026",
     author: "Karan Suthar",
     readTime: "10 min read",
@@ -279,7 +289,7 @@ A beautiful living room drywall will quickly ruin if there's minor water seepage
     title: "Choosing the Right Plywood",
     category: "materials",
     categoryLabel: "Materials",
-    image: images.aboutImg,
+    image: aboutImg,
     date: "May 08, 2026",
     author: "Rajesh Suthar",
     readTime: "8 min read",
@@ -299,7 +309,7 @@ Medium-Density Fiberboard (MDF) and Particle Board are made from compressed wood
     title: "Benefits of Turnkey Interior Solutions",
     category: "interior-design",
     categoryLabel: "Interior Design",
-    image: images.lobbyBanner,
+    image: lobbyBanner,
     date: "May 01, 2026",
     author: "Elena Suthar",
     readTime: "7 min read",
@@ -320,7 +330,7 @@ Separate contractors often provide low initial quotes only to hit you with major
     title: "How to Plan a Small Apartment",
     category: "home-tips",
     categoryLabel: "Home Tips",
-    image: images.projectCoastal,
+    image: projectCoastal,
     date: "April 24, 2026",
     author: "Karan Suthar",
     readTime: "6 min read",
@@ -341,7 +351,7 @@ Replace solid brick partitions with clear or fluted black-framed glass walls. Th
     title: "Restoring Historic Archways",
     category: "architecture",
     categoryLabel: "Architecture",
-    image: images.heroBg,
+    image: heroBg,
     date: "April 15, 2026",
     author: "Rajesh Suthar",
     readTime: "7 min read",
@@ -362,7 +372,7 @@ To make historical spaces livable, we carefully integrate electrical conduits an
     title: "Aesthetics of Boutique Showrooms",
     category: "commercial",
     categoryLabel: "Commercial",
-    image: images.transitionLuxury,
+    image: transitionLuxury,
     date: "April 05, 2026",
     author: "Elena Suthar",
     readTime: "8 min read",
@@ -520,7 +530,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="blog-hero">
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000"
             alt="Suthar Interior Studio Immersive Journal Banner"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
@@ -623,7 +633,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 className="lg:col-span-7 relative overflow-hidden bg-stone-100 aspect-video lg:aspect-auto min-h-[350px] cursor-pointer group"
                 onClick={() => setActiveArticle(featuredArticle)}
               >
-                <img
+                <AppImage
                   src={featuredArticle.image}
                   alt={featuredArticle.title}
                   loading="lazy"
@@ -774,7 +784,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                         className="relative w-full aspect-[16/10] overflow-hidden bg-stone-100 cursor-pointer"
                         onClick={() => setActiveArticle(article)}
                       >
-                        <img
+                        <AppImage
                           src={article.image}
                           alt={article.title}
                           loading="lazy"
@@ -1172,7 +1182,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
               {/* Header Image Cover */}
               <div className="w-full aspect-[2/1] bg-stone-100 overflow-hidden relative">
-                <img
+                <AppImage
                   src={activeArticle.image}
                   alt={activeArticle.title}
                   className="w-full h-full object-cover"

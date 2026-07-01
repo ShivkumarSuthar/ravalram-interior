@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -15,8 +16,8 @@ import {
   DollarSign 
 } from "lucide-react";
 
-import {images} from "../lib/images";
-import Image from "next/image";
+const bannerImg = "/images/antra_lobby_banner_1782744283860.jpg";
+
 const faqCategories = [
   { id: "all", label: "All Questions", icon: HelpCircle },
   { id: "design", label: "Design & Visualization", icon: Paintbrush },
@@ -100,14 +101,11 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
       <section className="relative h-[40vh] md:h-[50vh] bg-stone-950 text-white flex flex-col justify-center overflow-hidden">
         {/* Background Overlay Image */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src={images.bannerImg}
+          <AppImage
+            src={bannerImg}
             alt="FAQ Banner Background"
             className="w-full h-full object-cover opacity-20 filter grayscale scale-105"
             referrerPolicy="no-referrer"
-            fill
-            sizes= "100vw"
-            priority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/85 to-stone-950/45" />
         </div>

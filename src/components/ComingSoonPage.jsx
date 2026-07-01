@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -14,8 +15,8 @@ import {
   Construction
 } from "lucide-react";
 
-import { images } from "../lib/images";
-import Image from "next/image";
+const heroBg = "/images/antra_hero_bg_1782744248753.jpg";
+const transitionLuxury = "/images/antra_transition_luxury_1782747459033.jpg";
 
 export default function ComingSoonPage({ onBackToHome }) {
   const [email, setEmail] = useState("");
@@ -68,14 +69,11 @@ export default function ComingSoonPage({ onBackToHome }) {
       
       {/* Background Image & Immersive Gradients */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={images.transition}
+        <AppImage
+          src={transitionLuxury}
           alt="Luxury Architectural Background"
           className="w-full h-full object-cover opacity-25 filter grayscale contrast-125 scale-105"
           referrerPolicy="no-referrer"
-          fill
-          sizes="100vw"
-          priority
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-stone-950 via-stone-950/90 to-transparent" />
         <div className="absolute inset-0 bg-stone-950/40 backdrop-blur-[2px]" />

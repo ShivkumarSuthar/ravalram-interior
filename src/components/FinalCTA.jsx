@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { motion } from "motion/react";
 import {
   MessageSquare,
@@ -44,7 +45,7 @@ export default function FinalCTA() {
     <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white border-t border-white/5">
       {/* Background Image with elegant dark parallax overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <AppImage
           src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
           alt="Premium Architecture Interior"
           className="w-full h-full object-cover object-center opacity-25 filter brightness-[0.35] scale-105"

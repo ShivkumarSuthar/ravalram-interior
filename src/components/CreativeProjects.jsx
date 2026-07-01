@@ -1,9 +1,9 @@
-"use client";
-
+import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { images } from "../lib/images";
+
+const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
+const loftImg = "/images/antra_project_loft_1782744318019.jpg";
 
 const projects = [
   {
@@ -11,37 +11,33 @@ const projects = [
     title: "Luxury Residence",
     category: "Residential Interior",
     filterKey: "Residential",
-    image: images.coastal,
-    description:
-      "A warm contemporary home designed with custom furniture, premium finishes, and carefully planned lighting to create elegant everyday living.",
+    image: coastalImg,
+    description: "A warm contemporary home designed with custom furniture, premium finishes, and carefully planned lighting to create elegant everyday living."
   },
   {
     id: 2,
     title: "Modern Office Workspace",
     category: "Commercial Interior",
     filterKey: "Commercial",
-    image: images.transition, // replace Unsplash with your own image
-    description:
-      "A productive and inspiring workspace balancing functionality, comfort, and modern aesthetics for growing businesses.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200",
+    description: "A productive and inspiring workspace balancing functionality, comfort, and modern aesthetics for growing businesses."
   },
   {
     id: 3,
     title: "Premium Modular Kitchen",
     category: "Custom Furniture",
     filterKey: "Furniture",
-    image: images.about, // replace Unsplash with your own image
-    description:
-      "A beautifully crafted modular kitchen designed around efficiency, premium materials, and timeless style.",
+    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200",
+    description: "A beautifully crafted modular kitchen designed around efficiency, premium materials, and timeless style."
   },
   {
     id: 4,
     title: "Home Renovation",
     category: "Renovation",
     filterKey: "Renovation",
-    image: images.loft,
-    description:
-      "Transforming an existing home into a brighter, more functional, and contemporary living environment while preserving its character.",
-  },
+    image: loftImg,
+    description: "Transforming an existing home into a brighter, more functional, and contemporary living environment while preserving its character."
+  }
 ];
 
 const filters = ["All", "Residential", "Commercial", "Furniture", "Renovation"];
@@ -126,7 +122,7 @@ export default function CreativeProjects() {
                     </span>
                   </div>
 
-                  <img
+                  <AppImage
                     src={proj.image}
                     alt={proj.title}
                     className="w-full h-full object-cover filter brightness-[0.93] transform scale-100 group-hover:scale-105 transition-transform duration-1000"

@@ -1,3 +1,4 @@
+import AppImage from "./AppImage";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -30,7 +31,14 @@ import {
   Layers
 } from "lucide-react";
 
-import {images} from "../lib/images";
+const heroBg = "/images/antra_hero_bg_1782744248753.jpg";
+const heroSlide2 = "/images/antra_hero_slide2_1782747378004.jpg";
+const heroSlide3 = "/images/antra_hero_slide3_1782747396078.jpg";
+const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+const lobbyBanner = "/images/antra_lobby_banner_1782744283860.jpg";
+const projectCoastal = "/images/antra_project_coastal_1782744299850.jpg";
+const projectLoft = "/images/antra_project_loft_1782744318019.jpg";
+const transitionLuxury = "/images/antra_transition_luxury_1782747459033.jpg";
 
 export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -99,7 +107,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["architecture", "residential", "turnkey"],
       location: "Goa",
       description: "A breath-taking sea-facing estate combining monolithic concrete slabs with traditional wooden ceiling grids.",
-      image: images.coastal,
+      image: projectCoastal,
       materials: "Pre-cast Structural Concrete, Teakwood Ceiling Beams, Warm Travertine cladding"
     },
     {
@@ -119,7 +127,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["renovation", "residential", "living-room"],
       location: "Bengaluru",
       description: "Complete overhaul of a vintage industrial brick loft into a contemporary, light-flooded multi-level home.",
-      image: images.loft,
+      image: projectLoft,
       materials: "Exposed Heritage Brick, Black Powder-Coated Steel, Restored Solid Oak Floors"
     },
     {
@@ -129,7 +137,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["office", "commercial", "turnkey"],
       location: "Pune",
       description: "Premium collaborative corporate workspace featuring acoustic comfort and fluted privacy partition screens.",
-      image: images.transition,
+      image: transitionLuxury,
       materials: "Fluted Charcoal Glass, Acoustic Fabric Panels, Matte Metal Framing"
     },
     {
@@ -139,7 +147,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["furniture", "wardrobe", "residential"],
       location: "Kumta",
       description: "A high-precision custom master bedroom walk-in closet with internal automated sensor lighting arrays.",
-      image: images.about,
+      image: aboutImg,
       materials: "Veneered Marine Ply, Tinted Tempered Glass, Hand-stitched Leather Drawer Pulls"
     },
     {
@@ -149,7 +157,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["office", "commercial", "architecture"],
       location: "Mumbai",
       description: "Monolithic reception counter framed by geometric timber screens and indirect architectural light wells.",
-      image: images.lobbyBanner,
+      image: lobbyBanner,
       materials: "Hand-carved Travertine Stone, Solid European Oak Slats, Warm LED Profiles"
     },
     {
@@ -159,7 +167,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["residential", "bedroom", "turnkey"],
       location: "Mumbai",
       description: "A serene, resort-style bedroom utilizing soft tones, floating wood frames, and organic linen panels.",
-      image: images.heroSlide2,
+      image: heroSlide2,
       materials: "Stained Ashwood, Bouclé headboards, Dimmable warm light wells"
     },
     {
@@ -400,10 +408,10 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   // Featured Collection Layout Images
   const featuredLarge = "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200";
   const featuredSupport = [
-    images.projectCoastal,
-    images.transitionLuxury,
+    projectCoastal,
+    transitionLuxury,
     "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600",
-    images.projectLoft
+    projectLoft
   ];
 
   // Craftsmanship Cards config
@@ -428,9 +436,9 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   // Instagram Post Mockups
   const instagramPosts = [
     { id: "ig-1", img: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=600", likes: "1,240", comments: "48", title: "Refining the final grain on our custom American Walnut credenza." },
-    { id: "ig-2", img: images.projectCoastal, likes: "2,150", comments: "92", title: "Waking up to ocean breezes. Coastal residential masterpiece handed over in Goa." },
+    { id: "ig-2", img: projectCoastal, likes: "2,150", comments: "92", title: "Waking up to ocean breezes. Coastal residential masterpiece handed over in Goa." },
     { id: "ig-3", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600", likes: "982", comments: "31", title: "Flawless modular kitchen design combining warm teakwood & matte charcoal panels." },
-    { id: "ig-4", img: images.projectLoft, likes: "1,530", comments: "54", title: "Industrial restoration. Bridging heritage brickwork with clean black steel structures." }
+    { id: "ig-4", img: projectLoft, likes: "1,530", comments: "54", title: "Industrial restoration. Bridging heritage brickwork with clean black steel structures." }
   ];
 
   const handleOpenConsultation = () => {
@@ -447,7 +455,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       {/* PAGE HERO */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="gallery-hero-section">
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000"
             alt="Suthar Interior Studio Immersive Showroom Gallery"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
@@ -616,7 +624,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   >
                     {/* Img frame */}
                     <div className="relative overflow-hidden bg-stone-100 cursor-pointer" onClick={() => setLightboxIndex(localIndex)}>
-                      <img
+                      <AppImage
                         src={project.image}
                         alt={project.name}
                         loading="lazy"
@@ -731,7 +739,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             {/* Large Featured Left */}
             <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-white/10 relative group bg-stone-900 flex flex-col justify-between min-h-[450px]">
               <div className="absolute inset-0">
-                <img
+                <AppImage
                   src={featuredLarge}
                   alt="Editor pick large luxury room"
                   className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 filter brightness-[0.75]"
@@ -797,7 +805,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     }
                   }}
                 >
-                  <img
+                  <AppImage
                     src={imgSrc}
                     alt="Supporting visual"
                     className="w-full h-full object-cover filter brightness-[0.8] group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-500"
@@ -920,7 +928,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               >
                 {/* Img with custom hover layout */}
                 <div className="relative aspect-square overflow-hidden bg-stone-100">
-                  <img
+                  <AppImage
                     src={post.img}
                     alt={post.title}
                     loading="lazy"
@@ -960,7 +968,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       {/* FINAL CTA */}
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white" id="gallery-final-cta">
         <div className="absolute inset-0 z-0">
-          <img
+          <AppImage
             src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000"
             alt="Suthar Luxury Studio Architectural Finale"
             className="w-full h-full object-cover opacity-15 filter brightness-[0.3]"
@@ -1055,7 +1063,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 transition={{ duration: 0.4 }}
                 className="max-w-5xl max-h-[70vh] flex flex-col items-center justify-center relative overflow-hidden px-4"
               >
-                <img
+                <AppImage
                   src={filteredProjects[lightboxIndex].image}
                   alt={filteredProjects[lightboxIndex].name}
                   className="max-w-full max-h-[65vh] object-contain rounded-lg border border-white/10 shadow-2xl"
