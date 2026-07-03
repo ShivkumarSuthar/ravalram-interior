@@ -23,8 +23,8 @@ export default function About({ setView }) {
   };
 
   return (
-    <div id="about" className="bg-[#faf9f6] py-24 md:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <div id="about" className="bg-[#E2D8A5] py-24 md:py-32 overflow-hidden">
+      <div className="max-w-8xl mx-auto px-6 md:px-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -42,8 +42,8 @@ export default function About({ setView }) {
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-stone-900 leading-[1.15] max-w-2xl text-left uppercase">
-                Built on <span className="font-serif italic text-[#c5a880] font-normal lowercase">Legacy</span>.<br />
-                Designed for the <span className="font-serif italic text-[#c5a880] font-normal lowercase">Future</span>.
+                Built on <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Legacy</span>.<br />
+                Designed for the <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Future</span>.
               </h2>
             </motion.div>
 
@@ -52,7 +52,7 @@ export default function About({ setView }) {
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 sm:gap-0">
                 {/* Huge "30+" with labels next to it (extremely robust across screen sizes) */}
                 <div className="relative flex items-center select-none shrink-0">
-                  <span className="text-[110px] sm:text-[140px] md:text-[180px] lg:text-[200px] font-serif font-light text-[#c5a880] leading-none tracking-tighter">
+                  <span className="text-[110px] sm:text-[140px] md:text-[180px] lg:text-[200px] font-serif font-light text-[#E7A35F] leading-none tracking-tighter">
                     30+
                   </span>
                   <div className="ml-4 sm:ml-6 flex flex-col leading-tight text-stone-800 shrink-0 max-w-[150px]">
@@ -62,7 +62,7 @@ export default function About({ setView }) {
                 </div>
 
                 {/* Overlapping small custom furniture image with perfect razor-sharp corners */}
-                <div className="w-full max-w-[280px] sm:w-64 aspect-[3/4] relative sm:-ml-8 md:-ml-12 mt-2 sm:mt-12 z-10 shadow-2xl rounded-none overflow-hidden border-4 border-[#faf9f6] group">
+                <div className="w-full max-w-[280px] sm:w-64 aspect-[3/4] relative sm:-ml-8 md:-ml-12 mt-2 sm:mt-12 z-10 shadow-2xl rounded-none overflow-hidden border-4 border-[#E2D8A5] group">
                   <AppImage
                     src={loftImg}
                     alt="Bespoke luxury custom furniture setup"
@@ -111,7 +111,7 @@ export default function About({ setView }) {
                       if (el) el.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="inline-flex items-center space-x-4 text-stone-900 hover:text-[#c5a880] font-bold text-xs tracking-[0.25em] uppercase transition-all duration-300 group cursor-pointer"
+                  className="inline-flex items-center space-x-4 text-stone-900 hover:text-[#E7A35F] font-bold text-xs tracking-[0.25em] uppercase transition-all duration-300 group cursor-pointer"
                   id="about-explore-services-btn"
                 >
                   <span>Explore Our Services</span>

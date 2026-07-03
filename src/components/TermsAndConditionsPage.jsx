@@ -109,7 +109,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#c5a880]/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-[#E2D8A5] text-stone-900 font-sans selection:bg-[#E7A35F]/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* PAGE HERO */}
       <section className="relative py-20 bg-stone-950 text-white overflow-hidden" id="terms-hero">
@@ -117,7 +117,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-stone-950 opacity-100" />
           {/* Grid Layout Line Overlay */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-            <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
+            <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
               <div className="border-l border-white h-full" />
               <div className="border-l border-white h-full" />
               <div className="border-l border-white h-full" />
@@ -126,15 +126,15 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 w-full">
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase mb-8">
-            <button onClick={onBackToHome} className="hover:text-[#c5a880] transition-colors cursor-pointer uppercase font-bold">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-[#E7A35F] transition-colors cursor-pointer uppercase font-bold">HOME</button>
             <span>/</span>
-            <span className="text-[#c5a880] font-bold">TERMS & CONDITIONS</span>
+            <span className="text-[#E7A35F] font-bold">TERMS & CONDITIONS</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <span className="text-[#c5a880] text-xs sm:text-sm tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-[#E7A35F] text-xs sm:text-sm tracking-[0.3em] font-mono font-bold block uppercase">
               LEGAL INFORMATION
             </span>
             <motion.h1
@@ -143,7 +143,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase"
             >
-              Terms & <span className="font-serif italic text-[#c5a880] font-normal lowercase">Conditions</span>
+              Terms & <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Conditions</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -160,23 +160,23 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2.5 pt-4 text-xs font-mono text-stone-400"
             >
-              <Calendar size={13} className="text-[#c5a880]" />
+              <Calendar size={13} className="text-[#E7A35F]" />
               <span>LAST UPDATED:</span>
-              <span className="text-[#c5a880] font-semibold">JUNE 30, 2026</span>
+              <span className="text-[#E7A35F] font-semibold">JUNE 30, 2026</span>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* TWO-COLUMN CONTENT WITH STICKY TABLE OF CONTENTS */}
-      <section className="py-20 max-w-7xl mx-auto px-6 md:px-12">
+      <section className="py-20 max-w-8xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* LEFT COLUMN: STICKY NAVIGATION (TABLE OF CONTENTS) */}
-          <div className="lg:col-span-4 sticky top-[120px] z-20 bg-[#faf9f6] lg:bg-transparent -mx-6 px-6 py-4 lg:p-0 border-b border-stone-200/50 lg:border-none">
+          <div className="lg:col-span-4 sticky top-[120px] z-20 bg-[#E2D8A5] lg:bg-transparent -mx-6 px-6 py-4 lg:p-0 border-b border-stone-200/50 lg:border-none">
             <div className="bg-white rounded-2xl border border-stone-200/40 p-6 shadow-sm space-y-6 hidden lg:block">
               <div className="flex items-center space-x-2.5 pb-4 border-b border-stone-100">
-                <Scale size={18} className="text-[#c5a880]" />
+                <Scale size={18} className="text-[#E7A35F]" />
                 <h3 className="text-sm font-mono tracking-widest uppercase font-bold text-stone-900">Terms Index</h3>
               </div>
               <nav className="flex flex-col space-y-1.5 text-left">
@@ -189,11 +189,11 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                       onClick={() => scrollToSection(section.id)}
                       className={`group flex items-center space-x-3 px-4 py-3 text-xs tracking-wider uppercase font-mono font-bold transition-all duration-300 rounded-lg cursor-pointer ${
                         isActive
-                          ? "bg-stone-950 text-[#c5a880] shadow-md shadow-stone-950/5 translate-x-1"
+                          ? "bg-stone-950 text-[#E7A35F] shadow-md shadow-stone-950/5 translate-x-1"
                           : "text-stone-500 hover:text-stone-900 hover:bg-stone-100"
                       }`}
                     >
-                      <IconComponent size={14} className={`shrink-0 transition-transform ${isActive ? "scale-110 text-[#c5a880]" : "text-stone-400 group-hover:text-stone-900"}`} />
+                      <IconComponent size={14} className={`shrink-0 transition-transform ${isActive ? "scale-110 text-[#E7A35F]" : "text-stone-400 group-hover:text-stone-900"}`} />
                       <span className="truncate">{section.title.substring(3)}</span>
                     </button>
                   );
@@ -211,7 +211,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                     onClick={() => scrollToSection(section.id)}
                     className={`px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest whitespace-nowrap border rounded-none transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? "bg-stone-950 text-[#c5a880] border-stone-950 shadow-sm"
+                        ? "bg-stone-950 text-[#E7A35F] border-stone-950 shadow-sm"
                         : "bg-white text-stone-500 border-stone-200 hover:border-stone-400"
                     }`}
                   >
@@ -227,13 +227,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
             
             {/* 1. Acceptance of Terms */}
             <div ref={sectionRefs["acceptance"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="acceptance">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Scale size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 01</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 01</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Acceptance of Terms</h2>
                 </div>
               </div>
@@ -250,13 +250,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 2. Our Services */}
             <div ref={sectionRefs["services"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-8 relative overflow-hidden" id="services">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Layout size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 02</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 02</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Our Services</h2>
                 </div>
               </div>
@@ -277,7 +277,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { title: "Technical Material Guidance", desc: "Rigorous grade comparisons including BWR, BWP marine ply, and stone selection." }
                 ].map((serv, idx) => (
                   <div key={idx} className="p-5 bg-stone-50 border border-stone-100 rounded-2xl flex items-start space-x-3.5">
-                    <div className="w-5 h-5 rounded-full bg-stone-950 text-[#c5a880] flex items-center justify-center text-[9px] shrink-0 font-mono font-bold mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-stone-950 text-[#E7A35F] flex items-center justify-center text-[9px] shrink-0 font-mono font-bold mt-0.5">
                       {idx+1}
                     </div>
                     <div className="space-y-1">
@@ -291,13 +291,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 3. Consultations & Estimates */}
             <div ref={sectionRefs["consultations"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="consultations">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Calculator size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 03</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 03</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Consultations & Estimates</h2>
                 </div>
               </div>
@@ -314,13 +314,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 4. Pricing Variables */}
             <div ref={sectionRefs["pricing"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-8 relative overflow-hidden" id="pricing">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Coins size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 04</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 04</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Pricing Variables</h2>
                 </div>
               </div>
@@ -348,13 +348,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 5. Project Timelines */}
             <div ref={sectionRefs["timelines"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="timelines">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Clock size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 05</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 05</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Project Timelines</h2>
                 </div>
               </div>
@@ -372,7 +372,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   "Force majeure (unexpected global shipping or natural halts)"
                 ].map((item, idx) => (
                   <span key={idx} className="inline-flex items-center space-x-1.5 px-3.5 py-2.5 bg-stone-50 border border-stone-200/50 rounded-xl text-stone-700 text-xs font-mono font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E7A35F]" />
                     <span>{item}</span>
                   </span>
                 ))}
@@ -381,13 +381,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 6. Client Responsibilities */}
             <div ref={sectionRefs["responsibilities"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="responsibilities">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Users size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 06</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 06</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Client Responsibilities</h2>
                 </div>
               </div>
@@ -404,7 +404,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { label: "Site Access & Clearances", desc: "Securing appropriate permissions, keys, and contractor entrance passes." },
                   { label: "Open Channels of Communication", desc: "Participating in site reviews and raising concerns immediately before paint finishes." }
                 ].map((resp, idx) => (
-                  <div key={idx} className="p-5 bg-[#faf9f6]/40 border border-stone-200/20 rounded-2xl space-y-1.5">
+                  <div key={idx} className="p-5 bg-[#E2D8A5]/40 border border-stone-200/20 rounded-2xl space-y-1.5">
                     <h4 className="text-stone-900 font-bold font-mono text-xs uppercase tracking-wider">{idx+1}. {resp.label}</h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">{resp.desc}</p>
                   </div>
@@ -414,13 +414,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 7. Intellectual Property */}
             <div ref={sectionRefs["intellectual"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="intellectual">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <PenTool size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 07</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 07</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Intellectual Property</h2>
                 </div>
               </div>
@@ -435,13 +435,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 8. Limitation of Liability */}
             <div ref={sectionRefs["liability"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="liability">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <ShieldAlert size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 08</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 08</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Limitation of Liability</h2>
                 </div>
               </div>
@@ -453,13 +453,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 9. Cancellation Policy */}
             <div ref={sectionRefs["cancellation"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="cancellation">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <XCircle size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 09</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 09</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Cancellation Policy</h2>
                 </div>
               </div>
@@ -471,13 +471,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 10. Website Usage */}
             <div ref={sectionRefs["usage"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="usage">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Compass size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 10</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 10</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Website Usage</h2>
                 </div>
               </div>
@@ -489,13 +489,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 11. Changes to Terms */}
             <div ref={sectionRefs["changes"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-6 relative overflow-hidden" id="changes">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <RefreshCw size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 11</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 11</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Changes to Terms</h2>
                 </div>
               </div>
@@ -507,13 +507,13 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             {/* 12. Contact Information */}
             <div ref={sectionRefs["contact"]} className="bg-white rounded-3xl border border-stone-200/40 p-8 md:p-12 shadow-sm space-y-8 relative overflow-hidden" id="contact">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#c5a880]" />
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#E7A35F]" />
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 bg-stone-50 border border-stone-100 flex items-center justify-center text-[#E7A35F]">
                   <Mail size={20} />
                 </div>
                 <div>
-                  <span className="text-[#c5a880] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 12</span>
+                  <span className="text-[#E7A35F] text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 12</span>
                   <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Contact Information</h2>
                 </div>
               </div>
@@ -532,8 +532,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                 ].map((info, idx) => {
                   const InfoIcon = info.icon;
                   return (
-                    <div key={idx} className="p-5 border border-stone-200/60 rounded-2xl flex items-start space-x-4 hover:border-[#c5a880] transition-colors duration-300">
-                      <div className="w-10 h-10 rounded-full bg-[#faf9f6] flex items-center justify-center text-[#c5a880] border border-stone-100 shrink-0">
+                    <div key={idx} className="p-5 border border-stone-200/60 rounded-2xl flex items-start space-x-4 hover:border-[#E7A35F] transition-colors duration-300">
+                      <div className="w-10 h-10 rounded-full bg-[#E2D8A5] flex items-center justify-center text-[#E7A35F] border border-stone-100 shrink-0">
                         <InfoIcon size={16} />
                       </div>
                       <div className="space-y-1">
@@ -553,19 +553,19 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
       {/* FINAL CTA */}
       <section className="bg-stone-950 text-white py-24 relative overflow-hidden" id="terms-cta">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-3 gap-12 px-6">
+          <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-3 gap-12 px-6">
             <div className="border-l border-white h-full" />
             <div className="border-l border-white h-full border-r" />
           </div>
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <span className="text-[#c5a880] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-[#E7A35F] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
             SUTHAR CONTRACT BRIEFING
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white leading-tight uppercase max-w-3xl mx-auto">
             Need More <br />
-            <span className="font-serif italic text-[#c5a880] font-normal lowercase">Information?</span>
+            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Information?</span>
           </h2>
           <p className="text-stone-400 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             If you have questions regarding our services, pricing, project execution, or these Terms & Conditions, our team will be happy to assist you.
@@ -574,7 +574,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-4">
             <button
               onClick={() => setView("contact")}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] hover:bg-[#b0936b] px-8 py-4.5 rounded-none cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-8 py-4.5 rounded-none cursor-pointer"
             >
               <span>Contact Us</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/15 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -584,7 +584,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#c5a880] hover:text-[#c5a880]"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#E7A35F] hover:text-[#E7A35F]"
             >
               Book Free Consultation
             </button>

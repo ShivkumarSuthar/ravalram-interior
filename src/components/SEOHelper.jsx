@@ -491,7 +491,7 @@ export default function SEOHelper({ currentView }) {
     setMetaTag("twitter:image", dynamicUpdate?.image || "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200");
 
     // Browser Theme Color
-    setMetaTag("theme-color", "#0c0a09");
+    setMetaTag("theme-color", "#E2D8A5");
 
     // 5. Update Canonical Link
     let canonicalLink = document.querySelector("link[rel='canonical']");

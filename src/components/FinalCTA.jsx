@@ -58,7 +58,7 @@ export default function FinalCTA() {
 
       {/* Blueprint grid layout lines overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0">
-        <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12">
+        <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12">
           <div className="border-l border-white h-full" />
           <div className="border-l border-white h-full" />
           <div className="border-l border-white h-full" />
@@ -66,7 +66,7 @@ export default function FinalCTA() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
         {/* Content Centered Stack */}
         <div className="text-center max-w-4xl mx-auto space-y-8 mb-20">
           <motion.div
@@ -76,7 +76,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.8 }}
             className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full"
           >
-            <span className="text-[#c5a880] text-xs">✦</span>
+            <span className="text-[#E7A35F] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-300 font-mono block">
               LET'S BUILD SOMETHING EXCEPTIONAL
             </span>
@@ -90,8 +90,8 @@ export default function FinalCTA() {
             className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-none uppercase"
           >
             Your Dream Space <br />
-            <span className="font-serif italic text-[#c5a880] font-normal lowercase">Starts With</span> <br />
-            <span className="font-serif italic text-[#c5a880] font-normal lowercase">A</span> Conversation.
+            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Starts With</span> <br />
+            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">A</span> Conversation.
           </motion.h2>
 
           <motion.div
@@ -120,9 +120,9 @@ export default function FinalCTA() {
             {/* Primary button: rounded as requested in design requirements */}
             <motion.button
               onClick={handleConsultationClick}
-              whileHover={{ scale: 1.03, backgroundColor: "#b0936b" }}
+              whileHover={{ scale: 1.03, backgroundColor: "#6F9F9C" }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] px-8 py-5 rounded-full cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] px-8 py-5 rounded-full cursor-pointer shadow-xl"
             >
               <span>Book Your Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -133,11 +133,11 @@ export default function FinalCTA() {
             {/* Secondary button: rounded as requested in design requirements */}
             <motion.a
               href="tel:+919000000000"
-              whileHover={{ scale: 1.03, borderColor: "#c5a880", color: "#c5a880", backgroundColor: "rgba(255,255,255,0.05)" }}
+              whileHover={{ scale: 1.03, borderColor: "#E7A35F", color: "#E7A35F", backgroundColor: "rgba(255,255,255,0.05)" }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer"
             >
-              <Phone size={14} className="text-[#c5a880]" />
+              <Phone size={14} className="text-[#E7A35F]" />
               <span>Call Our Team</span>
             </motion.a>
           </motion.div>
@@ -165,14 +165,14 @@ export default function FinalCTA() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-left space-y-4 hover:shadow-2xl hover:border-[#c5a880]/30 hover:-translate-y-1.5 transition-all duration-500 group"
+                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-left space-y-4 hover:shadow-2xl hover:border-[#E7A35F]/30 hover:-translate-y-1.5 transition-all duration-500 group"
               >
                 {/* Gold Accent Icon container */}
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:bg-[#c5a880]/10 transition-colors duration-500">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#E7A35F] group-hover:bg-[#E7A35F]/10 transition-colors duration-500">
                   <Icon size={18} className="transition-transform duration-500 group-hover:scale-110" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-white group-hover:text-[#c5a880] transition-colors duration-300">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-white group-hover:text-[#E7A35F] transition-colors duration-300">
                     {item.title}
                   </h4>
                   <p className="text-stone-300 text-xs font-light leading-relaxed">

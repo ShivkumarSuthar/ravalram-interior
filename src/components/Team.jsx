@@ -72,19 +72,19 @@ export default function Team() {
   };
 
   return (
-    <section id="team" className="bg-[#faf9f6] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="team" className="bg-[#E2D8A5] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
+      <div className="max-w-8xl mx-auto px-6 md:px-12">
         {/* Header block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#c5a880] text-xs">✦</span>
+            <span className="text-[#E7A35F] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               OUR TEAM
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
             The People Behind <br />
-            <span className="font-serif italic text-[#c5a880] font-normal lowercase">Every Exceptional</span> Space.
+            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Every Exceptional</span> Space.
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
             Behind every beautifully crafted space is a dedicated team of architects, designers, craftsmen, and project specialists. With a family legacy of craftsmanship dating back to 1989, we combine experience, creativity, and precision to deliver projects that exceed expectations.
@@ -123,10 +123,10 @@ export default function Team() {
 
                 {/* Text Description */}
                 <div className="space-y-1">
-                  <h3 className="text-xl font-serif text-stone-900 font-medium group-hover:text-[#c5a880] transition-colors duration-300">
+                  <h3 className="text-xl font-serif text-stone-900 font-medium group-hover:text-[#E7A35F] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-xs text-[#c5a880] uppercase tracking-widest font-bold">
+                  <p className="text-xs text-[#E7A35F] uppercase tracking-widest font-bold">
                     {member.role}
                   </p>
                   <div className="w-6 h-[1px] bg-stone-200 group-hover:w-12 transition-all duration-500 mt-2" />
@@ -151,7 +151,7 @@ export default function Team() {
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="space-y-3 text-center md:text-left group"
               >
-                <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
+                <div className="text-4xl md:text-5xl font-serif text-[#E7A35F] font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
                   {st.value}
                 </div>
                 <div className="space-y-1">

@@ -10,9 +10,9 @@ const slides = [
   {
     image: heroImg1,
     label: "30+ YEARS OF FAMILY CRAFTSMANSHIP",
-    titlePrefix: "Designing ",
-    titleItalic: "Spaces",
-    titleSuffix: " Built Around You.",
+    titlePrefix: "The Art Of Stuning ",
+    titleItalic: "Interior ",
+    titleSuffix: "Design.",
     subtitle: "Architect-led interiors, custom furniture, and complete project execution crafted with precision, honesty, and over three decades of experience."
   },
   {
@@ -41,7 +41,7 @@ export default function Hero({ setView }) {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 7000); // Auto change slide every 7 seconds
+    }, 10000); // Auto change slide every 7 seconds
     return () => clearInterval(timer);
   }, [current]);
 
@@ -163,10 +163,10 @@ export default function Hero({ setView }) {
             {/* Title */}
             <motion.h1
               variants={textVariants}
-              className="text-4xl sm:text-6xl md:text-8xl font-light tracking-tight text-white leading-[1.1] max-w-5xl"
+             className="text-5xl sm:text-7xl md:text-[120px] font-light tracking-wide text-white leading-[1.05] max-w-5xl"
             >
               {slide.titlePrefix}
-              <span className="font-serif italic font-normal text-gold-500">
+              <span className="font-serif font-normal text-gold-500">
                 {slide.titleItalic}
               </span>
               {slide.titleSuffix}
@@ -181,7 +181,7 @@ export default function Hero({ setView }) {
                 href="#contact"
                 whileHover={{ scale: 1.02, backgroundColor: "#b28e57" }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-[#c5a880] text-stone-950 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-colors duration-300 rounded-none shadow-lg text-center min-w-[220px]"
+                className="px-8 py-4 bg-[#E7A35F] text-stone-950 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-colors duration-300 rounded-none shadow-lg text-center min-w-[220px]"
                 id="hero-start-project-btn"
               >
                 Start Your Project
@@ -196,7 +196,7 @@ export default function Hero({ setView }) {
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                whileHover={{ scale: 1.02, borderColor: "#c5a880", color: "#c5a880" }}
+                whileHover={{ scale: 1.02, borderColor: "#E7A35F", color: "#E7A35F" }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md min-w-[220px] cursor-pointer text-center"
                 id="hero-view-work-btn"
@@ -210,7 +210,7 @@ export default function Hero({ setView }) {
 
       {/* Bottom Horizontal Card & Nav Overlays (Exactly like the Reference Image) */}
       <div className="absolute bottom-10 left-0 w-full z-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto bg-stone-900/60 backdrop-blur-xl border border-white/10 p-5 rounded-none flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="max-w-8xl mx-auto bg-stone-900/60 backdrop-blur-xl border border-white/10 p-5 rounded-none flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           {/* Left: Thumbnail & Text */}
           <div className="flex items-center space-x-4 max-w-2xl">
             <div className="w-12 h-12 rounded-none overflow-hidden border border-white/20 shrink-0 shadow-inner">
@@ -238,7 +238,7 @@ export default function Hero({ setView }) {
             </button>
             <button
               onClick={nextSlide}
-              className="w-10 h-10 rounded-none bg-[#c5a880] text-stone-950 hover:bg-[#b28e57] flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg"
+              className="w-10 h-10 rounded-none bg-[#E7A35F] text-stone-950 hover:bg-[#b28e57] flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg"
               aria-label="Next Slide"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

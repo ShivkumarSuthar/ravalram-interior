@@ -56,8 +56,8 @@ export default function Stats() {
   };
 
   return (
-    <section className="bg-[#faf9f6] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="bg-[#E2D8A5] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
+      <div className="max-w-8xl mx-auto px-6 md:px-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -70,13 +70,13 @@ export default function Stats() {
             {/* Left Description Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#c5a880] text-xs">✦</span>
+                <span className="text-[#E7A35F] text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   TRUSTED EXPERIENCE
                 </span>
               </div>
               <h3 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-[1.15] max-w-xl uppercase">
-                Behind <span className="font-serif italic text-[#c5a880] font-normal lowercase">Every Metric</span> sits a family legacy
+                Behind <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Every Metric</span> sits a family legacy
               </h3>
               <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl">
                 Founded in 1989 by master craftsman Ravalram H. Suthar, our family studio began with a simple yet uncompromising standard: to merge honest craftsmanship with timeless, architect-supervised spatial design.
@@ -87,7 +87,7 @@ export default function Stats() {
             <div className="lg:col-span-5 pt-8 lg:pt-0">
               <div className="relative bg-white border border-stone-200/60 p-3 rounded-none shadow-sm">
                 {/* The Folder Tab Notch */}
-                <div className="absolute top-[-25px] left-[-1px] h-[26px] w-36 bg-[#faf9f6] rounded-t-sm border-t border-l border-r border-stone-200/60 flex items-center justify-center">
+                <div className="absolute top-[-25px] left-[-1px] h-[26px] w-36 bg-[#E2D8A5] rounded-t-sm border-t border-l border-r border-stone-200/60 flex items-center justify-center">
                   <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-stone-400">STUDIO_ARCHIVE</span>
                 </div>
                 {/* Image */}
@@ -108,7 +108,7 @@ export default function Stats() {
             
             {/* Metric 1 */}
             <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none">
+              <div className="text-4xl md:text-5xl font-serif text-[#E7A35F] font-light leading-none">
                 <CountUp to={35} duration={1.5} suffix="+" />
               </div>
               <div className="space-y-1">
@@ -121,7 +121,7 @@ export default function Stats() {
 
             {/* Metric 2 */}
             <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none">
+              <div className="text-4xl md:text-5xl font-serif text-[#E7A35F] font-light leading-none">
                 <CountUp to={250} duration={1.5} suffix="+" />
               </div>
               <div className="space-y-1">
@@ -134,7 +134,7 @@ export default function Stats() {
 
             {/* Metric 3 */}
             <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none">
+              <div className="text-4xl md:text-5xl font-serif text-[#E7A35F] font-light leading-none">
                 <CountUp to={20} duration={1.5} suffix="+" />
               </div>
               <div className="space-y-1">
@@ -147,7 +147,7 @@ export default function Stats() {
 
             {/* Metric 4 */}
             <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none">
+              <div className="text-4xl md:text-5xl font-serif text-[#E7A35F] font-light leading-none">
                 <CountUp to={100} duration={1.5} suffix="%" />
               </div>
               <div className="space-y-1">

@@ -341,7 +341,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
   };
 
   const activeClass = (view) =>
-    currentView === view ? "text-[#c5a880]" : "text-stone-800 hover:text-[#c5a880]";
+    currentView === view ? "text-[#E7A35F]" : "text-stone-800 hover:text-[#E7A35F]";
 
   const setActivePanel = (menuLabel, panelId) => {
     setActivePanels((previous) => ({
@@ -372,16 +372,16 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
         </button>
 
         <div
-          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${menu.dropdownWidth} bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50`}
+          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${menu.dropdownWidth} bg-[#577E89] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50`}
         >
-          <div className="w-[260px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+          <div className="w-[260px] bg-[#6F9F9C] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
             {menu.panels.map((panel) => (
               <button
                 key={panel.id}
                 onMouseEnter={() => setActivePanel(menu.label, panel.id)}
                 onClick={() => navigateToSection(panel.view, panel.hash, panel.tab)}
                 className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                  activePanel.id === panel.id ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                  activePanel.id === panel.id ? "bg-[#E7A35F] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                 }`}
               >
                 <span>{panel.label}</span>
@@ -390,13 +390,13 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             ))}
           </div>
 
-          <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+          <div className="flex-1 bg-[#577E89] p-8 flex flex-col justify-between text-left">
             <div>
               <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
                 {activePanel.title}
               </h4>
               <div className="space-y-4">
-                <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">
+                <span className="text-[10px] text-[#E7A35F] font-bold tracking-widest uppercase block">
                   {activePanel.eyebrow}
                 </span>
                 <p className="text-xs text-white/70 leading-relaxed font-light">
@@ -409,9 +409,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <button
                         key={link}
                         onClick={() => navigateToSection(activePanel.view, activePanel.hash, activePanel.tab)}
-                        className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                        className="text-left text-white/70 hover:text-[#E7A35F] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
                       >
-                        <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                        <span className="w-1 h-1 rounded-full bg-[#E7A35F]/60" />
                         <span>{link}</span>
                       </button>
                     ))}
@@ -422,7 +422,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
             <button
               onClick={() => navigateToSection(activePanel.view, activePanel.hash, activePanel.tab)}
-              className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+              className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#E7A35F] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
             >
               <span>{menu.ctaLabel}</span>
               <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -466,13 +466,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
         }`}
         id="app-header"
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <button
+<div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-[110px] flex items-center justify-between container-margin">          <button
             onClick={() => navigateToSection(headerContent.brand.view, null)}
             className="flex items-center space-x-2 group cursor-pointer text-left focus:outline-none"
             id="header-logo-link"
           >
-            <span className="max-w-[calc(100vw-5rem)] text-base sm:text-xl md:text-2xl font-serif tracking-[0.12em] md:tracking-[0.15em] text-[#c5a880] font-bold uppercase leading-tight transition-colors hover:text-[#b0936b]">
+            <span className="max-w-[calc(100vw-5rem)] text-base sm:text-xl md:text-2xl font-serif tracking-[0.12em] md:tracking-[0.15em] text-[#E7A35F] font-bold uppercase leading-tight transition-colors hover:text-[#6F9F9C]">
               {headerContent.brand.label}
             </span>
           </button>
@@ -484,23 +483,23 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
           <div className="hidden lg:flex items-center space-x-5">
             <button
               onClick={handleOpenConsultModal}
-              className="group flex items-center space-x-2 px-5 py-2.5 rounded-full bg-[#c5a880] text-stone-950 text-xs font-bold uppercase tracking-widest hover:bg-[#b0936b] transition-all duration-300 shadow-sm cursor-pointer"
+              className="group flex items-center space-x-2 px-5 py-2.5 rounded-full bg-[#E7A35F] text-stone-950 text-xs font-bold uppercase tracking-widest hover:bg-[#6F9F9C] transition-all duration-300 shadow-sm cursor-pointer"
             >
               <span>{headerContent.primaryCta}</span>
-              <span className="w-5 h-5 rounded-full bg-stone-950 text-[#c5a880] flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-300">
+              <span className="w-5 h-5 rounded-full bg-stone-950 text-[#E7A35F] flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-300">
                 <ArrowRight size={11} />
               </span>
             </button>
 
             <a href={headerContent.enquiry.href} className="flex items-center space-x-2.5 group">
-              <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-800 group-hover:border-[#c5a880] group-hover:bg-[#c5a880] group-hover:text-white transition-all duration-300">
+              <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-800 group-hover:border-[#E7A35F] group-hover:bg-[#E7A35F] group-hover:text-white transition-all duration-300">
                 <Phone size={12} />
               </div>
               <div className="flex flex-col text-left leading-none">
                 <span className="text-[8px] text-stone-400 font-bold tracking-widest uppercase mb-0.5">
                   {headerContent.enquiry.label}
                 </span>
-                <span className="text-xs font-bold text-stone-900 tracking-wide transition-colors group-hover:text-[#c5a880] border-b border-stone-800 group-hover:border-[#c5a880]">
+                <span className="text-xs font-bold text-stone-900 tracking-wide transition-colors group-hover:text-[#E7A35F] border-b border-stone-800 group-hover:border-[#E7A35F]">
                   {headerContent.enquiry.phone}
                 </span>
               </div>
@@ -509,7 +508,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-stone-900 hover:text-[#c5a880] transition-colors duration-300 cursor-pointer"
+            className="lg:hidden p-2 text-stone-900 hover:text-[#E7A35F] transition-colors duration-300 cursor-pointer"
             id="mobile-menu-trigger"
             aria-label="Open Mobile Menu"
             aria-controls="mobile-menu-drawer-portal"
@@ -546,7 +545,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <span className="block text-lg font-serif text-white tracking-[0.16em] font-bold uppercase leading-tight">
                       {headerContent.brand.mobileLabel}
                     </span>
-                    <span className="mt-1 block text-[10px] text-[#c5a880] font-bold uppercase tracking-[0.28em]">
+                    <span className="mt-1 block text-[10px] text-[#E7A35F] font-bold uppercase tracking-[0.28em]">
                       {headerContent.brand.mobileEyebrow}
                     </span>
                   </button>
@@ -569,7 +568,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           key={menu.label}
                           onClick={() => navigateToSection(menu.view, menu.hash, menu.tab)}
                           className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
-                            currentView === menu.view ? "text-[#c5a880]" : "text-stone-300 hover:text-[#c5a880]"
+                            currentView === menu.view ? "text-[#E7A35F]" : "text-stone-300 hover:text-[#E7A35F]"
                           }`}
                         >
                           {menu.label}
@@ -583,7 +582,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <div key={menu.label} className="border-b border-white/5 pb-2">
                         <button
                           onClick={() => setOpenMobileSection(isOpen ? "" : menu.label)}
-                          className="w-full flex items-center justify-between text-stone-300 hover:text-[#c5a880] py-2 text-base font-semibold"
+                          className="w-full flex items-center justify-between text-stone-300 hover:text-[#E7A35F] py-2 text-base font-semibold"
                           aria-expanded={isOpen}
                         >
                           <span>{menu.label}</span>
@@ -595,8 +594,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <button
                                 key={child.id || child.label}
                                 onClick={() => navigateToSection(child.view, child.hash, child.tab)}
-                                className={`text-stone-400 hover:text-[#c5a880] text-sm py-1.5 text-left ${
-                                  currentView === child.view ? "font-semibold text-[#c5a880]" : ""
+                                className={`text-stone-400 hover:text-[#E7A35F] text-sm py-1.5 text-left ${
+                                  currentView === child.view ? "font-semibold text-[#E7A35F]" : ""
                                 }`}
                               >
                                 {child.label}
@@ -613,9 +612,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               <div className="border-t border-white/5 pt-8 space-y-6">
                 <a
                   href={headerContent.enquiry.href}
-                  className="flex items-center text-stone-300 hover:text-[#c5a880] transition-colors duration-300 text-sm tracking-wider"
+                  className="flex items-center text-stone-300 hover:text-[#E7A35F] transition-colors duration-300 text-sm tracking-wider"
                 >
-                  <Phone size={14} className="mr-3 text-[#c5a880]" />
+                  <Phone size={14} className="mr-3 text-[#E7A35F]" />
                   {headerContent.enquiry.phone}
                 </a>
                 <button
@@ -623,7 +622,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     setIsMobileMenuOpen(false);
                     handleOpenConsultModal();
                   }}
-                  className="w-full py-3 text-center text-xs tracking-widest uppercase font-semibold text-stone-950 bg-[#c5a880] hover:bg-[#b0936b] transition-colors duration-300 cursor-pointer"
+                  className="w-full py-3 text-center text-xs tracking-widest uppercase font-semibold text-stone-950 bg-[#E7A35F] hover:bg-[#6F9F9C] transition-colors duration-300 cursor-pointer"
                 >
                   {headerContent.primaryCta}
                 </button>
@@ -649,7 +648,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-lg bg-stone-900 border border-[#c5a880]/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
+              className="relative w-full max-w-lg bg-stone-900 border border-[#E7A35F]/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
             >
               <button
                 onClick={() => setIsConsultModalOpen(false)}
@@ -660,7 +659,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
 
               <div className="mb-6">
-                <div className="inline-flex items-center space-x-2 text-[#c5a880] text-xs tracking-widest uppercase font-semibold mb-2">
+                <div className="inline-flex items-center space-x-2 text-[#E7A35F] text-xs tracking-widest uppercase font-semibold mb-2">
                   <Sparkles size={12} />
                   <span>Exclusive Session</span>
                 </div>
@@ -690,7 +689,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         <input
                           type="text"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
                           placeholder="e.g. Shivkumar Suthar"
                         />
                       </div>
@@ -705,7 +704,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         <input
                           type="email"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
                           placeholder="name@example.com"
                         />
                       </div>
@@ -721,7 +720,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           <input
                             type="date"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
@@ -734,7 +733,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           <input
                             type="time"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
@@ -743,7 +742,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full py-3 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,168,128,0.4)] cursor-pointer"
+                        className="w-full py-3 bg-[#E7A35F] hover:bg-[#6F9F9C] text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(231,163,95,0.4)] cursor-pointer"
                       >
                         Confirm Booking Proposal
                       </button>
@@ -755,7 +754,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     animate={{ scale: 1, opacity: 1 }}
                     className="flex flex-col items-center justify-center py-10 space-y-4"
                   >
-                    <div className="w-14 h-14 rounded-full bg-[#c5a880]/10 border border-[#c5a880] flex items-center justify-center text-[#c5a880]">
+                    <div className="w-14 h-14 rounded-full bg-[#E7A35F]/10 border border-[#E7A35F] flex items-center justify-center text-[#E7A35F]">
                       <Check size={28} />
                     </div>
                     <div className="text-center">

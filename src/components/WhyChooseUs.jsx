@@ -81,20 +81,20 @@ export default function WhyChooseUs({ setView }) {
   };
 
   return (
-    <section id="why-choose-us" className="bg-[#faf9f6] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+    <section id="why-choose-us" className="bg-[#E2D8A5] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#c5a880] text-xs">✦</span>
+            <span className="text-[#E7A35F] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               WHY CHOOSE SUTHAR INTERIOR STUDIO
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            Built on <span className="font-serif italic text-[#c5a880] font-normal lowercase">Experience</span>.<br />
-            Driven by <span className="font-serif italic text-[#c5a880] font-normal lowercase">Trust</span>.
+            Built on <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Experience</span>.<br />
+            Driven by <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Trust</span>.
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
             For over three decades, our family has been creating thoughtfully designed spaces with honesty, precision, and exceptional craftsmanship. Every project is architect-supervised, fully customized, and executed with the same care we would give our own home.
@@ -116,22 +116,22 @@ export default function WhyChooseUs({ setView }) {
                 key={feat.num}
                 variants={cardVariants}
                 whileHover={{ y: -6 }}
-                className="bg-white border border-stone-200/60 p-6 md:p-8 rounded-lg text-left space-y-6 hover:shadow-xl hover:border-[#c5a880]/30 transition-all duration-500 flex flex-col justify-between group h-full"
+                className="bg-white border border-stone-200/60 p-6 md:p-8 rounded-lg text-left space-y-6 hover:shadow-xl hover:border-[#E7A35F]/30 transition-all duration-500 flex flex-col justify-between group h-full"
               >
                 <div className="space-y-4">
                   {/* Top bar with Icon and Number indicator */}
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-lg bg-stone-50 group-hover:bg-[#c5a880]/10 flex items-center justify-center text-stone-800 group-hover:text-[#c5a880] transition-colors duration-500 border border-stone-100 group-hover:border-[#c5a880]/20">
+                    <div className="w-10 h-10 rounded-lg bg-stone-50 group-hover:bg-[#E7A35F]/10 flex items-center justify-center text-stone-800 group-hover:text-[#E7A35F] transition-colors duration-500 border border-stone-100 group-hover:border-[#E7A35F]/20">
                       <IconComponent className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" />
                     </div>
-                    <span className="text-[10px] font-mono tracking-widest text-stone-300 font-bold group-hover:text-[#c5a880]/50 transition-colors duration-500">
+                    <span className="text-[10px] font-mono tracking-widest text-stone-300 font-bold group-hover:text-[#E7A35F]/50 transition-colors duration-500">
                       {feat.num}
                     </span>
                   </div>
 
                   {/* Title and Description */}
                   <div className="space-y-2">
-                    <h3 className="text-base font-serif font-medium text-stone-950 group-hover:text-[#c5a880] transition-colors duration-300">
+                    <h3 className="text-base font-serif font-medium text-stone-950 group-hover:text-[#E7A35F] transition-colors duration-300">
                       {feat.title}
                     </h3>
                     <p className="text-stone-500 text-xs md:text-sm font-light leading-relaxed">
@@ -153,14 +153,14 @@ export default function WhyChooseUs({ setView }) {
           className="mt-20 md:mt-28 bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-lg"
         >
           {/* Subtle warm decorative mesh glow in the corner */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#c5a880]/10 via-stone-950/0 to-stone-950/0 opacity-70 pointer-events-none" />
+          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#E7A35F]/10 via-stone-950/0 to-stone-950/0 opacity-70 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-[#c5a880] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-[#E7A35F] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               WORK WITH THE MASTER BUILDERS
             </span>
             <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
-              Let's Build <span className="font-serif italic text-[#c5a880] font-normal lowercase">Something</span> <br />
+              Let's Build <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Something</span> <br />
               Extraordinary.
             </h3>
             <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
@@ -172,10 +172,10 @@ export default function WhyChooseUs({ setView }) {
                 href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] hover:bg-[#b0936b] px-6 py-4 rounded-none cursor-pointer"
+                className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>Start Your Project</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#c5a880] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#E7A35F] transition-all duration-300">
                   <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </motion.a>

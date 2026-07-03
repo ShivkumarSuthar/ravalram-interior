@@ -24,7 +24,7 @@ export default function Newsletter() {
     <section className="bg-white py-16 sm:py-24 lg:py-32 relative overflow-hidden border-t border-stone-200/50">
       {/* Blueprint grid layout lines overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
-        <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12">
+        <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12">
           <div className="border-l border-stone-900 h-full" />
           <div className="border-l border-stone-900 h-full" />
           <div className="border-l border-stone-900 h-full" />
@@ -32,7 +32,7 @@ export default function Newsletter() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,12 +52,12 @@ export default function Newsletter() {
 
         <div className="text-left space-y-8">
           <div className="space-y-4">
-            <span className="text-[#c5a880] text-xs tracking-[0.3em] uppercase font-bold font-mono block">
+            <span className="text-[#E7A35F] text-xs tracking-[0.3em] uppercase font-bold font-mono block">
               SUBSCRIBE TO THE NEWSLETTER
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-              Join <span className="font-serif italic text-[#c5a880] font-normal lowercase">Our Newsletter</span> <br />
-              <span className="font-serif italic text-[#c5a880] font-normal lowercase">Stay</span> Up To Date
+              Join <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Our Newsletter</span> <br />
+              <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Stay</span> Up To Date
             </h2>
             <p className="text-stone-500 text-sm sm:text-base font-light max-w-xl leading-relaxed">
               Gain access to exclusive spatial architecture catalogues, workshop updates, and handpicked woodcarving details.
@@ -73,7 +73,7 @@ export default function Newsletter() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onSubmit={handleSubmit}
-                className="flex items-center bg-[#faf9f6] border border-stone-200 rounded-none pl-5 pr-2 py-2 max-w-lg"
+                className="flex items-center bg-[#E2D8A5] border border-stone-200 rounded-none pl-5 pr-2 py-2 max-w-lg"
               >
                 <input
                   type="email"
@@ -86,7 +86,7 @@ export default function Newsletter() {
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="w-12 h-12 rounded-none bg-stone-900 hover:bg-[#c5a880] text-white hover:text-stone-950 flex items-center justify-center transition-colors duration-300 shrink-0 cursor-pointer group"
+                  className="w-12 h-12 rounded-none bg-stone-900 hover:bg-[#E7A35F] text-white hover:text-stone-950 flex items-center justify-center transition-colors duration-300 shrink-0 cursor-pointer group"
                 >
                   <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
                 </button>
@@ -99,7 +99,7 @@ export default function Newsletter() {
                 exit={{ scale: 0.98, opacity: 0 }}
                 className="flex items-center space-x-2 text-stone-900 bg-stone-100 border border-stone-200 px-6 py-3 rounded-none max-w-xs"
               >
-                <Check size={16} strokeWidth={3} className="text-[#c5a880]" />
+                <Check size={16} strokeWidth={3} className="text-[#E7A35F]" />
                 <span className="text-xs font-semibold uppercase tracking-wider font-mono">Subscription Confirmed!</span>
               </motion.div>
             )}

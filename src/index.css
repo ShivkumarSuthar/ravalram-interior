@@ -2,140 +2,41 @@
 
 @font-face {
   font-family: "Cal Sans";
-  src: url("/font/cal-sans/fonts/webfonts/CalSans-SemiBold.woff2") format("woff2"),
-    url("/font/cal-sans/fonts/webfonts/CalSans-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica";
-  src: url("/font/helvetica-255/helvetica-light-587ebe5a59211.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica";
-  src: url("/font/helvetica-255/Helvetica.ttf") format("truetype");
+  src: url("/fonts/Cal_Sans/CalSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Helvetica";
-  src: url("/font/helvetica-255/Helvetica-Oblique.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica";
-  src: url("/font/helvetica-255/Helvetica-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica";
-  src: url("/font/helvetica-255/Helvetica-BoldOblique.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueUltraLight.otf") format("opentype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueThin.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueRoman.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueItalic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueMedium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueBold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("/font/helvetica-neue-5/HelveticaNeueBlack.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
 }
 
 @theme {
-  --font-sans: "Cal Sans";
-  --font-cal: "Cal Sans";
-  --font-helvetica: "Helvetica", Arial, sans-serif;
-  --font-neue: "Helvetica Neue", "Helvetica Neue", Arial, sans-serif;
-  
-  /* Premium Palette */
-  --color-gold-50: #fcf9f2;
-  --color-gold-100: #f7eedb;
-  --color-gold-200: #eddcb9;
-  --color-gold-300: #dec18e;
-  --color-gold-400: #cca262;
-  --color-gold-500: #CAA05C; /* Core Accent */
-  --color-gold-600: #b28e57;
-  --color-gold-700: #947141;
-  --color-gold-800: #765733;
-  --color-gold-900: #5d442a;
-  --color-gold-950: #3b2a19;
+  --font-cal: "Cal Sans", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
 
-  --color-bronze-900: #1a1714;
-  --color-bronze-950: #100e0c;
+  /* New global palette (requested) */
+  --global-color-primary: #caa05c;
+  --global-color-secondary: #1c1c1d;
+  --global-color-text: #59585d;
+  --global-color-accent: #1c1c1d;
+  --global-color-lighter: #9f9fa4;
+  --global-color-dark: #000000;
+  --global-color-border: #e3e3e8;
+  --global-color-background-field: #f6f6f6;
 }
 
 /* Base style overrides */
 * {
-  font-family: var(--font-cal);
+  font-family: var(--font-sans);
+  font-weight: 600;
 }
 
 body {
-  background-color: #faf9f6;
-  color: #1e1a15;
+  background-color: var(--global-color-background-field);
+  color: var(--global-color-text);
   overflow-x: hidden;
 }
 
@@ -144,14 +45,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf9f6;
+  background: var(--global-color-background-field);
 }
 ::-webkit-scrollbar-thumb {
-  background: #CAA05C;
+  background: var(--global-color-primary);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #CAA05C;
+  background: var(--global-color-primary);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -169,8 +70,8 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid #CAA05C !important;
-  outline-offset: 3px !important;
+  outline: 2px solid var(--global-color-primary) !important;
+  outlinoffset: 3px !important;
   box-shadow: 0 0 0 4px rgba(202, 160, 92, 0.3) !important;
 }
 

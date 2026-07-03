@@ -23,7 +23,7 @@ export default function Footer({ onNavigate = () => {} }) {
     <footer className="bg-stone-950 text-stone-400 pt-24 pb-12 relative overflow-hidden border-t border-white/5 text-left">
       
       {/* SECTION 1: CORE FOOTER NAVIGATION */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-20">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Column 1: Logo & Mission Statement */}
@@ -102,7 +102,7 @@ export default function Footer({ onNavigate = () => {} }) {
               <li>
                 <button
                   onClick={() => handleNavigate("contact", null)}
-                  className="hover:text-gold-500 transition-colors duration-300 cursor-pointer text-left font-semibold text-[#c5a880]"
+                  className="hover:text-gold-500 transition-colors duration-300 cursor-pointer text-left font-semibold text-[#E7A35F]"
                 >
                   Contact Us
                 </button>
@@ -194,7 +194,7 @@ export default function Footer({ onNavigate = () => {} }) {
       </div>
 
       {/* SECTION 3: COPYRIGHT BOTTOM BAR */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-600">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-600">
         <div>
           <span>© 1989-2026 Suthar Interior Studio. All Rights Reserved.</span>
         </div>

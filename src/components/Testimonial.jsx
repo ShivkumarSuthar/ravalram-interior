@@ -81,10 +81,10 @@ export default function Testimonial({ setView }) {
   };
 
   return (
-    <section id="testimonials" className="bg-[#faf9f6] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+    <section id="testimonials" className="bg-[#E2D8A5] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
       {/* Decorative architectural background lines */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0">
-        <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12">
+        <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12">
           <div className="border-l border-stone-900 h-full" />
           <div className="border-l border-stone-900 h-full" />
           <div className="border-l border-stone-900 h-full" />
@@ -92,19 +92,19 @@ export default function Testimonial({ setView }) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#c5a880] text-xs">✦</span>
+            <span className="text-[#E7A35F] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               CLIENT TESTIMONIALS
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
             Spaces That Speak. <br />
-            <span className="font-serif italic text-[#c5a880] font-normal lowercase">Clients Who</span> Trust.
+            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Clients Who</span> Trust.
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
             The greatest compliment we receive is the trust of our clients. Every project is built on honest communication, thoughtful design, skilled craftsmanship, and a commitment to delivering spaces that exceed expectations.
@@ -120,10 +120,10 @@ export default function Testimonial({ setView }) {
           {/* Main Slider Panel */}
           <div className="relative bg-white border border-stone-200/60 p-8 md:p-16 rounded-xl shadow-xl overflow-hidden min-h-[320px] flex flex-col justify-between">
             {/* Elegant warm gradient glow in the corner */}
-            <div className="absolute right-0 top-0 w-[30%] h-[30%] bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#c5a880]/5 via-white/0 to-white/0 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-[30%] h-[30%] bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#E7A35F]/5 via-white/0 to-white/0 pointer-events-none" />
             
             {/* Quote Icon decorative backdrop */}
-            <div className="absolute top-10 left-10 text-[#c5a880]/10 pointer-events-none">
+            <div className="absolute top-10 left-10 text-[#E7A35F]/10 pointer-events-none">
               <Quote size={80} strokeWidth={1} />
             </div>
 
@@ -139,7 +139,7 @@ export default function Testimonial({ setView }) {
                 {/* 5-Star gold rating indicators */}
                 <div className="flex items-center space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-[#c5a880] text-[#c5a880]" />
+                    <Star key={i} size={16} className="fill-[#E7A35F] text-[#E7A35F]" />
                   ))}
                 </div>
 
@@ -151,7 +151,7 @@ export default function Testimonial({ setView }) {
                 {/* Client Profile Info */}
                 <div className="flex items-center space-x-4 pt-6 border-t border-stone-100">
                   {/* Initials Avatar */}
-                  <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-sm text-[#c5a880]">
+                  <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-sm text-[#E7A35F]">
                     {testimonials[currentIndex].initials}
                   </div>
                   
@@ -159,7 +159,7 @@ export default function Testimonial({ setView }) {
                     <span className="font-sans font-semibold text-stone-900 text-base block">
                       {testimonials[currentIndex].name}
                     </span>
-                    <span className="text-[10px] uppercase tracking-[0.15em] text-[#c5a880] font-bold font-mono block">
+                    <span className="text-[10px] uppercase tracking-[0.15em] text-[#E7A35F] font-bold font-mono block">
                       {testimonials[currentIndex].project} &bull; {testimonials[currentIndex].city}
                     </span>
                   </div>
@@ -176,7 +176,7 @@ export default function Testimonial({ setView }) {
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
                     className={`h-1.5 transition-all duration-500 rounded-full cursor-pointer ${
-                      currentIndex === idx ? "w-8 bg-[#c5a880]" : "w-2 bg-stone-200 hover:bg-stone-300"
+                      currentIndex === idx ? "w-8 bg-[#E7A35F]" : "w-2 bg-stone-200 hover:bg-stone-300"
                     }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
@@ -216,7 +216,7 @@ export default function Testimonial({ setView }) {
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="space-y-3 text-center md:text-left group"
               >
-                <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
+                <div className="text-4xl md:text-5xl font-serif text-[#E7A35F] font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
                   {st.value}
                 </div>
                 <div className="space-y-1">
@@ -241,15 +241,15 @@ export default function Testimonial({ setView }) {
           className="bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-xl"
         >
           {/* Subtle warm decorative radial glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#c5a880]/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
+          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#E7A35F]/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-[#c5a880] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-[#E7A35F] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               WORK WITH THE MASTER BUILDERS
             </span>
             <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
               Your Dream Space Could Be <br />
-              <span className="font-serif italic text-[#c5a880] font-normal lowercase">Our Next Success</span> Story.
+              <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Our Next Success</span> Story.
             </h3>
             <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
               Whether you're planning a home, office, renovation, or custom furniture project, our team is ready to bring your vision to life with thoughtful design, honest guidance, and exceptional craftsmanship.
@@ -261,10 +261,10 @@ export default function Testimonial({ setView }) {
                 href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] hover:bg-[#b0936b] px-6 py-4 rounded-none cursor-pointer"
+                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>Book a Free Consultation</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#c5a880] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#E7A35F] transition-all duration-300">
                   <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </motion.a>
@@ -273,7 +273,7 @@ export default function Testimonial({ setView }) {
               <motion.a
                 href="#portfolio"
                 onClick={() => setView && setView("home")}
-                whileHover={{ scale: 1.02, borderColor: "#c5a880", color: "#c5a880" }}
+                whileHover={{ scale: 1.02, borderColor: "#E7A35F", color: "#E7A35F" }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer"
               >
