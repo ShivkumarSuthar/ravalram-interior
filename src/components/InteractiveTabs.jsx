@@ -76,7 +76,7 @@ export default function InteractiveTabs() {
             transition={{ duration: 0.5 }}
             className="space-y-4 max-w-3xl"
           >
-            <span className="text-[#E7A35F] text-sm tracking-[0.3em] uppercase font-bold font-mono">
+            <span className="text-primary text-sm tracking-[0.3em] uppercase font-bold font-mono">
               {tabsData[activeTab].num}
             </span>
             <h3 className="text-3xl md:text-5xl font-serif tracking-tight font-medium">
@@ -106,12 +106,12 @@ export default function InteractiveTabs() {
                 {isActive && (
                   <motion.div
                     layoutId="activeTabUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-[#E7A35F]"
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-primary"
                   />
                 )}
                 
                 <div className="space-y-1">
-                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-[#E7A35F]" : "text-stone-500"}`}>
+                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-primary" : "text-stone-500"}`}>
                     {tab.num}
                   </span>
                   <h4 className={`text-xs md:text-sm font-semibold tracking-wider uppercase ${isActive ? "text-white" : "text-stone-400"}`}>

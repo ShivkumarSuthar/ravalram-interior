@@ -54,14 +54,14 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#E2D8A5] text-stone-900 selection:bg-gold-500 selection:text-stone-950 scroll-smooth" id="app-root">
+    <div className="relative min-h-screen bg-field text-stone-900 selection:bg-gold-500 selection:text-stone-950 scroll-smooth" id="app-root">
       
       {/* Dynamic SEO and Structured Schema Manager */}
       <SEOHelper currentView={currentView} />
 
       {/* Absolute fixed layout grid accents */}
       <div className="fixed inset-0 pointer-events-none z-30 opacity-5">
-        <div className="max-w-8xl mx-auto h-full w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="mx-auto h-full w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="border-l border-stone-400 h-full" />
           <div className="border-l border-stone-400 h-full" />
           <div className="border-l border-stone-400 h-full border-r" />
@@ -318,6 +318,6 @@ export default function App() {
 
       {/* Luxury automated quick query Chatbot */}
       <LuxuryChatbot />
-    </div>
+</div>
   );
 }

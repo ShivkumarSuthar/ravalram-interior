@@ -51,7 +51,7 @@ export default function CreativeProjects() {
     : projects.filter((p) => p.filterKey === activeFilter);
 
   return (
-    <section id="portfolio" className="bg-[#E2D8A5] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+    <section id="portfolio" className="bg-field py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
       
       {/* Giant Ghost Text Backdrop */}
       <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none z-0 overflow-hidden">
@@ -65,14 +65,14 @@ export default function CreativeProjects() {
         {/* Header Block */}
         <div className="text-left mb-12 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#E7A35F] text-xs">✦</span>
+            <span className="text-primary text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               FEATURED PROJECTS
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
             Designed with Purpose. <br />
-            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Crafted to</span> Last.
+            <span className="font-serif italic text-primary font-normal lowercase">Crafted to</span> Last.
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
             Every project reflects our commitment to thoughtful design, skilled craftsmanship, and meticulous execution. From elegant homes to modern commercial spaces, we create interiors that are both beautiful and functional.
@@ -131,7 +131,7 @@ export default function CreativeProjects() {
 
                   {/* Centered hover view arrow button */}
                   <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                    <div className="w-16 h-16 rounded-full bg-[#E7A35F] text-stone-950 flex flex-col items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
+                    <div className="w-16 h-16 rounded-full bg-primary text-stone-950 flex flex-col items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
                       <span className="text-[10px] uppercase font-bold tracking-widest leading-none">View</span>
                       <svg className="w-4 h-4 mt-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -144,14 +144,14 @@ export default function CreativeProjects() {
                 {/* Title, Category & Description Info */}
                 <div className="flex items-start justify-between gap-4">
                   <div className="space-y-2">
-                    <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-[#E7A35F] transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-primary transition-colors duration-300">
                       {proj.title}
                     </h3>
                     <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
                       {proj.description}
                     </p>
                   </div>
-                  <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-800 group-hover:bg-[#E7A35F] group-hover:text-stone-950 group-hover:border-[#E7A35F] transition-all duration-300 shrink-0">
+                  <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-800 group-hover:bg-primary group-hover:text-stone-950 group-hover:border-primary transition-all duration-300 shrink-0">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                       <polyline points="12 5 19 12 12 19"></polyline>
@@ -172,15 +172,15 @@ export default function CreativeProjects() {
           className="mt-24 md:mt-32 bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-lg"
         >
           {/* Subtle warm decorative radial glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#E7A35F]/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
+          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-[#E7A35F] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               HAVE A VISION? Let's Bring It to Life.
             </span>
             <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
               Have a Vision? <br />
-              <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Let's Bring It to</span> Life.
+              <span className="font-serif italic text-primary font-normal lowercase">Let's Bring It to</span> Life.
             </h3>
             <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
               Every successful project begins with a conversation. Tell us about your space, your ideas, and your goals—we'll take care of the rest.
@@ -191,10 +191,10 @@ export default function CreativeProjects() {
                 onClick={() => setActiveFilter("All")}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-4 rounded-none cursor-pointer"
+                className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>View All Projects</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#E7A35F] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-primary transition-all duration-300">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -229,7 +229,7 @@ export default function CreativeProjects() {
             <div className="relative max-w-5xl max-h-[80vh] w-full px-6 flex items-center justify-center z-10 select-none">
               <button
                 onClick={() => setLightboxIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length)}
-                className="absolute left-10 p-3 text-white hover:text-[#E7A35F] transition-colors duration-300 bg-white/5 hover:bg-white/10 rounded-full cursor-pointer"
+                className="absolute left-10 p-3 text-white hover:text-primary transition-colors duration-300 bg-white/5 hover:bg-white/10 rounded-full cursor-pointer"
                 aria-label="Previous Image"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -250,7 +250,7 @@ export default function CreativeProjects() {
 
               <button
                 onClick={() => setLightboxIndex((prev) => (prev + 1) % filteredProjects.length)}
-                className="absolute right-10 p-3 text-white hover:text-[#E7A35F] transition-colors duration-300 bg-white/5 hover:bg-white/10 rounded-full cursor-pointer"
+                className="absolute right-10 p-3 text-white hover:text-primary transition-colors duration-300 bg-white/5 hover:bg-white/10 rounded-full cursor-pointer"
                 aria-label="Next Image"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -262,7 +262,7 @@ export default function CreativeProjects() {
             {/* Info overlay */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-center text-white space-y-1">
               <h4 className="text-lg font-serif font-medium">{filteredProjects[lightboxIndex].title}</h4>
-              <p className="text-xs text-[#E7A35F] uppercase tracking-widest font-mono">{filteredProjects[lightboxIndex].category}</p>
+              <p className="text-xs text-primary uppercase tracking-widest font-mono">{filteredProjects[lightboxIndex].category}</p>
             </div>
           </div>
         )}

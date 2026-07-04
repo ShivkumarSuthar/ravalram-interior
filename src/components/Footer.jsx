@@ -102,7 +102,7 @@ export default function Footer({ onNavigate = () => {} }) {
               <li>
                 <button
                   onClick={() => handleNavigate("contact", null)}
-                  className="hover:text-gold-500 transition-colors duration-300 cursor-pointer text-left font-semibold text-[#E7A35F]"
+                  className="hover:text-gold-500 transition-colors duration-300 cursor-pointer text-left font-semibold text-primary"
                 >
                   Contact Us
                 </button>

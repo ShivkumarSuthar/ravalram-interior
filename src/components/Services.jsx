@@ -52,19 +52,19 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="bg-[#E2D8A5] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
+    <section id="services" className="bg-field py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
       <div className="max-w-8xl mx-auto px-6 md:px-12">
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#E7A35F] text-xs">✦</span>
+            <span className="text-primary text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               OUR EXPERTISE
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            Bespoke Solutions <span className="font-serif italic text-[#E7A35F] font-normal lowercase">for Every</span> <br className="hidden sm:block" />
-            Architectural <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Scale</span>
+            Bespoke Solutions <span className="font-serif italic text-primary font-normal lowercase">for Every</span> <br className="hidden sm:block" />
+            Architectural <span className="font-serif italic text-primary font-normal lowercase">Scale</span>
           </h2>
         </div>
 
@@ -102,7 +102,7 @@ export default function Services() {
 
               {/* Title and description */}
               <div className="space-y-3 text-left w-full">
-                <h3 className="text-lg font-serif font-medium tracking-tight text-stone-900 group-hover:text-[#E7A35F] transition-colors duration-300">
+                <h3 className="text-lg font-serif font-medium tracking-tight text-stone-900 group-hover:text-primary transition-colors duration-300">
                   {svc.title}
                 </h3>
                 <div className="w-8 h-[1px] bg-stone-300 group-hover:w-16 transition-all duration-500" />

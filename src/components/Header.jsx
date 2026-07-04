@@ -43,8 +43,8 @@ const iconMap = {
 
 const headerContent = {
   brand: {
-    label: "RAVALRAM INTERIOR",
-    mobileLabel: "RAVALRAM INTERIOR",
+    label: "SUTHAR INTERIOR STUDIO",
+    mobileLabel: "SUTHAR INTERIOR STUDIO",
     mobileEyebrow: "Interior Studio",
     view: "home",
   },
@@ -53,7 +53,7 @@ const headerContent = {
     phone: "+91 90045 38149",
     href: "tel:+919004538149",
   },
-  primaryCta: "Book Consultation",
+  primaryCta: "Get A Quote!",
   nav: [
     {
       label: "Home",
@@ -203,78 +203,168 @@ const headerContent = {
       ],
     },
     {
-      label: "Gallery",
-      view: "gallery",
-    },
-    {
       label: "Pages",
-      view: "about-us",
-      dropdownWidth: "w-[620px]",
-      defaultPanel: "faqs",
-      ctaLabel: "Open Page",
-      desktopOnlyLabel: true,
+      view: "gallery",
+      dropdownWidth: "w-[680px]",
+      defaultPanel: "gallery",
+      ctaLabel: "Explore Page",
       panels: [
         {
-          id: "faqs",
-          label: "Frequently Asked FAQs",
-          title: "FAQS",
-          eyebrow: "PROJECT ESTIMATES, WARRANTIES, AND TIMELINES",
+          id: "gallery",
+          label: "Gallery",
+          title: "OUR PORTFOLIO",
+          eyebrow: "EXPLORE OUR COMPLETED PROJECTS",
           description:
-            "Clear answers for design-only requests, custom joinery warranties, material schedules, and execution milestones.",
+            "Browse luxury residential, commercial, and bespoke interior projects completed by our team.",
+          icon: "grid",
+          view: "gallery",
+          links: [
+            "Photo Gallery",
+            "Video Gallery",
+            "Recent Projects",
+            "Before & After",
+          ],
+        },
+        {
+          id: "blog",
+          label: "Blog",
+          title: "DESIGN JOURNAL",
+          eyebrow: "INSIGHTS & INTERIOR TRENDS",
+          description:
+            "Discover design inspiration, renovation guides, expert tips, and project case studies.",
+          icon: "book",
+          view: "blog",
+          links: [
+            "Latest Articles",
+            "Interior Tips",
+            "Case Studies",
+            "Industry News",
+          ],
+        },
+        {
+          id: "faqs",
+          label: "FAQs",
+          title: "FREQUENTLY ASKED QUESTIONS",
+          eyebrow: "EVERYTHING YOU NEED TO KNOW",
+          description:
+            "Answers about timelines, pricing, materials, execution process, and warranties.",
           icon: "help",
           view: "faqs",
         },
         {
-          id: "journal",
-          label: "Magazine Journal",
-          title: "BLOG",
-          eyebrow: "ARCHITECTURE AND WOODWORKING NOTES",
-          description:
-            "Practical writing on residential interiors, commercial planning, renovation detail, and timeless joinery.",
-          icon: "book",
-          view: "blog",
-        },
-        {
           id: "awards",
-          label: "Hall of Awards",
-          title: "AWARDS",
-          eyebrow: "RECOGNITION AND CRAFT MILESTONES",
+          label: "Awards",
+          title: "OUR ACHIEVEMENTS",
+          eyebrow: "CRAFTSMANSHIP & RECOGNITION",
           description:
-            "A look at the design language, client trust, and delivery standards behind our long-running studio practice.",
-          icon: "star",
+            "Explore our milestones, recognitions, and years of trusted interior excellence.",
+          icon: "award",
           view: "home",
           hash: "#awards",
         },
         {
           id: "coming-soon",
-          label: "Coming Soon Launch",
-          title: "COMING SOON",
-          eyebrow: "NEXT DIGITAL SHOWROOM RELEASES",
+          label: "Coming Soon",
+          title: "MORE EXPERIENCES",
+          eyebrow: "NEW FEATURES ARRIVING SOON",
           description:
-            "Upcoming additions for showroom scheduling, client coordination, and more detailed project exploration.",
-          icon: "grid",
+            "Upcoming digital showroom, project tracking, client portal, and more.",
+          icon: "sparkles",
           view: "coming-soon",
         },
       ],
     },
     {
-      label: "Blog",
-      view: "blog",
-    },
-    {
       label: "Contact",
       view: "contact",
+      dropdownWidth: "w-[700px]",
+      defaultPanel: "contact-us",
+      ctaLabel: "Contact Us",
+      panels: [
+        {
+          id: "contact-us",
+          label: "Contact Us",
+          title: "GET IN TOUCH",
+          eyebrow: "WE'D LOVE TO HEAR FROM YOU",
+          description:
+            "Connect with our interior experts for design discussions, project enquiries, or collaborations.",
+          icon: "mail",
+          view: "contact",
+          links: [
+            "General Enquiry",
+            "Business Enquiry",
+            "Customer Support",
+            "Visit Our Office",
+          ],
+        },
+        {
+          id: "consultation",
+          label: "Book Consultation",
+          title: "BOOK A CONSULTATION",
+          eyebrow: "START YOUR DESIGN JOURNEY",
+          description:
+            "Schedule a one-to-one consultation with our designers to discuss your project requirements.",
+          icon: "calendar",
+          view: "contact",
+          hash: "#consultation",
+          links: [
+            "Residential Projects",
+            "Commercial Projects",
+            "Renovation Consultation",
+            "Online Consultation",
+          ],
+        },
+        {
+          id: "quotation",
+          label: "Request Quote",
+          title: "REQUEST A QUOTATION",
+          eyebrow: "GET A CUSTOM ESTIMATE",
+          description:
+            "Receive a transparent and detailed quotation tailored to your budget and project scope.",
+          icon: "check",
+          view: "contact",
+          hash: "#quote",
+          links: [
+            "Interior Design",
+            "Furniture",
+            "Turnkey Projects",
+            "Custom Carpentry",
+          ],
+        },
+        {
+          id: "visit-studio",
+          label: "Visit Studio",
+          title: "VISIT OUR STUDIO",
+          eyebrow: "EXPERIENCE OUR MATERIALS & DESIGNS",
+          description:
+            "Meet our team, explore finishes, view samples, and discuss your dream space in person.",
+          icon: "compass",
+          view: "contact",
+          hash: "#location",
+          links: [
+            "Studio Location",
+            "Opening Hours",
+            "Directions",
+            "Schedule Visit",
+          ],
+        },
+      ],
     },
   ],
 };
 
 const getDefaultPanelState = () =>
   headerContent.nav.reduce((acc, item) => {
-    if (item.panels?.length) acc[item.label] = item.defaultPanel || item.panels[0].id;
+    if (item.panels?.length)
+      acc[item.label] = item.defaultPanel || item.panels[0].id;
     return acc;
   }, {});
 
-export default function Header({ currentView = "home", setView = () => {}, onOpenQuote = null }) {
+export default function Header({
+  currentView = "home",
+  setView = () => {},
+  onOpenQuote = null,
+}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
@@ -341,7 +431,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
   };
 
   const activeClass = (view) =>
-    currentView === view ? "text-[#E7A35F]" : "text-stone-800 hover:text-[#E7A35F]";
+    currentView === view ? "text-primary" : "text-white hover:text-primary";
 
   const setActivePanel = (menuLabel, panelId) => {
     setActivePanels((previous) => ({
@@ -361,45 +451,52 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
     return (
       <div className="relative group/nav" onMouseLeave={() => resetActivePanel(menu)}>
         <button
-          className={`text-md font-bold uppercase tracking-wider flex items-center gap-1 py-2 cursor-pointer transition-colors ${activeClass(menu.view)}`}
+          className={`text-xs text-xs font-bold uppercase tracking-wider flex items-center gap-1 py-2 cursor-pointer transition-colors ${activeClass(menu.view)}`}
           aria-haspopup="true"
         >
           <span>{menu.label}</span>
           <ChevronDown
             size={11}
-            className="opacity-60 group-hover/nav:translate-y-0.5 transition-transform duration-300 text-stone-800"
+            className="opacity-60 group-hover/nav:translate-y-0.5 transition-transform duration-300"
           />
         </button>
 
         <div
-          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${menu.dropdownWidth} bg-[#577E89] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50`}
+          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${menu.dropdownWidth} bg-mutedTeal shadow-2xl rounded-xl border border-mutedInk/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50`}
         >
-          <div className="w-[260px] bg-[#6F9F9C] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+          <div className="w-[260px] bg-lighter p-2 flex flex-col space-y-1 border-r border-mutedInk/20">
             {menu.panels.map((panel) => (
               <button
                 key={panel.id}
                 onMouseEnter={() => setActivePanel(menu.label, panel.id)}
-                onClick={() => navigateToSection(panel.view, panel.hash, panel.tab)}
+                onClick={() =>
+                  navigateToSection(panel.view, panel.hash, panel.tab)
+                }
                 className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                  activePanel.id === panel.id ? "bg-[#E7A35F] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                  activePanel.id === panel.id
+                    ? "bg-primary text-white"
+                    : "text-white hover:text-white hover:bg-white/5"
                 }`}
               >
                 <span>{panel.label}</span>
-                {renderIcon(panel.icon, activePanel.id === panel.id ? "text-white" : "text-white/40")}
+                {renderIcon(
+                  panel.icon,
+                  activePanel.id === panel.id ? "text-white" : "text-white/40",
+                )}
               </button>
             ))}
           </div>
 
-          <div className="flex-1 bg-[#577E89] p-8 flex flex-col justify-between text-left">
+          <div className="flex-1 bg-mutedTeal p-8 flex flex-col justify-between text-left">
             <div>
               <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
                 {activePanel.title}
               </h4>
               <div className="space-y-4">
-                <span className="text-[10px] text-[#E7A35F] font-bold tracking-widest uppercase block">
+                <span className="text-[10px] text-primary font-bold tracking-widest uppercase block">
                   {activePanel.eyebrow}
                 </span>
-                <p className="text-xs text-white/70 leading-relaxed font-light">
+                <p className="text-sm text-white/70 leading-relaxed font-light">
                   {activePanel.description}
                 </p>
 
@@ -408,10 +505,16 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     {activePanel.links.map((link) => (
                       <button
                         key={link}
-                        onClick={() => navigateToSection(activePanel.view, activePanel.hash, activePanel.tab)}
-                        className="text-left text-white/70 hover:text-[#E7A35F] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                        onClick={() =>
+                          navigateToSection(
+                            activePanel.view,
+                            activePanel.hash,
+                            activePanel.tab,
+                          )
+                        }
+                        className="text-left text-white/70 hover:text-primary text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
                       >
-                        <span className="w-1 h-1 rounded-full bg-[#E7A35F]/60" />
+                        <span className="w-1 h-1 rounded-full bg-primary/60" />
                         <span>{link}</span>
                       </button>
                     ))}
@@ -421,11 +524,20 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             </div>
 
             <button
-              onClick={() => navigateToSection(activePanel.view, activePanel.hash, activePanel.tab)}
-              className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#E7A35F] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+              onClick={() =>
+                navigateToSection(
+                  activePanel.view,
+                  activePanel.hash,
+                  activePanel.tab,
+                )
+              }
+              className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-primary uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
             >
               <span>{menu.ctaLabel}</span>
-              <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={12}
+                className="transform group-hover/btn:translate-x-1 transition-transform"
+              />
             </button>
           </div>
         </div>
@@ -438,11 +550,19 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
       return <div key={menu.label}>{renderDesktopDropdown(menu)}</div>;
     }
 
+    const navItemClass = isScrolled
+      ? currentView === menu.view
+        ? "text-primary"
+        : "text-white hover:text-primary"
+      : currentView === menu.view
+        ? "text-white"
+        : "text-white hover:text-stone-200";
+
     return (
       <button
         key={menu.label}
         onClick={() => navigateToSection(menu.view, menu.hash, menu.tab)}
-        className={`text-md font-bold uppercase tracking-wider transition-colors duration-300 py-2 cursor-pointer ${activeClass(menu.view)}`}
+        className={`text-sm font-bold uppercase tracking-wider transition-colors duration-300 py-2 cursor-pointer ${navItemClass}`}
       >
         {menu.label}
       </button>
@@ -461,54 +581,66 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-white border-b border-stone-200/50 py-4 ${
-          isScrolled ? "shadow-md" : "shadow-sm"
+        className={`container-block fixed top-0 left-0 w-full z-50 transition-all duration-500 py-4 ${
+          isScrolled
+            ? "bg-white border-b border-stone-200/50 shadow-md"
+            : "bg-transparent border-b border-transparent shadow-none"
         }`}
         id="app-header"
       >
-<div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-[110px] flex items-center justify-between container-margin">          <button
+        <div className="monitor:max-w-9xl laptop:max-w-7xl mx-auto flex items-center justify-between container-margin">
+          <button
             onClick={() => navigateToSection(headerContent.brand.view, null)}
             className="flex items-center space-x-2 group cursor-pointer text-left focus:outline-none"
             id="header-logo-link"
           >
-            <span className="max-w-[calc(100vw-5rem)] text-base sm:text-xl md:text-2xl font-serif tracking-[0.12em] md:tracking-[0.15em] text-[#E7A35F] font-bold uppercase leading-tight transition-colors hover:text-[#6F9F9C]">
+            <span
+              className={`text-xs sm:text-xl md:text-2xl font-serif tracking-[0.12em] md:tracking-[0.15em] font-bold uppercase leading-tight transition-colors ${
+                isScrolled
+                  ? "text-primary hover:text-lighter"
+                  : "text-white hover:text-stone-200"
+              }`}
+            >
               {headerContent.brand.label}
             </span>
           </button>
-
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8" id="header-desktop-nav">
+          <nav
+            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
+            id="header-desktop-nav"
+          >
             {headerContent.nav.map(renderDesktopNavItem)}
           </nav>
-
           <div className="hidden lg:flex items-center space-x-5">
             <button
               onClick={handleOpenConsultModal}
-              className="group flex items-center space-x-2 px-5 py-2.5 rounded-full bg-[#E7A35F] text-stone-950 text-xs font-bold uppercase tracking-widest hover:bg-[#6F9F9C] transition-all duration-300 shadow-sm cursor-pointer"
+              className="group flex items-center space-x-2 px-5 py-2.5 rounded-full bg-primary text-stone-950 text-xs font-bold uppercase tracking-widest hover:bg-lighter transition-all duration-300 shadow-sm cursor-pointer"
             >
               <span>{headerContent.primaryCta}</span>
-              <span className="w-5 h-5 rounded-full bg-stone-950 text-[#E7A35F] flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-300">
+              <span className="w-5 h-5 rounded-full bg-stone-950 text-primary flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-300">
                 <ArrowRight size={11} />
               </span>
             </button>
 
-            <a href={headerContent.enquiry.href} className="flex items-center space-x-2.5 group">
-              <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-800 group-hover:border-[#E7A35F] group-hover:bg-[#E7A35F] group-hover:text-white transition-all duration-300">
+            <a
+              href={headerContent.enquiry.href}
+              className="flex items-center space-x-2.5 group"
+            >
+              <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                 <Phone size={12} />
               </div>
               <div className="flex flex-col text-left leading-none">
                 <span className="text-[8px] text-stone-400 font-bold tracking-widest uppercase mb-0.5">
                   {headerContent.enquiry.label}
                 </span>
-                <span className="text-xs font-bold text-stone-900 tracking-wide transition-colors group-hover:text-[#E7A35F] border-b border-stone-800 group-hover:border-[#E7A35F]">
+                <span className="text-sm font-bold text-stone-900 tracking-wide transition-colors group-hover:text-primary border-b border-stone-800 group-hover:border-primary">
                   {headerContent.enquiry.phone}
                 </span>
               </div>
             </a>
           </div>
-
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-stone-900 hover:text-[#E7A35F] transition-colors duration-300 cursor-pointer"
+            className="lg:hidden p-2 text-stone-900 hover:text-primary transition-colors duration-300 cursor-pointer"
             id="mobile-menu-trigger"
             aria-label="Open Mobile Menu"
             aria-controls="mobile-menu-drawer-portal"
@@ -521,7 +653,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-55 lg:hidden" id="mobile-menu-drawer-portal">
+          <div
+            className="fixed inset-0 z-55 lg:hidden"
+            id="mobile-menu-drawer-portal"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
@@ -539,13 +674,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               <div>
                 <div className="flex items-center justify-between mb-12">
                   <button
-                    onClick={() => navigateToSection(headerContent.brand.view, null)}
+                    onClick={() =>
+                      navigateToSection(headerContent.brand.view, null)
+                    }
                     className="text-left focus:outline-none"
                   >
                     <span className="block text-lg font-serif text-white tracking-[0.16em] font-bold uppercase leading-tight">
                       {headerContent.brand.mobileLabel}
                     </span>
-                    <span className="mt-1 block text-[10px] text-[#E7A35F] font-bold uppercase tracking-[0.28em]">
+                    <span className="mt-1 block text-[10px] text-primary font-bold uppercase tracking-[0.28em]">
                       {headerContent.brand.mobileEyebrow}
                     </span>
                   </button>
@@ -566,9 +703,13 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       return (
                         <button
                           key={menu.label}
-                          onClick={() => navigateToSection(menu.view, menu.hash, menu.tab)}
+                          onClick={() =>
+                            navigateToSection(menu.view, menu.hash, menu.tab)
+                          }
                           className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
-                            currentView === menu.view ? "text-[#E7A35F]" : "text-stone-300 hover:text-[#E7A35F]"
+                            currentView === menu.view
+                              ? "text-primary"
+                              : "text-stone-300 hover:text-primary"
                           }`}
                         >
                           {menu.label}
@@ -579,23 +720,39 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     const isOpen = openMobileSection === menu.label;
 
                     return (
-                      <div key={menu.label} className="border-b border-white/5 pb-2">
+                      <div
+                        key={menu.label}
+                        className="border-b border-white/5 pb-2"
+                      >
                         <button
-                          onClick={() => setOpenMobileSection(isOpen ? "" : menu.label)}
-                          className="w-full flex items-center justify-between text-stone-300 hover:text-[#E7A35F] py-2 text-base font-semibold"
+                          onClick={() =>
+                            setOpenMobileSection(isOpen ? "" : menu.label)
+                          }
+                          className="w-full flex items-center justify-between text-stone-300 hover:text-primary py-2 text-base font-semibold"
                           aria-expanded={isOpen}
                         >
                           <span>{menu.label}</span>
-                          <ChevronDown size={14} className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                          <ChevronDown
+                            size={14}
+                            className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
+                          />
                         </button>
                         {isOpen && (
                           <div className="pl-4 mt-2 space-y-2 flex flex-col">
                             {children.map((child) => (
                               <button
                                 key={child.id || child.label}
-                                onClick={() => navigateToSection(child.view, child.hash, child.tab)}
-                                className={`text-stone-400 hover:text-[#E7A35F] text-sm py-1.5 text-left ${
-                                  currentView === child.view ? "font-semibold text-[#E7A35F]" : ""
+                                onClick={() =>
+                                  navigateToSection(
+                                    child.view,
+                                    child.hash,
+                                    child.tab,
+                                  )
+                                }
+                                className={`text-stone-400 hover:text-primary text-sm py-1.5 text-left ${
+                                  currentView === child.view
+                                    ? "font-semibold text-primary"
+                                    : ""
                                 }`}
                               >
                                 {child.label}
@@ -612,9 +769,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               <div className="border-t border-white/5 pt-8 space-y-6">
                 <a
                   href={headerContent.enquiry.href}
-                  className="flex items-center text-stone-300 hover:text-[#E7A35F] transition-colors duration-300 text-sm tracking-wider"
+                  className="flex items-center text-stone-300 hover:text-primary transition-colors duration-300 text-sm tracking-wider"
                 >
-                  <Phone size={14} className="mr-3 text-[#E7A35F]" />
+                  <Phone size={14} className="mr-3 text-primary" />
                   {headerContent.enquiry.phone}
                 </a>
                 <button
@@ -622,7 +779,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     setIsMobileMenuOpen(false);
                     handleOpenConsultModal();
                   }}
-                  className="w-full py-3 text-center text-xs tracking-widest uppercase font-semibold text-stone-950 bg-[#E7A35F] hover:bg-[#6F9F9C] transition-colors duration-300 cursor-pointer"
+                  className="w-full py-3 text-center text-sm tracking-widest uppercase font-semibold text-stone-950 bg-primary hover:bg-lighter transition-colors duration-300 cursor-pointer"
                 >
                   {headerContent.primaryCta}
                 </button>
@@ -634,7 +791,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
       <AnimatePresence>
         {isConsultModalOpen && (
-          <div className="fixed inset-0 z-55 flex items-center justify-center px-4" id="consultation-modal">
+          <div
+            className="fixed inset-0 z-55 flex items-center justify-center px-4"
+            id="consultation-modal"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.75 }}
@@ -648,7 +808,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-lg bg-stone-900 border border-[#E7A35F]/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
+              className="relative w-full max-w-lg bg-stone-900 border border-primary/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
             >
               <button
                 onClick={() => setIsConsultModalOpen(false)}
@@ -659,15 +819,16 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
 
               <div className="mb-6">
-                <div className="inline-flex items-center space-x-2 text-[#E7A35F] text-xs tracking-widest uppercase font-semibold mb-2">
+                <div className="inline-flex items-center space-x-2 text-primary text-sm tracking-widest uppercase font-semibold mb-2">
                   <Sparkles size={12} />
                   <span>Exclusive Session</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif text-white font-semibold text-left">
                   Book A Consultation
                 </h3>
-                <p className="text-stone-400 text-xs mt-1 text-left">
-                  Connect with our lead architects to shape a clear proposal for your space.
+                <p className="text-stone-400 text-sm mt-1 text-left">
+                  Connect with our lead architects to shape a clear proposal for
+                  your space.
                 </p>
               </div>
 
@@ -681,30 +842,36 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     className="space-y-4"
                   >
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                      <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                         Your Full Name
                       </label>
                       <div className="relative">
-                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                        <User
+                          size={14}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
+                        />
                         <input
                           type="text"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
                           placeholder="e.g. Shivkumar Suthar"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                      <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                         Email Address
                       </label>
                       <div className="relative">
-                        <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                        <Mail
+                          size={14}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
+                        />
                         <input
                           type="email"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
                           placeholder="name@example.com"
                         />
                       </div>
@@ -712,28 +879,34 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                        <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                           Select Date
                         </label>
                         <div className="relative">
-                          <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                          <Calendar
+                            size={14}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
+                          />
                           <input
                             type="date"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                        <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                           Select Time
                         </label>
                         <div className="relative">
-                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                          <Clock
+                            size={14}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
+                          />
                           <input
                             type="time"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#E7A35F] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
@@ -742,7 +915,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full py-3 bg-[#E7A35F] hover:bg-[#6F9F9C] text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(231,163,95,0.4)] cursor-pointer"
+                        className="w-full py-3 bg-primary hover:bg-lighter text-stone-950 text-sm tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(231,163,95,0.4)] cursor-pointer"
                       >
                         Confirm Booking Proposal
                       </button>
@@ -754,13 +927,16 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     animate={{ scale: 1, opacity: 1 }}
                     className="flex flex-col items-center justify-center py-10 space-y-4"
                   >
-                    <div className="w-14 h-14 rounded-full bg-[#E7A35F]/10 border border-[#E7A35F] flex items-center justify-center text-[#E7A35F]">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary flex items-center justify-center text-primary">
                       <Check size={28} />
                     </div>
                     <div className="text-center">
-                      <h4 className="text-white font-medium text-lg">Proposal Received!</h4>
-                      <p className="text-stone-400 text-xs mt-2">
-                        We have registered your consultation request. Our team will verify slot availability and reply shortly.
+                      <h4 className="text-white font-medium text-lg">
+                        Proposal Received!
+                      </h4>
+                      <p className="text-stone-400 text-sm mt-2">
+                        We have registered your consultation request. Our team
+                        will verify slot availability and reply shortly.
                       </p>
                     </div>
                   </motion.div>

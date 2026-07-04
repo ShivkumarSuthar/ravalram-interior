@@ -35,19 +35,19 @@ const sideArticles = [
 
 export default function Blog() {
   return (
-    <section id="blog" className="bg-[#E2D8A5] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
+    <section id="blog" className="bg-field py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
       <div className="max-w-8xl mx-auto px-6 md:px-12">
         {/* Header Block */}
         <div className="text-left mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#E7A35F] text-xs">✦</span>
+            <span className="text-primary text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               OUR JOURNAL
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            Architectural Insights <span className="font-serif italic text-[#E7A35F] font-normal lowercase">&amp;</span> <br />
-            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Craftsman</span> Chronicles
+            Architectural Insights <span className="font-serif italic text-primary font-normal lowercase">&amp;</span> <br />
+            <span className="font-serif italic text-primary font-normal lowercase">Craftsman</span> Chronicles
           </h2>
         </div>
 
@@ -74,11 +74,11 @@ export default function Blog() {
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-[10px] font-mono tracking-wider text-stone-400 font-bold">
-                  <span className="text-[#E7A35F] uppercase">Structural Curation</span>
+                  <span className="text-primary uppercase">Structural Curation</span>
                   <span>&bull;</span>
                   <span>June 29, 2026</span>
                 </div>
-                <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-[#E7A35F] transition-colors duration-300 leading-snug">
+                <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-primary transition-colors duration-300 leading-snug">
                   Four Ways to Create Volumetric Space in Residential Architecture
                 </h3>
                 <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -97,7 +97,7 @@ export default function Blog() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-white border border-stone-200/60 p-4 rounded-none shadow-sm hover:border-[#E7A35F]/20 transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center group cursor-pointer text-left"
+                className="bg-white border border-stone-200/60 p-4 rounded-none shadow-sm hover:border-primary/20 transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center group cursor-pointer text-left"
               >
                 {/* Small image frame */}
                 <div className="w-full sm:w-28 aspect-video sm:aspect-square rounded-none overflow-hidden bg-stone-100 shrink-0">
@@ -112,11 +112,11 @@ export default function Blog() {
                 {/* Article details */}
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3 text-[10px] font-mono tracking-wider text-stone-400 font-bold">
-                    <span className="text-[#E7A35F] uppercase">{art.tag}</span>
+                    <span className="text-primary uppercase">{art.tag}</span>
                     <span>&bull;</span>
                     <span>{art.date}</span>
                   </div>
-                  <h4 className="text-sm md:text-base font-serif font-medium text-stone-900 group-hover:text-[#E7A35F] transition-colors duration-300 leading-snug">
+                  <h4 className="text-sm md:text-base font-serif font-medium text-stone-900 group-hover:text-primary transition-colors duration-300 leading-snug">
                     {art.title}
                   </h4>
                   <p className="text-stone-500 text-xs font-light leading-relaxed line-clamp-2">

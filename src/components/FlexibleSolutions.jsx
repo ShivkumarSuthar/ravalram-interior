@@ -94,20 +94,20 @@ export default function FlexibleSolutions({ setView }) {
   };
 
   return (
-    <section id="pricing" className="bg-[#E2D8A5] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+    <section id="pricing" className="bg-field py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
       <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2">
-            <span className="text-[#E7A35F] text-xs">✦</span>
+            <span className="text-primary text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
               FLEXIBLE SOLUTIONS
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
             Designed Around <br />
-            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Your Vision &</span> Budget.
+            <span className="font-serif italic text-primary font-normal lowercase">Your Vision &</span> Budget.
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
             Every project is different, and so is every client's vision. Instead of offering fixed packages, we create flexible solutions that match your design goals, material preferences, execution requirements, and investment. Whether you need complete turnkey interiors or only skilled craftsmen for execution, we adapt our services to fit your project.
@@ -129,22 +129,22 @@ export default function FlexibleSolutions({ setView }) {
                 key={sol.num}
                 variants={cardVariants}
                 whileHover={{ y: -6 }}
-                className="bg-white border border-stone-200/60 p-6 md:p-8 rounded-xl text-left space-y-6 hover:shadow-xl hover:border-[#E7A35F]/30 transition-all duration-500 flex flex-col justify-between h-full group"
+                className="bg-white border border-stone-200/60 p-6 md:p-8 rounded-xl text-left space-y-6 hover:shadow-xl hover:border-primary/30 transition-all duration-500 flex flex-col justify-between h-full group"
               >
                 <div className="space-y-4">
                   {/* Card Header with Icon and Number */}
                   <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 rounded-lg bg-stone-50 group-hover:bg-[#E7A35F]/10 flex items-center justify-center text-stone-800 group-hover:text-[#E7A35F] transition-colors duration-500 border border-stone-100 group-hover:border-[#E7A35F]/20">
+                    <div className="w-11 h-11 rounded-lg bg-stone-50 group-hover:bg-primary/10 flex items-center justify-center text-stone-800 group-hover:text-primary transition-colors duration-500 border border-stone-100 group-hover:border-primary/20">
                       <IconComponent className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" />
                     </div>
-                    <span className="text-xs font-mono font-bold text-stone-300 group-hover:text-[#E7A35F]/50 transition-colors duration-500">
+                    <span className="text-xs font-mono font-bold text-stone-300 group-hover:text-primary/50 transition-colors duration-500">
                       {sol.num}
                     </span>
                   </div>
 
                   {/* Title and Description */}
                   <div className="space-y-2">
-                    <h3 className="text-base font-serif font-medium text-stone-950 group-hover:text-[#E7A35F] transition-colors duration-300">
+                    <h3 className="text-base font-serif font-medium text-stone-950 group-hover:text-primary transition-colors duration-300">
                       {sol.title}
                     </h3>
                     <p className="text-stone-500 text-xs md:text-sm font-light leading-relaxed">
@@ -169,13 +169,13 @@ export default function FlexibleSolutions({ setView }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: idx * 0.1 }}
-                  className="bg-stone-50/50 hover:bg-white border border-stone-200/40 p-6 rounded-xl text-left space-y-4 hover:shadow-md hover:border-[#E7A35F]/20 transition-all duration-500 group"
+                  className="bg-stone-50/50 hover:bg-white border border-stone-200/40 p-6 rounded-xl text-left space-y-4 hover:shadow-md hover:border-primary/20 transition-all duration-500 group"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-white border border-stone-100 flex items-center justify-center text-[#E7A35F] group-hover:bg-[#E7A35F]/10 transition-colors duration-300">
+                  <div className="w-9 h-9 rounded-lg bg-white border border-stone-100 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors duration-300">
                     <HighIcon size={16} />
                   </div>
                   <div className="space-y-1.5">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-[#E7A35F] transition-colors duration-300">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-primary transition-colors duration-300">
                       {high.title}
                     </h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">
@@ -197,15 +197,15 @@ export default function FlexibleSolutions({ setView }) {
           className="bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-xl"
         >
           {/* Decorative mesh glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#E7A35F]/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
+          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-[#E7A35F] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               LET'S PLAN YOUR PROJECT TOGETHER
             </span>
             <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
               Let's Plan Your <br />
-              <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Project</span> Together.
+              <span className="font-serif italic text-primary font-normal lowercase">Project</span> Together.
             </h3>
             <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
               Whether you're building a new home, renovating an existing space, designing an office, or simply looking for custom furniture, we'll recommend the most suitable execution model for your needs and budget.
@@ -217,10 +217,10 @@ export default function FlexibleSolutions({ setView }) {
                 href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-4 rounded-none cursor-pointer"
+                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>Request a Free Estimate</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#E7A35F] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-primary transition-all duration-300">
                   <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </motion.a>
@@ -228,7 +228,7 @@ export default function FlexibleSolutions({ setView }) {
               {/* Secondary button */}
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.02, borderColor: "#E7A35F", color: "#E7A35F" }}
+                whileHover={{ scale: 1.02, borderColor: 'var(--global-color-primary)', color: 'var(--global-color-primary)' }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer"
               >

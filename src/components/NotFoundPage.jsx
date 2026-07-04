@@ -36,7 +36,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
   };
 
   return (
-    <div className="bg-[#E2D8A5] text-stone-900 font-sans selection:bg-[#E7A35F]/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-field text-stone-900 font-sans selection:bg-primary/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* SECTION 1: EDITORIAL ERROR HEADER & BLUEPRINT ILLUSTRATION */}
       <section className="relative min-h-[75vh] flex items-center bg-stone-950 text-white overflow-hidden py-16" id="not-found-hero">
@@ -77,7 +77,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-transparent to-transparent lg:from-stone-950 lg:via-transparent lg:to-stone-950 z-10" />
             
             <svg 
-              className="w-[120%] h-[120%] text-[#E7A35F]/30 shrink-0 select-none"
+              className="w-[120%] h-[120%] text-primary/30 shrink-0 select-none"
               viewBox="0 0 800 800" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
 
               {/* Architect's drafting marks (Chair Elevation Wireframe Blueprint) */}
               {/* Isometric Lounge Chair Wireframe representation */}
-              <g className="text-[#E7A35F]/60">
+              <g className="text-primary/60">
                 {/* Backrest columns */}
                 <path d="M 370,480 L 370,390" stroke="currentColor" strokeWidth="1" />
                 <path d="M 390,480 L 390,380" stroke="currentColor" strokeWidth="1" />
@@ -154,7 +154,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               </g>
 
               {/* Dynamic point markers */}
-              <g className="text-[#E7A35F]/70">
+              <g className="text-primary/70">
                 <circle cx="250" cy="250" r="3" fill="currentColor" />
                 <circle cx="550" cy="250" r="3" fill="currentColor" />
                 <circle cx="550" cy="550" r="3" fill="currentColor" />
@@ -177,12 +177,12 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
                 <button 
                   onClick={onBackToHome} 
-                  className="hover:text-[#E7A35F] transition-colors cursor-pointer font-bold"
+                  className="hover:text-primary transition-colors cursor-pointer font-bold"
                 >
                   HOME
                 </button>
                 <span>/</span>
-                <span className="text-[#E7A35F] font-bold">ERROR 404</span>
+                <span className="text-primary font-bold">ERROR 404</span>
               </div>
 
               {/* Large Number & Label */}
@@ -197,8 +197,8 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 </motion.h2>
                 
                 <div className="inline-flex items-center space-x-2.5 bg-stone-900 border border-white/5 rounded-full px-4 py-1.5 mt-[-10px]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E7A35F] animate-pulse" />
-                  <span className="text-[#E7A35F] text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  <span className="text-primary text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
                     PAGE NOT FOUND
                   </span>
                 </div>
@@ -212,7 +212,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-tight uppercase text-left"
               >
                 Looks Like This Space <br />
-                <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Hasn't Been Designed</span> Yet.
+                <span className="font-serif italic text-primary font-normal lowercase">Hasn't Been Designed</span> Yet.
               </motion.h1>
 
               {/* Description */}
@@ -234,17 +234,17 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 className="hidden sm:flex items-center space-x-6 text-[10px] font-mono text-stone-500 pt-2"
               >
                 <div className="flex items-center space-x-2">
-                  <Maximize2 size={10} className="text-[#E7A35F]" />
+                  <Maximize2 size={10} className="text-primary" />
                   <span>X-AXIS:</span>
                   <span className="text-stone-300">{coordinates.x}px</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <GitCommit size={10} className="text-[#E7A35F]" />
+                  <GitCommit size={10} className="text-primary" />
                   <span>Y-AXIS:</span>
                   <span className="text-stone-300">{coordinates.y}px</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Layers size={10} className="text-[#E7A35F]" />
+                  <Layers size={10} className="text-primary" />
                   <span>NODAL:</span>
                   <span className="text-stone-300">UNPLANNED_VOID</span>
                 </div>
@@ -259,11 +259,11 @@ export default function NotFoundPage({ onBackToHome, setView }) {
       <section className="py-24 max-w-8xl mx-auto px-6 md:px-12 relative z-10">
         
         <div className="text-center sm:text-left space-y-3 mb-16">
-          <span className="text-[#E7A35F] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-primary text-xs font-mono tracking-[0.3em] font-bold block uppercase">
             RE-ROUTING SCHEMATICS
           </span>
           <h3 className="text-2xl sm:text-3xl font-serif font-light uppercase text-stone-900 tracking-tight">
-            Select Your Next <span className="font-serif italic text-[#E7A35F] lowercase">destination</span>
+            Select Your Next <span className="font-serif italic text-primary lowercase">destination</span>
           </h3>
           <p className="text-stone-500 font-light text-sm max-w-lg">
             Choose from Suthar's signature showcase branches to pick up where you left off.
@@ -282,14 +282,14 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             className="group relative bg-white border border-stone-200/50 p-8 md:p-10 rounded-3xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-stone-900/5 hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between h-[300px]"
           >
             {/* Top gold accent line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#E7A35F]/10 via-[#E7A35F] to-[#E7A35F]/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary/10 via-primary to-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-[#E7A35F] group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-primary group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
                 <Compass size={20} />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-[#E7A35F] transition-colors duration-300">
+                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-primary transition-colors duration-300">
                   Explore Our Projects
                 </h4>
                 <p className="text-stone-500 font-light text-sm leading-relaxed">
@@ -301,7 +301,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="pt-4">
               <button
                 onClick={() => handleNavigate("gallery")}
-                className="inline-flex items-center space-x-2 text-stone-950 font-bold text-xs tracking-widest uppercase transition-colors group-hover:text-[#E7A35F] cursor-pointer"
+                className="inline-flex items-center space-x-2 text-stone-950 font-bold text-xs tracking-widest uppercase transition-colors group-hover:text-primary cursor-pointer"
               >
                 <span>View Projects</span>
                 <ArrowRight size={13} className="transform group-hover:translate-x-1 transition-transform" />
@@ -319,14 +319,14 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             className="group relative bg-white border border-stone-200/50 p-8 md:p-10 rounded-3xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-stone-900/5 hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between h-[300px]"
           >
             {/* Top gold accent line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#E7A35F]/10 via-[#E7A35F] to-[#E7A35F]/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary/10 via-primary to-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-[#E7A35F] group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-primary group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
                 <Layout size={20} />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-[#E7A35F] transition-colors duration-300">
+                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-primary transition-colors duration-300">
                   Our Services
                 </h4>
                 <p className="text-stone-500 font-light text-sm leading-relaxed">
@@ -338,7 +338,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="pt-4">
               <button
                 onClick={() => handleNavigate("services")}
-                className="inline-flex items-center space-x-2 text-stone-950 font-bold text-xs tracking-widest uppercase transition-colors group-hover:text-[#E7A35F] cursor-pointer"
+                className="inline-flex items-center space-x-2 text-stone-950 font-bold text-xs tracking-widest uppercase transition-colors group-hover:text-primary cursor-pointer"
               >
                 <span>View Services</span>
                 <ArrowRight size={13} className="transform group-hover:translate-x-1 transition-transform" />
@@ -356,14 +356,14 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             className="group relative bg-white border border-stone-200/50 p-8 md:p-10 rounded-3xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-stone-900/5 hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between h-[300px]"
           >
             {/* Top gold accent line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#E7A35F]/10 via-[#E7A35F] to-[#E7A35F]/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary/10 via-primary to-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-[#E7A35F] group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-primary group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
                 <Mail size={20} />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-[#E7A35F] transition-colors duration-300">
+                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-primary transition-colors duration-300">
                   Contact Us
                 </h4>
                 <p className="text-stone-500 font-light text-sm leading-relaxed">
@@ -375,7 +375,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="pt-4">
               <button
                 onClick={() => handleNavigate("contact")}
-                className="inline-flex items-center space-x-2 text-stone-950 font-bold text-xs tracking-widest uppercase transition-colors group-hover:text-[#E7A35F] cursor-pointer"
+                className="inline-flex items-center space-x-2 text-stone-950 font-bold text-xs tracking-widest uppercase transition-colors group-hover:text-primary cursor-pointer"
               >
                 <span>Contact Team</span>
                 <ArrowRight size={13} className="transform group-hover:translate-x-1 transition-transform" />
@@ -391,7 +391,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
         <div className="max-w-8xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
           
           <div className="flex items-center space-x-2.5 shrink-0">
-            <Sparkles size={14} className="text-[#E7A35F]" />
+            <Sparkles size={14} className="text-primary" />
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-400">
               Quick Directory Links
             </span>
@@ -410,10 +410,10 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               <button
                 key={idx}
                 onClick={() => handleNavigate(link.view)}
-                className="text-stone-600 hover:text-[#E7A35F] transition-colors font-mono text-xs uppercase tracking-wider cursor-pointer font-bold relative group py-1"
+                className="text-stone-600 hover:text-primary transition-colors font-mono text-xs uppercase tracking-wider cursor-pointer font-bold relative group py-1"
               >
                 <span>{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E7A35F] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </button>
             ))}
           </div>
@@ -438,13 +438,13 @@ export default function NotFoundPage({ onBackToHome, setView }) {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <span className="text-[#E7A35F] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-primary text-xs font-mono tracking-[0.3em] font-bold block uppercase">
             SUTHAR STUDIO ARCHITECTURE
           </span>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white leading-tight uppercase max-w-3xl mx-auto">
             Let's Build Something <br />
-            <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Beautiful Together.</span>
+            <span className="font-serif italic text-primary font-normal lowercase">Beautiful Together.</span>
           </h2>
           
           <p className="text-stone-400 font-light text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
@@ -454,7 +454,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => handleNavigate("home")}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-8 py-4.5 rounded-none cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-8 py-4.5 rounded-none cursor-pointer"
             >
               <span>Return Home</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/15 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -466,7 +466,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent("open-consultation"));
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#E7A35F] hover:text-[#E7A35F]"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-primary hover:text-primary"
             >
               Book Consultation
             </button>

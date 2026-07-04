@@ -450,7 +450,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   };
 
   return (
-    <div className="bg-[#E2D8A5] text-stone-900 font-sans selection:bg-[#E7A35F]/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-field text-stone-900 font-sans selection:bg-primary/30 selection:text-stone-950 pt-[80px]">
 
       {/* PAGE HERO */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="gallery-hero-section">
@@ -476,13 +476,13 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
-            <button onClick={onBackToHome} className="hover:text-[#E7A35F] transition-colors cursor-pointer">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-primary transition-colors cursor-pointer">HOME</button>
             <span>/</span>
-            <span className="text-[#E7A35F] font-bold">GALLERY</span>
+            <span className="text-primary font-bold">GALLERY</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-[#E7A35F] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               OUR GALLERY
             </span>
             <motion.h1
@@ -492,7 +492,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-none uppercase"
             >
               Every Space <br />
-              <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Tells A</span> Story.
+              <span className="font-serif italic text-primary font-normal lowercase">Tells A</span> Story.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -512,7 +512,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           >
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Start Your Project</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -522,7 +522,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#E7A35F] hover:text-[#E7A35F]"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-primary hover:text-primary"
             >
               Book Consultation
             </button>
@@ -537,18 +537,18 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             
             <div className="lg:col-span-5 text-left space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#E7A35F] text-xs">✦</span>
+                <span className="text-primary text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   SHOWCASE STATEMENT
                 </span>
               </div>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                 Inspired Spaces. <br />
-                <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Exceptional</span> Details.
+                <span className="font-serif italic text-primary font-normal lowercase">Exceptional</span> Details.
               </h2>
             </div>
 
-            <div className="lg:col-span-7 text-left border-l-2 border-[#E7A35F] pl-6 lg:pl-10">
+            <div className="lg:col-span-7 text-left border-l-2 border-primary pl-6 lg:pl-10">
               <p className="text-stone-600 font-light text-base sm:text-lg leading-relaxed">
                 Every project is unique. From elegant homes and modern offices to handcrafted furniture and premium architectural details, our gallery showcases the quality, creativity, and craftsmanship behind every Suthar Interior Studio project.
               </p>
@@ -565,7 +565,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       <section className="py-6 bg-white sticky top-[80px] z-30 border-b border-stone-100 shadow-sm" id="gallery-categories-bar">
         <div className="max-w-8xl mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2 text-stone-400 font-mono text-[10px] tracking-widest uppercase shrink-0">
-            <Sliders size={12} className="text-[#E7A35F]" />
+            <Sliders size={12} className="text-primary" />
             <span>Filter Categories</span>
           </div>
 
@@ -576,8 +576,8 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
                   activeFilter === tab.id
-                    ? "bg-stone-950 text-[#E7A35F] border-stone-950 shadow-md scale-95"
-                    : "bg-stone-50 text-stone-600 border-stone-200/80 hover:border-[#E7A35F]/50 hover:text-stone-950"
+                    ? "bg-stone-950 text-primary border-stone-950 shadow-md scale-95"
+                    : "bg-stone-50 text-stone-600 border-stone-200/80 hover:border-primary/50 hover:text-stone-950"
                 }`}
               >
                 {tab.label}
@@ -588,7 +588,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 03: PREMIUM MASONRY GALLERY */}
-      <section className="py-24 bg-[#E2D8A5]" id="gallery-masonry-section">
+      <section className="py-24 bg-field" id="gallery-masonry-section">
         <div className="max-w-8xl mx-auto px-6 md:px-12">
           
           <div className="flex justify-between items-center mb-8 border-b border-stone-200/50 pb-4">
@@ -596,7 +596,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               SHOWING <span className="text-stone-950 font-bold">{filteredProjects.length}</span> OUT OF {projects.length} CURATED SHOTS
             </div>
             <div className="hidden sm:flex items-center space-x-2 text-xs font-mono text-stone-400">
-              <span className="w-2 h-2 rounded-full bg-[#E7A35F] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span>Click to view in immersive fullscreen mode</span>
             </div>
           </div>
@@ -635,11 +635,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       {/* Premium Hover Overlay */}
                       <div className="absolute inset-0 bg-stone-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
                         <div className="flex justify-between items-start">
-                          <span className="bg-[#E7A35F] text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
+                          <span className="bg-primary text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
                             {project.category}
                           </span>
                           <button
-                            className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#E7A35F] hover:text-stone-950 transition-colors shadow-lg"
+                            className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-primary hover:text-stone-950 transition-colors shadow-lg"
                             onClick={(e) => {
                               e.stopPropagation();
                               setLightboxIndex(localIndex);
@@ -651,7 +651,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
                         <div className="space-y-2 text-left">
                           <div className="inline-flex items-center space-x-1 text-stone-300 font-mono text-[9px] uppercase tracking-wider">
-                            <MapPin size={10} className="text-[#E7A35F]" />
+                            <MapPin size={10} className="text-primary" />
                             <span>{project.location}</span>
                           </div>
                           <h4 className="text-white text-lg font-serif font-light leading-tight">
@@ -661,7 +661,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                             <span className="text-[10px] text-stone-400 font-light italic leading-tight line-clamp-1 max-w-[70%]">
                               {project.materials.split(",")[0]}...
                             </span>
-                            <span className="text-[#E7A35F] text-[9px] font-mono tracking-widest uppercase font-bold flex items-center space-x-1 hover:text-white transition-colors">
+                            <span className="text-primary text-[9px] font-mono tracking-widest uppercase font-bold flex items-center space-x-1 hover:text-white transition-colors">
                               <span>Expand</span>
                               <ChevronRight size={10} />
                             </span>
@@ -676,7 +676,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                         <span>{project.category}</span>
                         <span>{project.location}</span>
                       </div>
-                      <h3 className="font-serif text-stone-950 text-base font-medium group-hover:text-[#E7A35F] transition-colors duration-300">
+                      <h3 className="font-serif text-stone-950 text-base font-medium group-hover:text-primary transition-colors duration-300">
                         {project.name}
                       </h3>
                       <p className="text-stone-500 text-xs font-light leading-relaxed mt-1 line-clamp-2">
@@ -686,7 +686,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       <div className="pt-4 border-t border-stone-100 mt-4 flex justify-between items-center">
                         <button
                           onClick={() => setLightboxIndex(localIndex)}
-                          className="text-stone-900 hover:text-[#E7A35F] transition-colors text-xs font-bold font-mono tracking-widest uppercase flex items-center space-x-1 cursor-pointer"
+                          className="text-stone-900 hover:text-primary transition-colors text-xs font-bold font-mono tracking-widest uppercase flex items-center space-x-1 cursor-pointer"
                         >
                           <span>View Detail</span>
                           <ChevronRight size={12} />
@@ -714,11 +714,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-16">
             <div className="text-left space-y-4">
-              <span className="text-[#E7A35F] text-xs tracking-[0.25em] font-mono font-bold uppercase block animate-pulse">
+              <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block animate-pulse">
                 EDITOR'S SELECTION
               </span>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white uppercase leading-none">
-                Editor's <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Collection</span>
+                Editor's <span className="font-serif italic text-primary font-normal lowercase">Collection</span>
               </h2>
               <p className="text-stone-400 font-light text-sm sm:text-base max-w-xl leading-relaxed">
                 A handpicked selection of projects that represent our finest work across residential, commercial, and custom furniture design.
@@ -726,7 +726,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             </div>
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Explore Portfolio</span>
               <ArrowRight size={14} />
@@ -749,14 +749,14 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               </div>
 
               <div className="p-6 relative z-10 flex justify-between items-start">
-                <span className="bg-white/10 backdrop-blur-md text-[#E7A35F] text-[9px] font-mono tracking-widest font-bold uppercase px-3 py-1.5 rounded border border-white/10">
+                <span className="bg-white/10 backdrop-blur-md text-primary text-[9px] font-mono tracking-widest font-bold uppercase px-3 py-1.5 rounded border border-white/10">
                   FEATURED WORK
                 </span>
                 <span className="text-stone-400 font-mono text-[10px]">Mumbai Atelier</span>
               </div>
 
               <div className="p-8 relative z-10 text-left space-y-3 max-w-xl">
-                <span className="text-[#E7A35F] text-xs font-mono tracking-wider font-bold block uppercase">
+                <span className="text-primary text-xs font-mono tracking-wider font-bold block uppercase">
                   MONOLITHIC PENTHOUSE PAVILION
                 </span>
                 <h3 className="text-2xl md:text-3xl font-serif text-white">
@@ -779,7 +779,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       const idx = projects.findIndex(p => p.name === "The Penthouse Living Room");
                       if (idx !== -1) setLightboxIndex(idx);
                     }}
-                    className="inline-flex items-center space-x-1.5 text-xs text-[#E7A35F] hover:text-white font-bold tracking-widest uppercase transition-colors"
+                    className="inline-flex items-center space-x-1.5 text-xs text-primary hover:text-white font-bold tracking-widest uppercase transition-colors"
                   >
                     <span>Immerse</span>
                     <Maximize size={12} />
@@ -813,7 +813,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 text-left">
                     <div className="space-y-0.5">
-                      <span className="text-[#E7A35F] text-[8px] font-mono tracking-widest font-bold uppercase">PREVIEW</span>
+                      <span className="text-primary text-[8px] font-mono tracking-widest font-bold uppercase">PREVIEW</span>
                       <h4 className="text-white text-xs font-serif font-light leading-none">Inspect Details</h4>
                     </div>
                   </div>
@@ -831,11 +831,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-[#E7A35F] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               OUR EXPERT CAPABILITIES
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              Bespoke <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Craftsmanship</span> Details
+              Bespoke <span className="font-serif italic text-primary font-normal lowercase">Craftsmanship</span> Details
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
               We bind time-honored Indian joinery roots with precise European hardware technology to construct flawless architectural structures.
@@ -852,13 +852,13 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.05 }}
-                  className="bg-stone-50 border border-stone-100 p-6 md:p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:border-[#E7A35F]/30 hover:shadow-xl transition-all duration-500 group"
+                  className="bg-stone-50 border border-stone-100 p-6 md:p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:border-primary/30 hover:shadow-xl transition-all duration-500 group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-[#E7A35F] group-hover:bg-[#E7A35F]/15 group-hover:scale-105 transition-all shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-primary group-hover:bg-primary/15 group-hover:scale-105 transition-all shadow-sm">
                     <Icon size={18} />
                   </div>
                   <div className="space-y-1.5">
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-[#E7A35F] transition-colors duration-300">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-primary transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="text-stone-500 text-xs leading-relaxed">
@@ -874,12 +874,12 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 06: GALLERY STATISTICS */}
-      <section className="py-20 bg-[#E2D8A5] border-b border-stone-100" id="gallery-statistics">
+      <section className="py-20 bg-field border-b border-stone-100" id="gallery-statistics">
         <div className="max-w-8xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-stone-200/80">
             {statistics.map((stat, idx) => (
               <div key={idx} className="space-y-2 pt-6 lg:pt-0 lg:px-4 text-center">
-                <span className="text-3xl sm:text-4xl md:text-5xl font-light font-serif tracking-tight text-[#E7A35F] block">
+                <span className="text-3xl sm:text-4xl md:text-5xl font-light font-serif tracking-tight text-primary block">
                   {stat.value}
                 </span>
                 <span className="text-[10px] md:text-xs font-mono tracking-widest text-stone-500 uppercase block font-bold">
@@ -897,11 +897,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16">
             <div className="text-left space-y-4">
-              <span className="text-[#E7A35F] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+              <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
                 BEHIND THE CRAFT
               </span>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-                Follow <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Our</span> Journey
+                Follow <span className="font-serif italic text-primary font-normal lowercase">Our</span> Journey
               </h2>
               <p className="text-stone-500 font-light text-sm sm:text-base max-w-xl leading-relaxed">
                 Discover behind-the-scenes moments, completed interiors, furniture craftsmanship, and project updates.
@@ -912,9 +912,9 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-stone-900 hover:text-[#E7A35F] transition-colors font-bold text-xs tracking-widest uppercase border border-stone-950/20 px-5 py-3 rounded-none hover:border-[#E7A35F]"
+              className="inline-flex items-center space-x-2 text-stone-900 hover:text-primary transition-colors font-bold text-xs tracking-widest uppercase border border-stone-950/20 px-5 py-3 rounded-none hover:border-primary"
             >
-              <Instagram size={14} className="text-[#E7A35F]" />
+              <Instagram size={14} className="text-primary" />
               <span>Follow @SutharStudio</span>
             </a>
           </div>
@@ -954,7 +954,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     {post.title}
                   </p>
                   <div className="flex items-center justify-between text-[10px] font-mono text-stone-400 pt-3 border-t border-stone-100 mt-3 uppercase">
-                    <span className="text-[#E7A35F] font-semibold">@SutharStudio</span>
+                    <span className="text-primary font-semibold">@SutharStudio</span>
                     <span>1d ago</span>
                   </div>
                 </div>
@@ -979,12 +979,12 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-[#E7A35F] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               START YOUR OWN COMMISSION
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-tight uppercase">
               Your Dream Project <br />
-              Could Be <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Featured</span> Here Next.
+              Could Be <span className="font-serif italic text-primary font-normal lowercase">Featured</span> Here Next.
             </h2>
             <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               Whether you're building a new home, renovating an existing space, or creating custom furniture, we'd love to bring your ideas to life with timeless design and exceptional craftsmanship.
@@ -994,7 +994,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#E7A35F] px-8 py-5 rounded-none cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary px-8 py-5 rounded-none cursor-pointer shadow-xl"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -1004,7 +1004,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={onBackToHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#E7A35F] hover:text-[#E7A35F]"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-primary hover:text-primary"
             >
               View Services
             </button>
@@ -1022,7 +1022,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             {/* Header toolbar */}
             <div className="p-6 flex items-center justify-between text-white border-b border-white/5 z-20">
               <div className="text-left">
-                <span className="text-[#E7A35F] font-mono text-[9px] font-bold tracking-widest uppercase block">
+                <span className="text-primary font-mono text-[9px] font-bold tracking-widest uppercase block">
                   {filteredProjects[lightboxIndex].category} &bull; {filteredProjects[lightboxIndex].location}
                 </span>
                 <h4 className="text-sm font-serif font-light uppercase tracking-wide">
@@ -1036,7 +1036,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 </span>
                 <button
                   onClick={() => setLightboxIndex(null)}
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#E7A35F] hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-primary hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10"
                 >
                   <X size={20} />
                 </button>
@@ -1049,7 +1049,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               {/* Prev Button */}
               <button
                 onClick={handlePrevLightbox}
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-[#E7A35F] hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-primary hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
               >
                 <ChevronLeft size={24} />
               </button>
@@ -1074,7 +1074,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               {/* Next Button */}
               <button
                 onClick={handleNextLightbox}
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-[#E7A35F] hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-primary hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
               >
                 <ChevronRight size={24} />
               </button>
@@ -1101,7 +1101,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     setLightboxIndex(null);
                     handleOpenConsultation();
                   }}
-                  className="flex-1 md:flex-none py-3 px-6 bg-[#E7A35F] hover:bg-[#6F9F9C] text-stone-950 text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-mono"
+                  className="flex-1 md:flex-none py-3 px-6 bg-primary hover:bg-lighter text-stone-950 text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-mono"
                 >
                   Discuss Project
                 </button>

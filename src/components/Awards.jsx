@@ -40,7 +40,7 @@ export default function Awards() {
   return (
     <section className="bg-stone-950 text-white py-24 md:py-32 relative overflow-hidden">
       {/* Absolute Radial Gradient background glow */}
-      <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#E7A35F]/10 via-stone-950/0 to-stone-950/0 opacity-60 pointer-events-none" />
+      <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-stone-950/0 to-stone-950/0 opacity-60 pointer-events-none" />
 
       <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -49,30 +49,30 @@ export default function Awards() {
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#E7A35F] text-xs">✦</span>
+                <span className="text-primary text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-400 block">
                   HALL OF EXCELLENCE
                 </span>
               </div>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight uppercase">
-                Design That <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Speaks Our</span> <br />
-                <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Industry</span> Awards
+                Design That <span className="font-serif italic text-primary font-normal lowercase">Speaks Our</span> <br />
+                <span className="font-serif italic text-primary font-normal lowercase">Industry</span> Awards
               </h2>
             </div>
 
             {/* Glowing Golden Trophy Card exactly like the reference image */}
-            <div className="relative w-64 aspect-square bg-stone-900 border border-[#E7A35F]/20 flex flex-col items-center justify-center p-8 shadow-2xl overflow-hidden group rounded-none">
+            <div className="relative w-64 aspect-square bg-stone-900 border border-primary/20 flex flex-col items-center justify-center p-8 shadow-2xl overflow-hidden group rounded-none">
               {/* Gold glowing grid overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#E7A35F]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               {/* Ribbon decoration "BEST" */}
-              <div className="absolute top-4 left-4 bg-[#E7A35F] text-stone-950 text-[9px] uppercase font-black tracking-widest px-3 py-1">
+              <div className="absolute top-4 left-4 bg-primary text-stone-950 text-[9px] uppercase font-black tracking-widest px-3 py-1">
                 BEST
               </div>
 
               {/* Sculpted Trophy Art */}
-              <div className="relative w-20 h-20 bg-stone-950 border border-[#E7A35F]/30 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-500">
-                <svg className="w-10 h-10 text-[#E7A35F]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <div className="relative w-20 h-20 bg-stone-950 border border-primary/30 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
                   <path strokeLinecap="round" d="M12 18v3m-3 0h6" />
@@ -93,12 +93,12 @@ export default function Awards() {
                   key={award.year}
                   onMouseEnter={() => setActiveAward(index)}
                   className={`border-b border-stone-800 pb-5 pt-3 transition-colors duration-300 cursor-pointer text-left ${
-                    isSelected ? "border-[#E7A35F]/50" : "border-stone-800"
+                    isSelected ? "border-primary/50" : "border-stone-800"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-6">
-                      <span className={`text-sm font-mono tracking-wider font-semibold ${isSelected ? "text-[#E7A35F]" : "text-stone-500"}`}>
+                      <span className={`text-sm font-mono tracking-wider font-semibold ${isSelected ? "text-primary" : "text-stone-500"}`}>
                         {award.year}
                       </span>
                       <h3 className={`text-base md:text-lg font-serif transition-colors duration-300 ${isSelected ? "text-white" : "text-stone-400"}`}>
@@ -106,7 +106,7 @@ export default function Awards() {
                       </h3>
                     </div>
                     <span className={`text-xs uppercase font-bold font-mono tracking-widest hidden md:inline transition-colors duration-300 ${
-                      isSelected ? "text-[#E7A35F]" : "text-stone-600"
+                      isSelected ? "text-primary" : "text-stone-600"
                     }`}>
                       {award.category}
                     </span>

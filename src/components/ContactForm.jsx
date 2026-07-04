@@ -58,14 +58,14 @@ export default function ContactForm({ setView }) {
           <div className="lg:col-span-5 space-y-10 text-left">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#E7A35F] text-xs">✦</span>
+                <span className="text-primary text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-400 block">
                   CONTACT US
                 </span>
               </div>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight uppercase">
-                Have A <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Project In</span> <br />
-                Mind? <span className="font-serif italic text-[#E7A35F] font-normal lowercase">Let's Make It</span> <br />
+                Have A <span className="font-serif italic text-primary font-normal lowercase">Project In</span> <br />
+                Mind? <span className="font-serif italic text-primary font-normal lowercase">Let's Make It</span> <br />
                 Happen
               </h2>
             </div>
@@ -81,14 +81,14 @@ export default function ContactForm({ setView }) {
 
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-stone-500 font-bold font-mono">Support</h4>
-                <a href="mailto:studio@sutharinterior.com" className="text-stone-300 hover:text-[#E7A35F] transition-colors duration-300 text-sm mt-1 font-light block">
+                <a href="mailto:studio@sutharinterior.com" className="text-stone-300 hover:text-primary transition-colors duration-300 text-sm mt-1 font-light block">
                   studio@sutharinterior.com
                 </a>
               </div>
 
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-stone-500 font-bold font-mono">Direct Line</h4>
-                <a href="tel:+14804560789" className="text-stone-300 hover:text-[#E7A35F] transition-colors duration-300 text-sm mt-1 font-light block">
+                <a href="tel:+14804560789" className="text-stone-300 hover:text-primary transition-colors duration-300 text-sm mt-1 font-light block">
                   +1 (480) 456-0789
                 </a>
               </div>
@@ -118,7 +118,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-[#E7A35F] px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
+                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
                         placeholder="John Doe"
                       />
                     </div>
@@ -133,7 +133,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-[#E7A35F] px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
+                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
                         placeholder="+1 (480) 456-0789"
                       />
                     </div>
@@ -150,7 +150,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-[#E7A35F] px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
+                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -164,7 +164,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.service}
                         onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-[#E7A35F] px-4 py-3 text-sm text-stone-300 outline-none transition-colors duration-300 rounded-none [color-scheme:dark]"
+                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-300 outline-none transition-colors duration-300 rounded-none [color-scheme:dark]"
                       >
                         <option value="" disabled>Select Service</option>
                         {services.map((s) => (
@@ -184,7 +184,7 @@ export default function ContactForm({ setView }) {
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      className="w-full bg-stone-950 border border-stone-800 focus:border-[#E7A35F] px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none resize-none"
+                      className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none resize-none"
                       placeholder="Tell us about your spatial requirements..."
                     />
                   </div>
@@ -193,10 +193,10 @@ export default function ContactForm({ setView }) {
                   <div className="pt-2 text-left">
                     <button
                       type="submit"
-                      className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 group cursor-pointer bg-[#E7A35F] hover:bg-[#6F9F9C] px-6 py-3.5 rounded-none"
+                      className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 group cursor-pointer bg-primary hover:bg-lighter px-6 py-3.5 rounded-none"
                     >
                       <span>Send Message</span>
-                      <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-[#E7A35F] transition-all duration-300">
+                      <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-primary transition-all duration-300">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12"></line>
                           <polyline points="12 5 19 12 12 19"></polyline>
@@ -213,7 +213,7 @@ export default function ContactForm({ setView }) {
                   exit={{ scale: 0.95, opacity: 0 }}
                   className="flex flex-col items-center justify-center py-20 space-y-6"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#E7A35F]/10 border border-[#E7A35F] flex items-center justify-center text-[#E7A35F] shadow-2xl">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary flex items-center justify-center text-primary shadow-2xl">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>

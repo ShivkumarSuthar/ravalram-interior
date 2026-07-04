@@ -95,7 +95,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
   });
 
   return (
-    <div className="bg-[#E2D8A5] text-stone-900 font-sans selection:bg-gold-500 selection:text-stone-950 pt-[80px]">
+    <div className="bg-field text-stone-900 font-sans selection:bg-gold-500 selection:text-stone-950 pt-[80px]">
       
       {/* 1. HERO BREADCRUMB HEADER */}
       <section className="relative h-[40vh] md:h-[50vh] bg-stone-950 text-white flex flex-col justify-center overflow-hidden">
@@ -157,7 +157,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                 placeholder="Search queries (e.g. materials, license, estimates)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-6 py-4 bg-[#E2D8A5] text-stone-900 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 shadow-inner"
+                className="w-full pl-12 pr-6 py-4 bg-field text-stone-900 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 shadow-inner"
               />
             </div>
 
@@ -172,7 +172,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                     className={`px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 border transition-all duration-300 cursor-pointer ${
                       selectedCategory === cat.id
                         ? "bg-stone-950 text-gold-500 border-stone-950 shadow-md"
-                        : "bg-[#E2D8A5] text-stone-600 border-stone-200/80 hover:border-gold-500/40 hover:text-stone-950"
+                        : "bg-field text-stone-600 border-stone-200/80 hover:border-gold-500/40 hover:text-stone-950"
                     }`}
                   >
                     <CatIcon size={13} />
@@ -197,7 +197,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="border border-stone-200/80 rounded-2xl overflow-hidden bg-[#E2D8A5] hover:bg-white transition-colors duration-300 shadow-sm"
+                      className="border border-stone-200/80 rounded-2xl overflow-hidden bg-field hover:bg-white transition-colors duration-300 shadow-sm"
                     >
                       <button
                         onClick={() => toggleFaq(faq.id)}
