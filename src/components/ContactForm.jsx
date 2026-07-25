@@ -1,14 +1,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Send,
+  ArrowUpRight,
+  Sparkles,
+  CheckCircle2,
+  Building2,
+  Compass,
+  Check,
+  Globe
+} from "lucide-react";
+
+// Import luxury loft/living room image for left side of contact split
+import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
 
 export default function ContactForm({ setView }) {
   const [formState, setFormState] = useState({
     name: "",
-    email: "",
     phone: "",
-    service: "",
+    email: "",
+    subject: "Residential Interior",
     message: ""
   });
+
+  const [activeLocation, setActiveLocation] = useState("mumbai");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -22,81 +40,231 @@ export default function ContactForm({ setView }) {
         setSubmitted(false);
         setFormState({
           name: "",
-          email: "",
           phone: "",
-          service: "",
+          email: "",
+          subject: "Residential Interior",
           message: ""
         });
-      }, 3000);
+      }, 4000);
     }
   };
 
-  const services = [
-    "Residential Remodeling",
-    "Penthouses & Lofts",
-    "Boutique Commercial / Retail",
-    "Landscape & Outdoor Terraces",
-    "Bespoke Material Consultation"
+  // Active execution regions with interactive coordinates & details
+  const locations = [
+    {
+      id: "mumbai",
+      city: "Mumbai",
+      role: "Flagship Showroom & HQ",
+      address: "Linking Road, Santacruz West, Mumbai, Maharashtra 400054",
+      phone: "+91 98200 12345",
+      projects: "Sea-Facing Penthouse, Luxury Villas, Corporate HQs",
+      coords: { top: "48%", left: "28%" },
+      mapQuery: "Linking+Road+Santacruz+West+Mumbai"
+    },
+    {
+      id: "pune",
+      city: "Pune",
+      role: "Design & Renovation Studio",
+      address: "Koregaon Park, Lane 7, Pune, Maharashtra 411001",
+      phone: "+91 98200 54321",
+      projects: "Contemporary Duplexes, High-End Apartment Interiors",
+      coords: { top: "52%", left: "32%" },
+      mapQuery: "Koregaon+Park+Pune"
+    },
+    {
+      id: "goa",
+      city: "Goa",
+      role: "Coastal Estate & Hospitality Guild",
+      address: "Fontainhas Heritage Quarter, Panaji, Goa 403001",
+      phone: "+91 98200 98765",
+      projects: "Beachfront Villas, Heritage Bungalow Upgrades",
+      coords: { top: "68%", left: "30%" },
+      mapQuery: "Panaji+Goa"
+    },
+    {
+      id: "bengaluru",
+      city: "Bengaluru",
+      role: "Architecture & Smart Residence Hub",
+      address: "100ft Road, Indiranagar, Bengaluru, Karnataka 560038",
+      phone: "+91 98200 22334",
+      projects: "Smart Residences, Executive Office Spaces",
+      coords: { top: "72%", left: "42%" },
+      mapQuery: "Indiranagar+Bengaluru"
+    },
+    {
+      id: "hyderabad",
+      city: "Hyderabad",
+      role: "Bespoke Joinery & Villa Desk",
+      address: "Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033",
+      phone: "+91 98200 66778",
+      projects: "Custom Timber Wardrobes, Grand Residential Suites",
+      coords: { top: "58%", left: "48%" },
+      mapQuery: "Jubilee+Hills+Hyderabad"
+    },
+    {
+      id: "hubballi",
+      city: "Hubballi",
+      role: "Turnkey Commercial Desk",
+      address: "Airport Road, Hubballi, Karnataka 580030",
+      phone: "+91 98200 88990",
+      projects: "Retail Flagships, Turnkey Commercial Stores",
+      coords: { top: "64%", left: "35%" },
+      mapQuery: "Airport+Road+Hubballi"
+    },
+    {
+      id: "kumta",
+      city: "Kumta",
+      role: "Heritage Woodworking Workshop & Guild Roots",
+      address: "Main Road Timber Yard, Kumta, Uttara Kannada, Karnataka 581343",
+      phone: "+91 98200 11223",
+      projects: "Master Timber Fabrication, Direct Workshop Production since 1989",
+      coords: { top: "66%", left: "32%" },
+      mapQuery: "Kumta+Uttara+Kannada"
+    },
+    {
+      id: "honnavar",
+      city: "Honnavar",
+      role: "Coastal Bungalow Guild",
+      address: "Sharavathi Bridge Road, Honnavar, Karnataka 581334",
+      phone: "+91 98200 33445",
+      projects: "Bespoke Coastal Private Bungalows, Weather-Proof Woodwork",
+      coords: { top: "67%", left: "33%" },
+      mapQuery: "Honnavar+Karnataka"
+    },
+    {
+      id: "murudeshwar",
+      city: "Murudeshwar",
+      role: "Hospitality & Retail Guild",
+      address: "Temple Main Highway, Murudeshwar, Karnataka 581350",
+      phone: "+91 98200 44556",
+      projects: "Resort Outlets, Traditional Timber Elevation Works",
+      coords: { top: "68%", left: "33.5%" },
+      mapQuery: "Murudeshwar+Karnataka"
+    }
   ];
 
-  return (
-    <section id="contact" className="bg-stone-950 text-white py-24 md:py-32 relative overflow-hidden">
-      {/* Blueprint grid layout lines overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
-        <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12">
-          <div className="border-l border-stone-200 h-full" />
-          <div className="border-l border-stone-200 h-full" />
-          <div className="border-l border-stone-200 h-full" />
-          <div className="border-l border-stone-200 h-full border-r" />
-        </div>
-      </div>
+  const selectedLoc = locations.find((l) => l.id === activeLocation) || locations[0];
 
-      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+  return (
+    <section id="contact" className="bg-[#faf9f6] text-stone-900 py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
+      
+      {/* Container Wrapper */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16 lg:space-y-24">
+        
+        {/* HEADER SECTION (Matching exact image layout) */}
+        <div className="space-y-10">
           
-          {/* Left Column: Contact details */}
-          <div className="lg:col-span-5 space-y-10 text-left">
-            <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-400 block">
-                  CONTACT US
+          {/* Eyebrow and Headline Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left border-b border-stone-200/80 pb-10">
+            
+            {/* Left Eyebrow Pill Badge */}
+            <div className="lg:col-span-4 space-y-4">
+              <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#c5a880] animate-pulse" />
+                <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
+                  GET IN TOUCH
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight uppercase">
-                Have A <span className="font-serif italic text-primary font-normal lowercase">Project In</span> <br />
-                Mind? <span className="font-serif italic text-primary font-normal lowercase">Let's Make It</span> <br />
-                Happen
+            </div>
+
+            {/* Right Main Grand Headline */}
+            <div className="lg:col-span-8">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+                Have A Project In <span className="text-[#c5a880]">Mind? Let's</span> <br />
+                <span className="text-[#c5a880]">Make</span> It Happen
               </h2>
             </div>
 
-            {/* Direct Channels */}
-            <div className="space-y-6 pt-4 border-t border-stone-900">
-              <div>
-                <h4 className="text-xs uppercase tracking-widest text-stone-500 font-bold font-mono">Address</h4>
-                <p className="text-stone-300 text-sm mt-1 font-light">
-                  5609 E Sprague Ave, Spokane Valley, WA 99212, USA
-                </p>
-              </div>
+          </div>
 
-              <div>
-                <h4 className="text-xs uppercase tracking-widest text-stone-500 font-bold font-mono">Support</h4>
-                <a href="mailto:studio@sutharinterior.com" className="text-stone-300 hover:text-primary transition-colors duration-300 text-sm mt-1 font-light block">
-                  studio@sutharinterior.com
+          {/* Quick Direct Info Metrics Row (Address & Support) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 text-left pt-2">
+            
+            {/* Address Column */}
+            <div className="lg:col-span-6 space-y-1">
+              <span className="text-[10px] uppercase font-mono font-bold tracking-[0.2em] text-stone-400 block">
+                FLAGSHIP SHOWROOM ADDRESS
+              </span>
+              <p className="text-stone-900 text-sm sm:text-base font-extrabold leading-snug">
+                Linking Road, Santacruz West, Mumbai, Maharashtra 400054, India
+              </p>
+              <p className="text-stone-500 text-xs font-light">
+                Architect-supervised walkthroughs by appointment.
+              </p>
+            </div>
+
+            {/* Support Phone & Email Column */}
+            <div className="lg:col-span-6 space-y-1">
+              <span className="text-[10px] uppercase font-mono font-bold tracking-[0.2em] text-stone-400 block">
+                DIRECT SUPPORT & ESTIMATES
+              </span>
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                <a
+                  href="tel:+919820012345"
+                  className="text-[#c5a880] hover:text-[#b0936b] font-mono text-sm sm:text-base font-extrabold transition-colors"
+                >
+                  +91 98200 12345 / +1 (480) 456-0789
                 </a>
-              </div>
-
-              <div>
-                <h4 className="text-xs uppercase tracking-widest text-stone-500 font-bold font-mono">Direct Line</h4>
-                <a href="tel:+14804560789" className="text-stone-300 hover:text-primary transition-colors duration-300 text-sm mt-1 font-light block">
-                  +1 (480) 456-0789
+                <a
+                  href="mailto:Support@SutharInterior.com"
+                  className="text-stone-900 hover:text-[#c5a880] text-sm sm:text-base font-extrabold tracking-tight transition-colors block"
+                >
+                  Support@SutharInterior.com
                 </a>
               </div>
             </div>
+
           </div>
 
-          {/* Right Column: Complete Inquiry Form */}
-          <div className="lg:col-span-7 bg-stone-900 border border-white/5 p-8 md:p-12 shadow-2xl relative rounded-none">
+        </div>
+
+        {/* MAIN SPLIT SECTION: Image Left + Form Right (Exact image structure) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          {/* Left Column: High-Res Architecture Image Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative rounded-[32px] sm:rounded-[36px] overflow-hidden shadow-2xl border border-stone-200/80 min-h-[380px] lg:min-h-[520px] group bg-stone-900"
+          >
+            <img
+              src={loftImg}
+              alt="Luxury loft interior Suthar Studio"
+              className="w-full h-full object-cover filter brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition-transform duration-1000"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
+            />
+            {/* Subtle Vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent pointer-events-none" />
+
+            {/* Floating Badge */}
+            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-stone-900/80 backdrop-blur-md border border-white/10 text-white space-y-1 text-left">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c5a880]">
+                  BESPOKE TIMBER JOINERY
+                </span>
+                <Sparkles size={14} className="text-[#c5a880]" />
+              </div>
+              <h4 className="text-sm font-extrabold text-white">
+                Turnkey Execution & Spatial Design
+              </h4>
+              <p className="text-[11px] text-stone-300 font-light leading-relaxed">
+                Over 3,000+ luxury residential and commercial transformations executed since 1989.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Interactive Clean Form Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 bg-white border border-stone-200/80 p-8 sm:p-10 md:p-12 rounded-[32px] sm:rounded-[36px] shadow-xl text-left flex flex-col justify-between"
+          >
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
@@ -107,100 +275,96 @@ export default function ContactForm({ setView }) {
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Name */}
-                    <div className="text-left">
-                      <label className="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-mono font-bold">
-                        Full Name*
+                  {/* Row 1: Full Name & Phone */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                        Full Name *
                       </label>
                       <input
                         type="text"
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
-                        placeholder="John Doe"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#c5a880] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
+                        placeholder="Your Name *"
                       />
                     </div>
 
-                    {/* Phone */}
-                    <div className="text-left">
-                      <label className="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-mono font-bold">
-                        Phone*
+                    <div>
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                        Phone *
                       </label>
                       <input
                         type="tel"
                         required
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
-                        placeholder="+1 (480) 456-0789"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#c5a880] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
+                        placeholder="Phone *"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Email */}
-                    <div className="text-left">
-                      <label className="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-mono font-bold">
-                        Email Address*
+                  {/* Row 2: Email Address & Subject */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                        Email Address *
                       </label>
                       <input
                         type="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none"
-                        placeholder="john@example.com"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#c5a880] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
+                        placeholder="Email Address *"
                       />
                     </div>
 
-                    {/* Services */}
-                    <div className="text-left">
-                      <label className="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-mono font-bold">
-                        Services*
+                    <div>
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                        Subject *
                       </label>
                       <select
                         required
-                        value={formState.service}
-                        onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                        className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-300 outline-none transition-colors duration-300 rounded-none [color-scheme:dark]"
+                        value={formState.subject}
+                        onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#c5a880] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-800 outline-none transition-all duration-300 font-medium appearance-none cursor-pointer"
                       >
-                        <option value="" disabled>Select Service</option>
-                        {services.map((s) => (
-                          <option key={s} value={s}>{s}</option>
-                        ))}
+                        <option value="Residential Interior">I Want Residential Design</option>
+                        <option value="Turnkey Execution">I Want Turnkey Execution</option>
+                        <option value="Commercial HQ">I Want Commercial Interior</option>
+                        <option value="Custom Woodwork">I Want Custom Woodwork / Kitchen</option>
+                        <option value="Site Consultation">I Want On-Site Inspection</option>
                       </select>
                     </div>
                   </div>
 
-                  {/* Message */}
-                  <div className="text-left">
-                    <label className="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-mono font-bold">
-                      Write Message*
+                  {/* Row 3: Your Message */}
+                  <div>
+                    <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                      Your Message *
                     </label>
                     <textarea
                       required
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      className="w-full bg-stone-950 border border-stone-800 focus:border-primary px-4 py-3 text-sm text-stone-200 outline-none transition-colors duration-300 rounded-none resize-none"
-                      placeholder="Tell us about your spatial requirements..."
+                      className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#c5a880] focus:bg-white rounded-[24px] p-5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400 resize-none"
+                      placeholder="Your Message..."
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-2 text-left">
+                  {/* Row 4: Submit Button (Pill button with gold arrow circle) */}
+                  <div className="pt-2">
                     <button
                       type="submit"
-                      className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 group cursor-pointer bg-primary hover:bg-lighter px-6 py-3.5 rounded-none"
+                      className="inline-flex items-center space-x-3 bg-[#0c0a09] hover:bg-[#c5a880] text-white hover:text-stone-950 px-8 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg group"
                     >
                       <span>Send Message</span>
-                      <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-primary transition-all duration-300">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                          <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
+                      <div className="w-8 h-8 rounded-full bg-[#c5a880] group-hover:bg-stone-950 text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
+                        <ArrowUpRight size={14} strokeWidth={2.5} />
                       </div>
                     </button>
                   </div>
@@ -211,24 +375,113 @@ export default function ContactForm({ setView }) {
                   initial={{ scale: 0.95, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
-                  className="flex flex-col items-center justify-center py-20 space-y-6"
+                  className="flex flex-col items-center justify-center py-16 space-y-5 text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary flex items-center justify-center text-primary shadow-2xl">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                  <div className="w-16 h-16 rounded-full bg-[#c5a880]/15 border-2 border-[#c5a880] flex items-center justify-center text-[#c5a880] shadow-xl">
+                    <Check size={28} strokeWidth={3} />
                   </div>
-                  <div className="text-center space-y-2">
-                    <h3 className="text-2xl font-serif text-white uppercase tracking-wider">Message Dispatched</h3>
-                    <p className="text-stone-400 text-xs max-w-sm mx-auto leading-relaxed">
-                      Thank you, {formState.name}. We have logged your request and our lead architect will connect with you within 24 hours.
+                  <div className="space-y-2 max-w-sm">
+                    <h3 className="text-2xl font-extrabold text-stone-900">Message Received!</h3>
+                    <p className="text-stone-500 text-xs font-light leading-relaxed">
+                      Thank you, <span className="font-bold text-stone-900">{formState.name}</span>. Our lead architect will review your request and connect with you within 24 hours.
                     </p>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
+          </motion.div>
+
+        </div>
+
+      </div>
+
+      {/* BOTTOM SECTION: FULL-WIDTH INTERACTIVE GOOGLE MAP & EXECUTION LOCATIONS */}
+      <div className="pt-16 sm:pt-20 text-left space-y-6 w-full">
+        
+        {/* Section Header & Location Selector Chips (Centered container width) */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-1">
+              <div className="inline-flex items-center space-x-2">
+                <Globe size={16} className="text-[#c5a880]" />
+                <span className="text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-stone-500">
+                  OUR ACTIVE EXECUTION REGIONS
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                Regions We <span className="text-[#c5a880]">Mostly Work In</span>
+              </h3>
+            </div>
+
+            <p className="text-stone-500 text-xs sm:text-sm font-light max-w-md">
+              Select a location to explore our active studio desks, heritage workshop guilds, and turnkey project regions across India.
+            </p>
+          </div>
+
+          {/* Location Selector Chips */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-2">
+            {locations.map((loc) => {
+              const isActive = activeLocation === loc.id;
+              return (
+                <button
+                  key={loc.id}
+                  onClick={() => setActiveLocation(loc.id)}
+                  className={`inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm ${
+                    isActive
+                      ? "bg-[#0c0a09] text-white border-2 border-[#c5a880] scale-105"
+                      : "bg-white text-stone-700 border border-stone-200 hover:border-[#c5a880]"
+                  }`}
+                >
+                  <MapPin size={12} className={isActive ? "text-[#c5a880]" : "text-stone-400"} />
+                  <span>{loc.city}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
+
+        {/* FULL-WIDTH MAP CONTAINER */}
+        <div className="w-full relative h-[420px] sm:h-[500px] md:h-[560px] bg-stone-200 border-y border-stone-200/80 shadow-inner overflow-hidden mt-6">
+          <iframe
+            key={selectedLoc.id}
+            title={`Google Map for Suthar Studio ${selectedLoc.city}`}
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: "grayscale(0.12) contrast(1.05)" }}
+            loading="lazy"
+            allowFullScreen
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(selectedLoc.mapQuery)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+          />
+
+          {/* Floating Active Location Badge (Top-Left) */}
+          <div className="absolute top-6 left-6 sm:left-12 z-10 bg-stone-900/90 backdrop-blur-md text-white px-5 py-3 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-3.5 max-w-xs sm:max-w-md">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#c5a880] animate-pulse shrink-0" />
+            <div className="text-left space-y-0.5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c5a880] block">
+                ACTIVE REGION • {selectedLoc.city.toUpperCase()}
+              </span>
+              <p className="text-xs font-extrabold text-white truncate">
+                {selectedLoc.role}
+              </p>
+              <p className="text-[11px] font-mono text-stone-300 truncate">
+                {selectedLoc.address}
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Direction Button (Top-Right) */}
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedLoc.mapQuery)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-6 right-6 sm:right-12 z-10 bg-white/95 hover:bg-[#0c0a09] hover:text-white backdrop-blur-md text-stone-900 px-4 py-2.5 rounded-full border border-stone-300 hover:border-stone-900 shadow-xl text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 transition-all duration-300"
+          >
+            <span className="hidden sm:inline">Directions On Google Maps</span>
+            <span className="sm:hidden">Directions</span>
+            <ArrowUpRight size={14} />
+          </a>
+        </div>
+
       </div>
     </section>
   );

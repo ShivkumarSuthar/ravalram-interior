@@ -148,7 +148,9 @@ export function getPageMetadata({
       description: description,
       images: [ogImage],
     },
+    // Device & layout preferences
     category: "Interior Design & Architecture",
+    themeColor: "#0c0a09", // Warm Charcoal
     appleWebApp: {
       capable: true,
       title: siteConfig.name,

@@ -1,4 +1,3 @@
-import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -24,11 +23,11 @@ import {
 } from "lucide-react";
 
 // Local asset imports
-const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/images/antra_project_loft_1782744318019.jpg";
-const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
-const aboutImg = "/images/antra_about_side_1782744266546.jpg";
-const bannerImg = "/images/antra_lobby_banner_1782744283860.jpg";
+import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
+import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
+import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
+import bannerImg from "../assets/images/antra_lobby_banner_1782744283860.jpg";
 
 export default function ServicesPage({ onBackToHome, onOpenQuote }) {
   // FAQ state
@@ -212,13 +211,13 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
   ];
 
   return (
-    <div className="bg-field text-stone-900 font-sans selection:bg-primary/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#c5a880]/30 selection:text-stone-950 pt-[80px]">
       
       {/* PAGE HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
         {/* Full width premium background image */}
         <div className="absolute inset-0 z-0">
-          <AppImage
+          <img
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
             alt="Luxurious spatial architecture Suthar Studio"
             className="w-full h-full object-cover opacity-25 filter brightness-[0.3] scale-105"
@@ -229,7 +228,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
         {/* Blueprint line design */}
         <div className="absolute inset-0 pointer-events-none opacity-5 z-10">
-          <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
+          <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
             <div className="border-l border-white h-full" />
             <div className="border-l border-white h-full" />
             <div className="border-l border-white h-full" />
@@ -237,15 +236,15 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           </div>
         </div>
 
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
-            <button onClick={onBackToHome} className="hover:text-primary transition-colors cursor-pointer">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-[#c5a880] transition-colors cursor-pointer">HOME</button>
             <span>/</span>
-            <span className="text-primary font-bold">SERVICES</span>
+            <span className="text-[#c5a880] font-bold">SERVICES</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-[#c5a880] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               OUR SERVICES
             </span>
             <motion.h1
@@ -255,7 +254,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-tight uppercase"
             >
               Complete Interior & <br />
-              <span className="font-serif italic text-primary font-normal lowercase">Architectural</span> Solutions.
+              <span className="font-serif italic text-[#c5a880] font-normal lowercase">Architectural</span> Solutions.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -275,7 +274,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           >
             <button
               onClick={onOpenQuote}
-              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] hover:bg-[#b0936b] px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -285,7 +284,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={onBackToHome}
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-primary hover:text-primary"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#c5a880] hover:text-[#c5a880]"
             >
               View Projects
             </button>
@@ -295,23 +294,23 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
       {/* SECTION 01: INTRODUCTION */}
       <section className="py-24 md:py-32 bg-white relative overflow-hidden border-b border-stone-100">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             <div className="lg:col-span-5 text-left space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-primary text-xs">✦</span>
+                <span className="text-[#c5a880] text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   INTRODUCTION
                 </span>
               </div>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                 Everything You Need. <br />
-                <span className="font-serif italic text-primary font-normal lowercase">Under One</span> Roof.
+                <span className="font-serif italic text-[#c5a880] font-normal lowercase">Under One</span> Roof.
               </h2>
             </div>
 
-            <div className="lg:col-span-7 text-left border-l-2 border-primary pl-6 lg:pl-10">
+            <div className="lg:col-span-7 text-left border-l-2 border-[#c5a880] pl-6 lg:pl-10">
               <p className="text-stone-600 font-light text-base sm:text-lg leading-relaxed">
                 We believe every successful project begins with thoughtful planning and ends with exceptional craftsmanship. Our experienced architects, designers, and skilled craftsmen work together to provide complete solutions from concept to completion.
               </p>
@@ -325,15 +324,15 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 02: OUR CORE SERVICES */}
-      <section className="py-24 md:py-32 bg-field relative overflow-hidden">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 space-y-24 md:space-y-32 relative z-10">
+      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-24 md:space-y-32 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               DETAILED SERVICES
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              Our Core <span className="font-serif italic text-primary font-normal lowercase">Creative</span> Offerings
+              Our Core <span className="font-serif italic text-[#c5a880] font-normal lowercase">Creative</span> Offerings
             </h2>
           </div>
 
@@ -354,7 +353,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 <div className={`lg:col-span-6 relative ${isEven ? "" : "lg:order-2"}`}>
                   <div className="relative bg-white border border-stone-200/50 p-4 rounded-3xl shadow-xl overflow-hidden group">
                     <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
-                      <AppImage
+                      <img
                         src={service.image}
                         alt={service.title}
                         className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-[1.2s]"
@@ -370,7 +369,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
                 {/* Content Block */}
                 <div className={`lg:col-span-6 text-left space-y-6 ${isEven ? "" : "lg:order-1"}`}>
-                  <span className="text-primary text-xs font-mono font-bold tracking-[0.2em] uppercase block">
+                  <span className="text-[#c5a880] text-xs font-mono font-bold tracking-[0.2em] uppercase block">
                     0{index + 1} &bull; {service.accent}
                   </span>
                   
@@ -390,7 +389,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center space-x-2 text-stone-800">
-                          <CheckCircle2 size={14} className="text-primary shrink-0" />
+                          <CheckCircle2 size={14} className="text-[#c5a880] shrink-0" />
                           <span className="text-xs sm:text-sm font-light font-sans">{feature}</span>
                         </div>
                       ))}
@@ -400,7 +399,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   <div className="pt-4">
                     <button
                       onClick={onOpenQuote}
-                      className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 border-b-2 border-stone-900 hover:border-primary hover:text-primary pb-1 cursor-pointer"
+                      className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 border-b-2 border-stone-900 hover:border-[#c5a880] hover:text-[#c5a880] pb-1 cursor-pointer"
                     >
                       <span>Inquire about this service</span>
                       <ArrowRight size={14} />
@@ -417,14 +416,14 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
       {/* SECTION 03: OUR EXECUTION MODELS */}
       <section className="py-24 md:py-32 bg-white relative overflow-hidden border-t border-b border-stone-100">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               FLEXIBLE EXECUTION MODELS
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              How We <span className="font-serif italic text-primary font-normal lowercase">Work With</span> You
+              How We <span className="font-serif italic text-[#c5a880] font-normal lowercase">Work With</span> You
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base max-w-2xl mx-auto leading-relaxed pt-2">
               We offer multiple execution contracting formats to match your specific procurement comfort, budget control, and project stage.
@@ -439,13 +438,13 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className="bg-field border border-stone-200/50 hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 p-6 md:p-8 rounded-2xl text-left space-y-4 transition-all duration-500 group"
+                className="bg-[#faf9f6] border border-stone-200/50 hover:border-[#c5a880]/30 hover:shadow-xl hover:-translate-y-1 p-6 md:p-8 rounded-2xl text-left space-y-4 transition-all duration-500 group"
               >
-                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-stone-200/30 text-primary font-mono font-bold text-xs shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-stone-200/30 text-[#c5a880] font-mono font-bold text-xs shadow-sm">
                   0{idx + 1}
                 </div>
                 <div className="space-y-2">
-                    <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-[#c5a880] transition-colors duration-300">
                     {model.title}
                   </h4>
                   <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -460,15 +459,15 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 04: OUR PROCESS (PREMIUM RESPONSIVE TIMELINE) */}
-      <section className="py-24 md:py-32 bg-field relative overflow-hidden">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               WORKFLOW PIPELINE
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              Our Design &amp; <span className="font-serif italic text-primary font-normal lowercase">Execution</span> Process
+              Our Design &amp; <span className="font-serif italic text-[#c5a880] font-normal lowercase">Execution</span> Process
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed pt-2">
               From the initial introductory conversation to handing over the physical keys, we maintain rigorous milestones.
@@ -491,7 +490,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 className="bg-white border border-stone-200/50 p-4 rounded-xl text-center flex flex-col justify-between space-y-3 shadow-sm hover:shadow-md transition-all duration-300 relative group z-10"
               >
                 {/* Visual node on timeline */}
-                <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-xs text-primary mx-auto group-hover:bg-primary group-hover:text-stone-900 transition-colors duration-300">
+                <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-xs text-[#c5a880] mx-auto group-hover:bg-[#c5a880] group-hover:text-stone-900 transition-colors duration-300">
                   {step.num}
                 </div>
                 
@@ -512,14 +511,14 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
       {/* SECTION 05: WHY CHOOSE SUTHAR INTERIOR STUDIO */}
       <section className="py-24 md:py-32 bg-white relative overflow-hidden border-t border-b border-stone-100">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               WHY CHOOSE US
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              Why Clients <span className="font-serif italic text-primary font-normal lowercase">Trust</span> Suthar Studio
+              Why Clients <span className="font-serif italic text-[#c5a880] font-normal lowercase">Trust</span> Suthar Studio
             </h2>
           </div>
 
@@ -533,13 +532,13 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: idx * 0.1 }}
-                  className="bg-stone-50 border border-stone-100 hover:bg-white hover:border-primary/30 hover:shadow-xl rounded-2xl p-6 md:p-8 text-left space-y-4 transition-all duration-500 group"
+                  className="bg-stone-50 border border-stone-100 hover:bg-white hover:border-[#c5a880]/30 hover:shadow-xl rounded-2xl p-6 md:p-8 text-left space-y-4 transition-all duration-500 group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors duration-500 shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-[#c5a880] group-hover:bg-[#c5a880]/10 transition-colors duration-500 shadow-sm">
                     <Icon size={18} />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-primary transition-colors duration-300">
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-[#c5a880] transition-colors duration-300">
                       {item.title}
                     </h4>
                     <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -557,16 +556,16 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       {/* SECTION 06: INDUSTRIES WE SERVE */}
       <section className="py-24 bg-stone-950 text-white relative overflow-hidden">
         {/* Background ambient lighting */}
-        <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_rgba(231,163,95,0.08),_transparent_70%)] pointer-events-none" />
+        <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_rgba(197,168,128,0.08),_transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-left max-w-3xl mb-16 md:mb-20 space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               OUR SPATIAL DIVERSITY
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white uppercase">
-              Industries <span className="font-serif italic text-primary font-normal lowercase">We</span> Serve
+              Industries <span className="font-serif italic text-[#c5a880] font-normal lowercase">We</span> Serve
             </h2>
             <p className="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
               Our architects and carpenters are trained to adapt to specific residential codes, corporate fire regulations, retail circulation standards, and robust commercial acoustic requirements.
@@ -581,12 +580,12 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.05 }}
-                className="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 hover:border-primary/40 transition-all duration-300 text-left relative group cursor-default"
+                className="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 hover:border-[#c5a880]/40 transition-all duration-300 text-left relative group cursor-default"
               >
-                <div className="text-stone-500 font-mono text-[10px] group-hover:text-primary transition-colors block mb-4">
+                <div className="text-stone-500 font-mono text-[10px] group-hover:text-[#c5a880] transition-colors block mb-4">
                   {ind.count}
                 </div>
-                <h4 className="text-sm sm:text-base font-serif font-light tracking-wide text-white group-hover:text-primary transition-colors">
+                <h4 className="text-sm sm:text-base font-serif font-light tracking-wide text-white group-hover:text-[#c5a880] transition-colors">
                   {ind.name}
                 </h4>
               </motion.div>
@@ -597,15 +596,15 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 07: SERVICE AREAS */}
-      <section className="py-24 md:py-32 bg-field relative overflow-hidden">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               REGIONAL OPERATIONS
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              Service <span className="font-serif italic text-primary font-normal lowercase">Areas &amp;</span> Locations
+              Service <span className="font-serif italic text-[#c5a880] font-normal lowercase">Areas &amp;</span> Locations
             </h2>
             <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed">
               We travel directly to verify custom measurements, supervise carpentry mockups, and run turnkey handovers.
@@ -616,12 +615,12 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
             {cities.map((city, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-stone-200/50 p-6 rounded-xl text-left hover:shadow-xl hover:border-primary/30 transition-all duration-500 group relative"
+                className="bg-white border border-stone-200/50 p-6 rounded-xl text-left hover:shadow-xl hover:border-[#c5a880]/30 transition-all duration-500 group relative"
               >
-                <div className="absolute top-6 right-6 text-primary opacity-40 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-6 right-6 text-[#c5a880] opacity-40 group-hover:opacity-100 transition-opacity">
                   <MapPin size={16} />
                 </div>
-                <h3 className="text-base sm:text-lg font-serif font-medium text-stone-950 group-hover:text-primary transition-colors duration-300 mb-2">
+                <h3 className="text-base sm:text-lg font-serif font-medium text-stone-950 group-hover:text-[#c5a880] transition-colors duration-300 mb-2">
                   {city.name}
                 </h3>
                 <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -639,11 +638,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20 space-y-4">
-            <span className="text-primary text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-[#c5a880] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 uppercase">
-              Service <span className="font-serif italic text-primary font-normal lowercase">Insights &amp;</span> FAQ
+              Service <span className="font-serif italic text-[#c5a880] font-normal lowercase">Insights &amp;</span> FAQ
             </h2>
           </div>
 
@@ -660,13 +659,13 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="w-full flex items-center justify-between p-6 text-left focus:outline-none group cursor-pointer"
                   >
-                    <span className="font-serif text-base sm:text-lg font-medium text-stone-900 group-hover:text-primary transition-colors">
+                    <span className="font-serif text-base sm:text-lg font-medium text-stone-900 group-hover:text-[#c5a880] transition-colors">
                       {faq.q}
                     </span>
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-stone-400 group-hover:text-primary shrink-0 ml-4"
+                      className="text-stone-400 group-hover:text-[#c5a880] shrink-0 ml-4"
                     >
                       <ChevronDown size={18} />
                     </motion.div>
@@ -697,7 +696,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       {/* FINAL CTA */}
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white">
         <div className="absolute inset-0 z-0">
-          <AppImage
+          <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000"
             alt="Magnificent spatial architecture Suthar Studio final"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
@@ -706,13 +705,13 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/90 to-stone-950/40" />
         </div>
 
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-[#c5a880] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               LET'S START YOUR JOURNEY
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-tight uppercase">
-              Let's Build Your <span className="font-serif italic text-primary font-normal lowercase">Dream</span> Space.
+              Let's Build Your <span className="font-serif italic text-[#c5a880] font-normal lowercase">Dream</span> Space.
             </h2>
             <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               Whether you're planning a home, office, renovation, or custom furniture project, our team is ready to create spaces that combine thoughtful design with exceptional craftsmanship.
@@ -722,7 +721,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <button
               onClick={onOpenQuote}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary px-8 py-5 rounded-full cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] px-8 py-5 rounded-full cursor-pointer shadow-xl"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -732,7 +731,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={onOpenQuote}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-primary hover:text-primary"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#c5a880] hover:text-[#c5a880]"
             >
               Get Free Estimate
             </button>

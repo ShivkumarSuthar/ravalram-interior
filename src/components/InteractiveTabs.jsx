@@ -1,40 +1,38 @@
-import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-
-const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/images/antra_project_loft_1782744318019.jpg";
-const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
-const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
+import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
+import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
 
 const tabsData = [
   {
     id: 0,
     num: "01",
-    title: "Renovations & Structural Planning",
+    title: "Renovation And Remodeling",
     image: coastalImg,
-    description: "We orchestrate complete structural transformations. Our certified site engineering team handles load-bearing evaluations, custom demolition blueprints, ceiling re-leveling, and wall displacement to maximize volume flow."
+    description: "We orchestrate complete structural transformations. Our certified site engineering team handles load-bearing evaluations, custom demolition blueprints, ceiling re-leveling, and wall displacement."
   },
   {
     id: 1,
     num: "02",
-    title: "Materiality & Curation",
+    title: "Custom Design Consultation",
     image: loftImg,
-    description: "Co-authoring the look and feel of your residence. During these workshops, we review material tactile boards, test paint light interaction, draft initial hand sketches, and define the absolute budget boundaries."
+    description: "Lacus non ultrices diam, placerat eu. Tincidunt pulvinar lacus. Felis dui aliquet. Co-authoring the look and feel of your residence with tailored tactile boards and custom material selections."
   },
   {
     id: 2,
     num: "03",
-    title: "Spatial Architecture & Drafting",
+    title: "Space Planning And Layout",
     image: transitionImg,
-    description: "We treat empty space as a canvas for motion. Our planners calculate ergonomics, visual focal directions, shadow zones, and furniture spacing to make sure pathways are generous and comfortable."
+    description: "We treat empty space as a canvas for motion. Our planners calculate ergonomics, visual focal directions, shadow zones, and furniture spacing."
   },
   {
     id: 3,
     num: "04",
-    title: "Virtual 3D Spatial Walkthroughs",
+    title: "3D Design Visualization",
     image: aboutImg,
-    description: "Walk inside your finished home before laying a single brick. We render full-scale photorealistic 3D spatial models showing real material textures, specific custom lighting, and customized art installations."
+    description: "Walk inside your finished home before laying a single brick. We render full-scale photorealistic 3D spatial models showing real material textures."
   }
 ];
 
@@ -54,7 +52,7 @@ export default function InteractiveTabs() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0 w-full h-full"
           >
-            <AppImage
+            <img
               src={tabsData[activeTab].image}
               alt={tabsData[activeTab].title}
               className="w-full h-full object-cover opacity-35 filter brightness-75"
@@ -76,7 +74,7 @@ export default function InteractiveTabs() {
             transition={{ duration: 0.5 }}
             className="space-y-4 max-w-3xl"
           >
-            <span className="text-primary text-sm tracking-[0.3em] uppercase font-bold font-mono">
+            <span className="text-[#c5a880] text-sm tracking-[0.3em] uppercase font-bold font-mono">
               {tabsData[activeTab].num}
             </span>
             <h3 className="text-3xl md:text-5xl font-serif tracking-tight font-medium">
@@ -91,7 +89,7 @@ export default function InteractiveTabs() {
 
       {/* Bottom Tabs Selection Bar (Overlaid Grid) */}
       <div className="relative z-10 w-full bg-stone-950/70 backdrop-blur-md border-t border-white/10 mt-16">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
           {tabsData.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -106,12 +104,12 @@ export default function InteractiveTabs() {
                 {isActive && (
                   <motion.div
                     layoutId="activeTabUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-primary"
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-[#c5a880]"
                   />
                 )}
                 
                 <div className="space-y-1">
-                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-primary" : "text-stone-500"}`}>
+                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-[#c5a880]" : "text-stone-500"}`}>
                     {tab.num}
                   </span>
                   <h4 className={`text-xs md:text-sm font-semibold tracking-wider uppercase ${isActive ? "text-white" : "text-stone-400"}`}>

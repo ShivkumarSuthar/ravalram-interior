@@ -1,48 +1,26 @@
-import AppImage from "./AppImage";
 import { motion } from "motion/react";
 
 const team = [
   {
-    name: "Ravalram H. Suthar",
-    role: "Founder",
-    focus: "FOUNDER & MASTER CRAFTSMAN",
+    name: "Mark Jackson",
+    role: "EXHIBITION DESIGNER",
+    focus: "EXHIBITION DESIGNER",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
-    bio: "Leading the family legacy of craftsmanship with over three decades of experience, dedicated to delivering quality work, honest values, and lasting client relationships."
+    bio: "Leading the creative exhibition layouts with spatial precision and contemporary design aesthetics."
   },
   {
-    name: "Shivkumar Suthar",
-    role: "Co-Founder",
-    focus: "CO-FOUNDER & OPERATIONS",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800",
-    bio: "Overseeing project coordination, client communication, planning, and ensuring every project is completed with transparency, efficiency, and complete customer satisfaction."
-  },
-  {
-    name: "Padam P. Sutar & Team",
-    role: "Architect & Design Team",
-    focus: "LEAD ARCHITECT & DESIGN",
+    name: "Helen Reeves",
+    role: "PRODUCTION DESIGNER",
+    focus: "PRODUCTION DESIGNER",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800",
-    bio: "Responsible for architectural planning, space optimization, interior concepts, technical drawings, and supervising every stage of execution to ensure exceptional quality."
+    bio: "Overseeing production schedules, material sourcing, and execution of bespoke spatial concepts."
   },
   {
-    name: "Custom Furniture Experts",
-    role: "Specialist Department",
-    focus: "BESPOKE WOODWORKING",
-    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=800",
-    bio: "Experienced craftsmen creating premium custom furniture with precision, heritage joinery techniques, and attention to detail."
-  },
-  {
-    name: "Execution Specialists",
-    role: "Specialist Department",
-    focus: "ON-SITE PRODUCTION",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800",
-    bio: "Managing on-site execution, flawless installation, contractor coordination, and finishing with complete professionalism."
-  },
-  {
-    name: "Painting & Finishing",
-    role: "Specialist Department",
-    focus: "PREMIUM TEXTURES & DETAILED FINISH",
-    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=800",
-    bio: "Delivering elegant finishes, textures, and detailing that bring every custom design to life."
+    name: "Alex Podzemsky",
+    role: "GRAPHICS DESIGNER",
+    focus: "GRAPHICS DESIGNER",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800",
+    bio: "Designing 3D renders, architectural graphics, and visual spatial walkthroughs."
   }
 ];
 
@@ -72,22 +50,21 @@ export default function Team() {
   };
 
   return (
-    <section id="team" className="bg-field py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-8xl mx-auto px-6 md:px-12">
+    <section id="team" className="bg-[#faf9f6] py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
-          <div className="inline-flex items-center space-x-2">
-            <span className="text-primary text-xs">✦</span>
-            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-              OUR TEAM
+          <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/80 px-4 py-1.5 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
+            <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-700">
+              AMAZING DESIGN TEAM
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            The People Behind <br />
-            <span className="font-serif italic text-primary font-normal lowercase">Every Exceptional</span> Space.
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-stone-900 leading-tight">
+            Meet The <span className="font-serif italic text-[#c5a880] font-normal">Experts Our</span> Interior <span className="font-serif italic text-[#c5a880] font-normal">Designers</span>
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
-            Behind every beautifully crafted space is a dedicated team of architects, designers, craftsmen, and project specialists. With a family legacy of craftsmanship dating back to 1989, we combine experience, creativity, and precision to deliver projects that exceed expectations.
+            Behind every beautifully crafted space is a dedicated team of architects, designers, and craftsmen.
           </p>
         </div>
 
@@ -108,7 +85,7 @@ export default function Team() {
               <div>
                 {/* Image Frame */}
                 <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-stone-100 rounded-none">
-                  <AppImage
+                  <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover filter brightness-[0.93] grayscale group-hover:grayscale-0 transition-all duration-700 transform scale-100 group-hover:scale-105"
@@ -123,10 +100,10 @@ export default function Team() {
 
                 {/* Text Description */}
                 <div className="space-y-1">
-                  <h3 className="text-xl font-serif text-stone-900 font-medium group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-serif text-stone-900 font-medium group-hover:text-[#c5a880] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-xs text-primary uppercase tracking-widest font-bold">
+                  <p className="text-xs text-[#c5a880] uppercase tracking-widest font-bold">
                     {member.role}
                   </p>
                   <div className="w-6 h-[1px] bg-stone-200 group-hover:w-12 transition-all duration-500 mt-2" />
@@ -151,7 +128,7 @@ export default function Team() {
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="space-y-3 text-center md:text-left group"
               >
-                <div className="text-4xl md:text-5xl font-serif text-primary font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
+                <div className="text-4xl md:text-5xl font-serif text-[#c5a880] font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
                   {st.value}
                 </div>
                 <div className="space-y-1">

@@ -4,21 +4,20 @@ import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Services from "./components/Services.jsx";
+import ArchitecturalShowcase from "./components/ArchitecturalShowcase.jsx";
+import AutoVideoPlayer from "./components/AutoVideoPlayer.jsx";
 import LobbyBanner from "./components/LobbyBanner.jsx";
 import Stats from "./components/Stats.jsx";
+import IsometricFloorplanShowcase from "./components/IsometricFloorplanShowcase.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
-import OurProcess from "./components/OurProcess.jsx";
 import FlexibleSolutions from "./components/FlexibleSolutions.jsx";
 import CreativeProjects from "./components/CreativeProjects.jsx";
-import Awards from "./components/Awards.jsx";
-import InteractiveTabs from "./components/InteractiveTabs.jsx";
-import ExpertBento from "./components/ExpertBento.jsx";
-import Team from "./components/Team.jsx";
-import ServiceAreas from "./components/ServiceAreas.jsx";
+import DreamProjectCTA from "./components/DreamProjectCTA.jsx";
 import Testimonial from "./components/Testimonial.jsx";
 import GiantBanner from "./components/GiantBanner.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import Blog from "./components/Blog.jsx";
+import FaqSection from "./components/FaqSection.jsx";
 import Newsletter from "./components/Newsletter.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
@@ -54,14 +53,14 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-field text-stone-900 selection:bg-gold-500 selection:text-stone-950 scroll-smooth" id="app-root">
+    <div className="relative min-h-screen bg-[#faf9f6] text-stone-900 selection:bg-gold-500 selection:text-stone-950 scroll-smooth" id="app-root">
       
       {/* Dynamic SEO and Structured Schema Manager */}
       <SEOHelper currentView={currentView} />
 
       {/* Absolute fixed layout grid accents */}
       <div className="fixed inset-0 pointer-events-none z-30 opacity-5">
-        <div className="mx-auto h-full w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="max-w-7xl mx-auto h-full w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="border-l border-stone-400 h-full" />
           <div className="border-l border-stone-400 h-full" />
           <div className="border-l border-stone-400 h-full border-r" />
@@ -95,17 +94,17 @@ export default function App() {
               {/* 3. Core Expertise (Explore Our Comprehensive...) */}
               <Services />
 
-              {/* 4. Full-width reception lobby presentation banner with play button */}
-              <LobbyBanner />
+              {/* 3.5. Architectural Pavilion Showcase with giant "Interior" watermark */}
+              <ArchitecturalShowcase />
 
               {/* 5. Metrics & stats (Behind Every Statistic...) */}
               <Stats />
 
+              {/* 5.2. Isometric Floor Plan Showcase with Pendant Lights */}
+              <IsometricFloorplanShowcase />
+
               {/* 5.5. Why Choose Suthar Interior Studio Section */}
               <WhyChooseUs setView={setView} />
-
-              {/* 5.6. Our Process Section (From Your Vision to a Beautiful Reality) */}
-              <OurProcess setView={setView} />
 
               {/* 5.7. Flexible Solutions Section (Designed Around Your Vision & Budget) */}
               <FlexibleSolutions setView={setView} />
@@ -113,38 +112,26 @@ export default function App() {
               {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
               <CreativeProjects />
 
-              {/* 7. Design Awards showcase (Design That Speaks...) */}
-              <Awards />
-
-              {/* 8. Interactive 4-tab process display (Renovation, Consultation, Planning, 3D) */}
-              <InteractiveTabs />
-
-              {/* 9. Progress metrics & bento bedroom render layout */}
-              <ExpertBento />
-
-              {/* 10. Creative brain experts list (Meet The Experts Our...) */}
-              <Team />
-
-              {/* 10.5. Service Areas & Locations display */}
-              <ServiceAreas />
+              {/* 10. High-Impact "Let's Start Your New Dream Project" CTA */}
+              <DreamProjectCTA setView={setView} />
 
               {/* 11. Client Testimonial quotes */}
               <Testimonial />
-
-              {/* 12. Majestic wordmark "INTERIOR DESIGN" transition banner */}
-              <GiantBanner />
 
               {/* 13. Contact Form (Have A Project In Mind?) */}
               <ContactForm setView={setView} />
 
               {/* 14. Magazine blogs list */}
-              <Blog />
+              <Blog setView={setView} />
+
+              {/* 14.2. Interactive Full-Width Video Player (Unlock Your Dream Home Today!) */}
+              <AutoVideoPlayer />
+
+              {/* 14.5. Popular Queries & FAQ Accordion Section */}
+              <FaqSection setView={setView} />
 
               {/* 15. Newsletter subscription circle */}
               <Newsletter />
-
-              {/* 15.5. Final Emotional CTA Section */}
-              <FinalCTA />
             </motion.div>
           ) : currentView === "about-us" ? (
             <motion.div
@@ -318,6 +305,6 @@ export default function App() {
 
       {/* Luxury automated quick query Chatbot */}
       <LuxuryChatbot />
-</div>
+    </div>
   );
 }

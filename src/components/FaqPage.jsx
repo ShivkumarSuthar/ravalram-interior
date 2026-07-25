@@ -1,4 +1,3 @@
-import AppImage from "./AppImage";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -16,7 +15,8 @@ import {
   DollarSign 
 } from "lucide-react";
 
-const bannerImg = "/images/antra_lobby_banner_1782744283860.jpg";
+// Local asset import for background decoration
+import bannerImg from "../assets/images/antra_lobby_banner_1782744283860.jpg";
 
 const faqCategories = [
   { id: "all", label: "All Questions", icon: HelpCircle },
@@ -95,13 +95,13 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
   });
 
   return (
-    <div className="bg-field text-stone-900 font-sans selection:bg-gold-500 selection:text-stone-950 pt-[80px]">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-500 selection:text-stone-950 pt-[80px]">
       
       {/* 1. HERO BREADCRUMB HEADER */}
       <section className="relative h-[40vh] md:h-[50vh] bg-stone-950 text-white flex flex-col justify-center overflow-hidden">
         {/* Background Overlay Image */}
         <div className="absolute inset-0 z-0">
-          <AppImage
+          <img
             src={bannerImg}
             alt="FAQ Banner Background"
             className="w-full h-full object-cover opacity-20 filter grayscale scale-105"
@@ -112,7 +112,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
 
         {/* Technical drafting gridlines overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-5 z-10">
-          <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
+          <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
             <div className="border-l border-white h-full" />
             <div className="border-l border-white h-full" />
             <div className="border-l border-white h-full" />
@@ -120,7 +120,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
           </div>
         </div>
 
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-20 w-full text-center md:text-left space-y-4">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-center md:text-left space-y-4">
           {/* Breadcrumbs */}
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
             <button onClick={onBackToHome} className="hover:text-gold-500 transition-colors cursor-pointer">HOME</button>
@@ -157,7 +157,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                 placeholder="Search queries (e.g. materials, license, estimates)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-6 py-4 bg-field text-stone-900 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 shadow-inner"
+                className="w-full pl-12 pr-6 py-4 bg-[#faf9f6] text-stone-900 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 shadow-inner"
               />
             </div>
 
@@ -172,7 +172,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                     className={`px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 border transition-all duration-300 cursor-pointer ${
                       selectedCategory === cat.id
                         ? "bg-stone-950 text-gold-500 border-stone-950 shadow-md"
-                        : "bg-field text-stone-600 border-stone-200/80 hover:border-gold-500/40 hover:text-stone-950"
+                        : "bg-[#faf9f6] text-stone-600 border-stone-200/80 hover:border-gold-500/40 hover:text-stone-950"
                     }`}
                   >
                     <CatIcon size={13} />
@@ -197,7 +197,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="border border-stone-200/80 rounded-2xl overflow-hidden bg-field hover:bg-white transition-colors duration-300 shadow-sm"
+                      className="border border-stone-200/80 rounded-2xl overflow-hidden bg-[#faf9f6] hover:bg-white transition-colors duration-300 shadow-sm"
                     >
                       <button
                         onClick={() => toggleFaq(faq.id)}

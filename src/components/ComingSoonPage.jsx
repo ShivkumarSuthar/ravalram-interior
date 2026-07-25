@@ -1,4 +1,3 @@
-import AppImage from "./AppImage";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -15,8 +14,9 @@ import {
   Construction
 } from "lucide-react";
 
-const heroBg = "/images/antra_hero_bg_1782744248753.jpg";
-const transitionLuxury = "/images/antra_transition_luxury_1782747459033.jpg";
+// Asset imports
+import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
+import transitionLuxury from "../assets/images/antra_transition_luxury_1782747459033.jpg";
 
 export default function ComingSoonPage({ onBackToHome }) {
   const [email, setEmail] = useState("");
@@ -69,7 +69,7 @@ export default function ComingSoonPage({ onBackToHome }) {
       
       {/* Background Image & Immersive Gradients */}
       <div className="absolute inset-0 z-0">
-        <AppImage
+        <img
           src={transitionLuxury}
           alt="Luxury Architectural Background"
           className="w-full h-full object-cover opacity-25 filter grayscale contrast-125 scale-105"
@@ -81,7 +81,7 @@ export default function ComingSoonPage({ onBackToHome }) {
 
       {/* Draftsman Grid Lines */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-10">
-        <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
+        <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12 px-6">
           <div className="border-l border-white h-full" />
           <div className="border-l border-white h-full" />
           <div className="border-l border-white h-full" />
@@ -90,7 +90,7 @@ export default function ComingSoonPage({ onBackToHome }) {
       </div>
 
       {/* 1. HEADER BRANDING */}
-      <header className="relative z-20 max-w-8xl w-full mx-auto px-6 py-8 flex items-center justify-between">
+      <header className="relative z-20 max-w-7xl w-full mx-auto px-6 py-8 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <span className="text-xl md:text-2xl font-serif tracking-[0.2em] font-light text-white uppercase">
             SUTHAR<span className="text-gold-500 font-normal">.</span>
@@ -228,7 +228,7 @@ export default function ComingSoonPage({ onBackToHome }) {
       </main>
 
       {/* 5. FOOTER SOCIAL LINKS */}
-      <footer className="relative z-20 max-w-8xl w-full mx-auto px-6 py-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="relative z-20 max-w-7xl w-full mx-auto px-6 py-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-stone-500 text-[10px] font-mono uppercase tracking-widest text-center sm:text-left">
           &copy; {new Date().getFullYear()} Suthar Interior Studio. All rights reserved.
         </p>

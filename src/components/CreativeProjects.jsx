@@ -1,272 +1,359 @@
-import AppImage from "./AppImage";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { ChevronLeft, ChevronRight, ArrowUpRight, X } from "lucide-react";
 
-const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/images/antra_project_loft_1782744318019.jpg";
+// Local asset imports
+import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
+import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
+import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import heroSlide2 from "../assets/images/antra_hero_slide2_1782747378004.jpg";
 
 const projects = [
   {
-    id: 1,
-    title: "Luxury Residence",
+    id: "proj-01",
+    title: "Golden Ratio Residence",
+    badge: "SINGLE HOME",
     category: "Residential Interior",
-    filterKey: "Residential",
-    image: coastalImg,
-    description: "A warm contemporary home designed with custom furniture, premium finishes, and carefully planned lighting to create elegant everyday living."
+    location: "Berlin, Germany",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+    description: "A double-height sea-facing villa designed around golden ratio proportions, Italian Statuario marble, and handcrafted timber joinery."
   },
   {
-    id: 2,
-    title: "Modern Office Workspace",
-    category: "Commercial Interior",
-    filterKey: "Commercial",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200",
-    description: "A productive and inspiring workspace balancing functionality, comfort, and modern aesthetics for growing businesses."
-  },
-  {
-    id: 3,
-    title: "Premium Modular Kitchen",
-    category: "Custom Furniture",
-    filterKey: "Furniture",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200",
-    description: "A beautifully crafted modular kitchen designed around efficiency, premium materials, and timeless style."
-  },
-  {
-    id: 4,
-    title: "Home Renovation",
-    category: "Renovation",
-    filterKey: "Renovation",
+    id: "proj-02",
+    title: "Nordic Minimalist Loft",
+    badge: "LANDSCAPE",
+    category: "Architecture & Landscape",
+    location: "Berlin, Germany",
+    year: "2025",
     image: loftImg,
-    description: "Transforming an existing home into a brighter, more functional, and contemporary living environment while preserving its character."
+    description: "Monolithic pre-cast concrete staircase and fluted timber wall paneling overlooking tropical estate gardens."
+  },
+  {
+    id: "proj-03",
+    title: "Industrial Elegance Condo",
+    badge: "RESIDENTIAL",
+    category: "Residential Interior",
+    location: "Berlin, Germany",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200",
+    description: "Warm solid walnut dining table, Italian marble flooring, and custom brass pendant chandeliers."
+  },
+  {
+    id: "proj-04",
+    title: "Serene Space Studio",
+    badge: "RESIDENTIAL",
+    category: "Luxury Penthouse",
+    location: "Germany",
+    year: "2025",
+    image: coastalImg,
+    description: "A light-flooded duplex penthouse featuring plush bouclé seating, expansive glass walls, and panoramic skyline views."
+  },
+  {
+    id: "proj-05",
+    title: "Urban Zen Apartment",
+    badge: "LANDSCAPE",
+    category: "Residential Interior",
+    location: "Berlin, Germany",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200",
+    description: "Muted plaster walls, bespoke timber bed frames, and subtle ambient indirect cove lighting arrays."
+  },
+  {
+    id: "proj-06",
+    title: "Art Deco Villa",
+    badge: "SINGLE HOME",
+    category: "Architecture",
+    location: "Berlin, Germany",
+    year: "2025",
+    image: transitionImg,
+    description: "A coastal luxury estate blending heritage brass trims, rich teak joinery, and modern smart home automation."
+  },
+  {
+    id: "proj-07",
+    title: "The Shoreline Kitchen",
+    badge: "KITCHEN",
+    category: "Custom Joinery",
+    location: "Berlin, Germany",
+    year: "2026",
+    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200",
+    description: "Imported soft-close quartz counters with custom under-cabinet warm LED runs and anti-fingerprint acrylic."
+  },
+  {
+    id: "proj-08",
+    title: "Executive Office Suite",
+    badge: "COMMERCIAL",
+    category: "Commercial Office",
+    location: "Berlin, Germany",
+    year: "2026",
+    image: heroSlide2,
+    description: "Collaborative executive workspace featuring fluted glass privacy partitions and ergonomic acoustic panels."
   }
 ];
 
-const filters = ["All", "Residential", "Commercial", "Furniture", "Renovation"];
-
 export default function CreativeProjects() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [lightboxIndex, setLightboxIndex] = useState(null); // null or index within active filtered projects
+  const scrollRef = useRef(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
+  const [hasDragged, setHasDragged] = useState(false);
 
-  const filteredProjects = activeFilter === "All"
-    ? projects
-    : projects.filter((p) => p.filterKey === activeFilter);
+  const handleScroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === "left" ? -380 : 380;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    if (!scrollRef.current) return;
+    setIsMouseDown(true);
+    setHasDragged(false);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeftState(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isMouseDown || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    if (Math.abs(x - startX) > 6) {
+      setHasDragged(true);
+    }
+    scrollRef.current.scrollLeft = scrollLeftState - walk;
+  };
 
   return (
-    <section id="portfolio" className="bg-field py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+    <section id="portfolio" className="bg-[#faf9f6] py-16 sm:py-24 md:py-32 relative overflow-hidden select-none">
       
-      {/* Giant Ghost Text Backdrop */}
-      <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none z-0 overflow-hidden">
-        <span className="text-[14vw] font-serif font-black text-stone-900/[0.015] uppercase tracking-[0.2em] leading-none whitespace-nowrap">
-          Suthar Studio
-        </span>
+      {/* 3D Wireframe Architectural Blueprint Background Sketch on Right */}
+      <div className="absolute right-0 top-0 w-2/3 h-full pointer-events-none opacity-[0.08] z-0 overflow-hidden hidden lg:block">
+        <svg viewBox="0 0 1000 700" className="w-full h-full text-stone-900 stroke-current" fill="none" strokeWidth="1">
+          {/* House Wireframe Perspective */}
+          <path d="M400 150 L850 150 L950 300 L500 300 Z" />
+          <path d="M400 150 L400 550 L850 550 L850 150" />
+          <path d="M850 550 L950 400 L950 300" />
+          <path d="M500 300 L500 650 L950 650 L950 400" />
+          <path d="M400 550 L500 650" />
+          {/* Inner Grid Window Lines */}
+          <line x1="450" y1="200" x2="800" y2="200" strokeDasharray="4 4" />
+          <line x1="450" y1="350" x2="800" y2="350" strokeDasharray="4 4" />
+          <line x1="600" y1="150" x2="600" y2="550" />
+          <circle cx="700" cy="350" r="120" strokeDasharray="6 6" />
+        </svg>
       </div>
 
-      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="relative z-10 space-y-10 md:space-y-14">
         
-        {/* Header Block */}
-        <div className="text-left mb-12 space-y-4">
-          <div className="inline-flex items-center space-x-2">
-            <span className="text-primary text-xs">✦</span>
-            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-              FEATURED PROJECTS
-            </span>
+        {/* Centered Header Section matching screenshot exactly */}
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-5">
+          
+          {/* Pill Tag */}
+          <div className="flex justify-center">
+            <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-stone-100/80 px-4 py-1.5 rounded-full shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#c5a880]" />
+              <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-stone-700">
+                OUR PROJECTS
+              </span>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            Designed with Purpose. <br />
-            <span className="font-serif italic text-primary font-normal lowercase">Crafted to</span> Last.
+
+          {/* Heading with exact colored words */}
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+            Creative <span className="text-[#c5a880]">Projects That</span><br />
+            <span className="text-[#c5a880]">Define</span> Our Style
           </h2>
-          <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
-            Every project reflects our commitment to thoughtful design, skilled craftsmanship, and meticulous execution. From elegant homes to modern commercial spaces, we create interiors that are both beautiful and functional.
+
+          {/* Subtitle */}
+          <p className="text-stone-500 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Our portfolio showcases a diverse range of projects, from beautifully crafted residential spaces functional and stylish commercial interiors
           </p>
-        </div>
 
-        {/* Category Filter Buttons */}
-        <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-16 justify-start">
-          {filters.map((filter) => (
+          {/* Left / Right Scroll Controls centered under header */}
+          <div className="flex items-center justify-center space-x-4 pt-2">
             <button
-              key={filter}
-              onClick={() => {
-                setActiveFilter(filter);
-                setLightboxIndex(null);
-              }}
-              className={`px-5 py-2 text-xs uppercase tracking-widest font-mono font-bold transition-all duration-300 rounded-none border ${
-                activeFilter === filter
-                  ? "bg-stone-900 border-stone-900 text-white"
-                  : "bg-white border-stone-200 text-stone-500 hover:text-stone-900 hover:border-stone-400"
-              } cursor-pointer`}
+              onClick={() => handleScroll("left")}
+              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-[#c5a880] text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
+              aria-label="Scroll Left"
             >
-              {filter}
+              <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
-          ))}
+            <button
+              onClick={() => handleScroll("right")}
+              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-[#c5a880] text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight size={20} strokeWidth={2.5} />
+            </button>
+          </div>
+
         </div>
 
-        {/* Project Card Rows - 2 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((proj, idx) => (
+        {/* Full-bleed Horizontal Cards Carousel */}
+        <div className="w-full relative group/carousel">
+          
+          {/* Floating Left Scroll Button on Carousel Edge */}
+          <button
+            onClick={() => handleScroll("left")}
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-[#c5a880] text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={22} strokeWidth={2.5} />
+          </button>
+
+          {/* Floating Right Scroll Button on Carousel Edge */}
+          <button
+            onClick={() => handleScroll("right")}
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-[#c5a880] text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={22} strokeWidth={2.5} />
+          </button>
+
+          <div
+            ref={scrollRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className={`flex items-start overflow-x-auto gap-6 sm:gap-8 px-6 sm:px-12 md:px-16 lg:px-24 pb-8 pt-2 scrollbar-none scroll-smooth ${
+              isMouseDown ? "cursor-grabbing select-none" : "cursor-grab"
+            }`}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {projects.map((proj, idx) => (
               <motion.div
                 key={proj.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.96, y: 20 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                onClick={() => setLightboxIndex(idx)}
-                className="group cursor-pointer space-y-6 text-left"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                onClick={() => {
+                  if (!hasDragged) {
+                    setLightboxIndex(idx);
+                  }
+                }}
+                className="shrink-0 w-[270px] sm:w-[310px] md:w-[340px] lg:w-[360px] group cursor-pointer flex flex-col justify-between"
               >
-                {/* Image Frame */}
-                <div className="relative aspect-[16/10] bg-stone-900 rounded-none overflow-hidden border border-stone-200/20">
-                  {/* Category Tag top-left */}
-                  <div className="absolute top-4 left-4 z-20 flex space-x-2">
-                    <span className="px-3 py-1 bg-stone-900 text-white text-[9px] font-bold tracking-wider rounded-none font-mono uppercase">
-                      {proj.category}
-                    </span>
-                  </div>
+                <div className="space-y-4">
+                  
+                  {/* Image Container with rounded-[28px] */}
+                  <div className="relative w-full aspect-[4/5] rounded-[28px] overflow-hidden bg-stone-900 shadow-md border border-stone-200/80">
+                    
+                    {/* Top-Left Category Oval Pill Badge inside image */}
+                    <div className="absolute top-4 left-4 z-20">
+                      <span className="inline-block bg-white/80 backdrop-blur-md border border-white/60 text-stone-900 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-mono">
+                        {proj.badge}
+                      </span>
+                    </div>
 
-                  <AppImage
-                    src={proj.image}
-                    alt={proj.title}
-                    className="w-full h-full object-cover filter brightness-[0.93] transform scale-100 group-hover:scale-105 transition-transform duration-1000"
-                    referrerPolicy="no-referrer"
-                  />
+                    {/* Image */}
+                    <img
+                      src={proj.image}
+                      alt={proj.title}
+                      className="w-full h-full object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
+                    />
 
-                  {/* Centered hover view arrow button */}
-                  <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                    <div className="w-16 h-16 rounded-full bg-primary text-stone-950 flex flex-col items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
-                      <span className="text-[10px] uppercase font-bold tracking-widest leading-none">View</span>
-                      <svg className="w-4 h-4 mt-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                      </svg>
+                    {/* Subtle Hover Action Overlay */}
+                    <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                      <div className="w-12 h-12 rounded-full bg-[#c5a880] text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300">
+                        <ArrowUpRight size={20} strokeWidth={2.5} />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Title, Category & Description Info */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-2">
-                    <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-primary transition-colors duration-300">
+                  {/* Below Image Text Info (Title, Location, Year stacked vertically) */}
+                  <div className="text-left space-y-1 pt-1">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight leading-snug group-hover:text-[#c5a880] transition-colors duration-300">
                       {proj.title}
                     </h3>
-                    <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
-                      {proj.description}
-                    </p>
+                    <div className="text-xs sm:text-sm text-stone-500 font-light leading-snug">
+                      <p>{proj.location}</p>
+                      <p className="pt-0.5 text-stone-400 font-normal">{proj.year}</p>
+                    </div>
                   </div>
-                  <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-800 group-hover:bg-primary group-hover:text-stone-950 group-hover:border-primary transition-all duration-300 shrink-0">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
+
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Premium CTA Box underneath the Portfolio */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="mt-24 md:mt-32 bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-lg"
-        >
-          {/* Subtle warm decorative radial glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
-
-          <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
-              HAVE A VISION? Let's Bring It to Life.
-            </span>
-            <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
-              Have a Vision? <br />
-              <span className="font-serif italic text-primary font-normal lowercase">Let's Bring It to</span> Life.
-            </h3>
-            <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
-              Every successful project begins with a conversation. Tell us about your space, your ideas, and your goals—we'll take care of the rest.
-            </p>
-
-            <div className="pt-4">
-              <motion.button
-                onClick={() => setActiveFilter("All")}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
-              >
-                <span>View All Projects</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-primary transition-all duration-300">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </motion.button>
-            </div>
           </div>
-        </motion.div>
+        </div>
 
       </div>
 
       {/* LIGHTBOX MODAL PORTAL */}
       <AnimatePresence>
-        {lightboxIndex !== null && filteredProjects[lightboxIndex] && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md">
-            {/* Backdrop close */}
+        {lightboxIndex !== null && projects[lightboxIndex] && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-6">
             <div className="absolute inset-0 cursor-zoom-out" onClick={() => setLightboxIndex(null)} />
             
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-6 right-6 p-3 text-stone-400 hover:text-white transition-colors duration-300 z-10 bg-white/5 rounded-full cursor-pointer"
+              className="absolute top-6 right-6 p-3 text-stone-400 hover:text-white transition-colors duration-300 z-20 bg-white/10 rounded-full cursor-pointer"
               aria-label="Close Lightbox"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
+              <X size={22} />
             </button>
 
-            {/* Image Slider */}
-            <div className="relative max-w-5xl max-h-[80vh] w-full px-6 flex items-center justify-center z-10 select-none">
+            <div className="relative max-w-4xl max-h-[85vh] w-full flex flex-col items-center justify-center z-10 select-none">
+              
               <button
-                onClick={() => setLightboxIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length)}
-                className="absolute left-10 p-3 text-white hover:text-primary transition-colors duration-300 bg-white/5 hover:bg-white/10 rounded-full cursor-pointer"
+                onClick={() => setLightboxIndex((prev) => (prev - 1 + projects.length) % projects.length)}
+                className="absolute left-2 sm:left-4 p-3 text-white hover:text-[#c5a880] transition-colors duration-300 bg-black/60 hover:bg-black/80 rounded-full cursor-pointer z-20 border border-white/20"
                 aria-label="Previous Image"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
+                <ChevronLeft size={22} />
               </button>
 
-              <motion.img
+              <motion.div
                 key={lightboxIndex}
-                initial={{ opacity: 0, scale: 0.98 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.4 }}
-                src={filteredProjects[lightboxIndex].image}
-                alt="Enlarged Render"
-                className="max-w-full max-h-[75vh] object-contain shadow-2xl rounded-none"
-              />
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.3 }}
+                className="w-full flex flex-col items-center"
+              >
+                <img
+                  src={projects[lightboxIndex].image}
+                  alt={projects[lightboxIndex].title}
+                  className="max-w-full max-h-[65vh] object-contain shadow-2xl rounded-2xl border border-white/10"
+                />
+
+                <div className="mt-4 text-center text-white space-y-1.5 max-w-xl">
+                  <span className="inline-block bg-[#c5a880] text-stone-950 font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-mono">
+                    {projects[lightboxIndex].badge} • {projects[lightboxIndex].year}
+                  </span>
+                  <h4 className="text-2xl font-extrabold text-white tracking-tight">{projects[lightboxIndex].title}</h4>
+                  <p className="text-xs sm:text-sm text-stone-300 font-light leading-relaxed">{projects[lightboxIndex].description}</p>
+                </div>
+              </motion.div>
 
               <button
-                onClick={() => setLightboxIndex((prev) => (prev + 1) % filteredProjects.length)}
-                className="absolute right-10 p-3 text-white hover:text-primary transition-colors duration-300 bg-white/5 hover:bg-white/10 rounded-full cursor-pointer"
+                onClick={() => setLightboxIndex((prev) => (prev + 1) % projects.length)}
+                className="absolute right-2 sm:right-4 p-3 text-white hover:text-[#c5a880] transition-colors duration-300 bg-black/60 hover:bg-black/80 rounded-full cursor-pointer z-20 border border-white/20"
                 aria-label="Next Image"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
+                <ChevronRight size={22} />
               </button>
-            </div>
 
-            {/* Info overlay */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-center text-white space-y-1">
-              <h4 className="text-lg font-serif font-medium">{filteredProjects[lightboxIndex].title}</h4>
-              <p className="text-xs text-primary uppercase tracking-widest font-mono">{filteredProjects[lightboxIndex].category}</p>
             </div>
           </div>
         )}
       </AnimatePresence>
+
     </section>
   );
 }

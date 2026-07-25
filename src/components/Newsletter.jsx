@@ -1,9 +1,6 @@
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, Check } from "lucide-react";
-
-const newsletterImageSrc = "/images/antra_transition_luxury_1782747459033.jpg";
+import { ArrowUpRight, Check, Sparkles } from "lucide-react";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -16,95 +13,110 @@ export default function Newsletter() {
       setTimeout(() => {
         setSuccess(false);
         setEmail("");
-      }, 3000);
+      }, 4000);
     }
   };
 
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32 relative overflow-hidden border-t border-stone-200/50">
-      {/* Blueprint grid layout lines overlay */}
+    <section className="bg-[#faf9f6] py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
+      
+      {/* Background Blueprint Grid Lines Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
-        <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 sm:grid-cols-6 gap-6">
           <div className="border-l border-stone-900 h-full" />
           <div className="border-l border-stone-900 h-full" />
           <div className="border-l border-stone-900 h-full" />
-          <div className="border-l border-stone-900 h-full border-r" />
+          <div className="border-l border-stone-900 h-full" />
+          <div className="border-l border-stone-900 h-full hidden sm:block" />
+          <div className="border-l border-stone-900 h-full border-r hidden sm:block" />
         </div>
       </div>
 
-      <div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-8 sm:space-y-10">
+        
+        {/* Centered Eyebrow Pill Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] overflow-hidden rounded-3xl bg-stone-100"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm"
         >
-          <Image
-            src={newsletterImageSrc}
-            alt="Suthar bespoke interior material palette and luxury joinery detail"
-            fill
-            sizes="(min-width: 1024px) 42vw, 100vw"
-            className="object-cover transition-transform duration-700 hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950/45 via-transparent to-transparent" />
+          <span className="w-2 h-2 rounded-full bg-[#c5a880] animate-pulse" />
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
+            SUBSCRIBE TO THE NEWSLETTER
+          </span>
         </motion.div>
 
-        <div className="text-left space-y-8">
-          <div className="space-y-4">
-            <span className="text-primary text-xs tracking-[0.3em] uppercase font-bold font-mono block">
-              SUBSCRIBE TO THE NEWSLETTER
-            </span>
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-              Join <span className="font-serif italic text-primary font-normal lowercase">Our Newsletter</span> <br />
-              <span className="font-serif italic text-primary font-normal lowercase">Stay</span> Up To Date
-            </h2>
-            <p className="text-stone-500 text-sm sm:text-base font-light max-w-xl leading-relaxed">
-              Gain access to exclusive spatial architecture catalogues, workshop updates, and handpicked woodcarving details.
-            </p>
-          </div>
+        {/* Centered Headline & Description */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-4 max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+            Join <span className="text-[#c5a880]">Our Newsletter</span> <br />
+            <span className="text-[#c5a880]">Stay</span> Up To Date
+          </h2>
 
-          {/* Input box */}
+          <p className="text-stone-500 font-light text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            Join our newsletter. Learn something new, gain access to exclusive content, and stay informed with the latest updates in the industry.
+          </p>
+        </motion.div>
+
+        {/* Clean Input Form matching image style */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-lg mx-auto pt-2"
+        >
           <AnimatePresence mode="wait">
             {!success ? (
-              <motion.form
+              <form
                 key="newsletter-input-form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
                 onSubmit={handleSubmit}
-                className="flex items-center bg-field border border-stone-200 rounded-none pl-5 pr-2 py-2 max-w-lg"
+                className="relative flex items-center border-b-2 border-stone-300 focus-within:border-[#c5a880] pb-2 transition-colors duration-300"
               >
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
-                  className="w-full bg-transparent border-none text-stone-800 text-sm outline-none placeholder-stone-400 font-light"
+                  placeholder="Email address..."
+                  className="w-full bg-transparent border-none text-stone-900 text-sm sm:text-base outline-none placeholder-stone-400 font-medium px-2 py-1"
                 />
+
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="w-12 h-12 rounded-none bg-stone-900 hover:bg-primary text-white hover:text-stone-950 flex items-center justify-center transition-colors duration-300 shrink-0 cursor-pointer group"
+                  className="w-10 h-10 rounded-full bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer shadow-md hover:scale-105 active:scale-95 ml-2"
                 >
-                  <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowUpRight size={18} strokeWidth={2.5} />
                 </button>
-              </motion.form>
+              </form>
             ) : (
               <motion.div
                 key="success-message"
-                initial={{ scale: 0.98, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.98, opacity: 0 }}
-                className="flex items-center space-x-2 text-stone-900 bg-stone-100 border border-stone-200 px-6 py-3 rounded-none max-w-xs"
+                exit={{ scale: 0.95, opacity: 0 }}
+                className="inline-flex items-center space-x-2.5 bg-white border border-[#c5a880] text-stone-900 px-6 py-3 rounded-full shadow-lg"
               >
-                <Check size={16} strokeWidth={3} className="text-primary" />
-                <span className="text-xs font-semibold uppercase tracking-wider font-mono">Subscription Confirmed!</span>
+                <div className="w-5 h-5 rounded-full bg-[#c5a880] text-stone-950 flex items-center justify-center">
+                  <Check size={12} strokeWidth={3} />
+                </div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider">
+                  Successfully Subscribed To Newsletter!
+                </span>
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

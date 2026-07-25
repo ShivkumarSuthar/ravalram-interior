@@ -1,536 +1,77 @@
 @import "tailwindcss";
 
-/* ==========================================================================
-   THEME
-   ========================================================================== */
-
 @theme {
-  --color-primary: #caa05c;
-  --color-secondary: #1c1c1d;
-  --color-text: #59585d;
-  --color-accent: #1c1c1d;
-  --color-lighter: #9f9fa4;
-  --color-dark: #000000;
-  --color-border: #e3e3e8;
-  --color-field: #f6f6f6;
-  --breakpoint-laptop: 1280px;
-  --breakpoint-monitor: 1440px;
-  --breakpoint-ultrawide: 1680px;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Crimson Pro", "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  /* Suthar Interior Studio Theme Palette */
+  --color-warm-white: #faf9f6;
+  --color-gold-accent: #c5a880;
+  --color-gold-hover: #b0936b;
+  --color-dark-charcoal: #0c0a09;
+  --color-neutral-slate: #1c1917;
+  --color-stone-gray: #78716c;
+
+  /* Extended Gold Tones */
+  --color-gold-50: #fcf9f2;
+  --color-gold-100: #f7eedb;
+  --color-gold-200: #eddcb9;
+  --color-gold-300: #dec18e;
+  --color-gold-400: #cca262;
+  --color-gold-500: #c5a880; /* Core Accent */
+  --color-gold-600: #b0936b; /* Hover */
+  --color-gold-700: #947141;
+  --color-gold-800: #765733;
+  --color-gold-900: #5d442a;
+  --color-gold-950: #3b2a19;
 }
 
-@font-face {
-  font-family: "Cal Sans";
-  src: url("/fonts/Cal_Sans/CalSans-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
-  font-display: swap;
-}
-
-:root {
-  /* Font families */
-  --font-cal: "Cal Sans", sans-serif;
-  --font-sans: "Montserrat", sans-serif;
-
-  /* App shell */
-  --app-shell-max-width: 1520px;
-
-  /* Global color palette (aliased to Tailwind theme tokens) */
-  --global-color-primary: var(--color-primary);
-  --global-color-secondary: var(--color-secondary);
-  --global-color-text: var(--color-text);
-  --global-color-accent: var(--color-accent);
-  --global-color-lighter: var(--color-lighter);
-  --global-color-dark: var(--color-dark);
-  --global-color-border: var(--color-border);
-  --global-color-background-field: var(--color-field);
-
-  /* RGB fallbacks for alpha-aware utilities */
-  --global-color-primary-rgb: 202 160 92;
-  --global-color-secondary-rgb: 28 28 29;
-  --global-color-text-rgb: 89 88 93;
-  --global-color-lighter-rgb: 159 159 164;
-  --global-color-dark-rgb: 0 0 0;
-  --global-color-border-rgb: 227 227 232;
-  --global-color-background-field-rgb: 246 246 246;
-
-  /* ---- Fluid typography scale (viewport-width driven, not device driven) ---- */
-  /* Body copy */
-  --fs-body: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem);
-  --fs-subtitle: clamp(0.8rem, 0.72rem + 0.3vw, 1.05rem);
-  --fs-eyebrow: clamp(0.68rem, 0.64rem + 0.15vw, 0.78rem);
-
-  /* Hero display title: one fluid scale from small phones up through desktop */
-  --fs-hero-title: clamp(2.75rem, 1.55rem + 5.2vw, 6.25rem);
-
-  /* ---- Fluid spacing scale ---- */
-  --space-2xs: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
-  --space-xs: clamp(0.75rem, 0.6rem + 0.5vw, 1.25rem);
-  --space-sm: clamp(1rem, 0.85rem + 0.6vw, 1.5rem);
-  --space-md: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
-  --space-lg: clamp(2rem, 1.5rem + 1.8vw, 3.5rem);
-  --space-xl: clamp(3rem, 2rem + 3vw, 5.5rem);
-  --gutter-x: clamp(4rem, 2em + 2.5vw, 8rem);
-
-  /* ---- Hero-specific fluid tokens ---- */
-  --padding-x: var(--gutter-x);
-  --hero-content-gap: clamp(1.25rem, 1rem + 1.5vw, 2rem);
-  /* Near-constant gap below the header. Deliberately low vw sensitivity
-     so the badge/title sit at roughly the same visual distance from the
-     header on every screen, instead of drifting with viewport height. */
-  --hero-header-gap: clamp(7rem, 6.6rem + 1vw, 8.5rem);
-  --hero-cta-size: clamp(5.5rem, 5rem + 2vw, 6.5rem);
-  --hero-thumb-size: clamp(4.5rem, 4rem + 2vw, 7rem);
-  --hero-footer-radius: clamp(1.5rem, 1.25rem + 1vw, 2.5rem);
-  --hero-footer-gap: clamp(1rem, 0.8rem + 1vw, 1.75rem);
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-  :root {
-    --app-shell-max-width: 1320px;
-  }
-}
-
-@media (min-width: 1440px) {
-  :root {
-    --app-shell-max-width: 1520px;
-  }
-}
-
-/* Bump the hero title cap on genuinely large desktop / 4K canvases only.
-   These are viewport-width breakpoints, not device/inch targets. */
-@media (min-width: 1920px) {
-  :root {
-    --fs-hero-title: clamp(4.5rem, 2rem + 4vw, 7.5rem);
-  }
-}
-
-@media (min-width: 2560px) {
-  :root {
-    --fs-hero-title: clamp(6rem, 3rem + 3.5vw, 8.75rem);
-  }
-}
-
-/* Laptop range only (13"-18" panels, ~1280-1919px viewport width).
-   The default clamp above already hits its max well before this range
-   ends, so the title reads oversized with too little width to breathe.
-   Monitor/ultrawide/4K (>=1920px) are untouched. */
-@media (min-width: 1280px) and (max-width: 1919px) {
-  :root {
-    --fs-hero-title: clamp(2.5rem, 1.2rem + 3vw, 4.25rem);
-  }
-}
-
-/* ==========================================================================
-   BASE STYLES
-   ========================================================================== */
-
-* {
-  font-family: var(--font-sans);
-  font-weight: 600;
-}
-
+/* Base style overrides */
 body {
-  background-color: var(--global-color-background-field);
-  color: var(--global-color-text);
-  overflow-x: hidden;
-  font-size: var(--fs-body);
-}
-
-/* ==========================================================================
-   TYPOGRAPHY
-   ========================================================================== */
-
-.font-display {
-  font-family: var(--font-cal);
-}
-
-/* ==========================================================================
-   HERO
-   ========================================================================== */
-
-.hero-section {
-  position: relative;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #0c0a09; /* stone-950 */
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero-bg-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-  user-select: none;
-  pointer-events: none;
-}
-
-.hero-vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  opacity: 0.85;
-  background-image: radial-gradient(
-    circle at center,
-    transparent 40%,
-    rgb(var(--global-color-dark-rgb) / 1) 100%
-  );
-}
-
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(12 10 9 / 0.75),
-    rgb(12 10 9 / 0.25),
-    rgb(12 10 9 / 1)
-  );
-}
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  width: min(100%, var(--app-shell-max-width));
-  margin-inline: auto;
-  padding-inline: var(--hero-padding-x);
-  padding-block: var(--hero-header-gap) clamp(6rem, 5rem + 4vw, 9rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.hero-ghost-text {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  user-select: none;
-  pointer-events: none;
-}
-
-.hero-ghost-text span {
-  font-family: var(--font-cal);
-  font-size: 18vw;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgb(255 255 255 / 0.02);
-}
-
-.hero-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--hero-content-gap);
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  padding: var(--space-2xs) var(--space-sm);
-  border-radius: 9999px;
-  border: 1px solid rgb(255 255 255 / 0.1);
-  background-color: rgb(255 255 255 / 0.05);
-  backdrop-filter: blur(2px);
-}
-
-.hero-badge-icon {
-  font-size: 0.9rem;
-  color: var(--global-color-primary);
-}
-
-.hero-badge-text {
-  font-size: var(--fs-eyebrow);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #e7e5e4; /* stone-200 */
-}
-
-.hero-title {
-  font-family: var(--font-cal);
-  font-size: var(--fs-hero-title);
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  max-width: 22ch;
-  text-wrap: balance;
-  color: white;
-}
-
-.hero-title-accent {
-  font-family: var(--font-cal);
-  color: var(--global-color-primary);
-}
-
-.hero-cta-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-  padding-top: var(--space-2xs);
-}
-
-@media (min-width: 640px) {
-  .hero-cta-wrap {
-    flex-direction: row;
-  }
-}
-
-.hero-cta {
-  width: var(--hero-cta-size);
-  height: var(--hero-cta-size);
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--space-sm);
-  font-size: var(--fs-subtitle);
-  letter-spacing: 0.02em;
-  color: white;
-  background-color: #36383a;
-  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.5);
-  transition: background-color 300ms ease;
-}
-
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
-
-.hero-nav-btn {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgb(255 255 255 / 0.1);
-  background-color: rgb(255 255 255 / 0.05);
-  color: white;
-  cursor: pointer;
-  transition: background-color 300ms ease;
-}
-
-.hero-nav-btn:hover {
-  background-color: rgb(255 255 255 / 0.1);
-}
-
-.hero-nav-btn-primary {
-  background-color: var(--global-color-primary);
+  font-family: var(--font-sans);
+  background-color: #faf9f6;
   color: #0c0a09;
-  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.5);
+  overflow-x: hidden;
 }
 
-.hero-nav-btn-primary:hover {
-  background-color: rgb(var(--global-color-primary-rgb) / 0.8);
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
 }
 
-.hero-footer {
-  position: absolute;
-  bottom: var(--space-md);
-  left: 0;
-  width: 100%;
-  z-index: 20;
-  padding-inline: var(--hero-padding-x);
-}
-
-.hero-footer-inner {
-  width: min(100%, var(--app-shell-max-width));
-  margin-inline: auto;
-  border-radius: var(--hero-footer-radius);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-}
-
-@media (max-width: 1439px) {
-  .hero-content {
-    padding-block: var(--space-md) clamp(5rem, 4rem + 3vw, 7rem);
-  }
-  .hero-footer {
-    bottom: var(--space-sm);
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-footer-inner {
-    flex-direction: row;
-  }
-}
-
-.hero-footer-media {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  max-width: 42rem;
-}
-
-.hero-footer-thumb {
-  width: var(--hero-thumb-size);
-  height: var(--hero-thumb-size);
-  border-radius: 9999px;
-  overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 0.2);
-  box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.3);
-  flex-shrink: 0;
-}
-
-.hero-footer-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: sepia(1) hue-rotate(20deg) saturate(1.2) brightness(0.9);
-}
-
-.hero-footer-text {
-  font-size: var(--fs-subtitle);
-  font-weight: 300;
-  line-height: 1.6;
-  text-align: left;
-  color: #d6d3d1; /* stone-300 */
-  max-width: 60ch;
-}
-
-.hero-controls {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  flex-shrink: 0;
-}
-
-.app-shell {
-  width: min(100%, var(--app-shell-max-width)) !important;
-}
-
-.container-px {
-  padding-inline: var(--gutter-x) !important;
-}
-
-/* ==========================================================================
-   UTILITIES
-   ========================================================================== */
-
-@layer utilities {
-  .bg-primary { background-color: var(--global-color-primary) !important; }
-  .text-primary { color: var(--global-color-primary) !important; }
-  .border-primary { border-color: var(--global-color-primary) !important; }
-  .bg-primary\/10 { background-color: rgb(var(--global-color-primary-rgb) / 0.1) !important; }
-  .bg-primary\/20 { background-color: rgb(var(--global-color-primary-rgb) / 0.2) !important; }
-  .bg-primary\/30 { background-color: rgb(var(--global-color-primary-rgb) / 0.3) !important; }
-  .bg-primary\/80 { background-color: rgb(var(--global-color-primary-rgb) / 0.8) !important; }
-  .border-primary\/20 { border-color: rgb(var(--global-color-primary-rgb) / 0.2) !important; }
-  .border-primary\/30 { border-color: rgb(var(--global-color-primary-rgb) / 0.3) !important; }
-  .text-primary\/30 { color: rgb(var(--global-color-primary-rgb) / 0.3) !important; }
-  .hover\:bg-primary:hover { background-color: var(--global-color-primary) !important; }
-  .hover\:bg-primary\/80:hover { background-color: rgb(var(--global-color-primary-rgb) / 0.8) !important; }
-  .hover\:text-primary:hover { color: var(--global-color-primary) !important; }
-  .group:hover .group-hover\:text-primary { color: var(--global-color-primary) !important; }
-  .group:hover .group-hover\:bg-primary { background-color: var(--global-color-primary) !important; }
-  .group:hover .group-hover\:bg-primary\/10 { background-color: rgb(var(--global-color-primary-rgb) / 0.1) !important; }
-}
-
-/* Legacy arbitrary-hex class fallbacks kept for backward compatibility with
-   components not yet migrated to the semantic/utility classes above. */
-.bg-\[\#E7A35F\] { background-color: var(--global-color-primary) !important; }
-.bg-\[\#E7A35F\]\/10 { background-color: rgb(var(--global-color-primary-rgb) / 0.1) !important; }
-.bg-\[\#E7A35F\]\/30 { background-color: rgb(var(--global-color-primary-rgb) / 0.3) !important; }
-.text-\[\#E7A35F\] { color: var(--global-color-primary) !important; }
-.text-\[\#E7A35F\]\/30 { color: rgb(var(--global-color-primary-rgb) / 0.3) !important; }
-.border-\[\#E7A35F\] { border-color: var(--global-color-primary) !important; }
-
-.bg-\[\#6F9F9C\] { background-color: var(--global-color-lighter) !important; }
-.hover\:bg-\[\#6F9F9C\]:hover { background-color: var(--global-color-lighter) !important; }
-
-.bg-\[\#E2D8A5\] { background-color: var(--global-color-background-field) !important; }
-.bg-\[\#E2D8A5\]\/40 { background-color: rgb(var(--global-color-background-field-rgb) / 0.4) !important; }
-
-.hover\:border-\[\#E7A35F\]:hover { border-color: var(--global-color-primary) !important; }
-.hover\:text-\[\#E7A35F\]:hover { color: var(--global-color-primary) !important; }
-.group:hover .group-hover\:text-\[\#E7A35F\] { color: var(--global-color-primary) !important; }
-.group:hover .group-hover\:bg-\[\#E7A35F\] { background-color: var(--global-color-primary) !important; }
-.group:hover .group-hover\:bg-\[\#E7A35F\]\/10 { background-color: rgb(var(--global-color-primary-rgb) / 0.1) !important; }
-
-/* ==========================================================================
-   SCROLLBAR
-   ========================================================================== */
-
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--global-color-background-field);
+  background: #faf9f6;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--global-color-primary);
+  background: #c5a880;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--global-color-primary);
+  background: #b0936b;
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* ==========================================================================
-   ACCESSIBILITY
-   ========================================================================== */
-
+/* Elegant, High-Contrast Focus Visible Outline for Keyboard Accessibility */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid var(--global-color-primary) !important;
+  outline: 2px solid #c5a880 !important;
   outline-offset: 3px !important;
-  box-shadow: 0 0 0 4px rgba(202, 160, 92, 0.3) !important;
+  box-shadow: 0 0 0 4px rgba(197, 168, 128, 0.3) !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}

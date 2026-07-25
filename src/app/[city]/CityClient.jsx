@@ -1,7 +1,5 @@
 "use client";
 
-import AppImage from "../../components/AppImage";
-
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import Header from "../../components/Header";
@@ -30,7 +28,7 @@ export default function CityClient({ city }) {
         {/* Dynamic City Hero */}
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
           <div className="absolute inset-0 z-0">
-            <AppImage
+            <img
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
               alt={`Premium luxury interior design in ${formattedCity}`}
               className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
@@ -39,8 +37,8 @@ export default function CityClient({ city }) {
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent" />
           </div>
 
-          <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 w-full text-left space-y-6 py-20">
-            <div className="inline-flex items-center space-x-2 text-primary text-xs tracking-[0.25em] font-mono uppercase">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full text-left space-y-6 py-20">
+            <div className="inline-flex items-center space-x-2 text-[#c5a880] text-xs tracking-[0.25em] font-mono uppercase">
               <span>SUTHAR INTERIOR STUDIO</span>
               <span>/</span>
               <span>LOCATIONS</span>
@@ -56,7 +54,7 @@ export default function CityClient({ city }) {
                 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-tight uppercase"
               >
                 Top Interior Designer <br />
-                <span className="font-serif italic text-primary font-normal lowercase">in {formattedCity}</span>
+                <span className="font-serif italic text-[#c5a880] font-normal lowercase">in {formattedCity}</span>
               </motion.h1>
               
               <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2">
@@ -67,7 +65,7 @@ export default function CityClient({ city }) {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={() => handleNavigate("contact")}
-                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
+                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] hover:bg-[#b0936b] px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>Request {formattedCity} Survey</span>
                 <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -77,7 +75,7 @@ export default function CityClient({ city }) {
 
               <button
                 onClick={() => handleNavigate("gallery")}
-                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-primary hover:text-primary"
+                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#c5a880] hover:text-[#c5a880]"
               >
                 View Our Portfolio
               </button>
@@ -87,18 +85,18 @@ export default function CityClient({ city }) {
 
         {/* Localized Details Section */}
         <section className="py-24 bg-white">
-          <div className="max-w-8xl mx-auto px-6 md:px-12">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-6 space-y-6 text-left">
                 <div className="inline-flex items-center space-x-2">
-                  <span className="text-primary text-xs">✦</span>
+                  <span className="text-[#c5a880] text-xs">✦</span>
                   <span className="text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                     LOCAL SERVICES
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                   Bespoke Design, <br />
-                  <span className="font-serif italic text-primary font-normal lowercase">Supervised</span> Locally.
+                  <span className="font-serif italic text-[#c5a880] font-normal lowercase">Supervised</span> Locally.
                 </h2>
                 <div className="space-y-4 text-stone-600 font-light text-sm sm:text-base leading-relaxed">
                   <p>
@@ -109,15 +107,15 @@ export default function CityClient({ city }) {
                   </p>
                 </div>
 
-                <div className="border-l-2 border-primary pl-6 py-2 bg-stone-50/70 italic text-stone-800 text-sm rounded-r-lg">
+                <div className="border-l-2 border-[#c5a880] pl-6 py-2 bg-stone-50/70 italic text-stone-800 text-sm rounded-r-lg">
                   &ldquo;Every Suthar space in {formattedCity} is treated like our flagship gallery—no compromised tolerances, completely authentic material cataloging, and transparent execution schedules.&rdquo;
-                  <span className="block text-xs uppercase font-mono tracking-widest text-primary font-bold not-italic mt-2">— Shivkumar Suthar, Co-Founder</span>
+                  <span className="block text-xs uppercase font-mono tracking-widest text-[#c5a880] font-bold not-italic mt-2">— Shivkumar Suthar, Co-Founder</span>
                 </div>
               </div>
 
               <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-stone-50 border border-stone-200/50 p-6 rounded-2xl text-left space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="w-10 h-10 rounded-xl bg-[#c5a880]/10 flex items-center justify-center text-[#c5a880]">
                     <Compass size={20} />
                   </div>
                   <h3 className="text-sm font-bold uppercase tracking-wider text-stone-900">Architect Supervision</h3>
@@ -127,7 +125,7 @@ export default function CityClient({ city }) {
                 </div>
 
                 <div className="bg-stone-50 border border-stone-200/50 p-6 rounded-2xl text-left space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="w-10 h-10 rounded-xl bg-[#c5a880]/10 flex items-center justify-center text-[#c5a880]">
                     <Hammer size={20} />
                   </div>
                   <h3 className="text-sm font-bold uppercase tracking-wider text-stone-900">Factory Joinery</h3>
@@ -137,7 +135,7 @@ export default function CityClient({ city }) {
                 </div>
 
                 <div className="bg-stone-50 border border-stone-200/50 p-6 rounded-2xl text-left space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="w-10 h-10 rounded-xl bg-[#c5a880]/10 flex items-center justify-center text-[#c5a880]">
                     <ShieldCheck size={20} />
                   </div>
                   <h3 className="text-sm font-bold uppercase tracking-wider text-stone-900">100% Transparency</h3>
@@ -147,7 +145,7 @@ export default function CityClient({ city }) {
                 </div>
 
                 <div className="bg-stone-50 border border-stone-200/50 p-6 rounded-2xl text-left space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="w-10 h-10 rounded-xl bg-[#c5a880]/10 flex items-center justify-center text-[#c5a880]">
                     <Workflow size={20} />
                   </div>
                   <h3 className="text-sm font-bold uppercase tracking-wider text-stone-900">Turnkey Execution</h3>
@@ -161,11 +159,11 @@ export default function CityClient({ city }) {
         </section>
 
         {/* Beautiful Local Contact Info Bar */}
-        <section className="py-16 bg-field border-t border-b border-stone-200/50">
-          <div className="max-w-8xl mx-auto px-6 md:px-12">
+        <section className="py-16 bg-[#faf9f6] border-t border-b border-stone-200/50">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex items-start space-x-4 text-left">
-                <div className="w-12 h-12 rounded-full bg-stone-900 flex items-center justify-center text-primary shrink-0">
+                <div className="w-12 h-12 rounded-full bg-stone-900 flex items-center justify-center text-[#c5a880] shrink-0">
                   <Phone size={18} />
                 </div>
                 <div className="space-y-1">
@@ -175,7 +173,7 @@ export default function CityClient({ city }) {
               </div>
 
               <div className="flex items-start space-x-4 text-left">
-                <div className="w-12 h-12 rounded-full bg-stone-900 flex items-center justify-center text-primary shrink-0">
+                <div className="w-12 h-12 rounded-full bg-stone-900 flex items-center justify-center text-[#c5a880] shrink-0">
                   <Mail size={18} />
                 </div>
                 <div className="space-y-1">
@@ -185,7 +183,7 @@ export default function CityClient({ city }) {
               </div>
 
               <div className="flex items-start space-x-4 text-left">
-                <div className="w-12 h-12 rounded-full bg-stone-900 flex items-center justify-center text-primary shrink-0">
+                <div className="w-12 h-12 rounded-full bg-stone-900 flex items-center justify-center text-[#c5a880] shrink-0">
                   <Clock size={18} />
                 </div>
                 <div className="space-y-1">

@@ -106,7 +106,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
   ];
 
   return (
-    <div className="bg-field text-stone-900 font-sans selection:bg-primary/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#c5a880]/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* HEADER SECTION WITH DESIGN BLUEPRINT BACKDROP */}
       <section className="relative min-h-[60vh] flex items-center bg-stone-950 text-white overflow-hidden py-16" id="thank-you-hero">
@@ -116,7 +116,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-stone-950 opacity-100" />
           
           {/* Spatial Grid Lines */}
-          <div className="max-w-8xl mx-auto h-full w-full grid grid-cols-4 md:grid-cols-8 gap-12 px-6 md:px-12 absolute inset-y-0 left-1/2 -translate-x-1/2">
+          <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 md:grid-cols-8 gap-12 px-6 md:px-12 absolute inset-y-0 left-1/2 -translate-x-1/2">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="border-l border-white/5 h-full relative">
                 {i === 0 && <span className="absolute top-10 left-2 text-[8px] font-mono text-white/20">X: {coordinates.x}</span>}
@@ -139,7 +139,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-transparent to-transparent lg:from-stone-950 lg:via-transparent lg:to-stone-950 z-10" />
             
             <svg 
-              className="w-[120%] h-[120%] text-primary/20 shrink-0 select-none"
+              className="w-[120%] h-[120%] text-[#c5a880]/20 shrink-0 select-none"
               viewBox="0 0 800 800" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +174,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
         </div>
 
         {/* Content Wrapper */}
-        <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
           <div className="max-w-3xl space-y-8">
             
             {/* Premium Animated Icon Badge */}
@@ -185,8 +185,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               className="relative inline-flex items-center justify-center"
             >
               {/* Ring pulse glow */}
-              <span className="absolute inset-0 rounded-full bg-primary/10 border border-primary/20 animate-ping opacity-75" />
-              <div className="relative w-20 h-20 rounded-full bg-stone-900 border border-primary/40 flex items-center justify-center text-primary shadow-2xl">
+              <span className="absolute inset-0 rounded-full bg-[#c5a880]/10 border border-[#c5a880]/20 animate-ping opacity-75" />
+              <div className="relative w-20 h-20 rounded-full bg-stone-900 border border-[#c5a880]/40 flex items-center justify-center text-[#c5a880] shadow-2xl">
                 <motion.div
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -200,8 +200,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* Request Received Label */}
             <div className="space-y-3">
               <div className="inline-flex items-center space-x-2 bg-stone-900 border border-white/5 rounded-full px-4 py-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="text-primary text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880] animate-pulse" />
+                <span className="text-[#c5a880] text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
                   REQUEST RECEIVED
                 </span>
               </div>
@@ -214,7 +214,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-white leading-tight uppercase"
               >
                 Thank You For <br />
-                <span className="font-serif italic text-primary font-normal lowercase">Getting In</span> Touch.
+                <span className="font-serif italic text-[#c5a880] font-normal lowercase">Getting In</span> Touch.
               </motion.h1>
             </div>
 
@@ -247,14 +247,14 @@ export default function ThankYouPage({ onBackToHome, setView }) {
 
       {/* SECTION 2: THE DETAILED ONBOARDING PATH (TIMELINE) */}
       <section className="py-24 bg-white relative border-b border-stone-200/50">
-        <div className="max-w-8xl mx-auto px-6 md:px-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center sm:text-left space-y-3 mb-16 max-w-2xl">
-            <span className="text-primary text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+            <span className="text-[#c5a880] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
               YOUR ONBOARDING PATHWAY
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-light uppercase text-stone-900 tracking-tight">
-              Next Steps &amp; <span className="font-serif italic text-primary lowercase">project</span> Milestones
+              Next Steps &amp; <span className="font-serif italic text-[#c5a880] lowercase">project</span> Milestones
             </h2>
             <p className="text-stone-500 font-light text-sm">
               We operate with rigorous timeline precision. Here is how Suthar Interior Studio guides your onboarding proposal.
@@ -270,7 +270,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                 initial={{ width: "0%" }}
                 animate={{ width: "35%" }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="h-full bg-gradient-to-r from-primary via-primary to-stone-200"
+                className="h-full bg-gradient-to-r from-[#c5a880] via-[#c5a880] to-stone-200"
               />
             </div>
 
@@ -290,10 +290,10 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                     <div className="lg:mb-6 shrink-0 relative">
                       <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
                         step.status === "completed" 
-                          ? "bg-primary text-stone-900 shadow-[0_0_15px_rgba(231,163,95,0.4)]"
+                          ? "bg-[#c5a880] text-stone-900 shadow-[0_0_15px_rgba(197,168,128,0.4)]"
                           : step.status === "active"
-                          ? "bg-stone-900 text-primary border-2 border-primary animate-pulse"
-                          : "bg-stone-50 border border-stone-200 text-stone-400 group-hover:border-primary/50"
+                          ? "bg-stone-900 text-[#c5a880] border-2 border-[#c5a880] animate-pulse"
+                          : "bg-stone-50 border border-stone-200 text-stone-400 group-hover:border-[#c5a880]/50"
                       }`}>
                         <IconComponent size={20} />
                       </div>
@@ -307,8 +307,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                     {/* Step Text Info */}
                     <div className="space-y-1.5 pt-1 lg:pt-0">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[10px] font-mono font-bold text-primary">0{idx + 1}</span>
-                        <h4 className="text-sm font-bold text-stone-900 uppercase tracking-wider group-hover:text-primary transition-colors duration-300">
+                        <span className="text-[10px] font-mono font-bold text-[#c5a880]">0{idx + 1}</span>
+                        <h4 className="text-sm font-bold text-stone-900 uppercase tracking-wider group-hover:text-[#c5a880] transition-colors duration-300">
                           {step.title}
                         </h4>
                       </div>
@@ -317,12 +317,12 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       </p>
                       
                       {step.status === "completed" && (
-                        <span className="inline-flex text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded-full">
+                        <span className="inline-flex text-[9px] font-mono font-bold text-[#c5a880] uppercase tracking-wider bg-[#c5a880]/10 px-2 py-0.5 rounded-full">
                           COMPLETED
                         </span>
                       )}
                       {step.status === "active" && (
-                        <span className="inline-flex text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded-full animate-pulse">
+                        <span className="inline-flex text-[9px] font-mono font-bold text-[#c5a880] uppercase tracking-wider bg-[#c5a880]/10 px-2 py-0.5 rounded-full animate-pulse">
                           IN PROGRESS
                         </span>
                       )}
@@ -337,7 +337,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
       </section>
 
       {/* SECTION 3: THE INFORMATION BENTO CARDS */}
-      <section className="py-24 max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+      <section className="py-24 max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {infoCards.map((card, idx) => {
             const Icon = card.icon;
@@ -354,7 +354,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                 <div className="space-y-6">
                   {/* Icon badge */}
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
-                    isDark ? "bg-white/10 text-primary" : "bg-stone-50 border border-stone-200/50 text-primary"
+                    isDark ? "bg-white/10 text-[#c5a880]" : "bg-stone-50 border border-stone-200/50 text-[#c5a880]"
                   }`}>
                     <Icon size={20} />
                   </div>
@@ -382,7 +382,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   {card.detail && (
                     <a 
                       href={card.link}
-                      className="font-mono text-sm font-semibold text-primary hover:underline flex items-center space-x-1"
+                      className="font-mono text-sm font-semibold text-[#c5a880] hover:underline flex items-center space-x-1"
                     >
                       <span>{card.detail}</span>
                       <ArrowUpRight size={14} />
@@ -394,7 +394,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       href={card.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-1.5 text-stone-900 hover:text-primary text-xs font-mono font-bold uppercase tracking-wider"
+                      className="inline-flex items-center space-x-1.5 text-stone-900 hover:text-[#c5a880] text-xs font-mono font-bold uppercase tracking-wider"
                     >
                       <span>Chat Online</span>
                       <ArrowRight size={12} />
@@ -404,7 +404,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   {card.action === "view-projects" && (
                     <button
                       onClick={() => handleNavigate("gallery")}
-                      className="inline-flex items-center space-x-1.5 text-primary hover:text-white text-xs font-mono font-bold uppercase tracking-wider cursor-pointer"
+                      className="inline-flex items-center space-x-1.5 text-[#c5a880] hover:text-white text-xs font-mono font-bold uppercase tracking-wider cursor-pointer"
                     >
                       <span>See Our Work</span>
                       <ArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
@@ -419,7 +419,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
 
       {/* SECTION 4: ACTIONS AND DIRECT CHANNELS (BUTTONS) */}
       <section className="py-16 bg-stone-50 border-t border-stone-200/50">
-        <div className="max-w-8xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           
           <div className="space-y-1">
             <h4 className="text-lg font-serif font-semibold text-stone-950 uppercase tracking-tight">
@@ -436,7 +436,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* Return Home Button */}
             <button
               onClick={onBackToHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-stone-300 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 bg-white hover:border-primary hover:text-primary cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-stone-300 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 bg-white hover:border-[#c5a880] hover:text-[#c5a880] cursor-pointer shadow-sm"
             >
               <Home size={14} />
               <span>Return Home</span>
@@ -447,7 +447,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               onClick={() => handleNavigate("gallery")}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-stone-900 hover:bg-stone-950 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
-              <Compass size={14} className="text-primary" />
+              <Compass size={14} className="text-[#c5a880]" />
               <span>View Projects</span>
             </button>
 

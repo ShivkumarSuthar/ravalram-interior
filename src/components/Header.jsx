@@ -1,384 +1,39 @@
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import {
-  ArrowRight,
-  Award,
-  BookOpen,
-  Calendar,
-  Check,
-  ChevronDown,
-  Clock,
-  Compass,
-  Grid,
-  Hammer,
-  HelpCircle,
-  Mail,
-  Menu,
-  Paintbrush,
-  Phone,
-  Ruler,
-  Search,
-  Sparkles,
-  Star,
-  User,
-  Users,
-  X,
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Phone, Menu, X, Calendar, Clock, User, Mail, Sparkles, Check, Search, Grid, LayoutGrid, ArrowUpRight, ChevronDown, Compass, Award, Users, Star, ArrowRight, Paintbrush, Hammer, Ruler, HelpCircle, BookOpen } from "lucide-react";
 
-const iconMap = {
-  award: Award,
-  book: BookOpen,
-  check: Check,
-  compass: Compass,
-  grid: Grid,
-  hammer: Hammer,
-  help: HelpCircle,
-  paintbrush: Paintbrush,
-  ruler: Ruler,
-  search: Search,
-  sparkles: Sparkles,
-  star: Star,
-  users: Users,
-};
-
-const headerContent = {
-  brand: {
-    label: "SUTHAR INTERIOR STUDIO",
-    mobileLabel: "SUTHAR INTERIOR STUDIO",
-    mobileEyebrow: "Interior Studio",
-    view: "home",
-  },
-  enquiry: {
-    label: "Direct Enquiry",
-    phone: "+91 90045 38149",
-    href: "tel:+919004538149",
-  },
-  primaryCta: "Get A Quote!",
-  nav: [
-    {
-      label: "Home",
-      view: "home",
-      mobileChildren: [
-        { label: "Main Showcase", view: "home" },
-        { label: "Core Services", view: "home", hash: "#services" },
-        { label: "Creative Portfolio", view: "home", hash: "#portfolio" },
-      ],
-    },
-    {
-      label: "About",
-      view: "about-us",
-      dropdownWidth: "w-[680px]",
-      defaultPanel: "our-story",
-      ctaLabel: "Discover More",
-      panels: [
-        {
-          id: "our-story",
-          label: "Our Story",
-          title: "OUR STORY",
-          eyebrow: "LEARN ABOUT OUR JOURNEY AND VALUES",
-          description:
-            "Founded in 1989 by master artisan Ravalram H. Suthar, we have spent over 30 years perfecting bespoke timber joinery and luxury interior solutions.",
-          icon: "compass",
-          view: "about-us",
-        },
-        {
-          id: "our-team",
-          label: "Our Team",
-          title: "OUR TEAM",
-          eyebrow: "MEET THE LEADERS & ARCHITECTS",
-          description:
-            "Led by Shivkumar Suthar and lead architect Padam P. Sutar, our team blends legacy Indian woodcraft with contemporary spatial architecture.",
-          icon: "users",
-          view: "about-us",
-          hash: "#team",
-        },
-        {
-          id: "why-choose-us",
-          label: "Why Choose Us",
-          title: "WHY CHOOSE US",
-          eyebrow: "30+ YEARS OF GENERATIONAL TRUST",
-          description:
-            "We guarantee architect-supervised construction sites, material authentication, clear Bill of Quantities, and durable timber structures.",
-          icon: "award",
-          view: "about-us",
-          hash: "#about-story",
-        },
-        {
-          id: "testimonials",
-          label: "Testimonials",
-          title: "TESTIMONIALS",
-          eyebrow: "REAL EXPERIENCES OF TRUST",
-          description:
-            "Residential and corporate clients across Mumbai, Pune, and Goa value our transparent pricing, punctual execution, and pristine visual styling.",
-          icon: "check",
-          view: "about-us",
-          hash: "#testimonials",
-        },
-      ],
-    },
-    {
-      label: "Services",
-      view: "services",
-      dropdownWidth: "w-[720px]",
-      defaultPanel: "interior-work",
-      ctaLabel: "View Service",
-      panels: [
-        {
-          id: "interior-work",
-          label: "Interior Work",
-          title: "INTERIOR WORK",
-          eyebrow: "COMPLETE INTERIOR DESIGN SOLUTIONS",
-          description:
-            "Room planning, finishes, lighting, furniture, and spatial styling handled as one clear design-build journey.",
-          icon: "paintbrush",
-          view: "services",
-          tab: "designer",
-          links: [
-            "Full Interior Design",
-            "Living Room Design",
-            "Bedroom Design",
-            "Kitchen & Dining Design",
-            "Bathroom Design",
-            "Study / Office Design",
-            "Hallway & Entry Design",
-          ],
-        },
-        {
-          id: "carpentry",
-          label: "Carpentry",
-          title: "CARPENTRY",
-          eyebrow: "BESPOKE WOODWORK & JOINERY SINCE 1989",
-          description:
-            "Factory-direct wardrobes, kitchens, doors, frames, consoles, and custom timber details made by experienced craftsmen.",
-          icon: "hammer",
-          view: "services",
-          tab: "contractor",
-          links: [
-            "Modular Kitchens",
-            "Bespoke Wardrobes",
-            "TV Consoles & Units",
-            "Solid Timber Dining Tables",
-            "Doors & Window Frames",
-            "Custom Timber Joinery",
-          ],
-        },
-        {
-          id: "painting-finishing",
-          label: "Painting & Finishing",
-          title: "PAINTING & FINISHING",
-          eyebrow: "SURFACES, TEXTURES, AND FINAL SITE STYLING",
-          description:
-            "Wall treatments, polish, veneer finishing, texture work, and final handover detailing prepared for long-term use.",
-          icon: "sparkles",
-          view: "services",
-          tab: "contractor",
-          links: [
-            "Wall Painting",
-            "Wood Polish",
-            "Texture Finishes",
-            "Veneer Finishing",
-            "Final Styling",
-            "Repair Touch-Ups",
-          ],
-        },
-        {
-          id: "flooring",
-          label: "Flooring",
-          title: "FLOORING",
-          eyebrow: "STONE, TILE, WOOD, AND SURFACE ALIGNMENT",
-          description:
-            "Material selection and installation planning for floors that match the architecture, maintenance needs, and budget.",
-          icon: "ruler",
-          view: "services",
-          tab: "layouts",
-          links: [
-            "Marble Planning",
-            "Tile Layouts",
-            "Wooden Flooring",
-            "Skirting Details",
-            "Surface Levelling",
-            "Material Schedules",
-          ],
-        },
-      ],
-    },
-    {
-      label: "Pages",
-      view: "gallery",
-      dropdownWidth: "w-[680px]",
-      defaultPanel: "gallery",
-      ctaLabel: "Explore Page",
-      panels: [
-        {
-          id: "gallery",
-          label: "Gallery",
-          title: "OUR PORTFOLIO",
-          eyebrow: "EXPLORE OUR COMPLETED PROJECTS",
-          description:
-            "Browse luxury residential, commercial, and bespoke interior projects completed by our team.",
-          icon: "grid",
-          view: "gallery",
-          links: [
-            "Photo Gallery",
-            "Video Gallery",
-            "Recent Projects",
-            "Before & After",
-          ],
-        },
-        {
-          id: "blog",
-          label: "Blog",
-          title: "DESIGN JOURNAL",
-          eyebrow: "INSIGHTS & INTERIOR TRENDS",
-          description:
-            "Discover design inspiration, renovation guides, expert tips, and project case studies.",
-          icon: "book",
-          view: "blog",
-          links: [
-            "Latest Articles",
-            "Interior Tips",
-            "Case Studies",
-            "Industry News",
-          ],
-        },
-        {
-          id: "faqs",
-          label: "FAQs",
-          title: "FREQUENTLY ASKED QUESTIONS",
-          eyebrow: "EVERYTHING YOU NEED TO KNOW",
-          description:
-            "Answers about timelines, pricing, materials, execution process, and warranties.",
-          icon: "help",
-          view: "faqs",
-        },
-        {
-          id: "awards",
-          label: "Awards",
-          title: "OUR ACHIEVEMENTS",
-          eyebrow: "CRAFTSMANSHIP & RECOGNITION",
-          description:
-            "Explore our milestones, recognitions, and years of trusted interior excellence.",
-          icon: "award",
-          view: "home",
-          hash: "#awards",
-        },
-        {
-          id: "coming-soon",
-          label: "Coming Soon",
-          title: "MORE EXPERIENCES",
-          eyebrow: "NEW FEATURES ARRIVING SOON",
-          description:
-            "Upcoming digital showroom, project tracking, client portal, and more.",
-          icon: "sparkles",
-          view: "coming-soon",
-        },
-      ],
-    },
-    {
-      label: "Contact",
-      view: "contact",
-      dropdownWidth: "w-[700px]",
-      defaultPanel: "contact-us",
-      ctaLabel: "Contact Us",
-      panels: [
-        {
-          id: "contact-us",
-          label: "Contact Us",
-          title: "GET IN TOUCH",
-          eyebrow: "WE'D LOVE TO HEAR FROM YOU",
-          description:
-            "Connect with our interior experts for design discussions, project enquiries, or collaborations.",
-          icon: "mail",
-          view: "contact",
-          links: [
-            "General Enquiry",
-            "Business Enquiry",
-            "Customer Support",
-            "Visit Our Office",
-          ],
-        },
-        {
-          id: "consultation",
-          label: "Book Consultation",
-          title: "BOOK A CONSULTATION",
-          eyebrow: "START YOUR DESIGN JOURNEY",
-          description:
-            "Schedule a one-to-one consultation with our designers to discuss your project requirements.",
-          icon: "calendar",
-          view: "contact",
-          hash: "#consultation",
-          links: [
-            "Residential Projects",
-            "Commercial Projects",
-            "Renovation Consultation",
-            "Online Consultation",
-          ],
-        },
-        {
-          id: "quotation",
-          label: "Request Quote",
-          title: "REQUEST A QUOTATION",
-          eyebrow: "GET A CUSTOM ESTIMATE",
-          description:
-            "Receive a transparent and detailed quotation tailored to your budget and project scope.",
-          icon: "check",
-          view: "contact",
-          hash: "#quote",
-          links: [
-            "Interior Design",
-            "Furniture",
-            "Turnkey Projects",
-            "Custom Carpentry",
-          ],
-        },
-        {
-          id: "visit-studio",
-          label: "Visit Studio",
-          title: "VISIT OUR STUDIO",
-          eyebrow: "EXPERIENCE OUR MATERIALS & DESIGNS",
-          description:
-            "Meet our team, explore finishes, view samples, and discuss your dream space in person.",
-          icon: "compass",
-          view: "contact",
-          hash: "#location",
-          links: [
-            "Studio Location",
-            "Opening Hours",
-            "Directions",
-            "Schedule Visit",
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-const getDefaultPanelState = () =>
-  headerContent.nav.reduce((acc, item) => {
-    if (item.panels?.length)
-      acc[item.label] = item.defaultPanel || item.panels[0].id;
-    return acc;
-  }, {});
-
-export default function Header({
-  currentView = "home",
-  setView = () => {},
-  onOpenQuote = null,
-}) {
+export default function Header({ currentView = "home", setView = () => {}, onOpenQuote = null }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [openMobileSection, setOpenMobileSection] = useState("Home");
-  const [activePanels, setActivePanels] = useState(getDefaultPanelState);
+
+  const handleOpenSearchModal = () => {
+    setIsSearchOpen(true);
+  };
+
+  // States for expanding mobile accordions
+  const [isHomeSubOpen, setIsHomeSubOpen] = useState(false);
+  const [isPagesSubOpen, setIsPagesSubOpen] = useState(false);
+  const [isServicesSubOpen, setIsServicesSubOpen] = useState(false);
+
+  // Interactive Mega Menu States
+  const [activeAbout, setActiveAbout] = useState("OUR STORY");
+  const [activeServices, setActiveServices] = useState("INTERIOR WORK");
+  const [activeWork, setActiveWork] = useState("RESIDENTIAL PROJECTS");
+  const [activeContact, setActiveContact] = useState("REQUEST A QUOTE");
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    const handleOpenEvent = () => setIsConsultModalOpen(true);
-
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    const handleOpenEvent = () => {
+      setIsConsultModalOpen(true);
+    };
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("open-consultation", handleOpenEvent);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("open-consultation", handleOpenEvent);
@@ -388,10 +43,9 @@ export default function Header({
   const handleOpenConsultModal = () => {
     if (onOpenQuote) {
       onOpenQuote();
-      return;
+    } else {
+      setIsConsultModalOpen(true);
     }
-
-    setIsConsultModalOpen(true);
   };
 
   const handleConsultSubmit = (e) => {
@@ -405,15 +59,13 @@ export default function Header({
     }, 1500);
   };
 
-  const navigateToSection = (targetView, hash, tab) => {
+  // Safe navigation function
+  const navigateToSection = (targetView, hash) => {
     setView(targetView);
     setIsMobileMenuOpen(false);
-
+    
+    // Allow React state update to flush before scrolling
     setTimeout(() => {
-      if (tab) {
-        window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab } }));
-      }
-
       if (hash) {
         const element = document.querySelector(hash);
         if (element) {
@@ -422,157 +74,7 @@ export default function Header({
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    }, 150);
-  };
-
-  const renderIcon = (iconName, className = "") => {
-    const Icon = iconMap[iconName] || Compass;
-    return <Icon size={12} className={className} />;
-  };
-
-  const activeClass = (view) =>
-    currentView === view ? "text-primary" : "text-white hover:text-primary";
-
-  const setActivePanel = (menuLabel, panelId) => {
-    setActivePanels((previous) => ({
-      ...previous,
-      [menuLabel]: panelId,
-    }));
-  };
-
-  const resetActivePanel = (menu) => {
-    setActivePanel(menu.label, menu.defaultPanel || menu.panels[0].id);
-  };
-
-  const renderDesktopDropdown = (menu) => {
-    const activePanelId = activePanels[menu.label] || menu.defaultPanel || menu.panels[0].id;
-    const activePanel = menu.panels.find((panel) => panel.id === activePanelId) || menu.panels[0];
-
-    return (
-      <div className="relative group/nav" onMouseLeave={() => resetActivePanel(menu)}>
-        <button
-          className={`text-xs text-xs font-bold uppercase tracking-wider flex items-center gap-1 py-2 cursor-pointer transition-colors ${activeClass(menu.view)}`}
-          aria-haspopup="true"
-        >
-          <span>{menu.label}</span>
-          <ChevronDown
-            size={11}
-            className="opacity-60 group-hover/nav:translate-y-0.5 transition-transform duration-300"
-          />
-        </button>
-
-        <div
-          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${menu.dropdownWidth} bg-mutedTeal shadow-2xl rounded-xl border border-mutedInk/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50`}
-        >
-          <div className="w-[260px] bg-lighter p-2 flex flex-col space-y-1 border-r border-mutedInk/20">
-            {menu.panels.map((panel) => (
-              <button
-                key={panel.id}
-                onMouseEnter={() => setActivePanel(menu.label, panel.id)}
-                onClick={() =>
-                  navigateToSection(panel.view, panel.hash, panel.tab)
-                }
-                className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                  activePanel.id === panel.id
-                    ? "bg-primary text-white"
-                    : "text-white hover:text-white hover:bg-white/5"
-                }`}
-              >
-                <span>{panel.label}</span>
-                {renderIcon(
-                  panel.icon,
-                  activePanel.id === panel.id ? "text-white" : "text-white/40",
-                )}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex-1 bg-mutedTeal p-8 flex flex-col justify-between text-left">
-            <div>
-              <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
-                {activePanel.title}
-              </h4>
-              <div className="space-y-4">
-                <span className="text-[10px] text-primary font-bold tracking-widest uppercase block">
-                  {activePanel.eyebrow}
-                </span>
-                <p className="text-sm text-white/70 leading-relaxed font-light">
-                  {activePanel.description}
-                </p>
-
-                {activePanel.links?.length > 0 && (
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-1">
-                    {activePanel.links.map((link) => (
-                      <button
-                        key={link}
-                        onClick={() =>
-                          navigateToSection(
-                            activePanel.view,
-                            activePanel.hash,
-                            activePanel.tab,
-                          )
-                        }
-                        className="text-left text-white/70 hover:text-primary text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-primary/60" />
-                        <span>{link}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <button
-              onClick={() =>
-                navigateToSection(
-                  activePanel.view,
-                  activePanel.hash,
-                  activePanel.tab,
-                )
-              }
-              className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-primary uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
-            >
-              <span>{menu.ctaLabel}</span>
-              <ArrowRight
-                size={12}
-                className="transform group-hover/btn:translate-x-1 transition-transform"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderDesktopNavItem = (menu) => {
-    if (menu.panels?.length) {
-      return <div key={menu.label}>{renderDesktopDropdown(menu)}</div>;
-    }
-
-    const navItemClass = isScrolled
-      ? currentView === menu.view
-        ? "text-primary"
-        : "text-white hover:text-primary"
-      : currentView === menu.view
-        ? "text-white"
-        : "text-white hover:text-stone-200";
-
-    return (
-      <button
-        key={menu.label}
-        onClick={() => navigateToSection(menu.view, menu.hash, menu.tab)}
-        className={`text-sm font-bold uppercase tracking-wider transition-colors duration-300 py-2 cursor-pointer ${navItemClass}`}
-      >
-        {menu.label}
-      </button>
-    );
-  };
-
-  const renderMobileChildren = (menu) => {
-    if (menu.mobileChildren?.length) return menu.mobileChildren;
-    if (menu.panels?.length) return menu.panels;
-    return null;
+    }, 100);
   };
 
   return (
@@ -581,82 +83,706 @@ export default function Header({
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`container-block fixed top-0 left-0 w-full z-50 transition-all duration-500 py-4 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 text-white ${
           isScrolled
-            ? "bg-white border-b border-stone-200/50 shadow-md"
-            : "bg-transparent border-b border-transparent shadow-none"
+            ? "bg-stone-950/90 backdrop-blur-md py-3.5 border-b border-white/10 shadow-2xl"
+            : "bg-stone-950/50 backdrop-blur-sm py-4 border-b border-white/10"
         }`}
         id="app-header"
       >
-        <div className="monitor:max-w-9xl laptop:max-w-7xl mx-auto flex items-center justify-between container-margin">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+          
+          {/* Logo */}
           <button
-            onClick={() => navigateToSection(headerContent.brand.view, null)}
-            className="flex items-center space-x-2 group cursor-pointer text-left focus:outline-none"
+            onClick={() => navigateToSection("home", null)}
+            className="flex items-center space-x-2.5 group cursor-pointer text-left focus:outline-none"
             id="header-logo-link"
           >
-            <span
-              className={`text-xs sm:text-xl md:text-2xl font-serif tracking-[0.12em] md:tracking-[0.15em] font-bold uppercase leading-tight transition-colors ${
-                isScrolled
-                  ? "text-primary hover:text-lighter"
-                  : "text-white hover:text-stone-200"
-              }`}
-            >
-              {headerContent.brand.label}
+            <div className="text-[#c5a880] flex items-center justify-center group-hover:scale-105 transition-transform">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <span className="text-2xl font-black tracking-tight text-white transition-colors hover:text-[#c5a880]">
+              antra
             </span>
           </button>
-          <nav
-            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
-            id="header-desktop-nav"
-          >
-            {headerContent.nav.map(renderDesktopNavItem)}
-          </nav>
-          <div className="hidden lg:flex items-center space-x-5">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8" id="header-desktop-nav">
+            
+            {/* 1. Home */}
             <button
-              onClick={handleOpenConsultModal}
-              className="group flex items-center space-x-2 px-5 py-2.5 rounded-full bg-primary text-stone-950 text-xs font-bold uppercase tracking-widest hover:bg-lighter transition-all duration-300 shadow-sm cursor-pointer"
+              onClick={() => navigateToSection("home", null)}
+              className={`text-[13px] font-semibold tracking-wide transition-colors duration-300 py-2 cursor-pointer flex items-center gap-1 ${
+                currentView === "home" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+              }`}
             >
-              <span>{headerContent.primaryCta}</span>
-              <span className="w-5 h-5 rounded-full bg-stone-950 text-primary flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-300">
-                <ArrowRight size={11} />
-              </span>
+              <span>Home</span>
+              <ChevronDown size={12} className="opacity-70 group-hover:translate-y-0.5 transition-transform text-white" />
             </button>
 
+            {/* 2. Services Dropdown */}
+            <div 
+              className="relative group/nav"
+              onMouseLeave={() => setActiveServices("INTERIOR WORK")}
+            >
+              <button
+                className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
+                  currentView === "services" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                }`}
+              >
+                <span>Services</span>
+                <ChevronDown size={12} className="opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 text-white" />
+              </button>
+              
+              {/* Dropdown Box */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[720px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                {/* Left Column - Services Main Roles */}
+                <div className="w-[260px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                  <button
+                    onMouseEnter={() => setActiveServices("INTERIOR WORK")}
+                    onClick={() => navigateToSection("services", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeServices === "INTERIOR WORK" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Interior Work</span>
+                    <Paintbrush size={12} className={activeServices === "INTERIOR WORK" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveServices("CARPENTRY")}
+                    onClick={() => navigateToSection("services", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeServices === "CARPENTRY" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Carpentry</span>
+                    <Hammer size={12} className={activeServices === "CARPENTRY" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveServices("PAINTING & FINISHING")}
+                    onClick={() => navigateToSection("services", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeServices === "PAINTING & FINISHING" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Painting & Finishing</span>
+                    <Sparkles size={12} className={activeServices === "PAINTING & FINISHING" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveServices("FLOORING")}
+                    onClick={() => navigateToSection("services", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeServices === "FLOORING" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Flooring</span>
+                    <Ruler size={12} className={activeServices === "FLOORING" ? "text-white" : "text-white/40"} />
+                  </button>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-1 bg-[#243343] p-6 text-left flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      {activeServices}
+                    </h4>
+
+                    {activeServices === "INTERIOR WORK" && (
+                      <div>
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">COMPLETE INTERIOR DESIGN SOLUTIONS</span>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          {[
+                            "Full Interior Design",
+                            "Living Room Design",
+                            "Bedroom Design",
+                            "Kitchen & Dining Design",
+                            "Bathroom Design",
+                            "Study / Office Design",
+                            "Hallway & Entry Design"
+                          ].map((sub, i) => (
+                            <button
+                              key={i}
+                              onClick={() => {
+                                navigateToSection("services", null);
+                                setTimeout(() => {
+                                  window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
+                                }, 150);
+                              }}
+                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span>{sub}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {activeServices === "CARPENTRY" && (
+                      <div>
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">BESPOKE WOODWORK & JOINERY SINCE 1989</span>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          {[
+                            "Modular Kitchens",
+                            "Bespoke Wardrobes",
+                            "TV Consoles & Units",
+                            "Solid Timber Dining Tables",
+                            "Doors & Window Frames",
+                            "Custom Timber Joinery"
+                          ].map((sub, i) => (
+                            <button
+                              key={i}
+                              onClick={() => {
+                                navigateToSection("services", null);
+                                setTimeout(() => {
+                                  window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
+                                }, 150);
+                              }}
+                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span>{sub}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {activeServices === "PAINTING & FINISHING" && (
+                      <div>
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">WALL ART & PREMIUM FINE COATINGS</span>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          {[
+                            "Italian Stucco Plasters",
+                            "Luster & Velvet Finishes",
+                            "PU & Melamine Polishing",
+                            "Exposed Brick Textures",
+                            "Metallic Wall Arts",
+                            "Royal Protective Coats"
+                          ].map((sub, i) => (
+                            <button
+                              key={i}
+                              onClick={() => {
+                                navigateToSection("services", null);
+                                setTimeout(() => {
+                                  window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
+                                }, 150);
+                              }}
+                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span>{sub}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {activeServices === "FLOORING" && (
+                      <div>
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">EXQUISITE STONE & WOOD SURFACES</span>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          {[
+                            "Italian Marble Laying",
+                            "Hardwood Wooden Planks",
+                            "Polished Granite Tiles",
+                            "Epoxy & Terrazzo Finishes",
+                            "Vitrified Tile Setting",
+                            "Custom Flooring Medallions"
+                          ].map((sub, i) => (
+                            <button
+                              key={i}
+                              onClick={() => {
+                                navigateToSection("services", null);
+                                setTimeout(() => {
+                                  window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
+                                }, 150);
+                              }}
+                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span>{sub}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => navigateToSection("services", null)}
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                  >
+                    <span>View All Services</span>
+                    <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            {/* 3. Projects Dropdown */}
+            <div 
+              className="relative group/nav"
+              onMouseLeave={() => setActiveWork("RESIDENTIAL PROJECTS")}
+            >
+              <button
+                className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
+                  currentView === "gallery" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                }`}
+              >
+                <span>Projects</span>
+                <ChevronDown size={12} className="opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 text-white" />
+              </button>
+              
+              {/* Dropdown Box */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                
+                {/* Left Column - Portfolio divisions */}
+                <div className="w-[250px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                  <button
+                    onMouseEnter={() => setActiveWork("RESIDENTIAL PROJECTS")}
+                    onClick={() => navigateToSection("gallery", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeWork === "RESIDENTIAL PROJECTS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Residential Projects</span>
+                    <Compass size={12} className={activeWork === "RESIDENTIAL PROJECTS" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveWork("COMMERCIAL PROJECTS")}
+                    onClick={() => navigateToSection("gallery", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeWork === "COMMERCIAL PROJECTS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Commercial Projects</span>
+                    <Grid size={12} className={activeWork === "COMMERCIAL PROJECTS" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveWork("BEFORE & AFTER")}
+                    onClick={() => navigateToSection("gallery", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeWork === "BEFORE & AFTER" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Before & After</span>
+                    <Sparkles size={12} className={activeWork === "BEFORE & AFTER" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveWork("CLIENT CASE STUDIES")}
+                    onClick={() => navigateToSection("blog", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeWork === "CLIENT CASE STUDIES" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Client Case Studies</span>
+                    <BookOpen size={12} className={activeWork === "CLIENT CASE STUDIES" ? "text-white" : "text-white/40"} />
+                  </button>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+                  <div>
+                    <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      {activeWork}
+                    </h4>
+
+                    {activeWork === "RESIDENTIAL PROJECTS" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">BEAUTIFUL HOMES WE'VE DESIGNED</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Step inside our curated catalog of ultra-luxury residential properties, sea-facing duplexes in Bandra, high-end penthouses, and bespoke furniture integrations.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeWork === "COMMERCIAL PROJECTS" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">INSPIRING SPACES FOR GREAT BRANDS</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Explore ergonomically structured workspaces, high-end design galleries, custom retail flagships, and premium offices curated for optimal flow and luxury aesthetic.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeWork === "BEFORE & AFTER" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">WITNESS SPECTACULAR RENOVATIONS</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Examine high-fidelity case portfolios of on-site structural magic, transitioning hollow concrete shells into meticulously tailored luxury spaces.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeWork === "CLIENT CASE STUDIES" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">WALKTHROUGHS & TIME-STAMPED LOGS</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Read deep developmental studies mapping material sourcing challenges, carpentry joinery blueprints, site hurdles, and premium spatial deliveries.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => navigateToSection("gallery", null)}
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                  >
+                    <span>View Project Gallery</span>
+                    <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            {/* 4. Pages Dropdown */}
+            <div 
+              className="relative group/nav"
+              onMouseLeave={() => setActiveAbout("OUR STORY")}
+            >
+              <button
+                className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
+                  currentView === "about-us" || currentView === "faqs" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                }`}
+              >
+                <span>Pages</span>
+                <ChevronDown size={12} className="opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 text-white" />
+              </button>
+              
+              {/* Dropdown Box */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                
+                {/* Left Column */}
+                <div className="w-[240px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                  <button
+                    onMouseEnter={() => setActiveAbout("OUR STORY")}
+                    onClick={() => navigateToSection("about-us", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeAbout === "OUR STORY" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>About Us</span>
+                    <Compass size={12} className={activeAbout === "OUR STORY" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveAbout("OUR TEAM")}
+                    onClick={() => navigateToSection("about-us", "#team")}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeAbout === "OUR TEAM" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Our Team</span>
+                    <Users size={12} className={activeAbout === "OUR TEAM" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveAbout("WHY CHOOSE US")}
+                    onClick={() => navigateToSection("about-us", "#about-story")}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeAbout === "WHY CHOOSE US" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Why Choose Us</span>
+                    <Award size={12} className={activeAbout === "WHY CHOOSE US" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveAbout("TESTIMONIALS")}
+                    onClick={() => navigateToSection("faqs", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeAbout === "TESTIMONIALS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>FAQs & Info</span>
+                    <Check size={12} className={activeAbout === "TESTIMONIALS" ? "text-white" : "text-white/40"} />
+                  </button>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+                  <div>
+                    <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      {activeAbout}
+                    </h4>
+                    
+                    {activeAbout === "OUR STORY" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">LEARN ABOUT OUR JOURNEY AND VALUES</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Founded in 1989 by master artisan Ravalram H. Suthar, we have spent over 30 years perfecting the art of bespoke timber joinery and luxury interior solutions.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeAbout === "OUR TEAM" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">MEET THE LEADERS & ARCHITECTS</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Led by Shivkumar Suthar and lead architect Padam P. Sutar, our team blends legacy Indian woodcraft with contemporary computational CAD and interior spatial architecture.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeAbout === "WHY CHOOSE US" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">30+ YEARS OF GENERATIONAL TRUST</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          We guarantee architect-supervised construction sites, absolute 100% material authentication, clear Bill of Quantities (BOQ), and highly durable timber structures.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeAbout === "TESTIMONIALS" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">QUESTIONS & ANSWERS</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Find details about project timelines, design consultation steps, warranty details, and site supervision policies.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => navigateToSection("about-us", null)}
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                  >
+                    <span>Discover More</span>
+                    <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            {/* 5. Blog */}
+            <button
+              onClick={() => navigateToSection("blog", null)}
+              className={`text-[13px] font-semibold tracking-wide transition-colors duration-300 py-2 cursor-pointer flex items-center gap-1 ${
+                currentView === "blog" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+              }`}
+            >
+              <span>Blog</span>
+              <ChevronDown size={12} className="opacity-70 group-hover:translate-y-0.5 transition-transform text-white" />
+            </button>
+
+            {/* 6. Contact Us */}
+            <div 
+              className="relative group/nav"
+              onMouseLeave={() => setActiveContact("REQUEST A QUOTE")}
+            >
+              <button
+                className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
+                  currentView === "contact" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                }`}
+              >
+                <span>Contact Us</span>
+                <ChevronDown size={12} className="opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 text-white" />
+              </button>
+              
+              {/* Dropdown Box */}
+              <div className="absolute top-full right-0 mt-2 w-[680px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                
+                {/* Left Column - Contact channels */}
+                <div className="w-[240px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                  <button
+                    onMouseEnter={() => setActiveContact("REQUEST A QUOTE")}
+                    onClick={() => navigateToSection("contact", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeContact === "REQUEST A QUOTE" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Request A Quote</span>
+                    <Sparkles size={12} className={activeContact === "REQUEST A QUOTE" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveContact("BOOK A CONSULTATION")}
+                    onClick={handleOpenConsultModal}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeContact === "BOOK A CONSULTATION" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Book Consultation</span>
+                    <Calendar size={12} className={activeContact === "BOOK A CONSULTATION" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveContact("FAQS")}
+                    onClick={() => navigateToSection("faqs", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeContact === "FAQS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>FAQs</span>
+                    <HelpCircle size={12} className={activeContact === "FAQS" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveContact("SERVICE AREAS")}
+                    onClick={() => navigateToSection("contact", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeContact === "SERVICE AREAS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Service Areas</span>
+                    <Compass size={12} className={activeContact === "SERVICE AREAS" ? "text-white" : "text-white/40"} />
+                  </button>
+
+                  <button
+                    onMouseEnter={() => setActiveContact("FEEDBACK")}
+                    onClick={() => navigateToSection("contact", null)}
+                    className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
+                      activeContact === "FEEDBACK" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>Feedback</span>
+                    <Mail size={12} className={activeContact === "FEEDBACK" ? "text-white" : "text-white/40"} />
+                  </button>
+                </div>
+
+                {/* Right Column - Detail content */}
+                <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+                  <div>
+                    <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      {activeContact}
+                    </h4>
+
+                    {activeContact === "REQUEST A QUOTE" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">GET A QUOTE FOR YOUR PROJECT</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Submit your residential measurements, room layouts, and wood styling preferences. Our team will prepare a transparent, itemized estimation proposal.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeContact === "BOOK A CONSULTATION" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">SCHEDULE AN ON-SITE SURVEY</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Book a premium consultation window with lead woodcrafters to map material quality guidelines and secure an architect-supervised work plan.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeContact === "FAQS" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">ANSWERS TO RAW TIMBER QUESTIONS</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Explore helpful answers concerning carpentry execution maps, our signature 10-year timber warranties, procurement protocols, and turnkey delivery times.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeContact === "SERVICE AREAS" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">SUTHAR REGIONAL SHOWROOM COVERAGE</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          Our master woodcraft services run across Mumbai (Bandra, Juhu, Santacruz West), Pune core zones, Goa villas, and custom structural exports across India.
+                        </p>
+                      </div>
+                    )}
+
+                    {activeContact === "FEEDBACK" && (
+                      <div className="space-y-4">
+                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">HELP US DEEPEN GENERATIONAL TRUST</span>
+                        <p className="text-xs text-white/70 leading-relaxed font-light">
+                          We believe in honest, uncompromising craft standards. Share your spatial remodeling experiences or showroom service feedback directly with our directors.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      if (activeContact === "BOOK A CONSULTATION") handleOpenConsultModal();
+                      else if (activeContact === "FAQS") navigateToSection("faqs", null);
+                      else navigateToSection("contact", null);
+                    }}
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                  >
+                    <span>Connect Now</span>
+                    <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </nav>
+
+          {/* Right Action Phone & Quote CTA Area */}
+          <div className="hidden lg:flex items-center space-x-4" id="header-desktop-actions">
             <a
-              href={headerContent.enquiry.href}
+              href="tel:+480123678900"
               className="flex items-center space-x-2.5 group"
             >
-              <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <Phone size={12} />
+              <div className="w-9 h-9 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white group-hover:border-[#c5a880] group-hover:bg-[#c5a880] group-hover:text-stone-950 transition-all duration-300">
+                <Phone size={14} />
               </div>
               <div className="flex flex-col text-left leading-none">
-                <span className="text-[8px] text-stone-400 font-bold tracking-widest uppercase mb-0.5">
-                  {headerContent.enquiry.label}
-                </span>
-                <span className="text-sm font-bold text-stone-900 tracking-wide transition-colors group-hover:text-primary border-b border-stone-800 group-hover:border-primary">
-                  {headerContent.enquiry.phone}
+                <span className="text-[9px] text-stone-300 font-semibold tracking-wider mb-0.5">Call Us Phone</span>
+                <span className="text-xs font-bold text-white tracking-wide transition-colors group-hover:text-[#c5a880]">
+                  (+480) 123 678 900
                 </span>
               </div>
             </a>
+
+            {/* Get A Quote! Button */}
+            <button
+              onClick={() => navigateToSection("contact", null)}
+              className="bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 font-extrabold text-xs px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-[#c5a880]/20 cursor-pointer"
+            >
+              Get A Quote!
+            </button>
+
+            {/* Search Icon */}
+            <button 
+              onClick={handleOpenSearchModal}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#c5a880] text-white hover:text-stone-950 transition-all duration-300 flex items-center justify-center cursor-pointer" 
+              aria-label="Search"
+            >
+              <Search size={16} />
+            </button>
+
+            {/* Grid Layout Icon */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#c5a880] text-white hover:text-stone-950 transition-all duration-300 flex items-center justify-center cursor-pointer" 
+              aria-label="Menu Grid"
+            >
+              <LayoutGrid size={16} />
+            </button>
           </div>
+
+          {/* Mobile Menu Trigger */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-stone-900 hover:text-primary transition-colors duration-300 cursor-pointer"
+            className="lg:hidden p-2 text-stone-900 hover:text-[#c5a880] transition-colors duration-300 cursor-pointer"
             id="mobile-menu-trigger"
             aria-label="Open Mobile Menu"
-            aria-controls="mobile-menu-drawer-portal"
-            aria-expanded={isMobileMenuOpen}
           >
             <Menu size={24} />
           </button>
         </div>
       </motion.header>
 
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div
-            className="fixed inset-0 z-55 lg:hidden"
-            id="mobile-menu-drawer-portal"
-          >
+          <div className="fixed inset-0 z-55 lg:hidden" id="mobile-menu-drawer-portal">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
@@ -669,23 +795,13 @@ export default function Header({
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute top-0 right-0 h-full w-[min(22rem,calc(100vw-1.5rem))] bg-stone-950 p-8 flex flex-col justify-between border-l border-white/10 shadow-2xl overflow-y-auto"
+              className="absolute top-0 right-0 h-full w-80 bg-stone-950 p-8 flex flex-col justify-between border-l border-white/10 shadow-2xl overflow-y-auto"
             >
               <div>
                 <div className="flex items-center justify-between mb-12">
-                  <button
-                    onClick={() =>
-                      navigateToSection(headerContent.brand.view, null)
-                    }
-                    className="text-left focus:outline-none"
-                  >
-                    <span className="block text-lg font-serif text-white tracking-[0.16em] font-bold uppercase leading-tight">
-                      {headerContent.brand.mobileLabel}
-                    </span>
-                    <span className="mt-1 block text-[10px] text-primary font-bold uppercase tracking-[0.28em]">
-                      {headerContent.brand.mobileEyebrow}
-                    </span>
-                  </button>
+                  <span className="text-2xl font-serif text-white tracking-widest font-medium">
+                    suthar<span className="text-gold-500">.</span>
+                  </span>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-stone-400 hover:text-white transition-colors duration-300 cursor-pointer"
@@ -695,93 +811,193 @@ export default function Header({
                   </button>
                 </div>
 
+                {/* Mobile Navigation list */}
                 <div className="flex flex-col space-y-4 text-left">
-                  {headerContent.nav.map((menu) => {
-                    const children = renderMobileChildren(menu);
-
-                    if (!children) {
-                      return (
+                  
+                  {/* Home Accordion */}
+                  <div className="border-b border-white/5 pb-2">
+                    <button
+                      onClick={() => setIsHomeSubOpen(!isHomeSubOpen)}
+                      className="w-full flex items-center justify-between text-stone-300 hover:text-gold-500 py-2 text-base font-semibold"
+                    >
+                      <span>Home</span>
+                      <ChevronDown size={14} className={`transform transition-transform ${isHomeSubOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {isHomeSubOpen && (
+                      <div className="pl-4 mt-2 space-y-2 flex flex-col">
                         <button
-                          key={menu.label}
-                          onClick={() =>
-                            navigateToSection(menu.view, menu.hash, menu.tab)
-                          }
-                          className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
-                            currentView === menu.view
-                              ? "text-primary"
-                              : "text-stone-300 hover:text-primary"
-                          }`}
+                          onClick={() => navigateToSection("home", null)}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
                         >
-                          {menu.label}
+                          Main Showcase
                         </button>
-                      );
-                    }
-
-                    const isOpen = openMobileSection === menu.label;
-
-                    return (
-                      <div
-                        key={menu.label}
-                        className="border-b border-white/5 pb-2"
-                      >
                         <button
-                          onClick={() =>
-                            setOpenMobileSection(isOpen ? "" : menu.label)
-                          }
-                          className="w-full flex items-center justify-between text-stone-300 hover:text-primary py-2 text-base font-semibold"
-                          aria-expanded={isOpen}
+                          onClick={() => navigateToSection("home", "#services")}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
                         >
-                          <span>{menu.label}</span>
-                          <ChevronDown
-                            size={14}
-                            className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
-                          />
+                          Core Services
                         </button>
-                        {isOpen && (
-                          <div className="pl-4 mt-2 space-y-2 flex flex-col">
-                            {children.map((child) => (
-                              <button
-                                key={child.id || child.label}
-                                onClick={() =>
-                                  navigateToSection(
-                                    child.view,
-                                    child.hash,
-                                    child.tab,
-                                  )
-                                }
-                                className={`text-stone-400 hover:text-primary text-sm py-1.5 text-left ${
-                                  currentView === child.view
-                                    ? "font-semibold text-primary"
-                                    : ""
-                                }`}
-                              >
-                                {child.label}
-                              </button>
-                            ))}
-                          </div>
-                        )}
+                        <button
+                          onClick={() => navigateToSection("home", "#portfolio")}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Creative Portfolio
+                        </button>
                       </div>
-                    );
-                  })}
+                    )}
+                  </div>
+
+                  {/* Services Accordion with design & contractor roles */}
+                  <div className="border-b border-white/5 pb-2">
+                    <button
+                      onClick={() => setIsServicesSubOpen(!isServicesSubOpen)}
+                      className="w-full flex items-center justify-between text-stone-300 hover:text-gold-500 py-2 text-base font-semibold"
+                    >
+                      <span>Services</span>
+                      <ChevronDown size={14} className={`transform transition-transform ${isServicesSubOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {isServicesSubOpen && (
+                      <div className="pl-4 mt-2 space-y-2 flex flex-col">
+                        <button
+                          onClick={() => navigateToSection("services", null)}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left font-semibold text-gold-500"
+                        >
+                          Services Main Page
+                        </button>
+                        <button
+                          onClick={() => {
+                            navigateToSection("services", null);
+                            setTimeout(() => {
+                              window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
+                            }, 150);
+                          }}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Interior Designer
+                        </button>
+                        <button
+                          onClick={() => {
+                            navigateToSection("services", null);
+                            setTimeout(() => {
+                              window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
+                            }, 150);
+                          }}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Interior Contractor
+                        </button>
+                        <button
+                          onClick={() => {
+                            navigateToSection("services", null);
+                            setTimeout(() => {
+                              window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
+                            }, 150);
+                          }}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Interior 2D & 3D Layouts
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => navigateToSection("gallery", null)}
+                    className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
+                      currentView === "gallery" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                    }`}
+                  >
+                    Gallery
+                  </button>
+
+                  {/* Pages Accordion with About Us */}
+                  <div className="border-b border-white/5 pb-2">
+                    <button
+                      onClick={() => setIsPagesSubOpen(!isPagesSubOpen)}
+                      className="w-full flex items-center justify-between text-stone-300 hover:text-gold-500 py-2 text-base font-semibold"
+                    >
+                      <span>Pages</span>
+                      <ChevronDown size={14} className={`transform transition-transform ${isPagesSubOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {isPagesSubOpen && (
+                      <div className="pl-4 mt-2 space-y-2 flex flex-col">
+                        <button
+                          onClick={() => navigateToSection("about-us", null)}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left font-semibold text-gold-500"
+                        >
+                          About Us (Inner Page)
+                        </button>
+                        <button
+                          onClick={() => navigateToSection("home", "#awards")}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Hall of Awards
+                        </button>
+                        <button
+                          onClick={() => navigateToSection("home", "#team")}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Creative Team
+                        </button>
+                        <button
+                          onClick={() => navigateToSection("faqs", null)}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Frequently Asked FAQs
+                        </button>
+                        <button
+                          onClick={() => navigateToSection("blog", null)}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Magazine Journal
+                        </button>
+                        <button
+                          onClick={() => navigateToSection("coming-soon", null)}
+                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                        >
+                          Coming Soon Launch
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => navigateToSection("blog", null)}
+                    className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
+                      currentView === "blog" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                    }`}
+                  >
+                    Blog
+                  </button>
+
+                  <button
+                    onClick={() => navigateToSection("contact", null)}
+                    className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
+                      currentView === "contact" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                    }`}
+                  >
+                    Contact Us
+                  </button>
+
                 </div>
               </div>
 
               <div className="border-t border-white/5 pt-8 space-y-6">
                 <a
-                  href={headerContent.enquiry.href}
-                  className="flex items-center text-stone-300 hover:text-primary transition-colors duration-300 text-sm tracking-wider"
+                  href="tel:+18004560123"
+                  className="flex items-center text-stone-300 hover:text-gold-500 transition-colors duration-300 text-sm tracking-wider"
                 >
-                  <Phone size={14} className="mr-3 text-primary" />
-                  {headerContent.enquiry.phone}
+                  <Phone size={14} className="mr-3 text-gold-500" />
+                  +1 800 456-0123
                 </a>
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     handleOpenConsultModal();
                   }}
-                  className="w-full py-3 text-center text-sm tracking-widest uppercase font-semibold text-stone-950 bg-primary hover:bg-lighter transition-colors duration-300 cursor-pointer"
+                  className="w-full py-3 text-center text-xs tracking-widest uppercase font-semibold text-stone-950 bg-gold-500 hover:bg-gold-600 transition-colors duration-300 cursor-pointer"
                 >
-                  {headerContent.primaryCta}
+                  Book Consultation
                 </button>
               </div>
             </motion.div>
@@ -789,12 +1005,11 @@ export default function Header({
         )}
       </AnimatePresence>
 
+      {/* Booking Consultation Modal */}
       <AnimatePresence>
         {isConsultModalOpen && (
-          <div
-            className="fixed inset-0 z-55 flex items-center justify-center px-4"
-            id="consultation-modal"
-          >
+          <div className="fixed inset-0 z-55 flex items-center justify-center px-4" id="consultation-modal">
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.75 }}
@@ -803,12 +1018,13 @@ export default function Header({
               className="absolute inset-0 bg-stone-950/90 backdrop-blur-sm"
             />
 
+            {/* Modal Body */}
             <motion.div
               initial={{ scale: 0.9, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-lg bg-stone-900 border border-primary/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
+              className="relative w-full max-w-lg bg-stone-900 border border-gold-500/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
             >
               <button
                 onClick={() => setIsConsultModalOpen(false)}
@@ -819,16 +1035,15 @@ export default function Header({
               </button>
 
               <div className="mb-6">
-                <div className="inline-flex items-center space-x-2 text-primary text-sm tracking-widest uppercase font-semibold mb-2">
+                <div className="inline-flex items-center space-x-2 text-gold-500 text-xs tracking-widest uppercase font-semibold mb-2">
                   <Sparkles size={12} />
                   <span>Exclusive Session</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif text-white font-semibold text-left">
                   Book A Consultation
                 </h3>
-                <p className="text-stone-400 text-sm mt-1 text-left">
-                  Connect with our lead architects to shape a clear proposal for
-                  your space.
+                <p className="text-stone-400 text-xs mt-1 text-left">
+                  Connect with our award-winning lead architects to co-create your dream spatial reality.
                 </p>
               </div>
 
@@ -842,71 +1057,59 @@ export default function Header({
                     className="space-y-4"
                   >
                     <div>
-                      <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                      <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                         Your Full Name
                       </label>
                       <div className="relative">
-                        <User
-                          size={14}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
-                        />
+                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
                         <input
                           type="text"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
-                          placeholder="e.g. Shivkumar Suthar"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          placeholder="e.g. Eleanor Vance"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                      <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                         Email Address
                       </label>
                       <div className="relative">
-                        <Mail
-                          size={14}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
-                        />
+                        <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
                         <input
                           type="email"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
-                          placeholder="name@example.com"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          placeholder="eleanor@luxuryresidence.com"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                        <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                           Select Date
                         </label>
                         <div className="relative">
-                          <Calendar
-                            size={14}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
-                          />
+                          <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
                           <input
                             type="date"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                        <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
                           Select Time
                         </label>
                         <div className="relative">
-                          <Clock
-                            size={14}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500"
-                          />
+                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
                           <input
                             type="time"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-primary px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
@@ -915,7 +1118,7 @@ export default function Header({
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full py-3 bg-primary hover:bg-lighter text-stone-950 text-sm tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(231,163,95,0.4)] cursor-pointer"
+                        className="w-full py-3 bg-gold-500 hover:bg-gold-600 text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,168,128,0.4)] cursor-pointer"
                       >
                         Confirm Booking Proposal
                       </button>
@@ -927,16 +1130,13 @@ export default function Header({
                     animate={{ scale: 1, opacity: 1 }}
                     className="flex flex-col items-center justify-center py-10 space-y-4"
                   >
-                    <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary flex items-center justify-center text-primary">
+                    <div className="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500 flex items-center justify-center text-gold-500">
                       <Check size={28} />
                     </div>
                     <div className="text-center">
-                      <h4 className="text-white font-medium text-lg">
-                        Proposal Received!
-                      </h4>
-                      <p className="text-stone-400 text-sm mt-2">
-                        We have registered your consultation request. Our team
-                        will verify slot availability and reply shortly.
+                      <h4 className="text-white font-medium text-lg">Proposal Received!</h4>
+                      <p className="text-stone-400 text-xs mt-2">
+                        We've registered your private consultation proposal. Our team will verify slot availability and email you in 1-2 hours.
                       </p>
                     </div>
                   </motion.div>
@@ -944,6 +1144,68 @@ export default function Header({
               </AnimatePresence>
             </motion.div>
           </div>
+        )}
+      </AnimatePresence>
+
+      {/* Global Search Overlay Modal */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-xl flex flex-col items-center justify-start pt-24 px-6"
+          >
+            <button
+              onClick={() => setIsSearchOpen(false)}
+              className="absolute top-8 right-8 text-stone-400 hover:text-white p-2 rounded-full border border-white/10 hover:border-white/30 transition-all cursor-pointer"
+              aria-label="Close Search"
+            >
+              <X size={24} />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.95, y: -20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: -20 }}
+              className="w-full max-w-3xl flex flex-col items-center space-y-6"
+            >
+              <div className="text-center">
+                <span className="text-[#c5a880] text-xs font-bold tracking-[0.2em] uppercase">Search Showroom</span>
+                <h3 className="text-3xl md:text-4xl font-serif text-white mt-1">Explore Architectural Projects & Services</h3>
+              </div>
+
+              <div className="w-full relative">
+                <Search size={22} className="absolute left-5 top-1/2 -translate-y-1/2 text-stone-400" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Type project name, service, or keyword (e.g. Villa, Modern Kitchen)..."
+                  autoFocus
+                  className="w-full bg-stone-900 border border-stone-700 focus:border-[#c5a880] rounded-full pl-14 pr-6 py-4 text-white placeholder-stone-500 outline-none transition-all text-base shadow-2xl"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+                <span className="text-xs text-stone-400 mr-2">Popular:</span>
+                {["Residential", "Turnkey", "Modular Kitchen", "Commercial Penthouse", "Bespoke Furniture"].map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => {
+                      setSearchQuery(tag);
+                      setIsSearchOpen(false);
+                      setView("gallery");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone-300 hover:text-[#c5a880] hover:border-[#c5a880]/50 text-xs transition-all cursor-pointer"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

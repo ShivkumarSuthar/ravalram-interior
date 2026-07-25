@@ -1,244 +1,212 @@
-import { motion } from "motion/react";
-import {
-  Hammer,
-  Package,
-  ShieldCheck,
-  Armchair,
-  Sliders,
-  FileCheck,
-  Gem,
-  PiggyBank,
-  Sparkles,
-  Compass,
-  ArrowRight
-} from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { MessageSquare, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 
-const solutions = [
+// Local high quality interior images
+import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
+import slide2 from "../assets/images/antra_hero_slide2_1782747378004.jpg";
+import slide3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
+import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+
+const solutionTabs = [
   {
+    id: "tab-01",
     num: "01",
-    title: "Labour Only",
-    desc: "Already have your materials? Our experienced craftsmen can execute your project with precision, ensuring exceptional workmanship and attention to every detail.",
-    icon: Hammer
+    title: "RENOVATION AND REMODELING",
+    heading: "Renovation & Remodeling",
+    tagline: "Turnkey Civil & Spatial Transformation",
+    desc: "Complete spatial redesign, structural modifications, wall removals, and flawless finish styling. We breathe new life into existing residences and commercial properties while preserving structural integrity.",
+    features: ["Demolition & Civil Rebuilding", "Custom Timber Millwork", "Architect On-Site Supervision"],
+    image: heroBg
   },
   {
+    id: "tab-02",
     num: "02",
-    title: "Labour + Materials",
-    desc: "We manage both skilled execution and carefully selected materials, giving you a hassle-free experience while maintaining complete transparency.",
-    icon: Package
+    title: "CUSTOM DESIGN CONSULTATION",
+    heading: "Custom Design Consultation",
+    tagline: "Tailored Material & Spatial Curation",
+    desc: "Co-authoring the look and feel of your residence with tailored tactile boards, custom timber joinery samples, Italian marble selections, and personalized architectural consultations.",
+    features: ["Tactile Material Samples", "Custom Timber Joinery Specs", "Lighting & Color Schematics"],
+    image: slide2
   },
   {
+    id: "tab-03",
     num: "03",
-    title: "Complete Turnkey Solutions",
-    desc: "From architectural planning and interior design to custom furniture, installation, painting, electrical work, and final handover—we handle everything under one trusted team.",
-    icon: ShieldCheck
+    title: "SPACE PLANNING AND LAYOUT",
+    heading: "Space Planning & Layout",
+    tagline: "Ergonomic Architectural Zoning",
+    desc: "Precision architectural zoning, functional ergonomics, natural light harvesting, and seamless circulation paths tailored specifically to your family's daily lifestyle and entertaining needs.",
+    features: ["Ergonomic Flow Mapping", "Acoustic Partition Design", "Natural Light Optimization"],
+    image: slide3
   },
   {
+    id: "tab-04",
     num: "04",
-    title: "Custom Furniture Manufacturing",
-    desc: "Need only furniture? We design and manufacture wardrobes, modular kitchens, TV units, office furniture, storage solutions, beds, and completely customized furniture tailored to your space.",
-    icon: Armchair
-  },
-  {
-    num: "05",
-    title: "Flexible Material Selection",
-    desc: "Choose from premium, standard, or budget-friendly materials based on your preferences. We guide you honestly and help you make the right decision without unnecessary upselling.",
-    icon: Sliders
-  },
-  {
-    num: "06",
-    title: "Transparent Pricing",
-    desc: "Every estimate is prepared based on your project's scope, design complexity, materials, and execution model. No hidden charges. No unrealistic promises. Just honest recommendations and clear communication.",
-    icon: FileCheck
-  }
-];
-
-const highlights = [
-  {
-    title: "Premium Materials",
-    desc: "Choose premium finishes and branded hardware for a luxurious and long-lasting result.",
-    icon: Gem
-  },
-  {
-    title: "Budget-Friendly Options",
-    desc: "Practical solutions designed to maximize quality while respecting your investment.",
-    icon: PiggyBank
-  },
-  {
-    title: "100% Customized",
-    desc: "Every design, furniture piece, and execution plan is tailored specifically to your lifestyle, space, and functional needs.",
-    icon: Sparkles
-  },
-  {
-    title: "Architect Supervision",
-    desc: "Every project is monitored by experienced architects to ensure quality, precision, and flawless execution.",
-    icon: Compass
+    title: "3D DESIGN VISUALIZATION",
+    heading: "3D Design Visualization",
+    tagline: "Photorealistic Architectural Pre-Renders",
+    desc: "Hyper-realistic photorealistic 3D architectural renders and isometric spatial walkthroughs allowing you to experience every material texture, lighting temperature, and layout detail before site execution.",
+    features: ["100% Photorealistic Renders", "Material & Lighting Previews", "Zero On-Site Ambiguity"],
+    image: transitionImg
   }
 ];
 
 export default function FlexibleSolutions({ setView }) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
+  const [activeTab, setActiveTab] = useState(1); // Default to tab 02
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-    }
-  };
+  const current = solutionTabs[activeTab];
 
   return (
-    <section id="pricing" className="bg-field py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
-        
-        {/* Header Block */}
-        <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
-          <div className="inline-flex items-center space-x-2">
-            <span className="text-primary text-xs">✦</span>
-            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-              FLEXIBLE SOLUTIONS
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            Designed Around <br />
-            <span className="font-serif italic text-primary font-normal lowercase">Your Vision &</span> Budget.
-          </h2>
-          <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
-            Every project is different, and so is every client's vision. Instead of offering fixed packages, we create flexible solutions that match your design goals, material preferences, execution requirements, and investment. Whether you need complete turnkey interiors or only skilled craftsmen for execution, we adapt our services to fit your project.
-          </p>
+    <section id="pricing" className="relative w-full min-h-[620px] sm:min-h-[680px] bg-[#0c0a09] text-white overflow-hidden flex flex-col justify-between select-none border-t border-stone-800">
+      
+      {/* Background Image Container with Smooth Motion Transitions */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current.id}
+            src={current.image}
+            alt={current.heading}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.97 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full h-full object-cover filter brightness-[0.35] contrast-[1.08]"
+            referrerPolicy="no-referrer"
+          />
+        </AnimatePresence>
+
+        {/* Multi-layered dark vignetting gradient for pristine legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/70 to-[#0c0a09]/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/90 via-transparent to-[#0c0a09]/80 pointer-events-none" />
+      </div>
+
+      {/* Top Header Tag Bar */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-12 md:pt-16 w-full flex items-center justify-between border-b border-white/10 pb-6 text-left">
+        <div className="inline-flex items-center space-x-2.5">
+          <Sparkles size={16} className="text-[#c5a880]" />
+          <span className="text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-stone-300">
+            TAILORED SOLUTIONS • SERVICE PATHWAY {current.num}
+          </span>
         </div>
+        <span className="text-xs font-mono font-bold text-[#c5a880] hidden sm:block">
+          BUDGET & SCOPE FLEXIBILITY
+        </span>
+      </div>
 
-        {/* 6 Premium Feature Cards Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20 md:mb-28"
-        >
-          {solutions.map((sol) => {
-            const IconComponent = sol.icon;
-            return (
-              <motion.div
-                key={sol.num}
-                variants={cardVariants}
-                whileHover={{ y: -6 }}
-                className="bg-white border border-stone-200/60 p-6 md:p-8 rounded-xl text-left space-y-6 hover:shadow-xl hover:border-primary/30 transition-all duration-500 flex flex-col justify-between h-full group"
-              >
-                <div className="space-y-4">
-                  {/* Card Header with Icon and Number */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 rounded-lg bg-stone-50 group-hover:bg-primary/10 flex items-center justify-center text-stone-800 group-hover:text-primary transition-colors duration-500 border border-stone-100 group-hover:border-primary/20">
-                      <IconComponent className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" />
-                    </div>
-                    <span className="text-xs font-mono font-bold text-stone-300 group-hover:text-primary/50 transition-colors duration-500">
-                      {sol.num}
-                    </span>
-                  </div>
+      {/* Main Content Overlay Area */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16 w-full my-auto text-left">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-2xl space-y-4"
+          >
+            {/* Tagline Badge */}
+            <div className="inline-block bg-[#c5a880]/20 border border-[#c5a880]/30 text-[#c5a880] text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full">
+              {current.tagline}
+            </div>
 
-                  {/* Title and Description */}
-                  <div className="space-y-2">
-                    <h3 className="text-base font-serif font-medium text-stone-950 group-hover:text-primary transition-colors duration-300">
-                      {sol.title}
-                    </h3>
-                    <p className="text-stone-500 text-xs md:text-sm font-light leading-relaxed">
-                      {sol.desc}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+            {/* Giant Clean Title */}
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.12] drop-shadow-md">
+              {current.heading}
+            </h2>
 
-        {/* Premium Comparison Strip (4 Highlight Cards) */}
-        <div className="border-t border-stone-200/50 pt-16 pb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {highlights.map((high, idx) => {
-              const HighIcon = high.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: idx * 0.1 }}
-                  className="bg-stone-50/50 hover:bg-white border border-stone-200/40 p-6 rounded-xl text-left space-y-4 hover:shadow-md hover:border-primary/20 transition-all duration-500 group"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-white border border-stone-100 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors duration-300">
-                    <HighIcon size={16} />
-                  </div>
-                  <div className="space-y-1.5">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-primary transition-colors duration-300">
-                      {high.title}
-                    </h4>
-                    <p className="text-stone-500 text-xs font-light leading-relaxed">
-                      {high.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Premium CTA Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-xl"
-        >
-          {/* Decorative mesh glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
-
-          <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-primary text-xs tracking-[0.3em] font-mono font-bold block uppercase">
-              LET'S PLAN YOUR PROJECT TOGETHER
-            </span>
-            <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
-              Let's Plan Your <br />
-              <span className="font-serif italic text-primary font-normal lowercase">Project</span> Together.
-            </h3>
-            <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
-              Whether you're building a new home, renovating an existing space, designing an office, or simply looking for custom furniture, we'll recommend the most suitable execution model for your needs and budget.
+            {/* Subtitle / Description */}
+            <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed pt-1 max-w-xl drop-shadow-sm">
+              {current.desc}
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row gap-4 sm:items-center">
-              {/* Primary estimate button */}
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-lighter px-6 py-4 rounded-none cursor-pointer"
-              >
-                <span>Request a Free Estimate</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-primary transition-all duration-300">
-                  <ArrowRight size={12} strokeWidth={2.5} />
-                </div>
-              </motion.a>
-
-              {/* Secondary button */}
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.02, borderColor: 'var(--global-color-primary)', color: 'var(--global-color-primary)' }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer"
-              >
-                Talk to an Expert
-              </motion.a>
+            {/* Deliverable Bullet Pills */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {current.features.map((feat, i) => (
+                <span key={i} className="inline-flex items-center space-x-1.5 text-xs font-medium bg-stone-900/90 border border-stone-700/80 text-stone-200 px-3 py-1.5 rounded-lg shadow-sm">
+                  <CheckCircle2 size={13} className="text-[#c5a880]" />
+                  <span>{feat}</span>
+                </span>
+              ))}
             </div>
-          </div>
-        </motion.div>
 
+            {/* Action CTA Link */}
+            <div className="pt-4">
+              <button
+                onClick={() => {
+                  if (typeof setView === "function") {
+                    setView("contact");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 px-6 py-3.5 rounded-full transition-all duration-300 group cursor-pointer shadow-lg"
+              >
+                <span>Book {current.heading} Consultation</span>
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
+
+      {/* Bottom Horizontal Interactive Tab Navigation Bar */}
+      <div className="relative z-20 w-full bg-[#080707]/95 backdrop-blur-md border-t border-stone-800">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 items-stretch relative">
+          
+          {solutionTabs.map((tab, idx) => {
+            const isActive = idx === activeTab;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(idx)}
+                className={`relative px-5 py-5 sm:py-6 text-left transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-3 group border-r border-stone-800/80 last:border-r-0 ${
+                  isActive
+                    ? "bg-[#1c1a18] text-white border-t-2 border-t-[#c5a880]"
+                    : "bg-transparent text-stone-400 hover:text-stone-200 hover:bg-white/5 border-t-2 border-t-transparent"
+                }`}
+              >
+                {/* Index Number */}
+                <div className="flex items-center justify-between">
+                  <span
+                    className={`text-[11px] font-mono font-bold tracking-widest ${
+                      isActive ? "text-[#c5a880]" : "text-stone-500 group-hover:text-stone-300"
+                    }`}
+                  >
+                    {tab.num}
+                  </span>
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />}
+                </div>
+
+                {/* Tab Title */}
+                <span
+                  className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase leading-snug ${
+                    isActive ? "text-white" : "text-stone-400 group-hover:text-white"
+                  }`}
+                >
+                  {tab.title}
+                </span>
+              </button>
+            );
+          })}
+
+          {/* Floating Chat / Contact Button on Bottom Right */}
+          <div className="absolute right-4 bottom-4 z-30 hidden lg:block">
+            <button
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-consultation"));
+              }}
+              className="w-10 h-10 rounded-xl bg-stone-900 border border-stone-700 hover:border-[#c5a880] text-stone-300 hover:text-[#c5a880] flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer"
+              aria-label="Open Chat Consultation"
+            >
+              <MessageSquare size={16} />
+            </button>
+          </div>
+
+        </div>
+      </div>
+
     </section>
   );
 }

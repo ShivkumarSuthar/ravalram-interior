@@ -1,8 +1,6 @@
-import AppImage from "./AppImage";
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-
-const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
 
 function ProgressBar({ label, targetValue }) {
   const [val, setVal] = useState(0);
@@ -36,7 +34,7 @@ function ProgressBar({ label, targetValue }) {
           initial={{ width: 0 }}
           animate={isInView ? { width: `${targetValue}%` } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="h-full bg-primary"
+          className="h-full bg-[#c5a880]"
         />
       </div>
     </div>
@@ -45,7 +43,7 @@ function ProgressBar({ label, targetValue }) {
 
 export default function ExpertBento() {
   return (
-    <section className="bg-field py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+    <section className="bg-[#faf9f6] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
       {/* Background large ghost outline 'suthar' */}
       <div className="absolute left-6 bottom-6 select-none pointer-events-none z-0">
         <span className="text-[12vw] font-serif font-black text-stone-900/[0.015] uppercase tracking-widest leading-none">
@@ -53,33 +51,31 @@ export default function ExpertBento() {
         </span>
       </div>
 
-      <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left Column: Heading & Progress Bars */}
           <div className="lg:col-span-6 space-y-8 text-left">
             <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-                  CRAFT SKILLS
+              <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/80 px-4 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
+                <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-700">
+                  OUR SKILLS
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-                Trusted Expert In <br />
-                <span className="font-serif italic text-primary font-normal lowercase">Architectural Design</span> <br />
-                And Innovation.
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-tight">
+                Trusted Expert In <span className="text-[#c5a880]">Architectural</span> Design <span className="text-[#c5a880]">And Innovation.</span>
               </h2>
               <p className="text-stone-500 font-light text-sm leading-relaxed max-w-xl">
-                Our approach to craft is grounded in technical expertise. We maintain master-level credentials across three spatial dimensions, ensuring that our artistic vision rests on durable, sound engineering.
+                We specialize in transforming visions into reality. Explore our portfolio of innovative architectural and interior design projects crafted with precision.
               </p>
             </div>
 
             {/* Progress Bars */}
             <div className="space-y-6 max-w-lg">
-              <ProgressBar label="Custom Furniture & Cabinets" targetValue={95} />
-              <ProgressBar label="Architectural Interiors" targetValue={90} />
-              <ProgressBar label="Turnkey Project Delivery" targetValue={85} />
+              <ProgressBar label="Interior Design" targetValue={85} />
+              <ProgressBar label="3D Modeling" targetValue={95} />
+              <ProgressBar label="2D Planning" targetValue={65} />
             </div>
           </div>
 
@@ -89,7 +85,7 @@ export default function ExpertBento() {
               {/* Main Arched Frame */}
               <div className="col-span-8 bg-white border border-stone-200/60 p-4 rounded-none shadow-sm relative overflow-hidden">
                 <div className="w-full aspect-[3/4] overflow-hidden rounded-none bg-stone-100">
-                  <AppImage
+                  <img
                     src={aboutImg}
                     alt="Elegant architectural space"
                     className="w-full h-full object-cover filter brightness-95"
@@ -101,7 +97,7 @@ export default function ExpertBento() {
               {/* Smaller bento components */}
               <div className="col-span-4 flex flex-col justify-between gap-6">
                 <div className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm text-left space-y-2">
-                  <span className="text-xs font-bold text-primary font-mono">250+</span>
+                  <span className="text-xs font-bold text-[#c5a880] font-mono">250+</span>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">SPACES DESIGNED</p>
                 </div>
 
@@ -113,7 +109,7 @@ export default function ExpertBento() {
                 </div>
 
                 <div className="bg-stone-900 text-white p-5 rounded-none shadow-sm text-left space-y-1">
-                  <span className="text-xs font-bold text-primary font-mono">35+</span>
+                  <span className="text-xs font-bold text-[#c5a880] font-mono">35+</span>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">LEGACY YEARS</p>
                 </div>
               </div>

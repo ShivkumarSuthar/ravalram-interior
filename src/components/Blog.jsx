@@ -1,124 +1,181 @@
-import AppImage from "./AppImage";
 import { motion } from "motion/react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
-const coastalImg = "/images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/images/antra_project_loft_1782744318019.jpg";
-const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
-const aboutImg = "/images/antra_about_side_1782744266546.jpg";
+// Local high quality project assets
+import coastalImg from "../assets/images/antra_project_coastal_1782744299850.jpg";
+import loftImg from "../assets/images/antra_project_loft_1782744318019.jpg";
+import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
 
-const sideArticles = [
+const mainArticle = {
+  id: "main-article-1",
+  image: coastalImg,
+  tag: "Power Tools",
+  author: "Admin",
+  date: "June 2, 2026",
+  title: "Functional Design Trends That Blend Style And Comfort",
+  desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living. Whether you're updating a single room or redesigning your entire home..."
+};
+
+const rightArticles = [
   {
-    id: 1,
+    id: "side-article-1",
     image: loftImg,
-    tag: "Woodcraft Heritage",
-    date: "June 25, 2026",
-    title: "The Patina of Timber: Sourcing Hardwoods for Heirloom Joinery",
-    desc: "How handpicked solid teak and Indian rosewood mature under natural oil applications to develop timeless architectural character."
+    tag: "Power Tools",
+    author: "Admin",
+    date: "June 2, 2026",
+    title: "Functional Design Trends That Blend Style And Comfort",
+    desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living. Whether..."
   },
   {
-    id: 2,
+    id: "side-article-2",
     image: transitionImg,
-    tag: "Materiality",
-    date: "May 18, 2026",
-    title: "Luxurious Travertine: Balancing Raw Finishes with Indirect Light",
-    desc: "Unlocking the volumetric depth of modern bathrooms and lounges through textured plaster and warm recessed light channels."
+    tag: "Electrical & Lighting",
+    author: "Admin",
+    date: "June 2, 2026",
+    title: "Innovative Interior Ideas To Refresh Your Living Space",
+    desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living. Whether..."
   },
   {
-    id: 3,
+    id: "side-article-3",
     image: aboutImg,
-    tag: "Execution",
-    date: "April 02, 2026",
-    title: "Honest Supervision: The Critical Value of Architect-Led Remodeling",
-    desc: "Why on-site family-led quality control and municipal blueprint compliance guarantee zero hidden construction delays."
+    tag: "Accessories",
+    author: "Admin",
+    date: "June 2, 2026",
+    title: "Transform Your Home With The Modern Interior Design...",
+    desc: "Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living. Whether..."
   }
 ];
 
-export default function Blog() {
+export default function Blog({ setView }) {
+  const handleArticleClick = () => {
+    if (typeof setView === "function") {
+      setView("blog");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="blog" className="bg-field py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-8xl mx-auto px-6 md:px-12">
-        {/* Header Block */}
-        <div className="text-left mb-16 md:mb-24 space-y-4">
-          <div className="inline-flex items-center space-x-2">
-            <span className="text-primary text-xs">✦</span>
-            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-              OUR JOURNAL
-            </span>
+    <section id="blog" className="bg-[#faf9f6] py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
+      
+      {/* Container Wrapper */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12 sm:space-y-16">
+        
+        {/* HEADER SECTION (Matching exact image layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left border-b border-stone-200/80 pb-10">
+          
+          {/* Left Eyebrow Pill Badge */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#c5a880] animate-pulse" />
+              <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
+                STRAIGHT FROM THE NEWSROOM
+              </span>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-tight uppercase">
-            Architectural Insights <span className="font-serif italic text-primary font-normal lowercase">&amp;</span> <br />
-            <span className="font-serif italic text-primary font-normal lowercase">Craftsman</span> Chronicles
-          </h2>
+
+          {/* Right Main Grand Headline */}
+          <div className="lg:col-span-8">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+              Take A Look At <span className="text-[#c5a880]">Our Latest</span> <br />
+              <span className="text-[#c5a880]">Blog</span> & Articles.
+            </h2>
+          </div>
+
         </div>
 
-        {/* Content Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* MAIN ARTICLES GRID (Exact Image Layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start text-left">
           
-          {/* Left Column: Big Featured Card */}
-          <div className="lg:col-span-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm space-y-6 group cursor-pointer text-left"
-            >
-              <div className="w-full aspect-[4/3] rounded-none overflow-hidden bg-stone-100 relative">
-                <AppImage
-                  src={coastalImg}
-                  alt="Extra space design"
-                  className="w-full h-full object-cover filter brightness-95 transform scale-100 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
+          {/* Left Column: Big Featured Main Article */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            onClick={handleArticleClick}
+            className="lg:col-span-6 space-y-5 group cursor-pointer bg-white border border-stone-200/80 p-5 sm:p-6 rounded-[32px] shadow-lg hover:shadow-2xl transition-all duration-500"
+          >
+            {/* Image Container with Tag Badge */}
+            <div className="relative w-full aspect-[16/11] rounded-[24px] overflow-hidden bg-stone-100">
+              <img
+                src={mainArticle.image}
+                alt={mainArticle.title}
+                className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+              />
+
+              {/* Tag Pill Badge Overlaid on Image Top Left */}
+              <div className="absolute top-4 left-4 z-10">
+                <span className="bg-[#c5a880] text-stone-950 font-mono text-[10px] sm:text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
+                  {mainArticle.tag}
+                </span>
+              </div>
+            </div>
+
+            {/* Content Details Below Image */}
+            <div className="space-y-3 px-1">
+              <div className="flex items-center space-x-2 text-xs font-mono text-stone-500">
+                <span>By</span>
+                <span className="text-[#c5a880] font-extrabold">{mainArticle.author}</span>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-[10px] font-mono tracking-wider text-stone-400 font-bold">
-                  <span className="text-primary uppercase">Structural Curation</span>
-                  <span>&bull;</span>
-                  <span>June 29, 2026</span>
-                </div>
-                <h3 className="text-xl md:text-2xl font-serif text-stone-900 font-medium group-hover:text-primary transition-colors duration-300 leading-snug">
-                  Four Ways to Create Volumetric Space in Residential Architecture
-                </h3>
-                <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
-                  We believe that every space has the power to inspire, and that great design brings that inspiration to life. Our mission is to craft environments that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 leading-snug group-hover:text-[#c5a880] transition-colors duration-300">
+                {mainArticle.title}
+              </h3>
 
-          {/* Right Column: Three Vertical Small List Items */}
+              <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed line-clamp-3">
+                {mainArticle.desc}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Column: 3 Stacked Horizontal Article Items */}
           <div className="lg:col-span-6 space-y-6">
-            {sideArticles.map((art, idx) => (
+            {rightArticles.map((art, idx) => (
               <motion.div
                 key={art.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-white border border-stone-200/60 p-4 rounded-none shadow-sm hover:border-primary/20 transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center group cursor-pointer text-left"
+                transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                onClick={handleArticleClick}
+                className="bg-white border border-stone-200/80 p-4 sm:p-5 rounded-[28px] shadow-sm hover:shadow-xl hover:border-[#c5a880]/50 transition-all duration-300 flex flex-col sm:flex-row gap-5 items-center group cursor-pointer"
               >
-                {/* Small image frame */}
-                <div className="w-full sm:w-28 aspect-video sm:aspect-square rounded-none overflow-hidden bg-stone-100 shrink-0">
-                  <AppImage
+                {/* Thumbnail Image Left with Tag Badge */}
+                <div className="relative w-full sm:w-44 md:w-48 aspect-[16/11] rounded-[20px] overflow-hidden bg-stone-100 shrink-0">
+                  <img
                     src={art.image}
                     alt={art.title}
-                    className="w-full h-full object-cover filter brightness-95 transform scale-100 group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
+
+                  {/* Tag Pill Badge Overlaid on Thumbnail Top Left */}
+                  <div className="absolute top-2.5 left-2.5 z-10">
+                    <span className="bg-[#c5a880] text-stone-950 font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                      {art.tag}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Article details */}
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-3 text-[10px] font-mono tracking-wider text-stone-400 font-bold">
-                    <span className="text-primary uppercase">{art.tag}</span>
-                    <span>&bull;</span>
+                {/* Article Info Right */}
+                <div className="space-y-2 text-left flex-1">
+                  <div className="flex items-center space-x-2 text-[11px] font-mono text-stone-400">
                     <span>{art.date}</span>
+                    <span>&bull;</span>
+                    <span>By</span>
+                    <span className="text-[#c5a880] font-bold">{art.author}</span>
                   </div>
-                  <h4 className="text-sm md:text-base font-serif font-medium text-stone-900 group-hover:text-primary transition-colors duration-300 leading-snug">
+
+                  <h4 className="text-sm sm:text-base font-extrabold text-stone-900 group-hover:text-[#c5a880] transition-colors duration-300 leading-snug line-clamp-2">
                     {art.title}
                   </h4>
+
                   <p className="text-stone-500 text-xs font-light leading-relaxed line-clamp-2">
                     {art.desc}
                   </p>
@@ -128,6 +185,7 @@ export default function Blog() {
           </div>
 
         </div>
+
       </div>
     </section>
   );

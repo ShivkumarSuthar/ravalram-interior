@@ -1,8 +1,6 @@
-import AppImage from "./AppImage";
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-
-const transitionImg = "/images/antra_transition_luxury_1782747459033.jpg";
+import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
 
 function CountUp({ to, duration = 1.5, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -56,106 +54,118 @@ export default function Stats() {
   };
 
   return (
-    <section className="bg-field py-24 md:py-32 overflow-hidden border-t border-stone-200/50">
-      <div className="max-w-8xl mx-auto px-6 md:px-12">
+    <section className="bg-[#faf9f6] py-20 md:py-32 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-16"
+          className="space-y-16 md:space-y-20"
         >
-          {/* Header Row: Text Left, Tab-Notch Image Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Description Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center space-x-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
-                  TRUSTED EXPERIENCE
-                </span>
+          {/* Header Row: Text Left, Tabbed Rounded Image Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              {/* Pill Tag */}
+              <div>
+                <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/90 px-4 py-1.5 rounded-full shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#c5a880]" />
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-stone-700">
+                    TRUSTED EXPERIENCE
+                  </span>
+                </div>
               </div>
-              <h3 className="text-3xl md:text-5xl font-light tracking-tight text-stone-900 leading-[1.15] max-w-xl uppercase">
-                Behind <span className="font-serif italic text-primary font-normal lowercase">Every Metric</span> sits a family legacy
-              </h3>
-              <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl">
-                Founded in 1989 by master craftsman Ravalram H. Suthar, our family studio began with a simple yet uncompromising standard: to merge honest craftsmanship with timeless, architect-supervised spatial design.
+
+              {/* Title with exact coloring from reference */}
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+                Behind <span className="text-[#c5a880]">Every Statistic</span><br />
+                <span className="text-[#c5a880]">Pulses</span> A Human Story
+              </h2>
+
+              {/* Description paragraph */}
+              <p className="text-stone-500 font-light text-sm sm:text-base leading-relaxed max-w-xl">
+                We believe that every space tells a story. Founded in 2010 by visionary designer Antra, our journey began with a simple yet powerful mission: to transform ordinary spaces into extraordinary experiences.
               </p>
             </div>
 
-            {/* Right Tab-Notch Image Column */}
-            <div className="lg:col-span-5 pt-8 lg:pt-0">
-              <div className="relative bg-white border border-stone-200/60 p-3 rounded-none shadow-sm">
-                {/* The Folder Tab Notch */}
-                <div className="absolute top-[-25px] left-[-1px] h-[26px] w-36 bg-field rounded-t-sm border-t border-l border-r border-stone-200/60 flex items-center justify-center">
-                  <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-stone-400">STUDIO_ARCHIVE</span>
+            {/* Right Tabbed Rounded Image Card */}
+            <div className="lg:col-span-6">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] shadow-2xl overflow-hidden bg-stone-900 border border-stone-200/60" style={{ borderRadius: "28px 28px 28px 28px" }}>
+                
+                {/* Custom Tab Notch Visual at top-left edge if needed */}
+                <div className="absolute top-0 left-0 w-36 h-8 bg-[#faf9f6] rounded-br-2xl z-20 flex items-center justify-center">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#c5a880] mr-2" />
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-stone-600">SUTHAR</span>
                 </div>
-                {/* Image */}
-                <div className="w-full aspect-[16/10] overflow-hidden rounded-none">
-                  <AppImage
-                    src={transitionImg}
-                    alt="Luxury interior architecture detail"
-                    className="w-full h-full object-cover filter brightness-95"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+
+                <img
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
+                  alt="Luxury modern living room interior"
+                  className="w-full h-full object-cover filter brightness-[0.98] transition-transform duration-700 hover:scale-105"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
+
           </div>
 
-          {/* Metrics Horizontal Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-200/50 pt-16">
+          {/* Metrics 4-Column Horizontal Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 border-t border-stone-200/80 pt-12 md:pt-16">
             
             {/* Metric 1 */}
-            <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-primary font-light leading-none">
-                <CountUp to={35} duration={1.5} suffix="+" />
+            <motion.div variants={itemVariants} className="space-y-2 text-left">
+              <div className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
+                2013
               </div>
-              <div className="space-y-1">
-                <h4 className="text-xs uppercase tracking-widest text-stone-800 font-bold">Years of Heritage</h4>
-                <p className="text-stone-500 text-xs font-light leading-relaxed">
-                  Family craftsmanship and structural integrity since 1989.
-                </p>
-              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+                Years Experience
+              </h3>
+              <p className="text-stone-500 font-light text-xs sm:text-sm leading-relaxed">
+                Improving homes with expert craftsmanship for years
+              </p>
             </motion.div>
 
             {/* Metric 2 */}
-            <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-primary font-light leading-none">
-                <CountUp to={250} duration={1.5} suffix="+" />
+            <motion.div variants={itemVariants} className="space-y-2 text-left">
+              <div className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
+                <CountUp to={190} duration={1.5} suffix="+" />
               </div>
-              <div className="space-y-1">
-                <h4 className="text-xs uppercase tracking-widest text-stone-800 font-bold">Spaces Perfected</h4>
-                <p className="text-stone-500 text-xs font-light leading-relaxed">
-                  Bespoke residential, commercial, and turnkey projects.
-                </p>
-              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+                Projects Completed
+              </h3>
+              <p className="text-stone-500 font-light text-xs sm:text-sm leading-relaxed">
+                Over 250 successful projects delivered with quality and care
+              </p>
             </motion.div>
 
             {/* Metric 3 */}
-            <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-primary font-light leading-none">
-                <CountUp to={20} duration={1.5} suffix="+" />
+            <motion.div variants={itemVariants} className="space-y-2 text-left">
+              <div className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
+                <CountUp to={260} duration={1.5} suffix="+" />
               </div>
-              <div className="space-y-1">
-                <h4 className="text-xs uppercase tracking-widest text-stone-800 font-bold">In-House Artisans</h4>
-                <p className="text-stone-500 text-xs font-light leading-relaxed">
-                  Spatial architects and expert carpentry professionals.
-                </p>
-              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+                Skilled Tradespeople
+              </h3>
+              <p className="text-stone-500 font-light text-xs sm:text-sm leading-relaxed">
+                Our team of 30 experts ensures top-quality results
+              </p>
             </motion.div>
 
             {/* Metric 4 */}
-            <motion.div variants={itemVariants} className="space-y-3 text-left">
-              <div className="text-4xl md:text-5xl font-serif text-primary font-light leading-none">
-                <CountUp to={100} duration={1.5} suffix="%" />
+            <motion.div variants={itemVariants} className="space-y-2 text-left">
+              <div className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
+                <CountUp to={328} duration={1.5} suffix="+" />
               </div>
-              <div className="space-y-1">
-                <h4 className="text-xs uppercase tracking-widest text-stone-800 font-bold">Honest Transparency</h4>
-                <p className="text-stone-500 text-xs font-light leading-relaxed">
-                  Direct-to-owner honest pricing and execution schedules.
-                </p>
-              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+                Client Satisfaction
+              </h3>
+              <p className="text-stone-500 font-light text-xs sm:text-sm leading-relaxed">
+                All of our clients are satisfied with our work and service
+              </p>
             </motion.div>
 
           </div>

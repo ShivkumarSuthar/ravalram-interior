@@ -96,7 +96,7 @@ Our type hierarchy balances high-end modern sans-serif fonts with elegant, edito
 
 The interface must behave as a cohesive system of fluid blocks. Content must align perfectly to an invisible architectural grid.
 
-*   **Max Container Width**: Standardize page-level wrappers to `max-w-8xl mx-auto px-6 md:px-12 lg:px-16`.
+*   **Max Container Width**: Standardize page-level wrappers to `max-w-7xl mx-auto px-6 md:px-12 lg:px-16`.
 *   **Section Spacing**: Keep vertical breathing room spacious. Standardize section padding to `py-16 sm:py-24 lg:py-32`.
 *   **Grid Spacing**: Standard grids must use `gap-8` or `gap-12` to preserve high visual breathing room.
 *   **Card Spacing**: Component cards inside galleries must use `space-y-4` or `space-y-6`.
