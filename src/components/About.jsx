@@ -13,10 +13,10 @@ import {
   CheckCircle2,
   Navigation
 } from "lucide-react";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-import isometricPlan from "../assets/images/isometric_floor_plan_1784822786880.jpg";
-import pavilionImg from "../assets/images/architectural_pavilion_1784821025997.jpg";
+const aboutImg = "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
+const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
+const isometricPlan = "/assets/images/isometric_floor_plan_1784822786880.jpg";
+const pavilionImg = "/assets/images/architectural_pavilion_1784821025997.jpg";
 
 const locations = [
   {
@@ -274,17 +274,17 @@ export default function About({ setView }) {
               {/* Floating Gold Experience Badge */}
               <motion.div
                 variants={itemVariants}
-                className="absolute left-2 sm:left-4 bottom-[-20px] sm:bottom-[-30px] bg-[#c5a880] text-white px-6 py-4 sm:px-8 sm:py-6 rounded-[22px] sm:rounded-[26px] shadow-2xl z-30 flex items-center space-x-3 sm:space-x-4 border-2 border-white/20"
+                className="absolute left-2 sm:left-4 bottom-[-20px] sm:bottom-[-30px] bg-[#CAA05C] text-white px-6 py-4 sm:px-8 sm:py-6 rounded-[22px] sm:rounded-[26px] shadow-2xl z-30 flex items-center space-x-3 sm:space-x-4 border-2 border-white/20"
               >
-                <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none">
-                  19
+                <span className="text-3xl sm:text-4xl lg:text-7xl font-extrabold tracking-tight leading-none">
+                  35+
                 </span>
                 <div className="flex flex-col text-left">
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider leading-tight text-white/95">
                     Years
                   </span>
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider leading-tight text-white/95">
-                    Experience
+                    Legacy
                   </span>
                 </div>
               </motion.div>
@@ -297,7 +297,7 @@ export default function About({ setView }) {
             
             <motion.div variants={itemVariants}>
               <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/90 px-4 py-1.5 rounded-full shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#c5a880]" />
+                <span className="w-2 h-2 rounded-full bg-[#CAA05C]" />
                 <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-stone-700">
                   SINCE 1989
                 </span>
@@ -305,9 +305,9 @@ export default function About({ setView }) {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-                Architecture And <span className="text-[#c5a880]">Interiors,</span><br />
-                <span className="text-[#c5a880]">Our Dual</span> Expertise
+              <h2 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+                Architecture And <span className="text-[#CAA05C]">Interiors,</span><br />
+                <span className="text-[#CAA05C]">Our Dual</span> Expertise
               </h2>
             </motion.div>
 
@@ -335,6 +335,15 @@ export default function About({ setView }) {
               </div>
             </motion.div>
 
+            <motion.div variants={itemVariants} className="pt-3 border-t border-stone-200/80 space-y-1">
+              <span className="text-[10px] font-mono font-bold text-stone-400 uppercase tracking-widest block">
+                OPERATIONAL FOOTPRINT
+              </span>
+              <p className="text-xs sm:text-sm font-medium text-stone-800 tracking-wide leading-relaxed font-mono">
+                Executing Turnkey Projects Across 5+ Major Cities &amp; Coastal Hubs
+              </p>
+            </motion.div>
+
             <motion.div variants={itemVariants} className="pt-2">
               <button
                 onClick={() => {
@@ -351,7 +360,7 @@ export default function About({ setView }) {
                 <span className="text-xs font-bold tracking-wider uppercase text-stone-900">
                   Discover Our Story
                 </span>
-                <div className="w-8 h-8 rounded-full bg-[#c5a880] text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div className="w-8 h-8 rounded-full bg-[#CAA05C] text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <ArrowUpRight size={16} strokeWidth={2.5} />
                 </div>
               </button>
@@ -359,294 +368,6 @@ export default function About({ setView }) {
 
           </div>
         </motion.div>
-
-        {/* PART 2: EXTRAORDINARY ARCHITECTURAL SERVICE AREA RADAR & SPOTLIGHT INDEX (NO CARDS) */}
-        <div id="service-areas-coverage" className="pt-10 border-t border-stone-200/80 space-y-12">
-          
-          {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 text-left">
-            <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center space-x-2">
-                <span className="text-[#c5a880] text-xs">✦</span>
-                <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-500 block">
-                  SPATIAL REGION SPOTLIGHT
-                </span>
-              </div>
-
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 leading-tight">
-                Architectural Execution <span className="text-[#c5a880]">Across Key Cities</span>
-              </h2>
-
-              <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed">
-                Explore our primary design hubs, coastal estate projects, and regional workshop centers. Select any city to view spatial metrics, active site SLAs, and local architectural focus.
-              </p>
-            </div>
-
-            {/* Category Filter Pills */}
-            <div className="flex items-center flex-wrap gap-2 pt-2 lg:pt-0">
-              <span className="text-xs font-mono font-bold text-stone-400 mr-2 flex items-center gap-1">
-                <SlidersHorizontal size={14} /> FILTER:
-              </span>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                    activeFilter === cat
-                      ? "bg-[#0c0a09] text-white shadow-md border border-[#0c0a09]"
-                      : "bg-white text-stone-600 hover:text-stone-900 border border-stone-200/80 hover:border-stone-300"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* MAIN EXTRAORDINARY SPLIT LAYOUT: Architectural Index Table (Left) + Dark Spatial Spotlight Canvas (Right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
-            {/* LEFT COLUMN: Interactive Architectural Region Index List */}
-            <div className="lg:col-span-5 bg-white border border-stone-200/80 rounded-[28px] p-4 sm:p-6 shadow-sm flex flex-col justify-between space-y-2">
-              <div className="text-left px-2 pt-2 pb-3 border-b border-stone-100 flex items-center justify-between">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-stone-400">
-                  CITY / REGION INDEX ({filteredLocations.length})
-                </span>
-                <span className="text-[11px] font-mono font-bold text-[#c5a880] flex items-center gap-1">
-                  <Navigation size={12} /> INTERACTIVE RADAR
-                </span>
-              </div>
-
-              {/* Scrollable / Stacked Region Selector Items */}
-              <div className="space-y-1.5 max-h-[460px] overflow-y-auto pr-1 scrollbar-thin">
-                {filteredLocations.map((loc) => {
-                  const isSelected = selectedLoc.id === loc.id;
-                  const realIndex = locations.findIndex(l => l.id === loc.id);
-
-                  return (
-                    <button
-                      key={loc.id}
-                      onClick={() => setSelectedLocIndex(realIndex)}
-                      className={`w-full text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 cursor-pointer flex items-center justify-between group border ${
-                        isSelected
-                          ? "bg-[#0c0a09] text-white border-[#0c0a09] shadow-md"
-                          : "bg-transparent text-stone-800 hover:bg-stone-50 border-transparent hover:border-stone-200/60"
-                      }`}
-                    >
-                      <div className="flex items-center space-x-3.5">
-                        <span
-                          className={`text-xs font-mono font-bold ${
-                            isSelected ? "text-[#c5a880]" : "text-stone-400 group-hover:text-stone-600"
-                          }`}
-                        >
-                          {loc.num}
-                        </span>
-
-                        <div>
-                          <div className="flex items-center space-x-2">
-                            <h3
-                              className={`text-base font-extrabold tracking-tight ${
-                                isSelected ? "text-white" : "text-stone-900 group-hover:text-[#c5a880]"
-                              }`}
-                            >
-                              {loc.city}
-                            </h3>
-                            {isSelected && (
-                              <span className="w-2 h-2 rounded-full bg-[#c5a880] animate-pulse" />
-                            )}
-                          </div>
-                          <p
-                            className={`text-[11px] font-mono tracking-wide ${
-                              isSelected ? "text-stone-400" : "text-stone-500"
-                            }`}
-                          >
-                            {loc.badge}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-2">
-                        <span
-                          className={`text-[10px] font-mono font-bold hidden sm:inline-block px-2.5 py-1 rounded-full border ${
-                            isSelected
-                              ? "bg-stone-800 text-stone-300 border-stone-700"
-                              : "bg-stone-100 text-stone-500 border-stone-200/80"
-                          }`}
-                        >
-                          {loc.projectsCount}
-                        </span>
-                        <ArrowRight
-                          size={16}
-                          className={`transition-transform duration-300 ${
-                            isSelected
-                              ? "text-[#c5a880] translate-x-1"
-                              : "text-stone-300 group-hover:text-stone-600 group-hover:translate-x-0.5"
-                          }`}
-                        />
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Bottom Quick Note */}
-              <div className="px-3 py-3 mt-2 bg-stone-50 rounded-2xl border border-stone-200/60 text-left flex items-center justify-between text-xs text-stone-500 font-light">
-                <span className="flex items-center gap-1.5 font-medium text-stone-700">
-                  <MapPin size={14} className="text-[#c5a880]" /> Pan-India On-Site Dispatch
-                </span>
-                <span className="text-[10px] font-mono text-stone-400">100% Architect Guaranteed</span>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Dark Architectural Spatial Spotlight Panel */}
-            <div className="lg:col-span-7 bg-[#0c0a09] text-white rounded-[28px] p-6 sm:p-10 border border-stone-800 shadow-2xl relative overflow-hidden flex flex-col justify-between text-left space-y-8">
-              
-              {/* Top Bar with Dynamic City Coordinates */}
-              <div className="flex items-center justify-between border-b border-stone-800 pb-5 z-10">
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#c5a880] uppercase">
-                    ACTIVE REGIONAL FOCUS • {selectedLoc.num}
-                  </span>
-                  <div className="flex items-center space-x-3">
-                    <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                      {selectedLoc.city}
-                    </h3>
-                    <span className="bg-[#c5a880]/20 text-[#c5a880] border border-[#c5a880]/30 text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-full">
-                      {selectedLoc.badge}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="text-right hidden sm:block">
-                  <span className="block text-[10px] font-mono text-stone-400">GPS COORDINATES</span>
-                  <span className="text-xs font-mono font-bold text-stone-300">{selectedLoc.coordinates}</span>
-                </div>
-              </div>
-
-              {/* Middle Dynamic Content Spotlight */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedLoc.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center z-10"
-                >
-                  {/* Image Preview Box */}
-                  <div className="sm:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-stone-800 shadow-xl group">
-                    <img
-                      src={selectedLoc.image}
-                      alt={selectedLoc.city}
-                      className="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-transparent to-transparent opacity-80" />
-                    <div className="absolute bottom-3 left-3 right-3 text-left">
-                      <span className="text-[10px] font-mono text-[#c5a880] font-bold block">DISPATCH SLA</span>
-                      <span className="text-xs font-extrabold text-white">{selectedLoc.dispatchSLA}</span>
-                    </div>
-                  </div>
-
-                  {/* Copy Details */}
-                  <div className="sm:col-span-7 space-y-4">
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c5a880]">
-                        SPECIALTY FOCUS
-                      </span>
-                      <h4 className="text-lg font-extrabold text-white leading-snug">
-                        {selectedLoc.specialty}
-                      </h4>
-                    </div>
-
-                    <p className="text-stone-300 font-light text-xs sm:text-sm leading-relaxed">
-                      {selectedLoc.desc}
-                    </p>
-
-                    {/* Key Highlights list */}
-                    <div className="space-y-2 pt-1">
-                      <span className="text-[10px] font-mono text-stone-400 block font-bold">KEY DELIVERABLES:</span>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedLoc.highlights.map((item, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center space-x-1.5 text-[11px] font-medium bg-stone-900 border border-stone-800 text-stone-300 px-3 py-1 rounded-lg"
-                          >
-                            <CheckCircle2 size={12} className="text-[#c5a880]" />
-                            <span>{item}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Bottom Action Footer inside Spotlight */}
-              <div className="pt-5 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 z-10">
-                <div className="flex items-center space-x-3 text-xs text-stone-400 font-light">
-                  <Building2 size={16} className="text-[#c5a880]" />
-                  <span>Looking to start a project in {selectedLoc.city}?</span>
-                </div>
-
-                <button
-                  onClick={() => {
-                    if (typeof setView === "function") {
-                      setView("contact");
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    } else {
-                      const el = document.getElementById("contact");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-lg"
-                >
-                  <span>Request {selectedLoc.city} Site Survey</span>
-                  <ArrowRight size={14} />
-                </button>
-              </div>
-
-              {/* Background Architectural Blueprint Line Grid in dark panel */}
-              <div className="absolute right-0 bottom-0 pointer-events-none opacity-[0.08] z-0">
-                <svg width="400" height="300" viewBox="0 0 400 300" fill="none" stroke="currentColor" className="text-white">
-                  <path d="M0 50 H400 M0 150 H400 M0 250 H400 M100 0 V300 M200 0 V300 M300 0 V300" strokeDasharray="4 4" />
-                  <circle cx="200" cy="150" r="80" strokeWidth="1" />
-                </svg>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Highlights Info Bar underneath Service Areas */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white p-8 md:p-10 rounded-[28px] border border-stone-200/80 shadow-sm relative overflow-hidden"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-              {highlights.map((hl, idx) => {
-                const IconComp = hl.icon;
-                return (
-                  <div key={idx} className="space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#c5a880]/10 text-[#c5a880] flex items-center justify-center border border-[#c5a880]/20">
-                      <IconComp size={20} />
-                    </div>
-                    <h4 className="text-base font-extrabold text-stone-900">
-                      {hl.title}
-                    </h4>
-                    <p className="text-stone-500 text-xs font-light leading-relaxed">
-                      {hl.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-        </div>
 
       </div>
     </section>

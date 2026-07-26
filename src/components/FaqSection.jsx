@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus, MessageSquare, ArrowUpRight, HelpCircle } from "lucide-react";
 
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
+import aboutImg from "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
 
 const faqs = [
   {
@@ -78,7 +78,7 @@ export default function FaqSection({ setView }) {
           {/* Left Eyebrow Pill Badge */}
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#c5a880] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
               <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
                 POPULAR QUERIES
               </span>
@@ -88,8 +88,8 @@ export default function FaqSection({ setView }) {
           {/* Right Main Headline */}
           <div className="lg:col-span-8">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-              Quick And Clear <span className="text-[#c5a880]">Answers</span> <br />
-              To Your Key <span className="text-[#c5a880]">Questions</span>
+              Quick And Clear <span className="text-[#CAA05C]">Answers</span> <br />
+              To Your Key <span className="text-[#CAA05C]">Questions</span>
             </h2>
           </div>
 
@@ -111,18 +111,18 @@ export default function FaqSection({ setView }) {
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center space-x-4 pr-4">
-                      <span className="text-xs font-mono font-bold text-stone-400 group-hover:text-[#c5a880] transition-colors shrink-0">
+                      <span className="text-xs font-mono font-bold text-stone-400 group-hover:text-[#CAA05C] transition-colors shrink-0">
                         {faq.num}
                       </span>
                       <h3 className={`text-base sm:text-lg md:text-xl font-extrabold tracking-tight transition-colors duration-300 ${
-                        isOpen ? "text-[#c5a880]" : "text-stone-900 group-hover:text-[#c5a880]"
+                        isOpen ? "text-[#CAA05C]" : "text-stone-900 group-hover:text-[#CAA05C]"
                       }`}>
                         {faq.question}
                       </h3>
                     </div>
 
-                    <div className={`w-8 h-8 rounded-full border border-stone-300 group-hover:border-[#c5a880] flex items-center justify-center text-stone-700 group-hover:text-[#c5a880] transition-all duration-300 shrink-0 ${
-                      isOpen ? "bg-[#c5a880] text-stone-950 border-[#c5a880]" : "bg-white"
+                    <div className={`w-8 h-8 rounded-full border border-stone-300 group-hover:border-[#CAA05C] flex items-center justify-center text-stone-700 group-hover:text-[#CAA05C] transition-all duration-300 shrink-0 ${
+                      isOpen ? "bg-[#CAA05C] text-stone-950 border-[#CAA05C]" : "bg-white"
                     }`}>
                       {isOpen ? <Minus size={16} strokeWidth={2.5} /> : <Plus size={16} strokeWidth={2.5} />}
                     </div>
@@ -183,7 +183,7 @@ export default function FaqSection({ setView }) {
               {/* Action Button */}
               <button
                 onClick={handleContactClick}
-                className="w-full inline-flex items-center justify-center space-x-2 bg-[#0c0a09] hover:bg-[#c5a880] text-white hover:text-stone-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-300 cursor-pointer shadow-md group"
+                className="w-full inline-flex items-center justify-center space-x-2 bg-[#0c0a09] hover:bg-[#CAA05C] text-white hover:text-stone-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-300 cursor-pointer shadow-md group"
               >
                 <span>Ask Architect Directly</span>
                 <ArrowUpRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

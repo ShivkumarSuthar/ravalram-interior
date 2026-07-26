@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Volume2, VolumeX, Play, Pause, Maximize2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import bannerImg from "../assets/images/antra_lobby_banner_1782744283860.jpg";
+import bannerImg from "/assets/images/AI_images/antra_lobby_banner_1782744283860.jpg";
 
 export default function AutoVideoPlayer() {
   const videoRef = useRef(null);
@@ -96,7 +96,7 @@ export default function AutoVideoPlayer() {
             className="pointer-events-auto w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-[0_0_80px_rgba(255,255,255,0.2)] transition-all duration-500 cursor-pointer group"
             aria-label="Toggle Video Playback"
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-stone-900/40 border border-white/30 flex items-center justify-center group-hover:bg-[#c5a880] group-hover:text-stone-950 transition-all duration-300">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-stone-900/40 border border-white/30 flex items-center justify-center group-hover:bg-[#CAA05C] group-hover:text-stone-950 transition-all duration-300">
               {isPlaying ? (
                 <Pause size={28} className="text-white group-hover:text-stone-950" />
               ) : (
@@ -134,7 +134,7 @@ export default function AutoVideoPlayer() {
           {/* Sound Toggle */}
           <button
             onClick={toggleMute}
-            className="w-10 h-10 rounded-full bg-black/60 hover:bg-[#c5a880] text-white hover:text-stone-950 flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-300 shadow-xl cursor-pointer"
+            className="w-10 h-10 rounded-full bg-black/60 hover:bg-[#CAA05C] text-white hover:text-stone-950 flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-300 shadow-xl cursor-pointer"
             title={isMuted ? "Unmute" : "Mute"}
             aria-label="Toggle Mute"
           >
@@ -144,7 +144,7 @@ export default function AutoVideoPlayer() {
           {/* Fullscreen Toggle */}
           <button
             onClick={toggleFullScreen}
-            className="w-10 h-10 rounded-full bg-black/60 hover:bg-[#c5a880] text-white hover:text-stone-950 flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-300 shadow-xl cursor-pointer hidden sm:flex"
+            className="w-10 h-10 rounded-full bg-black/60 hover:bg-[#CAA05C] text-white hover:text-stone-950 flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-300 shadow-xl cursor-pointer hidden sm:flex"
             title="Fullscreen"
             aria-label="Fullscreen"
           >

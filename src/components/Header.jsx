@@ -98,13 +98,13 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             className="flex items-center space-x-2.5 group cursor-pointer text-left focus:outline-none"
             id="header-logo-link"
           >
-            <div className="text-[#c5a880] flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="text-[#CAA05C] flex items-center justify-center group-hover:scale-105 transition-transform">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
             </div>
-            <span className="text-2xl font-black tracking-tight text-white transition-colors hover:text-[#c5a880]">
-              antra
+            <span className="text-2xl font-black tracking-tight text-white transition-colors hover:text-[#CAA05C]">
+              suthar<span className="text-[#CAA05C]">.</span>
             </span>
           </button>
 
@@ -115,7 +115,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             <button
               onClick={() => navigateToSection("home", null)}
               className={`text-[13px] font-semibold tracking-wide transition-colors duration-300 py-2 cursor-pointer flex items-center gap-1 ${
-                currentView === "home" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                currentView === "home" ? "text-[#CAA05C]" : "text-white/90 hover:text-[#CAA05C]"
               }`}
             >
               <span>Home</span>
@@ -129,7 +129,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             >
               <button
                 className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
-                  currentView === "services" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                  currentView === "services" ? "text-[#CAA05C]" : "text-white/90 hover:text-[#CAA05C]"
                 }`}
               >
                 <span>Services</span>
@@ -137,14 +137,14 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
               
               {/* Dropdown Box */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[720px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[720px] bg-[#CAA05C] shadow-2xl rounded-xl border border-[#CAA05C]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
                 {/* Left Column - Services Main Roles */}
-                <div className="w-[260px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                <div className="w-[260px] bg-[#CAA05C] p-2 flex flex-col space-y-1 border-r border-[#CAA05C]/20">
                   <button
                     onMouseEnter={() => setActiveServices("INTERIOR WORK")}
                     onClick={() => navigateToSection("services", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeServices === "INTERIOR WORK" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeServices === "INTERIOR WORK" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Interior Work</span>
@@ -155,7 +155,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveServices("CARPENTRY")}
                     onClick={() => navigateToSection("services", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeServices === "CARPENTRY" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeServices === "CARPENTRY" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Carpentry</span>
@@ -166,7 +166,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveServices("PAINTING & FINISHING")}
                     onClick={() => navigateToSection("services", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeServices === "PAINTING & FINISHING" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeServices === "PAINTING & FINISHING" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Painting & Finishing</span>
@@ -177,7 +177,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveServices("FLOORING")}
                     onClick={() => navigateToSection("services", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeServices === "FLOORING" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeServices === "FLOORING" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Flooring</span>
@@ -186,7 +186,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </div>
 
                 {/* Right Column */}
-                <div className="flex-1 bg-[#243343] p-6 text-left flex flex-col justify-between">
+                <div className="flex-1 bg-[#CAA05C] p-6 text-left flex flex-col justify-between">
                   <div>
                     <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
                       {activeServices}
@@ -194,7 +194,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeServices === "INTERIOR WORK" && (
                       <div>
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">COMPLETE INTERIOR DESIGN SOLUTIONS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block mb-4">COMPLETE INTERIOR DESIGN SOLUTIONS</span>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                           {[
                             "Full Interior Design",
@@ -213,9 +213,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                                   window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
                                 }, 150);
                               }}
-                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                              className="text-left text-white/70 hover:text-[#CAA05C] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
                             >
-                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span className="w-1 h-1 rounded-full bg-[#CAA05C]/60" />
                               <span>{sub}</span>
                             </button>
                           ))}
@@ -225,7 +225,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeServices === "CARPENTRY" && (
                       <div>
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">BESPOKE WOODWORK & JOINERY SINCE 1989</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block mb-4">BESPOKE WOODWORK & JOINERY SINCE 1989</span>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                           {[
                             "Modular Kitchens",
@@ -243,9 +243,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                                   window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
                                 }, 150);
                               }}
-                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                              className="text-left text-white/70 hover:text-[#CAA05C] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
                             >
-                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span className="w-1 h-1 rounded-full bg-[#CAA05C]/60" />
                               <span>{sub}</span>
                             </button>
                           ))}
@@ -255,7 +255,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeServices === "PAINTING & FINISHING" && (
                       <div>
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">WALL ART & PREMIUM FINE COATINGS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block mb-4">WALL ART & PREMIUM FINE COATINGS</span>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                           {[
                             "Italian Stucco Plasters",
@@ -273,9 +273,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                                   window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
                                 }, 150);
                               }}
-                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                              className="text-left text-white/70 hover:text-[#CAA05C] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
                             >
-                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span className="w-1 h-1 rounded-full bg-[#CAA05C]/60" />
                               <span>{sub}</span>
                             </button>
                           ))}
@@ -285,7 +285,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeServices === "FLOORING" && (
                       <div>
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block mb-4">EXQUISITE STONE & WOOD SURFACES</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block mb-4">EXQUISITE STONE & WOOD SURFACES</span>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                           {[
                             "Italian Marble Laying",
@@ -303,9 +303,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                                   window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
                                 }, 150);
                               }}
-                              className="text-left text-white/70 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
+                              className="text-left text-white/70 hover:text-[#CAA05C] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 focus:outline-none"
                             >
-                              <span className="w-1 h-1 rounded-full bg-[#c5a880]/60" />
+                              <span className="w-1 h-1 rounded-full bg-[#CAA05C]/60" />
                               <span>{sub}</span>
                             </button>
                           ))}
@@ -316,7 +316,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                   <button
                     onClick={() => navigateToSection("services", null)}
-                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#CAA05C] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
                   >
                     <span>View All Services</span>
                     <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -333,7 +333,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             >
               <button
                 className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
-                  currentView === "gallery" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                  currentView === "gallery" ? "text-[#CAA05C]" : "text-white/90 hover:text-[#CAA05C]"
                 }`}
               >
                 <span>Projects</span>
@@ -341,15 +341,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
               
               {/* Dropdown Box */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-[#CAA05C] shadow-2xl rounded-xl border border-[#CAA05C]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
                 
                 {/* Left Column - Portfolio divisions */}
-                <div className="w-[250px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                <div className="w-[250px] bg-[#CAA05C] p-2 flex flex-col space-y-1 border-r border-[#CAA05C]/20">
                   <button
                     onMouseEnter={() => setActiveWork("RESIDENTIAL PROJECTS")}
                     onClick={() => navigateToSection("gallery", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeWork === "RESIDENTIAL PROJECTS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeWork === "RESIDENTIAL PROJECTS" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Residential Projects</span>
@@ -360,7 +360,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveWork("COMMERCIAL PROJECTS")}
                     onClick={() => navigateToSection("gallery", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeWork === "COMMERCIAL PROJECTS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeWork === "COMMERCIAL PROJECTS" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Commercial Projects</span>
@@ -371,7 +371,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveWork("BEFORE & AFTER")}
                     onClick={() => navigateToSection("gallery", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeWork === "BEFORE & AFTER" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeWork === "BEFORE & AFTER" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Before & After</span>
@@ -382,7 +382,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveWork("CLIENT CASE STUDIES")}
                     onClick={() => navigateToSection("blog", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeWork === "CLIENT CASE STUDIES" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeWork === "CLIENT CASE STUDIES" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Client Case Studies</span>
@@ -391,7 +391,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </div>
 
                 {/* Right Column */}
-                <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+                <div className="flex-1 bg-[#CAA05C] p-8 flex flex-col justify-between text-left">
                   <div>
                     <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
                       {activeWork}
@@ -399,7 +399,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeWork === "RESIDENTIAL PROJECTS" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">BEAUTIFUL HOMES WE'VE DESIGNED</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">BEAUTIFUL HOMES WE'VE DESIGNED</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Step inside our curated catalog of ultra-luxury residential properties, sea-facing duplexes in Bandra, high-end penthouses, and bespoke furniture integrations.
                         </p>
@@ -408,7 +408,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeWork === "COMMERCIAL PROJECTS" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">INSPIRING SPACES FOR GREAT BRANDS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">INSPIRING SPACES FOR GREAT BRANDS</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Explore ergonomically structured workspaces, high-end design galleries, custom retail flagships, and premium offices curated for optimal flow and luxury aesthetic.
                         </p>
@@ -417,7 +417,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeWork === "BEFORE & AFTER" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">WITNESS SPECTACULAR RENOVATIONS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">WITNESS SPECTACULAR RENOVATIONS</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Examine high-fidelity case portfolios of on-site structural magic, transitioning hollow concrete shells into meticulously tailored luxury spaces.
                         </p>
@@ -426,7 +426,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeWork === "CLIENT CASE STUDIES" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">WALKTHROUGHS & TIME-STAMPED LOGS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">WALKTHROUGHS & TIME-STAMPED LOGS</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Read deep developmental studies mapping material sourcing challenges, carpentry joinery blueprints, site hurdles, and premium spatial deliveries.
                         </p>
@@ -436,7 +436,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                   <button
                     onClick={() => navigateToSection("gallery", null)}
-                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#CAA05C] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
                   >
                     <span>View Project Gallery</span>
                     <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -453,7 +453,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             >
               <button
                 className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
-                  currentView === "about-us" || currentView === "faqs" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                  currentView === "about-us" || currentView === "faqs" ? "text-[#CAA05C]" : "text-white/90 hover:text-[#CAA05C]"
                 }`}
               >
                 <span>Pages</span>
@@ -461,15 +461,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
               
               {/* Dropdown Box */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] bg-[#CAA05C] shadow-2xl rounded-xl border border-[#CAA05C]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
                 
                 {/* Left Column */}
-                <div className="w-[240px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                <div className="w-[240px] bg-[#CAA05C] p-2 flex flex-col space-y-1 border-r border-[#CAA05C]/20">
                   <button
                     onMouseEnter={() => setActiveAbout("OUR STORY")}
                     onClick={() => navigateToSection("about-us", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeAbout === "OUR STORY" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeAbout === "OUR STORY" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>About Us</span>
@@ -480,7 +480,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveAbout("OUR TEAM")}
                     onClick={() => navigateToSection("about-us", "#team")}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeAbout === "OUR TEAM" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeAbout === "OUR TEAM" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Our Team</span>
@@ -491,7 +491,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveAbout("WHY CHOOSE US")}
                     onClick={() => navigateToSection("about-us", "#about-story")}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeAbout === "WHY CHOOSE US" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeAbout === "WHY CHOOSE US" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Why Choose Us</span>
@@ -502,7 +502,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveAbout("TESTIMONIALS")}
                     onClick={() => navigateToSection("faqs", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeAbout === "TESTIMONIALS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeAbout === "TESTIMONIALS" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>FAQs & Info</span>
@@ -511,7 +511,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </div>
 
                 {/* Right Column */}
-                <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+                <div className="flex-1 bg-[#CAA05C] p-8 flex flex-col justify-between text-left">
                   <div>
                     <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
                       {activeAbout}
@@ -519,7 +519,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     
                     {activeAbout === "OUR STORY" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">LEARN ABOUT OUR JOURNEY AND VALUES</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">LEARN ABOUT OUR JOURNEY AND VALUES</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Founded in 1989 by master artisan Ravalram H. Suthar, we have spent over 30 years perfecting the art of bespoke timber joinery and luxury interior solutions.
                         </p>
@@ -528,7 +528,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeAbout === "OUR TEAM" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">MEET THE LEADERS & ARCHITECTS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">MEET THE LEADERS & ARCHITECTS</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Led by Shivkumar Suthar and lead architect Padam P. Sutar, our team blends legacy Indian woodcraft with contemporary computational CAD and interior spatial architecture.
                         </p>
@@ -537,7 +537,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeAbout === "WHY CHOOSE US" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">30+ YEARS OF GENERATIONAL TRUST</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">30+ YEARS OF GENERATIONAL TRUST</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           We guarantee architect-supervised construction sites, absolute 100% material authentication, clear Bill of Quantities (BOQ), and highly durable timber structures.
                         </p>
@@ -546,7 +546,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeAbout === "TESTIMONIALS" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">QUESTIONS & ANSWERS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">QUESTIONS & ANSWERS</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Find details about project timelines, design consultation steps, warranty details, and site supervision policies.
                         </p>
@@ -556,7 +556,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                   <button
                     onClick={() => navigateToSection("about-us", null)}
-                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#CAA05C] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
                   >
                     <span>Discover More</span>
                     <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -570,7 +570,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             <button
               onClick={() => navigateToSection("blog", null)}
               className={`text-[13px] font-semibold tracking-wide transition-colors duration-300 py-2 cursor-pointer flex items-center gap-1 ${
-                currentView === "blog" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                currentView === "blog" ? "text-[#CAA05C]" : "text-white/90 hover:text-[#CAA05C]"
               }`}
             >
               <span>Blog</span>
@@ -584,7 +584,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             >
               <button
                 className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 py-2 cursor-pointer transition-colors ${
-                  currentView === "contact" ? "text-[#c5a880]" : "text-white/90 hover:text-[#c5a880]"
+                  currentView === "contact" ? "text-[#CAA05C]" : "text-white/90 hover:text-[#CAA05C]"
                 }`}
               >
                 <span>Contact Us</span>
@@ -592,15 +592,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
               
               {/* Dropdown Box */}
-              <div className="absolute top-full right-0 mt-2 w-[680px] bg-[#243343] shadow-2xl rounded-xl border border-[#34495e]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+              <div className="absolute top-full right-0 mt-2 w-[680px] bg-[#CAA05C] shadow-2xl rounded-xl border border-[#CAA05C]/40 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
                 
                 {/* Left Column - Contact channels */}
-                <div className="w-[240px] bg-[#1a2633] p-2 flex flex-col space-y-1 border-r border-[#34495e]/20">
+                <div className="w-[240px] bg-[#CAA05C] p-2 flex flex-col space-y-1 border-r border-[#CAA05C]/20">
                   <button
                     onMouseEnter={() => setActiveContact("REQUEST A QUOTE")}
                     onClick={() => navigateToSection("contact", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeContact === "REQUEST A QUOTE" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeContact === "REQUEST A QUOTE" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Request A Quote</span>
@@ -611,7 +611,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveContact("BOOK A CONSULTATION")}
                     onClick={handleOpenConsultModal}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeContact === "BOOK A CONSULTATION" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeContact === "BOOK A CONSULTATION" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Book Consultation</span>
@@ -622,7 +622,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveContact("FAQS")}
                     onClick={() => navigateToSection("faqs", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeContact === "FAQS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeContact === "FAQS" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>FAQs</span>
@@ -633,7 +633,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveContact("SERVICE AREAS")}
                     onClick={() => navigateToSection("contact", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeContact === "SERVICE AREAS" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeContact === "SERVICE AREAS" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Service Areas</span>
@@ -644,7 +644,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     onMouseEnter={() => setActiveContact("FEEDBACK")}
                     onClick={() => navigateToSection("contact", null)}
                     className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-lg transition-all duration-200 flex items-center justify-between ${
-                      activeContact === "FEEDBACK" ? "bg-[#c5a880] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
+                      activeContact === "FEEDBACK" ? "bg-[#CAA05C] text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>Feedback</span>
@@ -653,7 +653,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </div>
 
                 {/* Right Column - Detail content */}
-                <div className="flex-1 bg-[#243343] p-8 flex flex-col justify-between text-left">
+                <div className="flex-1 bg-[#CAA05C] p-8 flex flex-col justify-between text-left">
                   <div>
                     <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
                       {activeContact}
@@ -661,7 +661,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeContact === "REQUEST A QUOTE" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">GET A QUOTE FOR YOUR PROJECT</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">GET A QUOTE FOR YOUR PROJECT</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Submit your residential measurements, room layouts, and wood styling preferences. Our team will prepare a transparent, itemized estimation proposal.
                         </p>
@@ -670,7 +670,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeContact === "BOOK A CONSULTATION" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">SCHEDULE AN ON-SITE SURVEY</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">SCHEDULE AN ON-SITE SURVEY</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Book a premium consultation window with lead woodcrafters to map material quality guidelines and secure an architect-supervised work plan.
                         </p>
@@ -679,7 +679,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeContact === "FAQS" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">ANSWERS TO RAW TIMBER QUESTIONS</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">ANSWERS TO RAW TIMBER QUESTIONS</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Explore helpful answers concerning carpentry execution maps, our signature 10-year timber warranties, procurement protocols, and turnkey delivery times.
                         </p>
@@ -688,7 +688,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeContact === "SERVICE AREAS" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">SUTHAR REGIONAL SHOWROOM COVERAGE</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">SUTHAR REGIONAL SHOWROOM COVERAGE</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           Our master woodcraft services run across Mumbai (Bandra, Juhu, Santacruz West), Pune core zones, Goa villas, and custom structural exports across India.
                         </p>
@@ -697,7 +697,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     {activeContact === "FEEDBACK" && (
                       <div className="space-y-4">
-                        <span className="text-[10px] text-[#c5a880] font-bold tracking-widest uppercase block">HELP US DEEPEN GENERATIONAL TRUST</span>
+                        <span className="text-[10px] text-[#CAA05C] font-bold tracking-widest uppercase block">HELP US DEEPEN GENERATIONAL TRUST</span>
                         <p className="text-xs text-white/70 leading-relaxed font-light">
                           We believe in honest, uncompromising craft standards. Share your spatial remodeling experiences or showroom service feedback directly with our directors.
                         </p>
@@ -711,7 +711,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       else if (activeContact === "FAQS") navigateToSection("faqs", null);
                       else navigateToSection("contact", null);
                     }}
-                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
+                    className="group/btn inline-flex items-center space-x-2 text-[10px] font-bold text-[#CAA05C] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none"
                   >
                     <span>Connect Now</span>
                     <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -729,12 +729,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               href="tel:+480123678900"
               className="flex items-center space-x-2.5 group"
             >
-              <div className="w-9 h-9 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white group-hover:border-[#c5a880] group-hover:bg-[#c5a880] group-hover:text-stone-950 transition-all duration-300">
+              <div className="w-9 h-9 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white group-hover:border-[#CAA05C] group-hover:bg-[#CAA05C] group-hover:text-stone-950 transition-all duration-300">
                 <Phone size={14} />
               </div>
               <div className="flex flex-col text-left leading-none">
                 <span className="text-[9px] text-stone-300 font-semibold tracking-wider mb-0.5">Call Us Phone</span>
-                <span className="text-xs font-bold text-white tracking-wide transition-colors group-hover:text-[#c5a880]">
+                <span className="text-xs font-bold text-white tracking-wide transition-colors group-hover:text-[#CAA05C]">
                   (+480) 123 678 900
                 </span>
               </div>
@@ -743,7 +743,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             {/* Get A Quote! Button */}
             <button
               onClick={() => navigateToSection("contact", null)}
-              className="bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 font-extrabold text-xs px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-[#c5a880]/20 cursor-pointer"
+              className="bg-[#CAA05C] hover:bg-[#CAA05C] text-stone-950 font-extrabold text-xs px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-[#CAA05C]/20 cursor-pointer"
             >
               Get A Quote!
             </button>
@@ -751,7 +751,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             {/* Search Icon */}
             <button 
               onClick={handleOpenSearchModal}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#c5a880] text-white hover:text-stone-950 transition-all duration-300 flex items-center justify-center cursor-pointer" 
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#CAA05C] text-white hover:text-stone-950 transition-all duration-300 flex items-center justify-center cursor-pointer" 
               aria-label="Search"
             >
               <Search size={16} />
@@ -760,7 +760,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             {/* Grid Layout Icon */}
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#c5a880] text-white hover:text-stone-950 transition-all duration-300 flex items-center justify-center cursor-pointer" 
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#CAA05C] text-white hover:text-stone-950 transition-all duration-300 flex items-center justify-center cursor-pointer" 
               aria-label="Menu Grid"
             >
               <LayoutGrid size={16} />
@@ -770,11 +770,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
           {/* Mobile Menu Trigger */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-stone-900 hover:text-[#c5a880] transition-colors duration-300 cursor-pointer"
+            className="lg:hidden p-2.5 text-white bg-white/10 hover:bg-[#CAA05C] hover:text-stone-950 rounded-full transition-all duration-300 cursor-pointer border border-white/20 flex items-center justify-center shrink-0"
             id="mobile-menu-trigger"
             aria-label="Open Mobile Menu"
           >
-            <Menu size={24} />
+            <Menu size={22} />
           </button>
         </div>
       </motion.header>
@@ -788,19 +788,19 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               animate={{ opacity: 0.6 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute inset-0 bg-black"
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute top-0 right-0 h-full w-80 bg-stone-950 p-8 flex flex-col justify-between border-l border-white/10 shadow-2xl overflow-y-auto"
+              className="absolute top-0 right-0 h-full w-[85vw] sm:w-80 bg-stone-950 p-6 sm:p-8 flex flex-col justify-between border-l border-white/10 shadow-2xl overflow-y-auto"
             >
               <div>
                 <div className="flex items-center justify-between mb-12">
                   <span className="text-2xl font-serif text-white tracking-widest font-medium">
-                    suthar<span className="text-gold-500">.</span>
+                    suthar<span className="text-[#CAA05C]">.</span>
                   </span>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -818,7 +818,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div className="border-b border-white/5 pb-2">
                     <button
                       onClick={() => setIsHomeSubOpen(!isHomeSubOpen)}
-                      className="w-full flex items-center justify-between text-stone-300 hover:text-gold-500 py-2 text-base font-semibold"
+                      className="w-full flex items-center justify-between text-stone-300 hover:text-[#CAA05C] py-2 text-base font-semibold"
                     >
                       <span>Home</span>
                       <ChevronDown size={14} className={`transform transition-transform ${isHomeSubOpen ? "rotate-180" : ""}`} />
@@ -827,19 +827,19 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <div className="pl-4 mt-2 space-y-2 flex flex-col">
                         <button
                           onClick={() => navigateToSection("home", null)}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Main Showcase
                         </button>
                         <button
                           onClick={() => navigateToSection("home", "#services")}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Core Services
                         </button>
                         <button
                           onClick={() => navigateToSection("home", "#portfolio")}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Creative Portfolio
                         </button>
@@ -851,7 +851,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div className="border-b border-white/5 pb-2">
                     <button
                       onClick={() => setIsServicesSubOpen(!isServicesSubOpen)}
-                      className="w-full flex items-center justify-between text-stone-300 hover:text-gold-500 py-2 text-base font-semibold"
+                      className="w-full flex items-center justify-between text-stone-300 hover:text-[#CAA05C] py-2 text-base font-semibold"
                     >
                       <span>Services</span>
                       <ChevronDown size={14} className={`transform transition-transform ${isServicesSubOpen ? "rotate-180" : ""}`} />
@@ -860,7 +860,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <div className="pl-4 mt-2 space-y-2 flex flex-col">
                         <button
                           onClick={() => navigateToSection("services", null)}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left font-semibold text-gold-500"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left font-semibold text-[#CAA05C]"
                         >
                           Services Main Page
                         </button>
@@ -871,7 +871,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
                             }, 150);
                           }}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Interior Designer
                         </button>
@@ -882,7 +882,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
                             }, 150);
                           }}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Interior Contractor
                         </button>
@@ -893,7 +893,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
                             }, 150);
                           }}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Interior 2D & 3D Layouts
                         </button>
@@ -904,7 +904,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <button
                     onClick={() => navigateToSection("gallery", null)}
                     className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
-                      currentView === "gallery" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                      currentView === "gallery" ? "text-[#CAA05C]" : "text-stone-300 hover:text-[#CAA05C]"
                     }`}
                   >
                     Gallery
@@ -914,7 +914,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div className="border-b border-white/5 pb-2">
                     <button
                       onClick={() => setIsPagesSubOpen(!isPagesSubOpen)}
-                      className="w-full flex items-center justify-between text-stone-300 hover:text-gold-500 py-2 text-base font-semibold"
+                      className="w-full flex items-center justify-between text-stone-300 hover:text-[#CAA05C] py-2 text-base font-semibold"
                     >
                       <span>Pages</span>
                       <ChevronDown size={14} className={`transform transition-transform ${isPagesSubOpen ? "rotate-180" : ""}`} />
@@ -923,37 +923,37 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <div className="pl-4 mt-2 space-y-2 flex flex-col">
                         <button
                           onClick={() => navigateToSection("about-us", null)}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left font-semibold text-gold-500"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left font-semibold text-[#CAA05C]"
                         >
                           About Us (Inner Page)
                         </button>
                         <button
                           onClick={() => navigateToSection("home", "#awards")}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Hall of Awards
                         </button>
                         <button
                           onClick={() => navigateToSection("home", "#team")}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Creative Team
                         </button>
                         <button
                           onClick={() => navigateToSection("faqs", null)}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Frequently Asked FAQs
                         </button>
                         <button
                           onClick={() => navigateToSection("blog", null)}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Magazine Journal
                         </button>
                         <button
                           onClick={() => navigateToSection("coming-soon", null)}
-                          className="text-stone-400 hover:text-gold-500 text-sm py-1.5 text-left"
+                          className="text-stone-400 hover:text-[#CAA05C] text-sm py-1.5 text-left"
                         >
                           Coming Soon Launch
                         </button>
@@ -964,7 +964,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <button
                     onClick={() => navigateToSection("blog", null)}
                     className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
-                      currentView === "blog" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                      currentView === "blog" ? "text-[#CAA05C]" : "text-stone-300 hover:text-[#CAA05C]"
                     }`}
                   >
                     Blog
@@ -973,7 +973,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <button
                     onClick={() => navigateToSection("contact", null)}
                     className={`py-2 text-base font-semibold text-left border-b border-white/5 ${
-                      currentView === "contact" ? "text-gold-500" : "text-stone-300 hover:text-gold-500"
+                      currentView === "contact" ? "text-[#CAA05C]" : "text-stone-300 hover:text-[#CAA05C]"
                     }`}
                   >
                     Contact Us
@@ -984,18 +984,18 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
               <div className="border-t border-white/5 pt-8 space-y-6">
                 <a
-                  href="tel:+18004560123"
-                  className="flex items-center text-stone-300 hover:text-gold-500 transition-colors duration-300 text-sm tracking-wider"
+                  href="tel:+919819776030"
+                  className="flex items-center text-stone-300 hover:text-[#CAA05C] transition-colors duration-300 text-sm tracking-wider font-mono font-medium"
                 >
-                  <Phone size={14} className="mr-3 text-gold-500" />
-                  +1 800 456-0123
+                  <Phone size={14} className="mr-3 text-[#CAA05C]" />
+                  +91 98197 76030
                 </a>
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     handleOpenConsultModal();
                   }}
-                  className="w-full py-3 text-center text-xs tracking-widest uppercase font-semibold text-stone-950 bg-gold-500 hover:bg-gold-600 transition-colors duration-300 cursor-pointer"
+                  className="w-full py-3 text-center text-xs tracking-widest uppercase font-semibold text-stone-950 bg-[#CAA05C] hover:bg-[#B88F4C] transition-colors duration-300 cursor-pointer"
                 >
                   Book Consultation
                 </button>
@@ -1024,7 +1024,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-lg bg-stone-900 border border-gold-500/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
+              className="relative w-full max-w-lg bg-stone-900 border border-[#CAA05C]/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
             >
               <button
                 onClick={() => setIsConsultModalOpen(false)}
@@ -1035,7 +1035,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </button>
 
               <div className="mb-6">
-                <div className="inline-flex items-center space-x-2 text-gold-500 text-xs tracking-widest uppercase font-semibold mb-2">
+                <div className="inline-flex items-center space-x-2 text-[#CAA05C] text-xs tracking-widest uppercase font-semibold mb-2">
                   <Sparkles size={12} />
                   <span>Exclusive Session</span>
                 </div>
@@ -1065,7 +1065,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         <input
                           type="text"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#CAA05C] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
                           placeholder="e.g. Eleanor Vance"
                         />
                       </div>
@@ -1080,7 +1080,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         <input
                           type="email"
                           required
-                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#CAA05C] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
                           placeholder="eleanor@luxuryresidence.com"
                         />
                       </div>
@@ -1096,7 +1096,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           <input
                             type="date"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#CAA05C] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
@@ -1109,7 +1109,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           <input
                             type="time"
                             required
-                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-gold-500 px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-950/60 border border-stone-800 focus:border-[#CAA05C] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
                           />
                         </div>
                       </div>
@@ -1118,7 +1118,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full py-3 bg-gold-500 hover:bg-gold-600 text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,168,128,0.4)] cursor-pointer"
+                        className="w-full py-3 bg-[#CAA05C] hover:bg-[#B88F4C] text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,168,128,0.4)] cursor-pointer"
                       >
                         Confirm Booking Proposal
                       </button>
@@ -1130,7 +1130,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     animate={{ scale: 1, opacity: 1 }}
                     className="flex flex-col items-center justify-center py-10 space-y-4"
                   >
-                    <div className="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500 flex items-center justify-center text-gold-500">
+                    <div className="w-14 h-14 rounded-full bg-[#CAA05C]/10 border border-[#CAA05C] flex items-center justify-center text-[#CAA05C]">
                       <Check size={28} />
                     </div>
                     <div className="text-center">
@@ -1171,7 +1171,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               className="w-full max-w-3xl flex flex-col items-center space-y-6"
             >
               <div className="text-center">
-                <span className="text-[#c5a880] text-xs font-bold tracking-[0.2em] uppercase">Search Showroom</span>
+                <span className="text-[#CAA05C] text-xs font-bold tracking-[0.2em] uppercase">Search Showroom</span>
                 <h3 className="text-3xl md:text-4xl font-serif text-white mt-1">Explore Architectural Projects & Services</h3>
               </div>
 
@@ -1183,7 +1183,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Type project name, service, or keyword (e.g. Villa, Modern Kitchen)..."
                   autoFocus
-                  className="w-full bg-stone-900 border border-stone-700 focus:border-[#c5a880] rounded-full pl-14 pr-6 py-4 text-white placeholder-stone-500 outline-none transition-all text-base shadow-2xl"
+                  className="w-full bg-stone-900 border border-stone-700 focus:border-[#CAA05C] rounded-full pl-14 pr-6 py-4 text-white placeholder-stone-500 outline-none transition-all text-base shadow-2xl"
                 />
               </div>
 
@@ -1198,7 +1198,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       setView("gallery");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone-300 hover:text-[#c5a880] hover:border-[#c5a880]/50 text-xs transition-all cursor-pointer"
+                    className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone-300 hover:text-[#CAA05C] hover:border-[#CAA05C]/50 text-xs transition-all cursor-pointer"
                   >
                     {tag}
                   </button>
