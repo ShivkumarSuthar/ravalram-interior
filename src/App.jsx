@@ -4,24 +4,19 @@ import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Services from "./components/Services.jsx";
-import ArchitecturalShowcase from "./components/ArchitecturalShowcase.jsx";
-import AutoVideoPlayer from "./components/AutoVideoPlayer.jsx";
-import LobbyBanner from "./components/LobbyBanner.jsx";
 import Stats from "./components/Stats.jsx";
-import IsometricFloorplanShowcase from "./components/IsometricFloorplanShowcase.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
 import FlexibleSolutions from "./components/FlexibleSolutions.jsx";
 import CreativeProjects from "./components/CreativeProjects.jsx";
 import DreamProjectCTA from "./components/DreamProjectCTA.jsx";
 import Testimonial from "./components/Testimonial.jsx";
-import GiantBanner from "./components/GiantBanner.jsx";
+import AutoVideoPlayer from "./components/AutoVideoPlayer.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import Blog from "./components/Blog.jsx";
 import FaqSection from "./components/FaqSection.jsx";
 import Newsletter from "./components/Newsletter.jsx";
-import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
-import LuxuryChatbot from "./components/LuxuryChatbot.jsx";
+import ScrollNavigation from "./components/ScrollNavigation.jsx";
 import AboutPage from "./components/AboutPage.jsx";
 import ServicesPage from "./components/ServicesPage.jsx";
 import GalleryPage from "./components/GalleryPage.jsx";
@@ -53,7 +48,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#faf9f6] text-stone-900 selection:bg-gold-500 selection:text-stone-950 scroll-smooth" id="app-root">
+    <div className="relative min-h-screen bg-[#faf9f6] text-stone-900 selection:bg-[#CAA05C] selection:text-stone-950 scroll-smooth" id="app-root">
       
       {/* Dynamic SEO and Structured Schema Manager */}
       <SEOHelper currentView={currentView} />
@@ -88,49 +83,43 @@ export default function App() {
               {/* 1. Fullscreen majestic Hero */}
               <Hero setView={setView} />
 
-              {/* 2. Brand story introduction (We Shape Interior Designs...) */}
+              {/* 2. Brand story & family heritage introduction */}
               <About setView={setView} />
 
-              {/* 3. Core Expertise (Explore Our Comprehensive...) */}
+              {/* 3. Core Expertise Services */}
               <Services />
 
-              {/* 3.5. Architectural Pavilion Showcase with giant "Interior" watermark */}
-              <ArchitecturalShowcase />
-
-              {/* 5. Metrics & stats (Behind Every Statistic...) */}
-              <Stats />
-
-              {/* 5.2. Isometric Floor Plan Showcase with Pendant Lights */}
-              <IsometricFloorplanShowcase />
-
-              {/* 5.5. Why Choose Suthar Interior Studio Section */}
-              <WhyChooseUs setView={setView} />
-
-              {/* 5.7. Flexible Solutions Section (Designed Around Your Vision & Budget) */}
+              {/* 4. Flexible Scope & 3D Solution Pathways */}
               <FlexibleSolutions setView={setView} />
 
-              {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
+              {/* 5. Creative Works & Featured Projects Portfolio */}
               <CreativeProjects />
 
-              {/* 10. High-Impact "Let's Start Your New Dream Project" CTA */}
-              <DreamProjectCTA setView={setView} />
+              {/* 6. Proven Metrics & Key Statistics */}
+              <Stats />
 
-              {/* 11. Client Testimonial quotes */}
-              <Testimonial />
+              {/* 7. Studio Pillars & Why Choose Us */}
+              <WhyChooseUs setView={setView} />
 
-              {/* 13. Contact Form (Have A Project In Mind?) */}
-              <ContactForm setView={setView} />
-
-              {/* 14. Magazine blogs list */}
-              <Blog setView={setView} />
-
-              {/* 14.2. Interactive Full-Width Video Player (Unlock Your Dream Home Today!) */}
+              {/* 8. On-Site Craftsmanship Video Showcase */}
               <AutoVideoPlayer />
 
-              {/* 14.5. Popular Queries & FAQ Accordion Section */}
+              {/* 9. Client Testimonials & Reviews */}
+              <Testimonial setView={setView} />
+
+              {/* 10. Frequently Asked Questions */}
               <FaqSection setView={setView} />
 
-              {/* 15. Newsletter subscription circle */}
+              {/* 11. Architectural Articles & Editorial Insights */}
+              <Blog setView={setView} />
+
+              {/* 12. High-Impact Dream Project CTA Banner */}
+              <DreamProjectCTA setView={setView} />
+
+              {/* 13. Consultation & Onboarding Intake Form */}
+              <ContactForm setView={setView} />
+
+              {/* 14. Newsletter Subscription */}
               <Newsletter />
             </motion.div>
           ) : currentView === "about-us" ? (
@@ -303,8 +292,8 @@ export default function App() {
       {/* 16. Footers */}
       <Footer onNavigate={setView} />
 
-      {/* Luxury automated quick query Chatbot */}
-      <LuxuryChatbot />
+      {/* Scroll navigation controls (Scroll to top / Scroll to bottom) */}
+      <ScrollNavigation />
     </div>
   );
 }

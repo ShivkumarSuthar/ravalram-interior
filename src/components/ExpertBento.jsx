@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import aboutImg from "../assets/images/antra_about_side_1782744266546.jpg";
+const aboutImg = "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
 
 function ProgressBar({ label, targetValue }) {
   const [val, setVal] = useState(0);
@@ -34,7 +34,7 @@ function ProgressBar({ label, targetValue }) {
           initial={{ width: 0 }}
           animate={isInView ? { width: `${targetValue}%` } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="h-full bg-[#c5a880]"
+          className="h-full bg-[#CAA05C]"
         />
       </div>
     </div>
@@ -44,13 +44,6 @@ function ProgressBar({ label, targetValue }) {
 export default function ExpertBento() {
   return (
     <section className="bg-[#faf9f6] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
-      {/* Background large ghost outline 'suthar' */}
-      <div className="absolute left-6 bottom-6 select-none pointer-events-none z-0">
-        <span className="text-[12vw] font-serif font-black text-stone-900/[0.015] uppercase tracking-widest leading-none">
-          suthar
-        </span>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
@@ -58,13 +51,13 @@ export default function ExpertBento() {
           <div className="lg:col-span-6 space-y-8 text-left">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/80 px-4 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]" />
                 <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-700">
                   OUR SKILLS
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-tight">
-                Trusted Expert In <span className="text-[#c5a880]">Architectural</span> Design <span className="text-[#c5a880]">And Innovation.</span>
+              <h2 className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-tight">
+                Trusted Expert In <span className="text-[#CAA05C]">Architectural</span> Design <span className="text-[#CAA05C]">And Innovation.</span>
               </h2>
               <p className="text-stone-500 font-light text-sm leading-relaxed max-w-xl">
                 We specialize in transforming visions into reality. Explore our portfolio of innovative architectural and interior design projects crafted with precision.
@@ -97,19 +90,19 @@ export default function ExpertBento() {
               {/* Smaller bento components */}
               <div className="col-span-4 flex flex-col justify-between gap-6">
                 <div className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm text-left space-y-2">
-                  <span className="text-xs font-bold text-[#c5a880] font-mono">250+</span>
+                  <span className="text-xs font-bold text-[#CAA05C] font-mono">250+</span>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">SPACES DESIGNED</p>
                 </div>
 
                 {/* Styled Round Mirror mockup widget */}
                 <div className="bg-white border border-stone-200/60 p-5 aspect-square rounded-none shadow-sm flex items-center justify-center flex-col relative overflow-hidden">
                   <div className="absolute inset-2 border border-dashed border-stone-300" />
-                  <span className="text-xs font-serif italic text-stone-700">Artisan</span>
+                  <span className="text-xs font-bold uppercase text-stone-700">Artisan</span>
                   <span className="text-[8px] uppercase tracking-widest text-stone-400 font-bold mt-1">MIRROR_VIBE</span>
                 </div>
 
                 <div className="bg-stone-900 text-white p-5 rounded-none shadow-sm text-left space-y-1">
-                  <span className="text-xs font-bold text-[#c5a880] font-mono">35+</span>
+                  <span className="text-xs font-bold text-[#CAA05C] font-mono">35+</span>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">LEGACY YEARS</p>
                 </div>
               </div>

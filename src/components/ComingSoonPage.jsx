@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 
 // Asset imports
-import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import transitionLuxury from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+import heroBg from "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg";
+import transitionLuxury from "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
 
 export default function ComingSoonPage({ onBackToHome }) {
   const [email, setEmail] = useState("");
@@ -65,7 +65,7 @@ export default function ComingSoonPage({ onBackToHome }) {
   };
 
   return (
-    <div className="min-h-screen bg-stone-950 text-white font-sans flex flex-col justify-between relative overflow-hidden selection:bg-gold-500 selection:text-stone-950">
+    <div className="min-h-screen bg-stone-950 text-white font-sans flex flex-col justify-between relative overflow-hidden selection:bg-[#CAA05C] selection:text-stone-950">
       
       {/* Background Image & Immersive Gradients */}
       <div className="absolute inset-0 z-0">
@@ -93,13 +93,13 @@ export default function ComingSoonPage({ onBackToHome }) {
       <header className="relative z-20 max-w-7xl w-full mx-auto px-6 py-8 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <span className="text-xl md:text-2xl font-serif tracking-[0.2em] font-light text-white uppercase">
-            SUTHAR<span className="text-gold-500 font-normal">.</span>
+            SUTHAR<span className="text-[#CAA05C] font-normal">.</span>
           </span>
         </div>
         
         <button
           onClick={onBackToHome}
-          className="group inline-flex items-center space-x-2 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-stone-300 hover:text-gold-500 transition-colors cursor-pointer"
+          className="group inline-flex items-center space-x-2 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-stone-300 hover:text-[#CAA05C] transition-colors cursor-pointer"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           <span>Return To Main Workspace</span>
@@ -117,15 +117,15 @@ export default function ComingSoonPage({ onBackToHome }) {
         >
           {/* Animated luxury badge */}
           <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-            <Sparkles size={11} className="text-gold-500 animate-pulse" />
-            <span className="text-[9px] font-mono font-bold tracking-[0.2em] uppercase text-gold-500">
+            <Sparkles size={11} className="text-[#CAA05C] animate-pulse" />
+            <span className="text-[9px] font-mono font-bold tracking-[0.2em] uppercase text-[#CAA05C]">
               NEW EXPERTISE CHANNEL COMING SOON
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-light tracking-tight text-white leading-none uppercase">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-none uppercase">
             WE ARE <br />
-            <span className="font-serif italic text-gold-500 font-normal">LAUNCHING</span> SOON
+            <span className="text-[#CAA05C]">LAUNCHING</span> SOON
           </h1>
 
           <p className="text-stone-400 text-xs sm:text-sm font-light max-w-lg mx-auto leading-relaxed">
@@ -143,7 +143,7 @@ export default function ComingSoonPage({ onBackToHome }) {
         >
           {/* Days */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col items-center justify-center space-y-1">
-            <span className="text-3xl sm:text-5xl font-serif font-light text-gold-500">
+            <span className="text-3xl sm:text-5xl font-serif font-light text-[#CAA05C]">
               {String(timeLeft.days).padStart(2, "0")}
             </span>
             <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-500 font-bold">Days</span>
@@ -167,7 +167,7 @@ export default function ComingSoonPage({ onBackToHome }) {
 
           {/* Seconds */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col items-center justify-center space-y-1">
-            <span className="text-3xl sm:text-5xl font-serif font-light text-gold-500">
+            <span className="text-3xl sm:text-5xl font-serif font-light text-[#CAA05C]">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
             <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-500 font-bold">Secs</span>
@@ -183,7 +183,7 @@ export default function ComingSoonPage({ onBackToHome }) {
         >
           <div className="space-y-1 text-left">
             <h4 className="text-xs uppercase tracking-wider font-bold text-white flex items-center gap-1.5">
-              <Mail size={13} className="text-gold-500" />
+              <Mail size={13} className="text-[#CAA05C]" />
               <span>Subscribe to Pre-Launch Access</span>
             </h4>
             <p className="text-[11px] text-stone-400 font-light">
@@ -199,12 +199,12 @@ export default function ComingSoonPage({ onBackToHome }) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address..."
               disabled={isSubscribed}
-              className="flex-1 px-4 py-3 bg-stone-950 text-white placeholder-stone-600 border border-white/5 text-xs focus:outline-none focus:ring-1 focus:ring-gold-500 rounded"
+              className="flex-1 px-4 py-3 bg-stone-950 text-white placeholder-stone-600 border border-white/5 text-xs focus:outline-none focus:ring-1 focus:ring-[#CAA05C] rounded"
             />
             <button
               type="submit"
               disabled={isSubscribed}
-              className="px-5 py-3 bg-gold-500 hover:bg-gold-600 disabled:bg-stone-800 disabled:text-stone-500 text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors rounded cursor-pointer shrink-0 flex items-center justify-center"
+              className="px-5 py-3 bg-[#CAA05C] hover:bg-[#B88F4C] disabled:bg-stone-800 disabled:text-stone-500 text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors rounded cursor-pointer shrink-0 flex items-center justify-center"
             >
               {isSubscribed ? "Subscribed" : "Notify Me"}
             </button>
@@ -216,7 +216,7 @@ export default function ComingSoonPage({ onBackToHome }) {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="flex items-center space-x-2 text-gold-500 text-[10px] font-mono tracking-wider text-left bg-gold-500/10 p-3 rounded-lg border border-gold-500/20"
+                className="flex items-center space-x-2 text-[#CAA05C] text-[10px] font-mono tracking-wider text-left bg-[#CAA05C]/10 p-3 rounded-lg border border-[#CAA05C]/20"
               >
                 <CheckCircle size={12} className="shrink-0" />
                 <span>Success! You have registered for pre-launch notifications.</span>
@@ -234,16 +234,16 @@ export default function ComingSoonPage({ onBackToHome }) {
         </p>
 
         <div className="flex items-center space-x-4">
-          <a href="#instagram" className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold-500 hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
+          <a href="#instagram" className="w-8 h-8 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
             <Instagram size={14} />
           </a>
-          <a href="#twitter" className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold-500 hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
+          <a href="#twitter" className="w-8 h-8 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
             <Twitter size={14} />
           </a>
-          <a href="#facebook" className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold-500 hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
+          <a href="#facebook" className="w-8 h-8 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
             <Facebook size={14} />
           </a>
-          <a href="#linkedin" className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold-500 hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
+          <a href="#linkedin" className="w-8 h-8 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-stone-400 flex items-center justify-center transition-all">
             <Linkedin size={14} />
           </a>
         </div>

@@ -166,7 +166,7 @@ export default function LuxuryChatbot() {
             initial={{ opacity: 0, scale: 0.85, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 15 }}
-            className="absolute bottom-20 right-0 w-72 bg-stone-900 border border-gold-500/30 text-white p-4 shadow-xl z-20"
+            className="absolute bottom-20 right-0 w-72 bg-stone-900 border border-[#CAA05C]/30 text-white p-4 shadow-xl z-20"
           >
             <button 
               onClick={() => setShowNotification(false)}
@@ -175,11 +175,11 @@ export default function LuxuryChatbot() {
               <X size={12} />
             </button>
             <div className="flex items-start space-x-3 pr-4">
-              <div className="w-8 h-8 rounded-full bg-gold-500/10 border border-gold-500 flex items-center justify-center shrink-0 mt-0.5 text-gold-500 text-xs font-serif italic">
+              <div className="w-8 h-8 rounded-full bg-[#CAA05C]/10 border border-[#CAA05C] flex items-center justify-center shrink-0 mt-0.5 text-[#CAA05C] text-xs font-bold">
                 P
               </div>
               <div className="space-y-1">
-                <p className="text-[10px] uppercase font-bold tracking-widest text-gold-500">Lead Architect</p>
+                <p className="text-[10px] uppercase font-bold tracking-widest text-[#CAA05C]">Lead Architect</p>
                 <p className="text-stone-300 text-xs font-light leading-relaxed">
                   Hi, Padam here. Seeking architectural or custom furniture guidance? Let's chat.
                 </p>
@@ -188,7 +188,7 @@ export default function LuxuryChatbot() {
             <div className="mt-3 flex justify-end">
               <button 
                 onClick={handleOpenToggle}
-                className="text-[10px] tracking-widest font-bold text-gold-500 hover:text-white transition-colors uppercase inline-flex items-center space-x-1 cursor-pointer"
+                className="text-[10px] tracking-widest font-bold text-[#CAA05C] hover:text-white transition-colors uppercase inline-flex items-center space-x-1 cursor-pointer"
               >
                 <span>Initiate Chat</span>
                 <ArrowRight size={10} />
@@ -205,8 +205,8 @@ export default function LuxuryChatbot() {
         whileTap={{ scale: 0.95 }}
         className={`w-14 h-14 rounded-full flex items-center justify-center shadow-2xl border transition-all duration-300 cursor-pointer ${
           isOpen 
-            ? "bg-gold-500 border-gold-500 text-stone-950" 
-            : "bg-stone-950 border-white/10 text-gold-500 hover:border-gold-500 hover:bg-stone-900"
+            ? "bg-[#CAA05C] border-[#CAA05C] text-stone-950" 
+            : "bg-stone-950 border-white/10 text-[#CAA05C] hover:border-[#CAA05C] hover:bg-stone-900"
         }`}
         aria-label="Toggle chat"
         id="chatbot-toggle-btn"
@@ -232,7 +232,7 @@ export default function LuxuryChatbot() {
               className="relative"
             >
               <MessageSquare size={20} />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gold-500 border-2 border-stone-950 animate-ping" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#CAA05C] border-2 border-stone-950 animate-ping" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -253,15 +253,15 @@ export default function LuxuryChatbot() {
             <div className="bg-stone-900 border-b border-white/5 p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-stone-800 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif italic text-base">
+                  <div className="w-10 h-10 rounded-full bg-stone-800 border border-[#CAA05C]/40 flex items-center justify-center text-[#CAA05C] font-bold text-base">
                     P
                   </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-stone-900" />
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#CAA05C] rounded-full border-2 border-stone-900 shadow-[0_0_6px_#CAA05C]" />
                 </div>
                 <div>
                   <div className="flex items-center space-x-1">
                     <h4 className="text-white text-xs font-bold uppercase tracking-wider">Padam Sutar</h4>
-                    <Sparkles size={10} className="text-gold-500" />
+                    <Sparkles size={10} className="text-[#CAA05C]" />
                   </div>
                   <p className="text-[10px] text-stone-400 font-light">Lead Architectural Consultant</p>
                 </div>
@@ -286,11 +286,11 @@ export default function LuxuryChatbot() {
                     className={`flex items-start gap-2.5 ${!isBot ? "flex-row-reverse" : ""}`}
                   >
                     {isBot ? (
-                      <div className="w-7 h-7 rounded-full bg-stone-800 border border-gold-500/20 flex items-center justify-center text-gold-500 text-[10px] font-serif italic shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-stone-800 border border-[#CAA05C]/20 flex items-center justify-center text-[#CAA05C] text-[10px] font-bold shrink-0">
                         P
                       </div>
                     ) : (
-                      <div className="w-7 h-7 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-[#CAA05C]/10 border border-[#CAA05C]/20 flex items-center justify-center text-[#CAA05C] shrink-0">
                         <User size={12} />
                       </div>
                     )}
@@ -299,7 +299,7 @@ export default function LuxuryChatbot() {
                       <div className={`p-3 text-xs leading-relaxed font-light select-none ${
                         isBot 
                           ? "bg-stone-900/80 text-stone-200 border border-white/5" 
-                          : "bg-gold-500 text-stone-950 font-medium"
+                          : "bg-[#CAA05C] text-stone-950 font-medium"
                       }`}>
                         {msg.text}
                       </div>
@@ -317,13 +317,13 @@ export default function LuxuryChatbot() {
               {/* Typing Animation dots */}
               {isTyping && (
                 <div className="flex items-start gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-stone-800 border border-gold-500/20 flex items-center justify-center text-gold-500 text-[10px] font-serif italic shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-stone-800 border border-[#CAA05C]/20 flex items-center justify-center text-[#CAA05C] text-[10px] font-bold shrink-0">
                     P
                   </div>
                   <div className="bg-stone-900/80 border border-white/5 p-3 px-4 flex items-center space-x-1 max-w-[75%]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-500/60 animate-bounce delay-100" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-500/60 animate-bounce delay-200" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-500/60 animate-bounce delay-300" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]/60 animate-bounce delay-100" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]/60 animate-bounce delay-200" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]/60 animate-bounce delay-300" />
                   </div>
                 </div>
               )}
@@ -337,7 +337,7 @@ export default function LuxuryChatbot() {
                 <button
                   key={idx}
                   onClick={() => handlePresetClick(preset)}
-                  className="px-3 py-1.5 bg-stone-900 hover:bg-stone-800 text-gold-500 hover:text-white border border-white/5 hover:border-gold-500 text-[10px] font-mono tracking-wide uppercase transition-all cursor-pointer inline-block rounded-none shrink-0"
+                  className="px-3 py-1.5 bg-stone-900 hover:bg-stone-800 text-[#CAA05C] hover:text-white border border-white/5 hover:border-[#CAA05C] text-[10px] font-mono tracking-wide uppercase transition-all cursor-pointer inline-block rounded-none shrink-0"
                 >
                   {preset.keywords[0]} ?
                 </button>
@@ -354,11 +354,11 @@ export default function LuxuryChatbot() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your inquiry here..."
-                className="flex-1 bg-stone-950 border border-white/5 focus:border-gold-500/50 px-3.5 py-2 text-xs text-stone-200 placeholder-stone-500 outline-none transition-colors duration-300 rounded-none"
+                className="flex-1 bg-stone-950 border border-white/5 focus:border-[#CAA05C]/50 px-3.5 py-2 text-xs text-stone-200 placeholder-stone-500 outline-none transition-colors duration-300 rounded-none"
               />
               <button
                 type="submit"
-                className="w-8 h-8 bg-gold-500 hover:bg-gold-600 text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer"
+                className="w-8 h-8 bg-[#CAA05C] hover:bg-[#B88F4C] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer"
                 aria-label="Send query"
               >
                 <Send size={12} />
@@ -368,9 +368,9 @@ export default function LuxuryChatbot() {
             {/* Branded Footer accent */}
             <div className="bg-stone-950 py-1.5 px-4 border-t border-white/5 text-[9px] text-stone-600 font-mono tracking-widest uppercase flex items-center justify-between select-none">
               <span>Padam AI Advisor</span>
-              <div className="flex items-center space-x-1 text-gold-500/60 font-serif lowercase">
+              <div className="flex items-center space-x-1 text-[#CAA05C]/60 font-serif lowercase">
                 <span>suthar</span>
-                <span className="w-1 h-1 bg-gold-500 rounded-full" />
+                <span className="w-1 h-1 bg-[#CAA05C] rounded-full" />
               </div>
             </div>
 

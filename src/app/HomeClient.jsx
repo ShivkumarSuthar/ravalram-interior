@@ -14,12 +14,9 @@ import OurProcess from "../components/OurProcess";
 import FlexibleSolutions from "../components/FlexibleSolutions";
 import CreativeProjects from "../components/CreativeProjects";
 import Awards from "../components/Awards";
-import InteractiveTabs from "../components/InteractiveTabs";
 import ExpertBento from "../components/ExpertBento";
 import Team from "../components/Team";
-import ServiceAreas from "../components/ServiceAreas";
 import Testimonial from "../components/Testimonial";
-import GiantBanner from "../components/GiantBanner";
 import ContactForm from "../components/ContactForm";
 import Blog from "../components/Blog";
 import Newsletter from "../components/Newsletter";
@@ -60,6 +57,9 @@ export default function Home() {
           {/* 3. Core Expertise (Explore Our Comprehensive...) */}
           <Services />
 
+          {/* 3.5. Flexible Solutions & 3D Visualization Pathway */}
+          <FlexibleSolutions setView={handleNavigate} />
+
           {/* 4. Full-width reception lobby presentation banner with play button */}
           <LobbyBanner />
 
@@ -72,32 +72,20 @@ export default function Home() {
           {/* 5.6. Our Process Section (From Your Vision to a Beautiful Reality) */}
           <OurProcess setView={handleNavigate} />
 
-          {/* 5.7. Flexible Solutions Section (Designed Around Your Vision & Budget) */}
-          <FlexibleSolutions setView={handleNavigate} />
-
           {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
           <CreativeProjects />
 
           {/* 7. Design Awards showcase (Design That Speaks...) */}
           <Awards />
 
-          {/* 8. Interactive 4-tab process display (Renovation, Consultation, Planning, 3D) */}
-          <InteractiveTabs />
-
-          {/* 9. Progress metrics & bento bedroom render layout */}
+          {/* 8. Progress metrics & bento bedroom render layout */}
           <ExpertBento />
 
           {/* 10. Creative brain experts list (Meet The Experts Our...) */}
           <Team />
 
-          {/* 10.5. Service Areas & Locations display */}
-          <ServiceAreas />
-
           {/* 11. Client Testimonial quotes */}
           <Testimonial />
-
-          {/* 12. Majestic wordmark "INTERIOR DESIGN" transition banner */}
-          <GiantBanner />
 
           {/* 13. Contact Form (Have A Project In Mind?) */}
           <ContactForm setView={handleNavigate} />

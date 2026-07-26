@@ -34,34 +34,22 @@ export default function Newsletter() {
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-8 sm:space-y-10">
         
-        {/* Centered Eyebrow Pill Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm"
-        >
-          <span className="w-2 h-2 rounded-full bg-[#c5a880] animate-pulse" />
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
-            SUBSCRIBE TO THE NEWSLETTER
-          </span>
-        </motion.div>
-
         {/* Centered Headline & Description */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-4 max-w-3xl mx-auto"
+          className="space-y-5 max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-            Join <span className="text-[#c5a880]">Our Newsletter</span> <br />
-            <span className="text-[#c5a880]">Stay</span> Up To Date
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-stone-900">
+            <span>Join </span>
+            <span className="text-[#CAA05C]">Our Newsletter</span> <br />
+            <span className="text-[#CAA05C]">Stay </span>
+            <span>Up To Date</span>
           </h2>
 
-          <p className="text-stone-500 font-light text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="font-sans text-stone-500 font-normal text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Join our newsletter. Learn something new, gain access to exclusive content, and stay informed with the latest updates in the industry.
           </p>
         </motion.div>
@@ -79,7 +67,7 @@ export default function Newsletter() {
               <form
                 key="newsletter-input-form"
                 onSubmit={handleSubmit}
-                className="relative flex items-center border-b-2 border-stone-300 focus-within:border-[#c5a880] pb-2 transition-colors duration-300"
+                className="relative flex items-center border-b-2 border-stone-300 focus-within:border-[#CAA05C] pb-2 transition-colors duration-300"
               >
                 <input
                   type="email"
@@ -93,7 +81,7 @@ export default function Newsletter() {
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="w-10 h-10 rounded-full bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer shadow-md hover:scale-105 active:scale-95 ml-2"
+                  className="w-10 h-10 rounded-full bg-[#CAA05C] hover:bg-[#CAA05C] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer shadow-md hover:scale-105 active:scale-95 ml-2"
                 >
                   <ArrowUpRight size={18} strokeWidth={2.5} />
                 </button>
@@ -104,9 +92,9 @@ export default function Newsletter() {
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.95, opacity: 0 }}
-                className="inline-flex items-center space-x-2.5 bg-white border border-[#c5a880] text-stone-900 px-6 py-3 rounded-full shadow-lg"
+                className="inline-flex items-center space-x-2.5 bg-white border border-[#CAA05C] text-stone-900 px-6 py-3 rounded-full shadow-lg"
               >
-                <div className="w-5 h-5 rounded-full bg-[#c5a880] text-stone-950 flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-[#CAA05C] text-stone-950 flex items-center justify-center">
                   <Check size={12} strokeWidth={3} />
                 </div>
                 <span className="text-xs font-mono font-bold uppercase tracking-wider">

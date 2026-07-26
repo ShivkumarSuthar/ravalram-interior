@@ -75,7 +75,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.8 }}
             className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full"
           >
-            <span className="text-[#c5a880] text-xs">✦</span>
+            <span className="text-[#CAA05C] text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-300 font-mono block">
               LET'S BUILD SOMETHING EXCEPTIONAL
             </span>
@@ -86,10 +86,10 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight"
           >
             Your Dream Space <br />
-            <span className="text-[#c5a880]">Starts With A Conversation.</span>
+            <span className="text-[#CAA05C]">Starts With A Conversation.</span>
           </motion.h2>
 
           <motion.div
@@ -118,9 +118,9 @@ export default function FinalCTA() {
             {/* Primary button: rounded as requested in design requirements */}
             <motion.button
               onClick={handleConsultationClick}
-              whileHover={{ scale: 1.03, backgroundColor: "#b0936b" }}
+              whileHover={{ scale: 1.03, backgroundColor: "#CAA05C" }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#c5a880] px-8 py-5 rounded-full cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] px-8 py-5 rounded-full cursor-pointer shadow-xl"
             >
               <span>Book Your Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -131,11 +131,11 @@ export default function FinalCTA() {
             {/* Secondary button: rounded as requested in design requirements */}
             <motion.a
               href="tel:+919000000000"
-              whileHover={{ scale: 1.03, borderColor: "#c5a880", color: "#c5a880", backgroundColor: "rgba(255,255,255,0.05)" }}
+              whileHover={{ scale: 1.03, borderColor: "#CAA05C", color: "#CAA05C", backgroundColor: "rgba(255,255,255,0.05)" }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer"
             >
-              <Phone size={14} className="text-[#c5a880]" />
+              <Phone size={14} className="text-[#CAA05C]" />
               <span>Call Our Team</span>
             </motion.a>
           </motion.div>
@@ -163,14 +163,14 @@ export default function FinalCTA() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-left space-y-4 hover:shadow-2xl hover:border-[#c5a880]/30 hover:-translate-y-1.5 transition-all duration-500 group"
+                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-left space-y-4 hover:shadow-2xl hover:border-[#CAA05C]/30 hover:-translate-y-1.5 transition-all duration-500 group"
               >
                 {/* Gold Accent Icon container */}
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:bg-[#c5a880]/10 transition-colors duration-500">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#CAA05C] group-hover:bg-[#CAA05C]/10 transition-colors duration-500">
                   <Icon size={18} className="transition-transform duration-500 group-hover:scale-110" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-white group-hover:text-[#c5a880] transition-colors duration-300">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-white group-hover:text-[#CAA05C] transition-colors duration-300">
                     {item.title}
                   </h4>
                   <p className="text-stone-300 text-xs font-light leading-relaxed">

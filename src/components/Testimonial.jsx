@@ -15,10 +15,11 @@ import {
 } from "lucide-react";
 
 // Local high quality project assets
-import pavilionImg from "../assets/images/architectural_pavilion_1784821025997.jpg";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
-import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import slide3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
+const pavilionImg = "/assets/images/architectural_pavilion_1784821025997.jpg";
+const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
+const heroBg = "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg";
+const slide3 = "/assets/images/AI_images/antra_hero_slide3_1782747396078.jpg";
+import ExperienceShowcase from "./ExperienceShowcase.jsx";
 
 const testimonials = [
   {
@@ -82,27 +83,28 @@ export default function Testimonial({ setView }) {
   };
 
   return (
-    <section id="testimonials" className="bg-[#faf9f6] py-20 md:py-32 relative overflow-hidden select-none border-t border-stone-200/60">
-      
-      {/* Container Wrapper */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-20 md:space-y-28">
+    <>
+      <section id="testimonials" className="bg-[#faf9f6] py-20 md:py-32 relative overflow-hidden select-none border-t border-stone-200/60">
         
-        {/* PART 1: TESTIMONIAL HEADER & MAIN CARD BLOCK */}
-        <div className="space-y-10">
+        {/* Container Wrapper */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-20 md:space-y-28">
+          
+          {/* PART 1: TESTIMONIAL HEADER & MAIN CARD BLOCK */}
+          <div className="space-y-10">
           
           {/* Header Bar matching image */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 text-left">
             <div className="space-y-3">
-              <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/90 px-4 py-1.5 rounded-full shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#c5a880]" />
-                <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-stone-700">
+              <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/30 bg-[#CAA05C]/10 px-4 py-1.5 rounded-full shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#CAA05C]" />
+                <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#CAA05C]">
                   OUR CLIENTS SAY
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-                Here's What <span className="text-[#c5a880]">Warm Words</span> <br />
-                Our Clients <span className="text-[#c5a880]">Say</span>
+                Here's What <span className="text-[#CAA05C]">Warm Words</span> <br />
+                Our Clients <span className="text-[#CAA05C]">Say</span>
               </h2>
             </div>
 
@@ -142,7 +144,7 @@ export default function Testimonial({ setView }) {
                       <span className="bg-stone-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] font-bold">
                         ✦ ARCHITECT SUPERVISED SITE
                       </span>
-                      <span className="bg-[#c5a880] text-stone-950 font-bold px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider">
+                      <span className="bg-[#CAA05C] text-stone-950 font-bold px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider">
                         VERIFIED SITE
                       </span>
                     </div>
@@ -164,17 +166,17 @@ export default function Testimonial({ setView }) {
                   >
                     {/* Rating Metric Header */}
                     <div className="flex items-center space-x-4 border-b border-stone-100 pb-4">
-                      <span className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight leading-none">
+                      <span className="text-4xl sm:text-5xl font-extrabold text-[#CAA05C] tracking-tight leading-none">
                         {current.score}
                       </span>
                       
                       <div className="space-y-1">
                         <div className="flex items-center space-x-1">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={16} className="fill-[#c5a880] text-[#c5a880]" />
+                            <Star key={i} size={16} className="fill-[#CAA05C] text-[#CAA05C]" />
                           ))}
                         </div>
-                        <span className="text-[10px] font-mono font-bold tracking-wider text-stone-400 block uppercase">
+                        <span className="text-[10px] font-mono font-bold tracking-wider text-[#CAA05C] block uppercase">
                           {current.reviewsCount}
                         </span>
                       </div>
@@ -186,13 +188,13 @@ export default function Testimonial({ setView }) {
                     </h3>
 
                     {/* Full Review Text */}
-                    <p className="text-stone-600 font-light text-xs sm:text-sm leading-relaxed italic">
+                    <p className="text-stone-600 font-light text-xs sm:text-sm leading-relaxed">
                       "{current.quote}"
                     </p>
 
                     {/* Author Profile Footer */}
                     <div className="pt-2 flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#c5a880]/30 shadow-sm shrink-0">
+                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#CAA05C] shadow-sm shrink-0">
                         <img
                           src={current.avatar}
                           alt={current.author}
@@ -205,7 +207,7 @@ export default function Testimonial({ setView }) {
                         <h4 className="text-sm font-extrabold text-stone-900">
                           {current.author}
                         </h4>
-                        <p className="text-xs font-mono text-[#c5a880] font-bold">
+                        <p className="text-xs font-mono text-[#CAA05C] font-bold">
                           {current.role} &bull; <span className="text-stone-400">{current.location}</span>
                         </p>
                       </div>
@@ -222,7 +224,7 @@ export default function Testimonial({ setView }) {
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
                         className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                          currentIndex === idx ? "w-8 bg-[#c5a880]" : "w-2 bg-stone-200 hover:bg-stone-300"
+                          currentIndex === idx ? "w-8 bg-[#CAA05C]" : "w-2 bg-stone-200 hover:bg-[#CAA05C]"
                         }`}
                         aria-label={`Go to slide ${idx + 1}`}
                       />
@@ -256,99 +258,11 @@ export default function Testimonial({ setView }) {
 
         </div>
 
-        {/* PART 2: VIP CUSTOMER & ARCHITECTURAL PARTNERS BRAND STRIP */}
-        <div className="border-y border-stone-200/70 py-8 text-center space-y-6">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="h-[1px] bg-stone-200 w-12 sm:w-20" />
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500">
-              OUR STUDIO'S <span className="text-[#c5a880] font-extrabold">7200+ VIP</span> CLIENTS & PARTNERS
-            </span>
-            <div className="h-[1px] bg-stone-200 w-12 sm:w-20" />
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 opacity-75">
-            {partners.map((p, idx) => {
-              const IconComp = p.icon;
-              return (
-                <div key={idx} className="flex items-center space-x-2 text-stone-700 hover:text-[#c5a880] transition-colors duration-300 group cursor-default">
-                  <IconComp size={18} className="text-stone-400 group-hover:text-[#c5a880] transition-colors duration-300" />
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-800 group-hover:text-[#c5a880]">
-                    {p.name}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* PART 3: "CREATE AN EVEN GREATER EXPERIENCE" SHOWCASE BANNER */}
-        <div className="space-y-8 text-center">
-          
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center space-x-2 bg-stone-100 border border-stone-200 px-4 py-1.5 rounded-full shadow-sm">
-            <Sparkles size={14} className="text-[#c5a880]" />
-            <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-700">
-              PASSIONATE PERFORMANCE
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-tight">
-            Create An Even <span className="text-[#c5a880]">Greater Experience</span>
-          </h2>
-
-          {/* Immersive High-Res Interior Frame */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-stone-200/80 relative aspect-[16/9] max-h-[540px] group bg-stone-900"
-          >
-            <img
-              src={slide3}
-              alt="Suthar luxury interior living space"
-              className="w-full h-full object-cover filter brightness-[0.88] group-hover:scale-105 transition-transform duration-1000"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-              decoding="async"
-            />
-
-            {/* Subtle Vignette & Lighting Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent pointer-events-none" />
-
-            {/* Floating Action Button inside Frame */}
-            <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white text-left z-10">
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-[#c5a880] uppercase">
-                  SEA-FACING RESIDENTIAL SHOWCASE
-                </span>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                  Contemporary Double-Height Living Room
-                </h3>
-              </div>
-
-              <button
-                onClick={() => {
-                  if (typeof setView === "function") {
-                    setView("gallery");
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  } else {
-                    const el = document.getElementById("projects");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="shrink-0 inline-flex items-center space-x-2.5 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-xl"
-              >
-                <span>Explore Full Portfolio</span>
-                <ArrowUpRight size={16} strokeWidth={2.5} />
-              </button>
-            </div>
-          </motion.div>
-
-        </div>
-
       </div>
     </section>
+
+      {/* PART 3: "CREATE AN EVEN GREATER EXPERIENCE" SHOWCASE BANNER */}
+      <ExperienceShowcase setView={setView} />
+    </>
   );
 }

@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { MessageSquare, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { MessageSquare, ArrowRight, CheckCircle2, Sparkles, Compass, Play, Pause } from "lucide-react";
 
 // Local high quality interior images
-import heroBg from "../assets/images/antra_hero_bg_1782744248753.jpg";
-import slide2 from "../assets/images/antra_hero_slide2_1782747378004.jpg";
-import slide3 from "../assets/images/antra_hero_slide3_1782747396078.jpg";
-import transitionImg from "../assets/images/antra_transition_luxury_1782747459033.jpg";
+const heroBg = "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg";
+const slide2 = "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg";
+const slide3 = "/assets/images/AI_images/antra_hero_slide3_1782747396078.jpg";
+const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
 
 const solutionTabs = [
   {
     id: "tab-01",
     num: "01",
-    title: "RENOVATION AND REMODELING",
-    heading: "Renovation & Remodeling",
-    tagline: "Turnkey Civil & Spatial Transformation",
+    title: "RENOVATION & REMODELING",
+    heading: "Renovation & Structural Remodeling",
+    tagline: "Turnkey Civil & Spatial Overhaul",
     desc: "Complete spatial redesign, structural modifications, wall removals, and flawless finish styling. We breathe new life into existing residences and commercial properties while preserving structural integrity.",
     features: ["Demolition & Civil Rebuilding", "Custom Timber Millwork", "Architect On-Site Supervision"],
     image: heroBg
@@ -32,7 +32,7 @@ const solutionTabs = [
   {
     id: "tab-03",
     num: "03",
-    title: "SPACE PLANNING AND LAYOUT",
+    title: "SPACE PLANNING & LAYOUT",
     heading: "Space Planning & Layout",
     tagline: "Ergonomic Architectural Zoning",
     desc: "Precision architectural zoning, functional ergonomics, natural light harvesting, and seamless circulation paths tailored specifically to your family's daily lifestyle and entertaining needs.",
@@ -52,13 +52,36 @@ const solutionTabs = [
 ];
 
 export default function FlexibleSolutions({ setView }) {
-  const [activeTab, setActiveTab] = useState(1); // Default to tab 02
+  const [activeTab, setActiveTab] = useState(3); // Default to 3D Design Visualization (04) as featured
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef(null);
+
+  // Auto-cycle through service pathway tabs every 7 seconds unless paused by user interaction
+  useEffect(() => {
+    if (!isPaused) {
+      timerRef.current = setInterval(() => {
+        setActiveTab((prev) => (prev + 1) % solutionTabs.length);
+      }, 7000);
+    }
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPaused]);
 
   const current = solutionTabs[activeTab];
 
+  const handleSelectTab = (idx) => {
+    setActiveTab(idx);
+    setIsPaused(true); // Pause auto-rotation when user manually selects a tab
+  };
+
   return (
-    <section id="pricing" className="relative w-full min-h-[620px] sm:min-h-[680px] bg-[#0c0a09] text-white overflow-hidden flex flex-col justify-between select-none border-t border-stone-800">
-      
+    <section
+      id="solutions"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      className="relative w-full min-h-[660px] sm:min-h-[720px] bg-[#0c0a09] text-white overflow-hidden flex flex-col justify-between select-none border-t border-stone-800"
+    >
       {/* Background Image Container with Smooth Motion Transitions */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -70,31 +93,43 @@ export default function FlexibleSolutions({ setView }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full h-full object-cover filter brightness-[0.35] contrast-[1.08]"
+            className="w-full h-full object-cover filter brightness-[0.38] contrast-[1.08]"
             referrerPolicy="no-referrer"
           />
         </AnimatePresence>
 
         {/* Multi-layered dark vignetting gradient for pristine legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/70 to-[#0c0a09]/50 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/90 via-transparent to-[#0c0a09]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/75 to-[#0c0a09]/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/95 via-[#0c0a09]/70 to-[#0c0a09]/50 pointer-events-none" />
       </div>
 
       {/* Top Header Tag Bar */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-12 md:pt-16 w-full flex items-center justify-between border-b border-white/10 pb-6 text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-10 md:pt-14 w-full flex items-center justify-between border-b border-white/10 pb-5 text-left">
         <div className="inline-flex items-center space-x-2.5">
-          <Sparkles size={16} className="text-[#c5a880]" />
+          <Sparkles size={16} className="text-[#CAA05C]" />
           <span className="text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-stone-300">
             TAILORED SOLUTIONS • SERVICE PATHWAY {current.num}
           </span>
         </div>
-        <span className="text-xs font-mono font-bold text-[#c5a880] hidden sm:block">
-          BUDGET & SCOPE FLEXIBILITY
-        </span>
+
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            className="inline-flex items-center space-x-1.5 text-[10px] font-mono uppercase tracking-widest text-stone-400 hover:text-[#CAA05C] transition-colors cursor-pointer"
+            title={isPaused ? "Resume auto-slide" : "Pause auto-slide"}
+          >
+            {isPaused ? <Play size={12} className="text-[#CAA05C]" /> : <Pause size={12} />}
+            <span>{isPaused ? "AUTO-SLIDE PAUSED" : "AUTO-SLIDE ACTIVE"}</span>
+          </button>
+          <div className="hidden sm:inline-flex items-center space-x-2 text-xs font-mono font-bold text-[#CAA05C]">
+            <Compass size={14} />
+            <span>BUDGET & SCOPE FLEXIBILITY</span>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Overlay Area */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16 w-full my-auto text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-16 w-full my-auto text-left">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
@@ -102,15 +137,15 @@ export default function FlexibleSolutions({ setView }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-2xl space-y-4"
+            className="max-w-2xl space-y-5"
           >
             {/* Tagline Badge */}
-            <div className="inline-block bg-[#c5a880]/20 border border-[#c5a880]/30 text-[#c5a880] text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full">
+            <div className="inline-block bg-[#CAA05C]/20 border border-[#CAA05C]/40 text-[#CAA05C] text-[11px] font-mono font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
               {current.tagline}
             </div>
 
             {/* Giant Clean Title */}
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.12] drop-shadow-md">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-md">
               {current.heading}
             </h2>
 
@@ -120,17 +155,17 @@ export default function FlexibleSolutions({ setView }) {
             </p>
 
             {/* Deliverable Bullet Pills */}
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="flex flex-wrap gap-2.5 pt-2">
               {current.features.map((feat, i) => (
-                <span key={i} className="inline-flex items-center space-x-1.5 text-xs font-medium bg-stone-900/90 border border-stone-700/80 text-stone-200 px-3 py-1.5 rounded-lg shadow-sm">
-                  <CheckCircle2 size={13} className="text-[#c5a880]" />
+                <span key={i} className="inline-flex items-center space-x-2 text-xs font-medium bg-stone-900/90 border border-stone-700/80 text-stone-200 px-3.5 py-2 rounded-xl shadow-md">
+                  <CheckCircle2 size={14} className="text-[#CAA05C]" />
                   <span>{feat}</span>
                 </span>
               ))}
             </div>
 
             {/* Action CTA Link */}
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => {
                   if (typeof setView === "function") {
@@ -141,10 +176,20 @@ export default function FlexibleSolutions({ setView }) {
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 px-6 py-3.5 rounded-full transition-all duration-300 group cursor-pointer shadow-lg"
+                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] bg-[#CAA05C] hover:bg-[#B88F4C] text-stone-950 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-xl hover:scale-[1.02]"
               >
-                <span>Book {current.heading} Consultation</span>
+                <span>BOOK CONSULTATION</span>
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+
+              <button
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("open-consultation"));
+                }}
+                className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-stone-300 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 px-5 py-4 rounded-full transition-all duration-300 cursor-pointer"
+              >
+                <MessageSquare size={14} className="text-[#CAA05C]" />
+                <span>Quick Inquiry</span>
               </button>
             </div>
           </motion.div>
@@ -160,23 +205,33 @@ export default function FlexibleSolutions({ setView }) {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(idx)}
-                className={`relative px-5 py-5 sm:py-6 text-left transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-3 group border-r border-stone-800/80 last:border-r-0 ${
+                onClick={() => handleSelectTab(idx)}
+                className={`relative px-3.5 sm:px-5 py-3.5 sm:py-6 text-left transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-2.5 sm:space-y-3 group border-r border-stone-800/80 last:border-r-0 ${
                   isActive
-                    ? "bg-[#1c1a18] text-white border-t-2 border-t-[#c5a880]"
+                    ? "bg-[#1c1a18] text-white border-t-2 border-t-[#CAA05C]"
                     : "bg-transparent text-stone-400 hover:text-stone-200 hover:bg-white/5 border-t-2 border-t-transparent"
                 }`}
               >
+                {/* Active Progress Bar Animation */}
+                {isActive && !isPaused && (
+                  <motion.div
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 7, ease: "linear" }}
+                    className="absolute top-0 left-0 h-[2px] bg-[#CAA05C] z-30"
+                  />
+                )}
+
                 {/* Index Number */}
                 <div className="flex items-center justify-between">
                   <span
                     className={`text-[11px] font-mono font-bold tracking-widest ${
-                      isActive ? "text-[#c5a880]" : "text-stone-500 group-hover:text-stone-300"
+                      isActive ? "text-[#CAA05C]" : "text-stone-500 group-hover:text-stone-300"
                     }`}
                   >
                     {tab.num}
                   </span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />}
+                  {isActive && <span className="w-2 h-2 rounded-full bg-[#CAA05C] shadow-[0_0_8px_#CAA05C]" />}
                 </div>
 
                 {/* Tab Title */}
@@ -197,7 +252,7 @@ export default function FlexibleSolutions({ setView }) {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent("open-consultation"));
               }}
-              className="w-10 h-10 rounded-xl bg-stone-900 border border-stone-700 hover:border-[#c5a880] text-stone-300 hover:text-[#c5a880] flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer"
+              className="w-10 h-10 rounded-xl bg-stone-900 border border-stone-700 hover:border-[#CAA05C] text-stone-300 hover:text-[#CAA05C] flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer"
               aria-label="Open Chat Consultation"
             >
               <MessageSquare size={16} />
