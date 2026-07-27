@@ -15,103 +15,21 @@ import {
   Sparkles,
   Grid
 } from "lucide-react";
+import { SERVICES_DATA } from "../lib/data.js";
 
-// Local asset imports
-const coastalImg = "/assets/images/AI_images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/assets/images/AI_images/antra_project_loft_1782744318019.jpg";
-const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
-const aboutImg = "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
-
-const servicesList = [
-  {
-    id: "01",
-    title: "Residential Interior Design",
-    category: "Luxury Living",
-    icon: Home,
-    image: coastalImg,
-    tagline: "Sea-facing villas, double-height penthouses & bespoke family homes.",
-    highlights: [
-      "Vastu-compliant spatial planning",
-      "Factory BWP timber joinery",
-      "Italian marble & lighting curation",
-      "100% turnkey site management"
-    ]
-  },
-  {
-    id: "02",
-    title: "Commercial & Office Interiors",
-    category: "Corporate & Retail",
-    icon: Building2,
-    image: transitionImg,
-    tagline: "Ergonomic corporate offices, flagship showrooms & retail spaces.",
-    highlights: [
-      "Acoustic meeting pods & workstations",
-      "Fast-track execution schedule",
-      "HVAC & electrical safety compliance",
-      "Custom reception & feature walls"
-    ]
-  },
-  {
-    id: "03",
-    title: "Full Renovation & Civil Rebuild",
-    category: "Spatial Transformation",
-    icon: Wrench,
-    image: aboutImg,
-    tagline: "Demolition, structural wall reconfigurations & complete civil rebuilds.",
-    highlights: [
-      "Architectural load & safety audits",
-      "Plumbing & electrical rewiring",
-      "Multi-layer waterproofing with SLA",
-      "Tile laying & false ceiling upgrades"
-    ]
-  },
-  {
-    id: "04",
-    title: "Custom Joinery & Modular Systems",
-    category: "Factory Woodworking",
-    icon: Hammer,
-    image: loftImg,
-    tagline: "Precision timber joinery, modular kitchens & walk-in wardrobes.",
-    highlights: [
-      "IS:710 Marine BWP Plywood core",
-      "German Hettich & Blum hardware",
-      "CNC 0.1mm factory precision",
-      "10-Year joinery warranty"
-    ]
-  },
-  {
-    id: "05",
-    title: "Outdoor & Landscape Architecture",
-    category: "Exterior Living",
-    icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200",
-    tagline: "Deck lounges, villa terrace gardens & weather-proof pergolas.",
-    highlights: [
-      "UV-stabilized composite decking",
-      "All-weather pergola shades",
-      "IP67 atmospheric outdoor lighting",
-      "Irrigation & botanical styling"
-    ]
-  },
-  {
-    id: "06",
-    title: "2D/3D Architectural Visualization",
-    category: "Planning & BIM",
-    icon: Grid,
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200",
-    tagline: "Photorealistic 3D renders, working CAD blueprints & VR walkthroughs.",
-    highlights: [
-      "4K hyper-realistic 3D stills",
-      "360-degree VR walkthroughs",
-      "Working civil & electrical CAD sets",
-      "Itemized BOQ cost blueprints"
-    ]
-  }
-];
+const iconMap = {
+  Home,
+  Building2,
+  Wrench,
+  Hammer,
+  Sparkles,
+  Grid
+};
 
 export default function Services() {
+  const servicesList = Array.isArray(SERVICES_DATA) ? SERVICES_DATA : (SERVICES_DATA.services || []);
   const [activeIdx, setActiveIdx] = useState(0);
-  const activeService = servicesList[activeIdx];
+  const activeService = servicesList[activeIdx] || servicesList[0] || {};
 
   const handleConsultation = () => {
     window.dispatchEvent(new CustomEvent("open-consultation"));
@@ -124,14 +42,14 @@ export default function Services() {
         {/* Header Block */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6 text-left">
           <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/30 bg-white px-4 py-1.5 rounded-full shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#CAA05C]" />
+            <div className="inline-flex items-center space-x-2 border border-gold-accent/30 bg-white px-4 py-1.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-gold-accent" />
               <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-stone-700">
                 OUR EXPERTISE
               </span>
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-              Comprehensive <span className="text-[#CAA05C]">Interior &amp; Architectural</span> Services
+              Comprehensive <span className="text-gold-accent">Interior &amp; Architectural</span> Services
             </h2>
           </div>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-md">
@@ -146,40 +64,41 @@ export default function Services() {
           <div className="lg:col-span-5 space-y-3 text-left">
             {servicesList.map((service, index) => {
               const isActive = activeIdx === index;
-              const IconComp = service.icon;
+              const rawIcon = service.icon || service.iconName || "Home";
+              const IconComp = typeof rawIcon === "string" ? (iconMap[rawIcon] || Home) : (rawIcon || Home);
               return (
                 <div
                   key={service.id}
                   onClick={() => setActiveIdx(index)}
                   className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex items-center justify-between group ${
                     isActive
-                      ? "bg-[#CAA05C] text-white border-[#CAA05C] shadow-xl"
-                      : "bg-white text-stone-900 border-stone-200/80 hover:border-[#CAA05C] hover:bg-stone-50"
+                      ? "bg-gold-accent text-white border-gold-accent shadow-xl"
+                      : "bg-white text-stone-900 border-stone-200/80 hover:border-gold-accent hover:bg-stone-50"
                   }`}
                 >
                   <div className="flex items-center space-x-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                      isActive ? "bg-[#CAA05C] text-stone-950" : "bg-[#CAA05C]/10 text-[#CAA05C] group-hover:bg-[#CAA05C] group-hover:text-white"
+                      isActive ? "bg-gold-accent text-stone-950" : "bg-gold-accent/10 text-gold-accent group-hover:bg-gold-accent group-hover:text-white"
                     }`}>
                       <IconComp size={20} />
                     </div>
                     <div>
                       <div className="flex items-center space-x-2">
-                        <span className={`text-[10px] font-mono font-bold ${isActive ? "text-[#CAA05C]" : "text-stone-400"}`}>
+                        <span className={`text-[10px] font-mono font-bold ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
                           {service.id}
                         </span>
                         <span className={`text-[10px] font-mono uppercase tracking-wider ${isActive ? "text-stone-200" : "text-stone-400"}`}>
                           • {service.category}
                         </span>
                       </div>
-                      <h3 className={`text-base sm:text-lg font-bold tracking-tight ${isActive ? "text-white" : "text-stone-950 group-hover:text-[#CAA05C]"} transition-colors`}>
+                      <h3 className={`text-base sm:text-lg font-bold tracking-tight ${isActive ? "text-white" : "text-stone-950 group-hover:text-gold-accent"} transition-colors`}>
                         {service.title}
                       </h3>
                     </div>
                   </div>
 
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all ${
-                    isActive ? "bg-white/20 text-white" : "text-stone-400 group-hover:text-[#CAA05C]"
+                    isActive ? "bg-white/20 text-white" : "text-stone-400 group-hover:text-gold-accent"
                   }`}>
                     <ArrowRight size={16} className={`transition-transform duration-300 ${isActive ? "translate-x-0.5" : "group-hover:translate-x-0.5"}`} />
                   </div>
@@ -213,7 +132,7 @@ export default function Services() {
                     <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent pointer-events-none" />
                     
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-mono">
-                      <span className="bg-[#CAA05C] backdrop-blur-md px-3 py-1.5 rounded-md border border-white/20 text-[#CAA05C] font-bold">
+                      <span className="bg-gold-accent backdrop-blur-md px-3 py-1.5 rounded-md border border-white/20 text-gold-accent font-bold">
                         {activeService.category}
                       </span>
                       <span className="bg-stone-950/80 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/10 text-stone-200">
@@ -228,20 +147,20 @@ export default function Services() {
                       {activeService.title}
                     </h3>
                     <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed">
-                      {activeService.tagline}
+                      {activeService.tagline || activeService.shortDescription || activeService.detailedDescription || ""}
                     </p>
                   </div>
 
                   {/* Highlights Bullet List */}
-                  <div className="bg-[#CAA05C]/5 border border-[#CAA05C]/20 p-5 rounded-2xl space-y-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#CAA05C] flex items-center space-x-2">
-                      <Sparkles className="w-4 h-4 text-[#CAA05C]" />
+                  <div className="bg-gold-accent/5 border border-gold-accent/20 p-5 rounded-2xl space-y-3">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-gold-accent flex items-center space-x-2">
+                      <Sparkles className="w-4 h-4 text-gold-accent" />
                       <span>Key Architectural Deliverables</span>
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {activeService.highlights.map((hl, i) => (
+                      {(activeService.highlights || activeService.features || []).map((hl, i) => (
                         <div key={i} className="flex items-center space-x-2.5 text-xs text-stone-800 font-medium">
-                          <CheckCircle2 className="w-4 h-4 text-[#CAA05C] shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-gold-accent shrink-0" />
                           <span>{hl}</span>
                         </div>
                       ))}
@@ -258,10 +177,10 @@ export default function Services() {
 
                   <button
                     onClick={handleConsultation}
-                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-[#CAA05C] hover:bg-[#CAA05C] text-white px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-md group cursor-pointer border border-[#CAA05C]/30"
+                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gold-accent hover:bg-gold-accent text-white px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-md group cursor-pointer border border-gold-accent/30"
                   >
                     <span>Request Service Estimate</span>
-                    <div className="w-6 h-6 rounded-full bg-[#CAA05C] text-stone-950 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+                    <div className="w-6 h-6 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
                       <ArrowRight size={12} strokeWidth={2.5} />
                     </div>
                   </button>

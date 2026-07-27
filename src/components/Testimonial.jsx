@@ -14,60 +14,23 @@ import {
   ArrowUpRight
 } from "lucide-react";
 
-// Local high quality project assets
-const pavilionImg = "/assets/images/architectural_pavilion_1784821025997.jpg";
-const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
-const heroBg = "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg";
-const slide3 = "/assets/images/AI_images/antra_hero_slide3_1782747396078.jpg";
+import { TESTIMONIALS_PAGE_DATA } from "../lib/data.js";
 import ExperienceShowcase from "./ExperienceShowcase.jsx";
 
-const testimonials = [
-  {
-    id: "review-01",
-    score: "4.92",
-    reviewsCount: "2,650+ VERIFIED REVIEWS",
-    highlight: "From Concept To Reality, The Team Turned My Vision Into A Stunning, Livable Space. I Couldn't Be Happier With The Result.",
-    quote: "A wonderful experience! They knew what they were doing and were incredibly knowledgeable throughout the process. The master timber joinery in our living room is an absolute showstopper.",
-    author: "Morgan Dufresne",
-    role: "Company Founder",
-    location: "Mumbai Flagship",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop",
-    siteImage: pavilionImg
-  },
-  {
-    id: "review-02",
-    score: "4.98",
-    reviewsCount: "ARCHITECT SUPERVISED",
-    highlight: "Pristine Precision, Flawless Civil Execution & Zero On-Site Delays.",
-    quote: "Suthar Studio renovated our 4,000 sq.ft duplex in Pune without a single hitch. Their lead architects managed every civil modification and custom wardrobe installation with utmost professionalism.",
-    author: "Rajesh & Ananya Mehta",
-    role: "Villa Owners",
-    location: "Koregaon Park, Pune",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=250&auto=format&fit=crop",
-    siteImage: transitionImg
-  },
-  {
-    id: "review-03",
-    score: "5.00",
-    reviewsCount: "WEATHER-PROOF JOINERY",
-    highlight: "Custom Coastal Estate Finishes That Stand The Test Of Time.",
-    quote: "Building a beachfront estate in Goa requires extreme material durability. Suthar's marine-grade teak joinery and open verandah layout exceeded all our expectations.",
-    author: "Dr. Vikram Kulkarni",
-    role: "Estate Client",
-    location: "Coastal Goa",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=250&auto=format&fit=crop",
-    siteImage: heroBg
-  }
-];
+const ICON_MAP = {
+  Layout,
+  Home,
+  Building2,
+  Compass,
+  Ruler
+};
 
-const partners = [
-  { name: "TREND INTERIORS", icon: Layout },
-  { name: "INTERIOR PREMIUM", icon: Home },
-  { name: "BUILDING CONSTRUCTION", icon: Building2 },
-  { name: "REAL ESTATE", icon: Home },
-  { name: "BUILDING CONTRACTS", icon: Compass },
-  { name: "ARCHITECT STUDIO", icon: Ruler }
-];
+const testimonials = TESTIMONIALS_PAGE_DATA?.testimonials || [];
+
+const partners = (TESTIMONIALS_PAGE_DATA?.partners || []).map(p => ({
+  ...p,
+  icon: ICON_MAP[p.iconName] || Home
+}));
 
 export default function Testimonial({ setView }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,16 +58,16 @@ export default function Testimonial({ setView }) {
           {/* Header Bar matching image */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 text-left">
             <div className="space-y-3">
-              <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/30 bg-[#CAA05C]/10 px-4 py-1.5 rounded-full shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#CAA05C]" />
-                <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#CAA05C]">
+              <div className="inline-flex items-center space-x-2 border border-gold-accent/30 bg-gold-accent/10 px-4 py-1.5 rounded-full shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-gold-accent" />
+                <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-gold-accent">
                   OUR CLIENTS SAY
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-                Here's What <span className="text-[#CAA05C]">Warm Words</span> <br />
-                Our Clients <span className="text-[#CAA05C]">Say</span>
+                Here's What <span className="text-gold-accent">Warm Words</span> <br />
+                Our Clients <span className="text-gold-accent">Say</span>
               </h2>
             </div>
 
@@ -144,7 +107,7 @@ export default function Testimonial({ setView }) {
                       <span className="bg-stone-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] font-bold">
                         ✦ ARCHITECT SUPERVISED SITE
                       </span>
-                      <span className="bg-[#CAA05C] text-stone-950 font-bold px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider">
+                      <span className="bg-gold-accent text-stone-950 font-bold px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider">
                         VERIFIED SITE
                       </span>
                     </div>
@@ -166,17 +129,17 @@ export default function Testimonial({ setView }) {
                   >
                     {/* Rating Metric Header */}
                     <div className="flex items-center space-x-4 border-b border-stone-100 pb-4">
-                      <span className="text-4xl sm:text-5xl font-extrabold text-[#CAA05C] tracking-tight leading-none">
+                      <span className="text-4xl sm:text-5xl font-extrabold text-gold-accent tracking-tight leading-none">
                         {current.score}
                       </span>
                       
                       <div className="space-y-1">
                         <div className="flex items-center space-x-1">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={16} className="fill-[#CAA05C] text-[#CAA05C]" />
+                            <Star key={i} size={16} className="fill-gold-accent text-gold-accent" />
                           ))}
                         </div>
-                        <span className="text-[10px] font-mono font-bold tracking-wider text-[#CAA05C] block uppercase">
+                        <span className="text-[10px] font-mono font-bold tracking-wider text-gold-accent block uppercase">
                           {current.reviewsCount}
                         </span>
                       </div>
@@ -194,7 +157,7 @@ export default function Testimonial({ setView }) {
 
                     {/* Author Profile Footer */}
                     <div className="pt-2 flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#CAA05C] shadow-sm shrink-0">
+                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gold-accent shadow-sm shrink-0">
                         <img
                           src={current.avatar}
                           alt={current.author}
@@ -207,7 +170,7 @@ export default function Testimonial({ setView }) {
                         <h4 className="text-sm font-extrabold text-stone-900">
                           {current.author}
                         </h4>
-                        <p className="text-xs font-mono text-[#CAA05C] font-bold">
+                        <p className="text-xs font-mono text-gold-accent font-bold">
                           {current.role} &bull; <span className="text-stone-400">{current.location}</span>
                         </p>
                       </div>
@@ -224,7 +187,7 @@ export default function Testimonial({ setView }) {
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
                         className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                          currentIndex === idx ? "w-8 bg-[#CAA05C]" : "w-2 bg-stone-200 hover:bg-[#CAA05C]"
+                          currentIndex === idx ? "w-8 bg-gold-accent" : "w-2 bg-stone-200 hover:bg-gold-accent"
                         }`}
                         aria-label={`Go to slide ${idx + 1}`}
                       />

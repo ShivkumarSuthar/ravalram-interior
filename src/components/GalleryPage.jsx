@@ -30,15 +30,17 @@ import {
   Layers
 } from "lucide-react";
 
-// Local asset imports for visual and brand consistency
-import heroBg from "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg";
-import heroSlide2 from "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg";
-import heroSlide3 from "/assets/images/AI_images/antra_hero_slide3_1782747396078.jpg";
-import aboutImg from "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
-import lobbyBanner from "/assets/images/AI_images/antra_lobby_banner_1782744283860.jpg";
-import projectCoastal from "/assets/images/AI_images/antra_project_coastal_1782744299850.jpg";
-import projectLoft from "/assets/images/AI_images/antra_project_loft_1782744318019.jpg";
-import transitionLuxury from "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
+import { SITE_IMAGES } from "../lib/data.js";
+
+// Local asset path constants from centralized data manager
+const heroBg = SITE_IMAGES.heroBg;
+const heroSlide2 = SITE_IMAGES.heroSlide2;
+const heroSlide3 = SITE_IMAGES.heroSlide3;
+const aboutImg = SITE_IMAGES.aboutSide;
+const lobbyBanner = SITE_IMAGES.lobbyBanner;
+const projectCoastal = SITE_IMAGES.projectCoastal;
+const projectLoft = SITE_IMAGES.projectLoft;
+const transitionLuxury = SITE_IMAGES.transitionLuxury;
 
 export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -347,7 +349,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["residential", "living-room", "turnkey"],
       location: "Bengaluru",
       description: "A compact, highly functional apartment lounge prioritizing clever dual-purpose furniture and warm illumination layers.",
-      image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1200",
+      image: SITE_IMAGES.heroSlide2,
       materials: "Smoked Oak veneer, Bouclé accent chairs, Dimmable structural cove lights"
     },
     {
@@ -357,7 +359,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["residential", "bedroom", "turnkey"],
       location: "Hyderabad",
       description: "A sensory hotel-like suite characterized by padded fabric wall paneling and custom side tables in rich veneer.",
-      image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200",
+      image: SITE_IMAGES.heroSlide3,
       materials: "Handcrafted Suede Paneling, Matte Walnut veneers, Premium Warm Sconces"
     },
     {
@@ -367,7 +369,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       filters: ["residential", "living-room", "renovation"],
       location: "Mumbai",
       description: "A welcoming, minimalist entrance featuring custom key drops and floating storage in natural warm birchwood.",
-      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1200",
+      image: SITE_IMAGES.heroBg,
       materials: "Siberian Birch, Matte Black Powder Steel, Indirect LED Channels"
     }
   ];
@@ -406,11 +408,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   };
 
   // Featured Collection Layout Images
-  const featuredLarge = "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200";
+  const featuredLarge = SITE_IMAGES.heroBg;
   const featuredSupport = [
     projectCoastal,
     transitionLuxury,
-    "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600",
+    SITE_IMAGES.kitchenLayout,
     projectLoft
   ];
 
@@ -435,9 +437,9 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
   // Instagram Post Mockups
   const instagramPosts = [
-    { id: "ig-1", img: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=600", likes: "1,240", comments: "48", title: "Refining the final grain on our custom American Walnut credenza." },
+    { id: "ig-1", img: SITE_IMAGES.architecturalPavilion, likes: "1,240", comments: "48", title: "Refining the final grain on our custom American Walnut credenza." },
     { id: "ig-2", img: projectCoastal, likes: "2,150", comments: "92", title: "Waking up to ocean breezes. Coastal residential masterpiece handed over in Goa." },
-    { id: "ig-3", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600", likes: "982", comments: "31", title: "Flawless modular kitchen design combining warm teakwood & matte charcoal panels." },
+    { id: "ig-3", img: SITE_IMAGES.kitchenLayout, likes: "982", comments: "31", title: "Flawless modular kitchen design combining warm teakwood & matte charcoal panels." },
     { id: "ig-4", img: projectLoft, likes: "1,530", comments: "54", title: "Industrial restoration. Bridging heritage brickwork with clean black steel structures." }
   ];
 
@@ -450,13 +452,13 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#CAA05C]/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
 
       {/* PAGE HERO */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="gallery-hero-section">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000"
+            src={SITE_IMAGES.lobbyBanner}
             alt="Suthar Interior Studio Immersive Showroom Gallery"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
             referrerPolicy="no-referrer"
@@ -476,13 +478,13 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
-            <button onClick={onBackToHome} className="hover:text-[#CAA05C] transition-colors cursor-pointer">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">HOME</button>
             <span>/</span>
-            <span className="text-[#CAA05C] font-bold">GALLERY</span>
+            <span className="text-gold-accent font-bold">GALLERY</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-[#CAA05C] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               OUR GALLERY
             </span>
             <motion.h1
@@ -492,7 +494,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-none uppercase"
             >
               Every Space <br />
-              <span className="text-[#CAA05C]">Tells A</span> Story.
+              <span className="text-gold-accent">Tells A</span> Story.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -512,7 +514,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           >
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Start Your Project</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -522,7 +524,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#CAA05C] hover:text-[#CAA05C]"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               Book Consultation
             </button>
@@ -537,18 +539,18 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             
             <div className="lg:col-span-5 text-left space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#CAA05C] text-xs">✦</span>
+                <span className="text-gold-accent text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   SHOWCASE STATEMENT
                 </span>
               </div>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                 Inspired Spaces. <br />
-                <span className="text-[#CAA05C]">Exceptional</span> Details.
+                <span className="text-gold-accent">Exceptional</span> Details.
               </h2>
             </div>
 
-            <div className="lg:col-span-7 text-left border-l-2 border-[#CAA05C] pl-6 lg:pl-10">
+            <div className="lg:col-span-7 text-left border-l-2 border-gold-accent pl-6 lg:pl-10">
               <p className="text-stone-600 font-light text-base sm:text-lg leading-relaxed">
                 Every project is unique. From elegant homes and modern offices to handcrafted furniture and premium architectural details, our gallery showcases the quality, creativity, and craftsmanship behind every Suthar Interior Studio project.
               </p>
@@ -565,7 +567,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       <section className="py-6 bg-white sticky top-[80px] z-30 border-b border-stone-100 shadow-sm" id="gallery-categories-bar">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2 text-stone-400 font-mono text-[10px] tracking-widest uppercase shrink-0">
-            <Sliders size={12} className="text-[#CAA05C]" />
+            <Sliders size={12} className="text-gold-accent" />
             <span>Filter Categories</span>
           </div>
 
@@ -576,8 +578,8 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
                   activeFilter === tab.id
-                    ? "bg-stone-950 text-[#CAA05C] border-stone-950 shadow-md scale-95"
-                    : "bg-stone-50 text-stone-600 border-stone-200/80 hover:border-[#CAA05C]/50 hover:text-stone-950"
+                    ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md scale-95"
+                    : "bg-stone-50 text-stone-600 border-stone-200/80 hover:border-gold-accent/50 hover:text-stone-950"
                 }`}
               >
                 {tab.label}
@@ -596,7 +598,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               SHOWING <span className="text-stone-950 font-bold">{filteredProjects.length}</span> OUT OF {projects.length} CURATED SHOTS
             </div>
             <div className="hidden sm:flex items-center space-x-2 text-xs font-mono text-stone-400">
-              <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
               <span>Click to view in immersive fullscreen mode</span>
             </div>
           </div>
@@ -635,11 +637,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       {/* Premium Hover Overlay */}
                       <div className="absolute inset-0 bg-stone-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
                         <div className="flex justify-between items-start">
-                          <span className="bg-[#CAA05C] text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
+                          <span className="bg-gold-accent text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
                             {project.category}
                           </span>
                           <button
-                            className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#CAA05C] hover:text-stone-950 transition-colors shadow-lg"
+                            className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-gold-accent hover:text-stone-950 transition-colors shadow-lg"
                             onClick={(e) => {
                               e.stopPropagation();
                               setLightboxIndex(localIndex);
@@ -651,7 +653,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
                         <div className="space-y-2 text-left">
                           <div className="inline-flex items-center space-x-1 text-stone-300 font-mono text-[9px] uppercase tracking-wider">
-                            <MapPin size={10} className="text-[#CAA05C]" />
+                            <MapPin size={10} className="text-gold-accent" />
                             <span>{project.location}</span>
                           </div>
                           <h4 className="text-white text-lg font-serif font-light leading-tight">
@@ -661,7 +663,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                             <span className="text-[10px] text-stone-400 font-light leading-tight line-clamp-1 max-w-[70%]">
                               {project.materials.split(",")[0]}...
                             </span>
-                            <span className="text-[#CAA05C] text-[9px] font-mono tracking-widest uppercase font-bold flex items-center space-x-1 hover:text-white transition-colors">
+                            <span className="text-gold-accent text-[9px] font-mono tracking-widest uppercase font-bold flex items-center space-x-1 hover:text-white transition-colors">
                               <span>Expand</span>
                               <ChevronRight size={10} />
                             </span>
@@ -676,7 +678,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                         <span>{project.category}</span>
                         <span>{project.location}</span>
                       </div>
-                      <h3 className="font-serif text-stone-950 text-base font-medium group-hover:text-[#CAA05C] transition-colors duration-300">
+                      <h3 className="font-serif text-stone-950 text-base font-medium group-hover:text-gold-accent transition-colors duration-300">
                         {project.name}
                       </h3>
                       <p className="text-stone-500 text-xs font-light leading-relaxed mt-1 line-clamp-2">
@@ -686,7 +688,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       <div className="pt-4 border-t border-stone-100 mt-4 flex justify-between items-center">
                         <button
                           onClick={() => setLightboxIndex(localIndex)}
-                          className="text-stone-900 hover:text-[#CAA05C] transition-colors text-xs font-bold font-mono tracking-widest uppercase flex items-center space-x-1 cursor-pointer"
+                          className="text-stone-900 hover:text-gold-accent transition-colors text-xs font-bold font-mono tracking-widest uppercase flex items-center space-x-1 cursor-pointer"
                         >
                           <span>View Detail</span>
                           <ChevronRight size={12} />
@@ -714,11 +716,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-16">
             <div className="text-left space-y-4">
-              <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block animate-pulse">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block animate-pulse">
                 EDITOR'S SELECTION
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-white uppercase leading-none">
-                Editor's <span className="text-[#CAA05C]">Collection</span>
+                Editor's <span className="text-gold-accent">Collection</span>
               </h2>
               <p className="text-stone-400 font-light text-sm sm:text-base max-w-xl leading-relaxed">
                 A handpicked selection of projects that represent our finest work across residential, commercial, and custom furniture design.
@@ -726,7 +728,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             </div>
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Explore Portfolio</span>
               <ArrowRight size={14} />
@@ -749,14 +751,14 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               </div>
 
               <div className="p-6 relative z-10 flex justify-between items-start">
-                <span className="bg-white/10 backdrop-blur-md text-[#CAA05C] text-[9px] font-mono tracking-widest font-bold uppercase px-3 py-1.5 rounded border border-white/10">
+                <span className="bg-white/10 backdrop-blur-md text-gold-accent text-[9px] font-mono tracking-widest font-bold uppercase px-3 py-1.5 rounded border border-white/10">
                   FEATURED WORK
                 </span>
                 <span className="text-stone-400 font-mono text-[10px]">Mumbai Atelier</span>
               </div>
 
               <div className="p-8 relative z-10 text-left space-y-3 max-w-xl">
-                <span className="text-[#CAA05C] text-xs font-mono tracking-wider font-bold block uppercase">
+                <span className="text-gold-accent text-xs font-mono tracking-wider font-bold block uppercase">
                   MONOLITHIC PENTHOUSE PAVILION
                 </span>
                 <h3 className="text-2xl md:text-3xl font-serif text-white">
@@ -779,7 +781,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       const idx = projects.findIndex(p => p.name === "The Penthouse Living Room");
                       if (idx !== -1) setLightboxIndex(idx);
                     }}
-                    className="inline-flex items-center space-x-1.5 text-xs text-[#CAA05C] hover:text-white font-bold tracking-widest uppercase transition-colors"
+                    className="inline-flex items-center space-x-1.5 text-xs text-gold-accent hover:text-white font-bold tracking-widest uppercase transition-colors"
                   >
                     <span>Immerse</span>
                     <Maximize size={12} />
@@ -813,7 +815,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 text-left">
                     <div className="space-y-0.5">
-                      <span className="text-[#CAA05C] text-[8px] font-mono tracking-widest font-bold uppercase">PREVIEW</span>
+                      <span className="text-gold-accent text-[8px] font-mono tracking-widest font-bold uppercase">PREVIEW</span>
                       <h4 className="text-white text-xs font-serif font-light leading-none">Inspect Details</h4>
                     </div>
                   </div>
@@ -831,11 +833,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               OUR EXPERT CAPABILITIES
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Bespoke <span className="text-[#CAA05C]">Craftsmanship</span> Details
+              Bespoke <span className="text-gold-accent">Craftsmanship</span> Details
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
               We bind time-honored Indian joinery roots with precise European hardware technology to construct flawless architectural structures.
@@ -852,13 +854,13 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.05 }}
-                  className="bg-stone-50 border border-stone-100 p-6 md:p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:border-[#CAA05C]/30 hover:shadow-xl transition-all duration-500 group"
+                  className="bg-stone-50 border border-stone-100 p-6 md:p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:border-gold-accent/30 hover:shadow-xl transition-all duration-500 group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-[#CAA05C] group-hover:bg-[#CAA05C]/15 group-hover:scale-105 transition-all shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/15 group-hover:scale-105 transition-all shadow-sm">
                     <Icon size={18} />
                   </div>
                   <div className="space-y-1.5">
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-[#CAA05C] transition-colors duration-300">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-gold-accent transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="text-stone-500 text-xs leading-relaxed">
@@ -879,7 +881,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-stone-200/80">
             {statistics.map((stat, idx) => (
               <div key={idx} className="space-y-2 pt-6 lg:pt-0 lg:px-4 text-center">
-                <span className="text-3xl sm:text-4xl md:text-6xl font-light font-serif tracking-tight text-[#CAA05C] block">
+                <span className="text-3xl sm:text-4xl md:text-6xl font-light font-serif tracking-tight text-gold-accent block">
                   {stat.value}
                 </span>
                 <span className="text-[10px] md:text-xs font-mono tracking-widest text-stone-500 uppercase block font-bold">
@@ -897,11 +899,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16">
             <div className="text-left space-y-4">
-              <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
                 BEHIND THE CRAFT
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-                Follow <span className="text-[#CAA05C]">Our</span> Journey
+                Follow <span className="text-gold-accent">Our</span> Journey
               </h2>
               <p className="text-stone-500 font-light text-sm sm:text-base max-w-xl leading-relaxed">
                 Discover behind-the-scenes moments, completed interiors, furniture craftsmanship, and project updates.
@@ -912,9 +914,9 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-stone-900 hover:text-[#CAA05C] transition-colors font-bold text-xs tracking-widest uppercase border border-stone-950/20 px-5 py-3 rounded-none hover:border-[#CAA05C]"
+              className="inline-flex items-center space-x-2 text-stone-900 hover:text-gold-accent transition-colors font-bold text-xs tracking-widest uppercase border border-stone-950/20 px-5 py-3 rounded-none hover:border-gold-accent"
             >
-              <Instagram size={14} className="text-[#CAA05C]" />
+              <Instagram size={14} className="text-gold-accent" />
               <span>Follow @SutharStudio</span>
             </a>
           </div>
@@ -954,7 +956,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     {post.title}
                   </p>
                   <div className="flex items-center justify-between text-[10px] font-mono text-stone-400 pt-3 border-t border-stone-100 mt-3 uppercase">
-                    <span className="text-[#CAA05C] font-semibold">@SutharStudio</span>
+                    <span className="text-gold-accent font-semibold">@SutharStudio</span>
                     <span>1d ago</span>
                   </div>
                 </div>
@@ -969,7 +971,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white" id="gallery-final-cta">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000"
+            src={SITE_IMAGES.ctaBg}
             alt="Suthar Luxury Studio Architectural Finale"
             className="w-full h-full object-cover opacity-15 filter brightness-[0.3]"
             referrerPolicy="no-referrer"
@@ -979,12 +981,12 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-[#CAA05C] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               START YOUR OWN COMMISSION
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase">
               Your Dream Project <br />
-              Could Be <span className="text-[#CAA05C]">Featured</span> Here Next.
+              Could Be <span className="text-gold-accent">Featured</span> Here Next.
             </h2>
             <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               Whether you're building a new home, renovating an existing space, or creating custom furniture, we'd love to bring your ideas to life with timeless design and exceptional craftsmanship.
@@ -994,7 +996,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] px-8 py-5 rounded-none cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent px-8 py-5 rounded-none cursor-pointer shadow-xl"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -1004,7 +1006,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={onBackToHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#CAA05C] hover:text-[#CAA05C]"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               View Services
             </button>
@@ -1022,7 +1024,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             {/* Header toolbar */}
             <div className="p-6 flex items-center justify-between text-white border-b border-white/5 z-20">
               <div className="text-left">
-                <span className="text-[#CAA05C] font-mono text-[9px] font-bold tracking-widest uppercase block">
+                <span className="text-gold-accent font-mono text-[9px] font-bold tracking-widest uppercase block">
                   {filteredProjects[lightboxIndex].category} &bull; {filteredProjects[lightboxIndex].location}
                 </span>
                 <h4 className="text-sm font-serif font-light uppercase tracking-wide">
@@ -1036,7 +1038,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 </span>
                 <button
                   onClick={() => setLightboxIndex(null)}
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-gold-accent hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10"
                 >
                   <X size={20} />
                 </button>
@@ -1049,7 +1051,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               {/* Prev Button */}
               <button
                 onClick={handlePrevLightbox}
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-gold-accent hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
               >
                 <ChevronLeft size={24} />
               </button>
@@ -1074,7 +1076,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               {/* Next Button */}
               <button
                 onClick={handleNextLightbox}
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-[#CAA05C] hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-gold-accent hover:text-stone-950 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10 z-20"
               >
                 <ChevronRight size={24} />
               </button>
@@ -1101,7 +1103,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     setLightboxIndex(null);
                     handleOpenConsultation();
                   }}
-                  className="flex-1 md:flex-none py-3 px-6 bg-[#CAA05C] hover:bg-[#CAA05C] text-stone-950 text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-mono"
+                  className="flex-1 md:flex-none py-3 px-6 bg-gold-accent hover:bg-gold-accent text-stone-950 text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-mono"
                 >
                   Discuss Project
                 </button>

@@ -56,10 +56,10 @@ export default function DreamProjectCTA({ setView }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2 bg-stone-900/80 backdrop-blur-md border border-[#CAA05C]/30 px-5 py-2 rounded-full shadow-2xl"
+          className="inline-flex items-center space-x-2 bg-stone-900/80 backdrop-blur-md border border-gold-accent/30 px-5 py-2 rounded-full shadow-2xl"
         >
-          <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
-          <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.25em] uppercase text-[#CAA05C]">
+          <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
+          <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.25em] uppercase text-gold-accent">
             YOUR BEST CHOICE
           </span>
         </motion.div>
@@ -73,8 +73,8 @@ export default function DreamProjectCTA({ setView }) {
           className="space-y-3 max-w-4xl"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-xl">
-            Let's Start <span className="text-[#CAA05C]">Your New</span> <br />
-            <span className="text-[#CAA05C]">Dream</span> Project
+            Let's Start <span className="text-gold-accent">Your New</span> <br />
+            <span className="text-gold-accent">Dream</span> Project
           </h2>
           
           <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed">
@@ -91,11 +91,11 @@ export default function DreamProjectCTA({ setView }) {
           className="pt-2 relative group"
         >
           {/* Subtle Outer Pulsing Halo */}
-          <div className="absolute inset-0 rounded-full bg-[#CAA05C]/30 blur-xl group-hover:bg-[#CAA05C]/50 transition-all duration-500 scale-110" />
+          <div className="absolute inset-0 rounded-full bg-gold-accent/30 blur-xl group-hover:bg-gold-accent/50 transition-all duration-500 scale-110" />
 
           <button
             onClick={handleAction}
-            className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full bg-[#CAA05C] hover:bg-[#CAA05C] border-2 border-white/20 hover:border-white text-white hover:text-stone-950 flex flex-col items-center justify-center space-y-1 transition-all duration-500 cursor-pointer shadow-2xl group-hover:scale-105 active:scale-95"
+            className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full bg-gold-accent hover:bg-gold-accent border-2 border-white/20 hover:border-white text-white hover:text-stone-950 flex flex-col items-center justify-center space-y-1 transition-all duration-500 cursor-pointer shadow-2xl group-hover:scale-105 active:scale-95"
           >
             <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center leading-tight">
               Get <br /> A Quote
@@ -115,15 +115,15 @@ export default function DreamProjectCTA({ setView }) {
           className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-stone-300 border-t border-white/10 w-full max-w-3xl"
         >
           <div className="flex items-center space-x-2">
-            <Sparkles size={14} className="text-[#CAA05C]" />
+            <Sparkles size={14} className="text-gold-accent" />
             <span>FREE ON-SITE CONSULTATION</span>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-gold-accent" />
             <span>ARCHITECT SUPERVISED</span>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-gold-accent" />
             <span>SINCE 1989</span>
           </div>
         </motion.div>

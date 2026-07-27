@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import {
   MessageSquare,
@@ -15,6 +16,7 @@ import {
   MapPin,
   CheckCircle2
 } from "lucide-react";
+import { HERO_DATA, COMPANY_INFO, SITE_IMAGES } from "../lib/data.js";
 
 const heroImg1 = "/assets/images/living_room/living_01.png";
 const heroImg2 = "/assets/images/kitchen/kitchen_01.png";
@@ -24,7 +26,7 @@ export default function Hero({ setView }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  const totalSlides = 3;
+  const totalSlides = HERO_DATA.slides ? HERO_DATA.slides.length : 3;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -32,7 +34,7 @@ export default function Hero({ setView }) {
       setCurrent((prev) => (prev + 1) % totalSlides);
     }, 8000);
     return () => clearInterval(timer);
-  }, [current]);
+  }, [current, totalSlides]);
 
   const nextSlide = (e) => {
     if (e) e.stopPropagation();
@@ -84,13 +86,13 @@ export default function Hero({ setView }) {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0 w-full h-full"
           >
-            <img
+            <Image
               src={bgImages[current]}
-              alt="Suthar Luxury Interior Design"
-              className="w-full h-full object-cover opacity-45 filter brightness-[0.72] contrast-[1.08]"
+              alt={COMPANY_INFO.name + " Luxury Interior Design"}
+              fill
+              priority
+              className="object-cover opacity-45 filter brightness-[0.72] contrast-[1.08]"
               referrerPolicy="no-referrer"
-              loading="eager"
-              decoding="async"
             />
           </motion.div>
         </AnimatePresence>
@@ -125,21 +127,21 @@ export default function Hero({ setView }) {
               className="flex flex-col items-center text-center space-y-6 relative"
             >
               {/* Tagline Badge */}
-              <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/30 bg-stone-900/80 backdrop-blur-md px-5 py-2 rounded-full shadow-lg z-10">
-                <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-[#CAA05C]">
-                  30+ YEARS OF FAMILY CRAFTSMANSHIP
+              <div className="inline-flex items-center space-x-2 border border-gold-accent/30 bg-stone-900/80 backdrop-blur-md px-5 py-2 rounded-full shadow-lg z-10">
+                <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-gold-accent">
+                  {HERO_DATA.badgeText}
                 </span>
               </div>
 
               {/* Headline */}
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[84px] font-extrabold tracking-tight text-white leading-[1.02] max-w-5xl mx-auto z-10">
-                Find Your <span className="text-[#CAA05C]">Inspired</span><br />
+                {HERO_DATA.titlePart1} <span className="text-gold-accent">Inspired</span><br />
                 Interior Space
               </h1>
 
               <p className="text-stone-300 text-xs sm:text-base font-light max-w-2xl mx-auto leading-relaxed z-10 font-sans">
-                Transforming sea-facing villas, penthouses, and luxury commercial spaces across Mumbai, Goa &amp; Pune with 30+ years of generational timber joinery and licensed architect supervision.
+                {HERO_DATA.description}
               </p>
 
               {/* Action Buttons */}
@@ -147,9 +149,9 @@ export default function Hero({ setView }) {
                 <button
                   type="button"
                   onClick={handleStartProject}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-extrabold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#b0936b] px-8 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.03] border border-[#CAA05C]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-extrabold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[#b0936b] px-8 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.03] border border-gold-accent"
                 >
-                  <span>Start Your Project</span>
+                  <span>{HERO_DATA.secondaryCtaText}</span>
                   <div className="w-6 h-6 rounded-full bg-stone-950/20 flex items-center justify-center text-stone-950">
                     <ArrowRight size={12} strokeWidth={2.5} />
                   </div>
@@ -158,18 +160,18 @@ export default function Hero({ setView }) {
                 <button
                   type="button"
                   onClick={handlePortfolioClick}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-[#CAA05C]/60 hover:border-[#CAA05C] text-[#CAA05C] hover:text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-stone-900/80 backdrop-blur-md cursor-pointer hover:bg-stone-800"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-gold-accent/60 hover:border-gold-accent text-gold-accent hover:text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-stone-900/80 backdrop-blur-md cursor-pointer hover:bg-stone-800"
                 >
-                  <span>Explore Portfolio</span>
+                  <span>{HERO_DATA.primaryCtaText}</span>
                 </button>
               </div>
 
               {/* Trust Features Bar */}
               <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl z-10">
                 {[
-                  { label: "Architect Supervised", color: "text-[#CAA05C]" },
-                  { label: "Factory Joinery", color: "text-[#CAA05C]" },
-                  { label: "Turnkey Execution", color: "text-[#CAA05C]" }
+                  { label: "Architect Supervised", color: "text-gold-accent" },
+                  { label: "Factory Joinery", color: "text-gold-accent" },
+                  { label: "Turnkey Execution", color: "text-gold-accent" }
                 ].map((item, idx) => (
                   <div
                     key={idx}
@@ -194,9 +196,9 @@ export default function Hero({ setView }) {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               {/* Eyebrow Pill */}
-              <div className="inline-flex items-center space-x-2 bg-[#CAA05C]/20 backdrop-blur-md border border-[#CAA05C]/40 px-5 py-2 rounded-full">
-                <Sparkles size={14} className="text-[#CAA05C]" />
-                <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-[#CAA05C] font-mono">
+              <div className="inline-flex items-center space-x-2 bg-gold-accent/20 backdrop-blur-md border border-gold-accent/40 px-5 py-2 rounded-full">
+                <Sparkles size={14} className="text-gold-accent" />
+                <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-gold-accent font-mono">
                   LET'S BUILD SOMETHING EXCEPTIONAL
                 </span>
               </div>
@@ -204,7 +206,7 @@ export default function Hero({ setView }) {
               {/* Grand Title */}
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Your Dream Space <br />
-                <span className="text-[#CAA05C]">Starts With A</span> Conversation
+                <span className="text-gold-accent">Starts With A</span> Conversation
               </h1>
 
               {/* Descriptions */}
@@ -222,7 +224,7 @@ export default function Hero({ setView }) {
                 <button
                   type="button"
                   onClick={handleStartProject}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-extrabold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#b0936b] px-8 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.03] border border-[#CAA05C]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-extrabold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[#b0936b] px-8 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.03] border border-gold-accent"
                 >
                   <span>Book Free Consultation</span>
                   <div className="w-6 h-6 rounded-full bg-stone-950/20 flex items-center justify-center text-stone-950">
@@ -231,26 +233,26 @@ export default function Hero({ setView }) {
                 </button>
 
                 <a
-                  href="tel:+919819776030"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 border border-[#CAA05C]/60 hover:border-[#CAA05C] text-[#CAA05C] hover:text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-stone-900/80 backdrop-blur-md cursor-pointer hover:bg-stone-800"
+                  href={`tel:${COMPANY_INFO.phoneFormatted}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 border border-gold-accent/60 hover:border-gold-accent text-gold-accent hover:text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-stone-900/80 backdrop-blur-md cursor-pointer hover:bg-stone-800"
                 >
-                  <Phone size={14} className="text-[#CAA05C]" />
-                  <span>Call 09819776030</span>
+                  <Phone size={14} className="text-gold-accent" />
+                  <span>Call {COMPANY_INFO.phone}</span>
                 </a>
               </div>
 
               {/* Regional Quote */}
               <p className="text-stone-400 font-light text-[11px] sm:text-xs max-w-3xl mx-auto pt-2 font-mono">
-                &ldquo;Serving homeowners, businesses, architects, and commercial clients across Mumbai, Pune, Goa, Bengaluru, and surrounding regions.&rdquo;
+                &ldquo;Serving homeowners, businesses, architects, and commercial clients across {COMPANY_INFO.serviceCities.join(", ")}, and surrounding regions.&rdquo;
               </p>
 
-              {/* 4 Feature Cards with diverse Dopelycolors accents */}
+              {/* 4 Feature Cards */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 pt-4 text-left">
                 {[
-                  { title: "FREE CONSULTATION", desc: "Discuss your ideas with our team before making decisions.", icon: MessageSquare, accent: "border-[#CAA05C]/40 text-[#CAA05C]" },
-                  { title: "ARCHITECT GUIDED", desc: "Carefully planned & supervised by licensed architects.", icon: Compass, accent: "border-[#CAA05C]/50 text-[#CAA05C]" },
-                  { title: "FLEXIBLE EXECUTION", desc: "Labour only, materials, joinery, or full turnkey.", icon: Workflow, accent: "border-[#CAA05C]/40 text-[#CAA05C]" },
-                  { title: "FAMILY CRAFTSMANSHIP", desc: "Over three decades of trust and quality since 1989.", icon: History, accent: "border-[#CAA05C]/40 text-[#CAA05C]" }
+                  { title: "FREE CONSULTATION", desc: "Discuss your ideas with our team before making decisions.", icon: MessageSquare, accent: "border-gold-accent/40 text-gold-accent" },
+                  { title: "ARCHITECT GUIDED", desc: "Carefully planned & supervised by licensed architects.", icon: Compass, accent: "border-gold-accent/50 text-gold-accent" },
+                  { title: "FLEXIBLE EXECUTION", desc: "Labour only, materials, joinery, or full turnkey.", icon: Workflow, accent: "border-gold-accent/40 text-gold-accent" },
+                  { title: "FAMILY CRAFTSMANSHIP", desc: `Over three decades of trust and quality since ${COMPANY_INFO.foundedYear}.`, icon: History, accent: "border-gold-accent/40 text-gold-accent" }
                 ].map((item, idx) => {
                   const Icon = item.icon;
                   return (
@@ -286,36 +288,30 @@ export default function Hero({ setView }) {
             >
               {/* Left Column: Text & Metrics */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/40 bg-stone-900/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md">
-                  <ShieldCheck size={14} className="text-[#CAA05C]" />
-                  <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#CAA05C]">
+                <div className="inline-flex items-center space-x-2 border border-gold-accent/40 bg-stone-900/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md">
+                  <ShieldCheck size={14} className="text-gold-accent" />
+                  <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-mono font-bold text-gold-accent">
                     BESPOKE JOINERY &amp; TURNKEY SOLUTIONS
                   </span>
                 </div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
-                  Crafted With <span className="text-[#CAA05C]">Precision</span>.<br />
-                  Built To <span className="text-[#CAA05C]">Last</span>.
+                  Crafted With <span className="text-gold-accent">Precision</span>.<br />
+                  Built To <span className="text-gold-accent">Last</span>.
                 </h1>
 
                 <p className="text-stone-300 text-xs sm:text-base font-light leading-relaxed max-w-xl font-sans">
-                  From sea-facing luxury villas in Goa to duplex penthouses in Mumbai, our architect-supervised execution and Kumta factory-direct timber joinery deliver flawless spatial perfection.
+                  From sea-facing luxury villas in Goa to duplex penthouses in Mumbai, our architect-supervised execution and factory-direct timber joinery deliver flawless spatial perfection.
                 </p>
 
                 {/* Metrics Badges Grid */}
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
-                  <div>
-                    <span className="text-2xl sm:text-4xl font-extrabold text-[#CAA05C] block font-display">30+</span>
-                    <span className="text-[10px] sm:text-xs font-mono text-stone-400 uppercase tracking-wider block mt-0.5">Years Legacy</span>
-                  </div>
-                  <div>
-                    <span className="text-2xl sm:text-4xl font-extrabold text-[#CAA05C] block font-display">450+</span>
-                    <span className="text-[10px] sm:text-xs font-mono text-stone-400 uppercase tracking-wider block mt-0.5">Projects Built</span>
-                  </div>
-                  <div>
-                    <span className="text-2xl sm:text-4xl font-extrabold text-[#CAA05C] block font-display">100%</span>
-                    <span className="text-[10px] sm:text-xs font-mono text-stone-400 uppercase tracking-wider block mt-0.5">Turnkey Quality</span>
-                  </div>
+                  {(HERO_DATA?.metrics || []).slice(0, 3).map((m, idx) => (
+                    <div key={idx}>
+                      <span className="text-2xl sm:text-4xl font-extrabold text-gold-accent block font-display">{m.value}</span>
+                      <span className="text-[10px] sm:text-xs font-mono text-stone-400 uppercase tracking-wider block mt-0.5">{m.label}</span>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Action CTA buttons */}
@@ -323,7 +319,7 @@ export default function Hero({ setView }) {
                   <button
                     type="button"
                     onClick={handlePortfolioClick}
-                    className="inline-flex items-center space-x-2.5 bg-[#CAA05C] hover:bg-[#b0936b] text-stone-950 font-extrabold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-xl hover:scale-[1.03] border border-[#CAA05C]"
+                    className="inline-flex items-center space-x-2.5 bg-gold-accent hover:bg-[#b0936b] text-stone-950 font-extrabold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-xl hover:scale-[1.03] border border-gold-accent"
                   >
                     <span>Explore Our Portfolio</span>
                     <ArrowRight size={14} strokeWidth={2.5} />
@@ -332,7 +328,7 @@ export default function Hero({ setView }) {
                   <button
                     type="button"
                     onClick={handleStartProject}
-                    className="inline-flex items-center space-x-2 bg-stone-900/80 hover:bg-stone-800/90 border border-stone-600 hover:border-[#CAA05C] text-stone-200 hover:text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer backdrop-blur-md shadow-md"
+                    className="inline-flex items-center space-x-2 bg-stone-900/80 hover:bg-stone-800/90 border border-stone-600 hover:border-gold-accent text-stone-200 hover:text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer backdrop-blur-md shadow-md"
                   >
                     <span>Request Onboarding Intake</span>
                   </button>
@@ -344,20 +340,20 @@ export default function Hero({ setView }) {
                 <div className="bg-stone-900/90 border border-stone-700/80 p-6 sm:p-8 rounded-[32px] shadow-2xl space-y-6 backdrop-blur-md">
                   <div className="flex items-center justify-between border-b border-stone-700/80 pb-4">
                     <div className="flex items-center space-x-2">
-                      <Award size={18} className="text-[#CAA05C]" />
+                      <Award size={18} className="text-gold-accent" />
                       <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
                         SUTHAR GUILD STANDARDS
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-[#CAA05C] bg-stone-950 px-2.5 py-1 rounded-full border border-[#CAA05C]/30 flex items-center space-x-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C] animate-pulse" />
+                    <span className="text-[10px] font-mono text-gold-accent bg-stone-950 px-2.5 py-1 rounded-full border border-gold-accent/30 flex items-center space-x-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold-accent animate-pulse" />
                       <span>VERIFIED</span>
                     </span>
                   </div>
 
                   <div className="space-y-4 text-xs text-stone-300 font-light font-sans">
                     <div className="flex items-start space-x-3.5">
-                      <div className="w-6 h-6 rounded-full bg-[#CAA05C]/20 border border-[#CAA05C]/40 text-[#CAA05C] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+                      <div className="w-6 h-6 rounded-full bg-gold-accent/20 border border-gold-accent/40 text-gold-accent flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
                         ✓
                       </div>
                       <div className="space-y-0.5">
@@ -371,7 +367,7 @@ export default function Hero({ setView }) {
                     </div>
 
                     <div className="flex items-start space-x-3.5">
-                      <div className="w-6 h-6 rounded-full bg-[#CAA05C]/20 border border-[#CAA05C]/40 text-[#CAA05C] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+                      <div className="w-6 h-6 rounded-full bg-gold-accent/20 border border-gold-accent/40 text-gold-accent flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
                         ✓
                       </div>
                       <div className="space-y-0.5">
@@ -379,13 +375,13 @@ export default function Hero({ setView }) {
                           Direct Timber Joinery
                         </strong>
                         <span className="text-stone-300 leading-relaxed block">
-                          Factory-crafted teak, white ash, and modular kitchens directly from Kumta workshops.
+                          Factory-crafted teak, white ash, and modular kitchens directly from regional workshops.
                         </span>
                       </div>
                     </div>
 
                     <div className="flex items-start space-x-3.5">
-                      <div className="w-6 h-6 rounded-full bg-[#CAA05C]/20 border border-[#CAA05C]/40 text-[#CAA05C] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+                      <div className="w-6 h-6 rounded-full bg-gold-accent/20 border border-gold-accent/40 text-gold-accent flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
                         ✓
                       </div>
                       <div className="space-y-0.5">
@@ -401,10 +397,10 @@ export default function Hero({ setView }) {
 
                   <div className="pt-3 border-t border-stone-700/80 flex items-center justify-between text-[11px] font-mono text-stone-400">
                     <div className="flex items-center space-x-1.5">
-                      <MapPin size={13} className="text-[#CAA05C]" />
-                      <span>Mumbai • Pune • Goa</span>
+                      <MapPin size={13} className="text-gold-accent" />
+                      <span>{COMPANY_INFO.serviceCities.join(" • ")}</span>
                     </div>
-                    <span className="text-[#CAA05C] font-bold uppercase tracking-wider">Turnkey Warranty</span>
+                    <span className="text-gold-accent font-bold uppercase tracking-wider">Turnkey Warranty</span>
                   </div>
                 </div>
               </div>
@@ -428,7 +424,7 @@ export default function Hero({ setView }) {
               }}
               className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
                 current === idx
-                  ? "w-8 bg-[#CAA05C]"
+                  ? "w-8 bg-gold-accent"
                   : "w-2.5 bg-white/30 hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
@@ -444,7 +440,7 @@ export default function Hero({ setView }) {
           <button
             type="button"
             onClick={prevSlide}
-            className="w-11 h-11 rounded-full bg-stone-900/80 hover:bg-[#CAA05C] hover:text-stone-950 border border-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md active:scale-95"
+            className="w-11 h-11 rounded-full bg-stone-900/80 hover:bg-gold-accent hover:text-stone-950 border border-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md active:scale-95"
             aria-label="Previous Slide"
           >
             <ChevronLeft size={20} strokeWidth={2.5} />
@@ -452,7 +448,7 @@ export default function Hero({ setView }) {
           <button
             type="button"
             onClick={nextSlide}
-            className="w-11 h-11 rounded-full bg-stone-900/80 hover:bg-[#CAA05C] hover:text-stone-950 border border-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md active:scale-95"
+            className="w-11 h-11 rounded-full bg-stone-900/80 hover:bg-gold-accent hover:text-stone-950 border border-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md active:scale-95"
             aria-label="Next Slide"
           >
             <ChevronRight size={20} strokeWidth={2.5} />
@@ -463,11 +459,12 @@ export default function Hero({ setView }) {
 
       {/* BOTTOM FOOTER BREATHING MARGIN */}
       <div className="relative z-20 pb-8 px-6 md:px-12 max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-stone-500 uppercase tracking-widest border-t border-white/5 pt-4 gap-2 text-center sm:text-left">
-        <span>SUTHAR INTERIOR STUDIO &amp; ARCHITECTURE</span>
-        <span>EST. 1989 • MUMBAI &amp; GOA</span>
+        <span>{COMPANY_INFO.name.toUpperCase()}</span>
+        <span>EST. {COMPANY_INFO.foundedYear} • {COMPANY_INFO.serviceCities.join(" & ").toUpperCase()}</span>
       </div>
 
     </section>
   );
 }
+
 

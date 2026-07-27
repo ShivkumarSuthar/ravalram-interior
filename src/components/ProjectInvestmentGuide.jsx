@@ -33,8 +33,10 @@ import {
   Copy,
   SlidersHorizontal
 } from "lucide-react";
+import { INVESTMENT_CATEGORIES as EXTERNAL_INVESTMENT_CATEGORIES } from "../lib/investment-data.js";
 
-const INVESTMENT_CATEGORIES = [
+const INVESTMENT_CATEGORIES = EXTERNAL_INVESTMENT_CATEGORIES;
+const DUMMY_OLD_ARRAY = []; /*
   {
     id: "full-home",
     title: "Full Home Interior",
@@ -75,10 +77,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Bespoke Timber Joinery & Millwork", percentage: 38, icon: Hammer, color: "#CAA05C" },
-      { category: "Imported Stone & Surface Finishes", percentage: 28, icon: Gem, color: "#CAA05C" },
-      { category: "Architectural Lighting, MEP & HVAC", percentage: 20, icon: Zap, color: "#CAA05C" },
-      { category: "On-Site Supervision & Turnkey Execution", percentage: 14, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Bespoke Timber Joinery & Millwork", percentage: 38, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Imported Stone & Surface Finishes", percentage: 28, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Architectural Lighting, MEP & HVAC", percentage: 20, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "On-Site Supervision & Turnkey Execution", percentage: 14, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Complete civil reconfiguration & acoustic partition layout",
@@ -149,10 +151,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Custom Wall Panelling & Millwork", percentage: 36, icon: Hammer, color: "#CAA05C" },
-      { category: "Sintered Stone & Italian Flooring", percentage: 26, icon: Gem, color: "#CAA05C" },
-      { category: "Electrical, Smart Controls & HVAC", percentage: 22, icon: Zap, color: "#CAA05C" },
-      { category: "Civil Work & Precision Fitting", percentage: 16, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Custom Wall Panelling & Millwork", percentage: 36, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Sintered Stone & Italian Flooring", percentage: 26, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Electrical, Smart Controls & HVAC", percentage: 22, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Civil Work & Precision Fitting", percentage: 16, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Living & dining spatial integration with wall panelling",
@@ -222,10 +224,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Monumental Timber Joinery & Staircases", percentage: 40, icon: Hammer, color: "#CAA05C" },
-      { category: "Waterjet Stone, Marble & Facades", percentage: 30, icon: Gem, color: "#CAA05C" },
-      { category: "Automation, Cinema & Courtyard MEP", percentage: 18, icon: Zap, color: "#CAA05C" },
-      { category: "Architectural Supervision & Styling", percentage: 12, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Monumental Timber Joinery & Staircases", percentage: 40, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Waterjet Stone, Marble & Facades", percentage: 30, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Automation, Cinema & Courtyard MEP", percentage: 18, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Architectural Supervision & Styling", percentage: 12, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Double-height living pavilion & mezzanine spatial design",
@@ -295,10 +297,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "German Hardware & Servo-Drive Systems", percentage: 35, icon: Hammer, color: "#CAA05C" },
-      { category: "12mm Sintered Stone Countertops & Backsplash", percentage: 32, icon: Gem, color: "#CAA05C" },
-      { category: "Concealed Appliance Fit-Out & Plumbing", percentage: 20, icon: Zap, color: "#CAA05C" },
-      { category: "Factory PU Shutter Fabrication & Fitting", percentage: 13, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "German Hardware & Servo-Drive Systems", percentage: 35, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "12mm Sintered Stone Countertops & Backsplash", percentage: 32, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Concealed Appliance Fit-Out & Plumbing", percentage: 20, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Factory PU Shutter Fabrication & Fitting", percentage: 13, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Precision ergonomic work-triangle planning (Preparation, Cooking, Wash)",
@@ -368,10 +370,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Italian Marble Slabs & Waterproofing", percentage: 38, icon: Gem, color: "#CAA05C" },
-      { category: "Thermostatic Brassware & Sanitary Fixtures", percentage: 30, icon: Zap, color: "#CAA05C" },
-      { category: "Custom Fluted Teak Vanity & Mirror Cabinets", percentage: 20, icon: Hammer, color: "#CAA05C" },
-      { category: "Plumbing Pressure Test & Waterproof Warranty", percentage: 12, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Italian Marble Slabs & Waterproofing", percentage: 38, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Thermostatic Brassware & Sanitary Fixtures", percentage: 30, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Custom Fluted Teak Vanity & Mirror Cabinets", percentage: 20, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Plumbing Pressure Test & Waterproof Warranty", percentage: 12, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Complete waterproofing overhaul with 10-year warranty bond",
@@ -441,10 +443,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Custom Sectional Seating & Upholstery", percentage: 35, icon: Hammer, color: "#CAA05C" },
-      { category: "Acoustic Wall Panelling & Stone Feature Walls", percentage: 32, icon: Gem, color: "#CAA05C" },
-      { category: "Architectural Lighting & AV Engineering", percentage: 20, icon: Zap, color: "#CAA05C" },
-      { category: "Curated Tables, Rugs & Motorized Drapery", percentage: 13, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Custom Sectional Seating & Upholstery", percentage: 35, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Acoustic Wall Panelling & Stone Feature Walls", percentage: 32, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Architectural Lighting & AV Engineering", percentage: 20, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Curated Tables, Rugs & Motorized Drapery", percentage: 13, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Custom architectural feature wall with stone/veneer panelling",
@@ -514,10 +516,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Glass Walk-In Wardrobes & Millwork", percentage: 40, icon: Hammer, color: "#CAA05C" },
-      { category: "Custom Bedstead & Tactile Headboard Panelling", percentage: 28, icon: Gem, color: "#CAA05C" },
-      { category: "Circadian Lighting & Smart Ambiance", percentage: 18, icon: Zap, color: "#CAA05C" },
-      { category: "Acoustic Wall Insulation & Blackout Drapery", percentage: 14, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Glass Walk-In Wardrobes & Millwork", percentage: 40, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Custom Bedstead & Tactile Headboard Panelling", percentage: 28, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Circadian Lighting & Smart Ambiance", percentage: 18, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Acoustic Wall Insulation & Blackout Drapery", percentage: 14, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Custom king bedstead with floating nightstands and integrated reading lamps",
@@ -587,10 +589,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Executive Desk & Library Bookcases", percentage: 42, icon: Hammer, color: "#CAA05C" },
-      { category: "Acoustic Wood Slat Wall Insulation", percentage: 26, icon: Gem, color: "#CAA05C" },
-      { category: "High-CRI Video Lighting & Wire Management", percentage: 18, icon: Zap, color: "#CAA05C" },
-      { category: "Ergonomic Layout & Custom Fitting", percentage: 14, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Executive Desk & Library Bookcases", percentage: 42, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Acoustic Wood Slat Wall Insulation", percentage: 26, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "High-CRI Video Lighting & Wire Management", percentage: 18, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Ergonomic Layout & Custom Fitting", percentage: 14, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Custom executive desk with integrated power ports & leather writing pad",
@@ -660,10 +662,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Glass Partitions, Workstations & Boardrooms", percentage: 38, icon: Hammer, color: "#CAA05C" },
-      { category: "HVAC Ductwork, MEP, Cabling & Fire Safety", percentage: 28, icon: Zap, color: "#CAA05C" },
-      { category: "Reception Stone Desk & Brand Features", percentage: 20, icon: Gem, color: "#CAA05C" },
-      { category: "Statutory Approvals & Site Management", percentage: 14, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Glass Partitions, Workstations & Boardrooms", percentage: 38, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "HVAC Ductwork, MEP, Cabling & Fire Safety", percentage: 28, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Reception Stone Desk & Brand Features", percentage: 20, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Statutory Approvals & Site Management", percentage: 14, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Grand reception lobby with custom stone counter & illuminated brand wall",
@@ -733,10 +735,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Custom Display Pods, Shelving & Brass Railings", percentage: 36, icon: Hammer, color: "#CAA05C" },
-      { category: "CRI 98+ Precision Spotlights & Facade Glass", percentage: 30, icon: Zap, color: "#CAA05C" },
-      { category: "Statuario Marble Pods & Flooring", percentage: 20, icon: Gem, color: "#CAA05C" },
-      { category: "VIP Fitting Lounge & Trial Room Fitment", percentage: 14, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Custom Display Pods, Shelving & Brass Railings", percentage: 36, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "CRI 98+ Precision Spotlights & Facade Glass", percentage: 30, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Statuario Marble Pods & Flooring", percentage: 20, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "VIP Fitting Lounge & Trial Room Fitment", percentage: 14, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Curved architectural facade & frameless entry portal design",
@@ -806,10 +808,10 @@ const INVESTMENT_CATEGORIES = [
       }
     },
     costBreakdown: [
-      { category: "Kiln-Dried Burma Teak & Walnut Logs", percentage: 40, icon: Hammer, color: "#CAA05C" },
-      { category: "Precision CNC Milling & Laser Brass Inlays", percentage: 30, icon: Gem, color: "#CAA05C" },
-      { category: "Hand-Rubbed Polyurethane Finish & Polish", percentage: 18, icon: Zap, color: "#CAA05C" },
-      { category: "Guild Quality Control & White-Glove Fitting", percentage: 12, icon: ShieldCheck, color: "#CAA05C" }
+      { category: "Kiln-Dried Burma Teak & Walnut Logs", percentage: 40, icon: Hammer, color: "var(--color-gold-accent)" },
+      { category: "Precision CNC Milling & Laser Brass Inlays", percentage: 30, icon: Gem, color: "var(--color-gold-accent)" },
+      { category: "Hand-Rubbed Polyurethane Finish & Polish", percentage: 18, icon: Zap, color: "var(--color-gold-accent)" },
+      { category: "Guild Quality Control & White-Glove Fitting", percentage: 12, icon: ShieldCheck, color: "var(--color-gold-accent)" }
     ],
     scope: [
       "Floor-to-ceiling pivot entrance doors with multi-point locking systems",
@@ -840,7 +842,7 @@ const INVESTMENT_CATEGORIES = [
       { name: "Fluted Walnut Architectural Wall", location: "Goa Villa", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" }
     ]
   }
-];
+]; */
 
 export default function ProjectInvestmentGuide({ setView }) {
   const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
@@ -977,12 +979,12 @@ export default function ProjectInvestmentGuide({ setView }) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-200/80 pb-8 text-left">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center space-x-2 bg-[#CAA05C]/15 text-[#CAA05C] px-3 py-1 rounded-md text-[11px] font-mono tracking-[0.25em] font-bold uppercase">
+            <div className="inline-flex items-center space-x-2 bg-gold-accent/15 text-gold-accent px-3 py-1 rounded-md text-[11px] font-mono tracking-[0.25em] font-bold uppercase">
               <Compass className="w-3.5 h-3.5" />
               <span>PROJECT INVESTMENT GUIDE</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase font-display">
-              Understand The <span className="text-[#CAA05C]">Value & Scope</span> Of Your Vision
+              Understand The <span className="text-gold-accent">Value & Scope</span> Of Your Vision
             </h2>
           </div>
           
@@ -993,7 +995,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               <button
                 onClick={() => setCurrency("INR")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                  currency === "INR" ? "bg-[#1c1917] text-[#CAA05C]" : "text-stone-500 hover:text-stone-900"
+                  currency === "INR" ? "bg-[#1c1917] text-gold-accent" : "text-stone-500 hover:text-stone-900"
                 }`}
               >
                 ₹ INR
@@ -1001,7 +1003,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               <button
                 onClick={() => setCurrency("USD")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                  currency === "USD" ? "bg-[#1c1917] text-[#CAA05C]" : "text-stone-500 hover:text-stone-900"
+                  currency === "USD" ? "bg-[#1c1917] text-gold-accent" : "text-stone-500 hover:text-stone-900"
                 }`}
               >
                 $ USD
@@ -1018,7 +1020,7 @@ export default function ProjectInvestmentGuide({ setView }) {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-mono text-stone-400 tracking-[0.2em] uppercase font-bold flex items-center gap-1.5">
-              <Sliders className="w-3 h-3 text-[#CAA05C]" />
+              <Sliders className="w-3 h-3 text-gold-accent" />
               <span>SELECT ARCHITECTURAL SCOPE ({INVESTMENT_CATEGORIES.length})</span>
             </span>
 
@@ -1030,7 +1032,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                 placeholder="Search scopes (e.g. villa, kitchen)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-6 py-1.5 text-xs bg-white border border-stone-200/80 rounded-xl text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#CAA05C] transition-all font-sans"
+                className="w-full pl-8 pr-6 py-1.5 text-xs bg-white border border-stone-200/80 rounded-xl text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-gold-accent transition-all font-sans"
               />
               {searchQuery && (
                 <button
@@ -1059,10 +1061,10 @@ export default function ProjectInvestmentGuide({ setView }) {
                       : "bg-white text-stone-700 hover:text-stone-900 border-stone-200/80 hover:border-stone-300"
                   }`}
                 >
-                  <ItemIcon size={15} className={isActive ? "text-[#CAA05C]" : "text-stone-400"} />
+                  <ItemIcon size={15} className={isActive ? "text-gold-accent" : "text-stone-400"} />
                   <span className="font-display font-semibold whitespace-nowrap">{cat.title}</span>
                   <span className={`text-[9px] font-mono uppercase px-1.5 py-0.5 rounded ${
-                    isActive ? "bg-white/10 text-[#CAA05C]" : "bg-stone-100 text-stone-500"
+                    isActive ? "bg-white/10 text-gold-accent" : "bg-stone-100 text-stone-500"
                   }`}>
                     {cat.tag.split(" ")[0]}
                   </span>
@@ -1081,7 +1083,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               
               <div className="flex items-center justify-between border-b border-stone-200/80 pb-3">
                 <span className="text-xs font-mono text-stone-900 font-bold tracking-wider uppercase flex items-center gap-2">
-                  <Sliders className="w-4 h-4 text-[#CAA05C]" />
+                  <Sliders className="w-4 h-4 text-gold-accent" />
                   <span>WORK CATEGORIES</span>
                 </span>
                 <span className="text-[10px] font-mono text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full font-bold">
@@ -1097,7 +1099,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   placeholder="Filter category (e.g., Kitchen, Villa)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-7 py-2 text-xs bg-[#faf9f6] border border-stone-200/80 rounded-xl text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#CAA05C] focus:bg-white transition-all font-sans"
+                  className="w-full pl-8 pr-7 py-2 text-xs bg-[#faf9f6] border border-stone-200/80 rounded-xl text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-gold-accent focus:bg-white transition-all font-sans"
                 />
                 {searchQuery && (
                   <button
@@ -1123,15 +1125,15 @@ export default function ProjectInvestmentGuide({ setView }) {
                       onClick={() => handleCategorySelect(origIdx)}
                       className={`w-full p-3.5 rounded-2xl text-left transition-all duration-300 cursor-pointer border flex items-center justify-between group ${
                         isActive
-                          ? "bg-[#1c1917] text-white border-[#1c1917] shadow-md ring-1 ring-[#CAA05C]"
+                          ? "bg-[#1c1917] text-white border-[#1c1917] shadow-md ring-1 ring-gold-accent"
                           : "bg-[#faf9f6] hover:bg-white text-stone-800 border-stone-200/80 hover:border-stone-300"
                       }`}
                     >
                       <div className="flex items-center space-x-3 min-w-0 pr-2">
                         <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                           isActive
-                            ? "bg-[#CAA05C] text-stone-950 font-bold"
-                            : "bg-white text-stone-600 border border-stone-200 group-hover:border-[#CAA05C]/40 group-hover:text-stone-900"
+                            ? "bg-gold-accent text-stone-950 font-bold"
+                            : "bg-white text-stone-600 border border-stone-200 group-hover:border-gold-accent/40 group-hover:text-stone-900"
                         }`}>
                           <ItemIcon size={18} />
                         </div>
@@ -1141,11 +1143,11 @@ export default function ProjectInvestmentGuide({ setView }) {
                             {cat.title}
                           </h4>
                           <div className="flex items-center space-x-2 pt-0.5">
-                            <span className={`text-[9px] font-mono uppercase tracking-wider ${isActive ? "text-[#CAA05C]" : "text-stone-400"}`}>
+                            <span className={`text-[9px] font-mono uppercase tracking-wider ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
                               {cat.tag.split(" ")[0]}
                             </span>
                             <span className="text-[9px] font-mono text-stone-400">•</span>
-                            <span className={`text-[9px] font-mono ${isActive ? "text-stone-300" : "text-[#CAA05C]"}`}>
+                            <span className={`text-[9px] font-mono ${isActive ? "text-stone-300" : "text-gold-accent"}`}>
                               From {formatRateLabel(minRate)}
                             </span>
                           </div>
@@ -1153,7 +1155,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       </div>
 
                       <div className={`shrink-0 transition-transform ${isActive ? "translate-x-0" : "-translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"}`}>
-                        <ChevronRight size={16} className={isActive ? "text-[#CAA05C]" : "text-stone-400"} />
+                        <ChevronRight size={16} className={isActive ? "text-gold-accent" : "text-stone-400"} />
                       </div>
                     </button>
                   );
@@ -1171,7 +1173,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   </p>
                   <button
                     onClick={handleConsultationClick}
-                    className="w-full bg-[#1c1917] hover:bg-stone-800 text-[#CAA05C] px-3 py-2 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer flex items-center justify-center space-x-1.5"
+                    className="w-full bg-[#1c1917] hover:bg-stone-800 text-gold-accent px-3 py-2 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer flex items-center justify-center space-x-1.5"
                   >
                     <span>Request Custom CAD Quote</span>
                     <ArrowRight size={12} />
@@ -1201,8 +1203,8 @@ export default function ProjectInvestmentGuide({ setView }) {
                   {/* Category Header & Currency Selector */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-800/80 pb-5">
                     <div>
-                      <div className="text-[10px] font-mono text-[#CAA05C] tracking-widest uppercase font-bold flex items-center gap-2">
-                        <CategoryIcon size={14} className="text-[#CAA05C]" />
+                      <div className="text-[10px] font-mono text-gold-accent tracking-widest uppercase font-bold flex items-center gap-2">
+                        <CategoryIcon size={14} className="text-gold-accent" />
                         <span>{activeCategory.tag} • DEMO ESTIMATOR</span>
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-light text-white font-display pt-1">
@@ -1214,7 +1216,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       <button
                         onClick={() => setCurrency("INR")}
                         className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                          currency === "INR" ? "bg-[#CAA05C] text-stone-950" : "text-stone-300 hover:text-white"
+                          currency === "INR" ? "bg-gold-accent text-stone-950" : "text-stone-300 hover:text-white"
                         }`}
                       >
                         ₹ INR
@@ -1222,7 +1224,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       <button
                         onClick={() => setCurrency("USD")}
                         className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                          currency === "USD" ? "bg-[#CAA05C] text-stone-950" : "text-stone-300 hover:text-white"
+                          currency === "USD" ? "bg-gold-accent text-stone-950" : "text-stone-300 hover:text-white"
                         }`}
                       >
                         $ USD
@@ -1235,11 +1237,11 @@ export default function ProjectInvestmentGuide({ setView }) {
                     <span className="text-[10px] font-mono text-stone-400 uppercase font-bold tracking-wider">
                       ESTIMATED DEMO INVESTMENT RANGE:
                     </span>
-                    <div className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#CAA05C] tracking-tight font-display">
+                    <div className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-gold-accent tracking-tight font-display">
                       {formatCurrencyRange()}
                     </div>
                     <div className="text-xs font-mono text-stone-400 pt-1">
-                      Carpet Area: <strong className="text-stone-200">{areaSqFt.toLocaleString()} sq.ft</strong> • Finish Level: <strong className="text-[#CAA05C]">{currentTierObj.name}</strong> ({formatRateLabel(currentTierObj.ratePerSqFt)})
+                      Carpet Area: <strong className="text-stone-200">{areaSqFt.toLocaleString()} sq.ft</strong> • Finish Level: <strong className="text-gold-accent">{currentTierObj.name}</strong> ({formatRateLabel(currentTierObj.ratePerSqFt)})
                     </div>
                   </div>
 
@@ -1256,7 +1258,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                             onClick={() => setCustomAreaSqFt(preset.area)}
                             className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer border ${
                               areaSqFt === preset.area
-                                ? "bg-[#CAA05C] text-stone-950 font-bold border-[#CAA05C]"
+                                ? "bg-gold-accent text-stone-950 font-bold border-gold-accent"
                                 : "bg-white/10 text-stone-300 hover:bg-white/20 border-white/10"
                             }`}
                           >
@@ -1281,7 +1283,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                             onClick={() => setSelectedTier(tierKey)}
                             className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer flex items-center justify-between ${
                               isSelected
-                                ? "bg-[#CAA05C] text-stone-950 border-[#CAA05C] font-bold"
+                                ? "bg-gold-accent text-stone-950 border-gold-accent font-bold"
                                 : "bg-white/5 text-stone-300 hover:bg-white/10 border-white/10"
                             }`}
                           >
@@ -1300,10 +1302,10 @@ export default function ProjectInvestmentGuide({ setView }) {
                   
                   <div className="flex items-center justify-between border-b border-stone-200/80 pb-4">
                     <span className="text-xs font-mono text-stone-900 font-bold tracking-widest uppercase flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#CAA05C]" />
+                      <Sparkles className="w-4 h-4 text-gold-accent" />
                       <span>WHAT YOU WILL ACHIEVE WITH THIS BLUEPRINT</span>
                     </span>
-                    <span className="text-xs font-mono text-[#CAA05C] bg-[#CAA05C]/15 px-3 py-1 rounded-md font-bold">
+                    <span className="text-xs font-mono text-gold-accent bg-gold-accent/15 px-3 py-1 rounded-md font-bold">
                       Timeline: {activeCategory.timeline}
                     </span>
                   </div>
@@ -1315,7 +1317,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                         key={idx}
                         className="p-4 rounded-2xl bg-[#faf9f6] border border-stone-200/70 flex items-start space-x-3"
                       >
-                        <CheckCircle2 size={18} className="text-[#CAA05C] shrink-0 mt-0.5" />
+                        <CheckCircle2 size={18} className="text-gold-accent shrink-0 mt-0.5" />
                         <span className="text-xs text-stone-800 font-medium leading-relaxed">
                           {item}
                         </span>
@@ -1329,7 +1331,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                 <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
                   
                   <div className="space-y-1 text-center sm:text-left">
-                    <span className="text-[10px] font-mono text-[#CAA05C] tracking-wider uppercase font-bold block">
+                    <span className="text-[10px] font-mono text-gold-accent tracking-wider uppercase font-bold block">
                       NEED FULL ITEMIZED BREAKDOWN?
                     </span>
                     <h4 className="text-lg font-bold text-stone-900 font-display">
@@ -1343,7 +1345,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
                     <button
                       onClick={() => setShowTierCompareModal(true)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#1c1917] hover:bg-stone-800 text-[#CAA05C] px-5 py-3.5 rounded-xl font-mono font-bold text-xs uppercase transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#1c1917] hover:bg-stone-800 text-gold-accent px-5 py-3.5 rounded-xl font-mono font-bold text-xs uppercase transition-colors cursor-pointer"
                     >
                       <PieChart size={14} />
                       <span>Know More & View BOQ</span>
@@ -1351,7 +1353,7 @@ export default function ProjectInvestmentGuide({ setView }) {
 
                     <button
                       onClick={handleConsultationClick}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#CAA05C] hover:bg-[#CAA05C] text-stone-950 px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer shadow-md group"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gold-accent hover:bg-gold-accent text-stone-950 px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer shadow-md group"
                     >
                       <span>Get Official Quote</span>
                       <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -1385,11 +1387,11 @@ export default function ProjectInvestmentGuide({ setView }) {
             >
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <span className="text-[10px] font-mono text-[#CAA05C] tracking-widest font-bold uppercase block">
+                  <span className="text-[10px] font-mono text-gold-accent tracking-widest font-bold uppercase block">
                     {activeCategory.title.toUpperCase()}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-display font-light text-stone-900">
-                    Compare Specification <span className="text-[#CAA05C]">Tiers</span>
+                    Compare Specification <span className="text-gold-accent">Tiers</span>
                   </h3>
                 </div>
                 <button
@@ -1407,25 +1409,25 @@ export default function ProjectInvestmentGuide({ setView }) {
                     key={tierKey}
                     className={`p-5 rounded-2xl border space-y-4 flex flex-col justify-between ${
                       selectedTier === tierKey
-                        ? "bg-[#1c1917] text-stone-100 border-[#1c1917] shadow-md ring-2 ring-[#CAA05C]/40"
+                        ? "bg-[#1c1917] text-stone-100 border-[#1c1917] shadow-md ring-2 ring-gold-accent/40"
                         : "bg-[#faf9f6] text-stone-800 border-stone-200"
                     }`}
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className={`text-[10px] font-mono uppercase font-bold ${
-                          selectedTier === tierKey ? "text-[#CAA05C]" : "text-stone-400"
+                          selectedTier === tierKey ? "text-gold-accent" : "text-stone-400"
                         }`}>
                           {tierVal.badge}
                         </span>
                         {selectedTier === tierKey && (
-                          <span className="bg-[#CAA05C] text-stone-950 text-[9px] font-mono font-extrabold px-2 py-0.5 rounded-full">
+                          <span className="bg-gold-accent text-stone-950 text-[9px] font-mono font-extrabold px-2 py-0.5 rounded-full">
                             Active
                           </span>
                         )}
                       </div>
                       <h4 className={`text-lg font-bold font-display ${selectedTier === tierKey ? "text-white" : "text-stone-900"}`}>{tierVal.name}</h4>
-                      <p className={`text-xl font-mono font-bold ${selectedTier === tierKey ? "text-[#CAA05C]" : "text-stone-900"}`}>
+                      <p className={`text-xl font-mono font-bold ${selectedTier === tierKey ? "text-gold-accent" : "text-stone-900"}`}>
                         {formatRateLabel(tierVal.ratePerSqFt)}
                       </p>
                       <p className={`text-xs font-light leading-relaxed pt-1 ${selectedTier === tierKey ? "text-stone-300" : "text-stone-600"}`}>
@@ -1443,7 +1445,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                         {tierVal.keyIncludes.map((inc, i) => (
                           <li key={i} className="flex items-start space-x-2">
                             <CheckCircle2 size={13} className={`shrink-0 mt-0.5 ${
-                              selectedTier === tierKey ? "text-[#CAA05C]" : "text-[#CAA05C]"
+                              selectedTier === tierKey ? "text-gold-accent" : "text-gold-accent"
                             }`} />
                             <span className={selectedTier === tierKey ? "text-stone-300" : "text-stone-700"}>{inc}</span>
                           </li>
@@ -1458,7 +1460,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       }}
                       className={`w-full py-2.5 rounded-xl text-xs font-mono font-bold uppercase transition-colors cursor-pointer ${
                         selectedTier === tierKey
-                          ? "bg-[#CAA05C] text-stone-950"
+                          ? "bg-gold-accent text-stone-950"
                           : "bg-stone-200 hover:bg-stone-300 text-stone-900"
                       }`}
                     >
@@ -1471,7 +1473,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               <div className="pt-2 text-center">
                 <button
                   onClick={() => setShowTierCompareModal(false)}
-                  className="text-xs font-mono text-stone-500 hover:text-[#CAA05C] underline cursor-pointer"
+                  className="text-xs font-mono text-stone-500 hover:text-gold-accent underline cursor-pointer"
                 >
                   Close Specification Comparison Matrix
                 </button>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { COMPANY_INFO, SITE_IMAGES } from "../lib/data.js";
 
 export default function SEOHelper({ currentView }) {
   const [dynamicUpdate, setDynamicUpdate] = useState(null);
@@ -53,17 +54,17 @@ export default function SEOHelper({ currentView }) {
             "@context": "https://schema.org",
             "@type": "HomeAndConstructionBusiness",
             "@id": `${siteUrl}/#localbusiness`,
-            "name": "Suthar Interior Studio",
-            "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200",
-            "telephone": "+919820012345",
+            "name": COMPANY_INFO.name,
+            "image": SITE_IMAGES.heroBg,
+            "telephone": COMPANY_INFO.alternatePhone,
             "url": siteUrl,
             "priceRange": "$$$$",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Linking Road, Santacruz West",
-              "addressLocality": "Mumbai",
-              "addressRegion": "Maharashtra",
-              "postalCode": "400054",
+              "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.area}`,
+              "addressLocality": COMPANY_INFO.address.city,
+              "addressRegion": COMPANY_INFO.address.state,
+              "postalCode": COMPANY_INFO.address.pincode,
               "addressCountry": "IN"
             },
             "geo": {
@@ -481,14 +482,14 @@ export default function SEOHelper({ currentView }) {
     setPropertyTag("og:description", activeMeta.description);
     setPropertyTag("og:type", dynamicUpdate ? "article" : "website");
     setPropertyTag("og:url", activeMeta.canonical);
-    setPropertyTag("og:image", dynamicUpdate?.image || "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200");
-    setPropertyTag("og:site_name", "Suthar Interior Studio");
+    setPropertyTag("og:image", dynamicUpdate?.image || SITE_IMAGES.heroBg);
+    setPropertyTag("og:site_name", COMPANY_INFO.name);
 
     // Twitter Cards
     setMetaTag("twitter:card", "summary_large_image");
     setMetaTag("twitter:title", activeMeta.title);
     setMetaTag("twitter:description", activeMeta.description);
-    setMetaTag("twitter:image", dynamicUpdate?.image || "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200");
+    setMetaTag("twitter:image", dynamicUpdate?.image || SITE_IMAGES.heroBg);
 
     // Browser Theme Color
     setMetaTag("theme-color", "#0c0a09");

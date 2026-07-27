@@ -2,52 +2,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus, MessageSquare, ArrowUpRight, HelpCircle } from "lucide-react";
 
-import aboutImg from "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
+import { FAQ_DATA, SITE_IMAGES } from "../lib/data.js";
 
-const faqs = [
-  {
-    num: "01",
-    question: "What Interior Design Services Do You Offer?",
-    answer:
-      "Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, custom timber joinery, modular kitchens, and on-site architect supervision, we bring your full spatial vision to life."
-  },
-  {
-    num: "02",
-    question: "What Is Your Turnkey Execution Process?",
-    answer:
-      "Our turnkey execution handles everything from civil structural modifications, plumbing, electrical schematics, and custom millwork to final furniture installation and site handover. You get a single point of accountability with zero hassle."
-  },
-  {
-    num: "03",
-    question: "How Do You Establish Your Design Fees?",
-    answer:
-      "We provide completely transparent cost estimates based on carpet area (sq. ft.), material specifications, and execution scope. We offer fixed-fee design packages as well as comprehensive turnkey execution quotes with no hidden charges."
-  },
-  {
-    num: "04",
-    question: "Will I Need Planning Permission For My Project?",
-    answer:
-      "For standard interior renovations and joinery, local housing society or building management approvals are usually required, which our project managers help facilitate. For major civil alterations, our licensed architects handle society permissions and municipal filings."
-  },
-  {
-    num: "05",
-    question: "How Long Does A Typical Project Take?",
-    answer:
-      "A typical 2BHK/3BHK luxury residential interior project takes between 60 to 90 days from design approval to final site handover. Commercial flagships and large coastal villas range between 90 to 120 days."
-  },
-  {
-    num: "06",
-    question: "Can I Get Fully Customized Timber Joinery & Furniture?",
-    answer:
-      "Yes! With our multi-generational woodworking heritage since 1989 and direct factory joinery guild in Kumta, we manufacture 100% bespoke timber dining tables, wardrobes, vanity units, and modular kitchens tailored precisely to your space."
-  },
-  {
-    num: "07",
-    question: "Do You Work Outside Mumbai & Maharashtra?",
-    answer:
-      "Absolutely. We have active design desks and execution teams across Mumbai, Pune, Goa, Bengaluru, Hyderabad, Hubballi, Kumta, Honnavar, and Murudeshwar."
-  }
-];
+const aboutImg = SITE_IMAGES.aboutSide;
+
+const faqs = (FAQ_DATA || []).map((item, idx) => ({
+  num: String(idx + 1).padStart(2, "0"),
+  question: item.question,
+  answer: item.answer
+}));
 
 export default function FaqSection({ setView }) {
   const [openIndex, setOpenIndex] = useState(0); // First item open by default as in screenshot
@@ -78,7 +41,7 @@ export default function FaqSection({ setView }) {
           {/* Left Eyebrow Pill Badge */}
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
               <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
                 POPULAR QUERIES
               </span>
@@ -88,8 +51,8 @@ export default function FaqSection({ setView }) {
           {/* Right Main Headline */}
           <div className="lg:col-span-8">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-              Quick And Clear <span className="text-[#CAA05C]">Answers</span> <br />
-              To Your Key <span className="text-[#CAA05C]">Questions</span>
+              Quick And Clear <span className="text-gold-accent">Answers</span> <br />
+              To Your Key <span className="text-gold-accent">Questions</span>
             </h2>
           </div>
 
@@ -111,18 +74,18 @@ export default function FaqSection({ setView }) {
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center space-x-4 pr-4">
-                      <span className="text-xs font-mono font-bold text-stone-400 group-hover:text-[#CAA05C] transition-colors shrink-0">
+                      <span className="text-xs font-mono font-bold text-stone-400 group-hover:text-gold-accent transition-colors shrink-0">
                         {faq.num}
                       </span>
                       <h3 className={`text-base sm:text-lg md:text-xl font-extrabold tracking-tight transition-colors duration-300 ${
-                        isOpen ? "text-[#CAA05C]" : "text-stone-900 group-hover:text-[#CAA05C]"
+                        isOpen ? "text-gold-accent" : "text-stone-900 group-hover:text-gold-accent"
                       }`}>
                         {faq.question}
                       </h3>
                     </div>
 
-                    <div className={`w-8 h-8 rounded-full border border-stone-300 group-hover:border-[#CAA05C] flex items-center justify-center text-stone-700 group-hover:text-[#CAA05C] transition-all duration-300 shrink-0 ${
-                      isOpen ? "bg-[#CAA05C] text-stone-950 border-[#CAA05C]" : "bg-white"
+                    <div className={`w-8 h-8 rounded-full border border-stone-300 group-hover:border-gold-accent flex items-center justify-center text-stone-700 group-hover:text-gold-accent transition-all duration-300 shrink-0 ${
+                      isOpen ? "bg-gold-accent text-stone-950 border-gold-accent" : "bg-white"
                     }`}>
                       {isOpen ? <Minus size={16} strokeWidth={2.5} /> : <Plus size={16} strokeWidth={2.5} />}
                     </div>
@@ -183,7 +146,7 @@ export default function FaqSection({ setView }) {
               {/* Action Button */}
               <button
                 onClick={handleContactClick}
-                className="w-full inline-flex items-center justify-center space-x-2 bg-[#0c0a09] hover:bg-[#CAA05C] text-white hover:text-stone-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-300 cursor-pointer shadow-md group"
+                className="w-full inline-flex items-center justify-center space-x-2 bg-[#0c0a09] hover:bg-gold-accent text-white hover:text-stone-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-300 cursor-pointer shadow-md group"
               >
                 <span>Ask Architect Directly</span>
                 <ArrowUpRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

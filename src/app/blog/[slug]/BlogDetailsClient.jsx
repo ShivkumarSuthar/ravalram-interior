@@ -22,7 +22,7 @@ export default function BlogDetailsClient({ article }) {
     return (
       <div className="min-h-screen bg-[#faf9f6] text-stone-900 flex flex-col items-center justify-center p-6 font-sans">
         <h1 className="text-2xl font-serif text-stone-900 mb-4">Article Not Found</h1>
-        <button onClick={() => handleNavigate("blog")} className="text-[#CAA05C] hover:underline font-mono uppercase tracking-widest text-xs">
+        <button onClick={() => handleNavigate("blog")} className="text-gold-accent hover:underline font-mono uppercase tracking-widest text-xs">
           Back to Articles
         </button>
       </div>
@@ -39,14 +39,14 @@ export default function BlogDetailsClient({ article }) {
           {/* Back button */}
           <button
             onClick={() => handleNavigate("blog")}
-            className="inline-flex items-center space-x-2 text-stone-500 hover:text-[#CAA05C] transition-colors cursor-pointer text-xs font-mono tracking-widest uppercase mb-12"
+            className="inline-flex items-center space-x-2 text-stone-500 hover:text-gold-accent transition-colors cursor-pointer text-xs font-mono tracking-widest uppercase mb-12"
           >
             <ArrowLeft size={14} />
             <span>Back to Journal</span>
           </button>
 
           {/* Category badge */}
-          <span className="text-[#CAA05C] text-xs font-mono tracking-[0.3em] font-bold uppercase block mb-4">
+          <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold uppercase block mb-4">
             {article.categoryLabel}
           </span>
 
@@ -58,7 +58,7 @@ export default function BlogDetailsClient({ article }) {
           {/* Meta line */}
           <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-stone-200/50 text-stone-500 text-xs sm:text-sm font-light mb-12">
             <div className="flex items-center space-x-2">
-              <User size={14} className="text-[#CAA05C]" />
+              <User size={14} className="text-gold-accent" />
               <span className="font-medium text-stone-800">{article.author}</span>
             </div>
             <div className="flex items-center space-x-2">
@@ -93,7 +93,7 @@ export default function BlogDetailsClient({ article }) {
               }
               if (para.startsWith("-")) {
                 return (
-                  <ul key={pIdx} className="space-y-3 pl-6 list-disc marker:text-[#CAA05C]">
+                  <ul key={pIdx} className="space-y-3 pl-6 list-disc marker:text-gold-accent">
                     {para.split("\n").map((li, lIdx) => (
                       <li key={lIdx} className="font-light">
                         {li.replace("-", "").trim().replace(/\*\*(.*?)\*\*/g, "$1")}
@@ -112,13 +112,13 @@ export default function BlogDetailsClient({ article }) {
 
           {/* Bottom Call to Action */}
           <div className="mt-20 border-t border-stone-200/50 pt-16 text-center max-w-3xl mx-auto space-y-6">
-            <div className="inline-flex items-center space-x-2 text-[#CAA05C]">
+            <div className="inline-flex items-center space-x-2 text-gold-accent">
               <Sparkles size={16} />
               <span className="text-xs tracking-[0.2em] font-mono font-bold uppercase">SUTHAR EXPERT ADVICE</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-stone-950 uppercase leading-snug">
               Inspired by Elena's Insight? <br />
-              <span className="text-[#CAA05C]">Let's blueprint your custom spatial architecture.</span>
+              <span className="text-gold-accent">Let's blueprint your custom spatial architecture.</span>
             </h2>
             <p className="text-sm text-stone-500 font-light max-w-xl mx-auto">
               Our master timber joinery experts and senior spatial designers are ready to map out your site-survey dimensions or material specifications.
@@ -126,7 +126,7 @@ export default function BlogDetailsClient({ article }) {
             <div className="pt-4">
               <button
                 onClick={() => handleNavigate("contact")}
-                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] px-8 py-5 rounded-full cursor-pointer shadow-xl"
+                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-8 py-5 rounded-full cursor-pointer shadow-xl"
               >
                 <span>Book Free Consultation</span>
                 <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">

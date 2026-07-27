@@ -106,7 +106,7 @@ export default function FlexibleSolutions({ setView }) {
       {/* Top Header Tag Bar */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-10 md:pt-14 w-full flex items-center justify-between border-b border-white/10 pb-5 text-left">
         <div className="inline-flex items-center space-x-2.5">
-          <Sparkles size={16} className="text-[#CAA05C]" />
+          <Sparkles size={16} className="text-gold-accent" />
           <span className="text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-stone-300">
             TAILORED SOLUTIONS • SERVICE PATHWAY {current.num}
           </span>
@@ -115,13 +115,13 @@ export default function FlexibleSolutions({ setView }) {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => setIsPaused(!isPaused)}
-            className="inline-flex items-center space-x-1.5 text-[10px] font-mono uppercase tracking-widest text-stone-400 hover:text-[#CAA05C] transition-colors cursor-pointer"
+            className="inline-flex items-center space-x-1.5 text-[10px] font-mono uppercase tracking-widest text-stone-400 hover:text-gold-accent transition-colors cursor-pointer"
             title={isPaused ? "Resume auto-slide" : "Pause auto-slide"}
           >
-            {isPaused ? <Play size={12} className="text-[#CAA05C]" /> : <Pause size={12} />}
+            {isPaused ? <Play size={12} className="text-gold-accent" /> : <Pause size={12} />}
             <span>{isPaused ? "AUTO-SLIDE PAUSED" : "AUTO-SLIDE ACTIVE"}</span>
           </button>
-          <div className="hidden sm:inline-flex items-center space-x-2 text-xs font-mono font-bold text-[#CAA05C]">
+          <div className="hidden sm:inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold-accent">
             <Compass size={14} />
             <span>BUDGET & SCOPE FLEXIBILITY</span>
           </div>
@@ -140,7 +140,7 @@ export default function FlexibleSolutions({ setView }) {
             className="max-w-2xl space-y-5"
           >
             {/* Tagline Badge */}
-            <div className="inline-block bg-[#CAA05C]/20 border border-[#CAA05C]/40 text-[#CAA05C] text-[11px] font-mono font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
+            <div className="inline-block bg-gold-accent/20 border border-gold-accent/40 text-gold-accent text-[11px] font-mono font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
               {current.tagline}
             </div>
 
@@ -156,9 +156,9 @@ export default function FlexibleSolutions({ setView }) {
 
             {/* Deliverable Bullet Pills */}
             <div className="flex flex-wrap gap-2.5 pt-2">
-              {current.features.map((feat, i) => (
+              {(current?.features || []).map((feat, i) => (
                 <span key={i} className="inline-flex items-center space-x-2 text-xs font-medium bg-stone-900/90 border border-stone-700/80 text-stone-200 px-3.5 py-2 rounded-xl shadow-md">
-                  <CheckCircle2 size={14} className="text-[#CAA05C]" />
+                  <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>{feat}</span>
                 </span>
               ))}
@@ -176,7 +176,7 @@ export default function FlexibleSolutions({ setView }) {
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] bg-[#CAA05C] hover:bg-[#B88F4C] text-stone-950 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-xl hover:scale-[1.02]"
+                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] bg-gold-accent hover:bg-[#B88F4C] text-stone-950 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-xl hover:scale-[1.02]"
               >
                 <span>BOOK CONSULTATION</span>
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -188,7 +188,7 @@ export default function FlexibleSolutions({ setView }) {
                 }}
                 className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-stone-300 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 px-5 py-4 rounded-full transition-all duration-300 cursor-pointer"
               >
-                <MessageSquare size={14} className="text-[#CAA05C]" />
+                <MessageSquare size={14} className="text-gold-accent" />
                 <span>Quick Inquiry</span>
               </button>
             </div>
@@ -208,7 +208,7 @@ export default function FlexibleSolutions({ setView }) {
                 onClick={() => handleSelectTab(idx)}
                 className={`relative px-3.5 sm:px-5 py-3.5 sm:py-6 text-left transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-2.5 sm:space-y-3 group border-r border-stone-800/80 last:border-r-0 ${
                   isActive
-                    ? "bg-[#1c1a18] text-white border-t-2 border-t-[#CAA05C]"
+                    ? "bg-[#1c1a18] text-white border-t-2 border-t-gold-accent"
                     : "bg-transparent text-stone-400 hover:text-stone-200 hover:bg-white/5 border-t-2 border-t-transparent"
                 }`}
               >
@@ -218,7 +218,7 @@ export default function FlexibleSolutions({ setView }) {
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
                     transition={{ duration: 7, ease: "linear" }}
-                    className="absolute top-0 left-0 h-[2px] bg-[#CAA05C] z-30"
+                    className="absolute top-0 left-0 h-[2px] bg-gold-accent z-30"
                   />
                 )}
 
@@ -226,12 +226,12 @@ export default function FlexibleSolutions({ setView }) {
                 <div className="flex items-center justify-between">
                   <span
                     className={`text-[11px] font-mono font-bold tracking-widest ${
-                      isActive ? "text-[#CAA05C]" : "text-stone-500 group-hover:text-stone-300"
+                      isActive ? "text-gold-accent" : "text-stone-500 group-hover:text-stone-300"
                     }`}
                   >
                     {tab.num}
                   </span>
-                  {isActive && <span className="w-2 h-2 rounded-full bg-[#CAA05C] shadow-[0_0_8px_#CAA05C]" />}
+                  {isActive && <span className="w-2 h-2 rounded-full bg-gold-accent shadow-[0_0_8px_var(--color-gold-accent)]" />}
                 </div>
 
                 {/* Tab Title */}
@@ -252,7 +252,7 @@ export default function FlexibleSolutions({ setView }) {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent("open-consultation"));
               }}
-              className="w-10 h-10 rounded-xl bg-stone-900 border border-stone-700 hover:border-[#CAA05C] text-stone-300 hover:text-[#CAA05C] flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer"
+              className="w-10 h-10 rounded-xl bg-stone-900 border border-stone-700 hover:border-gold-accent text-stone-300 hover:text-gold-accent flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer"
               aria-label="Open Chat Consultation"
             >
               <MessageSquare size={16} />

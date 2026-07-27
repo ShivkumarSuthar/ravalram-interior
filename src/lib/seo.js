@@ -98,7 +98,7 @@ export function getPageMetadata({
   description,
   path = "",
   keywords = [],
-  ogImage = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+  ogImage = "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
   ogType = "website",
   noIndex = false,
   authors = [{ name: "Suthar Interior Studio" }],
@@ -233,7 +233,7 @@ export function generateSchema(type, data = {}) {
         "url": `${siteConfig.url}/${data.city?.toLowerCase() || ""}`,
         "telephone": siteConfig.contact.phone,
         "priceRange": "$$$$",
-        "image": data.image || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+        "image": data.image || "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": data.street || siteConfig.contact.address.streetAddress,
@@ -309,7 +309,7 @@ export function generateSchema(type, data = {}) {
         "@type": "BlogPosting",
         "headline": data.title,
         "description": data.description,
-        "image": data.image || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+        "image": data.image || "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
         "datePublished": data.datePublished || "2026-06-28",
         "dateModified": data.dateModified || "2026-06-30",
         "author": {

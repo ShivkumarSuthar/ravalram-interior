@@ -157,7 +157,7 @@ export default function ContactForm({ setView }) {
             {/* Left Eyebrow Pill Badge */}
             <div className="lg:col-span-4 space-y-4">
               <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
                 <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
                   GET IN TOUCH
                 </span>
@@ -167,8 +167,8 @@ export default function ContactForm({ setView }) {
             {/* Right Main Grand Headline */}
             <div className="lg:col-span-8">
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-                Have A Project In <span className="text-[#CAA05C]">Mind? Let's</span> <br />
-                <span className="text-[#CAA05C]">Make</span> It Happen
+                Have A Project In <span className="text-gold-accent">Mind? Let's</span> <br />
+                <span className="text-gold-accent">Make</span> It Happen
               </h2>
             </div>
 
@@ -198,13 +198,13 @@ export default function ContactForm({ setView }) {
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
                 <a
                   href="tel:+919820012345"
-                  className="text-[#CAA05C] hover:text-[#CAA05C] font-mono text-sm sm:text-base font-extrabold transition-colors"
+                  className="text-gold-accent hover:text-gold-accent font-mono text-sm sm:text-base font-extrabold transition-colors"
                 >
                   +91 98200 12345 / +1 (480) 456-0789
                 </a>
                 <a
                   href="mailto:Support@SutharInterior.com"
-                  className="text-stone-900 hover:text-[#CAA05C] text-sm sm:text-base font-extrabold tracking-tight transition-colors block"
+                  className="text-stone-900 hover:text-gold-accent text-sm sm:text-base font-extrabold tracking-tight transition-colors block"
                 >
                   Support@SutharInterior.com
                 </a>
@@ -240,10 +240,10 @@ export default function ContactForm({ setView }) {
             {/* Floating Badge */}
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-stone-900/80 backdrop-blur-md border border-white/10 text-white space-y-1 text-left">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#CAA05C]">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gold-accent">
                   BESPOKE TIMBER JOINERY
                 </span>
-                <Sparkles size={14} className="text-[#CAA05C]" />
+                <Sparkles size={14} className="text-gold-accent" />
               </div>
               <h4 className="text-sm font-extrabold text-white">
                 Turnkey Execution & Spatial Design
@@ -283,7 +283,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-gold-accent focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
                         placeholder="Your Name *"
                       />
                     </div>
@@ -297,7 +297,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-gold-accent focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
                         placeholder="Phone *"
                       />
                     </div>
@@ -314,7 +314,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-gold-accent focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400"
                         placeholder="Email Address *"
                       />
                     </div>
@@ -327,7 +327,7 @@ export default function ContactForm({ setView }) {
                         required
                         value={formState.subject}
                         onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-800 outline-none transition-all duration-300 font-medium appearance-none cursor-pointer"
+                        className="w-full bg-[#faf9f6] border border-stone-200 focus:border-gold-accent focus:bg-white rounded-full px-5 py-3.5 text-sm text-stone-800 outline-none transition-all duration-300 font-medium appearance-none cursor-pointer"
                       >
                         <option value="Residential Interior">I Want Residential Design</option>
                         <option value="Turnkey Execution">I Want Turnkey Execution</option>
@@ -348,7 +348,7 @@ export default function ContactForm({ setView }) {
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      className="w-full bg-[#faf9f6] border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-[24px] p-5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400 resize-none"
+                      className="w-full bg-[#faf9f6] border border-stone-200 focus:border-gold-accent focus:bg-white rounded-[24px] p-5 text-sm text-stone-900 outline-none transition-all duration-300 font-medium placeholder:text-stone-400 resize-none"
                       placeholder="Your Message..."
                     />
                   </div>
@@ -357,10 +357,10 @@ export default function ContactForm({ setView }) {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="inline-flex items-center space-x-3 bg-[#0c0a09] hover:bg-[#CAA05C] text-white hover:text-stone-950 px-8 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg group"
+                      className="inline-flex items-center space-x-3 bg-[#0c0a09] hover:bg-gold-accent text-white hover:text-stone-950 px-8 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg group"
                     >
                       <span>Send Message</span>
-                      <div className="w-8 h-8 rounded-full bg-[#CAA05C] group-hover:bg-stone-950 text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
+                      <div className="w-8 h-8 rounded-full bg-gold-accent group-hover:bg-stone-950 text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
                         <ArrowUpRight size={14} strokeWidth={2.5} />
                       </div>
                     </button>
@@ -374,7 +374,7 @@ export default function ContactForm({ setView }) {
                   exit={{ scale: 0.95, opacity: 0 }}
                   className="flex flex-col items-center justify-center py-16 space-y-5 text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#CAA05C]/15 border-2 border-[#CAA05C] flex items-center justify-center text-[#CAA05C] shadow-xl">
+                  <div className="w-16 h-16 rounded-full bg-gold-accent/15 border-2 border-gold-accent flex items-center justify-center text-gold-accent shadow-xl">
                     <Check size={28} strokeWidth={3} />
                   </div>
                   <div className="space-y-2 max-w-sm">
@@ -400,13 +400,13 @@ export default function ContactForm({ setView }) {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-1">
               <div className="inline-flex items-center space-x-2">
-                <Globe size={16} className="text-[#CAA05C]" />
+                <Globe size={16} className="text-gold-accent" />
                 <span className="text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-stone-500">
                   OUR ACTIVE EXECUTION REGIONS
                 </span>
               </div>
               <h3 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                Regions We <span className="text-[#CAA05C]">Mostly Work In</span>
+                Regions We <span className="text-gold-accent">Mostly Work In</span>
               </h3>
             </div>
 
@@ -430,9 +430,9 @@ export default function ContactForm({ setView }) {
 
           {/* Floating Studio Footprint Badge (Top-Left) */}
           <div className="absolute top-6 left-6 sm:left-12 z-10 bg-stone-900/90 backdrop-blur-md text-white px-5 py-3.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-3.5 max-w-xs sm:max-w-md">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#CAA05C] animate-pulse shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-gold-accent animate-pulse shrink-0" />
             <div className="text-left space-y-0.5">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#CAA05C] block">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gold-accent block">
                 OPERATIONAL FOOTPRINT • ALL REGIONS
               </span>
               <p className="text-xs font-extrabold text-white truncate">
@@ -462,7 +462,7 @@ export default function ContactForm({ setView }) {
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs sm:text-sm font-mono font-bold text-stone-800 uppercase tracking-wider text-center">
             {locations.map((loc, idx) => (
               <span key={loc.id} className="inline-flex items-center space-x-1.5">
-                <MapPin size={13} className="text-[#CAA05C] shrink-0" />
+                <MapPin size={13} className="text-gold-accent shrink-0" />
                 <span>{loc.city}</span>
                 {idx < locations.length - 1 && (
                   <span className="text-stone-300 font-normal ml-2.5">•</span>
