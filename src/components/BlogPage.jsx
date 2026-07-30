@@ -27,15 +27,17 @@ import {
   Award
 } from "lucide-react";
 
-// Asset imports (as requested and present in the project tree)
-import heroBg from "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg";
-import heroSlide2 from "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg";
-import heroSlide3 from "/assets/images/AI_images/antra_hero_slide3_1782747396078.jpg";
-import aboutImg from "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
-import lobbyBanner from "/assets/images/AI_images/antra_lobby_banner_1782744283860.jpg";
-import projectCoastal from "/assets/images/AI_images/antra_project_coastal_1782744299850.jpg";
-import projectLoft from "/assets/images/AI_images/antra_project_loft_1782744318019.jpg";
-import transitionLuxury from "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
+import { SITE_IMAGES } from "../lib/data.js";
+
+// Asset path constants from centralized data manager
+const heroBg = SITE_IMAGES.heroBg;
+const heroSlide2 = SITE_IMAGES.heroSlide2;
+const heroSlide3 = SITE_IMAGES.heroSlide3;
+const aboutImg = SITE_IMAGES.aboutSide;
+const lobbyBanner = SITE_IMAGES.lobbyBanner;
+const projectCoastal = SITE_IMAGES.projectCoastal;
+const projectLoft = SITE_IMAGES.projectLoft;
+const transitionLuxury = SITE_IMAGES.transitionLuxury;
 
 // Category definitions (13 tags as requested)
 const filterTabs = [
@@ -523,7 +525,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#CAA05C]/30 selection:text-stone-950 pt-[80px] overflow-hidden">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden">
       
       {/* ==================================================== */}
       {/* PAGE HERO                                            */}
@@ -531,7 +533,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="blog-hero">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000"
+            src={SITE_IMAGES.lobbyBanner}
             alt="Suthar Interior Studio Immersive Journal Banner"
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
             referrerPolicy="no-referrer"
@@ -551,13 +553,13 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
-            <button onClick={onBackToHome} className="hover:text-[#CAA05C] transition-colors cursor-pointer uppercase font-bold">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer uppercase font-bold">HOME</button>
             <span>/</span>
-            <span className="text-[#CAA05C] font-bold">JOURNAL</span>
+            <span className="text-gold-accent font-bold">JOURNAL</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-[#CAA05C] text-xs sm:text-sm tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs sm:text-sm tracking-[0.3em] font-mono font-bold block uppercase">
               INSIGHTS & JOURNAL
             </span>
             <motion.h1
@@ -567,7 +569,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase"
             >
               Ideas That <br />
-              <span className="text-[#CAA05C]">Inspire Better</span> Spaces.
+              <span className="text-gold-accent">Inspire Better</span> Spaces.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -587,7 +589,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
           >
             <button
               onClick={scrollToArticles}
-              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Browse Articles</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -597,7 +599,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#CAA05C] hover:text-[#CAA05C]"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               Book Consultation
             </button>
@@ -613,11 +615,11 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between border-b border-stone-200/60 pb-8 mb-16">
             <div className="text-left space-y-3">
-              <span className="text-[#CAA05C] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+              <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
                 FEATURED SPOTLIGHT
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-                The Master <span className="text-[#CAA05C]">Colleague</span>
+                The Master <span className="text-gold-accent">Colleague</span>
               </h2>
             </div>
             <p className="text-stone-500 font-light text-sm max-w-md mt-4 lg:mt-0 leading-relaxed text-left">
@@ -640,10 +642,10 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                   className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-[1.03] transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-6 left-6 bg-stone-950 text-[#CAA05C] font-mono text-[10px] font-bold uppercase tracking-widest px-3.5 py-2 shadow-lg">
+                <div className="absolute top-6 left-6 bg-stone-950 text-gold-accent font-mono text-[10px] font-bold uppercase tracking-widest px-3.5 py-2 shadow-lg">
                   {featuredArticle.categoryLabel}
                 </div>
-                <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center border border-white/20 group-hover:bg-[#CAA05C] group-hover:text-stone-950 transition-all duration-300">
+                <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center border border-white/20 group-hover:bg-gold-accent group-hover:text-stone-950 transition-all duration-300">
                   <Maximize2 size={16} />
                 </div>
               </div>
@@ -653,19 +655,19 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4 text-[11px] font-mono font-bold text-stone-400 uppercase tracking-widest">
                     <span className="flex items-center space-x-1.5">
-                      <Calendar size={12} className="text-[#CAA05C]" />
+                      <Calendar size={12} className="text-gold-accent" />
                       <span>{featuredArticle.date}</span>
                     </span>
                     <span>&bull;</span>
                     <span className="flex items-center space-x-1.5">
-                      <Clock size={12} className="text-[#CAA05C]" />
+                      <Clock size={12} className="text-gold-accent" />
                       <span>{featuredArticle.readTime}</span>
                     </span>
                   </div>
 
                   <h3 
                     onClick={() => setActiveArticle(featuredArticle)}
-                    className="text-2xl sm:text-3xl md:text-4xl font-light font-serif tracking-tight text-stone-950 hover:text-[#CAA05C] transition-colors cursor-pointer leading-tight uppercase"
+                    className="text-2xl sm:text-3xl md:text-4xl font-light font-serif tracking-tight text-stone-950 hover:text-gold-accent transition-colors cursor-pointer leading-tight uppercase"
                   >
                     {featuredArticle.title}
                   </h3>
@@ -677,7 +679,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
                 <div className="pt-8 mt-8 border-t border-stone-100 flex items-center justify-between">
                   <div className="flex items-center space-x-2 text-xs font-semibold text-stone-700">
-                    <div className="w-8 h-8 rounded-full bg-stone-100 border border-stone-200/50 flex items-center justify-center text-[#CAA05C] font-mono text-xs">
+                    <div className="w-8 h-8 rounded-full bg-stone-100 border border-stone-200/50 flex items-center justify-center text-gold-accent font-mono text-xs">
                       ES
                     </div>
                     <span>By {featuredArticle.author}</span>
@@ -685,7 +687,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
                   <button
                     onClick={() => setActiveArticle(featuredArticle)}
-                    className="inline-flex items-center space-x-2.5 text-xs font-bold font-mono tracking-widest uppercase text-stone-900 hover:text-[#CAA05C] transition-colors cursor-pointer group"
+                    className="inline-flex items-center space-x-2.5 text-xs font-bold font-mono tracking-widest uppercase text-stone-900 hover:text-gold-accent transition-colors cursor-pointer group"
                   >
                     <span>Read Article</span>
                     <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -707,7 +709,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center justify-between gap-6">
           
           <div className="flex items-center space-x-2.5 text-stone-400 font-mono text-[10px] sm:text-xs tracking-widest uppercase shrink-0">
-            <Sliders size={14} className="text-[#CAA05C]" />
+            <Sliders size={14} className="text-gold-accent" />
             <span className="font-bold">Select Category</span>
           </div>
 
@@ -719,8 +721,8 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 onClick={() => setSelectedCategory(tab.id)}
                 className={`px-4.5 py-2.5 text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
                   selectedCategory === tab.id
-                    ? "bg-stone-950 text-[#CAA05C] border-stone-950 shadow-md scale-95"
-                    : "bg-white text-stone-600 border-stone-200/80 hover:border-[#CAA05C]/50 hover:text-stone-950"
+                    ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md scale-95"
+                    : "bg-white text-stone-600 border-stone-200/80 hover:border-gold-accent/50 hover:text-stone-950"
                 }`}
               >
                 {tab.label}
@@ -745,7 +747,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               </span>
             </div>
             <div className="hidden sm:flex items-center space-x-2 text-xs font-mono text-stone-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-accent animate-pulse" />
               <span>Select card to read full publication</span>
             </div>
           </div>
@@ -760,7 +762,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               </p>
               <button 
                 onClick={() => setSelectedCategory("all")}
-                className="px-5 py-2.5 bg-stone-950 text-[#CAA05C] text-xs font-mono font-bold uppercase tracking-widest cursor-pointer hover:bg-stone-900 transition-colors"
+                className="px-5 py-2.5 bg-stone-950 text-gold-accent text-xs font-mono font-bold uppercase tracking-widest cursor-pointer hover:bg-stone-900 transition-colors"
               >
                 Show All Articles
               </button>
@@ -791,7 +793,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                           className="w-full h-full object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
                           referrerPolicy="no-referrer"
                         />
-                        <div className="absolute top-4 left-4 bg-stone-950 text-[#CAA05C] font-mono text-[9px] font-bold uppercase tracking-widest px-2.5 py-1.5 shadow-md">
+                        <div className="absolute top-4 left-4 bg-stone-950 text-gold-accent font-mono text-[9px] font-bold uppercase tracking-widest px-2.5 py-1.5 shadow-md">
                           {article.categoryLabel}
                         </div>
                       </div>
@@ -800,19 +802,19 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                       <div className="px-6 space-y-3">
                         <div className="flex items-center space-x-3 text-[10px] text-stone-400 font-mono tracking-wider font-bold uppercase">
                           <span className="flex items-center space-x-1">
-                            <Calendar size={11} className="text-[#CAA05C]" />
+                            <Calendar size={11} className="text-gold-accent" />
                             <span>{article.date}</span>
                           </span>
                           <span>&bull;</span>
                           <span className="flex items-center space-x-1">
-                            <Clock size={11} className="text-[#CAA05C]" />
+                            <Clock size={11} className="text-gold-accent" />
                             <span>{article.readTime}</span>
                           </span>
                         </div>
 
                         <h3 
                           onClick={() => setActiveArticle(article)}
-                          className="text-lg md:text-xl font-serif text-stone-900 group-hover:text-[#CAA05C] transition-colors duration-300 leading-snug cursor-pointer font-medium uppercase"
+                          className="text-lg md:text-xl font-serif text-stone-900 group-hover:text-gold-accent transition-colors duration-300 leading-snug cursor-pointer font-medium uppercase"
                         >
                           {article.title}
                         </h3>
@@ -826,13 +828,13 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                     {/* Card Footer details */}
                     <div className="p-6 pt-4 mt-6 border-t border-stone-200/50 flex items-center justify-between">
                       <div className="flex items-center space-x-2 text-[11px] font-mono font-bold text-stone-400 uppercase">
-                        <User size={12} className="text-[#CAA05C]" />
+                        <User size={12} className="text-gold-accent" />
                         <span>By {article.author.split(" ")[0]}</span>
                       </div>
 
                       <button
                         onClick={() => setActiveArticle(article)}
-                        className="text-[10px] uppercase tracking-widest font-bold font-mono text-stone-950 hover:text-[#CAA05C] transition-colors inline-flex items-center space-x-1 cursor-pointer group"
+                        className="text-[10px] uppercase tracking-widest font-bold font-mono text-stone-950 hover:text-gold-accent transition-colors inline-flex items-center space-x-1 cursor-pointer group"
                       >
                         <span>Read More</span>
                         <ChevronRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
@@ -857,7 +859,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
                   currentPage === 1
                     ? "border-stone-100 text-stone-300 cursor-not-allowed"
-                    : "border-stone-200 text-stone-700 hover:border-[#CAA05C] hover:text-[#CAA05C] cursor-pointer"
+                    : "border-stone-200 text-stone-700 hover:border-gold-accent hover:text-gold-accent cursor-pointer"
                 }`}
                 title="Previous Page"
               >
@@ -873,8 +875,8 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                     onClick={() => handlePageChange(pageNum)}
                     className={`w-10 h-10 font-mono text-xs font-bold transition-all duration-300 rounded-full cursor-pointer ${
                       currentPage === pageNum
-                        ? "bg-stone-950 text-[#CAA05C] border border-stone-950 shadow-md scale-95"
-                        : "bg-white text-stone-600 border border-stone-200/60 hover:border-[#CAA05C] hover:text-stone-950"
+                        ? "bg-stone-950 text-gold-accent border border-stone-950 shadow-md scale-95"
+                        : "bg-white text-stone-600 border border-stone-200/60 hover:border-gold-accent hover:text-stone-950"
                     }`}
                   >
                     {pageNum}
@@ -889,7 +891,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
                   currentPage === totalPages
                     ? "border-stone-100 text-stone-300 cursor-not-allowed"
-                    : "border-stone-200 text-stone-700 hover:border-[#CAA05C] hover:text-[#CAA05C] cursor-pointer"
+                    : "border-stone-200 text-stone-700 hover:border-gold-accent hover:text-gold-accent cursor-pointer"
                 }`}
                 title="Next Page"
               >
@@ -908,11 +910,11 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               DISCOVER MORE KNOWLEDGE
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Popular <span className="text-[#CAA05C]">Topics</span>
+              Popular <span className="text-gold-accent">Topics</span>
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base leading-relaxed">
               Explore deep dives across structural architecture, fine woodworking joinery, luxury material selection catalogs, and smart space blueprints.
@@ -926,14 +928,14 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 <div
                   key={idx}
                   onClick={() => handleTopicClick(topic.id)}
-                  className="bg-white border border-stone-200/40 p-6 rounded-2xl text-left space-y-4 hover:shadow-lg hover:border-[#CAA05C]/30 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+                  className="bg-white border border-stone-200/40 p-6 rounded-2xl text-left space-y-4 hover:shadow-lg hover:border-gold-accent/30 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
                 >
                   <div className="space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-stone-200/30 flex items-center justify-center text-[#CAA05C] group-hover:bg-[#CAA05C]/10 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-stone-200/30 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/10 transition-colors">
                       <IconComponent size={18} />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold uppercase tracking-wider text-stone-950 group-hover:text-[#CAA05C] transition-colors">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-stone-950 group-hover:text-gold-accent transition-colors">
                         {topic.name}
                       </h3>
                       <p className="text-stone-500 text-xs font-light leading-relaxed">
@@ -944,7 +946,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
                   <div className="pt-4 border-t border-stone-50 flex justify-between items-center text-[10px] font-mono text-stone-400 font-bold uppercase tracking-widest">
                     <span>Explore Section</span>
-                    <ChevronRight size={12} className="text-[#CAA05C] group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight size={12} className="text-gold-accent group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               );
@@ -961,11 +963,11 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               CURATED DESIGN EXCELLENCE
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Why Read <span className="text-[#CAA05C]">Our</span> Journal?
+              Why Read <span className="text-gold-accent">Our</span> Journal?
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base leading-relaxed">
               We translate our family design values into clear, transparent, and authoritative literature to empower your real-world blueprint planning.
@@ -978,9 +980,9 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               return (
                 <div
                   key={idx}
-                  className="bg-[#faf9f6] border border-stone-200/40 p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:shadow-xl hover:border-[#CAA05C]/20 transition-all duration-500"
+                  className="bg-[#faf9f6] border border-stone-200/40 p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:shadow-xl hover:border-gold-accent/20 transition-all duration-500"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-white border border-stone-200/30 flex items-center justify-center text-[#CAA05C] shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-white border border-stone-200/30 flex items-center justify-center text-gold-accent shadow-sm">
                     <IconComp size={20} />
                   </div>
                   <div className="space-y-2">
@@ -1006,16 +1008,16 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
         <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_rgba(197,168,128,0.06),_transparent_70%)] pointer-events-none" />
         
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#CAA05C] mx-auto mb-4">
+          <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent mx-auto mb-4">
             <Mail size={22} className="animate-pulse" />
           </div>
 
           <div className="space-y-3">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold block uppercase">
               WEEKLY DIGEST
             </span>
             <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-white uppercase leading-none">
-              Stay <span className="text-[#CAA05C]">Inspired.</span>
+              Stay <span className="text-gold-accent">Inspired.</span>
             </h2>
             <p className="text-stone-300 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
               Receive design inspiration, renovation tips, material guides, and architecture insights directly in your inbox.
@@ -1038,11 +1040,11 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                     placeholder="Enter your email address..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-5 py-3.5 bg-stone-900 border border-white/10 text-white placeholder-stone-500 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[#CAA05C] focus:border-[#CAA05C]"
+                    className="flex-1 px-5 py-3.5 bg-stone-900 border border-white/10 text-white placeholder-stone-500 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-gold-accent focus:border-gold-accent"
                   />
                   <button
                     type="submit"
-                    className="px-6 py-3.5 bg-[#CAA05C] hover:bg-[#CAA05C] text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors cursor-pointer whitespace-nowrap"
+                    className="px-6 py-3.5 bg-gold-accent hover:bg-gold-accent text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors cursor-pointer whitespace-nowrap"
                   >
                     Subscribe
                   </button>
@@ -1059,11 +1061,11 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="max-w-md mx-auto py-8 px-6 bg-white/5 border border-white/10 rounded-2xl space-y-4"
               >
-                <div className="w-12 h-12 rounded-full bg-[#CAA05C]/10 border border-[#CAA05C]/30 flex items-center justify-center text-[#CAA05C] mx-auto">
+                <div className="w-12 h-12 rounded-full bg-gold-accent/10 border border-gold-accent/30 flex items-center justify-center text-gold-accent mx-auto">
                   <Check size={20} strokeWidth={3} className="animate-bounce" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-[#CAA05C] text-sm uppercase font-mono font-bold tracking-widest">
+                  <h4 className="text-gold-accent text-sm uppercase font-mono font-bold tracking-widest">
                     Thank You!
                   </h4>
                   <p className="text-white text-xs sm:text-sm font-light leading-relaxed">
@@ -1088,17 +1090,17 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-[#faf9f6]" id="final-cta">
         <div className="absolute inset-0 z-0 opacity-[0.03]">
-          <div className="h-full w-full bg-[radial-gradient(#CAA05C_1px,transparent_1px)] [background-size:16px_16px]" />
+          <div className="h-full w-full bg-[radial-gradient(var(--color-gold-accent)_1px,transparent_1px)] [background-size:16px_16px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-[#CAA05C] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               START YOUR JOURNEY WITH US
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase">
               Ready To Transform <br />
-              <span className="text-[#CAA05C]">Your</span> Space?
+              <span className="text-gold-accent">Your</span> Space?
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               Whether you're planning your first home or a large commercial project, our team is ready to guide you from concept to completion.
@@ -1108,7 +1110,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] px-8 py-4.5 rounded-none cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-8 py-4.5 rounded-none cursor-pointer"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -1190,7 +1192,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                  <span className="bg-[#CAA05C] text-stone-950 font-mono text-[9px] font-black uppercase tracking-widest px-2.5 py-1.5 shadow">
+                  <span className="bg-gold-accent text-stone-950 font-mono text-[9px] font-black uppercase tracking-widest px-2.5 py-1.5 shadow">
                     {activeArticle.categoryLabel}
                   </span>
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-light tracking-tight text-white uppercase leading-tight">
@@ -1205,15 +1207,15 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 {/* Author Metadata Box */}
                 <div className="flex flex-wrap items-center gap-6 pb-6 border-b border-stone-100 text-stone-400 font-mono text-[10px] tracking-wider uppercase font-bold">
                   <div className="flex items-center space-x-2 text-stone-600">
-                    <User size={13} className="text-[#CAA05C]" />
+                    <User size={13} className="text-gold-accent" />
                     <span>Written by <strong className="font-semibold text-stone-900">{activeArticle.author}</strong></span>
                   </div>
                   <div className="flex items-center space-x-2 text-stone-600">
-                    <Calendar size={13} className="text-[#CAA05C]" />
+                    <Calendar size={13} className="text-gold-accent" />
                     <span>Published on {activeArticle.date}</span>
                   </div>
                   <div className="flex items-center space-x-2 text-stone-600">
-                    <Clock size={13} className="text-[#CAA05C]" />
+                    <Clock size={13} className="text-gold-accent" />
                     <span>Duration: {activeArticle.readTime}</span>
                   </div>
                 </div>
@@ -1223,7 +1225,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                   {activeArticle.content.split("\n\n").map((para, i) => {
                     if (para.startsWith("###")) {
                       return (
-                        <h3 key={i} className="text-lg md:text-xl font-serif font-bold text-stone-950 pt-6 border-l-2 border-[#CAA05C] pl-4 uppercase tracking-tight">
+                        <h3 key={i} className="text-lg md:text-xl font-serif font-bold text-stone-950 pt-6 border-l-2 border-gold-accent pl-4 uppercase tracking-tight">
                           {para.replace("### ", "")}
                         </h3>
                       );
@@ -1254,7 +1256,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 {/* Call-to-action bottom panel */}
                 <div className="bg-[#faf9f6] border border-stone-200/50 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 mt-16 text-center md:text-left">
                   <div className="space-y-1">
-                    <span className="text-[#CAA05C] text-[10px] tracking-widest font-mono font-bold uppercase flex items-center justify-center md:justify-start gap-1">
+                    <span className="text-gold-accent text-[10px] tracking-widest font-mono font-bold uppercase flex items-center justify-center md:justify-start gap-1">
                       <Sparkles size={12} className="animate-pulse" />
                       <span>CO-CREATE YOUR BLUEPRINT</span>
                     </span>
@@ -1270,7 +1272,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                       setActiveArticle(null);
                       handleOpenConsultation();
                     }}
-                    className="w-full md:w-auto px-6 py-3.5 bg-stone-950 hover:bg-[#CAA05C] hover:text-stone-950 text-white font-bold text-xs uppercase tracking-widest transition-colors rounded-none cursor-pointer shrink-0"
+                    className="w-full md:w-auto px-6 py-3.5 bg-stone-950 hover:bg-gold-accent hover:text-stone-950 text-white font-bold text-xs uppercase tracking-widest transition-colors rounded-none cursor-pointer shrink-0"
                   >
                     Consult With {activeArticle.author.split(" ")[0]}
                   </button>

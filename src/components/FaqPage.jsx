@@ -15,8 +15,10 @@ import {
   DollarSign 
 } from "lucide-react";
 
-// Local asset import for background decoration
-import bannerImg from "/assets/images/AI_images/antra_lobby_banner_1782744283860.jpg";
+import { FAQ_DATA, COMPANY_INFO, SITE_IMAGES } from "../lib/data.js";
+
+// Centralized asset reference from data manager
+const bannerImg = SITE_IMAGES.lobbyBanner;
 
 const faqCategories = [
   { id: "all", label: "All Questions", icon: HelpCircle },
@@ -26,56 +28,12 @@ const faqCategories = [
   { id: "budget", label: "Budgets & Pricing", icon: DollarSign }
 ];
 
-const faqsData = [
-  {
-    id: 1,
-    category: "design",
-    question: "How accurate are your 2D and 3D virtual renderings?",
-    answer: "Our renderings are built using calibrated physical models, real manufacturer material shaders, and detailed daylight path simulation. This guarantees 98% visual accuracy, allowing you to preview how natural sunset rays and linear light fixtures illuminate travertine and timber finishes."
-  },
-  {
-    id: 2,
-    category: "design",
-    question: "Can I make changes to the layout design after the blueprints are finished?",
-    answer: "Yes. During Phase Two (Blueprint Visualization), we provide up to three revision loops. We encourage client partners to iterate on layout modifications virtually in the CAD software before we file municipal safety permits and procure custom-cut stones."
-  },
-  {
-    id: 3,
-    category: "contracting",
-    question: "Are your interior contracting services fully licensed and insured?",
-    answer: "Absolutely. Suthar is fully licensed, bonded, and carries comprehensive general liability insurance alongside full workers' compensation coverage. All works strictly conform to local municipal structural regulations, building codes, and safety procedures."
-  },
-  {
-    id: 4,
-    category: "contracting",
-    question: "Do you supervise the subcontractors on-site yourself?",
-    answer: "Yes, 100%. We employ dedicated in-house Site Engineers and Master Carpenters. We oversee every single trade—from mechanical HVAC ducting to custom brass plating installations—ensuring zero gaps in engineering accuracy and maintaining a secure, clean workplace."
-  },
-  {
-    id: 5,
-    category: "materials",
-    question: "Where do you source your rare stones and lumber materials?",
-    answer: "We source our unpolished travertines, calcareous slates, and European white oaks directly from certified quarries in Italy and specialized timber mills in Germany. By bypassing third-party distributors, we assure high material quality, strict grain selection, and fair pricing."
-  },
-  {
-    id: 6,
-    category: "materials",
-    question: "How long does custom-imported material delivery take?",
-    answer: "Custom ocean-freighted materials typically require 8 to 12 weeks for fabrication, inspection, and shipment. We coordinate our project schedules months in advance, scheduling early demolition phases to align seamlessly with material arrivals."
-  },
-  {
-    id: 7,
-    category: "budget",
-    question: "What is your standard project fee schedule and pricing structure?",
-    answer: "We operate on a transparent fixed-fee or cost-plus contract system based on total square footage and blueprint complexity. Our payment schedules are divided into four straightforward installments: 10% on Discovery, 30% on Blueprint Sign-off, 40% on mid-construction, and 20% on successful turnkey handover."
-  },
-  {
-    id: 8,
-    category: "budget",
-    question: "Do you offer free initial cost estimations?",
-    answer: "Yes. We offer complimentary initial pricing estimates based on your preliminary spatial dimensions and project description. You can use our digital consultation form or connect with our estimators to receive a comprehensive budget outline."
-  }
-];
+const faqsData = (FAQ_DATA || []).map((item, idx) => ({
+  id: idx + 1,
+  category: item.category || "general",
+  question: item.question,
+  answer: item.answer
+}));
 
 export default function FaqPage({ onBackToHome, onOpenQuote }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -95,7 +53,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
   });
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#CAA05C] selection:text-stone-950 pt-[80px]">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent selection:text-stone-950 pt-[80px]">
       
       {/* 1. HERO BREADCRUMB HEADER */}
       <section className="relative h-[40vh] md:h-[50vh] bg-stone-950 text-white flex flex-col justify-center overflow-hidden">
@@ -123,9 +81,9 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-center md:text-left space-y-4">
           {/* Breadcrumbs */}
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
-            <button onClick={onBackToHome} className="hover:text-[#CAA05C] transition-colors cursor-pointer">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">HOME</button>
             <span>/</span>
-            <span className="text-[#CAA05C] font-bold">HELP & FAQS</span>
+            <span className="text-gold-accent font-bold">HELP & FAQS</span>
           </div>
 
           <motion.h1
@@ -134,7 +92,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-6xl font-light tracking-tight text-white leading-none uppercase"
           >
-            Frequently Asked <span className="text-[#CAA05C]">Questions</span>
+            Frequently Asked <span className="text-gold-accent">Questions</span>
           </motion.h1>
           <p className="text-stone-400 text-xs sm:text-sm font-light max-w-xl leading-relaxed">
             Clarifying our spatial workflows. Find detailed insights regarding our custom design loops, turnkey contracting policies, rare travertine sourcing, and project estimates.
@@ -157,7 +115,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                 placeholder="Search queries (e.g. materials, license, estimates)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-6 py-4 bg-[#faf9f6] text-stone-900 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-1 focus:ring-[#CAA05C] focus:border-[#CAA05C] shadow-inner"
+                className="w-full pl-12 pr-6 py-4 bg-[#faf9f6] text-stone-900 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-1 focus:ring-gold-accent focus:border-gold-accent shadow-inner"
               />
             </div>
 
@@ -171,8 +129,8 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 border transition-all duration-300 cursor-pointer ${
                       selectedCategory === cat.id
-                        ? "bg-stone-950 text-[#CAA05C] border-stone-950 shadow-md"
-                        : "bg-[#faf9f6] text-stone-600 border-stone-200/80 hover:border-[#CAA05C]/40 hover:text-stone-950"
+                        ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md"
+                        : "bg-[#faf9f6] text-stone-600 border-stone-200/80 hover:border-gold-accent/40 hover:text-stone-950"
                     }`}
                   >
                     <CatIcon size={13} />
@@ -206,7 +164,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                         <span className="text-sm md:text-base font-serif font-semibold text-stone-900 pr-4">
                           {faq.question}
                         </span>
-                        <div className={`p-1.5 rounded-full bg-stone-200/50 text-stone-800 transition-transform duration-300 shrink-0 ${isExpanded ? "rotate-180 bg-[#CAA05C] text-stone-950" : ""}`}>
+                        <div className={`p-1.5 rounded-full bg-stone-200/50 text-stone-800 transition-transform duration-300 shrink-0 ${isExpanded ? "rotate-180 bg-gold-accent text-stone-950" : ""}`}>
                           <ChevronDown size={14} />
                         </div>
                       </button>
@@ -249,12 +207,12 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
       {/* 3. CONTACT BANNER HELPDESK */}
       <section className="bg-stone-950 text-white py-24 relative overflow-hidden border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
-          <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold block uppercase">
+          <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold block uppercase">
             STILL HAVE QUESTIONS?
           </span>
           <h2 className="text-3xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase">
             Connect Directly With Our <br />
-            <span className="text-[#CAA05C]">Expert Estimators</span>
+            <span className="text-gold-accent">Expert Estimators</span>
           </h2>
           <p className="text-stone-400 text-xs sm:text-sm font-light max-w-xl mx-auto leading-relaxed">
             Our estimating team is ready to draft spatial solutions, compile material quotes, and map blueprint pathways. Contact us today.
@@ -262,7 +220,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
 
           <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
             <div className="bg-stone-900 border border-white/5 p-5 rounded-xl flex items-center space-x-4">
-              <div className="w-10 h-10 rounded-full bg-[#CAA05C] text-stone-950 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center shrink-0">
                 <Phone size={16} />
               </div>
               <div>
@@ -272,7 +230,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
             </div>
 
             <div className="bg-stone-900 border border-white/5 p-5 rounded-xl flex items-center space-x-4">
-              <div className="w-10 h-10 rounded-full bg-[#CAA05C] text-stone-950 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center shrink-0">
                 <Mail size={16} />
               </div>
               <div>
@@ -282,7 +240,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
             </div>
 
             <div className="bg-stone-900 border border-white/5 p-5 rounded-xl flex items-center space-x-4">
-              <div className="w-10 h-10 rounded-full bg-[#CAA05C] text-stone-950 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center shrink-0">
                 <MapPin size={16} />
               </div>
               <div>
@@ -295,13 +253,13 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
           <div className="pt-8 flex justify-center gap-4">
             <button
               onClick={onOpenQuote}
-              className="px-8 py-3.5 bg-[#CAA05C] hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer"
+              className="px-8 py-3.5 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer"
             >
               Get Free Estimate
             </button>
             <button
               onClick={onBackToHome}
-              className="px-8 py-3.5 border border-stone-800 hover:border-[#CAA05C] text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white/5 cursor-pointer"
+              className="px-8 py-3.5 border border-stone-800 hover:border-gold-accent text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white/5 cursor-pointer"
             >
               Back To Home
             </button>

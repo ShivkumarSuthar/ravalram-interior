@@ -69,9 +69,6 @@ export default function Home() {
           {/* 5.5. Why Choose Suthar Interior Studio Section */}
           <WhyChooseUs setView={handleNavigate} />
 
-          {/* 5.6. Our Process Section (From Your Vision to a Beautiful Reality) */}
-          <OurProcess setView={handleNavigate} />
-
           {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
           <CreativeProjects />
 

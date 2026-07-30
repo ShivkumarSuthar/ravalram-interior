@@ -8,29 +8,20 @@ import {
   ArrowRight
 } from "lucide-react";
 
+import { FINAL_CTA_DATA, SITE_IMAGES } from "../lib/data.js";
+
+const ICON_MAP = {
+  MessageSquare,
+  Compass,
+  Workflow,
+  History
+};
+
 export default function FinalCTA() {
-  const highlights = [
-    {
-      title: "Free Consultation",
-      desc: "Discuss your ideas with our experienced team before making any decisions.",
-      icon: MessageSquare
-    },
-    {
-      title: "Architect Guided",
-      desc: "Every project is carefully planned and supervised by experienced architects.",
-      icon: Compass
-    },
-    {
-      title: "Flexible Execution",
-      desc: "Choose labour only, labour with materials, furniture manufacturing, or complete turnkey solutions.",
-      icon: Workflow
-    },
-    {
-      title: "Family Craftsmanship Since 1989",
-      desc: "Over three decades of experience built on trust, quality, and long-lasting client relationships.",
-      icon: History
-    }
-  ];
+  const highlights = (FINAL_CTA_DATA?.highlights || []).map(item => ({
+    ...item,
+    icon: ICON_MAP[item.iconName] || MessageSquare
+  }));
 
   const handleConsultationClick = () => {
     // Scroll to contact form
@@ -45,7 +36,7 @@ export default function FinalCTA() {
       {/* Background Image with elegant dark parallax overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
+          src={SITE_IMAGES.ctaBg}
           alt="Premium Architecture Interior"
           className="w-full h-full object-cover object-center opacity-25 filter brightness-[0.35] scale-105"
           referrerPolicy="no-referrer"
@@ -75,7 +66,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.8 }}
             className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full"
           >
-            <span className="text-[#CAA05C] text-xs">✦</span>
+            <span className="text-gold-accent text-xs">✦</span>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-300 font-mono block">
               LET'S BUILD SOMETHING EXCEPTIONAL
             </span>
@@ -89,7 +80,7 @@ export default function FinalCTA() {
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight"
           >
             Your Dream Space <br />
-            <span className="text-[#CAA05C]">Starts With A Conversation.</span>
+            <span className="text-gold-accent">Starts With A Conversation.</span>
           </motion.h2>
 
           <motion.div
@@ -118,9 +109,9 @@ export default function FinalCTA() {
             {/* Primary button: rounded as requested in design requirements */}
             <motion.button
               onClick={handleConsultationClick}
-              whileHover={{ scale: 1.03, backgroundColor: "#CAA05C" }}
+              whileHover={{ scale: 1.03, backgroundColor: "var(--color-gold-accent)" }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] px-8 py-5 rounded-full cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent px-8 py-5 rounded-full cursor-pointer shadow-xl"
             >
               <span>Book Your Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -131,11 +122,11 @@ export default function FinalCTA() {
             {/* Secondary button: rounded as requested in design requirements */}
             <motion.a
               href="tel:+919000000000"
-              whileHover={{ scale: 1.03, borderColor: "#CAA05C", color: "#CAA05C", backgroundColor: "rgba(255,255,255,0.05)" }}
+              whileHover={{ scale: 1.03, borderColor: "var(--color-gold-accent)", color: "var(--color-gold-accent)", backgroundColor: "rgba(255,255,255,0.05)" }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer"
             >
-              <Phone size={14} className="text-[#CAA05C]" />
+              <Phone size={14} className="text-gold-accent" />
               <span>Call Our Team</span>
             </motion.a>
           </motion.div>
@@ -163,14 +154,14 @@ export default function FinalCTA() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-left space-y-4 hover:shadow-2xl hover:border-[#CAA05C]/30 hover:-translate-y-1.5 transition-all duration-500 group"
+                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-left space-y-4 hover:shadow-2xl hover:border-gold-accent/30 hover:-translate-y-1.5 transition-all duration-500 group"
               >
                 {/* Gold Accent Icon container */}
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#CAA05C] group-hover:bg-[#CAA05C]/10 transition-colors duration-500">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/10 transition-colors duration-500">
                   <Icon size={18} className="transition-transform duration-500 group-hover:scale-110" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-white group-hover:text-[#CAA05C] transition-colors duration-300">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-white group-hover:text-gold-accent transition-colors duration-300">
                     {item.title}
                   </h4>
                   <p className="text-stone-300 text-xs font-light leading-relaxed">

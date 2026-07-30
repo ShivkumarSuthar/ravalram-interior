@@ -106,7 +106,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
   ];
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#CAA05C]/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* HEADER SECTION WITH DESIGN BLUEPRINT BACKDROP */}
       <section className="relative min-h-[60vh] flex items-center bg-stone-950 text-white overflow-hidden py-16" id="thank-you-hero">
@@ -139,7 +139,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-transparent to-transparent lg:from-stone-950 lg:via-transparent lg:to-stone-950 z-10" />
             
             <svg 
-              className="w-[120%] h-[120%] text-[#CAA05C]/20 shrink-0 select-none"
+              className="w-[120%] h-[120%] text-gold-accent/20 shrink-0 select-none"
               viewBox="0 0 800 800" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -185,8 +185,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               className="relative inline-flex items-center justify-center"
             >
               {/* Ring pulse glow */}
-              <span className="absolute inset-0 rounded-full bg-[#CAA05C]/10 border border-[#CAA05C]/20 animate-ping opacity-75" />
-              <div className="relative w-20 h-20 rounded-full bg-stone-900 border border-[#CAA05C]/40 flex items-center justify-center text-[#CAA05C] shadow-2xl">
+              <span className="absolute inset-0 rounded-full bg-gold-accent/10 border border-gold-accent/20 animate-ping opacity-75" />
+              <div className="relative w-20 h-20 rounded-full bg-stone-900 border border-gold-accent/40 flex items-center justify-center text-gold-accent shadow-2xl">
                 <motion.div
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -200,8 +200,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* Request Received Label */}
             <div className="space-y-3">
               <div className="inline-flex items-center space-x-2 bg-stone-900 border border-white/5 rounded-full px-4 py-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C] animate-pulse" />
-                <span className="text-[#CAA05C] text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-accent animate-pulse" />
+                <span className="text-gold-accent text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
                   REQUEST RECEIVED
                 </span>
               </div>
@@ -214,7 +214,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase"
               >
                 Thank You For <br />
-                <span className="text-[#CAA05C]">Getting In</span> Touch.
+                <span className="text-gold-accent">Getting In</span> Touch.
               </motion.h1>
             </div>
 
@@ -231,7 +231,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* Coordinate bar */}
             <div className="flex items-center space-x-6 text-[10px] font-mono text-stone-500 pt-2 select-none">
               <div className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 bg-[#CAA05C] rounded-full animate-ping" />
+                <span className="w-1.5 h-1.5 bg-gold-accent rounded-full animate-ping" />
                 <span>STATUS:</span>
                 <span className="text-stone-300">DISPATCHED_SECURE</span>
               </div>
@@ -250,11 +250,11 @@ export default function ThankYouPage({ onBackToHome, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center sm:text-left space-y-3 mb-16 max-w-2xl">
-            <span className="text-[#CAA05C] text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+            <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
               YOUR ONBOARDING PATHWAY
             </span>
             <h2 className="text-2xl sm:text-4xl font-light uppercase text-stone-900 tracking-tight">
-              Next Steps &amp; <span className="text-[#CAA05C]">Project</span> Milestones
+              Next Steps &amp; <span className="text-gold-accent">Project</span> Milestones
             </h2>
             <p className="text-stone-500 font-light text-sm">
               We operate with rigorous timeline precision. Here is how Suthar Interior Studio guides your onboarding proposal.
@@ -270,7 +270,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                 initial={{ width: "0%" }}
                 animate={{ width: "35%" }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="h-full bg-gradient-to-r from-[#CAA05C] via-[#CAA05C] to-stone-200"
+                className="h-full bg-gradient-to-r from-gold-accent via-gold-accent to-stone-200"
               />
             </div>
 
@@ -290,10 +290,10 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                     <div className="lg:mb-6 shrink-0 relative">
                       <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
                         step.status === "completed" 
-                          ? "bg-[#CAA05C] text-stone-900 shadow-[0_0_15px_rgba(197,168,128,0.4)]"
+                          ? "bg-gold-accent text-stone-900 shadow-[0_0_15px_rgba(197,168,128,0.4)]"
                           : step.status === "active"
-                          ? "bg-stone-900 text-[#CAA05C] border-2 border-[#CAA05C] animate-pulse"
-                          : "bg-stone-50 border border-stone-200 text-stone-400 group-hover:border-[#CAA05C]/50"
+                          ? "bg-stone-900 text-gold-accent border-2 border-gold-accent animate-pulse"
+                          : "bg-stone-50 border border-stone-200 text-stone-400 group-hover:border-gold-accent/50"
                       }`}>
                         <IconComponent size={20} />
                       </div>
@@ -307,8 +307,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                     {/* Step Text Info */}
                     <div className="space-y-1.5 pt-1 lg:pt-0">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[10px] font-mono font-bold text-[#CAA05C]">0{idx + 1}</span>
-                        <h4 className="text-sm font-bold text-stone-900 uppercase tracking-wider group-hover:text-[#CAA05C] transition-colors duration-300">
+                        <span className="text-[10px] font-mono font-bold text-gold-accent">0{idx + 1}</span>
+                        <h4 className="text-sm font-bold text-stone-900 uppercase tracking-wider group-hover:text-gold-accent transition-colors duration-300">
                           {step.title}
                         </h4>
                       </div>
@@ -317,12 +317,12 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       </p>
                       
                       {step.status === "completed" && (
-                        <span className="inline-flex text-[9px] font-mono font-bold text-[#CAA05C] uppercase tracking-wider bg-[#CAA05C]/10 px-2 py-0.5 rounded-full">
+                        <span className="inline-flex text-[9px] font-mono font-bold text-gold-accent uppercase tracking-wider bg-gold-accent/10 px-2 py-0.5 rounded-full">
                           COMPLETED
                         </span>
                       )}
                       {step.status === "active" && (
-                        <span className="inline-flex text-[9px] font-mono font-bold text-[#CAA05C] uppercase tracking-wider bg-[#CAA05C]/10 px-2 py-0.5 rounded-full animate-pulse">
+                        <span className="inline-flex text-[9px] font-mono font-bold text-gold-accent uppercase tracking-wider bg-gold-accent/10 px-2 py-0.5 rounded-full animate-pulse">
                           IN PROGRESS
                         </span>
                       )}
@@ -354,7 +354,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                 <div className="space-y-6">
                   {/* Icon badge */}
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
-                    isDark ? "bg-white/10 text-[#CAA05C]" : "bg-stone-50 border border-stone-200/50 text-[#CAA05C]"
+                    isDark ? "bg-white/10 text-gold-accent" : "bg-stone-50 border border-stone-200/50 text-gold-accent"
                   }`}>
                     <Icon size={20} />
                   </div>
@@ -382,7 +382,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   {card.detail && (
                     <a 
                       href={card.link}
-                      className="font-mono text-sm font-semibold text-[#CAA05C] hover:underline flex items-center space-x-1"
+                      className="font-mono text-sm font-semibold text-gold-accent hover:underline flex items-center space-x-1"
                     >
                       <span>{card.detail}</span>
                       <ArrowUpRight size={14} />
@@ -394,7 +394,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       href={card.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-1.5 text-stone-900 hover:text-[#CAA05C] text-xs font-mono font-bold uppercase tracking-wider"
+                      className="inline-flex items-center space-x-1.5 text-stone-900 hover:text-gold-accent text-xs font-mono font-bold uppercase tracking-wider"
                     >
                       <span>Chat Online</span>
                       <ArrowRight size={12} />
@@ -404,7 +404,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   {card.action === "view-projects" && (
                     <button
                       onClick={() => handleNavigate("gallery")}
-                      className="inline-flex items-center space-x-1.5 text-[#CAA05C] hover:text-white text-xs font-mono font-bold uppercase tracking-wider cursor-pointer"
+                      className="inline-flex items-center space-x-1.5 text-gold-accent hover:text-white text-xs font-mono font-bold uppercase tracking-wider cursor-pointer"
                     >
                       <span>See Our Work</span>
                       <ArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
@@ -436,7 +436,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* Return Home Button */}
             <button
               onClick={onBackToHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-stone-300 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 bg-white hover:border-[#CAA05C] hover:text-[#CAA05C] cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-stone-300 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 bg-white hover:border-gold-accent hover:text-gold-accent cursor-pointer shadow-sm"
             >
               <Home size={14} />
               <span>Return Home</span>
@@ -447,7 +447,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               onClick={() => handleNavigate("gallery")}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-stone-900 hover:bg-stone-950 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
-              <Compass size={14} className="text-[#CAA05C]" />
+              <Compass size={14} className="text-gold-accent" />
               <span>View Projects</span>
             </button>
 
@@ -456,7 +456,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               href="https://wa.me/919820012345"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-[#CAA05C] hover:bg-[#B88F4C] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[#B88F4C] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
               <MessageSquare size={14} />
               <span>Chat on WhatsApp</span>

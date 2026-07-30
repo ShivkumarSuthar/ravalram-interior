@@ -1,35 +1,5 @@
 import { motion } from "motion/react";
-
-const team = [
-  {
-    name: "Mark Jackson",
-    role: "EXHIBITION DESIGNER",
-    focus: "EXHIBITION DESIGNER",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
-    bio: "Leading the creative exhibition layouts with spatial precision and contemporary design aesthetics."
-  },
-  {
-    name: "Helen Reeves",
-    role: "PRODUCTION DESIGNER",
-    focus: "PRODUCTION DESIGNER",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800",
-    bio: "Overseeing production schedules, material sourcing, and execution of bespoke spatial concepts."
-  },
-  {
-    name: "Alex Podzemsky",
-    role: "GRAPHICS DESIGNER",
-    focus: "GRAPHICS DESIGNER",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800",
-    bio: "Designing 3D renders, architectural graphics, and visual spatial walkthroughs."
-  }
-];
-
-const stats = [
-  { value: "30+", label: "Years of Family Craftsmanship" },
-  { value: "20+", label: "Experienced Professionals" },
-  { value: "Architect", label: "Supervised Projects" },
-  { value: "Multi-City", label: "Service Across India" }
-];
+import { TEAM_DATA, STATS_DATA } from "../lib/data.js";
 
 export default function Team() {
   const containerVariants = {
@@ -55,13 +25,13 @@ export default function Team() {
         {/* Header block */}
         <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
           <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/80 px-4 py-1.5 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-gold-accent" />
             <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-700">
               AMAZING DESIGN TEAM
             </span>
           </div>
           <h2 className="text-3xl md:text-6xl lg:text-7xl font-light tracking-tight text-stone-900 leading-tight">
-            Meet The <span className="text-[#CAA05C]">Experts</span> — Our Interior <span className="text-[#CAA05C]">Designers</span>
+            Meet The <span className="text-gold-accent">Experts</span> — Our Interior <span className="text-gold-accent">Designers</span>
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
             Behind every beautifully crafted space is a dedicated team of architects, designers, and craftsmen.
@@ -74,11 +44,11 @@ export default function Team() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 md:mb-28"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 md:mb-28"
         >
-          {team.map((member, idx) => (
+          {(TEAM_DATA || []).map((member) => (
             <motion.div
-              key={member.name}
+              key={member.id || member.name}
               variants={itemVariants}
               className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm hover:shadow-md transition-all duration-500 relative group text-left flex flex-col justify-between"
             >
@@ -94,16 +64,16 @@ export default function Team() {
                   
                   {/* Focus Tag Badge */}
                   <div className="absolute bottom-4 left-4 z-10 bg-stone-900 text-white text-[9px] uppercase font-bold tracking-widest px-3 py-1 font-mono rounded-none">
-                    {member.focus}
+                    {member.experience || member.role}
                   </div>
                 </div>
 
                 {/* Text Description */}
                 <div className="space-y-1">
-                  <h3 className="text-xl font-serif text-stone-900 font-medium group-hover:text-[#CAA05C] transition-colors duration-300">
+                  <h3 className="text-xl font-serif text-stone-900 font-medium group-hover:text-gold-accent transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-xs text-[#CAA05C] uppercase tracking-widest font-bold">
+                  <p className="text-xs text-gold-accent uppercase tracking-widest font-bold">
                     {member.role}
                   </p>
                   <div className="w-6 h-[1px] bg-stone-200 group-hover:w-12 transition-all duration-500 mt-2" />
@@ -119,24 +89,24 @@ export default function Team() {
         {/* Statistics Area below the cards */}
         <div className="border-t border-stone-200/50 pt-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((st, idx) => (
+            {(STATS_DATA || []).map((st, idx) => (
               <motion.div
-                key={idx}
+                key={st.id || idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="space-y-3 text-center md:text-left group"
               >
-                <div className="text-4xl md:text-6xl font-serif text-[#CAA05C] font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
-                  {st.value}
+                <div className="text-4xl md:text-6xl font-serif text-gold-accent font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
+                  {st.number}
                 </div>
                 <div className="space-y-1">
                   <h4 className="text-xs uppercase tracking-widest text-stone-800 font-bold">
                     {st.label}
                   </h4>
                   <p className="text-stone-400 text-xs font-light">
-                    Suthar Studio Metric
+                    {st.description || "Suthar Studio Metric"}
                   </p>
                 </div>
               </motion.div>

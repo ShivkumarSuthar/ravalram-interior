@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { Award, ShieldCheck, Sparkles, Building2, Users2, CalendarCheck, Clock } from "lucide-react";
-const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
-const architecturalPavilion = "/assets/images/architectural_pavilion_1784821025997.jpg";
+import { SITE_IMAGES } from "../lib/data.js";
+const transitionImg = SITE_IMAGES.transitionLuxury;
+const architecturalPavilion = SITE_IMAGES.architecturalPavilion;
 
 function CountUp({ to, duration = 1.5, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -60,13 +62,12 @@ export default function Stats() {
       
       {/* Architectural Background Image with Deep Gradient Vignette Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src={architecturalPavilion}
           alt="Architectural pavilion background"
-          className="w-full h-full object-cover filter brightness-[0.22] contrast-[1.12]"
+          fill
+          className="object-cover filter brightness-[0.22] contrast-[1.12]"
           referrerPolicy="no-referrer"
-          loading="lazy"
-          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/85 to-[#0c0a09]/70 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09] via-[#0c0a09]/80 to-[#0c0a09]/70 pointer-events-none" />
@@ -87,9 +88,9 @@ export default function Stats() {
             <div className="lg:col-span-6 space-y-6 text-left">
               {/* Pill Tag */}
               <div>
-                <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/40 bg-[#CAA05C]/15 px-4 py-1.5 rounded-full shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
-                  <span className="text-[11px] uppercase tracking-[0.25em] font-mono font-bold text-[#CAA05C]">
+                <div className="inline-flex items-center space-x-2 border border-gold-accent/40 bg-gold-accent/15 px-4 py-1.5 rounded-full shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
+                  <span className="text-[11px] uppercase tracking-[0.25em] font-mono font-bold text-gold-accent">
                     TRUSTED EXPERIENCE &amp; MILESTONES
                   </span>
                 </div>
@@ -98,7 +99,7 @@ export default function Stats() {
               {/* Title with Gold Accent Highlights */}
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
                 Behind Every Space,<br />
-                <span className="text-[#CAA05C]">35+ Years of Passion</span> &amp; Generational Trust
+                <span className="text-gold-accent">35+ Years of Passion</span> &amp; Generational Trust
               </h2>
 
               {/* Description paragraph */}
@@ -113,17 +114,16 @@ export default function Stats() {
                 
                 {/* Custom Tab Notch Visual at top-left edge */}
                 <div className="absolute top-0 left-0 w-44 h-9 bg-[#0c0a09] rounded-br-2xl z-20 flex items-center justify-center border-r border-b border-stone-700/80 shadow-md">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#CAA05C] mr-2 shadow-[0_0_8px_#CAA05C]" />
-                  <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#CAA05C]">SUTHAR CRAFT GUILD</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-gold-accent mr-2 shadow-[0_0_8px_var(--color-gold-accent)]" />
+                  <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-gold-accent">SUTHAR CRAFT GUILD</span>
                 </div>
 
-                <img
-                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
+                <Image
+                  src={SITE_IMAGES.heroBg}
                   alt="Luxury modern living room interior"
-                  className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover filter brightness-[0.85] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
-                  loading="lazy"
-                  decoding="async"
                 />
 
                 {/* Subtle Image Overlay Accent */}
@@ -131,11 +131,11 @@ export default function Stats() {
                 
                 <div className="absolute bottom-4 left-6 right-6 z-20 flex items-center justify-between text-xs text-stone-300 font-mono">
                   <span className="inline-flex items-center space-x-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-stone-700/60">
-                    <ShieldCheck size={14} className="text-[#CAA05C]" />
+                    <ShieldCheck size={14} className="text-gold-accent" />
                     <span>Architect-Supervised Site Execution</span>
                   </span>
                   <span className="inline-flex items-center space-x-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-stone-700/60">
-                    <Clock size={14} className="text-[#CAA05C]" />
+                    <Clock size={14} className="text-gold-accent" />
                     <span>Est. 1989</span>
                   </span>
                 </div>
@@ -150,9 +150,9 @@ export default function Stats() {
             {/* Metric 1 */}
             <motion.div
               variants={itemVariants}
-              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-[#CAA05C]/50 transition-all duration-300 hover:shadow-xl group"
+              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-gold-accent/50 transition-all duration-300 hover:shadow-xl group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#CAA05C]/15 border border-[#CAA05C]/30 flex items-center justify-center text-[#CAA05C] group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:scale-110 transition-transform duration-300">
                 <Clock size={20} />
               </div>
               <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -169,12 +169,12 @@ export default function Stats() {
             {/* Metric 2 */}
             <motion.div
               variants={itemVariants}
-              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-[#CAA05C]/50 transition-all duration-300 hover:shadow-xl group"
+              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-gold-accent/50 transition-all duration-300 hover:shadow-xl group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#CAA05C]/15 border border-[#CAA05C]/30 flex items-center justify-center text-[#CAA05C] group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:scale-110 transition-transform duration-300">
                 <Building2 size={20} />
               </div>
-              <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight text-[#CAA05C]">
+              <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight text-gold-accent">
                 <CountUp to={450} duration={1.5} suffix="+" />
               </div>
               <h3 className="text-base font-bold text-stone-200 tracking-tight">
@@ -188,9 +188,9 @@ export default function Stats() {
             {/* Metric 3 */}
             <motion.div
               variants={itemVariants}
-              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-[#CAA05C]/50 transition-all duration-300 hover:shadow-xl group"
+              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-gold-accent/50 transition-all duration-300 hover:shadow-xl group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#CAA05C]/15 border border-[#CAA05C]/30 flex items-center justify-center text-[#CAA05C] group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:scale-110 transition-transform duration-300">
                 <Users2 size={20} />
               </div>
               <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -207,12 +207,12 @@ export default function Stats() {
             {/* Metric 4 */}
             <motion.div
               variants={itemVariants}
-              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-[#CAA05C]/50 transition-all duration-300 hover:shadow-xl group"
+              className="bg-stone-900/80 backdrop-blur-md border border-stone-800 p-6 sm:p-8 rounded-2xl text-left space-y-3 hover:border-gold-accent/50 transition-all duration-300 hover:shadow-xl group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#CAA05C]/15 border border-[#CAA05C]/30 flex items-center justify-center text-[#CAA05C] group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:scale-110 transition-transform duration-300">
                 <CalendarCheck size={20} />
               </div>
-              <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight text-[#CAA05C]">
+              <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight text-gold-accent">
                 <CountUp to={100} duration={1.5} suffix="%" />
               </div>
               <h3 className="text-base font-bold text-stone-200 tracking-tight">

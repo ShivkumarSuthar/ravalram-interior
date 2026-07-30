@@ -28,7 +28,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center space-x-2.5 bg-stone-100 border border-stone-300/80 px-4 py-1.5 rounded-full shadow-sm"
         >
-          <Sparkles size={14} className="text-[#CAA05C]" />
+          <Sparkles size={14} className="text-gold-accent" />
           <span className="text-[10px] md:text-xs font-mono font-bold tracking-[0.25em] uppercase text-stone-700">
             PASSIONATE PERFORMANCE • ARCHITECTURAL MASTERY
           </span>
@@ -43,7 +43,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
           className="space-y-4 max-w-4xl mx-auto"
         >
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-tight">
-            Create An Even <span className="text-[#CAA05C]">Greater Living Experience</span>
+            Create An Even <span className="text-gold-accent">Greater Living Experience</span>
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             Transforming bare structural frames into timeless, high-tactile sanctuaries — where bespoke timber joinery, natural stone textures, and ambient lighting coalesce into pure living comfort.
@@ -68,7 +68,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
           />
 
           {/* Top Notch Label */}
-          <div className="absolute top-0 left-6 sm:left-10 z-20 hidden sm:flex items-center space-x-2 bg-[#0c0a09]/90 backdrop-blur-md px-4 py-2 rounded-b-xl border-x border-b border-white/10 text-[10px] font-mono font-bold tracking-widest text-[#CAA05C] uppercase">
+          <div className="absolute top-0 left-6 sm:left-10 z-20 hidden sm:flex items-center space-x-2 bg-[#0c0a09]/90 backdrop-blur-md px-4 py-2 rounded-b-xl border-x border-b border-white/10 text-[10px] font-mono font-bold tracking-widest text-gold-accent uppercase">
             <Compass size={12} />
             <span>FEATURED LUXURY RESIDENCE</span>
           </div>
@@ -79,7 +79,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
           {/* Bottom Info & CTA Overlay inside Frame */}
           <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-white text-left z-10">
             <div className="space-y-1.5 max-w-xl">
-              <div className="inline-flex items-center space-x-2 text-[10px] font-mono font-bold tracking-widest text-[#CAA05C] uppercase bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/10">
+              <div className="inline-flex items-center space-x-2 text-[10px] font-mono font-bold tracking-widest text-gold-accent uppercase bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/10">
                 <ShieldCheck size={12} />
                 <span>SEA-FACING RESIDENTIAL SHOWCASE</span>
               </div>
@@ -90,7 +90,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
 
             <button
               onClick={handleNavigate}
-              className="shrink-0 inline-flex items-center space-x-3 bg-[#CAA05C] hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-[0.18em] px-7 py-4 rounded-full transition-all duration-300 cursor-pointer shadow-2xl hover:scale-[1.03]"
+              className="shrink-0 inline-flex items-center space-x-3 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-[0.18em] px-7 py-4 rounded-full transition-all duration-300 cursor-pointer shadow-2xl hover:scale-[1.03]"
             >
               <span>Explore Full Portfolio</span>
               <ArrowUpRight size={16} strokeWidth={2.5} />

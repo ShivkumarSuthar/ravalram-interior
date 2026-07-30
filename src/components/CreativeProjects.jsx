@@ -1,95 +1,8 @@
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, ArrowUpRight, X } from "lucide-react";
-
-// Local asset imports
-const coastalImg = "/assets/images/AI_images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/assets/images/AI_images/antra_project_loft_1782744318019.jpg";
-const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
-const heroSlide2 = "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg";
-
-const projects = [
-  {
-    id: "proj-01",
-    title: "Golden Ratio Residence",
-    badge: "SINGLE HOME",
-    category: "Residential Interior",
-    location: "Worli Sea Face, Mumbai",
-    year: "2025",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
-    description: "A double-height sea-facing villa designed around golden ratio proportions, Italian Statuario marble, and handcrafted timber joinery."
-  },
-  {
-    id: "proj-02",
-    title: "Nordic Minimalist Loft",
-    badge: "LANDSCAPE",
-    category: "Architecture & Landscape",
-    location: "Anjuna Beach Estate, Goa",
-    year: "2025",
-    image: loftImg,
-    description: "Monolithic pre-cast concrete staircase and fluted timber wall paneling overlooking tropical estate gardens."
-  },
-  {
-    id: "proj-03",
-    title: "Industrial Elegance Condo",
-    badge: "RESIDENTIAL",
-    category: "Residential Interior",
-    location: "Koregaon Park, Pune",
-    year: "2025",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200",
-    description: "Warm solid walnut dining table, Italian marble flooring, and custom brass pendant chandeliers."
-  },
-  {
-    id: "proj-04",
-    title: "Serene Space Studio",
-    badge: "RESIDENTIAL",
-    category: "Luxury Penthouse",
-    location: "Bandra West, Mumbai",
-    year: "2025",
-    image: coastalImg,
-    description: "A light-flooded duplex penthouse featuring plush bouclé seating, expansive glass walls, and panoramic skyline views."
-  },
-  {
-    id: "proj-05",
-    title: "Urban Zen Apartment",
-    badge: "LANDSCAPE",
-    category: "Residential Interior",
-    location: "Jubilee Hills, Hyderabad",
-    year: "2025",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200",
-    description: "Muted plaster walls, bespoke timber bed frames, and subtle ambient indirect cove lighting arrays."
-  },
-  {
-    id: "proj-06",
-    title: "Art Deco Villa",
-    badge: "SINGLE HOME",
-    category: "Architecture",
-    location: "Santacruz West, Mumbai",
-    year: "2025",
-    image: transitionImg,
-    description: "A coastal luxury estate blending heritage brass trims, rich teak joinery, and modern smart home automation."
-  },
-  {
-    id: "proj-07",
-    title: "The Shoreline Kitchen",
-    badge: "KITCHEN",
-    category: "Custom Joinery",
-    location: "Berlin, Germany",
-    year: "2026",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200",
-    description: "Imported soft-close quartz counters with custom under-cabinet warm LED runs and anti-fingerprint acrylic."
-  },
-  {
-    id: "proj-08",
-    title: "Executive Office Suite",
-    badge: "COMMERCIAL",
-    category: "Commercial Office",
-    location: "Berlin, Germany",
-    year: "2026",
-    image: heroSlide2,
-    description: "Collaborative executive workspace featuring fluted glass privacy partitions and ergonomic acoustic panels."
-  }
-];
+import { projects } from "../lib/project-data.js";
 
 export default function CreativeProjects() {
   const scrollRef = useRef(null);
@@ -160,9 +73,9 @@ export default function CreativeProjects() {
           
           {/* Pill Tag */}
           <div className="flex justify-center">
-            <div className="inline-flex items-center space-x-2 border border-[#CAA05C]/30 bg-[#CAA05C]/10 px-4 py-1.5 rounded-full shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#CAA05C]" />
-              <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#CAA05C]">
+            <div className="inline-flex items-center space-x-2 border border-gold-accent/30 bg-gold-accent/10 px-4 py-1.5 rounded-full shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-gold-accent" />
+              <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-gold-accent">
                 OUR PORTFOLIO
               </span>
             </div>
@@ -170,8 +83,8 @@ export default function CreativeProjects() {
 
           {/* Heading with exact colored words */}
           <h2 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-            Creative <span className="text-[#CAA05C]">Projects That</span><br />
-            <span className="text-[#CAA05C]">Define</span> Our Style
+            Creative <span className="text-gold-accent">Projects That</span><br />
+            <span className="text-gold-accent">Define</span> Our Style
           </h2>
 
           {/* Subtitle */}
@@ -183,14 +96,14 @@ export default function CreativeProjects() {
           <div className="flex items-center justify-center space-x-4 pt-2">
             <button
               onClick={() => handleScroll("left")}
-              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-[#CAA05C] text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
+              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
               aria-label="Scroll Left"
             >
               <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
             <button
               onClick={() => handleScroll("right")}
-              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-[#CAA05C] text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
+              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
               aria-label="Scroll Right"
             >
               <ChevronRight size={20} strokeWidth={2.5} />
@@ -205,7 +118,7 @@ export default function CreativeProjects() {
           {/* Floating Left Scroll Button on Carousel Edge */}
           <button
             onClick={() => handleScroll("left")}
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-[#CAA05C] text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
             aria-label="Scroll left"
           >
             <ChevronLeft size={22} strokeWidth={2.5} />
@@ -214,7 +127,7 @@ export default function CreativeProjects() {
           {/* Floating Right Scroll Button on Carousel Edge */}
           <button
             onClick={() => handleScroll("right")}
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-[#CAA05C] text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
             aria-label="Scroll right"
           >
             <ChevronRight size={22} strokeWidth={2.5} />
@@ -258,18 +171,17 @@ export default function CreativeProjects() {
                     </div>
 
                     {/* Image */}
-                    <img
+                    <Image
                       src={proj.image}
                       alt={proj.title}
-                      className="w-full h-full object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
+                      fill
+                      className="object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
                       referrerPolicy="no-referrer"
-                      loading="lazy"
-                      decoding="async"
                     />
 
                     {/* Subtle Hover Action Overlay */}
                     <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                      <div className="w-12 h-12 rounded-full bg-[#CAA05C] text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300">
+                      <div className="w-12 h-12 rounded-full bg-gold-accent text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300">
                         <ArrowUpRight size={20} strokeWidth={2.5} />
                       </div>
                     </div>
@@ -277,7 +189,7 @@ export default function CreativeProjects() {
 
                   {/* Below Image Text Info (Title, Location, Year stacked vertically) */}
                   <div className="text-left space-y-1 pt-1">
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight leading-snug group-hover:text-[#CAA05C] transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight leading-snug group-hover:text-gold-accent transition-colors duration-300">
                       {proj.title}
                     </h3>
                     <div className="text-xs sm:text-sm text-stone-500 font-light leading-snug">
@@ -312,7 +224,7 @@ export default function CreativeProjects() {
               
               <button
                 onClick={() => setLightboxIndex((prev) => (prev - 1 + projects.length) % projects.length)}
-                className="absolute left-2 sm:left-4 p-3 text-white hover:text-[#CAA05C] transition-colors duration-300 bg-black/60 hover:bg-black/80 rounded-full cursor-pointer z-20 border border-white/20"
+                className="absolute left-2 sm:left-4 p-3 text-white hover:text-gold-accent transition-colors duration-300 bg-black/60 hover:bg-black/80 rounded-full cursor-pointer z-20 border border-white/20"
                 aria-label="Previous Image"
               >
                 <ChevronLeft size={22} />
@@ -333,7 +245,7 @@ export default function CreativeProjects() {
                 />
 
                 <div className="mt-4 text-center text-white space-y-1.5 max-w-xl">
-                  <span className="inline-block bg-[#CAA05C] text-stone-950 font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-mono">
+                  <span className="inline-block bg-gold-accent text-stone-950 font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-mono">
                     {projects[lightboxIndex].badge} • {projects[lightboxIndex].year}
                   </span>
                   <h4 className="text-2xl font-extrabold text-white tracking-tight">{projects[lightboxIndex].title}</h4>
@@ -343,7 +255,7 @@ export default function CreativeProjects() {
 
               <button
                 onClick={() => setLightboxIndex((prev) => (prev + 1) % projects.length)}
-                className="absolute right-2 sm:right-4 p-3 text-white hover:text-[#CAA05C] transition-colors duration-300 bg-black/60 hover:bg-black/80 rounded-full cursor-pointer z-20 border border-white/20"
+                className="absolute right-2 sm:right-4 p-3 text-white hover:text-gold-accent transition-colors duration-300 bg-black/60 hover:bg-black/80 rounded-full cursor-pointer z-20 border border-white/20"
                 aria-label="Next Image"
               >
                 <ChevronRight size={22} />

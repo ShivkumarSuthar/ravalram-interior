@@ -67,7 +67,7 @@ export default function Blog({ setView }) {
           {/* Left Eyebrow Pill Badge */}
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#CAA05C] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
               <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
                 STRAIGHT FROM THE NEWSROOM
               </span>
@@ -77,8 +77,8 @@ export default function Blog({ setView }) {
           {/* Right Main Grand Headline */}
           <div className="lg:col-span-8">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-              Take A Look At <span className="text-[#CAA05C]">Our Latest</span> <br />
-              <span className="text-[#CAA05C]">Blog</span> & Articles.
+              Take A Look At <span className="text-gold-accent">Our Latest</span> <br />
+              <span className="text-gold-accent">Blog</span> & Articles.
             </h2>
           </div>
 
@@ -109,7 +109,7 @@ export default function Blog({ setView }) {
 
               {/* Tag Pill Badge Overlaid on Image Top Left */}
               <div className="absolute top-4 left-4 z-10">
-                <span className="bg-[#CAA05C] text-stone-950 font-mono text-[10px] sm:text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
+                <span className="bg-gold-accent text-stone-950 font-mono text-[10px] sm:text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
                   {mainArticle.tag}
                 </span>
               </div>
@@ -119,10 +119,10 @@ export default function Blog({ setView }) {
             <div className="space-y-3 px-1">
               <div className="flex items-center space-x-2 text-xs font-mono text-stone-500">
                 <span>By</span>
-                <span className="text-[#CAA05C] font-extrabold">{mainArticle.author}</span>
+                <span className="text-gold-accent font-extrabold">{mainArticle.author}</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 leading-snug group-hover:text-[#CAA05C] transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 leading-snug group-hover:text-gold-accent transition-colors duration-300">
                 {mainArticle.title}
               </h3>
 
@@ -142,7 +142,7 @@ export default function Blog({ setView }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 onClick={handleArticleClick}
-                className="bg-white border border-stone-200/80 p-4 sm:p-5 rounded-[28px] shadow-sm hover:shadow-xl hover:border-[#CAA05C]/50 transition-all duration-300 flex flex-col sm:flex-row gap-5 items-center group cursor-pointer"
+                className="bg-white border border-stone-200/80 p-4 sm:p-5 rounded-[28px] shadow-sm hover:shadow-xl hover:border-gold-accent/50 transition-all duration-300 flex flex-col sm:flex-row gap-5 items-center group cursor-pointer"
               >
                 {/* Thumbnail Image Left with Tag Badge */}
                 <div className="relative w-full sm:w-44 md:w-48 aspect-[16/11] rounded-[20px] overflow-hidden bg-stone-100 shrink-0">
@@ -157,7 +157,7 @@ export default function Blog({ setView }) {
 
                   {/* Tag Pill Badge Overlaid on Thumbnail Top Left */}
                   <div className="absolute top-2.5 left-2.5 z-10">
-                    <span className="bg-[#CAA05C] text-stone-950 font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                    <span className="bg-gold-accent text-stone-950 font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
                       {art.tag}
                     </span>
                   </div>
@@ -169,10 +169,10 @@ export default function Blog({ setView }) {
                     <span>{art.date}</span>
                     <span>&bull;</span>
                     <span>By</span>
-                    <span className="text-[#CAA05C] font-bold">{art.author}</span>
+                    <span className="text-gold-accent font-bold">{art.author}</span>
                   </div>
 
-                  <h4 className="text-sm sm:text-base font-extrabold text-stone-900 group-hover:text-[#CAA05C] transition-colors duration-300 leading-snug line-clamp-2">
+                  <h4 className="text-sm sm:text-base font-extrabold text-stone-900 group-hover:text-gold-accent transition-colors duration-300 leading-snug line-clamp-2">
                     {art.title}
                   </h4>
 

@@ -22,12 +22,27 @@ import {
   Globe
 } from "lucide-react";
 
-// Local asset imports for high-fidelity brand consistency
-const coastalImg = "/assets/images/AI_images/antra_project_coastal_1782744299850.jpg";
-const loftImg = "/assets/images/AI_images/antra_project_loft_1782744318019.jpg";
-const transitionImg = "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg";
-const aboutImg = "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
-const bannerImg = "/assets/images/AI_images/antra_lobby_banner_1782744283860.jpg";
+import { COMPANY_INFO, FAQ_DATA, SITE_IMAGES, CONTACT_PAGE_DATA } from "../lib/data.js";
+
+// Centralized asset references from data manager
+const coastalImg = SITE_IMAGES.projectCoastal;
+const loftImg = SITE_IMAGES.projectLoft;
+const transitionImg = SITE_IMAGES.transitionLuxury;
+const aboutImg = SITE_IMAGES.aboutSide;
+const bannerImg = SITE_IMAGES.lobbyBanner;
+
+const ICON_MAP = {
+  Phone,
+  Mail,
+  MessageSquare,
+  MapPin,
+  Sparkles,
+  Compass,
+  ShieldCheck,
+  Users,
+  Award,
+  Zap
+};
 
 export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
   // Form submission state
@@ -83,53 +98,15 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
     }
   };
 
-  const contactMethods = [
-    {
-      title: "Phone",
-      action: "Call Now",
-      detail: "+1 (480) 456-0789",
-      subDetail: "Mon-Sat, 9am - 7pm",
-      link: "tel:+14804560789",
-      icon: Phone,
-      color: "bg-[#CAA05C]/10 text-[#CAA05C]"
-    },
-    {
-      title: "Email",
-      action: "Send Email",
-      detail: "studio@sutharinterior.com",
-      subDetail: "Response within 24 hours",
-      link: "mailto:studio@sutharinterior.com",
-      icon: Mail,
-      color: "bg-stone-900/10 text-stone-900"
-    },
-    {
-      title: "WhatsApp",
-      action: "Chat Instantly",
-      detail: "+91 98200 12345",
-      subDetail: "Connect in real-time",
-      link: "https://wa.me/919820012345",
-      icon: MessageSquare,
-      color: "bg-[#CAA05C]/10 text-[#CAA05C]"
-    },
-    {
-      title: "Office Location",
-      action: "Mumbai, Maharashtra",
-      detail: "Suthar Interior Studio HQ",
-      subDetail: "By appointment only",
-      link: "#showroom-map",
-      icon: MapPin,
-      color: "bg-[#CAA05C]/10 text-[#CAA05C]"
-    }
-  ];
+  const contactMethods = (CONTACT_PAGE_DATA?.contactMethods || []).map(item => ({
+    ...item,
+    icon: ICON_MAP[item.iconName] || Phone
+  }));
 
-  const whyContactUs = [
-    { title: "Free Consultation", desc: "No-obligation introductory session to review blueprints and ideas.", icon: Sparkles },
-    { title: "Architect Guided Planning", desc: "Every call and project is structured and supervised by certified architects.", icon: Compass },
-    { title: "Transparent Pricing", desc: "No arbitrary figures. Standardized pricing guides based on raw material selectives.", icon: ShieldCheck },
-    { title: "Flexible Solutions", desc: "Choose from Turnkey, Labour Only, or Custom Woodwork Furniture only.", icon: Users },
-    { title: "Premium Craftsmanship", desc: "Crafting flawless joints, premium modular systems, and structural value since 1989.", icon: Award },
-    { title: "Quick Response", desc: "Our supervisors and architects respond to calls, emails, and WhatsApp instantly.", icon: Zap }
-  ];
+  const whyContactUs = (CONTACT_PAGE_DATA?.whyBookConsultation || []).map(item => ({
+    ...item,
+    icon: ICON_MAP[item.iconName] || Sparkles
+  }));
 
   const processSteps = [
     { num: "01", name: "Contact Us", desc: "Submit your basic spatial parameters and timeline." },
@@ -153,40 +130,10 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
     { name: "Nearby Regions", detail: "Other cities based on scope and blueprint size." }
   ];
 
-  const faqs = [
-    {
-      q: "Do you provide free consultation?",
-      a: "Yes. Suthar Interior Studio provides a complimentary introductory consultation where we discuss your spatial ideas, outline general layout flow patterns, and offer a ballpark estimate based on your square footage."
-    },
-    {
-      q: "Can I book only furniture work?",
-      a: "Absolutely. If you do not require complete civil or structural works, we can manufacture, deliver, and assemble custom furniture (such as modular kitchens, luxury wardrobes, and media units) directly from our workshop."
-    },
-    {
-      q: "Do you work outside Mumbai?",
-      a: "Yes. While our central showroom is in Mumbai, our design supervisors and carpenters actively execute major projects in Pune, Goa, Bengaluru, Hyderabad, and coastal Karnataka regions including Kumta and Honnavar."
-    },
-    {
-      q: "Can I choose my own materials?",
-      a: "Yes, we encourage material transparency. You can select your preferred timber, plywood grade, laminate veneers, and hardware brands under direct supervision and advice from our studio architects."
-    },
-    {
-      q: "Do you provide turnkey services?",
-      a: "Yes, our Turnkey execution represents our most premium, hassle-free service. Suthar Interior Studio handles everything from 2D space planning, material procurement, on-site execution, electrical mapping, and deep cleaning to final keys handover."
-    },
-    {
-      q: "How long does a project usually take?",
-      a: "Typical modular kitchen or custom furniture packages take about 3 to 4 weeks to manufacture and install. Complete residential turnkey interiors (such as 3BHK homes) usually require 60 to 90 working days depending on finishing levels."
-    },
-    {
-      q: "Can I hire you only for labour work?",
-      a: "Yes. We offer flexible execution models. If you have already procured your raw materials, we can provide a dedicated crew of traditional Suthar carpenters, painters, and civil supervisors on a labour-only contract basis."
-    },
-    {
-      q: "Do architects supervise every project?",
-      a: "Yes, without exception. Every design, elevation, and execution stage is reviewed, measured, and verified on-site by our qualified in-house architects to prevent errors and ensure high-fidelity translation."
-    }
-  ];
+  const faqs = (FAQ_DATA || []).map(item => ({
+    q: item.question,
+    a: item.answer
+  }));
 
   const handleOpenConsultation = () => {
     if (onOpenQuote) {
@@ -197,14 +144,14 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-[#CAA05C]/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
       
       {/* PAGE HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
         {/* Full-width premium background image with subtle dark overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2000"
+            src={SITE_IMAGES.aboutHeroBg}
             alt="Premium spatial architecture Suthar Studio"
             className="w-full h-full object-cover opacity-25 filter brightness-[0.8]"
             referrerPolicy="no-referrer"
@@ -224,13 +171,13 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
           <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
-            <button onClick={onBackToHome} className="hover:text-[#CAA05C] transition-colors cursor-pointer">HOME</button>
+            <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">HOME</button>
             <span>/</span>
-            <span className="text-[#CAA05C] font-bold">CONTACT US</span>
+            <span className="text-gold-accent font-bold">CONTACT US</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-[#CAA05C] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               CONTACT US
             </span>
             <motion.h1
@@ -240,7 +187,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase"
             >
               Let's Bring Your <br />
-              <span className="text-[#CAA05C]">Vision To</span> Life.
+              <span className="text-gold-accent">Vision To</span> Life.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -260,7 +207,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           >
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] px-6 py-4 rounded-none cursor-pointer"
+              className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
@@ -270,7 +217,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
             <a
               href="tel:+14804560789"
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#CAA05C] hover:text-[#CAA05C] text-center"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent text-center"
             >
               Call Our Team
             </a>
@@ -285,18 +232,18 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
             <div className="lg:col-span-5 text-left space-y-4">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#CAA05C] text-xs">✦</span>
+                <span className="text-gold-accent text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   GET IN TOUCH
                 </span>
               </div>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                 We're Here <br />
-                <span className="text-[#CAA05C]">To</span> Help.
+                <span className="text-gold-accent">To</span> Help.
               </h2>
             </div>
 
-            <div className="lg:col-span-7 text-left border-l-2 border-[#CAA05C] pl-6 lg:pl-10">
+            <div className="lg:col-span-7 text-left border-l-2 border-gold-accent pl-6 lg:pl-10">
               <p className="text-stone-600 font-light text-base sm:text-lg leading-relaxed">
                 Have questions about your project? Need an estimate? Want to schedule a site visit? Our team is always ready to assist you. Contact us via phone, email, or WhatsApp, or visit our showroom to speak with our architects.
               </p>
@@ -315,7 +262,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
-                  className="bg-[#faf9f6] border border-stone-200/50 hover:border-[#CAA05C]/40 p-6 rounded-2xl text-left block space-y-4 hover:shadow-xl transition-all duration-300 group"
+                  className="bg-[#faf9f6] border border-stone-200/50 hover:border-gold-accent/40 p-6 rounded-2xl text-left block space-y-4 hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className={`w-10 h-10 rounded-xl ${method.color} flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
                     <Icon size={18} />
@@ -324,10 +271,10 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     <span className="text-[10px] uppercase font-mono tracking-wider text-stone-400 block font-bold">
                       {method.title}
                     </span>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-[#CAA05C] transition-colors">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-gold-accent transition-colors">
                       {method.action}
                     </h3>
-                    <p className="text-[#CAA05C] font-mono text-xs font-semibold select-all pt-1 leading-tight">
+                    <p className="text-gold-accent font-mono text-xs font-semibold select-all pt-1 leading-tight">
                       {method.detail}
                     </p>
                     <p className="text-stone-400 text-[10px] font-light leading-tight">
@@ -343,7 +290,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           <div className="mt-12 bg-stone-50 border border-stone-200/30 p-6 md:p-8 rounded-2xl text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2">
-                <span className="text-[#CAA05C] text-[10px] uppercase font-mono tracking-widest block font-bold">
+                <span className="text-gold-accent text-[10px] uppercase font-mono tracking-widest block font-bold">
                   REGIONAL OUTREACH
                 </span>
                 <h4 className="text-lg font-serif text-stone-900">
@@ -381,14 +328,14 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             {/* Form Left Side Text */}
             <div className="lg:col-span-5 text-left space-y-6 lg:sticky lg:top-[120px]">
               <div className="inline-flex items-center space-x-2">
-                <span className="text-[#CAA05C] text-xs">✦</span>
+                <span className="text-gold-accent text-xs">✦</span>
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold text-stone-500 block">
                   PROJECT ENQUIRY
                 </span>
               </div>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase">
                 Tell Us About <br />
-                <span className="text-[#CAA05C]">Your</span> Project.
+                <span className="text-gold-accent">Your</span> Project.
               </h2>
               <p className="text-stone-500 font-light text-sm sm:text-base leading-relaxed">
                 Take a few moments to outline your spatial concept. Once received, our lead design architects will evaluate the parameters and schedule an introductory structural video call or personal meeting.
@@ -396,15 +343,15 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
               <div className="space-y-4 pt-4 border-t border-stone-200/50">
                 <div className="flex items-center space-x-3 text-stone-700 text-xs font-mono">
-                  <CheckCircle2 size={14} className="text-[#CAA05C]" />
+                  <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>Free initial design analysis & ballpark pricing</span>
                 </div>
                 <div className="flex items-center space-x-3 text-stone-700 text-xs font-mono">
-                  <CheckCircle2 size={14} className="text-[#CAA05C]" />
+                  <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>Interactive screen-share reviews for floorplans</span>
                 </div>
                 <div className="flex items-center space-x-3 text-stone-700 text-xs font-mono">
-                  <CheckCircle2 size={14} className="text-[#CAA05C]" />
+                  <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>No pushy marketing; only high-fidelity advice</span>
                 </div>
               </div>
@@ -433,7 +380,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                           required
                           value={formData.fullName}
                           onChange={handleInputChange}
-                          className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
+                          className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
                           placeholder="e.g. Ramesh Suthar"
                         />
                       </div>
@@ -448,7 +395,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                           required
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
+                          className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
                           placeholder="e.g. +91 98200 98200"
                         />
                       </div>
@@ -465,7 +412,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                           required
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
+                          className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
                           placeholder="e.g. ramesh@gmail.com"
                         />
                       </div>
@@ -480,7 +427,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                           required
                           value={formData.city}
                           onChange={handleInputChange}
-                          className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
+                          className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300"
                           placeholder="e.g. Mumbai, Pune, Goa"
                         />
                       </div>
@@ -496,7 +443,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                             name="projectType"
                             value={formData.projectType}
                             onChange={handleInputChange}
-                            className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300 appearance-none cursor-pointer"
+                            className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300 appearance-none cursor-pointer"
                           >
                             <option value="Residential">Residential</option>
                             <option value="Commercial">Commercial</option>
@@ -519,7 +466,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                             name="budget"
                             value={formData.budget}
                             onChange={handleInputChange}
-                            className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300 appearance-none cursor-pointer"
+                            className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300 appearance-none cursor-pointer"
                           >
                             <option value="Below ₹5 Lakh">Below ₹5 Lakh</option>
                             <option value="₹5–10 Lakh">₹5–10 Lakh</option>
@@ -540,7 +487,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                         rows={4}
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full bg-stone-50 border border-stone-200 focus:border-[#CAA05C] focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300 resize-none"
+                        className="w-full bg-stone-50 border border-stone-200 focus:border-gold-accent focus:bg-white rounded-lg px-4 py-3 text-sm text-stone-900 outline-none transition-all duration-300 resize-none"
                         placeholder="Tell us about your space. E.g., 'Looking to renovate our 3BHK flat in Khar with sustainable materials by October.'"
                       />
                     </div>
@@ -553,7 +500,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                         name="agree"
                         checked={formData.agree}
                         onChange={handleInputChange}
-                        className="mt-1 w-4 h-4 text-[#CAA05C] border-stone-300 rounded focus:ring-[#CAA05C] cursor-pointer"
+                        className="mt-1 w-4 h-4 text-gold-accent border-stone-300 rounded focus:ring-gold-accent cursor-pointer"
                       />
                       <label htmlFor="agree-checkbox" className="text-xs text-stone-500 font-light leading-tight text-left cursor-pointer select-none">
                         I agree to be contacted regarding my project parameters, blueprint audits, and custom estimate reports by Suthar Interior Studio.
@@ -563,7 +510,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] hover:bg-[#CAA05C] py-4 rounded-xl cursor-pointer shadow-lg"
+                        className="w-full inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent py-4 rounded-xl cursor-pointer shadow-lg"
                       >
                         <span>Request Free Consultation</span>
                         <ArrowRight size={14} />
@@ -578,7 +525,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     exit={{ opacity: 0 }}
                     className="flex flex-col items-center justify-center py-12 text-center space-y-6"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#CAA05C]/15 border border-[#CAA05C]/30 flex items-center justify-center text-[#CAA05C] shadow-md">
+                    <div className="w-16 h-16 rounded-full bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent shadow-md">
                       <Check size={32} strokeWidth={2.5} />
                     </div>
                     <div className="space-y-2 max-w-lg">
@@ -589,7 +536,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                         Thank you, <span className="font-semibold text-stone-900">{formData.fullName}</span>. Suthar Interior Studio has registered your project enquiry. 
                       </p>
                       <p className="text-stone-500 text-xs font-light">
-                        Our lead design architects are analyzing your parameters (Approximate budget: <span className="font-medium text-stone-800">{formData.budget}</span> for <span className="font-medium text-[#CAA05C]">{formData.projectType}</span>). An architect will contact you within 1-2 hours on <span className="font-mono text-stone-800">{formData.phone}</span>.
+                        Our lead design architects are analyzing your parameters (Approximate budget: <span className="font-medium text-stone-800">{formData.budget}</span> for <span className="font-medium text-gold-accent">{formData.projectType}</span>). An architect will contact you within 1-2 hours on <span className="font-mono text-stone-800">{formData.phone}</span>.
                       </p>
                     </div>
                     <div className="bg-stone-50 border border-stone-200/50 p-4 rounded-xl w-full text-xs text-stone-400 font-mono text-center">
@@ -610,11 +557,11 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               OUR SERVICE PROMISE
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Why Connect <span className="text-[#CAA05C]">With</span> Suthar Studio
+              Why Connect <span className="text-gold-accent">With</span> Suthar Studio
             </h2>
           </div>
 
@@ -628,13 +575,13 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
-                  className="bg-stone-50 border border-stone-100 hover:bg-white hover:border-[#CAA05C]/30 hover:shadow-xl rounded-2xl p-6 md:p-8 text-left space-y-4 transition-all duration-500 group"
+                  className="bg-stone-50 border border-stone-100 hover:bg-white hover:border-gold-accent/30 hover:shadow-xl rounded-2xl p-6 md:p-8 text-left space-y-4 transition-all duration-500 group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-[#CAA05C] group-hover:bg-[#CAA05C]/10 transition-colors duration-500 shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/10 transition-colors duration-500 shadow-sm">
                     <Icon size={18} />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-[#CAA05C] transition-colors duration-300">
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-gold-accent transition-colors duration-300">
                       {item.title}
                     </h4>
                     <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -654,11 +601,11 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               ONBOARDING PATH
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Our Project <span className="text-[#CAA05C]">Onboarding</span> Process
+              Our Project <span className="text-gold-accent">Onboarding</span> Process
             </h2>
             <p className="text-stone-500 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed pt-2">
               From your initial spatial submission to handing over certified architectural estimates and starting carpentry.
@@ -679,7 +626,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
                 className="bg-white border border-stone-200/50 p-4 rounded-2xl text-center flex flex-col justify-between space-y-3 shadow-sm hover:shadow-md transition-all duration-300 relative group z-10"
               >
-                <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-xs text-[#CAA05C] mx-auto group-hover:bg-[#CAA05C] group-hover:text-stone-900 transition-colors duration-300">
+                <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-xs text-gold-accent mx-auto group-hover:bg-gold-accent group-hover:text-stone-900 transition-colors duration-300">
                   {step.num}
                 </div>
                 
@@ -703,11 +650,11 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               SERVICE COVERAGE
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Our Geographical <span className="text-[#CAA05C]">Service</span> Areas
+              Our Geographical <span className="text-gold-accent">Service</span> Areas
             </h2>
           </div>
 
@@ -715,12 +662,12 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             {cities.map((city, idx) => (
               <div
                 key={idx}
-                className="bg-stone-50 border border-stone-200/50 p-6 rounded-xl text-left hover:shadow-xl hover:bg-white hover:border-[#CAA05C]/30 transition-all duration-500 group relative"
+                className="bg-stone-50 border border-stone-200/50 p-6 rounded-xl text-left hover:shadow-xl hover:bg-white hover:border-gold-accent/30 transition-all duration-500 group relative"
               >
-                <div className="absolute top-6 right-6 text-[#CAA05C] opacity-40 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-6 right-6 text-gold-accent opacity-40 group-hover:opacity-100 transition-opacity">
                   <MapPin size={16} />
                 </div>
-                <h3 className="text-base sm:text-lg font-serif font-medium text-stone-950 group-hover:text-[#CAA05C] transition-colors duration-300 mb-2">
+                <h3 className="text-base sm:text-lg font-serif font-medium text-stone-950 group-hover:text-gold-accent transition-colors duration-300 mb-2">
                   {city.name}
                 </h3>
                 <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -741,7 +688,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             <div className="pt-2">
               <button
                 onClick={handleOpenConsultation}
-                className="inline-flex items-center space-x-2 text-stone-900 font-bold text-xs tracking-widest uppercase transition-colors hover:text-[#CAA05C] cursor-pointer border-b border-stone-950 pb-0.5"
+                className="inline-flex items-center space-x-2 text-stone-900 font-bold text-xs tracking-widest uppercase transition-colors hover:text-gold-accent cursor-pointer border-b border-stone-950 pb-0.5"
               >
                 <span>Contact us to discuss your project</span>
                 <ArrowRight size={12} />
@@ -758,11 +705,11 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-12">
             <div className="lg:col-span-6 text-left space-y-4">
-              <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
                 PHYSICAL ATELIER
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-                Visit Our <span className="text-[#CAA05C]">Showroom &amp;</span> Studio
+                Visit Our <span className="text-gold-accent">Showroom &amp;</span> Studio
               </h2>
             </div>
             <div className="lg:col-span-6 text-left">
@@ -785,7 +732,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="absolute bottom-6 left-6 bg-stone-950 text-white p-6 rounded-2xl shadow-2xl text-left max-w-sm hidden md:block">
-                <span className="text-[#CAA05C] text-[9px] font-mono tracking-widest font-bold uppercase block mb-1">HEADQUARTERS</span>
+                <span className="text-gold-accent text-[9px] font-mono tracking-widest font-bold uppercase block mb-1">HEADQUARTERS</span>
                 <h4 className="text-sm font-serif font-semibold text-white mb-2">Santacruz Atelier Showroom</h4>
                 <p className="text-stone-300 text-xs font-light leading-relaxed mb-4">
                   Linking Road, Near Sacred Heart Church, Santacruz West, Mumbai, Maharashtra 400054
@@ -794,7 +741,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                   href="https://maps.app.goo.gl/YV9Z6"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[#CAA05C] text-xs font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center space-x-1"
+                  className="text-gold-accent text-xs font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center space-x-1"
                 >
                   <span>Open Directions</span>
                   <ArrowRight size={12} />
@@ -811,23 +758,23 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               AVAILABILITY MATRIX
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Business <span className="text-[#CAA05C]">Hours &amp;</span> Access
+              Business <span className="text-gold-accent">Hours &amp;</span> Access
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-950 text-[#CAA05C] flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-stone-950 text-gold-accent flex items-center justify-center shadow-md">
                 <Clock size={18} />
               </div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
                 Monday – Saturday
               </h4>
-              <p className="text-[#CAA05C] text-lg font-serif font-medium leading-none">
+              <p className="text-gold-accent text-lg font-serif font-medium leading-none">
                 9:00 AM – 7:00 PM
               </p>
               <p className="text-stone-400 text-xs font-light leading-tight">
@@ -836,7 +783,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             </div>
 
             <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-950 text-[#CAA05C] flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-stone-950 text-gold-accent flex items-center justify-center shadow-md">
                 <Calendar size={18} />
               </div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
@@ -851,7 +798,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             </div>
 
             <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-950 text-[#CAA05C] flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-stone-950 text-gold-accent flex items-center justify-center shadow-md">
                 <Globe size={18} />
               </div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
@@ -874,11 +821,11 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20 space-y-4">
-            <span className="text-[#CAA05C] text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
               REDUCING HESITATION
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
-              Frequently <span className="text-[#CAA05C]">Asked</span> Questions
+              Frequently <span className="text-gold-accent">Asked</span> Questions
             </h2>
           </div>
 
@@ -895,13 +842,13 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="w-full flex items-center justify-between p-6 text-left focus:outline-none group cursor-pointer"
                   >
-                    <span className="font-serif text-base sm:text-lg font-medium text-stone-900 group-hover:text-[#CAA05C] transition-colors">
+                    <span className="font-serif text-base sm:text-lg font-medium text-stone-900 group-hover:text-gold-accent transition-colors">
                       {faq.q}
                     </span>
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-stone-400 group-hover:text-[#CAA05C] shrink-0 ml-4"
+                      className="text-stone-400 group-hover:text-gold-accent shrink-0 ml-4"
                     >
                       <ChevronDown size={18} />
                     </motion.div>
@@ -933,7 +880,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
       <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2000"
+            src={SITE_IMAGES.ctaBg}
             alt="Magnificent spatial architecture Suthar Studio finale"
             className="w-full h-full object-cover opacity-15 filter brightness-[0.3]"
             referrerPolicy="no-referrer"
@@ -943,12 +890,12 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-[#CAA05C] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               LET'S START THE JOURNEY
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase">
               Let's Create <br />
-              Something <span className="text-[#CAA05C]">Beautiful</span> Together.
+              Something <span className="text-gold-accent">Beautiful</span> Together.
             </h2>
             <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               From your first consultation to the final handover, Suthar Interior Studio is committed to creating spaces that reflect your lifestyle, vision, and aspirations.
@@ -958,7 +905,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-[#CAA05C] px-8 py-5 rounded-full cursor-pointer shadow-xl"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent px-8 py-5 rounded-full cursor-pointer shadow-xl"
             >
               <span>Book Free Consultation</span>
               <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
@@ -970,7 +917,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               href="https://wa.me/919820012345"
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-[#CAA05C] hover:text-[#CAA05C] text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent text-center"
             >
               WhatsApp Us
             </a>

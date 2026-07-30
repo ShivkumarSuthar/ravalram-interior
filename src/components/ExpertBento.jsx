@@ -34,7 +34,7 @@ function ProgressBar({ label, targetValue }) {
           initial={{ width: 0 }}
           animate={isInView ? { width: `${targetValue}%` } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="h-full bg-[#CAA05C]"
+          className="h-full bg-gold-accent"
         />
       </div>
     </div>
@@ -51,13 +51,13 @@ export default function ExpertBento() {
           <div className="lg:col-span-6 space-y-8 text-left">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100/80 px-4 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#CAA05C]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-accent" />
                 <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-stone-700">
                   OUR SKILLS
                 </span>
               </div>
               <h2 className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-tight">
-                Trusted Expert In <span className="text-[#CAA05C]">Architectural</span> Design <span className="text-[#CAA05C]">And Innovation.</span>
+                Trusted Expert In <span className="text-gold-accent">Architectural</span> Design <span className="text-gold-accent">And Innovation.</span>
               </h2>
               <p className="text-stone-500 font-light text-sm leading-relaxed max-w-xl">
                 We specialize in transforming visions into reality. Explore our portfolio of innovative architectural and interior design projects crafted with precision.
@@ -90,7 +90,7 @@ export default function ExpertBento() {
               {/* Smaller bento components */}
               <div className="col-span-4 flex flex-col justify-between gap-6">
                 <div className="bg-white border border-stone-200/60 p-5 rounded-none shadow-sm text-left space-y-2">
-                  <span className="text-xs font-bold text-[#CAA05C] font-mono">250+</span>
+                  <span className="text-xs font-bold text-gold-accent font-mono">250+</span>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">SPACES DESIGNED</p>
                 </div>
 
@@ -102,7 +102,7 @@ export default function ExpertBento() {
                 </div>
 
                 <div className="bg-stone-900 text-white p-5 rounded-none shadow-sm text-left space-y-1">
-                  <span className="text-xs font-bold text-[#CAA05C] font-mono">35+</span>
+                  <span className="text-xs font-bold text-gold-accent font-mono">35+</span>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-stone-400">LEGACY YEARS</p>
                 </div>
               </div>
