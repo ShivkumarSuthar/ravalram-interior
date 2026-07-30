@@ -84,13 +84,13 @@ export const COMPANY_INFO = {
 
 // Hero Section Content
 export const HERO_DATA = {
-  badgeText: "ESTABLISHED 1989 • ARCHITECT-SUPERVISED EXECUTION",
+  badgeText: "",
   titlePart1: "Crafting Timeless",
   titlePart2: "Spatial Excellence",
   titleHighlighted: "Architecture & Bespoke Joinery",
-  description: "Transforming high-end residential penthouses, sea-facing villas, and modern commercial offices across Mumbai, Goa, and Pune with master woodwork, authentic materials, and precision blueprints.",
-  primaryCtaText: "Explore Projects",
-  secondaryCtaText: "Book Consultation",
+  description: "For over 35 years, Suthar Interior Studio has been designing and building exceptional residential, commercial, and hospitality interiors through thoughtful architecture, bespoke furniture, and complete turnkey execution. Every project is carefully planned to reflect your lifestyle, maximise functionality, and stand the test of time.",
+  primaryCtaText: "Explore Our Portfolio",
+  secondaryCtaText: "Book Free Consultation",
   statsBadge: "30+ Years Legacy",
   slides: [
     {
@@ -104,13 +104,7 @@ export const HERO_DATA = {
       image: SITE_IMAGES.heroSlide2,
       title: "Bespoke Timber Joinery & Modular Systems",
       location: "Donapaula, Goa",
-    },
-    {
-      id: 3,
-      image: SITE_IMAGES.heroSlide3,
-      title: "Fluid Commercial Workspaces & Showrooms",
-      location: "Koregaon Park, Pune",
-    },
+    }
   ],
   metrics: [
     { value: "35+", label: "Years Experience" },
