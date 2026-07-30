@@ -3,91 +3,63 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
 import { projects } from "../../lib/project-data.js";
 
-// Asymmetric magazine layout metadata per project index
-const LAYOUT = [
-  { col: "lg:col-span-7", ratio: "aspect-[4/3]", offset: "" },
-  { col: "lg:col-span-5 lg:col-start-8", ratio: "aspect-[3/4]", offset: "lg:mt-32" },
-  { col: "lg:col-span-5", ratio: "aspect-[3/4]", offset: "lg:-mt-16" },
-  { col: "lg:col-span-6 lg:col-start-7", ratio: "aspect-[4/3]", offset: "lg:mt-24" },
-];
+const ease = [0.16, 1, 0.3, 1];
 
 export default function EditorialWorks() {
   const router = useRouter();
-
+  const featured = projects[0];
+  const plates = projects.slice(1, 5);
   const open = (slug) => {
     router.push(`/projects/${slug}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <section className="relative bg-[#0c0a09] text-[#faf9f6] py-24 md:py-40 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section header */}
-        <div className="flex items-center gap-4 mb-14 md:mb-20">
-          <span className="editorial-kicker text-[10px] text-[#CAA05C]">02 — Selected Works</span>
-          <span className="h-px flex-1 bg-white/15" />
+    <section className="overflow-hidden bg-[#0c0a09] py-28 text-[#f2efe8] md:py-44">
+      <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+        <header className="grid grid-cols-2 border-y border-[#f2efe8]/20 py-3 md:grid-cols-12">
+          <span className="editorial-kicker text-[9px] text-[#c69a53] md:col-span-2">Chapter II</span>
+          <span className="editorial-kicker text-[9px] text-[#f2efe8]/45 md:col-span-4">Selected works / 2021—26</span>
+          <span className="hidden text-right font-editorial text-sm italic text-[#f2efe8]/45 md:col-span-6 md:block">Four studies in light, grain and proportion</span>
+        </header>
+
+        <div className="relative mt-16 md:mt-28">
+          <p className="editorial-display pointer-events-none absolute -top-12 right-0 z-20 text-[clamp(5rem,17vw,18rem)] leading-none text-[#f2efe8] mix-blend-difference">01</p>
+          <button type="button" onClick={() => open(featured.slug)} className="group block w-full text-left md:w-[82%]">
+            <motion.div initial={{ clipPath: "inset(0 0 100% 0)" }} whileInView={{ clipPath: "inset(0 0 0% 0)" }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease }} className="relative aspect-[4/3] overflow-hidden md:aspect-[16/9]">
+              <Image src={featured.image} alt={`${featured.title} — ${featured.category}`} fill className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" referrerPolicy="no-referrer" />
+            </motion.div>
+            <div className="relative z-20 -mt-6 ml-[8%] md:-mt-14 md:ml-[42%]">
+              <h2 className="editorial-display text-[clamp(3.2rem,9vw,9rem)] font-light leading-[0.8] tracking-[-0.04em]">{featured.title}</h2>
+              <div className="mt-7 flex max-w-lg items-start justify-between border-t border-[#f2efe8]/25 pt-3">
+                <span className="editorial-kicker text-[8px] text-[#c69a53]">{featured.category}</span>
+                <span className="editorial-kicker text-[8px] text-[#f2efe8]/45">{featured.location} / {featured.year}</span>
+              </div>
+            </div>
+          </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-10 items-end mb-16 md:mb-24">
-          <h2 className="lg:col-span-8 editorial-display text-[clamp(2.25rem,6vw,5.5rem)] font-light">
-            Spaces with a
-            <span className="italic text-[#CAA05C]"> quiet </span>
-            authority.
-          </h2>
-          <p className="lg:col-span-4 text-sm md:text-[15px] leading-relaxed text-white/60 font-light lg:pb-4">
-            A selection of residences, workspaces and coastal retreats — each drawn, built and finished under one roof.
-          </p>
-        </div>
-
-        {/* Asymmetric works grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-x-10">
-          {projects.map((project, i) => {
-            const l = LAYOUT[i % LAYOUT.length];
+        <div className="mt-28 md:mt-56">
+          {plates.map((project, index) => {
+            const even = index % 2 === 0;
             return (
-              <motion.article
-                key={project.slug}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-90px" }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className={`${l.col} ${l.offset} group cursor-pointer`}
-                onClick={() => open(project.slug)}
-              >
-                <div className={`relative w-full ${l.ratio} overflow-hidden`}>
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} — ${project.category}`}
-                    fill
-                    className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-black/0 transition-colors duration-700 group-hover:bg-black/20" />
-                  <div className="absolute top-5 right-5 h-11 w-11 rounded-full border border-white/40 bg-black/20 backdrop-blur-sm flex items-center justify-center opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                    <ArrowUpRight size={18} className="text-white" />
+              <motion.article key={project.slug} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease }} className={`relative mb-28 md:mb-52 ${even ? "md:mr-[34%]" : "md:ml-[38%]"}`}>
+                <button type="button" onClick={() => open(project.slug)} className="group block w-full text-left">
+                  <div className={`relative overflow-hidden ${index === 1 ? "aspect-[4/5] md:aspect-[5/6]" : "aspect-[5/4]"}`}>
+                    <Image src={project.image} alt={`${project.title} — ${project.category}`} fill className="object-cover transition-transform duration-[1400ms] group-hover:scale-[1.03]" referrerPolicy="no-referrer" />
+                    <span className="absolute left-3 top-3 editorial-kicker text-[8px] text-[#f2efe8] mix-blend-difference">Plate 0{index + 2}</span>
                   </div>
-                </div>
-
-                <div className="mt-5 flex items-baseline justify-between gap-4 border-t border-white/15 pt-4">
-                  <div>
-                    <h3 className="editorial-display text-2xl md:text-3xl font-light transition-colors duration-300 group-hover:text-[#CAA05C]">
-                      {project.title}
-                    </h3>
-                    <span className="editorial-kicker text-[9px] text-white/50 mt-2 block">
-                      {project.location}
-                    </span>
+                  <div className={`relative -mt-4 flex items-end gap-5 ${even ? "ml-[12%]" : "mr-[10%] justify-end text-right"}`}>
+                    <h3 className="editorial-display text-[clamp(2.8rem,7vw,7rem)] font-light leading-[0.8] tracking-[-0.04em] transition-colors group-hover:text-[#c69a53]">{project.title}</h3>
+                    <span className="mb-1 font-editorial text-xl italic text-[#c69a53]">0{index + 2}</span>
                   </div>
-                  <div className="text-right shrink-0">
-                    <span className="editorial-kicker text-[9px] text-[#CAA05C] block">
-                      {project.category}
-                    </span>
-                    <span className="editorial-display text-lg text-white/40 italic">
-                      {project.year}
-                    </span>
+                  <div className={`mt-5 flex gap-6 ${even ? "ml-[12%]" : "mr-[10%] justify-end"}`}>
+                    <span className="editorial-kicker text-[8px] text-[#f2efe8]/45">{project.location}</span>
+                    <span className="editorial-kicker text-[8px] text-[#f2efe8]/45">{project.category} / {project.year}</span>
                   </div>
-                </div>
+                </button>
               </motion.article>
             );
           })}

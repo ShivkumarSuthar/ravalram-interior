@@ -2,88 +2,56 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ABOUT_DATA, COMPANY_INFO } from "../../lib/data.js";
+import { ABOUT_DATA } from "../../lib/data.js";
 
 const PORTRAIT = "/assets/images/AI_images/antra_about_side_1782744266546.jpg";
+const ease = [0.16, 1, 0.3, 1];
 
 export default function EditorialManifesto() {
   return (
-    <section className="relative bg-[#faf9f6] text-[#0c0a09] py-24 md:py-40 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section index */}
-        <div className="flex items-center gap-4 mb-16 md:mb-24">
-          <span className="editorial-kicker text-[10px] text-[#CAA05C]">01 — The Studio</span>
-          <span className="h-px flex-1 bg-stone-300/70" />
-        </div>
+    <section className="relative overflow-hidden bg-[#f2efe8] px-5 py-28 text-[#0c0a09] md:px-10 md:py-48">
+      <div className="mx-auto max-w-[1500px]">
+        <header className="grid grid-cols-[auto_1fr] items-start gap-5 border-t border-[#0c0a09]/25 pt-3 md:grid-cols-12">
+          <span className="editorial-kicker text-[9px] text-[#a77832] md:col-span-2">Chapter I</span>
+          <p className="editorial-kicker text-[9px] text-[#0c0a09]/45 md:col-span-3">On material honesty</p>
+          <p className="hidden text-right font-editorial text-sm italic text-[#0c0a09]/50 md:col-span-7 md:block">Notes from the workshop, Santacruz West</p>
+        </header>
 
-        {/* Oversized manifesto statement */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="editorial-display text-[clamp(1.9rem,5.2vw,4.75rem)] font-light max-w-5xl text-balance"
-        >
-          For over three decades we have shaped interiors that honour
-          <span className="italic text-[#CAA05C]"> the grain of every timber </span>
-          and the quiet flow of natural light.
-        </motion.p>
-
-        {/* Asymmetric body + image composition */}
-        <div className="mt-20 md:mt-28 grid grid-cols-1 lg:grid-cols-12 gap-y-14 lg:gap-x-16 items-start">
-          {/* Offset tall image */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 lg:-mt-24"
-          >
-            <div className="relative aspect-[3/4] w-full overflow-hidden">
-              <Image
-                src={PORTRAIT}
-                alt="Suthar Interior Studio bespoke joinery detail"
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="mt-4 flex items-center justify-between">
-              <span className="editorial-kicker text-[9px] text-stone-400">Fig. 01</span>
-              <span className="editorial-kicker text-[9px] text-stone-400">Santacruz West, Mumbai</span>
-            </div>
+        <div className="relative mt-14 md:mt-24 md:min-h-[920px]">
+          <motion.div initial={{ opacity: 0, y: 45 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.1, ease }} className="relative z-10 md:w-[57%]">
+            <p className="editorial-display text-[clamp(3rem,7.8vw,8.5rem)] font-light leading-[0.86] tracking-[-0.045em]">
+              We do not
+              <br />decorate
+              <br />space.
+            </p>
+            <p className="editorial-display ml-[18%] mt-4 text-[clamp(3rem,7.8vw,8.5rem)] font-light italic leading-[0.86] text-[#a77832] md:ml-[36%]">
+              We reveal it.
+            </p>
           </motion.div>
 
-          {/* Story copy */}
-          <div className="lg:col-span-6 lg:col-start-7 space-y-8">
-            {ABOUT_DATA.paragraphs.map((p, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-                className="text-[15px] md:text-lg leading-relaxed text-stone-600 font-light"
-              >
-                {p}
-              </motion.p>
-            ))}
+          <motion.figure initial={{ opacity: 0, scale: 1.04 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, delay: 0.15, ease }} className="relative z-0 mt-12 md:absolute md:right-[4%] md:top-[12%] md:mt-0 md:w-[47%]">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image src={PORTRAIT} alt="Bespoke joinery detail in the Suthar studio" fill className="object-cover" referrerPolicy="no-referrer" />
+            </div>
+            <figcaption className="mt-3 flex justify-between border-t border-[#0c0a09]/20 pt-2">
+              <span className="editorial-kicker text-[8px] text-[#0c0a09]/45">Plate 01 / Joinery study</span>
+              <span className="editorial-kicker text-[8px] text-[#0c0a09]/45">Mumbai, IN</span>
+            </figcaption>
+          </motion.figure>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="pt-8 border-t border-stone-300/70"
-            >
-              <p className="editorial-display text-2xl md:text-3xl font-light italic text-[#0c0a09]">
-                {ABOUT_DATA.quote}
-              </p>
-              <p className="mt-6 editorial-kicker text-[10px] text-stone-500">
-                {ABOUT_DATA.quoteAuthor} — {ABOUT_DATA.quoteTitle}
-              </p>
-            </motion.div>
+          <div className="relative z-20 mt-14 grid gap-10 md:absolute md:bottom-0 md:left-[7%] md:w-[50%] md:grid-cols-2 md:bg-[#f2efe8] md:p-8">
+            <div className="editorial-kicker text-[9px] leading-loose text-[#a77832]">Thirty-five years<br />of looking closely</div>
+            <div className="flex flex-col gap-6">
+              {ABOUT_DATA.paragraphs.slice(0, 2).map((paragraph, index) => (
+                <p key={index} className="text-sm leading-7 text-[#0c0a09]/65">{paragraph}</p>
+              ))}
+            </div>
           </div>
+
+          <motion.aside initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.3 }} className="mt-14 border-y border-[#0c0a09]/25 py-7 md:absolute md:bottom-[3%] md:right-0 md:w-[30%] md:border-y-0 md:border-l md:py-0 md:pl-8">
+            <blockquote className="font-editorial text-2xl italic leading-snug">{ABOUT_DATA.quote}</blockquote>
+            <p className="editorial-kicker mt-5 text-[8px] text-[#0c0a09]/45">{ABOUT_DATA.quoteAuthor} / {ABOUT_DATA.quoteTitle}</p>
+          </motion.aside>
         </div>
       </div>
     </section>

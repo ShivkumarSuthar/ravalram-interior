@@ -95,6 +95,27 @@ h1, h2, h3, h4, .font-display {
   font-weight: 500;
 }
 
+.vertical-type {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+::selection {
+  background: #a77832;
+  color: #f2efe8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .font-mono {
   font-family: var(--font-mono);
 }
