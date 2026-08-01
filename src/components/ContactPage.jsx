@@ -47,6 +47,7 @@ const ICON_MAP = {
 export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
   // Form submission state
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [activeCityIdx, setActiveCityIdx] = useState(0);
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -719,34 +720,75 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             </div>
           </div>
 
-          {/* Map Frame Embed */}
-          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-white p-4">
-            <div className="w-full h-[400px] md:h-[480px] rounded-2xl overflow-hidden bg-stone-100 relative">
-              {/* Actual Google Maps Iframe styled elegantly */}
-              <iframe
-                title="Suthar Interior Studio Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.909015093751!2d72.8461879!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9113e70ec7d%3A0xe3420ddb63e90b!2sSantacruz%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1719714890000!5m2!1sen!2sin"
-                className="w-full h-full border-none filter grayscale contrast-[1.05] brightness-[0.95]"
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-              <div className="absolute bottom-6 left-6 bg-stone-950 text-white p-6 rounded-2xl shadow-2xl text-left max-w-sm hidden md:block">
-                <span className="text-gold-accent text-[9px] font-mono tracking-widest font-bold uppercase block mb-1">HEADQUARTERS</span>
-                <h4 className="text-sm font-serif font-semibold text-white mb-2">Santacruz Atelier Showroom</h4>
-                <p className="text-stone-300 text-xs font-light leading-relaxed mb-4">
+          {/* Showroom Details & City Locations Card */}
+          <div className="relative w-full rounded-3xl overflow-hidden border border-stone-200/90 bg-white p-6 sm:p-10 shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              
+              {/* Left Column: Flagship Showroom HQ */}
+              <div className="space-y-4 text-left p-6 rounded-2xl bg-[#faf9f6] border border-stone-200/80">
+                <span className="text-gold-accent text-[10px] font-mono tracking-widest font-bold uppercase block">
+                  FLAGSHIP HEADQUARTERS
+                </span>
+                <h4 className="text-xl font-extrabold text-stone-900">
+                  Santacruz Atelier &amp; Showroom
+                </h4>
+                <p className="text-stone-600 text-sm font-light leading-relaxed">
                   Linking Road, Near Sacred Heart Church, Santacruz West, Mumbai, Maharashtra 400054
                 </p>
-                <a
-                  href="https://maps.app.goo.gl/YV9Z6"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-gold-accent text-xs font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center space-x-1"
-                >
-                  <span>Open Directions</span>
-                  <ArrowRight size={12} />
-                </a>
+                <div className="pt-2 text-xs font-mono text-stone-500 space-y-1">
+                  <p><strong className="text-stone-800">Phone:</strong> +91 98200 12345 / +1 (480) 456-0789</p>
+                  <p><strong className="text-stone-800">Email:</strong> Support@SutharInterior.com</p>
+                  <p><strong className="text-stone-800">Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM</p>
+                </div>
               </div>
+
+              {/* Right Column: Major Active Cities with Interactive Spec Preview */}
+              <div className="space-y-4 text-left">
+                <div className="flex items-center justify-between">
+                  <span className="text-stone-400 text-[10px] font-mono tracking-widest font-bold uppercase block">
+                    ACTIVE CITIES &amp; REGIONS
+                  </span>
+                  <span className="text-[10px] font-mono text-gold-accent font-bold uppercase">
+                    TAP CITY TO PREVIEW
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {cities.map((c, i) => {
+                    const isSelected = activeCityIdx === i;
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => setActiveCityIdx(i)}
+                        className={`flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                          isSelected
+                            ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md scale-105"
+                            : "bg-stone-50 text-stone-800 border-stone-200/90 hover:border-gold-accent/50 hover:bg-white"
+                        }`}
+                      >
+                        <MapPin size={13} className={isSelected ? "text-gold-accent" : "text-stone-400"} />
+                        <span>{c.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Active Selected City Spec Box */}
+                {cities[activeCityIdx] && (
+                  <div className="p-4 rounded-xl bg-gold-accent/10 border border-gold-accent/30 space-y-1 transition-all">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-extrabold text-stone-900 uppercase">
+                        {cities[activeCityIdx].name} REGIONAL SCOPE
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
+                    </div>
+                    <p className="text-xs font-medium text-stone-700 leading-relaxed">
+                      {cities[activeCityIdx].detail}
+                    </p>
+                  </div>
+                )}
+              </div>
+
             </div>
           </div>
 

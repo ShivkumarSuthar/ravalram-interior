@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "next/image";
+import Image from "./Image.jsx";
 import { motion, AnimatePresence } from "motion/react";
 const bannerImg = "/assets/images/AI_images/antra_lobby_banner_1782744283860.jpg";
 
@@ -7,7 +7,7 @@ export default function LobbyBanner() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden bg-stone-950 flex items-center justify-center">
+    <section className="relative w-full h-[35vh] sm:h-[45vh] md:h-[50vh] overflow-hidden bg-stone-950 flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import BrandLogo from "./BrandLogo.jsx";
 
 const SLATS = 12;
 
@@ -46,7 +47,9 @@ export default function Preloader() {
         ))}
       </div>
 
-      <h1 className="logo">SUTHAR</h1>
+      <div className="logo flex justify-center">
+        <BrandLogo size="xl" />
+      </div>
     </div>
   );
 }

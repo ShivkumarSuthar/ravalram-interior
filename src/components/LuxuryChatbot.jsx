@@ -358,7 +358,7 @@ export default function LuxuryChatbot() {
               />
               <button
                 type="submit"
-                className="w-8 h-8 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer"
+                className="w-8 h-8 bg-gold-accent hover:bg-[#b0936b] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer"
                 aria-label="Send query"
               >
                 <Send size={12} />

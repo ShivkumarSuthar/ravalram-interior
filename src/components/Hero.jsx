@@ -1,195 +1,18 @@
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
+import Image from "./Image.jsx";
 import {
-  MessageSquare,
-  Compass,
-  Workflow,
-  History,
-  Phone,
   ArrowRight,
-  Sparkles,
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle2,
+  Play,
+  Award,
+  Building2,
+  Home,
+  ShieldCheck,
 } from "lucide-react";
-import { HERO_DATA, COMPANY_INFO } from "../lib/data.js";
+import { COMPANY_INFO, SITE_IMAGES } from "../lib/data.js";
 
-// ─────────────────────────────────────────────────────────────────────────
-// CONFIG SWITCH
-// Set to `true` to bring back the multi-slide carousel (interval rotation,
-// prev/next controls, slide-indicator dots, crossfading backgrounds).
-// Set to `false` (current state) to render a single static hero — no
-// timers, no controls, no dots, one fixed background.
-// ─────────────────────────────────────────────────────────────────────────
-const ENABLE_SLIDES = false;
-
-// Background image(s). In carousel mode, index `i` pairs with slide `i`
-// (falls back / wraps if there are more slides than backgrounds).
-// In static mode, only index 0 is used.
-const HERO_BACKGROUNDS = [
-  "/assets/images/tv_unit/tv_unit_02.jpg",
-  "/assets/images/living_room/living_01.png",
-  "/assets/images/sofa/sofa-01.jpg",
-  "/assets/images/bedroom/bedroom_01.jpg",
-];
-const HERO_CONTENT = {
-  eyebrow: "YOUR VISION • OUR EXPERTISE",
-  titlePrefix: "Every Great Interior",
-  titleHighlight: "Begins With",
-  titleSuffix: "Understanding You.",
-  paragraphs: [
-    "Whether you're building a new home, renovating an existing property, designing a modern office, or creating bespoke furniture, we begin by understanding your vision, lifestyle, and budget. This allows us to create spaces that are elegant, practical, and uniquely yours.",
-  ],
-  regionalQuote:
-    "Proudly serving homeowners, businesses, architects, and commercial clients across Rajasthan, Mumbai, Pune, Goa, Karnataka, Hyderabad, Bengaluru, Hubballi, and surrounding regions.",
-  primaryCtaText: "Book Free Consultation",
-  featureCards: [
-    {
-      title: "Free Consultation",
-      desc: "Discuss your ideas with our team before making decisions.",
-      icon: MessageSquare,
-      accent: "border-gold-accent/40 text-gold-accent",
-    },
-    {
-      title: "ARCHITECT GUIDED",
-      desc: "Carefully planned & supervised by licensed architects.",
-      icon: Compass,
-      accent: "border-gold-accent/50 text-gold-accent",
-    },
-    {
-      title: "FLEXIBLE EXECUTION",
-      desc: "Labour only, materials, joinery, or full turnkey.",
-      icon: Workflow,
-      accent: "border-gold-accent/40 text-gold-accent",
-    },
-    {
-      title: "FAMILY CRAFTSMANSHIP",
-      desc: `Over three decades of trust and quality since ${COMPANY_INFO.foundedYear}.`,
-      icon: History,
-      accent: "border-gold-accent/40 text-gold-accent",
-    },
-  ],
-};
-
-// The single slide's markup, driven entirely by HERO_CONTENT. Shared by
-// both the carousel branch and the static branch below so there's only
-// one place to edit the layout.
-function HeroSlideContent({ onStartProject }) {
-  return (
-    <div className="text-center max-w-4xl mx-auto space-y-6">
-      {/* Eyebrow Pill */}
-      <div className="inline-flex items-center space-x-2 bg-gold-accent/20 backdrop-blur-md border border-gold-accent/40 px-5 py-2 rounded-full">
-        <Sparkles size={14} className="text-gold-accent" />
-        <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase font-bold text-gold-accent font-mono">
-          {HERO_CONTENT.eyebrow}
-        </span>
-      </div>
-
-      {/* Grand Title */}
-      <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-        {HERO_CONTENT.titlePrefix} <br />
-        <span className="text-gold-accent">{HERO_CONTENT.titleHighlight}</span>{" "}
-        {HERO_CONTENT.titleSuffix}
-      </h1>
-
-      {/* Descriptions */}
-      <div className="space-y-3 max-w-3xl mx-auto text-stone-300 font-light text-xs sm:text-sm md:text-base leading-relaxed font-sans">
-        {HERO_CONTENT.paragraphs.map((p, idx) => (
-          <p
-            key={idx}
-            className={idx > 0 ? "hidden sm:block text-stone-400 text-xs sm:text-sm" : ""}
-          >
-            {p}
-          </p>
-        ))}
-      </div>
-
-      {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
-        <button
-          type="button"
-          onClick={onStartProject}
-          className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-extrabold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[#b0936b] px-8 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.03] border border-gold-accent"
-        >
-          <span>{HERO_CONTENT.primaryCtaText}</span>
-          <div className="w-6 h-6 rounded-full bg-stone-950/20 flex items-center justify-center text-stone-950">
-            <ArrowRight size={12} strokeWidth={2.5} />
-          </div>
-        </button>
-
-        <a
-          href={`tel:${COMPANY_INFO.phoneFormatted}`}
-          className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 border border-gold-accent/60 hover:border-gold-accent text-gold-accent hover:text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-stone-900/80 backdrop-blur-md cursor-pointer hover:bg-stone-800"
-        >
-          <Phone size={14} className="text-gold-accent" />
-          <span>Call {COMPANY_INFO.phone}</span>
-        </a>
-      </div>
-
-      {/* Regional Quote */}
-      <p className="text-stone-400 font-light text-[11px] sm:text-xs max-w-3xl mx-auto pt-2 font-mono">
-        &ldquo;{HERO_CONTENT.regionalQuote}&rdquo;
-      </p>
-
-      {/* Feature Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 pt-4 text-left">
-        {HERO_CONTENT.featureCards.map((item, idx) => {
-          const Icon = item.icon;
-          return (
-            <div
-              key={idx}
-              className={`bg-stone-900/80 backdrop-blur-md border p-3.5 sm:p-4 rounded-2xl space-y-1.5 transition-all duration-300 ${item.accent}`}
-            >
-              <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                <Icon size={14} className="text-current" />
-              </div>
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-white font-mono">
-                {item.title}
-              </h4>
-              <p className="text-stone-400 text-[10px] sm:text-xs font-light leading-snug font-sans">
-                {item.desc}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
+const HERO_BACKGROUND = SITE_IMAGES.heroBg || "/assets/images/AI_images/hero_living_room.jpg";
 
 export default function Hero({ setView }) {
-  // Only meaningful when ENABLE_SLIDES is true.
-  const totalSlides = ENABLE_SLIDES
-    ? HERO_DATA.slides
-      ? HERO_DATA.slides.length
-      : HERO_BACKGROUNDS.length
-    : 1;
-
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  useEffect(() => {
-    if (!ENABLE_SLIDES) return undefined;
-    const timer = setInterval(() => {
-      setDirection(1);
-      setCurrent((prev) => (prev + 1) % totalSlides);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, [current, totalSlides]);
-
-  const nextSlide = (e) => {
-    if (e) e.stopPropagation();
-    setDirection(1);
-    setCurrent((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = (e) => {
-    if (e) e.stopPropagation();
-    setDirection(-1);
-    setCurrent((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
   const handleStartProject = () => {
     if (typeof setView === "function") {
       setView("contact");
@@ -200,144 +23,164 @@ export default function Hero({ setView }) {
     }
   };
 
-  const activeBackground = ENABLE_SLIDES
-    ? HERO_BACKGROUNDS[current % HERO_BACKGROUNDS.length]
-    : HERO_BACKGROUNDS[0];
+  const handleViewPortfolio = () => {
+    if (typeof setView === "function") {
+      setView("gallery");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.getElementById("gallery");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-stone-950 text-white select-none font-sans"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-stone-950 text-white select-none font-sans pt-24 sm:pt-32 md:pt-36 pb-6 md:pb-8"
     >
-      {/* BACKGROUND IMAGE (CAROUSEL OR STATIC) WITH GRADIENT OVERLAYS */}
+      {/* BACKGROUND IMAGE WITH RESPONSIVE GRADIENT VIGNETTE */}
       <div className="absolute inset-0 z-0">
-        {ENABLE_SLIDES ? (
-          <AnimatePresence mode="popLayout" custom={direction}>
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <Image
-                src={activeBackground}
-                alt={COMPANY_INFO.name + " Luxury Interior Design"}
-                fill
-                priority
-                className="object-cover object-center brightness-100 contrast-105 saturate-110"
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
-          </AnimatePresence>
-        ) : (
-          <div className="absolute inset-0 w-full h-full">
-            <Image
-              src={activeBackground}
-              alt={COMPANY_INFO.name + " Luxury Interior Design"}
-              fill
-              priority
-              className="object-cover object-center brightness-100 contrast-105 saturate-110"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        )}
+        <Image
+          src={HERO_BACKGROUND}
+          alt={COMPANY_INFO.name + " Luxury Interior Studio"}
+          fill
+          priority
+          className="object-cover object-center brightness-105 contrast-100"
+          referrerPolicy="no-referrer"
+        />
 
-        {/* Dark Architectural Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-black/15 z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/20 to-stone-950/55 z-[1]" />
-
-        {/* Subtle Blueprint Grid Lines Overlay */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.035] z-[2]">
-          <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-12">
-            <div className="border-l border-white h-full" />
-            <div className="border-l border-white h-full" />
-            <div className="border-l border-white h-full" />
-            <div className="border-l border-white h-full border-r" />
-          </div>
-        </div>
+        {/* Responsive gradient overlay - dark backdrop on mobile for maximum legibility, smooth fade on desktop */}
+        <div className="absolute inset-0 bg-stone-950/70 sm:bg-transparent sm:bg-gradient-to-r sm:from-stone-950/85 sm:via-stone-950/40 sm:to-transparent z-[1] w-full sm:w-[75%] md:w-[60%]" />
+        
+        {/* Subtle top and bottom vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/60 via-transparent to-stone-950/70 z-[1]" />
       </div>
 
-      {/* CONTENT CONTAINER */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full pt-28 sm:pt-36 pb-8 my-auto">
-        {ENABLE_SLIDES ? (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`slide-${current}`}
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <HeroSlideContent onStartProject={handleStartProject} />
-            </motion.div>
-          </AnimatePresence>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <HeroSlideContent onStartProject={handleStartProject} />
-          </motion.div>
-        )}
-      </div>
-
-      {/* BOTTOM SLIDE CONTROLS BAR — carousel mode only */}
-      {ENABLE_SLIDES && (
-        <div className="relative z-30 pb-4 pt-2 px-6 md:px-12 max-w-7xl mx-auto w-full flex items-center justify-between">
-          {/* Slide Indicator Pills */}
-          <div className="flex items-center space-x-2">
-            {Array.from({ length: totalSlides }, (_, idx) => (
-              <button
-                key={idx}
-                onClick={() => {
-                  setDirection(idx > current ? 1 : -1);
-                  setCurrent(idx);
-                }}
-                className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
-                  current === idx
-                    ? "w-8 bg-gold-accent"
-                    : "w-2.5 bg-white/30 hover:bg-white/60"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-            <span className="text-[11px] font-mono font-bold text-stone-400 pl-2">
-              0{current + 1} / 0{totalSlides}
+      {/* LEFT CONTENT AREA */}
+      <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full my-auto py-4 sm:py-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl text-left space-y-4 sm:space-y-6 md:space-y-8"
+        >
+          {/* Subtitle / Eyebrow with horizontal gold line */}
+          <div className="flex items-center gap-2.5 sm:gap-4">
+            <span className="text-[10px] sm:text-xs md:text-sm font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#c5a880] font-semibold">
+              CRAFTING LUXURY SINCE {COMPANY_INFO.foundedYear}
             </span>
+            <div className="h-[1px] w-10 sm:w-20 md:w-28 bg-[#c5a880]/60 shrink-0" />
           </div>
 
-          {/* Circular Prev/Next Controls */}
-          <div className="flex items-center space-x-2">
+          {/* Main Headline */}
+          <h1 className="font-serif text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] sm:leading-[1.1]">
+            Designing Spaces <br className="hidden xs:inline" />
+            People <span className="text-[#c5a880]">Never</span> Want To Leave.
+          </h1>
+
+          {/* Body Description */}
+          <p className="text-stone-200 sm:text-stone-300 font-sans text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-xl">
+            From bespoke residences to commercial spaces, we transform ideas into timeless interiors.
+          </p>
+
+          {/* Action CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-3">
+            {/* Primary Button */}
             <button
               type="button"
-              onClick={prevSlide}
-              className="w-11 h-11 rounded-full bg-stone-900/80 hover:bg-gold-accent hover:text-stone-950 border border-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md active:scale-95"
-              aria-label="Previous Slide"
+              onClick={handleStartProject}
+              className="inline-flex items-center justify-center space-x-3 bg-[#c5a880] hover:bg-[#b0936b] active:bg-[#9d8159] text-stone-950 font-bold text-xs sm:text-sm tracking-widest uppercase px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg transition-all duration-300 cursor-pointer shadow-xl hover:scale-[1.01] active:scale-[0.99] border border-[#c5a880]"
             >
-              <ChevronLeft size={20} strokeWidth={2.5} />
+              <span>START YOUR PROJECT</span>
+              <ArrowRight size={16} strokeWidth={2.5} />
             </button>
+
+            {/* Secondary Button */}
             <button
               type="button"
-              onClick={nextSlide}
-              className="w-11 h-11 rounded-full bg-stone-900/80 hover:bg-gold-accent hover:text-stone-950 border border-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md active:scale-95"
-              aria-label="Next Slide"
+              onClick={handleViewPortfolio}
+              className="inline-flex items-center justify-center space-x-3 bg-stone-900/40 sm:bg-white/15 hover:bg-white/25 border border-white/30 hover:border-gold-accent text-white font-bold text-xs sm:text-sm tracking-widest uppercase px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg transition-all duration-300 cursor-pointer backdrop-blur-md shadow-lg"
             >
-              <ChevronRight size={20} strokeWidth={2.5} />
+              <span>VIEW PORTFOLIO</span>
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-white/50 flex items-center justify-center">
+                <Play size={10} className="fill-white translate-x-[1px]" />
+              </div>
             </button>
           </div>
+        </motion.div>
+      </div>
+
+      {/* BOTTOM FLOATING STATS BAR & SCROLL INDICATOR */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full space-y-4 sm:space-y-6 pt-2 sm:pt-4">
+        {/* Floating Glassmorphism Experience Bar - Refined grid for laptop, tablet, and mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="bg-stone-900/80 sm:bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl p-3.5 sm:p-5 lg:p-6 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 shadow-2xl"
+        >
+          {/* Stat 1: 35+ Years Experience */}
+          <div className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 rounded-xl bg-white/5 sm:bg-white/10 border border-white/10 hover:border-gold-accent/50 transition-all duration-300">
+            <div className="text-gold-accent shrink-0 p-2 sm:p-2.5 bg-gold-accent/15 rounded-full border border-gold-accent/30 backdrop-blur-sm shadow-inner">
+              <Award className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.75} />
+            </div>
+            <div className="text-left">
+              <div className="font-serif text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">35+</div>
+              <div className="text-[9px] xs:text-[10px] sm:text-xs font-mono uppercase tracking-wider text-stone-300 font-medium mt-0.5">YEARS EXPERIENCE</div>
+            </div>
+          </div>
+
+          {/* Stat 2: 500+ Projects Done */}
+          <div className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 rounded-xl bg-white/5 sm:bg-white/10 border border-white/10 hover:border-gold-accent/50 transition-all duration-300">
+            <div className="text-gold-accent shrink-0 p-2 sm:p-2.5 bg-gold-accent/15 rounded-full border border-gold-accent/30 backdrop-blur-sm shadow-inner">
+              <Building2 className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.75} />
+            </div>
+            <div className="text-left">
+              <div className="font-serif text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">500+</div>
+              <div className="text-[9px] xs:text-[10px] sm:text-xs font-mono uppercase tracking-wider text-stone-300 font-medium mt-0.5">PROJECTS DONE</div>
+            </div>
+          </div>
+
+          {/* Stat 3: Turnkey Execution */}
+          <div className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 rounded-xl bg-white/5 sm:bg-white/10 border border-white/10 hover:border-gold-accent/50 transition-all duration-300">
+            <div className="text-gold-accent shrink-0 p-2 sm:p-2.5 bg-gold-accent/15 rounded-full border border-gold-accent/30 backdrop-blur-sm shadow-inner">
+              <Home className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.75} />
+            </div>
+            <div className="text-left">
+              <div className="font-serif text-base sm:text-xl md:text-2xl font-extrabold text-white tracking-tight uppercase">TURNKEY</div>
+              <div className="text-[9px] xs:text-[10px] sm:text-xs font-mono uppercase tracking-wider text-stone-300 font-medium mt-0.5">EXECUTION</div>
+            </div>
+          </div>
+
+          {/* Stat 4: Est. 1989 Guild */}
+          <div className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 rounded-xl bg-white/5 sm:bg-white/10 border border-white/10 hover:border-gold-accent/50 transition-all duration-300">
+            <div className="text-gold-accent shrink-0 p-2 sm:p-2.5 bg-gold-accent/15 rounded-full border border-gold-accent/30 backdrop-blur-sm shadow-inner">
+              <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.75} />
+            </div>
+            <div className="text-left">
+              <div className="font-serif text-base sm:text-xl md:text-2xl font-extrabold text-white tracking-tight uppercase">GUILD</div>
+              <div className="text-[9px] xs:text-[10px] sm:text-xs font-mono uppercase tracking-wider text-stone-300 font-medium mt-0.5">SINCE 1989</div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Scroll Indicator - Visible on all viewports */}
+        <div className="flex flex-col items-center justify-center pt-2 sm:pt-1 gap-1.5 opacity-85 hover:opacity-100 transition-opacity">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="h-[1px] w-8 sm:w-12 bg-[#c5a880]/40" />
+            <div className="w-5 h-7 rounded-full border border-[#c5a880]/70 flex items-start justify-center p-1">
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                className="w-1 h-1.5 bg-[#c5a880] rounded-full"
+              />
+            </div>
+            <div className="h-[1px] w-8 sm:w-12 bg-[#c5a880]/40" />
+          </div>
+          <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.25em] text-stone-300">
+            SCROLL TO EXPLORE
+          </span>
         </div>
-      )}
-
-      {/* BOTTOM FOOTER BREATHING MARGIN */}
-      <div className="relative z-20 pb-8 px-6 md:px-12 max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-stone-500 uppercase tracking-widest border-t border-white/5 pt-4 gap-2 text-center sm:text-left">
-        <span>{COMPANY_INFO.name.toUpperCase()}</span>
-        <span>
-          EST. {COMPANY_INFO.foundedYear} •{" "}
-          {COMPANY_INFO.serviceCities.join(" & ").toUpperCase()}
-        </span>
       </div>
     </section>
   );

@@ -90,7 +90,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
 
             <button
               onClick={handleNavigate}
-              className="shrink-0 inline-flex items-center space-x-3 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-[0.18em] px-7 py-4 rounded-full transition-all duration-300 cursor-pointer shadow-2xl hover:scale-[1.03]"
+              className="shrink-0 inline-flex items-center space-x-3 bg-gold-accent hover:bg-[#b0936b] text-stone-950 font-bold text-xs uppercase tracking-[0.18em] px-7 py-4 rounded-full transition-all duration-300 cursor-pointer shadow-2xl hover:scale-[1.03]"
             >
               <span>Explore Full Portfolio</span>
               <ArrowUpRight size={16} strokeWidth={2.5} />

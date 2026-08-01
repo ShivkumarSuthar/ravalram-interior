@@ -192,7 +192,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                   <p className="text-stone-500 font-light text-sm">No FAQs match your search criteria.</p>
                   <button
                     onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}
-                    className="text-xs font-mono font-bold text-[#B88F4C] hover:text-stone-950 underline uppercase tracking-widest cursor-pointer"
+                    className="text-xs font-mono font-bold text-gold-accent hover:text-stone-950 underline uppercase tracking-widest cursor-pointer"
                   >
                     Reset Filter
                   </button>
@@ -253,7 +253,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
           <div className="pt-8 flex justify-center gap-4">
             <button
               onClick={onOpenQuote}
-              className="px-8 py-3.5 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer"
+              className="px-8 py-3.5 bg-gold-accent hover:bg-[#b0936b] text-stone-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer"
             >
               Get Free Estimate
             </button>

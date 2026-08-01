@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ThemeProvider } from "./lib/theme.js";
+import { ThemeProvider } from "./lib/theme.jsx";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Services from "./components/Services.jsx";
 import Stats from "./components/Stats.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
-import FlexibleSolutions from "./components/FlexibleSolutions.jsx";
 import CreativeProjects from "./components/CreativeProjects.jsx";
 import DreamProjectCTA from "./components/DreamProjectCTA.jsx";
 import Testimonial from "./components/Testimonial.jsx";
@@ -84,20 +83,19 @@ export default function App() {
                   {/* 1. Fullscreen majestic Hero */}
                   <Hero setView={setView} />
 
-                  {/* 2. Brand story & family heritage introduction */}
-                  <About setView={setView} />
-
-                  {/* 3. Core Expertise Services */}
-                  <Services />
-
-                  {/* 4. Flexible Scope & 3D Solution Pathways */}
-                  <FlexibleSolutions setView={setView} />
-
                   {/* 5. Creative Works & Featured Projects Portfolio */}
                   <CreativeProjects />
 
                   {/* 6. Proven Metrics & Key Statistics */}
                   <Stats />
+                  
+                  {/* 2. Brand story & family heritage introduction */}
+                  <About setView={setView} />
+
+                  {/* 3. Core Expertise Services */}
+                  <Services setView={setView} />
+
+
 
                   {/* 7. Studio Pillars & Why Choose Us */}
                   <WhyChooseUs setView={setView} />

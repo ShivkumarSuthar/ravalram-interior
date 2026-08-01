@@ -204,7 +204,7 @@ export default function ComingSoonPage({ onBackToHome }) {
             <button
               type="submit"
               disabled={isSubscribed}
-              className="px-5 py-3 bg-gold-accent hover:bg-[#B88F4C] disabled:bg-stone-800 disabled:text-stone-500 text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors rounded cursor-pointer shrink-0 flex items-center justify-center"
+              className="px-5 py-3 bg-gold-accent hover:bg-[#b0936b] disabled:bg-stone-800 disabled:text-stone-500 text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors rounded cursor-pointer shrink-0 flex items-center justify-center"
             >
               {isSubscribed ? "Subscribed" : "Notify Me"}
             </button>

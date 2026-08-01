@@ -1,5 +1,6 @@
 import { Instagram, Linkedin, Facebook, Twitter, ArrowUp, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "../lib/data.js";
+import BrandLogo from "./BrandLogo.jsx";
 
 export default function Footer({ onNavigate = () => {} }) {
   const scrollToTop = () => {
@@ -31,9 +32,9 @@ export default function Footer({ onNavigate = () => {} }) {
           <div className="lg:col-span-4 space-y-6">
             <button
               onClick={() => handleNavigate("home", null)}
-              className="text-3xl font-serif tracking-widest text-white font-bold block uppercase cursor-pointer"
+              className="inline-block cursor-pointer focus:outline-none"
             >
-              suthar<span className="text-gold-accent">.</span>
+              <BrandLogo size="lg" />
             </button>
             <p className="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
               We engineer quiet, sophisticated architectural layouts. Each design synthesizes raw organic textures with luxurious material palettes to co-create spatial masterpieces.

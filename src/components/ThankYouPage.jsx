@@ -456,7 +456,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               href="https://wa.me/919820012345"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[#B88F4C] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[#b0936b] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
               <MessageSquare size={14} />
               <span>Chat on WhatsApp</span>

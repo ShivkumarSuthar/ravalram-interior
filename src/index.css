@@ -2,8 +2,8 @@
 
 :root {
   /* Semantic Design Tokens (Color-agnostic) */
-  --color-primary: #CAA05C;
-  --color-primary-hover: #B88F4C;
+  --color-primary: #c5a880;
+  --color-primary-hover: #b0936b;
   --color-bg-base: #faf9f6;
   --color-bg-dark: #0c0a09;
   --color-surface-dark: #1c1917;
@@ -55,15 +55,22 @@
 
 /* Dynamic, Fluid Container Scaling for All Device Screens */
 .max-w-7xl {
-  max-width: min(92vw, 1720px) !important;
+  max-width: min(94%, 1720px) !important;
 }
 
 /* Base style overrides */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-warm-white);
   color: var(--color-dark-charcoal);
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -82,19 +89,33 @@ h1, h2, h3, h4, .font-display {
   font-family: var(--font-sans);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Transparent track so dark/light backgrounds blend seamlessly without light stripes */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-warm-white);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-gold-accent);
-  border-radius: 4px;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold-hover);
+}
+
+/* Hide scrollbars on mobile view to eliminate double slider and side stripe artifacts */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 0px;
+  }
+  html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 .no-scrollbar::-webkit-scrollbar {
