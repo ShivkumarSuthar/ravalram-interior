@@ -65,7 +65,7 @@ export default function ComingSoonPage({ onBackToHome }) {
   };
 
   return (
-    <div className="min-h-screen bg-stone-950 text-white font-sans flex flex-col justify-between relative overflow-hidden selection:bg-gold-accent selection:text-stone-950">
+    <div className="min-h-screen bg-[var(--color-surface-dark)] text-white font-sans flex flex-col justify-between relative overflow-hidden selection:bg-gold-accent selection:text-stone-950">
       
       {/* Background Image & Immersive Gradients */}
       <div className="absolute inset-0 z-0">
@@ -76,7 +76,7 @@ export default function ComingSoonPage({ onBackToHome }) {
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-stone-950 via-stone-950/90 to-transparent" />
-        <div className="absolute inset-0 bg-stone-950/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-[var(--color-surface-dark)]/40 backdrop-blur-[2px]" />
       </div>
 
       {/* Draftsman Grid Lines */}
@@ -99,7 +99,7 @@ export default function ComingSoonPage({ onBackToHome }) {
         
         <button
           onClick={onBackToHome}
-          className="group inline-flex items-center space-x-2 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-stone-300 hover:text-gold-accent transition-colors cursor-pointer"
+          className="group inline-flex items-center space-x-2 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-[var(--color-text-muted)] hover:text-gold-accent transition-colors cursor-pointer"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           <span>Return To Main Workspace</span>
@@ -199,12 +199,12 @@ export default function ComingSoonPage({ onBackToHome }) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address..."
               disabled={isSubscribed}
-              className="flex-1 px-4 py-3 bg-stone-950 text-white placeholder-stone-600 border border-white/5 text-xs focus:outline-none focus:ring-1 focus:ring-gold-accent rounded"
+              className="flex-1 px-4 py-3 bg-[var(--color-surface-dark)] text-white placeholder-stone-600 border border-white/5 text-xs focus:outline-none focus:ring-1 focus:ring-gold-accent rounded"
             />
             <button
               type="submit"
               disabled={isSubscribed}
-              className="px-5 py-3 bg-gold-accent hover:bg-[#B88F4C] disabled:bg-stone-800 disabled:text-stone-500 text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors rounded cursor-pointer shrink-0 flex items-center justify-center"
+              className="px-5 py-3 bg-gold-accent hover:bg-[var(--color-primary-hover)] disabled:bg-stone-800 disabled:text-stone-500 text-stone-950 font-bold text-xs uppercase tracking-widest transition-colors rounded cursor-pointer shrink-0 flex items-center justify-center"
             >
               {isSubscribed ? "Subscribed" : "Notify Me"}
             </button>

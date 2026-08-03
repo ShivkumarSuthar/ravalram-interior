@@ -455,7 +455,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
 
       {/* PAGE HERO */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="gallery-hero-section">
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white" id="gallery-hero-section">
         <div className="absolute inset-0 z-0">
           <img
             src={SITE_IMAGES.lobbyBanner}
@@ -500,7 +500,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.15 }}
-              className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2"
+              className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2"
             >
               Explore a curated collection of interiors, architectural details, custom furniture, and completed projects that reflect our passion for timeless design, exceptional craftsmanship, and thoughtful execution.
             </motion.p>
@@ -517,7 +517,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Start Your Project</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
@@ -578,7 +578,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
                   activeFilter === tab.id
-                    ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md scale-95"
+                    ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md scale-95"
                     : "bg-stone-50 text-stone-600 border-stone-200/80 hover:border-gold-accent/50 hover:text-stone-950"
                 }`}
               >
@@ -635,7 +635,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       />
 
                       {/* Premium Hover Overlay */}
-                      <div className="absolute inset-0 bg-stone-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
+                      <div className="absolute inset-0 bg-[var(--color-surface-dark)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
                         <div className="flex justify-between items-start">
                           <span className="bg-gold-accent text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
                             {project.category}
@@ -652,7 +652,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                         </div>
 
                         <div className="space-y-2 text-left">
-                          <div className="inline-flex items-center space-x-1 text-stone-300 font-mono text-[9px] uppercase tracking-wider">
+                          <div className="inline-flex items-center space-x-1 text-[var(--color-text-muted)] font-mono text-[9px] uppercase tracking-wider">
                             <MapPin size={10} className="text-gold-accent" />
                             <span>{project.location}</span>
                           </div>
@@ -693,7 +693,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                           <span>View Detail</span>
                           <ChevronRight size={12} />
                         </button>
-                        <span className="text-[9px] font-mono text-stone-300">
+                        <span className="text-[9px] font-mono text-[var(--color-text-muted)]">
                           ID: {project.id}
                         </span>
                       </div>
@@ -709,7 +709,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 04: FEATURED COLLECTION (ASYSMMETRIC BENTO LAYOUT) */}
-      <section className="py-24 bg-stone-950 text-white relative overflow-hidden" id="gallery-featured-collection">
+      <section className="py-24 bg-[var(--color-surface-dark)] text-white relative overflow-hidden" id="gallery-featured-collection">
         <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_rgba(197,168,128,0.06),_transparent_70%)] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -764,7 +764,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                 <h3 className="text-2xl md:text-3xl font-serif text-white">
                   The Lodha World One Apartment
                 </h3>
-                <p className="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+                <p className="text-[var(--color-text-muted)] text-xs sm:text-sm font-light leading-relaxed">
                   A comprehensive architectural interior layout executed inside India's premier high-rise. Focused entirely on bespoke walnut veneers and seamless marble slabs.
                 </p>
                 <div className="pt-4 flex items-center space-x-4">
@@ -968,7 +968,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white" id="gallery-final-cta">
+      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-[var(--color-surface-dark)] text-white" id="gallery-final-cta">
         <div className="absolute inset-0 z-0">
           <img
             src={SITE_IMAGES.ctaBg}
@@ -988,7 +988,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               Your Dream Project <br />
               Could Be <span className="text-gold-accent">Featured</span> Here Next.
             </h2>
-            <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
+            <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               Whether you're building a new home, renovating an existing space, or creating custom furniture, we'd love to bring your ideas to life with timeless design and exceptional craftsmanship.
             </p>
           </div>
@@ -999,7 +999,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent px-8 py-5 rounded-none cursor-pointer shadow-xl"
             >
               <span>Book Free Consultation</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-[var(--color-surface-dark)]/10 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
@@ -1018,7 +1018,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       <AnimatePresence>
         {lightboxIndex !== null && (
           <div
-            className="fixed inset-0 z-55 flex flex-col justify-between bg-stone-950/98 backdrop-blur-xl select-none"
+            className="fixed inset-0 z-55 flex flex-col justify-between bg-[var(--color-surface-dark)]/98 backdrop-blur-xl select-none"
             id="gallery-fullscreen-lightbox"
           >
             {/* Header toolbar */}
@@ -1084,12 +1084,12 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             </div>
 
             {/* Footer Specifications Info Bar */}
-            <div className="p-6 bg-stone-950 border-t border-white/5 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4 z-20">
+            <div className="p-6 bg-[var(--color-surface-dark)] border-t border-white/5 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4 z-20">
               <div className="text-left max-w-2xl space-y-1.5">
                 <span className="text-[10px] uppercase font-mono tracking-widest text-stone-500 font-bold block">
                   CRAFTSMAN MATERIAL SPECIFICATION
                 </span>
-                <p className="text-xs text-stone-300 font-light font-mono">
+                <p className="text-xs text-[var(--color-text-muted)] font-light font-mono">
                   {filteredProjects[lightboxIndex].materials}
                 </p>
                 <p className="text-stone-400 text-xs font-light max-w-xl">

@@ -530,7 +530,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       {/* PAGE HERO                                            */}
       {/* ==================================================== */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white" id="blog-hero">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white" id="blog-hero">
         <div className="absolute inset-0 z-0">
           <img
             src={SITE_IMAGES.lobbyBanner}
@@ -575,7 +575,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.15 }}
-              className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2"
+              className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2"
             >
               Discover expert advice, interior design inspiration, architectural ideas, furniture guides, renovation tips, and practical knowledge from the team at Suthar Interior Studio.
             </motion.p>
@@ -592,7 +592,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Browse Articles</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
@@ -642,7 +642,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                   className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-[1.03] transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-6 left-6 bg-stone-950 text-gold-accent font-mono text-[10px] font-bold uppercase tracking-widest px-3.5 py-2 shadow-lg">
+                <div className="absolute top-6 left-6 bg-[var(--color-surface-dark)] text-gold-accent font-mono text-[10px] font-bold uppercase tracking-widest px-3.5 py-2 shadow-lg">
                   {featuredArticle.categoryLabel}
                 </div>
                 <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center border border-white/20 group-hover:bg-gold-accent group-hover:text-stone-950 transition-all duration-300">
@@ -721,7 +721,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 onClick={() => setSelectedCategory(tab.id)}
                 className={`px-4.5 py-2.5 text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
                   selectedCategory === tab.id
-                    ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md scale-95"
+                    ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md scale-95"
                     : "bg-white text-stone-600 border-stone-200/80 hover:border-gold-accent/50 hover:text-stone-950"
                 }`}
               >
@@ -755,14 +755,14 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
           {/* Fallback for empty categories */}
           {totalArticles === 0 ? (
             <div className="py-20 text-center space-y-4 bg-[#faf9f6] rounded-3xl border border-dashed border-stone-200">
-              <BookOpen size={40} className="mx-auto text-stone-300" />
+              <BookOpen size={40} className="mx-auto text-[var(--color-text-muted)]" />
               <h3 className="text-lg font-serif font-medium text-stone-800 uppercase">No publications found</h3>
               <p className="text-stone-500 text-xs font-light max-w-md mx-auto">
                 We haven't uploaded articles under this specific category filter yet. Please browse another section or explore our featured guide.
               </p>
               <button 
                 onClick={() => setSelectedCategory("all")}
-                className="px-5 py-2.5 bg-stone-950 text-gold-accent text-xs font-mono font-bold uppercase tracking-widest cursor-pointer hover:bg-stone-900 transition-colors"
+                className="px-5 py-2.5 bg-[var(--color-surface-dark)] text-gold-accent text-xs font-mono font-bold uppercase tracking-widest cursor-pointer hover:bg-stone-900 transition-colors"
               >
                 Show All Articles
               </button>
@@ -793,7 +793,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                           className="w-full h-full object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
                           referrerPolicy="no-referrer"
                         />
-                        <div className="absolute top-4 left-4 bg-stone-950 text-gold-accent font-mono text-[9px] font-bold uppercase tracking-widest px-2.5 py-1.5 shadow-md">
+                        <div className="absolute top-4 left-4 bg-[var(--color-surface-dark)] text-gold-accent font-mono text-[9px] font-bold uppercase tracking-widest px-2.5 py-1.5 shadow-md">
                           {article.categoryLabel}
                         </div>
                       </div>
@@ -858,7 +858,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 disabled={currentPage === 1}
                 className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
                   currentPage === 1
-                    ? "border-stone-100 text-stone-300 cursor-not-allowed"
+                    ? "border-stone-100 text-[var(--color-text-muted)] cursor-not-allowed"
                     : "border-stone-200 text-stone-700 hover:border-gold-accent hover:text-gold-accent cursor-pointer"
                 }`}
                 title="Previous Page"
@@ -875,7 +875,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                     onClick={() => handlePageChange(pageNum)}
                     className={`w-10 h-10 font-mono text-xs font-bold transition-all duration-300 rounded-full cursor-pointer ${
                       currentPage === pageNum
-                        ? "bg-stone-950 text-gold-accent border border-stone-950 shadow-md scale-95"
+                        ? "bg-[var(--color-surface-dark)] text-gold-accent border border-stone-950 shadow-md scale-95"
                         : "bg-white text-stone-600 border border-stone-200/60 hover:border-gold-accent hover:text-stone-950"
                     }`}
                   >
@@ -890,7 +890,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 disabled={currentPage === totalPages}
                 className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
                   currentPage === totalPages
-                    ? "border-stone-100 text-stone-300 cursor-not-allowed"
+                    ? "border-stone-100 text-[var(--color-text-muted)] cursor-not-allowed"
                     : "border-stone-200 text-stone-700 hover:border-gold-accent hover:text-gold-accent cursor-pointer"
                 }`}
                 title="Next Page"
@@ -1004,7 +1004,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       {/* SECTION 05: NEWSLETTER                               */}
       {/* ==================================================== */}
-      <section className="py-24 bg-stone-950 text-white relative overflow-hidden" id="newsletter">
+      <section className="py-24 bg-[var(--color-surface-dark)] text-white relative overflow-hidden" id="newsletter">
         <div className="absolute right-0 top-0 w-[50%] h-[100%] bg-[radial-gradient(ellipse_at_top_right,_rgba(197,168,128,0.06),_transparent_70%)] pointer-events-none" />
         
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
@@ -1019,7 +1019,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
             <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-white uppercase leading-none">
               Stay <span className="text-gold-accent">Inspired.</span>
             </h2>
-            <p className="text-stone-300 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
               Receive design inspiration, renovation tips, material guides, and architecture insights directly in your inbox.
             </p>
           </div>
@@ -1113,14 +1113,14 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-8 py-4.5 rounded-none cursor-pointer"
             >
               <span>Book Free Consultation</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
 
             <button
               onClick={onBackToHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-stone-900/10 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-stone-950/5 cursor-pointer hover:bg-stone-950 hover:text-white"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-stone-900/10 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-[var(--color-surface-dark)]/5 cursor-pointer hover:bg-[var(--color-surface-dark)] hover:text-white"
             >
               Explore Our Projects
             </button>
@@ -1140,7 +1140,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               animate={{ opacity: 0.6 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveArticle(null)}
-              className="absolute inset-0 bg-stone-950 cursor-pointer"
+              className="absolute inset-0 bg-[var(--color-surface-dark)] cursor-pointer"
             />
 
             {/* Solid reader panel slides in from the right side */}
@@ -1272,7 +1272,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                       setActiveArticle(null);
                       handleOpenConsultation();
                     }}
-                    className="w-full md:w-auto px-6 py-3.5 bg-stone-950 hover:bg-gold-accent hover:text-stone-950 text-white font-bold text-xs uppercase tracking-widest transition-colors rounded-none cursor-pointer shrink-0"
+                    className="w-full md:w-auto px-6 py-3.5 bg-[var(--color-surface-dark)] hover:bg-gold-accent hover:text-stone-950 text-white font-bold text-xs uppercase tracking-widest transition-colors rounded-none cursor-pointer shrink-0"
                   >
                     Consult With {activeArticle.author.split(" ")[0]}
                   </button>

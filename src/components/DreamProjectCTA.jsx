@@ -77,7 +77,7 @@ export default function DreamProjectCTA({ setView }) {
             <span className="text-gold-accent">Dream</span> Project
           </h2>
           
-          <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed">
+          <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed">
             Architect-supervised spatial design, bespoke timber joinery, and turnkey execution. Transform your residence or commercial headquarters today.
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ export default function DreamProjectCTA({ setView }) {
             <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center leading-tight">
               Get <br /> A Quote
             </span>
-            <div className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300 mt-1">
+            <div className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-[var(--color-surface-dark)] group-hover:text-white flex items-center justify-center transition-colors duration-300 mt-1">
               <ArrowUpRight size={14} strokeWidth={2.5} />
             </div>
           </button>
@@ -112,7 +112,7 @@ export default function DreamProjectCTA({ setView }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-stone-300 border-t border-white/10 w-full max-w-3xl"
+          className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-[var(--color-text-muted)] border-t border-white/10 w-full max-w-3xl"
         >
           <div className="flex items-center space-x-2">
             <Sparkles size={14} className="text-gold-accent" />

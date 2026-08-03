@@ -129,7 +129,7 @@ export default function BlogDetailsClient({ article }) {
                 className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-8 py-5 rounded-full cursor-pointer shadow-xl"
               >
                 <span>Book Free Consultation</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
+                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-[var(--color-surface-dark)]/10 flex items-center justify-center text-stone-950">
                   <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </button>

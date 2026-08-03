@@ -53,7 +53,7 @@ export default function AutoVideoPlayer() {
   };
 
   return (
-    <section className="relative w-full bg-stone-950 overflow-hidden leading-none select-none border-t border-b border-stone-800/80">
+    <section className="relative w-full bg-[var(--color-surface-dark)] overflow-hidden leading-none select-none border-t border-b border-stone-800/80">
       
       {/* Full-Width Video Container - Height adapts naturally to video aspect ratio */}
       <div className="relative w-full h-[380px] sm:h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center bg-black overflow-hidden">

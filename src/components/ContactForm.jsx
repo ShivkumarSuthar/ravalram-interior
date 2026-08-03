@@ -2,16 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   MapPin,
-  Phone,
-  Mail,
-  Send,
-  ArrowUpRight,
   Sparkles,
-  CheckCircle2,
-  Building2,
-  Compass,
+  ArrowUpRight,
   Check,
-  Globe
+  Compass
 } from "lucide-react";
 
 // Import luxury loft/living room image for left side of contact split
@@ -48,112 +42,93 @@ export default function ContactForm({ setView }) {
     }
   };
 
-  // Active execution regions with interactive coordinates & details
+  // We don't run a local branch office in every city — the team travels
+  // out from the Mumbai HQ for site visits and execution. Ordered as the
+  // studio's real route: from the Kumta timber workshop that started it
+  // all, up the coast, to the Mumbai flagship HQ today.
   const locations = [
-    {
-      id: "mumbai",
-      city: "Mumbai",
-      role: "Flagship Showroom & HQ",
-      address: "Linking Road, Santacruz West, Mumbai, Maharashtra 400054",
-      phone: "+91 98200 12345",
-      projects: "Sea-Facing Penthouse, Luxury Villas, Corporate HQs",
-      coords: { top: "48%", left: "28%" },
-      mapQuery: "Linking+Road+Santacruz+West+Mumbai"
-    },
-    {
-      id: "pune",
-      city: "Pune",
-      role: "Design & Renovation Studio",
-      address: "Koregaon Park, Lane 7, Pune, Maharashtra 411001",
-      phone: "+91 98200 54321",
-      projects: "Contemporary Duplexes, High-End Apartment Interiors",
-      coords: { top: "52%", left: "32%" },
-      mapQuery: "Koregaon+Park+Pune"
-    },
-    {
-      id: "goa",
-      city: "Goa",
-      role: "Coastal Estate & Hospitality Guild",
-      address: "Fontainhas Heritage Quarter, Panaji, Goa 403001",
-      phone: "+91 98200 98765",
-      projects: "Beachfront Villas, Heritage Bungalow Upgrades",
-      coords: { top: "68%", left: "30%" },
-      mapQuery: "Panaji+Goa"
-    },
-    {
-      id: "bengaluru",
-      city: "Bengaluru",
-      role: "Architecture & Smart Residence Hub",
-      address: "100ft Road, Indiranagar, Bengaluru, Karnataka 560038",
-      phone: "+91 98200 22334",
-      projects: "Smart Residences, Executive Office Spaces",
-      coords: { top: "72%", left: "42%" },
-      mapQuery: "Indiranagar+Bengaluru"
-    },
-    {
-      id: "hyderabad",
-      city: "Hyderabad",
-      role: "Bespoke Joinery & Villa Desk",
-      address: "Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033",
-      phone: "+91 98200 66778",
-      projects: "Custom Timber Wardrobes, Grand Residential Suites",
-      coords: { top: "58%", left: "48%" },
-      mapQuery: "Jubilee+Hills+Hyderabad"
-    },
-    {
-      id: "hubballi",
-      city: "Hubballi",
-      role: "Turnkey Commercial Desk",
-      address: "Airport Road, Hubballi, Karnataka 580030",
-      phone: "+91 98200 88990",
-      projects: "Retail Flagships, Turnkey Commercial Stores",
-      coords: { top: "64%", left: "35%" },
-      mapQuery: "Airport+Road+Hubballi"
-    },
     {
       id: "kumta",
       city: "Kumta",
-      role: "Heritage Woodworking Workshop & Guild Roots",
-      address: "Main Road Timber Yard, Kumta, Uttara Kannada, Karnataka 581343",
-      phone: "+91 98200 11223",
-      projects: "Master Timber Fabrication, Direct Workshop Production since 1989",
-      coords: { top: "66%", left: "32%" },
-      mapQuery: "Kumta+Uttara+Kannada"
+      tag: "1989",
+      role: "Where the guild began",
+      projects: "Master timber fabrication, workshop production",
+      note: "The first workbench was set up here, by hand, in 1989."
     },
     {
       id: "honnavar",
       city: "Honnavar",
-      role: "Coastal Bungalow Guild",
-      address: "Sharavathi Bridge Road, Honnavar, Karnataka 581334",
-      phone: "+91 98200 33445",
-      projects: "Bespoke Coastal Private Bungalows, Weather-Proof Woodwork",
-      coords: { top: "67%", left: "33%" },
-      mapQuery: "Honnavar+Karnataka"
+      role: "Coastal bungalows",
+      projects: "Bespoke coastal bungalows, weather-proof woodwork",
+      note: "Homes built to take on the salt air and win."
     },
     {
       id: "murudeshwar",
       city: "Murudeshwar",
-      role: "Hospitality & Retail Guild",
-      address: "Temple Main Highway, Murudeshwar, Karnataka 581350",
-      phone: "+91 98200 44556",
-      projects: "Resort Outlets, Traditional Timber Elevation Works",
-      coords: { top: "68%", left: "33.5%" },
-      mapQuery: "Murudeshwar+Karnataka"
+      role: "Temple coast",
+      projects: "Resort outlets, traditional timber elevation work",
+      note: "Timberwork for resorts along the temple coast."
+    },
+    {
+      id: "hubballi",
+      city: "Hubballi",
+      role: "Trade route",
+      projects: "Retail flagships, turnkey commercial stores",
+      note: "Retail fit-outs for the inland trade route."
+    },
+    {
+      id: "bengaluru",
+      city: "Bengaluru",
+      role: "Smart residences",
+      projects: "Smart residences, executive office spaces",
+      note: "Homes for a city that never quite slows down."
+    },
+    {
+      id: "hyderabad",
+      city: "Hyderabad",
+      role: "Bespoke joinery",
+      projects: "Custom timber wardrobes, grand residential suites",
+      note: "Custom joinery for grand residential suites."
+    },
+    {
+      id: "goa",
+      city: "Goa",
+      role: "Coastal estates",
+      projects: "Beachfront villas, heritage bungalow upgrades",
+      note: "Beachfront villas and old bungalows, restored."
+    },
+    {
+      id: "pune",
+      city: "Pune",
+      role: "Design studio",
+      projects: "Contemporary duplexes, high-end apartment interiors",
+      note: "Duplexes and apartments, reimagined."
+    },
+    {
+      id: "mumbai",
+      city: "Mumbai",
+      tag: "HQ",
+      role: "Flagship showroom",
+      address: "Linking Road, Santacruz West, Mumbai, Maharashtra 400054",
+      projects: "Sea-facing penthouses, luxury villas, corporate HQs",
+      note: "The flagship showroom — where it all comes together."
     }
   ];
 
+  const [selectedCityId, setSelectedCityId] = useState("mumbai");
+
   return (
     <section id="contact" className="bg-[#faf9f6] text-stone-900 py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
-      
+
       {/* Container Wrapper */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16 lg:space-y-24">
-        
+
         {/* HEADER SECTION (Matching exact image layout) */}
         <div className="space-y-10">
-          
+
           {/* Eyebrow and Headline Row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left border-b border-stone-200/80 pb-10">
-            
+
             {/* Left Eyebrow Pill Badge */}
             <div className="lg:col-span-4 space-y-4">
               <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
@@ -176,7 +151,7 @@ export default function ContactForm({ setView }) {
 
           {/* Quick Direct Info Metrics Row (Address & Support) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 text-left pt-2">
-            
+
             {/* Address Column */}
             <div className="lg:col-span-6 space-y-1">
               <span className="text-[10px] uppercase font-mono font-bold tracking-[0.2em] text-stone-400 block">
@@ -217,7 +192,7 @@ export default function ContactForm({ setView }) {
 
         {/* MAIN SPLIT SECTION: Image Left + Form Right (Exact image structure) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          
+
           {/* Left Column: High-Res Architecture Image Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -248,7 +223,7 @@ export default function ContactForm({ setView }) {
               <h4 className="text-sm font-extrabold text-white">
                 Turnkey Execution & Spatial Design
               </h4>
-              <p className="text-[11px] text-stone-300 font-light leading-relaxed">
+              <p className="text-[11px] text-[var(--color-text-muted)] font-light leading-relaxed">
                 Over 3,000+ luxury residential and commercial transformations executed since 1989.
               </p>
             </div>
@@ -360,7 +335,7 @@ export default function ContactForm({ setView }) {
                       className="inline-flex items-center space-x-3 bg-[#0c0a09] hover:bg-gold-accent text-white hover:text-stone-950 px-8 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg group"
                     >
                       <span>Send Message</span>
-                      <div className="w-8 h-8 rounded-full bg-gold-accent group-hover:bg-stone-950 text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
+                      <div className="w-8 h-8 rounded-full bg-gold-accent group-hover:bg-[var(--color-surface-dark)] text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
                         <ArrowUpRight size={14} strokeWidth={2.5} />
                       </div>
                     </button>
@@ -392,15 +367,15 @@ export default function ContactForm({ setView }) {
 
       </div>
 
-      {/* BOTTOM SECTION: FULL-WIDTH INTERACTIVE GOOGLE MAP & EXECUTION LOCATIONS */}
-      <div className="pt-16 sm:pt-20 text-left space-y-6 w-full">
-        
+      {/* BOTTOM SECTION: regions — simple rounded city cards */}
+      <div className="pt-16 sm:pt-20 text-left space-y-8 w-full">
+
         {/* Section Header */}
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-stone-200/80">
             <div className="space-y-1">
               <div className="inline-flex items-center space-x-2">
-                <Globe size={16} className="text-gold-accent" />
+                <Compass size={16} className="text-gold-accent" />
                 <span className="text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-stone-500">
                   OUR ACTIVE EXECUTION REGIONS
                 </span>
@@ -411,64 +386,40 @@ export default function ContactForm({ setView }) {
             </div>
 
             <p className="text-stone-500 text-xs sm:text-sm font-light max-w-md">
-              Architect-supervised turnkey project desks, heritage workshop guilds, and spatial installations across India.
+              Active across these cities and regions.
             </p>
           </div>
         </div>
 
-        {/* FULL-WIDTH GRAYSCALE MAP CONTAINER SHOWING ALL LOCATIONS */}
-        <div className="w-full relative h-[420px] sm:h-[500px] md:h-[560px] bg-stone-200 border-y border-stone-200/80 shadow-inner overflow-hidden mt-4">
-          <iframe
-            title="Suthar Interior Studio Service Regions Map"
-            width="100%"
-            height="100%"
-            style={{ border: 0, filter: "grayscale(100%) contrast(1.05) brightness(0.95)" }}
-            loading="lazy"
-            allowFullScreen
-            src="https://maps.google.com/maps?q=Mumbai,+Pune,+Goa,+Bengaluru,+Hyderabad,+Karnataka,+India&t=&z=6&ie=UTF8&iwloc=&output=embed"
-          />
-
-          {/* Floating Studio Footprint Badge (Top-Left) */}
-          <div className="absolute top-6 left-6 sm:left-12 z-10 bg-stone-900/90 backdrop-blur-md text-white px-5 py-3.5 rounded-2xl border border-white/20 shadow-2xl flex items-center space-x-3.5 max-w-xs sm:max-w-md">
-            <span className="w-2.5 h-2.5 rounded-full bg-gold-accent animate-pulse shrink-0" />
-            <div className="text-left space-y-0.5">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gold-accent block">
-                OPERATIONAL FOOTPRINT • ALL REGIONS
-              </span>
-              <p className="text-xs font-extrabold text-white truncate">
-                Mumbai, Pune, Goa, Bengaluru, Hyderabad &amp; Coastal Karnataka
-              </p>
-              <p className="text-[11px] font-mono text-stone-300 truncate">
-                Central Showroom: Santacruz West, Mumbai | Workshop: Kumta, KA
-              </p>
-            </div>
-          </div>
-
-          {/* Quick Direction Button (Top-Right) */}
-          <a
-            href="https://maps.google.com/maps?q=Mumbai,+Pune,+Goa,+Bengaluru,+Hyderabad,+Karnataka,+India"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-6 right-6 sm:right-12 z-10 bg-white/95 hover:bg-[#0c0a09] hover:text-white backdrop-blur-md text-stone-900 px-4 py-2.5 rounded-full border border-stone-300 hover:border-stone-900 shadow-xl text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 transition-all duration-300"
-          >
-            <span className="hidden sm:inline">Open Regional Map</span>
-            <span className="sm:hidden">Map</span>
-            <ArrowUpRight size={14} />
-          </a>
-        </div>
-
-        {/* Clean Location Names Text at the Bottom */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-2">
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs sm:text-sm font-mono font-bold text-stone-800 uppercase tracking-wider text-center">
-            {locations.map((loc, idx) => (
-              <span key={loc.id} className="inline-flex items-center space-x-1.5">
-                <MapPin size={13} className="text-gold-accent shrink-0" />
-                <span>{loc.city}</span>
-                {idx < locations.length - 1 && (
-                  <span className="text-stone-300 font-normal ml-2.5">•</span>
-                )}
-              </span>
-            ))}
+        {/* Simple rounded horizontal city cards */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex flex-wrap gap-3">
+            {locations.map((loc, i) => {
+              const isActive = loc.id === selectedCityId;
+              return (
+                <button
+                  key={loc.id}
+                  onClick={() => setSelectedCityId(loc.id)}
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-full border font-mono text-sm font-bold transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md"
+                      : "bg-white text-stone-700 border-stone-200 hover:border-gold-accent/60 hover:text-stone-950"
+                  }`}
+                >
+                  <MapPin size={14} className={isActive ? "text-gold-accent" : "text-stone-400"} />
+                  <span>{loc.city}</span>
+                  {loc.tag && (
+                    <span
+                      className={`text-[9px] font-mono font-extrabold px-1.5 py-0.5 rounded ${
+                        loc.id === "mumbai" ? "bg-gold-accent text-stone-950" : "bg-stone-200 text-stone-800"
+                      }`}
+                    >
+                      {loc.tag}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 

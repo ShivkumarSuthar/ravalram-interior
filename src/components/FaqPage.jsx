@@ -56,7 +56,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent selection:text-stone-950 pt-[80px]">
       
       {/* 1. HERO BREADCRUMB HEADER */}
-      <section className="relative h-[40vh] md:h-[50vh] bg-stone-950 text-white flex flex-col justify-center overflow-hidden">
+      <section className="relative h-[40vh] md:h-[50vh] bg-[var(--color-surface-dark)] text-white flex flex-col justify-center overflow-hidden">
         {/* Background Overlay Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -129,7 +129,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 border transition-all duration-300 cursor-pointer ${
                       selectedCategory === cat.id
-                        ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md"
+                        ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md"
                         : "bg-[#faf9f6] text-stone-600 border-stone-200/80 hover:border-gold-accent/40 hover:text-stone-950"
                     }`}
                   >
@@ -192,7 +192,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                   <p className="text-stone-500 font-light text-sm">No FAQs match your search criteria.</p>
                   <button
                     onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}
-                    className="text-xs font-mono font-bold text-[#B88F4C] hover:text-stone-950 underline uppercase tracking-widest cursor-pointer"
+                    className="text-xs font-mono font-bold text-gold-accent hover:text-stone-950 underline uppercase tracking-widest cursor-pointer"
                   >
                     Reset Filter
                   </button>
@@ -205,7 +205,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* 3. CONTACT BANNER HELPDESK */}
-      <section className="bg-stone-950 text-white py-24 relative overflow-hidden border-t border-white/5">
+      <section className="bg-[var(--color-surface-dark)] text-white py-24 relative overflow-hidden border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
           <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold block uppercase">
             STILL HAVE QUESTIONS?
@@ -253,7 +253,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
           <div className="pt-8 flex justify-center gap-4">
             <button
               onClick={onOpenQuote}
-              className="px-8 py-3.5 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer"
+              className="px-8 py-3.5 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer"
             >
               Get Free Estimate
             </button>

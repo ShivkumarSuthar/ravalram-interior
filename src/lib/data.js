@@ -5,11 +5,11 @@
 
 import { projects } from "./project-data.js";
 import { blogArticles } from "./blog-data.js";
-import { DEFAULT_THEME, THEME_PRESETS } from "./theme.js";
+import { DEFAULT_THEME, THEME_PRESETS } from "./theme.jsx";
 
 // Asset Image Paths
 export const SITE_IMAGES = {
-  heroBg: "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg",
+  heroBg: "/assets/images/AI_images/hero_living_room.jpg",
   heroSlide2: "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg",
   heroSlide3: "/assets/images/AI_images/antra_hero_slide3_1782747396078.jpg",
   aboutSide: "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
@@ -30,6 +30,16 @@ export const SITE_IMAGES = {
   ctaBg: "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg",
   kitchenLayout: "/assets/images/AI_images/antra_project_loft_1782744318019.jpg"
 };
+
+export const NAV_LINKS = [
+  { id: "home", label: "Home", view: "home" },
+  { id: "about", label: "About Us", view: "about-us" },
+  { id: "services", label: "Services", view: "services" },
+  { id: "gallery", label: "Projects", view: "gallery" },
+  { id: "blog", label: "Journal", view: "blog" },
+  { id: "faqs", label: "FAQs", view: "faqs" },
+  { id: "contact", label: "Contact", view: "contact" },
+];
 
 // Company Identity & Core Information
 export const COMPANY_INFO = {

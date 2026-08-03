@@ -30,13 +30,13 @@ export default function FaqSection({ setView }) {
   };
 
   return (
-    <section id="faq" className="bg-[#faf9f6] py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
+    <section id="faq" className="bg-[#faf9f6] py-8 sm:py-12 lg:py-16 relative overflow-hidden select-none border-t border-stone-200/80">
       
       {/* Container Wrapper */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 sm:space-y-10">
         
         {/* HEADER SECTION (Matching exact screenshot structure) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left border-b border-stone-200/80 pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start text-left border-b border-stone-200/80 pb-6">
           
           {/* Left Eyebrow Pill Badge */}
           <div className="lg:col-span-4 space-y-4">

@@ -180,7 +180,7 @@ export default function LuxuryChatbot() {
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] uppercase font-bold tracking-widest text-gold-accent">Lead Architect</p>
-                <p className="text-stone-300 text-xs font-light leading-relaxed">
+                <p className="text-[var(--color-text-muted)] text-xs font-light leading-relaxed">
                   Hi, Padam here. Seeking architectural or custom furniture guidance? Let's chat.
                 </p>
               </div>
@@ -206,7 +206,7 @@ export default function LuxuryChatbot() {
         className={`w-14 h-14 rounded-full flex items-center justify-center shadow-2xl border transition-all duration-300 cursor-pointer ${
           isOpen 
             ? "bg-gold-accent border-gold-accent text-stone-950" 
-            : "bg-stone-950 border-white/10 text-gold-accent hover:border-gold-accent hover:bg-stone-900"
+            : "bg-[var(--color-surface-dark)] border-white/10 text-gold-accent hover:border-gold-accent hover:bg-stone-900"
         }`}
         aria-label="Toggle chat"
         id="chatbot-toggle-btn"
@@ -246,7 +246,7 @@ export default function LuxuryChatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 30 }}
             transition={{ type: "spring", damping: 25, stiffness: 220 }}
-            className="absolute bottom-20 right-0 w-[350px] md:w-[380px] h-[500px] md:h-[550px] bg-stone-950 text-stone-300 border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden"
+            className="absolute bottom-20 right-0 w-[350px] md:w-[380px] h-[500px] md:h-[550px] bg-[var(--color-surface-dark)] text-[var(--color-text-muted)] border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden"
             id="chatbot-drawer"
           >
             {/* Header */}
@@ -332,7 +332,7 @@ export default function LuxuryChatbot() {
             </div>
 
             {/* Quick Auto Queries (presets selection) */}
-            <div className="px-4 py-2 border-t border-white/5 bg-stone-950/80 overflow-x-auto whitespace-nowrap flex gap-2 no-scrollbar">
+            <div className="px-4 py-2 border-t border-white/5 bg-[var(--color-surface-dark)]/80 overflow-x-auto whitespace-nowrap flex gap-2 no-scrollbar">
               {PRESETS.map((preset, idx) => (
                 <button
                   key={idx}
@@ -354,11 +354,11 @@ export default function LuxuryChatbot() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your inquiry here..."
-                className="flex-1 bg-stone-950 border border-white/5 focus:border-gold-accent/50 px-3.5 py-2 text-xs text-stone-200 placeholder-stone-500 outline-none transition-colors duration-300 rounded-none"
+                className="flex-1 bg-[var(--color-surface-dark)] border border-white/5 focus:border-gold-accent/50 px-3.5 py-2 text-xs text-stone-200 placeholder-stone-500 outline-none transition-colors duration-300 rounded-none"
               />
               <button
                 type="submit"
-                className="w-8 h-8 bg-gold-accent hover:bg-[#B88F4C] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer"
+                className="w-8 h-8 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer"
                 aria-label="Send query"
               >
                 <Send size={12} />
@@ -366,7 +366,7 @@ export default function LuxuryChatbot() {
             </form>
 
             {/* Branded Footer accent */}
-            <div className="bg-stone-950 py-1.5 px-4 border-t border-white/5 text-[9px] text-stone-600 font-mono tracking-widest uppercase flex items-center justify-between select-none">
+            <div className="bg-[var(--color-surface-dark)] py-1.5 px-4 border-t border-white/5 text-[9px] text-stone-600 font-mono tracking-widest uppercase flex items-center justify-between select-none">
               <span>Padam AI Advisor</span>
               <div className="flex items-center space-x-1 text-gold-accent/60 font-serif lowercase">
                 <span>suthar</span>

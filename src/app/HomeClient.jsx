@@ -11,16 +11,11 @@ import LobbyBanner from "../components/LobbyBanner";
 import Stats from "../components/Stats";
 import WhyChooseUs from "../components/WhyChooseUs";
 import OurProcess from "../components/OurProcess";
-import FlexibleSolutions from "../components/FlexibleSolutions";
 import CreativeProjects from "../components/CreativeProjects";
-import Awards from "../components/Awards";
-import ExpertBento from "../components/ExpertBento";
-import Team from "../components/Team";
 import Testimonial from "../components/Testimonial";
 import ContactForm from "../components/ContactForm";
 import Blog from "../components/Blog";
 import Newsletter from "../components/Newsletter";
-import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -51,35 +46,24 @@ export default function Home() {
           {/* 1. Fullscreen majestic Hero */}
           <Hero setView={handleNavigate} />
 
+          {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
+          <CreativeProjects />
+
+          {/* 5. Metrics & stats (Behind Every Statistic...) */}
+          <Stats />
+
           {/* 2. Brand story introduction (We Shape Interior Designs...) */}
           <About setView={handleNavigate} />
 
           {/* 3. Core Expertise (Explore Our Comprehensive...) */}
           <Services />
 
-          {/* 3.5. Flexible Solutions & 3D Visualization Pathway */}
-          <FlexibleSolutions setView={handleNavigate} />
-
           {/* 4. Full-width reception lobby presentation banner with play button */}
-          <LobbyBanner />
+          {/* <LobbyBanner /> */}
 
-          {/* 5. Metrics & stats (Behind Every Statistic...) */}
-          <Stats />
 
           {/* 5.5. Why Choose Suthar Interior Studio Section */}
           <WhyChooseUs setView={handleNavigate} />
-
-          {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
-          <CreativeProjects />
-
-          {/* 7. Design Awards showcase (Design That Speaks...) */}
-          <Awards />
-
-          {/* 8. Progress metrics & bento bedroom render layout */}
-          <ExpertBento />
-
-          {/* 10. Creative brain experts list (Meet The Experts Our...) */}
-          <Team />
 
           {/* 11. Client Testimonial quotes */}
           <Testimonial />
@@ -92,9 +76,6 @@ export default function Home() {
 
           {/* 15. Newsletter subscription circle */}
           <Newsletter />
-
-          {/* 15.5. Final Emotional CTA Section */}
-          <FinalCTA />
         </motion.div>
       </main>
 

@@ -225,7 +225,7 @@ export default function OurProcess({ setView }) {
               Ready to Start Your <br />
               <span className="text-gold-accent">Dream Project</span>?
             </h3>
-            <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed max-w-2xl">
+            <p className="text-[var(--color-text-muted)] font-light text-sm md:text-base leading-relaxed max-w-2xl">
               Whether you're building a new home, renovating an existing space, or designing a commercial environment, our experienced team is ready to guide you through every step with honesty, precision, and exceptional craftsmanship.
             </p>
 
@@ -238,7 +238,7 @@ export default function OurProcess({ setView }) {
                 className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>Book a Free Consultation</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950 group-hover:bg-stone-950 group-hover:text-gold-accent transition-all duration-300">
+                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-[var(--color-surface-dark)]/10 flex items-center justify-center text-stone-950 group-hover:bg-[var(--color-surface-dark)] group-hover:text-gold-accent transition-all duration-300">
                   <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </motion.a>

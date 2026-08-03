@@ -1147,7 +1147,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                               {cat.tag.split(" ")[0]}
                             </span>
                             <span className="text-[9px] font-mono text-stone-400">•</span>
-                            <span className={`text-[9px] font-mono ${isActive ? "text-stone-300" : "text-gold-accent"}`}>
+                            <span className={`text-[9px] font-mono ${isActive ? "text-[var(--color-text-muted)]" : "text-gold-accent"}`}>
                               From {formatRateLabel(minRate)}
                             </span>
                           </div>
@@ -1216,7 +1216,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       <button
                         onClick={() => setCurrency("INR")}
                         className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                          currency === "INR" ? "bg-gold-accent text-stone-950" : "text-stone-300 hover:text-white"
+                          currency === "INR" ? "bg-gold-accent text-stone-950" : "text-[var(--color-text-muted)] hover:text-white"
                         }`}
                       >
                         ₹ INR
@@ -1224,7 +1224,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       <button
                         onClick={() => setCurrency("USD")}
                         className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                          currency === "USD" ? "bg-gold-accent text-stone-950" : "text-stone-300 hover:text-white"
+                          currency === "USD" ? "bg-gold-accent text-stone-950" : "text-[var(--color-text-muted)] hover:text-white"
                         }`}
                       >
                         $ USD
@@ -1259,7 +1259,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                             className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer border ${
                               areaSqFt === preset.area
                                 ? "bg-gold-accent text-stone-950 font-bold border-gold-accent"
-                                : "bg-white/10 text-stone-300 hover:bg-white/20 border-white/10"
+                                : "bg-white/10 text-[var(--color-text-muted)] hover:bg-white/20 border-white/10"
                             }`}
                           >
                             {preset.label} ({preset.area.toLocaleString()} sq.ft)
@@ -1284,7 +1284,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                             className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer flex items-center justify-between ${
                               isSelected
                                 ? "bg-gold-accent text-stone-950 border-gold-accent font-bold"
-                                : "bg-white/5 text-stone-300 hover:bg-white/10 border-white/10"
+                                : "bg-white/5 text-[var(--color-text-muted)] hover:bg-white/10 border-white/10"
                             }`}
                           >
                             <span className="text-xs font-mono">{tierVal.name}</span>
@@ -1379,7 +1379,7 @@ export default function ProjectInvestmentGuide({ setView }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowTierCompareModal(false)}
-            className="fixed inset-0 z-50 bg-stone-950/80 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center cursor-pointer"
+            className="fixed inset-0 z-50 bg-[var(--color-surface-dark)]/80 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center cursor-pointer"
           >
             <div
               onClick={(e) => e.stopPropagation()}
@@ -1430,7 +1430,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       <p className={`text-xl font-mono font-bold ${selectedTier === tierKey ? "text-gold-accent" : "text-stone-900"}`}>
                         {formatRateLabel(tierVal.ratePerSqFt)}
                       </p>
-                      <p className={`text-xs font-light leading-relaxed pt-1 ${selectedTier === tierKey ? "text-stone-300" : "text-stone-600"}`}>
+                      <p className={`text-xs font-light leading-relaxed pt-1 ${selectedTier === tierKey ? "text-[var(--color-text-muted)]" : "text-stone-600"}`}>
                         {tierVal.summary}
                       </p>
                     </div>
@@ -1447,7 +1447,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                             <CheckCircle2 size={13} className={`shrink-0 mt-0.5 ${
                               selectedTier === tierKey ? "text-gold-accent" : "text-gold-accent"
                             }`} />
-                            <span className={selectedTier === tierKey ? "text-stone-300" : "text-stone-700"}>{inc}</span>
+                            <span className={selectedTier === tierKey ? "text-[var(--color-text-muted)]" : "text-stone-700"}>{inc}</span>
                           </li>
                         ))}
                       </ul>
@@ -1491,12 +1491,12 @@ export default function ProjectInvestmentGuide({ setView }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveImageModal(null)}
-            className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center cursor-pointer"
+            className="fixed inset-0 z-50 bg-[var(--color-surface-dark)]/90 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center cursor-pointer"
           >
             <div className="relative max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-2xl border border-white/10 bg-stone-900 shadow-2xl">
               <button
                 onClick={() => setActiveImageModal(null)}
-                className="absolute top-4 right-4 bg-stone-950/80 text-white p-2.5 rounded-full border border-white/20 hover:bg-white hover:text-stone-950 transition-colors z-10 cursor-pointer"
+                className="absolute top-4 right-4 bg-[var(--color-surface-dark)]/80 text-white p-2.5 rounded-full border border-white/20 hover:bg-white hover:text-stone-950 transition-colors z-10 cursor-pointer"
               >
                 <X size={18} />
               </button>

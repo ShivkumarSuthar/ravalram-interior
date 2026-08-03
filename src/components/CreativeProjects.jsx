@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import Image from "next/image";
+import Image from "./Image.jsx";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, ArrowUpRight, X } from "lucide-react";
 import { projects } from "../lib/project-data.js";
@@ -47,7 +47,7 @@ export default function CreativeProjects() {
   };
 
   return (
-    <section id="portfolio" className="bg-[#faf9f6] py-16 sm:py-24 md:py-32 relative overflow-hidden select-none">
+    <section id="portfolio" className="bg-[#faf9f6] py-8 sm:py-12 md:py-16 relative overflow-hidden select-none">
       
       {/* 3D Wireframe Architectural Blueprint Background Sketch on Right */}
       <div className="absolute right-0 top-0 w-2/3 h-full pointer-events-none opacity-[0.08] z-0 overflow-hidden hidden lg:block">
@@ -66,30 +66,30 @@ export default function CreativeProjects() {
         </svg>
       </div>
 
-      <div className="relative z-10 space-y-10 md:space-y-14">
+      <div className="relative z-10 space-y-6 md:space-y-10">
         
         {/* Centered Header Section matching screenshot exactly */}
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-5">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-3 sm:space-y-4">
           
           {/* Pill Tag */}
           <div className="flex justify-center">
-            <div className="inline-flex items-center space-x-2 border border-gold-accent/30 bg-gold-accent/10 px-4 py-1.5 rounded-full shadow-2xs">
+            <div className="inline-flex items-center space-x-2 border border-gold-accent/30 bg-gold-accent/10 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-gold-accent" />
-              <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-gold-accent">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-bold text-gold-accent">
                 OUR PORTFOLIO
               </span>
             </div>
           </div>
 
           {/* Heading with exact colored words */}
-          <h2 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
             Creative <span className="text-gold-accent">Projects That</span><br />
             <span className="text-gold-accent">Define</span> Our Style
           </h2>
 
           {/* Subtitle */}
-          <p className="text-stone-500 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Our portfolio showcases a diverse range of projects, from beautifully crafted residential spaces functional and stylish commercial interiors
+          <p className="text-stone-500 font-light text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Our portfolio showcases a diverse range of projects, from beautifully crafted residential spaces to functional and stylish commercial interiors.
           </p>
 
           {/* Left / Right Scroll Controls centered under header */}
@@ -180,7 +180,7 @@ export default function CreativeProjects() {
                     />
 
                     {/* Subtle Hover Action Overlay */}
-                    <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <div className="absolute inset-0 bg-[var(--color-surface-dark)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                       <div className="w-12 h-12 rounded-full bg-gold-accent text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300">
                         <ArrowUpRight size={20} strokeWidth={2.5} />
                       </div>
@@ -249,7 +249,7 @@ export default function CreativeProjects() {
                     {projects[lightboxIndex].badge} • {projects[lightboxIndex].year}
                   </span>
                   <h4 className="text-2xl font-extrabold text-white tracking-tight">{projects[lightboxIndex].title}</h4>
-                  <p className="text-xs sm:text-sm text-stone-300 font-light leading-relaxed">{projects[lightboxIndex].description}</p>
+                  <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">{projects[lightboxIndex].description}</p>
                 </div>
               </motion.div>
 
