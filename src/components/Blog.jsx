@@ -204,7 +204,7 @@ export default function Blog({ setView }) {
                     </div>
 
                     {/* Top-Right Action Arrow Circle */}
-                    <div className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-stone-950/70 backdrop-blur-xs text-white flex items-center justify-center opacity-85 group-hover:bg-gold-accent group-hover:text-stone-950 transition-all">
+                    <div className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-[var(--color-surface-dark)]/70 backdrop-blur-xs text-white flex items-center justify-center opacity-85 group-hover:bg-gold-accent group-hover:text-stone-950 transition-all">
                       <ArrowUpRight size={15} />
                     </div>
                   </div>

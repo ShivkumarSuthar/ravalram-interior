@@ -149,7 +149,7 @@ export default function WhyChooseUs() {
             <button
               onClick={() => setShowComparison(false)}
               className={`px-4 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center space-x-2 ${
-                !showComparison ? "bg-stone-950 text-gold-accent shadow-sm" : "text-stone-700 hover:text-stone-950"
+                !showComparison ? "bg-[var(--color-surface-dark)] text-gold-accent shadow-sm" : "text-stone-700 hover:text-stone-950"
               }`}
             >
               <Award size={14} />
@@ -158,7 +158,7 @@ export default function WhyChooseUs() {
             <button
               onClick={() => setShowComparison(true)}
               className={`px-4 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center space-x-2 ${
-                showComparison ? "bg-stone-950 text-gold-accent shadow-sm" : "text-stone-700 hover:text-stone-950"
+                showComparison ? "bg-[var(--color-surface-dark)] text-gold-accent shadow-sm" : "text-stone-700 hover:text-stone-950"
               }`}
             >
               <Layers size={14} />
@@ -231,7 +231,7 @@ export default function WhyChooseUs() {
                       <span
                         className={`hidden md:inline-flex items-center space-x-1 text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-lg border ${
                           isOpen
-                            ? "bg-stone-950 text-gold-accent border-stone-800"
+                            ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-800"
                             : "bg-stone-100 text-stone-600 border-stone-200 group-hover:border-gold-accent/50 group-hover:text-stone-950"
                         }`}
                       >
@@ -295,7 +295,7 @@ export default function WhyChooseUs() {
                                 <span className="animate-ping absolute inline-flex h-7 w-7 rounded-full bg-gold-accent opacity-75" />
                                 <span className="relative inline-flex rounded-full h-4 w-4 bg-gold-accent border-2 border-stone-950" />
                               </div>
-                              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap bg-stone-950 text-gold-accent text-[10px] font-mono px-2.5 py-1 rounded-md shadow-2xl flex items-center space-x-1">
+                              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap bg-[var(--color-surface-dark)] text-gold-accent text-[10px] font-mono px-2.5 py-1 rounded-md shadow-2xl flex items-center space-x-1">
                                 <Maximize2 size={10} />
                                 <span className="font-bold">{p.hotspot.label}</span>
                               </div>
@@ -349,7 +349,7 @@ export default function WhyChooseUs() {
                             </div>
                             <button
                               onClick={handleConsultation}
-                              className="inline-flex items-center justify-center space-x-2.5 bg-gold-accent hover:bg-[#b0936b] text-stone-950 font-bold px-6 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer text-xs font-mono tracking-wider uppercase group/btn"
+                              className="inline-flex items-center justify-center space-x-2.5 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 font-bold px-6 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer text-xs font-mono tracking-wider uppercase group/btn"
                             >
                               <span>BOOK ONSITE AUDIT & BLUEPRINT REVIEW</span>
                               <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -408,7 +408,7 @@ export default function WhyChooseUs() {
                       </td>
                       <td className="py-2.5 px-3 font-light text-stone-500">
                         <div className="flex items-center space-x-2">
-                          <X size={14} className="text-stone-300 shrink-0" />
+                          <X size={14} className="text-[var(--color-text-muted)] shrink-0" />
                           <span>{item.regular}</span>
                         </div>
                       </td>
@@ -421,7 +421,7 @@ export default function WhyChooseUs() {
         )}
 
         {/* METRICS RIBBON */}
-        <div className="bg-stone-950 text-white rounded-2xl p-4 border border-stone-800 shadow-xl relative overflow-hidden">
+        <div className="bg-[var(--color-surface-dark)] text-white rounded-2xl p-4 border border-stone-800 shadow-xl relative overflow-hidden">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x-0 md:divide-x divide-stone-800/80">
             <div className="space-y-0.5">
               <p className="text-xl font-extrabold text-gold-accent font-mono">35+ Yrs</p>

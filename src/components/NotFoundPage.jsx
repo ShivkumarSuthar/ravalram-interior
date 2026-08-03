@@ -39,7 +39,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* SECTION 1: EDITORIAL ERROR HEADER & BLUEPRINT ILLUSTRATION */}
-      <section className="relative min-h-[75vh] flex items-center bg-stone-950 text-white overflow-hidden py-16" id="not-found-hero">
+      <section className="relative min-h-[75vh] flex items-center bg-[var(--color-surface-dark)] text-white overflow-hidden py-16" id="not-found-hero">
         
         {/* Architectural Grid & Coordinate Lines Background */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
@@ -220,7 +220,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-xl text-left"
+                className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-xl text-left"
               >
                 The page you're looking for may have been moved, renamed, or no longer exists. 
                 Let's help you find your way back.
@@ -236,17 +236,17 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 <div className="flex items-center space-x-2">
                   <Maximize2 size={10} className="text-gold-accent" />
                   <span>X-AXIS:</span>
-                  <span className="text-stone-300">{coordinates.x}px</span>
+                  <span className="text-[var(--color-text-muted)]">{coordinates.x}px</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <GitCommit size={10} className="text-gold-accent" />
                   <span>Y-AXIS:</span>
-                  <span className="text-stone-300">{coordinates.y}px</span>
+                  <span className="text-[var(--color-text-muted)]">{coordinates.y}px</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Layers size={10} className="text-gold-accent" />
                   <span>NODAL:</span>
-                  <span className="text-stone-300">UNPLANNED_VOID</span>
+                  <span className="text-[var(--color-text-muted)]">UNPLANNED_VOID</span>
                 </div>
               </motion.div>
 
@@ -285,7 +285,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold-accent/10 via-gold-accent to-gold-accent/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-[var(--color-surface-dark)] group-hover:text-white transition-colors duration-300">
                 <Compass size={20} />
               </div>
               <div className="space-y-2">
@@ -322,7 +322,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold-accent/10 via-gold-accent to-gold-accent/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-[var(--color-surface-dark)] group-hover:text-white transition-colors duration-300">
                 <Layout size={20} />
               </div>
               <div className="space-y-2">
@@ -359,7 +359,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold-accent/10 via-gold-accent to-gold-accent/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-stone-950 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-stone-50 border border-stone-200/50 flex items-center justify-center text-gold-accent group-hover:bg-[var(--color-surface-dark)] group-hover:text-white transition-colors duration-300">
                 <Mail size={20} />
               </div>
               <div className="space-y-2">
@@ -428,7 +428,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
       </section>
 
       {/* SECTION 4: FINAL CTA */}
-      <section className="bg-stone-950 text-white py-24 relative overflow-hidden" id="not-found-cta">
+      <section className="bg-[var(--color-surface-dark)] text-white py-24 relative overflow-hidden" id="not-found-cta">
         {/* Visual geometric accent background */}
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
           <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-3 gap-12 px-6">
@@ -457,7 +457,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-8 py-4.5 rounded-none cursor-pointer"
             >
               <span>Return Home</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/15 bg-stone-950/5 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/15 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>

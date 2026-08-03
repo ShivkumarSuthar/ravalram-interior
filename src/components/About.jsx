@@ -93,7 +93,7 @@ export default function About({ setView }) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
             }}
-            className="inline-flex items-center space-x-2.5 sm:space-x-3 bg-stone-950 hover:bg-stone-800 text-white px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-all duration-300 group cursor-pointer shadow-md shrink-0 self-start lg:self-auto"
+            className="inline-flex items-center space-x-2.5 sm:space-x-3 bg-[var(--color-surface-dark)] hover:bg-stone-800 text-white px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-all duration-300 group cursor-pointer shadow-md shrink-0 self-start lg:self-auto"
           >
             <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase">Explore Full Studio Page</span>
             <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
@@ -114,7 +114,7 @@ export default function About({ setView }) {
                   onClick={() => setActivePillar(pIdx)}
                   className={`py-2 px-1 text-center font-mono font-bold text-[10px] sm:text-xs uppercase rounded-lg transition-all cursor-pointer ${
                     isActive
-                      ? "bg-stone-950 text-gold-accent shadow-sm"
+                      ? "bg-[var(--color-surface-dark)] text-gold-accent shadow-sm"
                       : "text-stone-600 hover:text-stone-900"
                   }`}
                 >
@@ -135,7 +135,7 @@ export default function About({ setView }) {
               className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-md space-y-3"
             >
               {/* Integrated Image Frame */}
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-stone-950 shadow-xs border border-stone-200/80">
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-[var(--color-surface-dark)] shadow-xs border border-stone-200/80">
                 <Image
                   src={currentPillar.image}
                   alt={currentPillar.heading}
@@ -150,7 +150,7 @@ export default function About({ setView }) {
                   35+ Yrs Legacy
                 </div>
 
-                <div className="absolute top-2.5 right-2.5 bg-stone-950/85 text-gold-accent px-2 py-1 rounded-lg font-mono font-bold text-[9px] uppercase border border-white/10 flex items-center space-x-1">
+                <div className="absolute top-2.5 right-2.5 bg-[var(--color-surface-dark)]/85 text-gold-accent px-2 py-1 rounded-lg font-mono font-bold text-[9px] uppercase border border-white/10 flex items-center space-x-1">
                   <ShieldCheck size={11} />
                   <span>100% Site Audit</span>
                 </div>
@@ -215,7 +215,7 @@ export default function About({ setView }) {
                     onClick={() => setActivePillar(pIdx)}
                     className={`w-full p-6 rounded-2xl border text-left transition-all duration-300 cursor-pointer space-y-2 group ${
                       isActive
-                        ? "bg-stone-950 text-white border-gold-accent shadow-xl scale-[1.01]"
+                        ? "bg-[var(--color-surface-dark)] text-white border-gold-accent shadow-xl scale-[1.01]"
                         : "bg-white text-stone-900 border-stone-200/80 hover:border-gold-accent/50 hover:bg-[#faf9f6]"
                     }`}
                   >
@@ -223,7 +223,7 @@ export default function About({ setView }) {
                       <span className={`text-[10px] font-mono font-bold tracking-widest uppercase ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
                         PILLAR {pillar.num} &bull; {pillar.title}
                       </span>
-                      <ChevronRight size={16} className={`transition-transform duration-300 ${isActive ? "text-gold-accent translate-x-1" : "text-stone-300 group-hover:text-stone-600"}`} />
+                      <ChevronRight size={16} className={`transition-transform duration-300 ${isActive ? "text-gold-accent translate-x-1" : "text-[var(--color-text-muted)] group-hover:text-stone-600"}`} />
                     </div>
 
                     <h3 className={`text-lg sm:text-xl font-bold ${isActive ? "text-white" : "text-stone-950"}`}>
@@ -238,7 +238,7 @@ export default function About({ setView }) {
                         transition={{ duration: 0.3 }}
                         className="pt-2 space-y-3 border-t border-stone-800"
                       >
-                        <p className="text-xs sm:text-sm font-light text-stone-300 leading-relaxed">
+                        <p className="text-xs sm:text-sm font-light text-[var(--color-text-muted)] leading-relaxed">
                           {pillar.desc}
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -315,7 +315,7 @@ export default function About({ setView }) {
               </div>
 
               {/* Secondary Floating Spec Badge */}
-              <div className="absolute -right-2 -top-4 bg-stone-950 text-white px-5 py-3 rounded-2xl shadow-xl z-30 hidden sm:flex items-center space-x-2.5 border border-stone-800">
+              <div className="absolute -right-2 -top-4 bg-[var(--color-surface-dark)] text-white px-5 py-3 rounded-2xl shadow-xl z-30 hidden sm:flex items-center space-x-2.5 border border-stone-800">
                 <ShieldCheck size={18} className="text-gold-accent shrink-0" />
                 <div className="text-left leading-tight">
                   <span className="text-[9px] font-mono font-bold text-gold-accent uppercase block">

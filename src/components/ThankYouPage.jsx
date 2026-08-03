@@ -109,7 +109,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* HEADER SECTION WITH DESIGN BLUEPRINT BACKDROP */}
-      <section className="relative min-h-[60vh] flex items-center bg-stone-950 text-white overflow-hidden py-16" id="thank-you-hero">
+      <section className="relative min-h-[60vh] flex items-center bg-[var(--color-surface-dark)] text-white overflow-hidden py-16" id="thank-you-hero">
         
         {/* Architectural drafting lines & background coordinate simulation */}
         <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
@@ -223,7 +223,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl"
+              className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl"
             >
               We've received your enquiry and truly appreciate your interest in Suthar Interior Studio. Our team will review your project details and get back to you as soon as possible.
             </motion.p>
@@ -233,11 +233,11 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               <div className="flex items-center space-x-2">
                 <span className="w-1.5 h-1.5 bg-gold-accent rounded-full animate-ping" />
                 <span>STATUS:</span>
-                <span className="text-stone-300">DISPATCHED_SECURE</span>
+                <span className="text-[var(--color-text-muted)]">DISPATCHED_SECURE</span>
               </div>
               <div className="hidden sm:flex items-center space-x-2">
                 <span>COORD:</span>
-                <span className="text-stone-300">X{coordinates.x} Y{coordinates.y}</span>
+                <span className="text-[var(--color-text-muted)]">X{coordinates.x} Y{coordinates.y}</span>
               </div>
             </div>
 
@@ -371,7 +371,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       {card.value}
                     </h3>
                     <p className={`text-xs font-light leading-relaxed ${
-                      isDark ? "text-stone-300" : "text-stone-500"
+                      isDark ? "text-[var(--color-text-muted)]" : "text-stone-500"
                     }`}>
                       {card.desc}
                     </p>
@@ -445,7 +445,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* View Projects Button */}
             <button
               onClick={() => handleNavigate("gallery")}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-stone-900 hover:bg-stone-950 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-stone-900 hover:bg-[var(--color-surface-dark)] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
               <Compass size={14} className="text-gold-accent" />
               <span>View Projects</span>
@@ -456,7 +456,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               href="https://wa.me/919820012345"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[#b0936b] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
               <MessageSquare size={14} />
               <span>Chat on WhatsApp</span>

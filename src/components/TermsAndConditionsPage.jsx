@@ -112,7 +112,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* PAGE HERO */}
-      <section className="relative py-20 bg-stone-950 text-white overflow-hidden" id="terms-hero">
+      <section className="relative py-20 bg-[var(--color-surface-dark)] text-white overflow-hidden" id="terms-hero">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-stone-950 opacity-100" />
           {/* Grid Layout Line Overlay */}
@@ -149,7 +149,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed pt-2"
+              className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed pt-2"
             >
               These Terms & Conditions govern your use of the Suthar Interior Studio website and our professional architecture, interior design, furniture manufacturing, renovation, and turnkey services.
             </motion.p>
@@ -189,7 +189,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                       onClick={() => scrollToSection(section.id)}
                       className={`group flex items-center space-x-3 px-4 py-3 text-xs tracking-wider uppercase font-mono font-bold transition-all duration-300 rounded-lg cursor-pointer ${
                         isActive
-                          ? "bg-stone-950 text-gold-accent shadow-md shadow-stone-950/5 translate-x-1"
+                          ? "bg-[var(--color-surface-dark)] text-gold-accent shadow-md shadow-stone-950/5 translate-x-1"
                           : "text-stone-500 hover:text-stone-900 hover:bg-stone-100"
                       }`}
                     >
@@ -211,7 +211,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                     onClick={() => scrollToSection(section.id)}
                     className={`px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest whitespace-nowrap border rounded-none transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? "bg-stone-950 text-gold-accent border-stone-950 shadow-sm"
+                        ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-sm"
                         : "bg-white text-stone-500 border-stone-200 hover:border-stone-400"
                     }`}
                   >
@@ -277,7 +277,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { title: "Technical Material Guidance", desc: "Rigorous grade comparisons including BWR, BWP marine ply, and stone selection." }
                 ].map((serv, idx) => (
                   <div key={idx} className="p-5 bg-stone-50 border border-stone-100 rounded-2xl flex items-start space-x-3.5">
-                    <div className="w-5 h-5 rounded-full bg-stone-950 text-gold-accent flex items-center justify-center text-[9px] shrink-0 font-mono font-bold mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center text-[9px] shrink-0 font-mono font-bold mt-0.5">
                       {idx+1}
                     </div>
                     <div className="space-y-1">
@@ -551,7 +551,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-stone-950 text-white py-24 relative overflow-hidden" id="terms-cta">
+      <section className="bg-[var(--color-surface-dark)] text-white py-24 relative overflow-hidden" id="terms-cta">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-3 gap-12 px-6">
             <div className="border-l border-white h-full" />
@@ -577,7 +577,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-8 py-4.5 rounded-none cursor-pointer"
             >
               <span>Contact Us</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/15 bg-stone-950/5 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/15 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>

@@ -98,7 +98,7 @@ export default function Services({ setView }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-6 md:pt-8 w-full flex flex-wrap items-center justify-between border-b border-white/10 pb-3.5 text-left gap-3">
         <div className="inline-flex items-center space-x-2.5">
           <Sparkles size={15} className="text-gold-accent shrink-0" />
-          <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-stone-300">
+          <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-[var(--color-text-muted)]">
             OUR EXPERTISE &bull; ARCHITECTURAL DISCIPLINE {currentNum} / 0{servicesList.length}
           </span>
         </div>
@@ -129,7 +129,7 @@ export default function Services({ setView }) {
 
             {/* Description Paragraph with See More/See Less toggle */}
             <div className="space-y-2 max-w-xl">
-              <p className={`text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed pt-1 drop-shadow-sm transition-all duration-300 ${!isTextExpanded ? "line-clamp-3" : ""}`}>
+              <p className={`text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed pt-1 drop-shadow-sm transition-all duration-300 ${!isTextExpanded ? "line-clamp-3" : ""}`}>
                 {current.detailedDescription ? `${current.shortDescription} ${current.detailedDescription}` : current.shortDescription}
               </p>
               <button
@@ -163,7 +163,7 @@ export default function Services({ setView }) {
                     handleOpenConsultation();
                   }
                 }}
-                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] bg-gold-accent hover:bg-[#b0936b] text-stone-950 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-xl hover:scale-[1.02]"
+                className="inline-flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-xl hover:scale-[1.02]"
               >
                 <span>EXPLORE ALL SERVICES</span>
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -171,7 +171,7 @@ export default function Services({ setView }) {
 
               <button
                 onClick={() => setSpecModalService(current)}
-                className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-stone-300 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 px-5 py-4 rounded-full transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 px-5 py-4 rounded-full transition-all duration-300 cursor-pointer"
               >
                 <Eye size={14} className="text-gold-accent" />
                 <span>View Full Spec Sheet</span>
@@ -213,7 +213,7 @@ export default function Services({ setView }) {
                 <div className="flex items-center justify-between">
                   <span
                     className={`text-[11px] font-mono font-bold tracking-widest ${
-                      isActive ? "text-gold-accent" : "text-stone-500 group-hover:text-stone-300"
+                      isActive ? "text-gold-accent" : "text-stone-500 group-hover:text-[var(--color-text-muted)]"
                     }`}
                   >
                     {itemNum}
@@ -239,7 +239,7 @@ export default function Services({ setView }) {
       {/* FULL SPECIFICATION LIGHTBOX MODAL */}
       <AnimatePresence>
         {specModalService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-stone-950/85 backdrop-blur-xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[var(--color-surface-dark)]/85 backdrop-blur-xl">
             
             {/* Backdrop click to dismiss */}
             <div className="absolute inset-0 z-0" onClick={() => setSpecModalService(null)} />
@@ -249,12 +249,12 @@ export default function Services({ setView }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-stone-950 border border-stone-800 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10 text-left space-y-8"
+              className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-[var(--color-surface-dark)] border border-stone-800 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10 text-left space-y-8"
             >
               {/* Modal Close Button */}
               <button
                 onClick={() => setSpecModalService(null)}
-                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-stone-900 border border-stone-700 hover:border-gold-accent text-stone-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-stone-900 border border-stone-700 hover:border-gold-accent text-[var(--color-text-muted)] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close Modal"
               >
                 <X size={18} />
@@ -296,7 +296,7 @@ export default function Services({ setView }) {
                     <h4 className="text-xs font-bold font-mono text-stone-400 uppercase tracking-widest">
                       ARCHITECTURAL SCOPE &amp; FIDELITY
                     </h4>
-                    <p className="text-sm font-light text-stone-300 leading-relaxed">
+                    <p className="text-sm font-light text-[var(--color-text-muted)] leading-relaxed">
                       {specModalService.detailedDescription || specModalService.shortDescription}
                     </p>
                   </div>
@@ -322,7 +322,7 @@ export default function Services({ setView }) {
                         setSpecModalService(null);
                         handleOpenConsultation();
                       }}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gold-accent hover:bg-[#b0936b] text-stone-950 px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-xl"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-xl"
                     >
                       <span>Request Service Estimate</span>
                       <ArrowRight size={14} />
@@ -330,7 +330,7 @@ export default function Services({ setView }) {
 
                     <button
                       onClick={() => setSpecModalService(null)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 border border-stone-700 text-stone-300 hover:text-white rounded-full text-xs font-mono tracking-wider uppercase transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 border border-stone-700 text-[var(--color-text-muted)] hover:text-white rounded-full text-xs font-mono tracking-wider uppercase transition-colors cursor-pointer"
                     >
                       Close Window
                     </button>

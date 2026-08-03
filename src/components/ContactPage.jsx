@@ -148,7 +148,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
       
       {/* PAGE HERO */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white">
         {/* Full-width premium background image with subtle dark overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -194,7 +194,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.15 }}
-              className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2"
+              className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2"
             >
               Every great space begins with a conversation. Whether you're planning a new home, renovating an existing property, designing a commercial space, or creating custom furniture, our experienced architects and craftsmen are ready to help. Let's discuss your ideas and create something exceptional together.
             </motion.p>
@@ -211,7 +211,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
             >
               <span>Book Free Consultation</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
@@ -762,7 +762,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                         onClick={() => setActiveCityIdx(i)}
                         className={`flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
                           isSelected
-                            ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md scale-105"
+                            ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md scale-105"
                             : "bg-stone-50 text-stone-800 border-stone-200/90 hover:border-gold-accent/50 hover:bg-white"
                         }`}
                       >
@@ -810,7 +810,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-950 text-gold-accent flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center shadow-md">
                 <Clock size={18} />
               </div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
@@ -825,7 +825,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             </div>
 
             <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-950 text-gold-accent flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center shadow-md">
                 <Calendar size={18} />
               </div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
@@ -840,7 +840,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             </div>
 
             <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-950 text-gold-accent flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center shadow-md">
                 <Globe size={18} />
               </div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
@@ -919,7 +919,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white">
+      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-[var(--color-surface-dark)] text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={SITE_IMAGES.ctaBg}
@@ -939,7 +939,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               Let's Create <br />
               Something <span className="text-gold-accent">Beautiful</span> Together.
             </h2>
-            <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
+            <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               From your first consultation to the final handover, Suthar Interior Studio is committed to creating spaces that reflect your lifestyle, vision, and aspirations.
             </p>
           </div>
@@ -950,7 +950,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent px-8 py-5 rounded-full cursor-pointer shadow-xl"
             >
               <span>Book Free Consultation</span>
-              <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
+              <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-[var(--color-surface-dark)]/10 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>

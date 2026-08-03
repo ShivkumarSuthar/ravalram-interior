@@ -22,7 +22,7 @@ export default function Footer({ onNavigate = () => {} }) {
   };
 
   return (
-    <footer className="bg-stone-950 text-stone-400 pt-24 pb-12 relative overflow-hidden border-t border-white/5 text-left">
+    <footer className="bg-[var(--color-surface-dark)] text-stone-400 pt-24 pb-12 relative overflow-hidden border-t border-white/5 text-left">
       
       {/* SECTION 1: CORE FOOTER NAVIGATION */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-20">

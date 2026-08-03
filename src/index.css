@@ -8,6 +8,7 @@
   --color-bg-dark: #0c0a09;
   --color-surface-dark: #1c1917;
   --color-text-muted: #78716c;
+  --color-text-dark: #000000;
 
   /* Aliases for complete backward compatibility */
   --color-gold-accent: var(--color-primary);
@@ -237,4 +238,71 @@ select:focus-visible,
 .preloader.exit .logo {
   opacity: 0;
   transform: scale(.92);
+}
+
+
+
+/* ===========================
+   Premium Button
+=========================== */
+
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.btn-premium:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-premium > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+/* ===========================
+   Start Project
+=========================== */
+
+.btn-primary-premium:hover .btn-text {
+  color: white;
+}
+
+.btn-primary-premium:hover .btn-icon {
+  transform: scale(1.08);
+}
+
+/* ===========================
+   View Portfolio
+=========================== */
+
+.btn-secondary-premium:hover {
+  border-color: var(--color-primary);
+}
+
+.btn-secondary-premium:hover .play-circle {
+  background: white;
+  border-color: white;
+}
+
+.btn-secondary-premium:hover .play-icon {
+  color: var(--color-primary);
+  fill: var(--color-primary);
 }

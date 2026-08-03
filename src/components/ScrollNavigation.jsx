@@ -45,7 +45,7 @@ export default function ScrollNavigation() {
           whileTap={{ scale: 0.95 }}
           onClick={handleScrollClick}
           aria-label={isScrolled ? "Scroll to top" : "Scroll down"}
-          className="w-12 h-12 rounded-full bg-stone-900/90 text-stone-200 border border-stone-700/60 shadow-2xl backdrop-blur-md flex items-center justify-center hover:bg-stone-950 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300 group focus:outline-none focus:ring-2 focus:ring-gold-accent cursor-pointer"
+          className="w-12 h-12 rounded-full bg-stone-900/90 text-stone-200 border border-stone-700/60 shadow-2xl backdrop-blur-md flex items-center justify-center hover:bg-[var(--color-surface-dark)] hover:text-gold-accent hover:border-gold-accent transition-colors duration-300 group focus:outline-none focus:ring-2 focus:ring-gold-accent cursor-pointer"
         >
           {isScrolled ? (
             <ChevronUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" />

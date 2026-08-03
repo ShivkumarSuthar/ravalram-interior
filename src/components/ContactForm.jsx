@@ -223,7 +223,7 @@ export default function ContactForm({ setView }) {
               <h4 className="text-sm font-extrabold text-white">
                 Turnkey Execution & Spatial Design
               </h4>
-              <p className="text-[11px] text-stone-300 font-light leading-relaxed">
+              <p className="text-[11px] text-[var(--color-text-muted)] font-light leading-relaxed">
                 Over 3,000+ luxury residential and commercial transformations executed since 1989.
               </p>
             </div>
@@ -335,7 +335,7 @@ export default function ContactForm({ setView }) {
                       className="inline-flex items-center space-x-3 bg-[#0c0a09] hover:bg-gold-accent text-white hover:text-stone-950 px-8 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg group"
                     >
                       <span>Send Message</span>
-                      <div className="w-8 h-8 rounded-full bg-gold-accent group-hover:bg-stone-950 text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
+                      <div className="w-8 h-8 rounded-full bg-gold-accent group-hover:bg-[var(--color-surface-dark)] text-stone-950 group-hover:text-white flex items-center justify-center transition-colors duration-300">
                         <ArrowUpRight size={14} strokeWidth={2.5} />
                       </div>
                     </button>
@@ -402,7 +402,7 @@ export default function ContactForm({ setView }) {
                   onClick={() => setSelectedCityId(loc.id)}
                   className={`inline-flex items-center gap-2 px-5 py-3 rounded-full border font-mono text-sm font-bold transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? "bg-stone-950 text-gold-accent border-stone-950 shadow-md"
+                      ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md"
                       : "bg-white text-stone-700 border-stone-200 hover:border-gold-accent/60 hover:text-stone-950"
                   }`}
                 >

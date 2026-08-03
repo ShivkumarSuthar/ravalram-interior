@@ -27,7 +27,7 @@ export default function CityClient({ city }) {
 
       <main className="relative z-10 pt-[80px]">
         {/* Dynamic City Hero */}
-        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
+        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white">
           <div className="absolute inset-0 z-0">
             <img
               src={SITE_IMAGES?.servicesHeroBg || SITE_IMAGES?.heroBg}
@@ -58,7 +58,7 @@ export default function CityClient({ city }) {
                 <span className="text-gold-accent">In {formattedCity}</span>
               </motion.h1>
               
-              <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2">
+              <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl pt-2">
                 Delivering architect-led luxury residential interiors, turnkey commercial design, and premium custom woodwork in {formattedCity} with three generations of family craftsmanship legacy.
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function CityClient({ city }) {
                 className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
               >
                 <span>Request {formattedCity} Survey</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-stone-950/5 flex items-center justify-center text-stone-950">
+                <div className="w-8 h-8 rounded-full border border-stone-950/10 bg-[var(--color-surface-dark)]/5 flex items-center justify-center text-stone-950">
                   <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </button>

@@ -7,7 +7,7 @@ export default function LobbyBanner() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="relative w-full h-[35vh] sm:h-[45vh] md:h-[50vh] overflow-hidden bg-stone-950 flex items-center justify-center">
+    <section className="relative w-full h-[35vh] sm:h-[45vh] md:h-[50vh] overflow-hidden bg-[var(--color-surface-dark)] flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -49,7 +49,7 @@ export default function LobbyBanner() {
       {/* Cinematic Modal Popup */}
       <AnimatePresence>
         {isPlaying && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/95 backdrop-blur-md p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--color-surface-dark)]/95 backdrop-blur-md p-4">
             {/* Click to close */}
             <div className="absolute inset-0 cursor-zoom-out" onClick={() => setIsPlaying(false)} />
 

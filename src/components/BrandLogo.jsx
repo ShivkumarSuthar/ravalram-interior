@@ -91,10 +91,10 @@ export default function BrandLogo({ className = "", iconOnly = false, size = "md
       {/* Brand Text */}
       {!iconOnly && (
         <div className="flex flex-col justify-center">
-          <span className={`font-serif font-black tracking-[0.18em] uppercase text-white leading-tight transition-colors group-hover:text-[#c5a880] ${dimensions.title}`}>
+          <span className={`font-serif font-black tracking-[0.18em] uppercase text-white leading-tight transition-colors group-hover:text-[var(--color-primary)] ${dimensions.title}`}>
             SUTHAR
           </span>
-          <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-[#c5a880] leading-none mt-0.5 ${dimensions.subtitle}`}>
+          <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-[var(--color-primary)] leading-none mt-0.5 ${dimensions.subtitle}`}>
             INTERIOR STUDIO
           </span>
         </div>

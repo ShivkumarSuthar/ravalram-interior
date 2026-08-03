@@ -180,7 +180,7 @@ export default function CreativeProjects() {
                     />
 
                     {/* Subtle Hover Action Overlay */}
-                    <div className="absolute inset-0 bg-stone-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <div className="absolute inset-0 bg-[var(--color-surface-dark)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                       <div className="w-12 h-12 rounded-full bg-gold-accent text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300">
                         <ArrowUpRight size={20} strokeWidth={2.5} />
                       </div>
@@ -249,7 +249,7 @@ export default function CreativeProjects() {
                     {projects[lightboxIndex].badge} • {projects[lightboxIndex].year}
                   </span>
                   <h4 className="text-2xl font-extrabold text-white tracking-tight">{projects[lightboxIndex].title}</h4>
-                  <p className="text-xs sm:text-sm text-stone-300 font-light leading-relaxed">{projects[lightboxIndex].description}</p>
+                  <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">{projects[lightboxIndex].description}</p>
                 </div>
               </motion.div>
 

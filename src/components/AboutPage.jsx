@@ -276,7 +276,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-8 md:pt-12 pb-4 flex flex-wrap items-center justify-between border-b border-white/10 gap-4 text-left">
           <div className="flex items-center space-x-3">
             <span className="w-2.5 h-2.5 rounded-full bg-gold-accent animate-pulse" />
-            <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-stone-300">
+            <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-[var(--color-text-muted)]">
               SUTHAR INTERIOR STUDIO &bull; ARCHITECTURAL MONOGRAPH VOL. 35
             </span>
           </div>
@@ -303,7 +303,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 Where <span className="font-serif italic font-normal text-gold-accent">Craftsmanship</span> Meets Architectural Art.
               </h1>
 
-              <p className="text-stone-300 font-light text-sm sm:text-lg leading-relaxed max-w-2xl pt-1">
+              <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-lg leading-relaxed max-w-2xl pt-1">
                 For over 35 years, Suthar Interior Studio has bridged generational timber woodworking with architect-led computational precision. Every space is designed as a living monograph of spatial harmony, honest materials, and uncompromised site execution.
               </p>
 
@@ -329,7 +329,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
                 <button
                   onClick={onOpenQuote}
-                  className="inline-flex items-center space-x-2.5 sm:space-x-3 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] bg-gold-accent hover:bg-[#b0936b] text-stone-950 px-5 py-3 sm:px-7 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-2xl hover:scale-[1.02]"
+                  className="inline-flex items-center space-x-2.5 sm:space-x-3 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 px-5 py-3 sm:px-7 sm:py-4 rounded-full transition-all duration-300 group cursor-pointer shadow-2xl hover:scale-[1.02]"
                 >
                   <span>REQUEST CONSULTATION</span>
                   <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -337,7 +337,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
 
                 <button
                   onClick={onBackToHome}
-                  className="inline-flex items-center space-x-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-stone-300 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 px-4 py-3 sm:px-6 sm:py-4 rounded-full transition-all duration-300 cursor-pointer"
+                  className="inline-flex items-center space-x-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 px-4 py-3 sm:px-6 sm:py-4 rounded-full transition-all duration-300 cursor-pointer"
                 >
                   <Building2 size={14} className="text-gold-accent" />
                   <span>Return to Home</span>
@@ -377,7 +377,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   </div>
 
                   {/* Zoom indicator */}
-                  <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-md p-2 rounded-full text-gold-accent border border-stone-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-4 right-4 bg-[var(--color-surface-dark)]/70 backdrop-blur-md p-2 rounded-full text-gold-accent border border-stone-700 opacity-0 group-hover:opacity-100 transition-opacity">
                     <Maximize2 size={14} />
                   </div>
                 </motion.div>
@@ -396,8 +396,8 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     className="w-full h-full object-cover filter brightness-[0.9] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-stone-950/30" />
-                  <div className="absolute top-2 left-2 bg-stone-950/80 text-gold-accent text-[8px] font-mono font-bold uppercase px-2 py-0.5 rounded border border-stone-700">
+                  <div className="absolute inset-0 bg-[var(--color-surface-dark)]/30" />
+                  <div className="absolute top-2 left-2 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[8px] font-mono font-bold uppercase px-2 py-0.5 rounded border border-stone-700">
                     CAD BLUEPRINT 0.5MM
                   </div>
                 </motion.div>
@@ -468,7 +468,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   className={`p-2.5 sm:p-5 rounded-xl sm:rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-1.5 sm:space-y-3 relative overflow-hidden ${
                     isActive
                       ? "bg-stone-900 border-gold-accent text-white shadow-xl ring-1 ring-gold-accent/50"
-                      : "bg-stone-950/60 border-stone-800 text-stone-400 hover:text-white hover:bg-stone-900/60 hover:border-stone-700"
+                      : "bg-[var(--color-surface-dark)]/60 border-stone-800 text-stone-400 hover:text-white hover:bg-stone-900/60 hover:border-stone-700"
                   }`}
                 >
                   {/* Progress Line */}
@@ -492,7 +492,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     <span className={`text-[9px] sm:text-[11px] font-mono font-bold tracking-widest block uppercase ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
                       {chap.label}
                     </span>
-                    <h3 className={`text-xs sm:text-base font-bold mt-0.5 line-clamp-1 ${isActive ? "text-white" : "text-stone-300"}`}>
+                    <h3 className={`text-xs sm:text-base font-bold mt-0.5 line-clamp-1 ${isActive ? "text-white" : "text-[var(--color-text-muted)]"}`}>
                       {chap.chapterTitle}
                     </h3>
                   </div>
@@ -521,7 +521,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent opacity-60" />
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-stone-950/80 border border-stone-700 text-gold-accent text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[var(--color-surface-dark)]/80 border border-stone-700 text-gold-accent text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg">
                     {currentChapter.badgeText}
                   </div>
                 </div>
@@ -537,8 +537,8 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-stone-950/20" />
-                  <div className="absolute bottom-2 left-2 bg-stone-950/90 text-white text-[8px] font-mono uppercase px-2 py-0.5 rounded">
+                  <div className="absolute inset-0 bg-[var(--color-surface-dark)]/20" />
+                  <div className="absolute bottom-2 left-2 bg-[var(--color-surface-dark)]/90 text-white text-[8px] font-mono uppercase px-2 py-0.5 rounded">
                     DETAIL MACRO
                   </div>
                 </div>
@@ -553,7 +553,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   <h3 className="text-xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                     {currentChapter.chapterTitle}
                   </h3>
-                  <p className="text-stone-300 font-light text-xs sm:text-base leading-relaxed pt-0.5">
+                  <p className="text-[var(--color-text-muted)] font-light text-xs sm:text-base leading-relaxed pt-0.5">
                     {currentChapter.description}
                   </p>
                 </div>
@@ -561,7 +561,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 {/* Highlight Deliverable Pills - Compact wrapping on mobile */}
                 <div className="hidden lg:space-y-2.5 pt-1 lg:block">
                   {currentChapter.highlights.map((item, hIdx) => (
-                    <div key={hIdx} className="flex items-center space-x-3 bg-stone-950/60 border border-stone-800 p-3 rounded-xl">
+                    <div key={hIdx} className="flex items-center space-x-3 bg-[var(--color-surface-dark)]/60 border border-stone-800 p-3 rounded-xl">
                       <CheckCircle2 size={16} className="text-gold-accent shrink-0" />
                       <span className="text-xs font-medium text-stone-200">{item}</span>
                     </div>
@@ -571,7 +571,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 {/* Mobile Compact Highlight Pills */}
                 <div className="flex flex-wrap gap-1.5 lg:hidden pt-0.5">
                   {currentChapter.highlights.map((item, hIdx) => (
-                    <span key={hIdx} className="inline-flex items-center space-x-1.5 text-[10px] font-mono bg-stone-950 border border-stone-800 text-stone-200 px-2.5 py-1 rounded-md">
+                    <span key={hIdx} className="inline-flex items-center space-x-1.5 text-[10px] font-mono bg-[var(--color-surface-dark)] border border-stone-800 text-stone-200 px-2.5 py-1 rounded-md">
                       <CheckCircle2 size={11} className="text-gold-accent shrink-0" />
                       <span>{item}</span>
                     </span>
@@ -579,8 +579,8 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 </div>
 
                 {/* Editorial Quote Monologue Card */}
-                <div className="border-l-2 border-gold-accent pl-3 sm:pl-4 py-1.5 sm:py-2 bg-stone-950/70 border border-stone-800/80 rounded-r-xl space-y-0.5">
-                  <p className="text-xs sm:text-sm font-serif italic text-stone-300">
+                <div className="border-l-2 border-gold-accent pl-3 sm:pl-4 py-1.5 sm:py-2 bg-[var(--color-surface-dark)]/70 border border-stone-800/80 rounded-r-xl space-y-0.5">
+                  <p className="text-xs sm:text-sm font-serif italic text-[var(--color-text-muted)]">
                     {currentChapter.quote}
                   </p>
                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-gold-accent uppercase tracking-wider block">
@@ -591,7 +591,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 <div className="pt-1">
                   <button
                     onClick={onOpenQuote}
-                    className="inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-950 bg-gold-accent hover:bg-[#b0936b] px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-lg"
+                    className="inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-950 bg-gold-accent hover:bg-[var(--color-primary-hover)] px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-lg"
                   >
                     <span>Consult on {currentChapter.label}</span>
                     <ArrowRight size={13} className="sm:w-3.5 sm:h-3.5" />
@@ -639,7 +639,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   onClick={() => setActiveSwatch(sIdx)}
                   className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer space-y-4 flex flex-col justify-between group ${
                     isActive
-                      ? "bg-stone-950 text-white border-gold-accent shadow-2xl scale-[1.02]"
+                      ? "bg-[var(--color-surface-dark)] text-white border-gold-accent shadow-2xl scale-[1.02]"
                       : "bg-[#faf9f6] border-stone-200 text-stone-900 hover:border-gold-accent/60 hover:bg-white"
                   }`}
                 >
@@ -651,7 +651,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute top-2 left-2 bg-stone-950/80 text-gold-accent text-[8px] font-mono font-bold uppercase px-2 py-0.5 rounded">
+                      <div className="absolute top-2 left-2 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[8px] font-mono font-bold uppercase px-2 py-0.5 rounded">
                         {swatch.tag}
                       </div>
                     </div>
@@ -684,7 +684,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute bottom-3 left-3 bg-stone-950/80 text-gold-accent text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-lg">
+              <div className="absolute bottom-3 left-3 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-lg">
                 ORIGIN &bull; {currentSwatch.origin}
               </div>
             </div>
@@ -759,12 +759,12 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   <h3 className="text-lg sm:text-xl font-bold text-white">
                     {item.title}
                   </h3>
-                  <p className="text-xs font-light text-stone-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-xs font-light text-[var(--color-text-muted)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {item.caption}
                   </p>
                 </div>
 
-                <div className="absolute top-4 right-4 bg-stone-950/80 p-2 rounded-full text-gold-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-4 right-4 bg-[var(--color-surface-dark)]/80 p-2 rounded-full text-gold-accent opacity-0 group-hover:opacity-100 transition-opacity">
                   <Maximize2 size={16} />
                 </div>
               </motion.div>
@@ -805,7 +805,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   onClick={() => setActiveTimeline(idx)}
                   className={`px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 shrink-0 cursor-pointer border ${
                     isActive
-                      ? "bg-stone-950 text-gold-accent border-gold-accent shadow-md scale-105"
+                      ? "bg-[var(--color-surface-dark)] text-gold-accent border-gold-accent shadow-md scale-105"
                       : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-900"
                   }`}
                 >
@@ -884,14 +884,14 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 className="bg-[#faf9f6] border border-stone-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 text-left group flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[4/3] bg-stone-950 overflow-hidden relative border-b border-stone-100">
+                  <div className="aspect-[4/3] bg-[var(--color-surface-dark)] overflow-hidden relative border-b border-stone-100">
                     <img
                       src={leader.image}
                       alt={leader.name}
                       className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-700"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute top-3 right-3 bg-stone-950/80 backdrop-blur-md text-gold-accent text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded">
+                    <div className="absolute top-3 right-3 bg-[var(--color-surface-dark)]/80 backdrop-blur-md text-gold-accent text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded">
                       {leader.experience}
                     </div>
                   </div>
@@ -951,7 +951,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               Let's Build Something <br />
               <span className="text-gold-accent">Extraordinary</span> Together.
             </h2>
-            <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed pt-2">
+            <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed pt-2">
               Whether you're designing a new home, renovating an existing space, or planning a commercial showroom, our experienced architects and craftsmen are ready to bring your vision to life.
             </p>
           </div>
@@ -959,10 +959,10 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <button
               onClick={onOpenQuote}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[#b0936b] px-8 py-4 sm:py-5 rounded-full cursor-pointer shadow-xl hover:scale-[1.02]"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[var(--color-primary-hover)] px-8 py-4 sm:py-5 rounded-full cursor-pointer shadow-xl hover:scale-[1.02]"
             >
               <span>Book Free Consultation</span>
-              <div className="w-7 h-7 rounded-full border border-stone-950/20 bg-stone-950/10 flex items-center justify-center text-stone-950">
+              <div className="w-7 h-7 rounded-full border border-stone-950/20 bg-[var(--color-surface-dark)]/10 flex items-center justify-center text-stone-950">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
@@ -985,7 +985,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-stone-950/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-[var(--color-surface-dark)]/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
             onClick={() => setActiveLightbox(null)}
           >
             <button

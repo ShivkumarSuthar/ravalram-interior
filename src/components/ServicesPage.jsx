@@ -125,7 +125,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
     <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
       
       {/* EDITORIAL HERO SECTION */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white border-b border-stone-800">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white border-b border-stone-800">
         
         {/* Full width premium background image with subtle overlay */}
         <div className="absolute inset-0 z-0">
@@ -190,7 +190,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.15 }}
-                className="text-stone-300 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl"
+                className="text-[var(--color-text-muted)] font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl"
               >
                 From structural layout planning and photorealistic 3D CGI to bespoke factory timber joinery and turnkey White-Glove handovers, Suthar Interior Studio provides complete spatial solutions.
               </motion.p>
@@ -204,10 +204,10 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               >
                 <button
                   onClick={handleOpenConsultation}
-                  className="inline-flex items-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[#b0936b] px-7 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.02]"
+                  className="inline-flex items-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[var(--color-primary-hover)] px-7 py-4 rounded-full cursor-pointer shadow-xl hover:scale-[1.02]"
                 >
                   <span>Book Free Consultation</span>
-                  <div className="w-7 h-7 rounded-full bg-stone-950 text-gold-accent flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-full bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center">
                     <ArrowRight size={14} strokeWidth={2.5} />
                   </div>
                 </button>
@@ -335,7 +335,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                     onClick={() => setActiveCategory(cat)}
                     className={`text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                       isSelected
-                        ? "bg-stone-950 text-white shadow-md border border-stone-800"
+                        ? "bg-[var(--color-surface-dark)] text-white shadow-md border border-stone-800"
                         : "bg-white text-stone-600 border border-stone-200 hover:border-gold-accent hover:text-gold-accent"
                     }`}
                   >
@@ -362,7 +362,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   <div className="space-y-6">
                     
                     {/* Image Container */}
-                    <div className="relative aspect-[16/10] bg-stone-950 overflow-hidden">
+                    <div className="relative aspect-[16/10] bg-[var(--color-surface-dark)] overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -373,7 +373,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                       <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
                       
                       {/* Top Accent Pill */}
-                      <div className="absolute top-4 left-4 bg-stone-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-[9px] font-bold tracking-widest px-3 py-1 rounded-full uppercase z-10">
+                      <div className="absolute top-4 left-4 bg-[var(--color-surface-dark)]/80 backdrop-blur-md border border-white/20 text-white font-mono text-[9px] font-bold tracking-widest px-3 py-1 rounded-full uppercase z-10">
                         {service.accent}
                       </div>
 
@@ -487,7 +487,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-9 h-9 rounded-2xl bg-stone-950 text-gold-accent font-mono font-bold text-xs flex items-center justify-center shadow-md">
+                    <div className="w-9 h-9 rounded-2xl bg-[var(--color-surface-dark)] text-gold-accent font-mono font-bold text-xs flex items-center justify-center shadow-md">
                       0{idx + 1}
                     </div>
                     <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 group-hover:text-gold-accent transition-colors">
@@ -541,7 +541,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   onClick={() => setActiveWorkflowStep(idx)}
                   className={`p-4 rounded-2xl border text-center transition-all duration-300 cursor-pointer space-y-2 flex flex-col items-center justify-between group ${
                     isActive
-                      ? "bg-stone-950 text-white border-gold-accent shadow-xl scale-[1.02]"
+                      ? "bg-[var(--color-surface-dark)] text-white border-gold-accent shadow-xl scale-[1.02]"
                       : "bg-white text-stone-900 border-stone-200 hover:border-gold-accent/50 hover:bg-stone-50"
                   }`}
                 >
@@ -569,7 +569,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.4 }}
-              className="bg-stone-950 text-white border border-stone-800 p-8 sm:p-10 rounded-3xl shadow-2xl text-left grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+              className="bg-[var(--color-surface-dark)] text-white border border-stone-800 p-8 sm:p-10 rounded-3xl shadow-2xl text-left grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
             >
               <div className="md:col-span-8 space-y-4">
                 <div className="inline-flex items-center space-x-2 text-gold-accent font-mono text-xs font-bold tracking-widest uppercase">
@@ -582,7 +582,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   {currentWorkflowStep.num}. {currentWorkflowStep.name}
                 </h3>
 
-                <p className="text-stone-300 font-light text-sm sm:text-base leading-relaxed max-w-2xl">
+                <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base leading-relaxed max-w-2xl">
                   {currentWorkflowStep.desc}. Every technical drawing, material batch test, and joint alignment is audited by our on-site lead architects before moving to the next phase.
                 </p>
 
@@ -601,7 +601,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               <div className="md:col-span-4 flex flex-col items-start md:items-end space-y-4">
                 <button
                   onClick={handleOpenConsultation}
-                  className="inline-flex items-center space-x-2 bg-gold-accent hover:bg-[#b0936b] text-stone-950 font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full shadow-lg cursor-pointer transition-all hover:scale-105"
+                  className="inline-flex items-center space-x-2 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full shadow-lg cursor-pointer transition-all hover:scale-105"
                 >
                   <span>Start At Phase 01</span>
                   <ArrowRight size={14} />
@@ -684,7 +684,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 07: INDUSTRIES & SPATIAL DIVERSITY */}
-      <section className="py-24 bg-stone-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-[var(--color-surface-dark)] text-white relative overflow-hidden">
         <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_rgba(197,168,128,0.08),_transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
@@ -842,7 +842,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* FINAL CALL TO ACTION */}
-      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-stone-950 text-white">
+      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-[var(--color-surface-dark)] text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src={SITE_IMAGES.ctaBg}
@@ -862,7 +862,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
               Let's Build Your <span className="font-serif italic font-normal text-gold-accent">Dream</span> Space.
             </h2>
-            <p className="text-stone-300 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
+            <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               Whether you're planning a home, office, renovation, or custom furniture project, our team is ready to create spaces that combine thoughtful design with exceptional craftsmanship.
             </p>
           </div>
@@ -870,10 +870,10 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[#b0936b] px-8 py-5 rounded-full cursor-pointer shadow-xl hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-[var(--color-primary-hover)] px-8 py-5 rounded-full cursor-pointer shadow-xl hover:scale-105"
             >
               <span>Book Free Consultation</span>
-              <div className="w-7 h-7 rounded-full bg-stone-950 text-gold-accent flex items-center justify-center">
+              <div className="w-7 h-7 rounded-full bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center">
                 <ArrowRight size={12} strokeWidth={2.5} />
               </div>
             </button>
@@ -891,7 +891,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       {/* FULL SPECIFICATION LIGHTBOX MODAL */}
       <AnimatePresence>
         {selectedSpecService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-stone-950/85 backdrop-blur-xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[var(--color-surface-dark)]/85 backdrop-blur-xl">
             
             {/* Backdrop click to dismiss */}
             <div className="absolute inset-0 z-0" onClick={() => setSelectedSpecService(null)} />
@@ -901,12 +901,12 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-stone-950 border border-stone-800 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10 text-left space-y-8"
+              className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-[var(--color-surface-dark)] border border-stone-800 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10 text-left space-y-8"
             >
               {/* Modal Close Button */}
               <button
                 onClick={() => setSelectedSpecService(null)}
-                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-stone-900 border border-stone-700 hover:border-gold-accent text-stone-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-stone-900 border border-stone-700 hover:border-gold-accent text-[var(--color-text-muted)] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close Modal"
               >
                 <X size={18} />
@@ -948,7 +948,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                     <h4 className="text-xs font-bold font-mono text-stone-400 uppercase tracking-widest">
                       ARCHITECTURAL SCOPE &amp; FIDELITY
                     </h4>
-                    <p className="text-sm font-light text-stone-300 leading-relaxed">
+                    <p className="text-sm font-light text-[var(--color-text-muted)] leading-relaxed">
                       {selectedSpecService.description}
                     </p>
                   </div>
@@ -974,7 +974,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                         setSelectedSpecService(null);
                         handleOpenConsultation();
                       }}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gold-accent hover:bg-[#b0936b] text-stone-950 px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-xl"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-stone-950 px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-xl"
                     >
                       <span>Inquire About Service</span>
                       <ArrowRight size={14} />
@@ -982,7 +982,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
                     <button
                       onClick={() => setSelectedSpecService(null)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 border border-stone-700 text-stone-300 hover:text-white rounded-full text-xs font-mono tracking-wider uppercase transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 border border-stone-700 text-[var(--color-text-muted)] hover:text-white rounded-full text-xs font-mono tracking-wider uppercase transition-colors cursor-pointer"
                     >
                       Close Window
                     </button>
