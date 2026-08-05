@@ -109,7 +109,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 text-white ${
           isScrolled
-            ? "bg-[#0c0a09]/95 backdrop-blur-xl py-3 border-b border-white/10 shadow-md"
+            ? "bg-[#0c0a09]/80 backdrop-blur-xl py-3 border-b border-white/10 shadow-2xl"
             : "py-4"
         }`}
         id="app-header"
@@ -119,7 +119,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
           <div className={`flex items-center justify-between transition-all duration-500 ${
             isScrolled
               ? "py-0"
-              : "rounded-full border border-white/20 bg-[#0c0a09]/40 backdrop-blur-md py-3 px-5 shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
+              : "rounded-full border border-white/30 bg-white/20 backdrop-blur-xl py-3 px-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]"
           }`}>
             
             {/* 1. Logo (Left) */}
@@ -134,15 +134,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             </div>
 
             {/* 2. Desktop Navigation (Center) */}
-            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-stone-900/40 backdrop-blur-md p-1.5 rounded-full border border-white/15" id="header-desktop-nav">
+            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/20" id="header-desktop-nav">
               
               {/* 1. Studio */}
               <button
                 onClick={() => navigateToSection("home", null)}
                 className={`text-[12px] font-semibold tracking-wider transition-all duration-300 px-4 py-1.5 rounded-full cursor-pointer flex items-center gap-1.5 group ${
                   currentView === "home"
-                    ? "bg-[#c5a880] text-stone-950 font-bold shadow-sm shadow-[#c5a880]/30"
-                    : "text-white/90 hover:text-white hover:bg-white/10"
+                    ? "bg-[#c5a880] text-stone-950 font-extrabold shadow-md shadow-[#c5a880]/30"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
                 }`}
               >
                 <span className={`font-mono text-[9px] ${currentView === "home" ? "text-stone-950/80" : "text-[#c5a880] group-hover:text-[#c5a880]"}`}>01.</span>
@@ -158,8 +158,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   onClick={() => navigateToSection("services", null)}
                   className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
                     currentView === "services"
-                      ? "bg-[#c5a880] text-stone-950 font-bold shadow-sm shadow-[#c5a880]/30"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "bg-[#c5a880] text-stone-950 font-extrabold shadow-md shadow-[#c5a880]/30"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "services" ? "text-stone-950/80" : "text-[#c5a880] group-hover:text-[#c5a880]"}`}>02.</span>
@@ -168,60 +168,60 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </button>
                 
                 {/* Dropdown Box */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[740px] bg-[#0c0a09]/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-white/10 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[740px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
                   {/* Left Column */}
-                  <div className="w-[260px] bg-[#1c1917]/90 p-3 flex flex-col space-y-1.5 border-r border-white/10 shrink-0">
+                  <div className="w-[260px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveServices("INTERIOR WORK")}
                       onClick={() => navigateToSection("services", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "INTERIOR WORK" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeServices === "INTERIOR WORK" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Interior Work</span>
-                      <Paintbrush size={14} className={activeServices === "INTERIOR WORK" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Paintbrush size={14} className={activeServices === "INTERIOR WORK" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveServices("CARPENTRY")}
                       onClick={() => navigateToSection("services", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "CARPENTRY" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeServices === "CARPENTRY" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Carpentry</span>
-                      <Hammer size={14} className={activeServices === "CARPENTRY" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Hammer size={14} className={activeServices === "CARPENTRY" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveServices("PAINTING & FINISHING")}
                       onClick={() => navigateToSection("services", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "PAINTING & FINISHING" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeServices === "PAINTING & FINISHING" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Painting & Finishing</span>
-                      <Sparkles size={14} className={activeServices === "PAINTING & FINISHING" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Sparkles size={14} className={activeServices === "PAINTING & FINISHING" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveServices("FLOORING")}
                       onClick={() => navigateToSection("services", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "FLOORING" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeServices === "FLOORING" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Flooring</span>
-                      <Ruler size={14} className={activeServices === "FLOORING" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Ruler size={14} className={activeServices === "FLOORING" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
                   </div>
 
                   {/* Right Column */}
-                  <div className="flex-1 bg-[#0c0a09]/95 p-7 text-left flex flex-col justify-between relative overflow-hidden">
-                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/15 rounded-full blur-3xl pointer-events-none" />
-                    
+                  <div className="flex-1 bg-white/90 p-7 text-left flex flex-col justify-between relative overflow-hidden">
+                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/10 rounded-full blur-3xl pointer-events-none" />
+
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeServices}
                       </h4>
 
@@ -233,7 +233,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <button
                                 key={i}
                                 onClick={() => { navigateToSection("services", null); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } })); }, 150); }}
-                                className="text-left text-stone-400 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
+                                className="text-left text-stone-700 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]/60 group-hover/item:bg-[#c5a880] group-hover/item:scale-125 transition-all" />
                                 <span>{sub}</span>
@@ -251,7 +251,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <button
                                 key={i}
                                 onClick={() => { navigateToSection("services", null); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } })); }, 150); }}
-                                className="text-left text-stone-400 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
+                                className="text-left text-stone-700 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]/60 group-hover/item:bg-[#c5a880] group-hover/item:scale-125 transition-all" />
                                 <span>{sub}</span>
@@ -269,7 +269,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <button
                                 key={i}
                                 onClick={() => { navigateToSection("services", null); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } })); }, 150); }}
-                                className="text-left text-stone-400 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
+                                className="text-left text-stone-700 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]/60 group-hover/item:bg-[#c5a880] group-hover/item:scale-125 transition-all" />
                                 <span>{sub}</span>
@@ -287,7 +287,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <button
                                 key={i}
                                 onClick={() => { navigateToSection("services", null); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } })); }, 150); }}
-                                className="text-left text-stone-400 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
+                                className="text-left text-stone-700 hover:text-[#c5a880] text-[11px] font-medium tracking-wide transition-colors duration-200 py-1 uppercase flex items-center space-x-2 focus:outline-none cursor-pointer group/item"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]/60 group-hover/item:bg-[#c5a880] group-hover/item:scale-125 transition-all" />
                                 <span>{sub}</span>
@@ -300,7 +300,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     <button
                       onClick={() => navigateToSection("services", null)}
-                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-[#c5a880]/30 hover:border-[#c5a880] relative z-10 cursor-pointer"
+                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-stone-900 uppercase tracking-widest hover:text-[#c5a880] transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-stone-100 hover:bg-stone-200 px-4 py-2 rounded-xl border border-stone-200 relative z-10 cursor-pointer shadow-sm"
                     >
                       <span>View All Services</span>
                       <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -319,8 +319,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   onClick={() => navigateToSection("gallery", null)}
                   className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
                     currentView === "gallery"
-                      ? "bg-[#c5a880] text-stone-950 font-bold shadow-sm shadow-[#c5a880]/30"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "bg-[#c5a880] text-stone-950 font-extrabold shadow-md shadow-[#c5a880]/30"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "gallery" ? "text-stone-950/80" : "text-[#c5a880] group-hover:text-[#c5a880]"}`}>03.</span>
@@ -329,74 +329,74 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </button>
                 
                 {/* Dropdown Box */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[720px] bg-[#0c0a09]/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-white/10 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[720px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
                   
                   {/* Left Column */}
-                  <div className="w-[250px] bg-[#1c1917]/90 p-3 flex flex-col space-y-1.5 border-r border-white/10 shrink-0">
+                  <div className="w-[250px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveWork("RESIDENTIAL PROJECTS")}
                       onClick={() => navigateToSection("gallery", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "RESIDENTIAL PROJECTS" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeWork === "RESIDENTIAL PROJECTS" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Residential</span>
-                      <Compass size={14} className={activeWork === "RESIDENTIAL PROJECTS" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Compass size={14} className={activeWork === "RESIDENTIAL PROJECTS" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveWork("COMMERCIAL PROJECTS")}
                       onClick={() => navigateToSection("gallery", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "COMMERCIAL PROJECTS" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeWork === "COMMERCIAL PROJECTS" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Commercial</span>
-                      <Grid size={14} className={activeWork === "COMMERCIAL PROJECTS" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Grid size={14} className={activeWork === "COMMERCIAL PROJECTS" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveWork("BEFORE & AFTER")}
                       onClick={() => navigateToSection("gallery", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "BEFORE & AFTER" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeWork === "BEFORE & AFTER" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Before & After</span>
-                      <Sparkles size={14} className={activeWork === "BEFORE & AFTER" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Sparkles size={14} className={activeWork === "BEFORE & AFTER" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveWork("CLIENT CASE STUDIES")}
                       onClick={() => navigateToSection("blog", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "CLIENT CASE STUDIES" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeWork === "CLIENT CASE STUDIES" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Case Studies</span>
-                      <BookOpen size={14} className={activeWork === "CLIENT CASE STUDIES" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <BookOpen size={14} className={activeWork === "CLIENT CASE STUDIES" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
                   </div>
 
                   {/* Right Column */}
-                  <div className="flex-1 bg-[#0c0a09]/95 p-7 text-left flex flex-col justify-between relative overflow-hidden">
-                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/15 rounded-full blur-3xl pointer-events-none" />
+                  <div className="flex-1 bg-white/90 p-7 text-left flex flex-col justify-between relative overflow-hidden">
+                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeWork}
                       </h4>
 
                       {activeWork === "RESIDENTIAL PROJECTS" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">LUXURY HOMES & VILLAS</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Step inside our curated catalog of ultra-luxury residential properties, sea-facing duplexes in Bandra, high-end penthouses, and bespoke timber integrations.
                           </p>
                           <div className="pt-2 flex flex-wrap gap-2">
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Sea-Facing Duplexes</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Penthouses</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Villas</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Sea-Facing Duplexes</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Penthouses</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Villas</span>
                           </div>
                         </div>
                       )}
@@ -404,13 +404,13 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeWork === "COMMERCIAL PROJECTS" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">INSPIRING SPACES FOR BRANDS</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Explore ergonomically structured workspaces, high-end design galleries, custom retail flagships, and premium offices curated for optimal flow and luxury aesthetic.
                           </p>
                           <div className="pt-2 flex flex-wrap gap-2">
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Corporate HQ</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Retail Flagships</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Galleries</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Corporate HQ</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Retail Flagships</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Galleries</span>
                           </div>
                         </div>
                       )}
@@ -418,12 +418,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeWork === "BEFORE & AFTER" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">ON-SITE STRUCTURAL MAGIC</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Examine high-fidelity case portfolios of on-site structural magic, transitioning hollow concrete shells into meticulously tailored luxury spaces.
                           </p>
                           <div className="pt-2 flex flex-wrap gap-2">
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Turnkey Remodels</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-white/5 rounded border border-white/10 text-[#c5a880]">Raw Shells</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Turnkey Remodels</span>
+                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-[#b0936b] font-semibold">Raw Shells</span>
                           </div>
                         </div>
                       )}
@@ -431,7 +431,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeWork === "CLIENT CASE STUDIES" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">WALKTHROUGHS & SITE LOGS</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Read deep developmental studies mapping material sourcing challenges, carpentry joinery blueprints, site hurdles, and premium spatial deliveries.
                           </p>
                         </div>
@@ -440,7 +440,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     <button
                       onClick={() => navigateToSection("gallery", null)}
-                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-[#c5a880]/30 hover:border-[#c5a880] relative z-10 cursor-pointer"
+                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-stone-900 uppercase tracking-widest hover:text-[#c5a880] transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-stone-100 hover:bg-stone-200 px-4 py-2 rounded-xl border border-stone-200 relative z-10 cursor-pointer shadow-sm"
                     >
                       <span>View Project Gallery</span>
                       <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -459,8 +459,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   onClick={() => navigateToSection("about-us", null)}
                   className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
                     currentView === "about-us" || currentView === "faqs"
-                      ? "bg-[#c5a880] text-stone-950 font-bold shadow-sm shadow-[#c5a880]/30"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "bg-[#c5a880] text-stone-950 font-extrabold shadow-md shadow-[#c5a880]/30"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "about-us" || currentView === "faqs" ? "text-stone-950/80" : "text-[#c5a880] group-hover:text-[#c5a880]"}`}>04.</span>
@@ -469,68 +469,68 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </button>
                 
                 {/* Dropdown Box */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] bg-[#0c0a09]/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-white/10 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
                   
                   {/* Left Column */}
-                  <div className="w-[240px] bg-[#1c1917]/90 p-3 flex flex-col space-y-1.5 border-r border-white/10 shrink-0">
+                  <div className="w-[240px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveAbout("OUR STORY")}
                       onClick={() => navigateToSection("about-us", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "OUR STORY" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeAbout === "OUR STORY" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>About Us</span>
-                      <Compass size={14} className={activeAbout === "OUR STORY" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Compass size={14} className={activeAbout === "OUR STORY" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveAbout("OUR TEAM")}
                       onClick={() => navigateToSection("about-us", "#team")}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "OUR TEAM" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeAbout === "OUR TEAM" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Our Team</span>
-                      <Users size={14} className={activeAbout === "OUR TEAM" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Users size={14} className={activeAbout === "OUR TEAM" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveAbout("WHY CHOOSE US")}
                       onClick={() => navigateToSection("about-us", "#about-story")}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "WHY CHOOSE US" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeAbout === "WHY CHOOSE US" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Why Choose Us</span>
-                      <Award size={14} className={activeAbout === "WHY CHOOSE US" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Award size={14} className={activeAbout === "WHY CHOOSE US" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveAbout("TESTIMONIALS")}
                       onClick={() => navigateToSection("faqs", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "TESTIMONIALS" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeAbout === "TESTIMONIALS" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>FAQs & Info</span>
-                      <Check size={14} className={activeAbout === "TESTIMONIALS" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Check size={14} className={activeAbout === "TESTIMONIALS" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
                   </div>
 
                   {/* Right Column */}
-                  <div className="flex-1 bg-[#0c0a09]/95 p-7 text-left flex flex-col justify-between relative overflow-hidden">
-                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/15 rounded-full blur-3xl pointer-events-none" />
+                  <div className="flex-1 bg-white/90 p-7 text-left flex flex-col justify-between relative overflow-hidden">
+                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeAbout}
                       </h4>
                       
                       {activeAbout === "OUR STORY" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">GENERATIONAL HERITAGE SINCE 1989</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Founded in 1989 by master artisan Ravalram H. Suthar, we have spent over 30 years perfecting the art of bespoke timber joinery and luxury interior solutions.
                           </p>
                         </div>
@@ -539,7 +539,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeAbout === "OUR TEAM" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">LEADERS & ARCHITECTS</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Led by Shivkumar Suthar and lead architect Padam P. Sutar, our team blends legacy Indian woodcraft with contemporary computational CAD and interior spatial architecture.
                           </p>
                         </div>
@@ -548,7 +548,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeAbout === "WHY CHOOSE US" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">30+ YEARS OF UNCOMPROMISING TRUST</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             We guarantee architect-supervised construction sites, absolute 100% material authentication, clear Bill of Quantities (BOQ), and highly durable timber structures.
                           </p>
                         </div>
@@ -557,7 +557,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeAbout === "TESTIMONIALS" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">QUESTIONS & ANSWERS</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Find details about project timelines, design consultation steps, warranty details, and site supervision policies.
                           </p>
                         </div>
@@ -566,7 +566,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     <button
                       onClick={() => navigateToSection("about-us", null)}
-                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-[#c5a880]/30 hover:border-[#c5a880] relative z-10 cursor-pointer"
+                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-stone-900 uppercase tracking-widest hover:text-[#c5a880] transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-stone-100 hover:bg-stone-200 px-4 py-2 rounded-xl border border-stone-200 relative z-10 cursor-pointer shadow-sm"
                     >
                       <span>Discover More</span>
                       <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -582,8 +582,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   onClick={() => navigateToSection("blog", null)}
                   className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
                     currentView === "blog"
-                      ? "bg-[#c5a880] text-stone-950 font-bold shadow-sm shadow-[#c5a880]/30"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "bg-[#c5a880] text-stone-950 font-extrabold shadow-md shadow-[#c5a880]/30"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "blog" ? "text-stone-950/80" : "text-[#c5a880] group-hover:text-[#c5a880]"}`}>05.</span>
@@ -592,10 +592,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </button>
 
                 {/* Blog Megamenu */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[640px] bg-[#0c0a09]/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-white/10 p-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-left">
-                  <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[640px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-stone-200/80 p-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-left text-stone-900">
+                  <div className="flex items-center justify-between pb-3 border-b border-stone-200/80 mb-4">
                     <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase">Architectural Journal & Insights</span>
-                    <button onClick={() => navigateToSection("blog", null)} className="text-[10px] font-mono uppercase tracking-widest text-stone-400 hover:text-[#c5a880] flex items-center gap-1 cursor-pointer">
+                    <button onClick={() => navigateToSection("blog", null)} className="text-[10px] font-mono uppercase tracking-widest text-stone-600 hover:text-[#c5a880] flex items-center gap-1 cursor-pointer">
                       <span>View All Articles</span>
                       <ArrowRight size={10} />
                     </button>
@@ -604,26 +604,26 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div className="grid grid-cols-2 gap-4">
                     <div 
                       onClick={() => navigateToSection("blog", null)}
-                      className="p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#c5a880]/50 transition-all duration-300 cursor-pointer group/card"
+                      className="p-3.5 rounded-2xl bg-stone-50/90 hover:bg-white border border-stone-200 hover:border-[#c5a880]/50 transition-all duration-300 cursor-pointer group/card shadow-sm"
                     >
                       <span className="text-[9px] font-mono text-[#c5a880] uppercase tracking-widest block mb-1">Woodcraft Blueprints</span>
-                      <h5 className="text-xs font-serif font-bold text-white group-hover/card:text-[#c5a880] transition-colors line-clamp-1 mb-1">
+                      <h5 className="text-xs font-serif font-bold text-stone-900 group-hover/card:text-[#c5a880] transition-colors line-clamp-1 mb-1">
                         Mastering Teak Joinery & Timber Durability
                       </h5>
-                      <p className="text-[11px] text-stone-400 leading-snug line-clamp-2 font-light">
+                      <p className="text-[11px] text-stone-600 leading-snug line-clamp-2 font-light">
                         A deep-dive guide on traditional mortise and tenon joinery techniques used in 30+ year homes.
                       </p>
                     </div>
 
                     <div 
                       onClick={() => navigateToSection("blog", null)}
-                      className="p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#c5a880]/50 transition-all duration-300 cursor-pointer group/card"
+                      className="p-3.5 rounded-2xl bg-stone-50/90 hover:bg-white border border-stone-200 hover:border-[#c5a880]/50 transition-all duration-300 cursor-pointer group/card shadow-sm"
                     >
                       <span className="text-[9px] font-mono text-[#c5a880] uppercase tracking-widest block mb-1">Spatial Design</span>
-                      <h5 className="text-xs font-serif font-bold text-white group-hover/card:text-[#c5a880] transition-colors line-clamp-1 mb-1">
+                      <h5 className="text-xs font-serif font-bold text-stone-900 group-hover/card:text-[#c5a880] transition-colors line-clamp-1 mb-1">
                         2026 Luxury Villa Architecture Trends
                       </h5>
-                      <p className="text-[11px] text-stone-400 leading-snug line-clamp-2 font-light">
+                      <p className="text-[11px] text-stone-600 leading-snug line-clamp-2 font-light">
                         Integrating double-height living layouts with natural lighting and acoustic wood wall paneling.
                       </p>
                     </div>
@@ -640,8 +640,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   onClick={() => navigateToSection("contact", null)}
                   className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
                     currentView === "contact"
-                      ? "bg-[#c5a880] text-stone-950 font-bold shadow-sm shadow-[#c5a880]/30"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "bg-[#c5a880] text-stone-950 font-extrabold shadow-md shadow-[#c5a880]/30"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "contact" ? "text-stone-950/80" : "text-[#c5a880] group-hover:text-[#c5a880]"}`}>06.</span>
@@ -650,79 +650,79 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </button>
                 
                 {/* Dropdown Box */}
-                <div className="absolute top-full right-0 mt-4 w-[700px] bg-[#0c0a09]/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-white/10 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                <div className="absolute top-full right-0 mt-4 w-[700px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-[#c5a880] border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
                   
                   {/* Left Column */}
-                  <div className="w-[240px] bg-[#1c1917]/90 p-3 flex flex-col space-y-1.5 border-r border-white/10 shrink-0">
+                  <div className="w-[240px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveContact("REQUEST A QUOTE")}
                       onClick={() => navigateToSection("contact", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "REQUEST A QUOTE" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeContact === "REQUEST A QUOTE" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Request A Quote</span>
-                      <Sparkles size={14} className={activeContact === "REQUEST A QUOTE" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Sparkles size={14} className={activeContact === "REQUEST A QUOTE" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveContact("BOOK A CONSULTATION")}
                       onClick={handleOpenConsultModal}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "BOOK A CONSULTATION" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeContact === "BOOK A CONSULTATION" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Consultation</span>
-                      <Calendar size={14} className={activeContact === "BOOK A CONSULTATION" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Calendar size={14} className={activeContact === "BOOK A CONSULTATION" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveContact("FAQS")}
                       onClick={() => navigateToSection("faqs", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "FAQS" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeContact === "FAQS" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>FAQs</span>
-                      <HelpCircle size={14} className={activeContact === "FAQS" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <HelpCircle size={14} className={activeContact === "FAQS" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveContact("SERVICE AREAS")}
                       onClick={() => navigateToSection("contact", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "SERVICE AREAS" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeContact === "SERVICE AREAS" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Service Areas</span>
-                      <Compass size={14} className={activeContact === "SERVICE AREAS" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Compass size={14} className={activeContact === "SERVICE AREAS" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
 
                     <button
                       onMouseEnter={() => setActiveContact("FEEDBACK")}
                       onClick={() => navigateToSection("contact", null)}
                       className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "FEEDBACK" ? "bg-[#c5a880]/20 text-[#c5a880] border-l-2 border-[#c5a880] shadow-sm" : "text-stone-400 hover:text-white hover:bg-white/5"
+                        activeContact === "FEEDBACK" ? "bg-[#c5a880]/20 text-stone-950 font-bold border-l-2 border-[#c5a880] shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
                       }`}
                     >
                       <span>Feedback</span>
-                      <Mail size={14} className={activeContact === "FEEDBACK" ? "text-[#c5a880]" : "text-stone-500"} />
+                      <Mail size={14} className={activeContact === "FEEDBACK" ? "text-[#c5a880]" : "text-stone-400"} />
                     </button>
                   </div>
 
                   {/* Right Column */}
-                  <div className="flex-1 bg-[#0c0a09]/95 p-7 text-left flex flex-col justify-between relative overflow-hidden">
-                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/15 rounded-full blur-3xl pointer-events-none" />
+                  <div className="flex-1 bg-white/90 p-7 text-left flex flex-col justify-between relative overflow-hidden">
+                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#c5a880]/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-white tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeContact}
                       </h4>
 
                       {activeContact === "REQUEST A QUOTE" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">TRANSPARENT ESTIMATION PROPOSAL</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Submit your residential measurements, room layouts, and wood styling preferences. Our team will prepare a transparent, itemized estimation proposal.
                           </p>
                         </div>
@@ -731,7 +731,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeContact === "BOOK A CONSULTATION" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">SCHEDULE AN ON-SITE SURVEY</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Book a premium consultation window with lead woodcrafters to map material quality guidelines and secure an architect-supervised work plan.
                           </p>
                         </div>
@@ -740,7 +740,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeContact === "FAQS" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">ANSWERS TO RAW TIMBER QUESTIONS</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Explore helpful answers concerning carpentry execution maps, our signature 10-year timber warranties, procurement protocols, and turnkey delivery times.
                           </p>
                         </div>
@@ -749,7 +749,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeContact === "SERVICE AREAS" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">REGIONAL SHOWROOM COVERAGE</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             Our master woodcraft services run across Mumbai (Bandra, Juhu, Santacruz West), Pune core zones, Goa villas, and custom structural exports across India.
                           </p>
                         </div>
@@ -758,7 +758,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       {activeContact === "FEEDBACK" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-[#c5a880] font-bold tracking-[0.2em] uppercase block">HELP US DEEPEN GENERATIONAL TRUST</span>
-                          <p className="text-xs text-stone-400 leading-relaxed font-light">
+                          <p className="text-xs text-stone-600 leading-relaxed font-light">
                             We believe in honest, uncompromising craft standards. Share your spatial remodeling experiences or showroom service feedback directly with our directors.
                           </p>
                         </div>
@@ -771,7 +771,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         else if (activeContact === "FAQS") navigateToSection("faqs", null);
                         else navigateToSection("contact", null);
                       }}
-                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-[#c5a880] uppercase tracking-widest hover:text-white transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-[#c5a880]/30 hover:border-[#c5a880] relative z-10 cursor-pointer"
+                      className="group/btn inline-flex items-center space-x-2 text-[11px] font-bold text-stone-900 uppercase tracking-widest hover:text-[#c5a880] transition-colors duration-300 text-left mt-6 self-start focus:outline-none bg-stone-100 hover:bg-stone-200 px-4 py-2 rounded-xl border border-stone-200 relative z-10 cursor-pointer shadow-sm"
                     >
                       <span>Connect Now</span>
                       <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -789,7 +789,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 href={`tel:${COMPANY_INFO.phoneFormatted}`}
                 className="flex items-center space-x-2.5 group"
               >
-                <div className="w-9 h-9 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white group-hover:border-[#c5a880] group-hover:bg-[#c5a880] group-hover:text-stone-950 transition-all duration-300">
+                <div className="w-9 h-9 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white group-hover:border-[#c5a880] group-hover:bg-[#c5a880] group-hover:text-stone-950 transition-all duration-300">
                   <Phone size={14} />
                 </div>
                 <div className="flex flex-col text-left leading-none">
@@ -812,7 +812,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             {/* Mobile Menu Trigger */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden w-11 h-11 xs:w-12 xs:h-12 text-white bg-white/10 hover:bg-[#c5a880] hover:text-stone-950 rounded-full transition-all duration-300 cursor-pointer border border-white/20 flex items-center justify-center shrink-0 shadow-md backdrop-blur-md"
+              className="lg:hidden w-11 h-11 xs:w-12 xs:h-12 text-white bg-white/15 hover:bg-[#c5a880] hover:text-stone-950 rounded-full transition-all duration-300 cursor-pointer border border-white/20 flex items-center justify-center shrink-0 shadow-md backdrop-blur-md"
               id="mobile-menu-trigger"
               aria-label="Open Mobile Menu"
             >
@@ -825,11 +825,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
       {/* Full-Width Mobile Menu Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 top-0 left-0 right-0 bottom-0 z-[100] lg:hidden text-white overflow-y-auto overscroll-contain bg-[#181512] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="mobile-menu-drawer-portal">
+          <div className="fixed inset-0 top-0 left-0 right-0 bottom-0 z-[100] lg:hidden text-stone-900 overflow-y-auto overscroll-contain bg-white/95 backdrop-blur-3xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="mobile-menu-drawer-portal">
             
-            {/* Softer Warm Dark Studio Backdrop */}
-            <div className="absolute inset-0 bg-[#181512]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#24201c] via-[#181512] to-[#12100e]" />
+            {/* White Glassy Backdrop */}
+            <div className="absolute inset-0 bg-white/90 backdrop-blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-b from-stone-100/90 via-white/95 to-stone-50/95" />
 
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -840,7 +840,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             >
               {/* Header Bar */}
               <div>
-                <div className="flex items-center justify-between pb-5 mb-6 border-b border-[#38332e]">
+                <div className="flex items-center justify-between pb-5 mb-6 border-b border-stone-200/80">
                   <button
                     onClick={() => {
                       navigateToSection("home", null);
@@ -848,13 +848,13 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     }}
                     className="text-left cursor-pointer focus:outline-none"
                   >
-                    <BrandLogo size="md" />
+                    <BrandLogo size="md" darkText={true} />
                   </button>
                   
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="p-2.5 text-white bg-[#282420] hover:bg-[#c5a880] hover:text-stone-950 rounded-full transition-all duration-300 cursor-pointer border border-[#3d3732] flex items-center justify-center shrink-0 shadow-lg group"
+                      className="p-2.5 text-stone-800 bg-stone-100 hover:bg-[#c5a880] hover:text-stone-950 rounded-full transition-all duration-300 cursor-pointer border border-stone-200 flex items-center justify-center shrink-0 shadow-sm group"
                       aria-label="Close Mobile Menu"
                     >
                       <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
@@ -871,17 +871,17 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       navigateToSection("home", null);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-xl group text-left cursor-pointer ${
-                      currentView === "home" ? "border-[#c5a880] bg-[#282420] ring-1 ring-[#c5a880]/50" : "border-[#38332e] bg-[#221e1a]/90 hover:border-[#c5a880]/60"
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
+                      currentView === "home" ? "border-[#c5a880] bg-white ring-1 ring-[#c5a880]/50" : "border-stone-200 bg-stone-50/90 hover:border-[#c5a880]/60"
                     }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
                       alt="Suthar Studio"
-                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-35 group-hover:opacity-50"
+                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-25 group-hover:opacity-40"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#181512] via-[#181512]/85 to-transparent group-hover:from-[#181512]/90 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/60 to-transparent group-hover:from-stone-900/90 transition-all duration-300" />
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/40 flex items-center justify-center shrink-0 shadow-inner">
@@ -896,12 +896,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-[#c5a880] px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
-                          <p className="text-[11px] text-stone-400 font-sans tracking-wide line-clamp-1">
+                          <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
                             Overview, Flagship Entry & Spatial Vision
                           </p>
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-stone-800 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
+                      <div className="w-8 h-8 rounded-full bg-stone-800/80 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-white flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
                         <ArrowRight size={14} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </div>
                     </div>
@@ -911,17 +911,17 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div>
                     <div
                       onClick={() => setIsServicesSubOpen(!isServicesSubOpen)}
-                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-xl group text-left cursor-pointer ${
-                        currentView === "services" ? "border-[#c5a880] bg-[#282420] ring-1 ring-[#c5a880]/50" : "border-[#38332e] bg-[#221e1a]/90 hover:border-[#c5a880]/60"
+                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
+                        currentView === "services" ? "border-[#c5a880] bg-white ring-1 ring-[#c5a880]/50" : "border-stone-200 bg-stone-50/90 hover:border-[#c5a880]/60"
                       }`}
                     >
                       <img
                         src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop"
                         alt="Suthar Expertise"
-                        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-35 group-hover:opacity-50"
+                        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-25 group-hover:opacity-40"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#181512] via-[#181512]/85 to-transparent group-hover:from-[#181512]/90 transition-all duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/60 to-transparent group-hover:from-stone-900/90 transition-all duration-300" />
                       <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                         <div className="flex items-center space-x-3.5">
                           <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/40 flex items-center justify-center shrink-0 shadow-inner">
@@ -932,16 +932,16 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-[#c5a880] transition-colors">
                                 Expertise
                               </h3>
-                              <span className="text-[9px] font-mono font-medium text-[#c5a880]/90 bg-[#c5a880]/10 px-2 py-0.5 rounded-full border border-[#c5a880]/20">
+                              <span className="text-[9px] font-mono font-medium text-[#c5a880] bg-[#c5a880]/20 px-2 py-0.5 rounded-full border border-[#c5a880]/30">
                                 Turnkey & Joinery
                               </span>
                             </div>
-                            <p className="text-[11px] text-stone-300 font-sans tracking-wide line-clamp-1">
+                            <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
                               Architectural Design, Timber Joinery & Layouts
                             </p>
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-full bg-[#2d2824] group-hover:bg-[#c5a880] group-hover:text-stone-950 text-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0 border border-[#403a35] group-hover:border-[#c5a880]">
+                        <div className="w-8 h-8 rounded-full bg-stone-800/80 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-white flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
                           <ChevronDown size={16} className={`transform transition-transform duration-300 ${isServicesSubOpen ? "rotate-180 text-[#c5a880] group-hover:text-stone-950" : ""}`} />
                         </div>
                       </div>
@@ -952,44 +952,44 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-2.5 ml-3 pl-4 border-l-2 border-[#c5a880]/30 space-y-2"
+                        className="mt-2.5 ml-3 pl-4 border-l-2 border-[#c5a880]/40 space-y-2"
                       >
                         <button
                           onClick={() => { navigateToSection("services", null); setIsMobileMenuOpen(false); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#282420] hover:bg-[#c5a880]/20 border border-[#38332e] hover:border-[#c5a880]/40 flex items-center justify-between text-xs font-medium text-[#c5a880] transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-[#c5a880]/15 border border-stone-200 hover:border-[#c5a880]/40 flex items-center justify-between text-xs font-semibold text-[#b0936b] transition-all cursor-pointer shadow-sm"
                         >
                           <span>Explore All Architectural Capabilities</span>
                           <ArrowRight size={12} />
                         </button>
                         <button
                           onClick={() => { navigateToSection("services", null); setIsMobileMenuOpen(false); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } })); }, 150); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#221e1a] hover:bg-[#2c2722] border border-[#38332e] flex items-center justify-between text-xs font-medium text-stone-300 hover:text-white transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 flex items-center justify-between text-xs font-medium text-stone-700 hover:text-stone-950 transition-all cursor-pointer shadow-sm"
                         >
                           <span className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
                             <span>Interior Design & Concept Masterplanning</span>
                           </span>
-                          <ArrowRight size={12} className="text-stone-500" />
+                          <ArrowRight size={12} className="text-stone-400" />
                         </button>
                         <button
                           onClick={() => { navigateToSection("services", null); setIsMobileMenuOpen(false); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } })); }, 150); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#221e1a] hover:bg-[#2c2722] border border-[#38332e] flex items-center justify-between text-xs font-medium text-stone-300 hover:text-white transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 flex items-center justify-between text-xs font-medium text-stone-700 hover:text-stone-950 transition-all cursor-pointer shadow-sm"
                         >
                           <span className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
                             <span>Bespoke Timber Carpentry & Joinery</span>
                           </span>
-                          <ArrowRight size={12} className="text-stone-500" />
+                          <ArrowRight size={12} className="text-stone-400" />
                         </button>
                         <button
                           onClick={() => { navigateToSection("services", null); setIsMobileMenuOpen(false); setTimeout(() => { window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } })); }, 150); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#221e1a] hover:bg-[#2c2722] border border-[#38332e] flex items-center justify-between text-xs font-medium text-stone-300 hover:text-white transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 flex items-center justify-between text-xs font-medium text-stone-700 hover:text-stone-950 transition-all cursor-pointer shadow-sm"
                         >
                           <span className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
                             <span>Fine Wall Coatings & Marble Installation</span>
                           </span>
-                          <ArrowRight size={12} className="text-stone-500" />
+                          <ArrowRight size={12} className="text-stone-400" />
                         </button>
                       </motion.div>
                     )}
@@ -998,17 +998,17 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   {/* Card 03: Portfolio */}
                   <div
                     onClick={() => { navigateToSection("gallery", null); setIsMobileMenuOpen(false); }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-xl group text-left cursor-pointer ${
-                      currentView === "gallery" ? "border-[#c5a880] bg-[#282420] ring-1 ring-[#c5a880]/50" : "border-[#38332e] bg-[#221e1a]/90 hover:border-[#c5a880]/60"
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
+                      currentView === "gallery" ? "border-[#c5a880] bg-white ring-1 ring-[#c5a880]/50" : "border-stone-200 bg-stone-50/90 hover:border-[#c5a880]/60"
                     }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
                       alt="Suthar Portfolio"
-                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-35 group-hover:opacity-50"
+                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-25 group-hover:opacity-40"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#181512] via-[#181512]/85 to-transparent group-hover:from-[#181512]/90 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/60 to-transparent group-hover:from-stone-900/90 transition-all duration-300" />
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/40 flex items-center justify-center shrink-0 shadow-inner">
@@ -1023,12 +1023,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-[#c5a880] px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
-                          <p className="text-[11px] text-stone-300 font-sans tracking-wide line-clamp-1">
+                          <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
                             500+ Sea-Facing Villas, Penthouses & Offices
                           </p>
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-[#2d2824] group-hover:bg-[#c5a880] group-hover:text-stone-950 text-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0 border border-[#403a35] group-hover:border-[#c5a880]">
+                      <div className="w-8 h-8 rounded-full bg-stone-800/80 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-white flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
                         <ArrowRight size={14} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </div>
                     </div>
@@ -1038,17 +1038,17 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div>
                     <div
                       onClick={() => setIsPagesSubOpen(!isPagesSubOpen)}
-                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-xl group text-left cursor-pointer ${
-                        currentView === "about-us" || currentView === "faqs" ? "border-[#c5a880] bg-[#282420] ring-1 ring-[#c5a880]/50" : "border-[#38332e] bg-[#221e1a]/90 hover:border-[#c5a880]/60"
+                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
+                        currentView === "about-us" || currentView === "faqs" ? "border-[#c5a880] bg-white ring-1 ring-[#c5a880]/50" : "border-stone-200 bg-stone-50/90 hover:border-[#c5a880]/60"
                       }`}
                     >
                       <img
                         src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop"
                         alt="Suthar Heritage"
-                        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-35 group-hover:opacity-50"
+                        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-25 group-hover:opacity-40"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#181512] via-[#181512]/85 to-transparent group-hover:from-[#181512]/90 transition-all duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/60 to-transparent group-hover:from-stone-900/90 transition-all duration-300" />
                       <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                         <div className="flex items-center space-x-3.5">
                           <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/40 flex items-center justify-center shrink-0 shadow-inner">
@@ -1059,16 +1059,16 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-[#c5a880] transition-colors">
                                 Heritage
                               </h3>
-                              <span className="text-[9px] font-mono font-medium text-stone-300 bg-[#2d2824] px-2 py-0.5 rounded-full border border-[#403a35]">
+                              <span className="text-[9px] font-mono font-medium text-[#c5a880] bg-[#c5a880]/20 px-2 py-0.5 rounded-full border border-[#c5a880]/30">
                                 Since 1989
                               </span>
                             </div>
-                            <p className="text-[11px] text-stone-300 font-sans tracking-wide line-clamp-1">
+                            <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
                               Multi-Generational Guild & Founder's Story
                             </p>
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-full bg-[#2d2824] group-hover:bg-[#c5a880] group-hover:text-stone-950 text-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0 border border-[#403a35] group-hover:border-[#c5a880]">
+                        <div className="w-8 h-8 rounded-full bg-stone-800/80 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-white flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
                           <ChevronDown size={16} className={`transform transition-transform duration-300 ${isPagesSubOpen ? "rotate-180 text-[#c5a880] group-hover:text-stone-950" : ""}`} />
                         </div>
                       </div>
@@ -1079,34 +1079,34 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-2.5 ml-3 pl-4 border-l-2 border-[#c5a880]/30 space-y-2"
+                        className="mt-2.5 ml-3 pl-4 border-l-2 border-[#c5a880]/40 space-y-2"
                       >
                         <button
                           onClick={() => { navigateToSection("about-us", null); setIsMobileMenuOpen(false); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#282420] hover:bg-[#c5a880]/20 border border-[#38332e] hover:border-[#c5a880]/40 flex items-center justify-between text-xs font-medium text-[#c5a880] transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-[#c5a880]/15 border border-stone-200 hover:border-[#c5a880]/40 flex items-center justify-between text-xs font-semibold text-[#b0936b] transition-all cursor-pointer shadow-sm"
                         >
                           <span>Generational Guild Story & Inception</span>
                           <ArrowRight size={12} />
                         </button>
                         <button
                           onClick={() => { navigateToSection("about-us", "#team"); setIsMobileMenuOpen(false); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#221e1a] hover:bg-[#2c2722] border border-[#38332e] flex items-center justify-between text-xs font-medium text-stone-300 hover:text-white transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 flex items-center justify-between text-xs font-medium text-stone-700 hover:text-stone-950 transition-all cursor-pointer shadow-sm"
                         >
                           <span className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
                             <span>Lead Architects & Master Woodworkers</span>
                           </span>
-                          <ArrowRight size={12} className="text-stone-500" />
+                          <ArrowRight size={12} className="text-stone-400" />
                         </button>
                         <button
                           onClick={() => { navigateToSection("faqs", null); setIsMobileMenuOpen(false); }}
-                          className="w-full text-left p-2.5 rounded-xl bg-[#221e1a] hover:bg-[#2c2722] border border-[#38332e] flex items-center justify-between text-xs font-medium text-stone-300 hover:text-white transition-all cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 flex items-center justify-between text-xs font-medium text-stone-700 hover:text-stone-950 transition-all cursor-pointer shadow-sm"
                         >
                           <span className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
                             <span>Frequently Asked Questions & Guidelines</span>
                           </span>
-                          <ArrowRight size={12} className="text-stone-500" />
+                          <ArrowRight size={12} className="text-stone-400" />
                         </button>
                       </motion.div>
                     )}
@@ -1115,17 +1115,17 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   {/* Card 05: Journal */}
                   <div
                     onClick={() => { navigateToSection("blog", null); setIsMobileMenuOpen(false); }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-xl group text-left cursor-pointer ${
-                      currentView === "blog" ? "border-[#c5a880] bg-[#282420] ring-1 ring-[#c5a880]/50" : "border-[#38332e] bg-[#221e1a]/90 hover:border-[#c5a880]/60"
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
+                      currentView === "blog" ? "border-[#c5a880] bg-white ring-1 ring-[#c5a880]/50" : "border-stone-200 bg-stone-50/90 hover:border-[#c5a880]/60"
                     }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=800&auto=format&fit=crop"
                       alt="Suthar Journal"
-                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-35 group-hover:opacity-50"
+                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-25 group-hover:opacity-40"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#181512] via-[#181512]/85 to-transparent group-hover:from-[#181512]/90 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/60 to-transparent group-hover:from-stone-900/90 transition-all duration-300" />
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/40 flex items-center justify-center shrink-0 shadow-inner">
@@ -1140,12 +1140,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-[#c5a880] px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
-                          <p className="text-[11px] text-stone-300 font-sans tracking-wide line-clamp-1">
+                          <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
                             Editorial Insights, Woodcraft & Spatial Articles
                           </p>
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-[#2d2824] group-hover:bg-[#c5a880] group-hover:text-stone-950 text-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0 border border-[#403a35] group-hover:border-[#c5a880]">
+                      <div className="w-8 h-8 rounded-full bg-stone-800/80 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-white flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
                         <ArrowRight size={14} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </div>
                     </div>
@@ -1154,17 +1154,17 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   {/* Card 06: Inquire */}
                   <div
                     onClick={() => { navigateToSection("contact", null); setIsMobileMenuOpen(false); }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-xl group text-left cursor-pointer ${
-                      currentView === "contact" ? "border-[#c5a880] bg-[#282420] ring-1 ring-[#c5a880]/50" : "border-[#38332e] bg-[#221e1a]/90 hover:border-[#c5a880]/60"
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
+                      currentView === "contact" ? "border-[#c5a880] bg-white ring-1 ring-[#c5a880]/50" : "border-stone-200 bg-stone-50/90 hover:border-[#c5a880]/60"
                     }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800&auto=format&fit=crop"
                       alt="Suthar Inquire"
-                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-35 group-hover:opacity-50"
+                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-25 group-hover:opacity-40"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#181512] via-[#181512]/85 to-transparent group-hover:from-[#181512]/90 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/60 to-transparent group-hover:from-stone-900/90 transition-all duration-300" />
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/40 flex items-center justify-center shrink-0 shadow-inner">
@@ -1179,12 +1179,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                               <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-[#c5a880] px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
-                          <p className="text-[11px] text-stone-300 font-sans tracking-wide line-clamp-1">
+                          <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
                             Book Showroom Consultations & Blueprint Quotes
                           </p>
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-[#2d2824] group-hover:bg-[#c5a880] group-hover:text-stone-950 text-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0 border border-[#403a35] group-hover:border-[#c5a880]">
+                      <div className="w-8 h-8 rounded-full bg-stone-800/80 group-hover:bg-[#c5a880] group-hover:text-stone-950 text-white flex items-center justify-center transition-all duration-300 shrink-0 border border-stone-700 group-hover:border-[#c5a880]">
                         <ArrowRight size={14} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </div>
                     </div>
@@ -1194,23 +1194,23 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </div>
 
               {/* Bottom Quick Contact & Action Bar */}
-              <div className="border-t border-stone-800 pt-6 mt-8 space-y-4">
-                <div className="flex flex-col items-center justify-center gap-1.5 text-center text-xs text-stone-400 font-mono">
+              <div className="border-t border-stone-200 pt-6 mt-8 space-y-4">
+                <div className="flex flex-col items-center justify-center gap-1.5 text-center text-xs text-stone-600 font-mono">
                   <a
                     href={`tel:${COMPANY_INFO.phoneFormatted}`}
-                    className="flex items-center text-stone-300 hover:text-[#c5a880] transition-colors duration-300"
+                    className="flex items-center text-stone-900 hover:text-[#c5a880] transition-colors duration-300 font-bold"
                   >
                     <Phone size={13} className="mr-2 text-[#c5a880]" />
                     <span>{COMPANY_INFO.phone}</span>
                   </a>
-                  <span className="text-stone-400 text-[11px]">
+                  <span className="text-stone-500 text-[11px]">
                     Linking Rd, Santacruz W, Mumbai
                   </span>
                 </div>
 
                 <button
                   onClick={() => { setIsMobileMenuOpen(false); handleOpenConsultModal(); }}
-                  className="w-full py-4 text-center text-xs tracking-widest uppercase font-bold text-stone-950 bg-[#c5a880] hover:bg-[#b0936b] rounded-full transition-all duration-300 cursor-pointer shadow-xl shadow-[#c5a880]/20 flex items-center justify-center space-x-2 my-2"
+                  className="w-full py-4 text-center text-xs tracking-widest uppercase font-bold text-stone-950 bg-[#c5a880] hover:bg-[#b0936b] rounded-full transition-all duration-300 cursor-pointer shadow-lg shadow-[#c5a880]/20 flex items-center justify-center space-x-2 my-2"
                 >
                   <span>Book Private Consultation</span>
                   <ArrowRight size={14} />
@@ -1228,10 +1228,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.75 }}
+              animate={{ opacity: 0.6 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsConsultModalOpen(false)}
-              className="absolute inset-0 bg-[#0c0a09]/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-stone-900/60 backdrop-blur-md"
             />
 
             {/* Modal Body */}
@@ -1240,11 +1240,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-lg bg-[#1c1917] border border-[#c5a880]/30 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl"
+              className="relative w-full max-w-lg bg-white/95 backdrop-blur-3xl border border-stone-200 p-8 md:p-10 shadow-2xl overflow-hidden z-10 rounded-2xl text-stone-900"
             >
               <button
                 onClick={() => setIsConsultModalOpen(false)}
-                className="absolute top-4 right-4 p-2 text-stone-400 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="absolute top-4 right-4 p-2 text-stone-500 hover:text-stone-950 transition-colors duration-300 cursor-pointer"
                 aria-label="Close Consultation Modal"
               >
                 <X size={20} />
@@ -1255,10 +1255,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <Sparkles size={12} />
                   <span>Exclusive Session</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-serif text-white font-semibold text-left">
+                <h3 className="text-2xl md:text-3xl font-serif text-stone-900 font-semibold text-left">
                   Book A Consultation
                 </h3>
-                <p className="text-stone-400 text-xs mt-1 text-left">
+                <p className="text-stone-600 text-xs mt-1 text-left">
                   Connect with our award-winning lead architects to co-create your dream spatial reality.
                 </p>
               </div>
@@ -1273,30 +1273,30 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     className="space-y-4"
                   >
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                      <label className="block text-xs uppercase tracking-widest text-stone-600 mb-1.5 font-medium text-left">
                         Your Full Name
                       </label>
                       <div className="relative">
-                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                         <input
                           type="text"
                           required
-                          className="w-full bg-[#0c0a09]/80 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-50 border border-stone-200 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-900 placeholder:text-stone-400 outline-none transition-colors duration-300 rounded-lg"
                           placeholder="e.g. Eleanor Vance"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                      <label className="block text-xs uppercase tracking-widest text-stone-600 mb-1.5 font-medium text-left">
                         Email Address
                       </label>
                       <div className="relative">
-                        <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                        <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                         <input
                           type="email"
                           required
-                          className="w-full bg-[#0c0a09]/80 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300"
+                          className="w-full bg-stone-50 border border-stone-200 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-900 placeholder:text-stone-400 outline-none transition-colors duration-300 rounded-lg"
                           placeholder="eleanor@luxuryresidence.com"
                         />
                       </div>
@@ -1304,28 +1304,28 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                        <label className="block text-xs uppercase tracking-widest text-stone-600 mb-1.5 font-medium text-left">
                           Select Date
                         </label>
                         <div className="relative">
-                          <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                          <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                           <input
                             type="date"
                             required
-                            className="w-full bg-[#0c0a09]/80 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-50 border border-stone-200 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-900 outline-none transition-colors duration-300 [color-scheme:light] rounded-lg"
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-400 mb-1.5 font-medium text-left">
+                        <label className="block text-xs uppercase tracking-widest text-stone-600 mb-1.5 font-medium text-left">
                           Select Time
                         </label>
                         <div className="relative">
-                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
+                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                           <input
                             type="time"
                             required
-                            className="w-full bg-[#0c0a09]/80 border border-stone-800 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-200 outline-none transition-colors duration-300 [color-scheme:dark]"
+                            className="w-full bg-stone-50 border border-stone-200 focus:border-[#c5a880] px-10 py-2 text-sm text-stone-900 outline-none transition-colors duration-300 [color-scheme:light] rounded-lg"
                           />
                         </div>
                       </div>
@@ -1334,7 +1334,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full py-3 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,168,128,0.4)] cursor-pointer"
+                        className="w-full py-3 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 text-xs tracking-widest uppercase font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,168,128,0.4)] cursor-pointer rounded-lg"
                       >
                         Confirm Booking Proposal
                       </button>
@@ -1346,12 +1346,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     animate={{ scale: 1, opacity: 1 }}
                     className="flex flex-col items-center justify-center py-10 space-y-4"
                   >
-                    <div className="w-14 h-14 rounded-full bg-[#c5a880]/10 border border-[#c5a880] flex items-center justify-center text-[#c5a880]">
+                    <div className="w-14 h-14 rounded-full bg-[#c5a880]/15 border border-[#c5a880] flex items-center justify-center text-[#b0936b]">
                       <Check size={28} />
                     </div>
                     <div className="text-center">
-                      <h4 className="text-white font-medium text-lg">Proposal Received!</h4>
-                      <p className="text-stone-400 text-xs mt-2">
+                      <h4 className="text-stone-900 font-medium text-lg">Proposal Received!</h4>
+                      <p className="text-stone-600 text-xs mt-2">
                         We've registered your private consultation proposal. Our team will verify slot availability and email you in 1-2 hours.
                       </p>
                     </div>

@@ -355,9 +355,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   layout
                   initial={{ opacity: 0, scale: 0.96, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   exit={{ opacity: 0, scale: 0.96, y: 20 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="bg-white border border-stone-200/80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 text-left flex flex-col justify-between group hover:-translate-y-1.5"
+                  className="bg-white border border-stone-200/80 hover:border-[#c5a880] rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] transition-all duration-500 text-left flex flex-col justify-between group"
                 >
                   <div className="space-y-6">
                     

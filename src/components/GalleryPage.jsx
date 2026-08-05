@@ -620,9 +620,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     layout
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="break-inside-avoid bg-white border border-stone-200/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group relative"
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="break-inside-avoid bg-white border border-stone-200/60 hover:border-[#c5a880] rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] transition-all duration-500 flex flex-col group relative"
                   >
                     {/* Img frame */}
                     <div className="relative overflow-hidden bg-stone-100 cursor-pointer" onClick={() => setLightboxIndex(localIndex)}>
@@ -635,7 +637,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       />
 
                       {/* Premium Hover Overlay */}
-                      <div className="absolute inset-0 bg-[var(--color-surface-dark)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
+                      <div className="absolute inset-0 bg-stone-950/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10">
                         <div className="flex justify-between items-start">
                           <span className="bg-gold-accent text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
                             {project.category}
@@ -652,7 +654,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                         </div>
 
                         <div className="space-y-2 text-left">
-                          <div className="inline-flex items-center space-x-1 text-[var(--color-text-muted)] font-mono text-[9px] uppercase tracking-wider">
+                          <div className="inline-flex items-center space-x-1 text-stone-300 font-mono text-[9px] uppercase tracking-wider">
                             <MapPin size={10} className="text-gold-accent" />
                             <span>{project.location}</span>
                           </div>
@@ -688,12 +690,12 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       <div className="pt-4 border-t border-stone-100 mt-4 flex justify-between items-center">
                         <button
                           onClick={() => setLightboxIndex(localIndex)}
-                          className="text-stone-900 hover:text-gold-accent transition-colors text-xs font-bold font-mono tracking-widest uppercase flex items-center space-x-1 cursor-pointer"
+                          className="bg-[#c5a880] group-hover:bg-[#b0936b] text-stone-950 text-xs font-bold font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 cursor-pointer shadow-sm transition-all duration-300"
                         >
-                          <span>View Detail</span>
-                          <ChevronRight size={12} />
+                          <span>Explore Project</span>
+                          <ArrowRight size={12} strokeWidth={2.5} />
                         </button>
-                        <span className="text-[9px] font-mono text-[var(--color-text-muted)]">
+                        <span className="text-[9px] font-mono text-stone-400">
                           ID: {project.id}
                         </span>
                       </div>
