@@ -213,17 +213,17 @@ export default function ContactForm({ setView }) {
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent pointer-events-none" />
 
             {/* Floating Badge */}
-            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-stone-900/80 backdrop-blur-md border border-white/10 text-white space-y-1 text-left">
+            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#c5a880]/50 text-stone-900 space-y-1 text-left shadow-xl">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gold-accent">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#b0936b]">
                   BESPOKE TIMBER JOINERY
                 </span>
-                <Sparkles size={14} className="text-gold-accent" />
+                <Sparkles size={14} className="text-[#b0936b]" />
               </div>
-              <h4 className="text-sm font-extrabold text-white">
-                Turnkey Execution & Spatial Design
+              <h4 className="text-sm font-extrabold text-stone-950 font-serif">
+                Turnkey Execution &amp; Spatial Design
               </h4>
-              <p className="text-[11px] text-[var(--color-text-muted)] font-light leading-relaxed">
+              <p className="text-[11px] text-stone-600 font-light leading-relaxed">
                 Over 3,000+ luxury residential and commercial transformations executed since 1989.
               </p>
             </div>

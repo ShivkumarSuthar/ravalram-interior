@@ -217,10 +217,10 @@ export default function Footer({ onNavigate = () => {} }) {
           
           <button
             onClick={scrollToTop}
-            className="p-2 bg-stone-900 text-gold-accent hover:text-stone-950 hover:bg-gold-accent border border-white/5 transition-all duration-300 rounded-none cursor-pointer"
+            className="p-2.5 bg-[#c5a880] text-stone-950 hover:bg-[#b0936b] border border-[#c5a880] transition-all duration-300 rounded-full cursor-pointer shadow-md"
             aria-label="Scroll to top"
           >
-            <ArrowUp size={14} />
+            <ArrowUp size={14} strokeWidth={2.5} />
           </button>
         </div>
       </div>

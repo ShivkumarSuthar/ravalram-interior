@@ -49,7 +49,7 @@ export default function App() {
         </>
       ) : (
         <div className="relative min-h-screen bg-[#faf9f6] text-stone-900 selection:bg-gold-accent selection:text-stone-950 scroll-smooth" id="app-root">
-          
+
           {/* Dynamic SEO and Structured Schema Manager */}
           <SEOHelper currentView={currentView} />
 
@@ -86,11 +86,12 @@ export default function App() {
                   {/* 5. Creative Works & Featured Projects Portfolio */}
                   <CreativeProjects />
 
-                  {/* 6. Proven Metrics & Key Statistics */}
-                  <Stats />
-                  
+
                   {/* 2. Brand story & family heritage introduction */}
                   <About setView={setView} />
+
+                  {/* 6. Proven Metrics & Key Statistics */}
+                  <Stats />
 
                   {/* 3. Core Expertise Services */}
                   <Services setView={setView} />
