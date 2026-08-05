@@ -80,8 +80,8 @@ export function applyThemeToCSS(theme = DEFAULT_THEME) {
   root.style.setProperty("--color-stone-gray", textMuted);
 }
 
-// Apply Default Theme
-if (typeof document !== "undefined") {
+// Apply Default Theme safely on client
+if (typeof window !== "undefined" && typeof document !== "undefined") {
   applyThemeToCSS(DEFAULT_THEME);
 }
 

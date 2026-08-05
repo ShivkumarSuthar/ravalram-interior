@@ -38,11 +38,11 @@ export default function Hero({ setView }) {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] w-full flex flex-col  overflow-hidden bg-[var(--color-surface-dark)] text-white select-none font-sans pt-24 sm:pt-32 md:pt-36 pb-6 md:pb-8"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-[#0c0a09] text-white select-none font-sans pt-20 sm:pt-32 md:pt-36 pb-10 sm:pb-8"
     >
-      {/* BACKGROUND IMAGE WITH RESPONSIVE GRADIENT VIGNETTE */}
+      {/* BACKGROUND IMAGE WITH RESPONSIVE GRADIENT & SOFT WARM BLUR */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Base Image */}
+        {/* Desktop Base Image */}
         <Image
           src={HERO_BACKGROUND}
           alt={`${COMPANY_INFO.name} Luxury Interior Studio`}
@@ -51,7 +51,7 @@ export default function Hero({ setView }) {
           className="hidden md:block object-cover object-center brightness-80"
         />
 
-        {/* Left Blur Overlay */}
+        {/* Desktop Left Blur Overlay */}
         <Image
           src={HERO_BACKGROUND}
           alt=""
@@ -67,94 +67,116 @@ export default function Hero({ setView }) {
           }}
         />
 
-        {/* Mobile */}
+        {/* Mobile Background Base Image - Bright, Sunlit & Soft Architectural Blur */}
         <Image
           src={HERO_BACKGROUND_MOBILE}
           alt={`${COMPANY_INFO.name} Luxury Interior Studio`}
           fill
           priority
-          className="block md:hidden object-cover object-center brightness-80"
+          className="block md:hidden object-cover object-center brightness-110 contrast-105 saturate-105 filter blur-[3px] scale-105"
         />
+
+        {/* Mobile Bright & Airy Subtle Gradient Overlay */}
+        <div className="block md:hidden absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-[#0c0a09]/35 backdrop-blur-[1px]" />
       </div>
 
-      {/* LEFT CONTENT AREA */}
-      <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full flex-1 flex items-end pb-8">
+      {/* CONTENT AREA */}
+      <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full flex-1 flex items-center sm:items-end pt-2 sm:pt-0 pb-2 sm:pb-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl text-left space-y-4 sm:space-y-6 md:space-y-8"
+          className="max-w-4xl text-left space-y-3.5 sm:space-y-6 md:space-y-8 w-full"
         >
-          {/* Subtitle / Eyebrow with horizontal gold line */}
-          <div className="flex items-center gap-2.5 sm:gap-4">
-            <span className="text-[10px] sm:text-xs md:text-sm font-serif uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[var(--color-primary)] font-semibold">
-              CRAFTING EXCEPTIONAL SPACES SINCE {COMPANY_INFO.foundedYear}
+          {/* Subtitle / Eyebrow Tag - Mobile Specific (Ultra-Compact Glass Badge) */}
+          <div className="inline-flex sm:hidden items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/45 backdrop-blur-md shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880] shrink-0" />
+            <span className="text-[9.5px] font-mono tracking-[0.14em] uppercase text-[#c5a880] font-bold">
+              EST. {COMPANY_INFO.foundedYear} • CRAFTING SPACES
             </span>
-            <div className="h-[1px] w-10 sm:w-20 md:w-28 bg-[var(--color-primary)]/60 shrink-0" />
           </div>
 
-          {/* Main Headline */}
-          <h1 className="font-serif text-3xl xs:text-4xl sm:text-[80px] md:text-[100px] lg:text-[80px] font-extrabold tracking-tight text-white leading-[1.12] sm:leading-[1.1]">
+          {/* Subtitle / Eyebrow Tag - Desktop (Unchanged) */}
+          <div className="hidden sm:flex items-center gap-4">
+            <span className="text-xs md:text-sm font-serif uppercase tracking-[0.25em] text-[#c5a880] font-bold drop-shadow-sm">
+              CRAFTING EXCEPTIONAL SPACES SINCE {COMPANY_INFO.foundedYear}
+            </span>
+            <div className="h-[1px] w-20 md:w-28 bg-[#c5a880]/60 shrink-0" />
+          </div>
+
+          {/* Main Headline - Larger & Bright with wider tracking on Mobile */}
+          <h1 className="font-serif text-[34px] xs:text-[40px] sm:text-[80px] md:text-[100px] lg:text-[80px] font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.12] sm:leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
             Designing Spaces <br className="hidden xs:inline" />
             People Love{" "}
-            <span className="text-[var(--color-primary)]">Coming Home To</span>
+            <span className="text-[#c5a880] inline-block">Coming Home To</span>
           </h1>
 
-          {/* Body Description */}
-          <p className="text-stone-200 sm:text-white font-sans text-sm sm:text-base md:text-xl leading-relaxed max-w-3xl">
-            Every project begins with understanding how you live. We combine
-            architecture, craftsmanship, and timeless design to create homes,
-            workplaces, and experiences that feel as extraordinary as they
-            look.{" "}
-          </p>
+          {/* Body Description - Luminous Frosted Glass Capsule with wider tracking on Mobile */}
+          <div className="p-3.5 xs:p-4 sm:p-0 rounded-2xl bg-white/15 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none border border-white/25 sm:border-0 shadow-lg sm:shadow-none">
+            <p className="text-white font-sans text-xs xs:text-sm sm:text-base md:text-xl leading-relaxed sm:leading-relaxed max-w-3xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)] font-medium sm:font-normal tracking-wide sm:tracking-normal">
+              Every project begins with understanding how you live. We combine
+              architecture, craftsmanship, and timeless design to create homes,
+              workplaces, and experiences that feel as extraordinary as they
+              look.
+            </p>
+          </div>
 
-          {/* Action CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+          {/* Action CTA Buttons - Fully Harmonized Mobile Layout */}
+          <div className="flex flex-row items-center gap-2.5 xs:gap-3 pt-2 sm:pt-3">
+            {/* Start Your Project Button */}
             <button
               onClick={handleStartProject}
               className="
-    btn-premium
-    btn-primary-premium
-    inline-flex items-center justify-between
-    min-w-[300px]
-    h-16
-    rounded-full
-    bg-white
-    border border-[var(--color-primary)]
-    pl-8 pr-2
-  "
+                group/btn
+                inline-flex items-center justify-between
+                w-auto sm:min-w-[280px]
+                h-11 xs:h-12 sm:h-16
+                rounded-full
+                bg-white
+                hover:bg-[#faf9f6]
+                border border-[#c5a880]
+                pl-4 pr-1.5 xs:pl-5 xs:pr-1.5 sm:pl-8 sm:pr-2
+                transition-all duration-300
+                shadow-md shadow-black/20
+                cursor-pointer
+              "
             >
-              <span className="btn-text text-lg font-semibold text-black transition-colors duration-300">
+              <span className="text-xs xs:text-sm sm:text-lg font-bold text-stone-950 transition-colors duration-300">
                 Start Your Project
               </span>
 
-              <div className="btn-icon h-12 w-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center transition-transform duration-300">
-                <ArrowUpRight className="text-white" size={20} />
+              <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full bg-[#c5a880] group-hover/btn:bg-[#b0936b] flex items-center justify-center transition-all duration-300 shrink-0 ml-2 sm:ml-0">
+                <ArrowUpRight className="text-stone-950 sm:text-white group-hover/btn:scale-110 transition-transform" size={15} />
               </div>
             </button>
+
+            {/* View Portfolio Play Button - Single Sleek Circle on Mobile (Harmonized with Header Menu) */}
             <button
               onClick={handleViewPortfolio}
+              aria-label="View Portfolio"
               className="
-    btn-premium
-    btn-secondary-premium
-    inline-flex items-center justify-between
-    min-w-[300px]
-    h-16
-    rounded-full
-    bg-white/10
-    backdrop-blur-xl
-    border border-white/70
-    pl-8 pr-2
-  "
+                group/btn
+                inline-flex items-center justify-center sm:justify-between
+                w-11 h-11 xs:w-12 xs:h-12 sm:w-auto sm:h-16 sm:min-w-[280px]
+                rounded-full
+                bg-[#c5a880] sm:bg-white/10
+                hover:bg-[#b0936b] sm:hover:bg-white/20
+                border border-[#c5a880] sm:border-white/70
+                p-0 sm:pl-8 sm:pr-2
+                transition-all duration-300
+                shadow-md shadow-black/20
+                cursor-pointer
+                shrink-0
+              "
             >
-              <span className="btn-text text-lg font-semibold text-white">
+              <span className="hidden sm:inline text-xs xs:text-sm sm:text-lg font-bold text-white">
                 View Portfolio
               </span>
 
-              <div className="play-circle h-12 w-12 rounded-full bg-[var(--color-primary)] border-white/50 flex items-center justify-center transition-all duration-300">
+              <div className="h-full w-full sm:h-12 sm:w-12 rounded-full bg-transparent sm:bg-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0">
                 <Play
-                  size={12}
-                  className="play-icon fill-white translate-x-[1px] transition-colors duration-300"
+                  size={14}
+                  className="fill-stone-950 text-stone-950 sm:fill-white sm:text-white translate-x-[1px] group-hover/btn:scale-110 transition-transform"
                 />
               </div>
             </button>
@@ -162,13 +184,12 @@ export default function Hero({ setView }) {
         </motion.div>
       </div>
 
-      {/* BOTTOM FLOATING STATS BAR & SCROLL INDICATOR */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full space-y-4 sm:space-y-6 pt-2 sm:pt-4">
-        {/* Scroll Indicator - Visible on all viewports */}
-        <div className="flex flex-col items-center justify-center pt-2 sm:pt-1 gap-1.5 opacity-85 hover:opacity-100 transition-opacity">
+      {/* BOTTOM SCROLL INDICATOR - Generous bottom padding on mobile */}
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full pt-1 sm:pt-4 pb-3 sm:pb-2">
+        <div className="flex flex-col items-center justify-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="h-[1px] w-8 sm:w-12 bg-[var(--color-primary)]/40" />
-            <div className="w-5 h-7 rounded-full border border-[var(--color-primary)]/70 flex items-start justify-center p-1">
+            <div className="h-[1px] w-8 sm:w-12 bg-[#c5a880]/40" />
+            <div className="w-5 h-7 rounded-full border border-[#c5a880]/70 flex items-start justify-center p-1 bg-black/20 backdrop-blur-sm">
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{
@@ -176,12 +197,12 @@ export default function Hero({ setView }) {
                   duration: 1.6,
                   ease: "easeInOut",
                 }}
-                className="w-1 h-1.5 bg-[var(--color-primary)] rounded-full"
+                className="w-1 h-1.5 bg-[#c5a880] rounded-full"
               />
             </div>
-            <div className="h-[1px] w-8 sm:w-12 bg-[var(--color-primary)]/40" />
+            <div className="h-[1px] w-8 sm:w-12 bg-[#c5a880]/40" />
           </div>
-          <span className="text-[12px] sm:text-[10px] font-serif uppercase tracking-[0.25em] text-white">
+          <span className="text-[10px] sm:text-[10px] font-serif uppercase tracking-[0.25em] text-white/90 drop-shadow-sm font-semibold">
             SCROLL TO EXPLORE
           </span>
         </div>
