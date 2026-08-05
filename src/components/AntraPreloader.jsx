@@ -6,10 +6,12 @@ import BrandLogo from "./BrandLogo.jsx";
 const SLATS = 12;
 
 export default function Preloader() {
+  const [mounted, setMounted] = useState(false);
   const [exit, setExit] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     document.body.style.overflow = "hidden";
 
     const exitTimer = setTimeout(() => {
@@ -28,10 +30,10 @@ export default function Preloader() {
     };
   }, []);
 
-  if (hidden) return null;
+  if (!mounted || hidden) return null;
 
   return (
-    <div className={`preloader ${exit ? "exit" : ""}`}>
+    <div className={`preloader ${exit ? "exit" : ""}`} suppressHydrationWarning>
       <div className="slats">
         {[...Array(SLATS)].map((_, i) => (
           <div

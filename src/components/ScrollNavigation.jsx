@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
 export default function ScrollNavigation() {
+  const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       // Toggle to "Scroll Up" state once user scrolls down past 300px
       setIsScrolled(window.scrollY > 300);
@@ -18,6 +20,8 @@ export default function ScrollNavigation() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!mounted) return null;
 
   const handleScrollClick = () => {
     if (isScrolled) {

@@ -11,12 +11,16 @@ export default function Services() {
   const router = useRouter();
 
   const handleNavigate = (view) => {
-    if (view === "home") {
+    if (!view || view === "home" || view === "/") {
       router.push("/");
+    } else if (typeof view === "string" && view.startsWith("/")) {
+      router.push(view);
     } else {
       router.push(`/${view}`);
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
