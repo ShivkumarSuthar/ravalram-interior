@@ -776,9 +776,11 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                     layout
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="group bg-[#faf9f6] border border-stone-200/30 rounded-2xl overflow-hidden hover:shadow-xl hover:bg-white transition-all duration-500 flex flex-col justify-between text-left"
+                    className="group bg-[#faf9f6] border border-stone-200/60 hover:border-[#c5a880] rounded-2xl overflow-hidden hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] hover:bg-white transition-all duration-500 flex flex-col justify-between text-left"
                   >
                     <div className="space-y-6">
                       {/* Featured Image */}

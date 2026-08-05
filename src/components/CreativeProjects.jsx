@@ -7,15 +7,54 @@ import { projects } from "../lib/project-data.js";
 export default function CreativeProjects() {
   const scrollRef = useRef(null);
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeftState, setScrollLeftState] = useState(0);
   const [hasDragged, setHasDragged] = useState(false);
 
+  const scrollToCenterIndex = (index) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const cards = container.children;
+    if (cards && cards[index]) {
+      const card = cards[index];
+      const containerWidth = container.offsetWidth;
+      const cardOffsetLeft = card.offsetLeft;
+      const cardWidth = card.offsetWidth;
+      const targetScroll = cardOffsetLeft - (containerWidth / 2) + (cardWidth / 2);
+      container.scrollTo({ left: Math.max(0, targetScroll), behavior: "smooth" });
+      setActiveIndex(index);
+    }
+  };
+
   const handleScroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -380 : 380;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    const nextIndex = direction === "left"
+      ? Math.max(0, activeIndex - 1)
+      : Math.min(projects.length - 1, activeIndex + 1);
+    
+    scrollToCenterIndex(nextIndex);
+  };
+
+  const onScrollUpdate = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+    const cards = Array.from(container.children);
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, i) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = i;
+      }
+    });
+
+    if (closestIndex !== activeIndex) {
+      setActiveIndex(closestIndex);
     }
   };
 
@@ -68,7 +107,7 @@ export default function CreativeProjects() {
 
       <div className="relative z-10 space-y-6 md:space-y-10">
         
-        {/* Centered Header Section matching screenshot exactly */}
+        {/* Centered Header Section */}
         <div className="max-w-4xl mx-auto px-6 text-center space-y-3 sm:space-y-4">
           
           {/* Pill Tag */}
@@ -81,7 +120,7 @@ export default function CreativeProjects() {
             </div>
           </div>
 
-          {/* Heading with exact colored words */}
+          {/* Heading */}
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
             Creative <span className="text-gold-accent">Projects That</span><br />
             <span className="text-gold-accent">Define</span> Our Style
@@ -95,15 +134,25 @@ export default function CreativeProjects() {
           {/* Left / Right Scroll Controls centered under header */}
           <div className="flex items-center justify-center space-x-4 pt-2">
             <button
+              disabled={activeIndex === 0}
               onClick={() => handleScroll("left")}
-              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
+              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 shadow-md ${
+                activeIndex === 0
+                  ? "opacity-35 cursor-not-allowed border-stone-200/80 bg-stone-100/80 text-stone-400"
+                  : "bg-white border-stone-300/90 hover:bg-[#c5a880] text-stone-800 hover:text-stone-950 hover:border-[#c5a880] cursor-pointer"
+              }`}
               aria-label="Scroll Left"
             >
               <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
             <button
+              disabled={activeIndex === projects.length - 1}
               onClick={() => handleScroll("right")}
-              className="w-12 h-12 rounded-full border border-stone-300/90 bg-white hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center transition-all duration-300 shadow-md cursor-pointer group"
+              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 shadow-md ${
+                activeIndex === projects.length - 1
+                  ? "opacity-35 cursor-not-allowed border-stone-200/80 bg-stone-100/80 text-stone-400"
+                  : "bg-white border-stone-300/90 hover:bg-[#c5a880] text-stone-800 hover:text-stone-950 hover:border-[#c5a880] cursor-pointer"
+              }`}
               aria-label="Scroll Right"
             >
               <ChevronRight size={20} strokeWidth={2.5} />
@@ -114,93 +163,90 @@ export default function CreativeProjects() {
 
         {/* Full-bleed Horizontal Cards Carousel */}
         <div className="w-full relative group/carousel">
-          
-          {/* Floating Left Scroll Button on Carousel Edge */}
-          <button
-            onClick={() => handleScroll("left")}
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft size={22} strokeWidth={2.5} />
-          </button>
-
-          {/* Floating Right Scroll Button on Carousel Edge */}
-          <button
-            onClick={() => handleScroll("right")}
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-stone-200/80 bg-white/90 backdrop-blur-md hover:bg-gold-accent text-stone-800 hover:text-white flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer opacity-80 hover:opacity-100 hidden sm:flex"
-            aria-label="Scroll right"
-          >
-            <ChevronRight size={22} strokeWidth={2.5} />
-          </button>
 
           <div
             ref={scrollRef}
+            onScroll={onScrollUpdate}
             onMouseDown={handleMouseDown}
             onMouseLeave={handleMouseLeave}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
-            className={`flex items-start overflow-x-auto gap-6 sm:gap-8 px-6 sm:px-12 md:px-16 lg:px-24 pb-8 pt-2 scrollbar-none scroll-smooth ${
+            className={`flex items-center overflow-x-auto gap-6 sm:gap-8 px-6 sm:px-12 md:px-16 lg:px-24 py-10 scrollbar-none scroll-smooth ${
               isMouseDown ? "cursor-grabbing select-none" : "cursor-grab"
             }`}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {projects.map((proj, idx) => (
-              <motion.div
-                key={proj.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
-                onClick={() => {
-                  if (!hasDragged) {
-                    setLightboxIndex(idx);
-                  }
-                }}
-                className="shrink-0 w-[270px] sm:w-[310px] md:w-[340px] lg:w-[360px] group cursor-pointer flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  
-                  {/* Image Container with rounded-[28px] */}
-                  <div className="relative w-full aspect-[4/5] rounded-[28px] overflow-hidden bg-stone-900 shadow-md border border-stone-200/80">
+            {projects.map((proj, idx) => {
+              const isFocused = activeIndex === idx;
+
+              return (
+                <motion.div
+                  key={proj.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  onClick={() => {
+                    if (!hasDragged) {
+                      scrollToCenterIndex(idx);
+                      setLightboxIndex(idx);
+                    }
+                  }}
+                  className={`shrink-0 group cursor-pointer flex flex-col justify-between rounded-[32px] p-4 transition-all duration-700 ease-[0.16,1,0.3,1] ${
+                    isFocused
+                      ? "w-[300px] sm:w-[340px] md:w-[370px] lg:w-[400px] bg-gradient-to-b from-white via-[#fcfaf7] to-[#f5efe4] border-t-4 border-t-[#c5a880] border-x border-b border-[#c5a880]/80 shadow-[0_30px_70px_rgba(197,168,128,0.32)] scale-[1.03] z-20"
+                      : "w-[250px] sm:w-[280px] md:w-[300px] lg:w-[320px] bg-white/70 border border-stone-200/80 opacity-70 hover:opacity-100 hover:border-[#c5a880]/50 shadow-xs scale-100"
+                  }`}
+                >
+                  <div className="space-y-4">
                     
-                    {/* Top-Left Category Oval Pill Badge inside image */}
-                    <div className="absolute top-4 left-4 z-20">
-                      <span className="inline-block bg-white/80 backdrop-blur-md border border-white/60 text-stone-900 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-mono">
-                        {proj.badge}
-                      </span>
-                    </div>
+                    {/* Taller & Wider Image Container on Focused Tile */}
+                    <div className={`relative w-full overflow-hidden bg-stone-900 rounded-[24px] shadow-xs border border-stone-200/60 transition-all duration-700 ease-[0.16,1,0.3,1] ${
+                      isFocused ? "h-[370px] sm:h-[420px]" : "h-[300px] sm:h-[340px]"
+                    }`}>
+                      
+                      {/* Image */}
+                      <Image
+                        src={proj.image}
+                        alt={proj.title}
+                        fill
+                        className="object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
+                        referrerPolicy="no-referrer"
+                      />
 
-                    {/* Image */}
-                    <Image
-                      src={proj.image}
-                      alt={proj.title}
-                      fill
-                      className="object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
-                    />
-
-                    {/* Subtle Hover Action Overlay */}
-                    <div className="absolute inset-0 bg-[var(--color-surface-dark)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                      <div className="w-12 h-12 rounded-full bg-gold-accent text-white flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300">
-                        <ArrowUpRight size={20} strokeWidth={2.5} />
+                      {/* Centered Arrow Icon Button on Image Focus / Hover */}
+                      <div className={`absolute inset-0 bg-stone-950/20 backdrop-blur-[2px] flex items-center justify-center transition-all duration-500 z-10 ${
+                        isFocused ? "opacity-100 scale-100" : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100"
+                      }`}>
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#c5a880] text-stone-950 flex items-center justify-center shadow-2xl font-bold border-2 border-white/60">
+                          <ArrowUpRight size={24} strokeWidth={2.5} />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Below Image Text Info (Title, Location, Year stacked vertically) */}
-                  <div className="text-left space-y-1 pt-1">
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight leading-snug group-hover:text-gold-accent transition-colors duration-300">
-                      {proj.title}
-                    </h3>
-                    <div className="text-xs sm:text-sm text-stone-500 font-light leading-snug">
-                      <p>{proj.location}</p>
-                      <p className="pt-0.5 text-stone-400 font-normal">{proj.year}</p>
+                    {/* Below Image Text Info */}
+                    <div className="text-left space-y-1.5 px-1 pt-0.5">
+                      <div className="min-h-[2.6rem] sm:min-h-[3.2rem] flex items-center">
+                        <h3 className={`font-serif tracking-tight leading-snug transition-all duration-500 line-clamp-2 ${
+                          isFocused 
+                            ? "text-stone-950 text-lg sm:text-2xl md:text-3xl font-bold" 
+                            : "text-stone-900 text-base sm:text-xl font-medium group-hover:text-[#c5a880]"
+                        }`}>
+                          {proj.title}
+                        </h3>
+                      </div>
+                      <div className="flex items-center justify-between text-xs sm:text-sm text-stone-500 font-light leading-snug pt-0.5">
+                        <div>
+                          <p className="text-xs sm:text-sm text-stone-600 font-medium">{proj.location}</p>
+                          <p className="pt-0.5 text-xs text-stone-400 font-normal">{proj.year}</p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

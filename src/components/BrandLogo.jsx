@@ -4,7 +4,7 @@ import React from "react";
  * Official Suthar Interior Studio Brand Logo
  * Recreates the signature S-I Crest with interior arch, armchair, pendant lamp, and fluted panel details.
  */
-export default function BrandLogo({ className = "", iconOnly = false, size = "md" }) {
+export default function BrandLogo({ className = "", iconOnly = false, size = "md", darkText = false }) {
   // Size mapping
   const dimensions = {
     sm: { icon: "w-8 h-8", title: "text-base", subtitle: "text-[9px]" },
@@ -91,10 +91,10 @@ export default function BrandLogo({ className = "", iconOnly = false, size = "md
       {/* Brand Text */}
       {!iconOnly && (
         <div className="flex flex-col justify-center">
-          <span className={`font-serif font-black tracking-[0.18em] uppercase text-white leading-tight transition-colors group-hover:text-[var(--color-primary)] ${dimensions.title}`}>
+          <span className={`font-serif font-black tracking-[0.18em] uppercase ${darkText ? "text-stone-950" : "text-white"} leading-tight transition-colors group-hover:text-[#c5a880] ${dimensions.title}`}>
             SUTHAR
           </span>
-          <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-[var(--color-primary)] leading-none mt-0.5 ${dimensions.subtitle}`}>
+          <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-[#c5a880] leading-none mt-0.5 ${dimensions.subtitle}`}>
             INTERIOR STUDIO
           </span>
         </div>
