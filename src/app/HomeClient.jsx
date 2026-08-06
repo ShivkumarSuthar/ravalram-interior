@@ -38,7 +38,7 @@ export default function Home() {
     <>
       <SEOHelper currentView="home" />
       <Header currentView="home" setView={handleNavigate} />
-      
+
       <main className="relative z-10" id="main-content">
         <motion.div
           key="home-presentation"
@@ -53,11 +53,12 @@ export default function Home() {
           {/* 6. Creative Works portfolio (Creative Projects That Define...) */}
           <CreativeProjects />
 
-          {/* 5. Metrics & stats (Behind Every Statistic...) */}
-          <Stats />
 
           {/* 2. Brand story introduction (We Shape Interior Designs...) */}
           <About setView={handleNavigate} />
+
+          {/* 5. Metrics & stats (Behind Every Statistic...) */}
+          <Stats />
 
           {/* 3. Core Expertise (Explore Our Comprehensive...) */}
           <Services />

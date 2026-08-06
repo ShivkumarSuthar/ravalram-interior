@@ -212,20 +212,20 @@ export default function OurProcess({ setView }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="bg-stone-900 text-white p-8 md:p-16 border border-white/5 relative overflow-hidden text-left shadow-2xl rounded-lg"
+          className="bg-gradient-to-br from-[#f8f3ec] via-[#f3e9dc] to-[#eee2d2] text-stone-950 p-8 md:p-14 border-2 border-[#c5a880] relative overflow-hidden text-left shadow-xl rounded-3xl"
         >
           {/* Subtle warm decorative radial glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-gold-accent/15 via-stone-950/0 to-stone-950/0 opacity-80 pointer-events-none" />
+          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#c5a880]/20 via-transparent to-transparent opacity-80 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-[#b0936b] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               LET'S BUILD SOMETHING EXTRAORDINARY
             </span>
-            <h3 className="text-2xl md:text-4xl font-light tracking-tight text-white leading-tight uppercase">
+            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-stone-950 leading-tight font-serif">
               Ready to Start Your <br />
-              <span className="text-gold-accent">Dream Project</span>?
+              <span className="text-[#b0936b]">Dream Project</span>?
             </h3>
-            <p className="text-[var(--color-text-muted)] font-light text-sm md:text-base leading-relaxed max-w-2xl">
+            <p className="text-stone-700 font-light text-sm md:text-base leading-relaxed max-w-2xl">
               Whether you're building a new home, renovating an existing space, or designing a commercial environment, our experienced team is ready to guide you through every step with honesty, precision, and exceptional craftsmanship.
             </p>
 
