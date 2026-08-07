@@ -86,7 +86,7 @@ export default function CreativeProjects() {
   };
 
   return (
-    <section id="portfolio" className="bg-[#faf9f6] py-8 sm:py-12 md:py-16 relative overflow-hidden select-none">
+    <section id="portfolio" className="bg-[#faf9f6] py-16 sm:py-24 lg:py-32 relative overflow-hidden select-none">
       
       {/* 3D Wireframe Architectural Blueprint Background Sketch on Right */}
       <div className="absolute right-0 top-0 w-2/3 h-full pointer-events-none opacity-[0.08] z-0 overflow-hidden hidden lg:block">
@@ -195,7 +195,7 @@ export default function CreativeProjects() {
                   className={`shrink-0 group cursor-pointer flex flex-col justify-between rounded-[32px] p-4 transition-all duration-700 ease-[0.16,1,0.3,1] ${
                     isFocused
                       ? "w-[300px] sm:w-[340px] md:w-[370px] lg:w-[400px] bg-gradient-to-b from-white via-[#fcfaf7] to-[#f5efe4] border-t-4 border-t-[#c5a880] border-x border-b border-[#c5a880]/80 shadow-[0_30px_70px_rgba(197,168,128,0.32)] scale-[1.03] z-20"
-                      : "w-[250px] sm:w-[280px] md:w-[300px] lg:w-[320px] bg-white/70 border border-stone-200/80 opacity-70 hover:opacity-100 hover:border-[#c5a880]/50 shadow-xs scale-100"
+                      : "w-[250px] sm:w-[280px] md:w-[300px] lg:w-[320px] bg-white border border-stone-200 hover:border-[#c5a880]/50 shadow-sm hover:shadow-md scale-100"
                   }`}
                 >
                   <div className="space-y-4">
@@ -205,12 +205,16 @@ export default function CreativeProjects() {
                       isFocused ? "h-[370px] sm:h-[420px]" : "h-[300px] sm:h-[340px]"
                     }`}>
                       
-                      {/* Image */}
+                      {/* Image — dimmed on inactive, full brightness on focused/hover */}
                       <Image
                         src={proj.image}
                         alt={proj.title}
                         fill
-                        className="object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700"
+                        className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                          isFocused
+                            ? "brightness-[0.98]"
+                            : "brightness-[0.80] group-hover:brightness-[0.95]"
+                        }`}
                         referrerPolicy="no-referrer"
                       />
 
@@ -230,15 +234,17 @@ export default function CreativeProjects() {
                         <h3 className={`font-serif tracking-tight leading-snug transition-all duration-500 line-clamp-2 ${
                           isFocused 
                             ? "text-stone-950 text-lg sm:text-2xl md:text-3xl font-bold" 
-                            : "text-stone-900 text-base sm:text-xl font-medium group-hover:text-[#c5a880]"
+                            : "text-stone-500 text-base sm:text-xl font-medium group-hover:text-[#c5a880]"
                         }`}>
                           {proj.title}
                         </h3>
                       </div>
                       <div className="flex items-center justify-between text-xs sm:text-sm text-stone-500 font-light leading-snug pt-0.5">
                         <div>
-                          <p className="text-xs sm:text-sm text-stone-600 font-medium">{proj.location}</p>
-                          <p className="pt-0.5 text-xs text-stone-400 font-normal">{proj.year}</p>
+                          <p className={`text-xs sm:text-sm font-medium ${
+                            isFocused ? "text-stone-600" : "text-stone-400 group-hover:text-stone-600"
+                          }`}>{proj.location}</p>
+                          <p className="pt-0.5 text-xs text-stone-300 group-hover:text-stone-400 font-normal transition-colors">{proj.year}</p>
                         </div>
                       </div>
                     </div>

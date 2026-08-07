@@ -274,7 +274,7 @@ export default function WhyChooseUs({ setView }) {
   return (
     <section
       id="why-choose-us"
-      className="bg-[#faf9f6] pt-20 sm:pt-28 lg:pt-36 relative overflow-hidden border-b border-stone-200/60"
+      className="bg-[#faf9f6] py-16 sm:py-24 lg:py-32 relative overflow-hidden border-b border-stone-200/60"
     >
       {/* Warm radial glow — top-left */}
       <div
@@ -291,7 +291,7 @@ export default function WhyChooseUs({ setView }) {
         <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-10 xl:gap-16 items-start">
 
           {/* ══ LEFT — sticky info column ══════════════════════════════ */}
-          <div className="flex flex-col gap-14 lg:sticky lg:top-24 pb-20 sm:pb-28 lg:pb-36">
+          <div className="flex flex-col gap-14 lg:sticky lg:top-24">
 
             {/* ── Header block ─────────────────────────────────────── */}
             <motion.div {...fadeUp(0)} className="space-y-6">

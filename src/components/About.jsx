@@ -65,7 +65,7 @@ export default function About({ setView }) {
   const currentPillar = studioPillars[activePillar];
 
   return (
-    <section id="about" className="bg-[#f8f2ec] text-stone-900 py-10 sm:py-14 md:py-20 overflow-hidden relative border-b border-[#e5dcd3] select-none">
+    <section id="about" className="bg-[#f8f2ec] text-stone-900 py-16 sm:py-24 lg:py-32 overflow-hidden relative border-b border-[#e5dcd3] select-none">
       
       {/* Subtle architectural wireframe watermark */}
       <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none opacity-[0.04] z-0 overflow-hidden hidden md:block">
@@ -77,7 +77,7 @@ export default function About({ setView }) {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 md:space-y-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 space-y-6 md:space-y-10">
         
         {/* Section Masthead Header with Clear "Who We Are" Narrative */}
         <div className="space-y-5 border-b border-[#e5dcd3] pb-6 md:pb-8">
