@@ -59,10 +59,10 @@ export default function Services({ setView }) {
       id="services"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full text-stone-900 overflow-hidden flex flex-col justify-between select-none py-6 sm:py-10"
+      className="relative w-full text-stone-900 overflow-hidden flex flex-col justify-between select-none py-16 sm:py-24 lg:py-32"
     >
       {/* SECTION MASTHEAD HEADER */}
-      <div className="max-w-7xl mx-auto px-4 md:px-12 w-full pb-4 sm:pb-6 text-left">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full pb-4 sm:pb-6 text-left">
         <div className="inline-flex items-center space-x-2 border border-[#488b82]/40 bg-[#488b82]/10 px-3.5 py-1.5 rounded-full shadow-2xs mb-2">
           <Sparkles size={13} className="text-[#2f635c] shrink-0" />
           <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold text-[#2f635c] font-mono">
@@ -75,7 +75,7 @@ export default function Services({ setView }) {
       </div>
 
       {/* 1. HERO BACKGROUND STAGE (Text sits directly inside/over high-res background photo) */}
-      <div className="max-w-7xl mx-auto px-4 md:px-12 w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="relative w-full h-[320px] sm:h-[380px] md:h-[420px] overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl border border-stone-300/80">
           <AnimatePresence mode="wait">
             <motion.div
@@ -144,7 +144,7 @@ export default function Services({ setView }) {
       </div>
 
       {/* 2. EXACT 2-COLUMN GRID PATTERN (Aligned pixel-perfectly with top hero stage) */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-12 w-full pt-4 sm:pt-6">
+      <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full pt-4 sm:pt-6">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-stretch gap-2.5 sm:gap-3">
           
           {servicesList.map((service, idx) => {

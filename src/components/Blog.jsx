@@ -262,7 +262,7 @@ export default function Blog({ setView }) {
         {/* ========================================================= */}
         {/* DESKTOP / TABLET VIEW GRID (>= sm) */}
         {/* ========================================================= */}
-        <div className="hidden sm:grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start text-left">
+        <div className="hidden sm:grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch text-left">
           
           {/* Left Column: Big Featured Main Article */}
           <motion.div
@@ -271,7 +271,7 @@ export default function Blog({ setView }) {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             onClick={handleArticleClick}
-            className="lg:col-span-6 space-y-5 group cursor-pointer bg-white border border-stone-200/80 p-5 sm:p-6 rounded-[32px] shadow-lg hover:shadow-2xl transition-all duration-500"
+            className="lg:col-span-6 flex flex-col gap-5 group cursor-pointer bg-white border border-stone-200/80 p-5 sm:p-6 rounded-[32px] shadow-lg hover:shadow-2xl transition-all duration-500"
           >
             {/* Image Container with Tag Badge */}
             <div className="relative w-full aspect-[16/11] rounded-[24px] overflow-hidden bg-stone-100">
@@ -292,8 +292,8 @@ export default function Blog({ setView }) {
               </div>
             </div>
 
-            {/* Content Details Below Image */}
-            <div className="space-y-3 px-1">
+            {/* Content Details Below Image — flex-1 so it fills remaining height */}
+            <div className="flex-1 flex flex-col justify-end space-y-3 px-1">
               <div className="flex items-center space-x-2 text-xs font-mono text-stone-500">
                 <span>By</span>
                 <span className="text-gold-accent font-extrabold">{mainArticle.author}</span>
@@ -309,8 +309,8 @@ export default function Blog({ setView }) {
             </div>
           </motion.div>
 
-          {/* Right Column: 3 Stacked Horizontal Article Items */}
-          <div className="lg:col-span-6 space-y-6">
+          {/* Right Column: 3 Stacked Horizontal Article Items — flex-col + justify-between fills height of left card */}
+          <div className="lg:col-span-6 flex flex-col gap-5">
             {rightArticles.map((art, idx) => (
               <motion.div
                 key={art.id}
@@ -319,7 +319,7 @@ export default function Blog({ setView }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 onClick={handleArticleClick}
-                className="bg-white border border-stone-200/80 p-4 sm:p-5 rounded-[28px] shadow-sm hover:shadow-xl hover:border-gold-accent/50 transition-all duration-300 flex flex-col sm:flex-row gap-5 items-center group cursor-pointer"
+                className="flex-1 bg-white border border-stone-200/80 p-4 sm:p-5 rounded-[28px] shadow-sm hover:shadow-xl hover:border-gold-accent/50 transition-all duration-300 flex flex-col sm:flex-row gap-5 items-center group cursor-pointer"
               >
                 {/* Thumbnail Image Left with Tag Badge */}
                 <div className="relative w-full sm:w-44 md:w-48 aspect-[16/11] rounded-[20px] overflow-hidden bg-stone-100 shrink-0">

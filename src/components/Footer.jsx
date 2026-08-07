@@ -22,14 +22,14 @@ export default function Footer({ onNavigate = () => {} }) {
   };
 
   return (
-    <footer className="bg-[var(--color-surface-dark)] text-stone-400 pt-24 pb-12 relative overflow-hidden border-t border-white/5 text-left">
+    <footer className="bg-[var(--color-surface-dark)] text-stone-400 pt-12 md:pt-24 pb-8 md:pb-12 relative overflow-hidden border-t border-white/5 text-left">
       
       {/* SECTION 1: CORE FOOTER NAVIGATION */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-10 md:mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
           
-          {/* Column 1: Logo & Mission Statement */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Column 1: Logo & Mission Statement — full width on mobile */}
+          <div className="col-span-2 lg:col-span-4 space-y-4">
             <button
               onClick={() => handleNavigate("home", null)}
               className="inline-block cursor-pointer focus:outline-none"
@@ -40,31 +40,31 @@ export default function Footer({ onNavigate = () => {} }) {
               We engineer quiet, sophisticated architectural layouts. Each design synthesizes raw organic textures with luxurious material palettes to co-create spatial masterpieces.
             </p>
             
-            {/* Social Connectors */}
-            <div className="flex items-center space-x-3 pt-2">
-              <a href="#" className="p-2 border border-stone-800 text-stone-400 hover:text-gold-accent hover:border-gold-accent hover:bg-white/5 transition-all duration-300">
+            {/* Social Connectors — rounded on mobile */}
+            <div className="flex items-center space-x-2 pt-1">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Instagram size={14} />
               </a>
-              <a href="#" className="p-2 border border-stone-800 text-stone-400 hover:text-gold-accent hover:border-gold-accent hover:bg-white/5 transition-all duration-300">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Linkedin size={14} />
               </a>
-              <a href="#" className="p-2 border border-stone-800 text-stone-400 hover:text-gold-accent hover:border-gold-accent hover:bg-white/5 transition-all duration-300">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Facebook size={14} />
               </a>
-              <a href="#" className="p-2 border border-stone-800 text-stone-400 hover:text-gold-accent hover:border-gold-accent hover:bg-white/5 transition-all duration-300">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Twitter size={14} />
               </a>
             </div>
           </div>
 
           {/* Column 2: Studio links */}
-          <div className="md:col-span-1 lg:col-span-2 space-y-4">
-            <h4 className="text-white text-xs uppercase tracking-widest font-bold font-mono">Studio</h4>
-            <ul className="space-y-2.5 text-sm font-light">
+          <div className="col-span-1 lg:col-span-2 space-y-3">
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Studio</h4>
+            <ul className="space-y-2 text-sm font-light">
               <li>
                 <button
                   onClick={() => handleNavigate("about-us", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Our Story
                 </button>
@@ -72,7 +72,7 @@ export default function Footer({ onNavigate = () => {} }) {
               <li>
                 <button
                   onClick={() => handleNavigate("gallery", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Our Projects
                 </button>
@@ -80,31 +80,23 @@ export default function Footer({ onNavigate = () => {} }) {
               <li>
                 <button
                   onClick={() => handleNavigate("faqs", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Frequently Asked FAQs
+                  FAQs
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => handleNavigate("blog", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Our Blog & Journal
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigate("coming-soon", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left font-semibold text-gold-accent"
-                >
-                  Coming Soon Launch
+                  Blog & Journal
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => handleNavigate("contact", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left font-semibold text-gold-accent"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left font-semibold text-[#c5a880] text-sm"
                 >
                   Contact Us
                 </button>
@@ -113,9 +105,9 @@ export default function Footer({ onNavigate = () => {} }) {
           </div>
 
           {/* Column 3: Services links */}
-          <div className="md:col-span-1 lg:col-span-2 space-y-4">
-            <h4 className="text-white text-xs uppercase tracking-widest font-bold font-mono">Services</h4>
-            <ul className="space-y-2.5 text-sm font-light">
+          <div className="col-span-1 lg:col-span-2 space-y-3">
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Services</h4>
+            <ul className="space-y-2 text-sm font-light">
               <li>
                 <button
                   onClick={() => {
@@ -124,7 +116,7 @@ export default function Footer({ onNavigate = () => {} }) {
                       window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
                     }, 150);
                   }}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Interior Designer
                 </button>
@@ -137,7 +129,7 @@ export default function Footer({ onNavigate = () => {} }) {
                       window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
                     }, 150);
                   }}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Interior Contractor
                 </button>
@@ -150,15 +142,15 @@ export default function Footer({ onNavigate = () => {} }) {
                       window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
                     }, 150);
                   }}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Interior 2D & 3D Layouts
+                  2D & 3D Layouts
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => handleNavigate("services", null)}
-                  className="hover:text-gold-accent transition-colors duration-300 cursor-pointer text-left"
+                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Services Overview
                 </button>
@@ -166,21 +158,21 @@ export default function Footer({ onNavigate = () => {} }) {
             </ul>
           </div>
 
-          {/* Column 4: Main indices */}
-          <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-white text-xs uppercase tracking-widest font-bold font-mono">Showroom Contact</h4>
-            <ul className="space-y-3 text-sm font-light">
+          {/* Column 4: Showroom contact — full width on mobile */}
+          <div className="col-span-2 lg:col-span-4 space-y-3">
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Showroom Contact</h4>
+            <ul className="space-y-2.5 text-sm font-light">
               <li className="flex items-start">
-                <MapPin size={14} className="text-gold-accent mr-2 shrink-0 mt-0.5" />
-                <span>{COMPANY_INFO.address.indianShowroom.street}, {COMPANY_INFO.address.indianShowroom.city}, {COMPANY_INFO.address.indianShowroom.state} - {COMPANY_INFO.address.indianShowroom.pincode}</span>
+                <MapPin size={13} className="text-[#c5a880] mr-2 shrink-0 mt-0.5" />
+                <span className="text-stone-400">{COMPANY_INFO.address.indianShowroom.street}, {COMPANY_INFO.address.indianShowroom.city}, {COMPANY_INFO.address.indianShowroom.state} - {COMPANY_INFO.address.indianShowroom.pincode}</span>
               </li>
               <li className="flex items-center">
-                <Mail size={14} className="text-gold-accent mr-2 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-gold-accent transition-colors duration-300">{COMPANY_INFO.email}</a>
+                <Mail size={13} className="text-[#c5a880] mr-2 shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-[#c5a880] transition-colors duration-300">{COMPANY_INFO.email}</a>
               </li>
               <li className="flex items-center">
-                <span className="text-gold-accent text-xs font-bold uppercase tracking-wider mr-2 font-mono">TEL:</span>
-                <a href={`tel:${COMPANY_INFO.phoneFormatted}`} className="hover:text-gold-accent transition-colors duration-300 font-medium">{COMPANY_INFO.phone}</a>
+                <span className="text-[#c5a880] text-[10px] font-bold uppercase tracking-wider mr-2 font-mono">TEL:</span>
+                <a href={`tel:${COMPANY_INFO.phoneFormatted}`} className="hover:text-[#c5a880] transition-colors duration-300 font-medium">{COMPANY_INFO.phone}</a>
               </li>
             </ul>
           </div>
@@ -188,39 +180,39 @@ export default function Footer({ onNavigate = () => {} }) {
         </div>
       </div>
 
-      {/* SECTION 2: MAJESTIC typography backdrop "suthar" overlay exactly like the image */}
-      <div className="relative w-full h-32 md:h-52 flex items-center justify-center select-none overflow-hidden border-b border-white/5">
-        <h2 className="text-[12vw] font-serif tracking-[0.1em] text-stone-900/60 font-bold leading-none translate-y-4 text-center select-none uppercase pointer-events-none">
+      {/* SECTION 2: MAJESTIC typography backdrop */}
+      <div className="relative w-full h-20 md:h-52 flex items-center justify-center select-none overflow-hidden border-b border-white/5">
+        <h2 className="text-[14vw] font-serif tracking-[0.1em] text-stone-900/60 font-bold leading-none text-center select-none uppercase pointer-events-none">
           {COMPANY_INFO.shortName}
         </h2>
       </div>
 
       {/* SECTION 3: COPYRIGHT BOTTOM BAR */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-600">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-5 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-stone-600">
         <div>
           <span>© 1989-{new Date().getFullYear()} {COMPANY_INFO.name}. All Rights Reserved.</span>
         </div>
         
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-5">
           <button
             onClick={() => handleNavigate("terms", null)}
-            className="hover:text-gold-accent transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+            className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
           >
-            Terms of Service
+            Terms
           </button>
           <button
             onClick={() => handleNavigate("privacy", null)}
-            className="hover:text-gold-accent transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+            className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
           >
-            Privacy Policy
+            Privacy
           </button>
           
           <button
             onClick={scrollToTop}
-            className="p-2.5 bg-[#c5a880] text-stone-950 hover:bg-[#b0936b] border border-[#c5a880] transition-all duration-300 rounded-full cursor-pointer shadow-md"
+            className="p-2 bg-[#c5a880] text-stone-950 hover:bg-[#b0936b] transition-all duration-300 rounded-full cursor-pointer shadow-md"
             aria-label="Scroll to top"
           >
-            <ArrowUp size={14} strokeWidth={2.5} />
+            <ArrowUp size={13} strokeWidth={2.5} />
           </button>
         </div>
       </div>

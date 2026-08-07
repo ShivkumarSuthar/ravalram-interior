@@ -64,7 +64,7 @@ export default function Home() {
           <Services />
 
           {/* 4. Full-width reception lobby presentation banner with play button */}
-          {/* <LobbyBanner /> */}
+          <LobbyBanner />
 
 
           {/* 5.5. Why Choose Suthar Interior Studio Section */}

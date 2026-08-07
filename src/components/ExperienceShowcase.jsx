@@ -29,7 +29,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
           className="inline-flex items-center space-x-2.5 bg-stone-100 border border-stone-300/80 px-4 py-1.5 rounded-full shadow-sm"
         >
           <Sparkles size={14} className="text-gold-accent" />
-          <span className="text-[10px] md:text-xs font-mono font-bold tracking-[0.25em] uppercase text-stone-700">
+          <span className="text-[10px] md:text-xs font-mono font-bold tracking-[0.15em] md:tracking-[0.22em] uppercase text-stone-700 whitespace-nowrap">
             PASSIONATE PERFORMANCE • ARCHITECTURAL MASTERY
           </span>
         </motion.div>

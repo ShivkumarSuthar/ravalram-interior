@@ -25,7 +25,7 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
   --font-serif: "Outfit", "Plus Jakarta Sans", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-mono: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   
   /* Semantic Color Utilities */
   --color-primary: var(--color-primary);
