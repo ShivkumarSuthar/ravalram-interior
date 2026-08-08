@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
+    "@tailwindcss/postcss": "^4.1.14",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
+    "leaflet": "^1.9.4",
     "lightningcss": "^1.33.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
@@ -19,8 +21,8 @@
     "postcss": "^8.5.23",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
-    "tailwindcss": "^4.3.3",
-    "@tailwindcss/postcss": "^4.1.14"
+    "react-leaflet": "^5.0.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
