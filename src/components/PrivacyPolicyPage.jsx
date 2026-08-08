@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* PAGE HERO */}
       <section className="relative py-20 bg-[var(--color-surface-dark)] text-white overflow-hidden" id="privacy-hero">
@@ -171,7 +171,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* LEFT COLUMN: STICKY NAVIGATION (TABLE OF CONTENTS) */}
-          <div className="lg:col-span-4 sticky top-[120px] z-20 bg-[#faf9f6] lg:bg-transparent -mx-6 px-6 py-4 lg:p-0 border-b border-stone-200/50 lg:border-none">
+          <div className="lg:col-span-4 sticky top-[120px] z-20 bg-bg-base lg:bg-transparent -mx-6 px-6 py-4 lg:p-0 border-b border-stone-200/50 lg:border-none">
             <div className="bg-white rounded-2xl border border-stone-200/40 p-6 shadow-sm space-y-6 hidden lg:block">
               <div className="flex items-center space-x-2.5 pb-4 border-b border-stone-100">
                 <Shield size={18} className="text-gold-accent" />
@@ -293,7 +293,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   "Monitor, audit, and improve website speed and performance",
                   "Provide dynamic project progress updates and final handoffs"
                 ].map((usage, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 p-4 bg-[#faf9f6]/40 border border-stone-200/20 rounded-xl">
+                  <div key={idx} className="flex items-start space-x-3 p-4 bg-bg-base/40 border border-stone-200/20 rounded-xl">
                     <div className="w-5 h-5 rounded-full bg-stone-900 text-gold-accent flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                       <Check size={10} strokeWidth={3} />
                     </div>
@@ -350,7 +350,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   { title: "Performance Support", desc: "Remembering core site state to prevent repeated page flicker." },
                   { title: "User Preferences", desc: "Securing input values so you don't re-enter consultation details." }
                 ].map((item, idx) => (
-                  <div key={idx} className="p-5 border border-stone-100 rounded-2xl space-y-2.5 text-left bg-[#faf9f6]/30">
+                  <div key={idx} className="p-5 border border-stone-100 rounded-2xl space-y-2.5 text-left bg-bg-base/30">
                     <span className="text-[10px] font-mono font-bold text-gold-accent tracking-wider uppercase block">TYPE 0{idx+1}</span>
                     <h4 className="text-stone-900 font-bold text-xs uppercase font-mono">{item.title}</h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">{item.desc}</p>
@@ -508,7 +508,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   const CardIcon = card.icon;
                   return (
                     <div key={idx} className="p-5 border border-stone-200/60 rounded-2xl flex items-start space-x-4 hover:border-gold-accent transition-colors duration-300">
-                      <div className="w-10 h-10 rounded-full bg-[#faf9f6] flex items-center justify-center text-gold-accent border border-stone-100 shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-bg-base flex items-center justify-center text-gold-accent border border-stone-100 shrink-0">
                         <CardIcon size={16} />
                       </div>
                       <div className="space-y-1">

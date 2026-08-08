@@ -17,7 +17,7 @@ function Stars({ count = 5, size = 13 }) {
   return (
     <div className="flex items-center gap-0.5">
       {[...Array(count)].map((_, i) => (
-        <Star key={i} size={size} strokeWidth={0} className="fill-[#c5a880] text-[#c5a880]" />
+        <Star key={i} size={size} strokeWidth={0} className="fill-primary text-primary" />
       ))}
     </div>
   );
@@ -83,12 +83,12 @@ export default function Testimonial({ setView }) {
               <Medal
                 size={28}
                 strokeWidth={1.3}
-                className="text-[#c5a880] mx-auto"
+                className="text-primary mx-auto"
               />
               <h2 className="text-[2.1rem] font-extrabold text-stone-900 leading-tight tracking-tight">
                 client{" "}
                 <em
-                  className="font-normal text-[#c5a880]"
+                  className="font-normal text-primary"
                   style={{
                     fontFamily: "'Crimson Pro','Playfair Display',Georgia,serif",
                     fontStyle: "italic",
@@ -115,7 +115,7 @@ export default function Testimonial({ setView }) {
                   {/* Decorative large quote mark */}
                   <span
                     aria-hidden
-                    className="block text-[5rem] leading-[0.8] text-[#c5a880]/25 font-serif -mb-1"
+                    className="block text-[5rem] leading-[0.8] text-primary/25 font-serif -mb-1"
                     style={{ fontFamily: "Georgia,serif" }}
                   >
                     &ldquo;
@@ -141,7 +141,7 @@ export default function Testimonial({ setView }) {
                   {/* Author + dots */}
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#c5a880]/35 shrink-0">
+                      <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-primary/35 shrink-0">
                         <img
                           src={current.avatar}
                           alt={current.author}
@@ -167,8 +167,8 @@ export default function Testimonial({ setView }) {
                           onClick={() => go(i)}
                           aria-label={`Review ${i + 1}`}
                           className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${active === i
-                              ? "w-6 bg-[#c5a880]"
-                              : "w-1.5 bg-stone-200 hover:bg-[#c5a880]/50"
+                              ? "w-6 bg-primary"
+                              : "w-1.5 bg-stone-200 hover:bg-primary/50"
                             }`}
                         />
                       ))}
@@ -184,7 +184,7 @@ export default function Testimonial({ setView }) {
                 onClick={prev}
                 aria-label="Previous review"
                 className="w-10 h-10 rounded-full border border-stone-300 bg-white flex items-center justify-center
-                           text-stone-600 hover:bg-[#c5a880] hover:border-[#c5a880] hover:text-white
+                           text-stone-600 hover:bg-primary hover:border-primary hover:text-white
                            transition-all duration-300 cursor-pointer shadow-sm"
               >
                 <ChevronLeft size={16} />
@@ -193,7 +193,7 @@ export default function Testimonial({ setView }) {
                 onClick={next}
                 aria-label="Next review"
                 className="w-10 h-10 rounded-full border border-stone-300 bg-white flex items-center justify-center
-                           text-stone-600 hover:bg-[#c5a880] hover:border-[#c5a880] hover:text-white
+                           text-stone-600 hover:bg-primary hover:border-primary hover:text-white
                            transition-all duration-300 cursor-pointer shadow-sm"
               >
                 <ChevronRight size={16} />
@@ -224,11 +224,11 @@ export default function Testimonial({ setView }) {
           {/* Top bar: label + aggregate score */}
           <div className="relative z-10 max-w-none px-12 xl:px-20 pt-20 pb-10 flex items-center justify-between border-b border-stone-200/70">
             <div className="flex items-center gap-4">
-              <Medal size={15} strokeWidth={1.4} className="text-[#c5a880]" />
-              <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-[#c5a880]">
+              <Medal size={15} strokeWidth={1.4} className="text-primary" />
+              <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-primary">
                 Client Reflections
               </span>
-              <div className="w-12 h-px bg-[#c5a880]/40" />
+              <div className="w-12 h-px bg-primary/40" />
             </div>
             <div className="flex items-center gap-3">
               <Stars count={5} size={12} />
@@ -258,7 +258,7 @@ export default function Testimonial({ setView }) {
                   {/* Huge decorative opening mark */}
                   <span
                     aria-hidden
-                    className="block text-[9rem] leading-[0.65] text-[#c5a880]/30 font-serif select-none"
+                    className="block text-[9rem] leading-[0.65] text-primary/30 font-serif select-none"
                     style={{ fontFamily: "Georgia,serif" }}
                   >
                     &ldquo;
@@ -296,7 +296,7 @@ export default function Testimonial({ setView }) {
                     transition={{ duration: 0.4, ease }}
                     className="flex items-center gap-4"
                   >
-                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#c5a880]/50 shrink-0">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/50 shrink-0">
                       <img
                         src={current.avatar}
                         alt={current.author}
@@ -315,7 +315,7 @@ export default function Testimonial({ setView }) {
                       </p>
                       <div className="flex items-center gap-2 pt-0.5">
                         <Stars count={5} size={12} />
-                        <span className="text-[#c5a880] text-sm font-extrabold tracking-tight">
+                        <span className="text-primary text-sm font-extrabold tracking-tight">
                           {current.score}
                         </span>
                       </div>
@@ -333,8 +333,8 @@ export default function Testimonial({ setView }) {
                         onClick={() => go(i)}
                         aria-label={`Review ${i + 1}`}
                         className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${active === i
-                            ? "w-8 bg-[#c5a880]"
-                            : "w-2 bg-stone-300 hover:bg-[#c5a880]/60"
+                            ? "w-8 bg-primary"
+                            : "w-2 bg-stone-300 hover:bg-primary/60"
                           }`}
                       />
                     ))}
@@ -345,8 +345,8 @@ export default function Testimonial({ setView }) {
                     <button
                       onClick={prev}
                       aria-label="Previous review"
-                      className="w-11 h-11 rounded-full border border-stone-300 bg-white/60 hover:border-[#c5a880]
-                                 text-stone-500 hover:text-[#c5a880]
+                      className="w-11 h-11 rounded-full border border-stone-300 bg-white/60 hover:border-primary
+                                 text-stone-500 hover:text-primary
                                  flex items-center justify-center transition-all duration-300 cursor-pointer shadow-sm"
                     >
                       <ChevronLeft size={17} />
@@ -354,7 +354,7 @@ export default function Testimonial({ setView }) {
                     <button
                       onClick={next}
                       aria-label="Next review"
-                      className="w-11 h-11 rounded-full bg-[#c5a880] hover:bg-[#b0936b]
+                      className="w-11 h-11 rounded-full bg-primary hover:bg-primary-hover
                                  text-stone-950
                                  flex items-center justify-center transition-all duration-300 cursor-pointer
                                  shadow-[0_4px_20px_rgba(197,168,128,0.40)]"
@@ -391,7 +391,7 @@ export default function Testimonial({ setView }) {
 
               {/* Score badge — top right */}
               <div className="absolute top-6 right-6">
-                <div className="bg-[#c5a880] rounded-2xl px-4 py-3 text-center shadow-2xl">
+                <div className="bg-primary rounded-2xl px-4 py-3 text-center shadow-2xl">
                   <p className="text-[1.6rem] font-extrabold text-stone-950 leading-none tracking-tight">
                     {current.score}
                   </p>
@@ -420,22 +420,22 @@ export default function Testimonial({ setView }) {
                   aria-label={`Read review by ${t.author}`}
                   className={`group text-left rounded-2xl border px-5 py-4 transition-all duration-400 cursor-pointer
                     ${active === i
-                      ? "border-[#c5a880]/50 bg-white shadow-md"
-                      : "border-stone-200/60 bg-white/40 hover:border-[#c5a880]/30 hover:bg-white/70"
+                      ? "border-primary/50 bg-white shadow-md"
+                      : "border-stone-200/60 bg-white/40 hover:border-primary/30 hover:bg-white/70"
                     }`}
                 >
                   {/* Active accent line */}
                   <div
                     className={`h-px mb-4 rounded-full transition-all duration-500 ${active === i
-                        ? "bg-[#c5a880] w-8"
-                        : "bg-stone-300 w-4 group-hover:w-6 group-hover:bg-[#c5a880]/50"
+                        ? "bg-primary w-8"
+                        : "bg-stone-300 w-4 group-hover:w-6 group-hover:bg-primary/50"
                       }`}
                   />
 
                   {/* Author row */}
                   <div className="flex items-center gap-3 mb-2.5">
                     <div
-                      className={`w-8 h-8 rounded-full overflow-hidden border shrink-0 transition-all duration-300 ${active === i ? "border-[#c5a880]/60" : "border-stone-300 group-hover:border-[#c5a880]/40"
+                      className={`w-8 h-8 rounded-full overflow-hidden border shrink-0 transition-all duration-300 ${active === i ? "border-primary/60" : "border-stone-300 group-hover:border-primary/40"
                         }`}
                     >
                       <img
@@ -457,7 +457,7 @@ export default function Testimonial({ setView }) {
                       <p className="text-[10px] text-stone-400 font-mono truncate">{t.location}</p>
                     </div>
                     {active === i && (
-                      <div className="w-2 h-2 rounded-full bg-[#c5a880] shrink-0 animate-pulse" />
+                      <div className="w-2 h-2 rounded-full bg-primary shrink-0 animate-pulse" />
                     )}
                   </div>
 

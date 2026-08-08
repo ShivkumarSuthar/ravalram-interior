@@ -2,12 +2,12 @@
 
 :root {
   /* Semantic Design Tokens (Color-agnostic) */
-  --color-primary: #c5a880;
-  --color-primary-hover: #b0936b;
-  --color-bg-base: #faf9f6;
-  --color-bg-dark: #0c0a09;
-  --color-surface-dark: #1c1917;
-  --color-text-muted: #78716c;
+  --color-primary: #CAA05C;
+  --color-primary-hover: #B88D48;
+  --color-bg-base: #FFFFFF;
+  --color-bg-dark: #0F0F0F;
+  --color-surface-dark: #191919;
+  --color-text-muted: #4D4D52;
   --color-text-dark: #000000;
 
   /* Aliases for complete backward compatibility */

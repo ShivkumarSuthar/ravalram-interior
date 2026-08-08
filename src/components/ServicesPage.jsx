@@ -122,7 +122,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
   const currentWorkflowStep = processSteps[activeWorkflowStep] || processSteps[0] || {};
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
       
       {/* EDITORIAL HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white border-b border-stone-800">
@@ -301,7 +301,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 02: CORE SERVICES SHOWCASE (WITH INTERACTIVE CATEGORIES & LIGHTBOX SPEC MODAL) */}
-      <section id="core-services" className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+      <section id="core-services" className="py-24 md:py-32 bg-bg-base relative overflow-hidden">
         
         {/* Subtle architectural grid watermark */}
         <div className="absolute inset-0 pointer-events-none opacity-5 z-0">
@@ -359,7 +359,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   whileTap={{ scale: 0.98 }}
                   exit={{ opacity: 0, scale: 0.96, y: 20 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="bg-white border border-stone-200/80 hover:border-[#c5a880] rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] transition-all duration-500 text-left flex flex-col justify-between group"
+                  className="bg-white border border-stone-200/80 hover:border-primary rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] transition-all duration-500 text-left flex flex-col justify-between group"
                 >
                   <div className="space-y-6">
                     
@@ -485,7 +485,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="bg-[#faf9f6] border border-stone-200 hover:border-gold-accent hover:shadow-2xl hover:-translate-y-1.5 p-6 md:p-8 rounded-3xl space-y-4 transition-all duration-500 group relative flex flex-col justify-between"
+                className="bg-bg-base border border-stone-200 hover:border-gold-accent hover:shadow-2xl hover:-translate-y-1.5 p-6 md:p-8 rounded-3xl space-y-4 transition-all duration-500 group relative flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -518,7 +518,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 05: INTERACTIVE 8-STAGE ARCHITECTURAL PIPELINE TIMELINE */}
-      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-bg-base relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -616,7 +616,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 06: LUXURY EDITORIAL BRAND SHOWCASE MARQUEE */}
-      <section className="py-16 md:py-20 bg-[#faf9f6] relative overflow-hidden border-t border-b border-stone-200/80 select-none">
+      <section className="py-16 md:py-20 bg-bg-base relative overflow-hidden border-t border-b border-stone-200/80 select-none">
         
         {/* Subtle Section Header Label */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8 text-center">
@@ -629,8 +629,8 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="group relative flex overflow-hidden py-3">
           
           {/* Subtle Gradient Edge Fades for Luxury Editorial Framing */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-bg-base via-bg-base/90 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-bg-base via-bg-base/90 to-transparent z-10 pointer-events-none" />
 
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -727,7 +727,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 08: REGIONAL SERVICE AREAS */}
-      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-bg-base relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           
           <div className="text-left max-w-3xl space-y-4">
@@ -792,7 +792,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               value={faqSearch}
               onChange={(e) => setFaqSearch(e.target.value)}
               placeholder="Search service questions (e.g. BOQ, warranty, materials)..."
-              className="w-full bg-[#faf9f6] border border-stone-300 rounded-full pl-12 pr-4 py-3.5 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-gold-accent transition-colors shadow-inner"
+              className="w-full bg-bg-base border border-stone-300 rounded-full pl-12 pr-4 py-3.5 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-gold-accent transition-colors shadow-inner"
             />
           </div>
 
@@ -803,7 +803,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               return (
                 <div
                   key={idx}
-                  className="bg-[#faf9f6] border border-stone-200 rounded-2xl overflow-hidden transition-colors"
+                  className="bg-bg-base border border-stone-200 rounded-2xl overflow-hidden transition-colors"
                 >
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}

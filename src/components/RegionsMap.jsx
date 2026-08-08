@@ -19,10 +19,10 @@ const MARKERS = [
 /* ── Custom dot icon factory ── */
 function dotIcon(isHQ = false) {
   const size = isHQ ? 14 : 9;
-  const color = isHQ ? "#c5a880" : "#0c0a09";
-  const border = isHQ ? "#b0936b" : "#78716c";
+  const color = isHQ ? "var(--color-primary)" : "var(--color-bg-dark)";
+  const border = isHQ ? "var(--color-primary-hover)" : "var(--color-text-muted)";
   const pulse = isHQ
-    ? `<span style="position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:1.5px solid #c5a880;opacity:0;animation:hqPulse 2.5s ease-out infinite;"></span>`
+    ? `<span style="position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:1.5px solid var(--color-primary);opacity:0;animation:hqPulse 2.5s ease-out infinite;"></span>`
     : "";
 
   return L.divIcon({
@@ -41,7 +41,7 @@ function dotIcon(isHQ = false) {
 /* ── Tooltip label factory ── */
 function labelHtml(label, isHQ = false) {
   const badge = isHQ
-    ? `<span style="display:inline-block;margin-left:5px;padding:1px 5px;font-size:8px;font-weight:800;font-family:'JetBrains Mono',monospace;background:#c5a880;color:#0c0a09;border-radius:3px;vertical-align:middle;">HQ</span>`
+    ? `<span style="display:inline-block;margin-left:5px;padding:1px 5px;font-size:8px;font-weight:800;font-family:'JetBrains Mono',monospace;background:var(--color-primary);color:var(--color-bg-dark);border-radius:3px;vertical-align:middle;">HQ</span>`
     : "";
   return `<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:${isHQ ? 13 : 11}px;font-weight:${isHQ ? 700 : 500};color:#44403c;white-space:nowrap;">${label}${badge}</span>`;
 }
@@ -69,7 +69,7 @@ export default function RegionsMap() {
         .grayscale-tiles img { filter: grayscale(1) brightness(1.05) contrast(0.95) !important; }
         /* Hide leaflet attribution to keep it minimal */
         .regions-map .leaflet-control-attribution { font-size: 9px; opacity: 0.4; }
-        .regions-map .leaflet-control-attribution a { color: #78716c !important; }
+        .regions-map .leaflet-control-attribution a { color: var(--color-text-muted) !important; }
       `;
       document.head.appendChild(style);
     }

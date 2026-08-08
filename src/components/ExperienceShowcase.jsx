@@ -17,7 +17,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-[#faf9f6] relative overflow-hidden border-t border-stone-200/80">
+    <section className="py-20 md:py-28 bg-bg-base relative overflow-hidden border-t border-stone-200/80">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
         
         {/* Eyebrow Badge */}
@@ -68,7 +68,7 @@ export default function ExperienceShowcase({ setView, onBackToHome }) {
           />
 
           {/* Top Notch Label */}
-          <div className="absolute top-0 left-6 sm:left-10 z-20 hidden sm:flex items-center space-x-2 bg-[#0c0a09]/90 backdrop-blur-md px-4 py-2 rounded-b-xl border-x border-b border-white/10 text-[10px] font-mono font-bold tracking-widest text-gold-accent uppercase">
+          <div className="absolute top-0 left-6 sm:left-10 z-20 hidden sm:flex items-center space-x-2 bg-bg-dark/90 backdrop-blur-md px-4 py-2 rounded-b-xl border-x border-b border-white/10 text-[10px] font-mono font-bold tracking-widest text-gold-accent uppercase">
             <Compass size={12} />
             <span>FEATURED LUXURY RESIDENCE</span>
           </div>

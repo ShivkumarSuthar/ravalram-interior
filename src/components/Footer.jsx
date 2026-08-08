@@ -42,16 +42,16 @@ export default function Footer({ onNavigate = () => { } }) {
 
             {/* Social Connectors — rounded on mobile */}
             <div className="flex items-center space-x-2 pt-1">
-              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-primary hover:border-primary hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Instagram size={14} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-primary hover:border-primary hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Linkedin size={14} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-primary hover:border-primary hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Facebook size={14} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-[#c5a880] hover:border-[#c5a880] hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
+              <a href="#" className="w-8 h-8 rounded-full border border-stone-800 text-stone-400 hover:text-primary hover:border-primary hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
                 <Twitter size={14} />
               </a>
             </div>
@@ -64,7 +64,7 @@ export default function Footer({ onNavigate = () => { } }) {
               <li>
                 <button
                   onClick={() => handleNavigate("about-us", null)}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Our Story
                 </button>
@@ -72,7 +72,7 @@ export default function Footer({ onNavigate = () => { } }) {
               <li>
                 <button
                   onClick={() => handleNavigate("gallery", null)}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Our Projects
                 </button>
@@ -80,7 +80,7 @@ export default function Footer({ onNavigate = () => { } }) {
               <li>
                 <button
                   onClick={() => handleNavigate("faqs", null)}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   FAQs
                 </button>
@@ -88,7 +88,7 @@ export default function Footer({ onNavigate = () => { } }) {
               <li>
                 <button
                   onClick={() => handleNavigate("blog", null)}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Blog & Journal
                 </button>
@@ -96,7 +96,7 @@ export default function Footer({ onNavigate = () => { } }) {
               <li>
                 <button
                   onClick={() => handleNavigate("contact", null)}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left font-semibold text-[#c5a880] text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left font-semibold text-primary text-sm"
                 >
                   Contact Us
                 </button>
@@ -116,7 +116,7 @@ export default function Footer({ onNavigate = () => { } }) {
                       window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
                     }, 150);
                   }}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Interior Designer
                 </button>
@@ -129,7 +129,7 @@ export default function Footer({ onNavigate = () => { } }) {
                       window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
                     }, 150);
                   }}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Interior Contractor
                 </button>
@@ -142,7 +142,7 @@ export default function Footer({ onNavigate = () => { } }) {
                       window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
                     }, 150);
                   }}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   2D & 3D Layouts
                 </button>
@@ -150,7 +150,7 @@ export default function Footer({ onNavigate = () => { } }) {
               <li>
                 <button
                   onClick={() => handleNavigate("services", null)}
-                  className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer text-left text-sm"
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
                   Services Overview
                 </button>
@@ -163,16 +163,16 @@ export default function Footer({ onNavigate = () => { } }) {
             <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Showroom Contact</h4>
             <ul className="space-y-2.5 text-sm font-light">
               <li className="flex items-start">
-                <MapPin size={13} className="text-[#c5a880] mr-2 shrink-0 mt-0.5" />
+                <MapPin size={13} className="text-primary mr-2 shrink-0 mt-0.5" />
                 <span className="text-stone-400">{COMPANY_INFO.address.indianShowroom.street}, {COMPANY_INFO.address.indianShowroom.city}, {COMPANY_INFO.address.indianShowroom.state} - {COMPANY_INFO.address.indianShowroom.pincode}</span>
               </li>
               <li className="flex items-center">
-                <Mail size={13} className="text-[#c5a880] mr-2 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-[#c5a880] transition-colors duration-300">{COMPANY_INFO.email}</a>
+                <Mail size={13} className="text-primary mr-2 shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-primary transition-colors duration-300">{COMPANY_INFO.email}</a>
               </li>
               <li className="flex items-center">
-                <span className="text-[#c5a880] text-[10px] font-bold uppercase tracking-wider mr-2 font-mono">TEL:</span>
-                <a href={`tel:${COMPANY_INFO.phoneFormatted}`} className="hover:text-[#c5a880] transition-colors duration-300 font-medium">{COMPANY_INFO.phone}</a>
+                <span className="text-primary text-[10px] font-bold uppercase tracking-wider mr-2 font-mono">TEL:</span>
+                <a href={`tel:${COMPANY_INFO.phoneFormatted}`} className="hover:text-primary transition-colors duration-300 font-medium">{COMPANY_INFO.phone}</a>
               </li>
             </ul>
           </div>
@@ -196,13 +196,13 @@ export default function Footer({ onNavigate = () => { } }) {
         <div className="flex items-center space-x-5">
           <button
             onClick={() => handleNavigate("terms", null)}
-            className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+            className="hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
           >
             Terms
           </button>
           <button
             onClick={() => handleNavigate("privacy", null)}
-            className="hover:text-[#c5a880] transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+            className="hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
           >
             Privacy
           </button>

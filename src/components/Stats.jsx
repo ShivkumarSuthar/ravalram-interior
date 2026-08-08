@@ -29,7 +29,7 @@ export default function Stats() {
   const doubleLogos = [...BRAND_LOGOS, ...BRAND_LOGOS];
 
   return (
-    <section className="py-16 md:py-20 bg-[#faf9f6] relative overflow-hidden border-t border-b border-stone-200/80 select-none">
+    <section className="py-16 md:py-20 bg-bg-base relative overflow-hidden border-t border-b border-stone-200/80 select-none">
       
       {/* Subtle Section Header Label */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8 text-center">
@@ -42,8 +42,8 @@ export default function Stats() {
       <div className="group relative flex overflow-hidden py-3">
         
         {/* Subtle Gradient Edge Fades for Luxury Editorial Framing */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-bg-base via-bg-base/90 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-bg-base via-bg-base/90 to-transparent z-10 pointer-events-none" />
 
         <motion.div
           animate={{ x: ["0%", "-50%"] }}

@@ -18,7 +18,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="bg-[#faf9f6] py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
+    <section className="bg-bg-base py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
       
       {/* Background Blueprint Grid Lines Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">

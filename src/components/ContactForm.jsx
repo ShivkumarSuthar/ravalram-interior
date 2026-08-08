@@ -40,7 +40,7 @@ function Dropdown({ label, value, options, onChange }) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-5 py-3.5 rounded-xl border border-stone-200 bg-white text-stone-900 text-sm font-semibold transition-colors hover:border-[#c5a880]/60 cursor-pointer"
+        className="w-full flex items-center justify-between px-5 py-3.5 rounded-xl border border-stone-200 bg-white text-stone-900 text-sm font-semibold transition-colors hover:border-primary/60 cursor-pointer"
       >
         <span className={value ? "text-stone-900" : "text-stone-400"}>{value || "Select..."}</span>
         <ChevronDown size={14} className={`text-stone-400 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -59,7 +59,7 @@ function Dropdown({ label, value, options, onChange }) {
                 key={opt}
                 type="button"
                 onClick={() => { onChange(opt); setOpen(false); }}
-                className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors cursor-pointer ${value === opt ? "bg-[#c5a880]/10 text-[#b0936b]" : "text-stone-700 hover:bg-stone-50 hover:text-stone-900"}`}
+                className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors cursor-pointer ${value === opt ? "bg-primary/10 text-primary-hover" : "text-stone-700 hover:bg-stone-50 hover:text-stone-900"}`}
               >
                 {opt}
               </button>
@@ -78,8 +78,8 @@ function FormInput({ label, type = "text", value, onChange, required = true, mul
   const cls = "w-full bg-transparent text-lg sm:text-xl font-light text-stone-900 outline-none placeholder:text-transparent peer";
 
   return (
-    <div className={`relative border-b pb-3 pt-6 transition-colors duration-300 ${focused ? "border-[#c5a880]" : "border-stone-200"}`}>
-      <label className={`absolute left-0 font-mono text-[10px] uppercase tracking-[0.22em] font-bold transition-all duration-300 pointer-events-none ${active ? "top-0 text-[#c5a880]" : "top-6 text-stone-400 text-xs"}`}>
+    <div className={`relative border-b pb-3 pt-6 transition-colors duration-300 ${focused ? "border-primary" : "border-stone-200"}`}>
+      <label className={`absolute left-0 font-mono text-[10px] uppercase tracking-[0.22em] font-bold transition-all duration-300 pointer-events-none ${active ? "top-0 text-primary" : "top-6 text-stone-400 text-xs"}`}>
         {label}
       </label>
       {multiline ? (
@@ -131,7 +131,7 @@ export default function ContactForm({ setView }) {
       {/* ══════════════════════════════════════════
           FULL-WIDTH BRIEF LAYOUT
       ══════════════════════════════════════════ */}
-      <div className="bg-[#faf9f6] min-h-dvh relative border-t border-stone-200/80">
+      <div className="bg-bg-base min-h-dvh relative border-t border-stone-200/80">
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-dvh">
 
           {/* ── LEFT PANEL: Image + Brand ── */}
@@ -145,13 +145,13 @@ export default function ContactForm({ setView }) {
                 style={{ filter: "brightness(0.55) contrast(1.1) saturate(0.5)" }}
               />
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/30 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1c1917]/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-surface-dark/30" />
             </div>
 
             {/* Architectural frame lines */}
             <div className="absolute inset-6 sm:inset-10 border border-white/[0.08] rounded-sm pointer-events-none" />
-            <div className="absolute top-10 left-10 right-10 h-px bg-gradient-to-r from-[#c5a880]/40 via-transparent to-transparent" />
+            <div className="absolute top-10 left-10 right-10 h-px bg-gradient-to-r from-primary/40 via-transparent to-transparent" />
 
             {/* Brand footer */}
             <div className="relative z-10 mt-auto p-10 sm:p-14 space-y-1.5">
@@ -161,11 +161,11 @@ export default function ContactForm({ setView }) {
           </div>
 
           {/* ── RIGHT PANEL: Form Wizard ── */}
-          <div className="lg:col-span-7 flex flex-col bg-[#faf9f6]">
+          <div className="lg:col-span-7 flex flex-col bg-bg-base">
 
             {/* Top bar */}
             <div className="flex items-center justify-between px-5 sm:px-12 lg:px-16 pt-6 sm:pt-10 pb-4 sm:pb-6 border-b border-stone-200/60">
-              <span className="text-[10px] font-mono font-bold tracking-[0.25em] uppercase text-[#c5a880]">Project Brief</span>
+              <span className="text-[10px] font-mono font-bold tracking-[0.25em] uppercase text-primary">Project Brief</span>
               <span className="text-[11px] font-mono font-bold text-stone-400">{heading.tag}</span>
             </div>
 
@@ -191,7 +191,7 @@ export default function ContactForm({ setView }) {
                             <br />
                             <span className="block">{heading.accent}</span>
                           </h2>
-                          <p className="text-[#b0936b] italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
+                          <p className="text-primary-hover italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
                         </div>
 
                         {/* Service type selector */}
@@ -208,15 +208,15 @@ export default function ContactForm({ setView }) {
                                   type="button"
                                   onClick={() => setService(id)}
                                   className={`relative text-left p-3 sm:p-6 rounded-xl border-2 transition-all duration-300 cursor-pointer group ${active
-                                    ? "border-[#c5a880] bg-[#c5a880]/[0.08] shadow-md"
+                                    ? "border-primary bg-primary/[0.08] shadow-md"
                                     : "border-stone-200 bg-white hover:border-stone-300 hover:shadow-sm"
                                     }`}
                                 >
-                                  <span className={`text-[10px] font-mono font-bold block mb-1 sm:mb-2 ${active ? "text-[#c5a880]" : "text-stone-300"}`}>{num}</span>
+                                  <span className={`text-[10px] font-mono font-bold block mb-1 sm:mb-2 ${active ? "text-primary" : "text-stone-300"}`}>{num}</span>
                                   <span className={`text-sm sm:text-lg font-extrabold block mb-0.5 sm:mb-1 tracking-tight ${active ? "text-stone-900" : "text-stone-700"}`}>{label}</span>
                                   <span className="text-[10px] sm:text-[11px] text-stone-400 font-light hidden sm:block">{sub}</span>
                                   {/* Arrow icon */}
-                                  <div className={`absolute top-3 right-3 sm:top-5 sm:right-5 w-6 h-6 sm:w-7 sm:h-7 rounded-full border flex items-center justify-center transition-all ${active ? "border-[#c5a880] text-[#c5a880]" : "border-stone-200 text-stone-300 group-hover:border-stone-300"}`}>
+                                  <div className={`absolute top-3 right-3 sm:top-5 sm:right-5 w-6 h-6 sm:w-7 sm:h-7 rounded-full border flex items-center justify-center transition-all ${active ? "border-primary text-primary" : "border-stone-200 text-stone-300 group-hover:border-stone-300"}`}>
                                     <ArrowRight size={12} className={`transition-transform ${active ? "rotate-[-45deg]" : ""}`} />
                                   </div>
                                 </button>
@@ -233,7 +233,7 @@ export default function ContactForm({ setView }) {
                           <div className="relative pt-2 pb-8 sm:pb-10">
                             <div className="h-[2px] bg-stone-200 rounded-full relative">
                               <motion.div
-                                className="absolute top-0 left-0 h-full bg-[#c5a880] rounded-full"
+                                className="absolute top-0 left-0 h-full bg-primary rounded-full"
                                 animate={{ width: timeline === "now" ? "25%" : timeline === "1-3" ? "50%" : timeline === "3-6" ? "75%" : timeline === "exploring" ? "100%" : "0%" }}
                                 transition={{ duration: 0.4, ease }}
                               />
@@ -243,7 +243,7 @@ export default function ContactForm({ setView }) {
                                   type="button"
                                   onClick={() => setTimeline(TIMELINES[i].id)}
                                   className={`absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full border-2 transition-all cursor-pointer ${TIMELINES.findIndex(t => t.id === timeline) >= i
-                                      ? "bg-[#c5a880] border-[#c5a880] shadow-sm"
+                                      ? "bg-primary border-primary shadow-sm"
                                       : "bg-white border-stone-300 hover:border-stone-400"
                                     }`}
                                   style={{ left: `${pos}%`, marginLeft: pos === 0 ? 0 : pos === 100 ? "-14px" : "-7px" }}
@@ -257,7 +257,7 @@ export default function ContactForm({ setView }) {
                                 return (
                                   <span 
                                     key={t.id} 
-                                    className={`absolute top-0 text-[8.5px] sm:text-[9px] font-mono font-bold whitespace-nowrap transition-colors ${timeline === t.id ? "text-[#b0936b]" : "text-stone-400"}`}
+                                    className={`absolute top-0 text-[8.5px] sm:text-[9px] font-mono font-bold whitespace-nowrap transition-colors ${timeline === t.id ? "text-primary-hover" : "text-stone-400"}`}
                                     style={{ 
                                       left: `${pos}%`, 
                                       transform: pos === 0 ? 'translateX(0)' : pos === 100 ? 'translateX(-100%)' : 'translateX(-50%)' 
@@ -284,7 +284,7 @@ export default function ContactForm({ setView }) {
                             type="button"
                             disabled={!service}
                             onClick={() => go(1)}
-                            className="inline-flex items-center gap-3 bg-[#0c0a09] disabled:opacity-30 hover:bg-[#c5a880] hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
+                            className="inline-flex items-center gap-3 bg-bg-dark disabled:opacity-30 hover:bg-primary hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
                           >
                             Continue
                             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -308,7 +308,7 @@ export default function ContactForm({ setView }) {
                             <br />
                             <span className="block">{heading.accent}</span>
                           </h2>
-                          <p className="text-[#b0936b] italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
+                          <p className="text-primary-hover italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
                         </div>
 
                         <div className="space-y-8">
@@ -327,7 +327,7 @@ export default function ContactForm({ setView }) {
                             type="button"
                             disabled={!form.name || !form.phone || !form.email}
                             onClick={() => go(2)}
-                            className="inline-flex items-center gap-3 bg-[#0c0a09] disabled:opacity-30 hover:bg-[#c5a880] hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
+                            className="inline-flex items-center gap-3 bg-bg-dark disabled:opacity-30 hover:bg-primary hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
                           >
                             Continue
                             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -352,7 +352,7 @@ export default function ContactForm({ setView }) {
                             <br />
                             <span className="block">{heading.accent}</span>
                           </h2>
-                          <p className="text-[#b0936b] italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
+                          <p className="text-primary-hover italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
                         </div>
 
                         <FormInput
@@ -367,7 +367,7 @@ export default function ContactForm({ setView }) {
                           <span className="text-stone-400">Brief for:</span>
                           <span className="text-stone-900 font-bold">{form.name}</span>
                           <span className="text-stone-300">·</span>
-                          <span className="text-[#b0936b] font-bold">{SERVICES.find(s => s.id === service)?.label}</span>
+                          <span className="text-primary-hover font-bold">{SERVICES.find(s => s.id === service)?.label}</span>
                           <span className="text-stone-300">·</span>
                           <span className="text-stone-600">{city}</span>
                           {propertyType && <><span className="text-stone-300">·</span><span className="text-stone-600">{propertyType}</span></>}
@@ -380,7 +380,7 @@ export default function ContactForm({ setView }) {
                           </button>
                           <button
                             type="submit"
-                            className="inline-flex items-center gap-3 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-xl group"
+                            className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-stone-950 px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-xl group"
                           >
                             <Sparkles size={14} />
                             Submit My Brief
@@ -403,7 +403,7 @@ export default function ContactForm({ setView }) {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.1 }}
-                      className="w-20 h-20 rounded-full bg-gradient-to-br from-[#c5a880] to-[#b0936b] flex items-center justify-center shadow-2xl"
+                      className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center shadow-2xl"
                     >
                       <Check size={32} className="text-stone-950" strokeWidth={3} />
                     </motion.div>
@@ -429,7 +429,7 @@ export default function ContactForm({ setView }) {
                   </span>
                 ))}
               </div>
-              <span className="text-[#c5a880] text-sm font-mono font-bold">0{step + 1}</span>
+              <span className="text-primary text-sm font-mono font-bold">0{step + 1}</span>
             </div>
           </div>
         </div>

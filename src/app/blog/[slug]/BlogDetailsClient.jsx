@@ -20,7 +20,7 @@ export default function BlogDetailsClient({ article }) {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-[#faf9f6] text-stone-900 flex flex-col items-center justify-center p-6 font-sans">
+      <div className="min-h-screen bg-bg-base text-stone-900 flex flex-col items-center justify-center p-6 font-sans">
         <h1 className="text-2xl font-serif text-stone-900 mb-4">Article Not Found</h1>
         <button onClick={() => handleNavigate("blog")} className="text-gold-accent hover:underline font-mono uppercase tracking-widest text-xs">
           Back to Articles
@@ -33,7 +33,7 @@ export default function BlogDetailsClient({ article }) {
     <>
       <Header currentView="blog" setView={handleNavigate} />
 
-      <main className="relative z-10 pt-[80px] bg-[#faf9f6] text-stone-900">
+      <main className="relative z-10 pt-[80px] bg-bg-base text-stone-900">
         <article className="max-w-4xl mx-auto px-6 py-16 sm:py-24">
           
           {/* Back button */}

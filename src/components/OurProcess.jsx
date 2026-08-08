@@ -88,7 +88,7 @@ export default function OurProcess({ setView }) {
   };
 
   return (
-    <section id="our-process" className="bg-[#faf9f6] py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
+    <section id="our-process" className="bg-bg-base py-24 md:py-32 relative overflow-hidden border-t border-stone-200/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Block */}
@@ -212,18 +212,18 @@ export default function OurProcess({ setView }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="bg-gradient-to-br from-[#f8f3ec] via-[#f3e9dc] to-[#eee2d2] text-stone-950 p-8 md:p-14 border-2 border-[#c5a880] relative overflow-hidden text-left shadow-xl rounded-3xl"
+          className="bg-gradient-to-br from-[#f8f3ec] via-[#f3e9dc] to-[#eee2d2] text-stone-950 p-8 md:p-14 border-2 border-primary relative overflow-hidden text-left shadow-xl rounded-3xl"
         >
           {/* Subtle warm decorative radial glow */}
-          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#c5a880]/20 via-transparent to-transparent opacity-80 pointer-events-none" />
+          <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-80 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-[#b0936b] text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-primary-hover text-xs tracking-[0.3em] font-mono font-bold block uppercase">
               LET'S BUILD SOMETHING EXTRAORDINARY
             </span>
             <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-stone-950 leading-tight font-serif">
               Ready to Start Your <br />
-              <span className="text-[#b0936b]">Dream Project</span>?
+              <span className="text-primary-hover">Dream Project</span>?
             </h3>
             <p className="text-stone-700 font-light text-sm md:text-base leading-relaxed max-w-2xl">
               Whether you're building a new home, renovating an existing space, or designing a commercial environment, our experienced team is ready to guide you through every step with honesty, precision, and exceptional craftsmanship.

@@ -160,7 +160,7 @@ export default function CityClient({ city }) {
         </section>
 
         {/* Beautiful Local Contact Info Bar */}
-        <section className="py-16 bg-[#faf9f6] border-t border-b border-stone-200/50">
+        <section className="py-16 bg-bg-base border-t border-b border-stone-200/50">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex items-start space-x-4 text-left">

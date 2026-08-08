@@ -129,12 +129,12 @@ function HeroCard({ feature }) {
       {/* Dark gradient — stronger at bottom */}
       <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-900/40 to-transparent" />
       {/* Gold warm tint */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#c5a880]/15 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
 
       {/* Top-left icon badge */}
       <div className="absolute top-4 left-4 flex items-center gap-2">
         <div className="w-9 h-9 rounded-xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center">
-          <Icon size={16} strokeWidth={1.6} className="text-[#c5a880]" />
+          <Icon size={16} strokeWidth={1.6} className="text-primary" />
         </div>
         <span className="text-[10px] font-mono font-bold text-white/50 tracking-[0.2em] uppercase">
           {feature.num}
@@ -166,14 +166,14 @@ function FeatureCard({ feature, delay }) {
                  group relative bg-white rounded-2xl sm:rounded-3xl border border-stone-100/80 overflow-hidden
                  flex flex-row sm:flex-col items-start gap-4 sm:gap-3.5
                  cursor-default p-4 sm:p-5 lg:p-6
-                 hover:shadow-[0_12px_48px_rgba(197,168,128,0.15)] hover:border-[#c5a880]/30
+                 hover:shadow-[0_12px_48px_rgba(197,168,128,0.15)] hover:border-primary/30
                  transition-all duration-500"
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
     >
       {/* Gold top accent — revealed on hover */}
       <div
         className="absolute top-0 inset-x-5 h-[2px] rounded-b-full
-                   bg-gradient-to-r from-transparent via-[#c5a880] to-transparent
+                   bg-gradient-to-r from-transparent via-primary to-transparent
                    scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500"
       />
 
@@ -181,7 +181,7 @@ function FeatureCard({ feature, delay }) {
       <span
         aria-hidden
         className="hidden sm:block absolute top-4 right-5 text-[11px] font-mono font-bold
-                   text-stone-200 group-hover:text-[#c5a880]/40
+                   text-stone-200 group-hover:text-primary/40
                    select-none pointer-events-none transition-colors duration-400 tracking-[0.1em]"
       >
         {feature.num}
@@ -190,14 +190,14 @@ function FeatureCard({ feature, delay }) {
       {/* Icon chip — always shrink-0 so it never collapses on mobile */}
       <div
         className="w-11 h-11 rounded-2xl flex items-center justify-center border shrink-0 mt-0.5
-                   bg-[#faf9f6] border-stone-100
-                   group-hover:bg-[#c5a880]/10 group-hover:border-[#c5a880]/35
+                   bg-bg-base border-stone-100
+                   group-hover:bg-primary/10 group-hover:border-primary/35
                    transition-all duration-400"
       >
         <Icon
           size={18}
           strokeWidth={1.6}
-          className="text-stone-400 group-hover:text-[#c5a880] transition-colors duration-400"
+          className="text-stone-400 group-hover:text-primary transition-colors duration-400"
         />
       </div>
 
@@ -222,20 +222,20 @@ function StatBlock({ stat, index }) {
       {...fadeUp(0.08 + index * 0.06)}
       className="group relative bg-white rounded-2xl border border-stone-100 p-5
                  flex flex-col gap-3 overflow-hidden
-                 hover:shadow-[0_8px_32px_rgba(197,168,128,0.14)] hover:border-[#c5a880]/25
+                 hover:shadow-[0_8px_32px_rgba(197,168,128,0.14)] hover:border-primary/25
                  transition-all duration-500"
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
     >
       {/* Gold top accent — reveals on hover */}
       <div
         className="absolute top-0 inset-x-4 h-[2px] rounded-b-full
-                   bg-gradient-to-r from-transparent via-[#c5a880] to-transparent
+                   bg-gradient-to-r from-transparent via-primary to-transparent
                    scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500"
       />
 
       {/* Icon */}
-      <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-stone-100 flex items-center justify-center shrink-0">
-        <Icon size={18} strokeWidth={1.4} className="text-[#c5a880]" />
+      <div className="w-10 h-10 rounded-xl bg-bg-base border border-stone-100 flex items-center justify-center shrink-0">
+        <Icon size={18} strokeWidth={1.4} className="text-primary" />
       </div>
 
       {/* Value */}
@@ -247,11 +247,11 @@ function StatBlock({ stat, index }) {
       </p>
 
       {/* Thin gold divider */}
-      <div className="w-6 h-px bg-[#c5a880]/55" />
+      <div className="w-6 h-px bg-primary/55" />
 
       {/* Sublabel + label */}
       <div className="space-y-0.5">
-        <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#c5a880]">
+        <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-primary">
           {stat.sublabel}
         </p>
         <p className="text-[9px] font-mono font-semibold uppercase tracking-[0.2em] text-stone-400">
@@ -274,7 +274,7 @@ export default function WhyChooseUs({ setView }) {
   return (
     <section
       id="why-choose-us"
-      className="bg-[#faf9f6] py-16 sm:py-24 lg:py-32 relative overflow-hidden border-b border-stone-200/60"
+      className="bg-bg-base py-16 sm:py-24 lg:py-32 relative overflow-hidden border-b border-stone-200/60"
     >
       {/* Warm radial glow — top-left */}
       <div
@@ -298,8 +298,8 @@ export default function WhyChooseUs({ setView }) {
 
               {/* Label */}
               <div className="flex items-center gap-3">
-                <div className="w-8 h-px bg-[#c5a880]" />
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-[#c5a880]">
+                <div className="w-8 h-px bg-primary" />
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-primary">
                   Why Choose Us
                 </span>
               </div>
@@ -309,7 +309,7 @@ export default function WhyChooseUs({ setView }) {
                              font-extrabold tracking-[-0.02em] text-stone-900 leading-[1.06]">
                 Why Clients Trust{" "}
                 <span
-                  className="text-[#c5a880]"
+                  className="text-primary"
                 >
                   Suthar Interior Studio
                 </span>
@@ -334,7 +334,7 @@ export default function WhyChooseUs({ setView }) {
               <button
                 onClick={handleConsultation}
                 aria-label="Book a free interior design consultation"
-                className="inline-flex items-center gap-3.5 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950
+                className="inline-flex items-center gap-3.5 bg-primary hover:bg-primary-hover text-stone-950
                            font-bold text-[13px] uppercase tracking-[0.15em] px-7 py-4 rounded-full
                            transition-all duration-300 shadow-[0_8px_32px_rgba(197,168,128,0.30)]
                            hover:shadow-[0_12px_48px_rgba(197,168,128,0.45)] hover:scale-[1.02]

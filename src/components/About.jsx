@@ -16,10 +16,10 @@ const transitionImg = SITE_IMAGES.transitionLuxury;
 const cadImg      = SITE_IMAGES.isometricFloorPlan;
 
 const STATS = [
-  { value: "35+",  label: "Years Lineage",      sub: "Est. 1989 Master Guild",   accent: "#c5a880" },
-  { value: "500+", label: "Turnkey Projects",   sub: "Villas & Penthouses",      accent: "#c5a880" },
+  { value: "35+",  label: "Years Lineage",      sub: "Est. 1989 Master Guild",   accent: "var(--color-primary)" },
+  { value: "500+", label: "Turnkey Projects",   sub: "Villas & Penthouses",      accent: "var(--color-primary)" },
   { value: "100%", label: "Architect Audited",  sub: "Zero Tolerance CAD",       accent: "#488b82" },
-  { value: "10-Yr",label: "Teak Warranty",      sub: "IS 710 Marine Ply",        accent: "#c5a880" },
+  { value: "10-Yr",label: "Teak Warranty",      sub: "IS 710 Marine Ply",        accent: "var(--color-primary)" },
 ];
 
 const PILLARS = [
@@ -98,7 +98,7 @@ export default function About({ setView }) {
 
             <button
               onClick={() => { if (typeof setView === "function") { setView("about-us"); window.scrollTo({ top: 0, behavior: "smooth" }); } }}
-              className="inline-flex items-center gap-2.5 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 px-5 py-2.5 rounded-full transition-all duration-300 group cursor-pointer shadow-md shrink-0 self-start"
+              className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary-hover text-stone-950 px-5 py-2.5 rounded-full transition-all duration-300 group cursor-pointer shadow-md shrink-0 self-start"
             >
               <span className="text-[11px] font-bold tracking-widest uppercase font-mono">Explore Full Studio Page</span>
               <div className="w-6 h-6 rounded-full bg-stone-950 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -110,7 +110,7 @@ export default function About({ setView }) {
           {/* Big headline */}
           <h2 className="text-[2.2rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12] max-w-4xl">
             Master Artisans &amp; Senior Architects{" "}
-            <span className="text-[#c5a880] italic font-serif">Building Timeless</span>{" "}
+            <span className="text-primary italic font-serif">Building Timeless</span>{" "}
             Spaces
           </h2>
 
@@ -132,7 +132,7 @@ export default function About({ setView }) {
                 <motion.div
                   key={i}
                   {...fadeUp(0.06 * i)}
-                  className="group p-4 rounded-2xl bg-white border border-[#e5dcd3] hover:border-[#c5a880]/60 hover:shadow-md transition-all duration-300 text-left space-y-0.5"
+                  className="group p-4 rounded-2xl bg-white border border-[#e5dcd3] hover:border-primary/60 hover:shadow-md transition-all duration-300 text-left space-y-0.5"
                 >
                   <span
                     className="text-2xl sm:text-3xl font-extrabold leading-none block"
@@ -161,7 +161,7 @@ export default function About({ setView }) {
                 onClick={() => setActive(i)}
                 className={`py-2.5 rounded-xl text-[10px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap overflow-hidden ${
                   i === active
-                    ? "bg-[#c5a880] text-stone-950 shadow-md"
+                    ? "bg-primary text-stone-950 shadow-md"
                     : "text-stone-600 hover:text-stone-900"
                 }`}
               >
@@ -178,7 +178,7 @@ export default function About({ setView }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25 }}
-              className="rounded-3xl overflow-hidden border-2 border-[#c5a880] shadow-xl bg-white"
+              className="rounded-3xl overflow-hidden border-2 border-primary shadow-xl bg-white"
             >
               {/* Image */}
               <div className="relative aspect-[16/9] bg-stone-900">
@@ -199,7 +199,7 @@ export default function About({ setView }) {
                       onClick={() => setViewMode(m)}
                       className={`px-2.5 py-1 rounded-full text-[9px] font-mono font-bold uppercase transition-all cursor-pointer ${
                         viewMode === m
-                          ? m === "photo" ? "bg-[#c5a880] text-stone-950" : "bg-[#488b82] text-white"
+                          ? m === "photo" ? "bg-primary text-stone-950" : "bg-[#488b82] text-white"
                           : "text-stone-400 hover:text-white"
                       }`}
                     >
@@ -209,7 +209,7 @@ export default function About({ setView }) {
                 </div>
 
                 <div className="absolute bottom-3 left-4 right-4">
-                  <span className="text-[9px] font-mono text-[#c5a880] uppercase tracking-widest font-bold">
+                  <span className="text-[9px] font-mono text-primary uppercase tracking-widest font-bold">
                     FIG 01.{active + 1} · {current.tag}
                   </span>
                 </div>
@@ -217,7 +217,7 @@ export default function About({ setView }) {
 
               {/* Text */}
               <div className="p-5 space-y-3">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#b0936b]">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-primary-hover">
                   Pillar {current.num}
                 </span>
                 <h3 className="text-lg font-extrabold text-stone-950 leading-snug font-serif">
@@ -234,11 +234,11 @@ export default function About({ setView }) {
               </div>
 
               {/* Quote strip */}
-              <div className="mx-5 mb-5 p-4 rounded-2xl bg-[#f3e9df] border-l-4 border-[#c5a880] space-y-1">
+              <div className="mx-5 mb-5 p-4 rounded-2xl bg-[#f3e9df] border-l-4 border-primary space-y-1">
                 <p className="text-xs font-serif italic text-stone-800 leading-relaxed">
                   &ldquo;{current.quote}&rdquo;
                 </p>
-                <span className="text-[9px] font-mono uppercase tracking-widest text-[#b0936b] font-bold">
+                <span className="text-[9px] font-mono uppercase tracking-widest text-primary-hover font-bold">
                   — {current.author}
                 </span>
               </div>
@@ -266,23 +266,23 @@ export default function About({ setView }) {
                     transition={{ duration: 0.2 }}
                     className={`w-full text-left rounded-3xl border transition-all duration-400 cursor-pointer overflow-hidden ${
                       isActive
-                        ? "bg-gradient-to-br from-white via-[#fcfaf7] to-[#f4eee4] border-2 border-[#c5a880] shadow-[0_16px_48px_rgba(197,168,128,0.2)] scale-[1.01]"
-                        : "bg-white/80 border-[#e5dcd3] hover:border-[#c5a880]/50 hover:bg-white hover:shadow-md"
+                        ? "bg-gradient-to-br from-white via-[#fcfaf7] to-[#f4eee4] border-2 border-primary shadow-[0_16px_48px_rgba(197,168,128,0.2)] scale-[1.01]"
+                        : "bg-white/80 border-[#e5dcd3] hover:border-primary/50 hover:bg-white hover:shadow-md"
                     }`}
                   >
                     {/* Gold top bar — active only */}
                     {isActive && (
-                      <div className="h-1 w-full bg-gradient-to-r from-[#c5a880] via-[#d4b896] to-[#c5a880]" />
+                      <div className="h-1 w-full bg-gradient-to-r from-primary via-[#d4b896] to-primary" />
                     )}
 
                     <div className="p-5 space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <span className={`text-[9px] font-mono font-bold tracking-[0.2em] uppercase ${isActive ? "text-[#b0936b]" : "text-stone-400"}`}>
+                        <span className={`text-[9px] font-mono font-bold tracking-[0.2em] uppercase ${isActive ? "text-primary-hover" : "text-stone-400"}`}>
                           {p.num} · {p.tag}
                         </span>
                         <ChevronRight
                           size={15}
-                          className={`transition-all duration-300 ${isActive ? "text-[#c5a880] rotate-90" : "text-stone-300"}`}
+                          className={`transition-all duration-300 ${isActive ? "text-primary rotate-90" : "text-stone-300"}`}
                         />
                       </div>
 
@@ -297,7 +297,7 @@ export default function About({ setView }) {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease }}
-                            className="pt-3 space-y-3 border-t border-[#c5a880]/25 overflow-hidden"
+                            className="pt-3 space-y-3 border-t border-primary/25 overflow-hidden"
                           >
                             <p className="text-sm font-light text-stone-600 leading-relaxed">{p.desc}</p>
                             <div className="flex flex-wrap gap-2">
@@ -327,16 +327,16 @@ export default function About({ setView }) {
                 className="relative p-5 rounded-3xl bg-gradient-to-br from-[#f3e9df] to-[#ede0d4] border border-[#e5d4c5] shadow-sm overflow-hidden"
               >
                 {/* Decorative large quotation mark */}
-                <span className="absolute -top-3 -left-1 text-[80px] text-[#c5a880]/20 font-serif leading-none select-none pointer-events-none">&ldquo;</span>
+                <span className="absolute -top-3 -left-1 text-[80px] text-primary/20 font-serif leading-none select-none pointer-events-none">&ldquo;</span>
                 <div className="relative z-10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#c5a880]/25 border border-[#c5a880]/40 flex items-center justify-center shrink-0 mt-0.5">
-                    <Quote size={16} className="text-[#b0936b]" />
+                  <div className="w-9 h-9 rounded-xl bg-primary/25 border border-primary/40 flex items-center justify-center shrink-0 mt-0.5">
+                    <Quote size={16} className="text-primary-hover" />
                   </div>
                   <div className="space-y-1.5">
                     <p className="text-sm font-serif italic text-stone-800 leading-relaxed">
                       &ldquo;{current.quote}&rdquo;
                     </p>
-                    <span className="block text-[10px] font-mono uppercase tracking-widest text-[#b0936b] font-bold">
+                    <span className="block text-[10px] font-mono uppercase tracking-widest text-primary-hover font-bold">
                       — {current.author}
                     </span>
                   </div>
@@ -359,7 +359,7 @@ export default function About({ setView }) {
                     onClick={() => setViewMode(key)}
                     className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${
                       viewMode === key
-                        ? key === "photo" ? "bg-[#c5a880] text-stone-950 shadow-sm" : "bg-[#488b82] text-white shadow-sm"
+                        ? key === "photo" ? "bg-primary text-stone-950 shadow-sm" : "bg-[#488b82] text-white shadow-sm"
                         : "text-stone-500 hover:text-stone-900"
                     }`}
                   >
@@ -378,7 +378,7 @@ export default function About({ setView }) {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.45, ease }}
-                  className="w-full aspect-[4/3] rounded-[36px] overflow-hidden shadow-2xl border-2 border-[#c5a880]/35 relative bg-stone-900 group"
+                  className="w-full aspect-[4/3] rounded-[36px] overflow-hidden shadow-2xl border-2 border-primary/35 relative bg-stone-900 group"
                 >
                   <Image
                     src={viewMode === "photo" ? current.image : cadImg}
@@ -401,7 +401,7 @@ export default function About({ setView }) {
                   {/* Bottom caption */}
                   <div className="absolute bottom-5 left-6 right-6 flex items-end justify-between">
                     <div className="text-white text-left">
-                      <span className="text-[10px] font-mono text-[#c5a880] uppercase tracking-widest font-bold block">
+                      <span className="text-[10px] font-mono text-primary uppercase tracking-widest font-bold block">
                         {viewMode === "photo" ? "Suthar Studio Monograph" : "Isometric CAD Blueprint"} · Fig 01.{active + 1}
                       </span>
                       <span className="text-base font-bold text-white font-serif block leading-snug">{current.heading}</span>
@@ -413,7 +413,7 @@ export default function About({ setView }) {
               {/* Floating 35+ badge — bottom left */}
               <motion.div
                 {...fadeUp(0.2)}
-                className="absolute -bottom-6 -left-5 z-20 bg-gradient-to-br from-[#c5a880] to-[#b0936b] text-stone-950 px-5 py-4 rounded-2xl shadow-2xl border-2 border-white flex items-center gap-3"
+                className="absolute -bottom-6 -left-5 z-20 bg-gradient-to-br from-primary to-primary-hover text-stone-950 px-5 py-4 rounded-2xl shadow-2xl border-2 border-white flex items-center gap-3"
               >
                 <span className="text-4xl font-extrabold tracking-tight leading-none font-serif">35+</span>
                 <div className="leading-tight font-mono text-left">
@@ -427,7 +427,7 @@ export default function About({ setView }) {
                 {...fadeUp(0.3)}
                 className="absolute -right-4 top-1/3 z-20 bg-white border border-[#e5dcd3] shadow-xl rounded-2xl p-4 max-w-[160px]"
               >
-                <span className="text-[9px] font-mono text-[#b0936b] font-bold uppercase tracking-wider block mb-1">Active Pillar</span>
+                <span className="text-[9px] font-mono text-primary-hover font-bold uppercase tracking-wider block mb-1">Active Pillar</span>
                 <span className="text-sm font-extrabold text-stone-900 font-serif block leading-tight">{current.num}. {current.tag.split(" ").slice(0, 2).join(" ")}</span>
                 <div className="mt-2 h-1 rounded-full bg-[#e5dcd3] overflow-hidden">
                   <motion.div
@@ -435,7 +435,7 @@ export default function About({ setView }) {
                     initial={{ width: "0%" }}
                     animate={{ width: `${((active + 1) / PILLARS.length) * 100}%` }}
                     transition={{ duration: 0.6, ease }}
-                    className="h-full bg-[#c5a880] rounded-full"
+                    className="h-full bg-primary rounded-full"
                   />
                 </div>
                 <span className="text-[9px] text-stone-400 font-mono block mt-1">{active + 1} of {PILLARS.length}</span>

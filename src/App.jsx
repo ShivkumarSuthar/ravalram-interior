@@ -48,7 +48,7 @@ export default function App() {
           />
         </>
       ) : (
-        <div className="relative min-h-screen bg-[#faf9f6] text-stone-900 selection:bg-gold-accent selection:text-stone-950 scroll-smooth" id="app-root">
+        <div className="relative min-h-screen bg-bg-base text-stone-900 selection:bg-gold-accent selection:text-stone-950 scroll-smooth" id="app-root">
 
           {/* Dynamic SEO and Structured Schema Manager */}
           <SEOHelper currentView={currentView} />

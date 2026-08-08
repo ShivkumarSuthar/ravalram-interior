@@ -452,7 +452,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
 
       {/* PAGE HERO */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white" id="gallery-hero-section">
@@ -590,7 +590,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 03: PREMIUM MASONRY GALLERY */}
-      <section className="py-24 bg-[#faf9f6]" id="gallery-masonry-section">
+      <section className="py-24 bg-bg-base" id="gallery-masonry-section">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="flex justify-between items-center mb-8 border-b border-stone-200/50 pb-4">
@@ -624,7 +624,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     whileTap={{ scale: 0.98 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="break-inside-avoid bg-white border border-stone-200/60 hover:border-[#c5a880] rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] transition-all duration-500 flex flex-col group relative"
+                    className="break-inside-avoid bg-white border border-stone-200/60 hover:border-primary rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] transition-all duration-500 flex flex-col group relative"
                   >
                     {/* Img frame */}
                     <div className="relative overflow-hidden bg-stone-100 cursor-pointer" onClick={() => setLightboxIndex(localIndex)}>
@@ -690,7 +690,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       <div className="pt-4 border-t border-stone-100 mt-4 flex justify-between items-center">
                         <button
                           onClick={() => setLightboxIndex(localIndex)}
-                          className="bg-[#c5a880] group-hover:bg-[#b0936b] text-stone-950 text-xs font-bold font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 cursor-pointer shadow-sm transition-all duration-300"
+                          className="bg-primary group-hover:bg-primary-hover text-stone-950 text-xs font-bold font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 cursor-pointer shadow-sm transition-all duration-300"
                         >
                           <span>Explore Project</span>
                           <ArrowRight size={12} strokeWidth={2.5} />
@@ -878,7 +878,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       </section>
 
       {/* SECTION 06: GALLERY STATISTICS */}
-      <section className="py-20 bg-[#faf9f6] border-b border-stone-100" id="gallery-statistics">
+      <section className="py-20 bg-bg-base border-b border-stone-100" id="gallery-statistics">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-stone-200/80">
             {statistics.map((stat, idx) => (

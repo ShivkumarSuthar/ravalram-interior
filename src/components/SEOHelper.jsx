@@ -492,7 +492,7 @@ export default function SEOHelper({ currentView }) {
     setMetaTag("twitter:image", dynamicUpdate?.image || SITE_IMAGES.heroBg);
 
     // Browser Theme Color
-    setMetaTag("theme-color", "#0c0a09");
+    setMetaTag("theme-color", "var(--color-bg-dark)");
 
     // 5. Update Canonical Link
     let canonicalLink = document.querySelector("link[rel='canonical']");

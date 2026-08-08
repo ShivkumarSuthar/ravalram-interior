@@ -969,7 +969,7 @@ export default function ProjectInvestmentGuide({ setView }) {
   };
 
   return (
-    <section id="investment-guide" className="relative w-full py-16 sm:py-24 md:py-32 bg-[#faf9f6] text-stone-900 overflow-hidden border-t border-stone-200/80">
+    <section id="investment-guide" className="relative w-full py-16 sm:py-24 md:py-32 bg-bg-base text-stone-900 overflow-hidden border-t border-stone-200/80">
       
       {/* Background Architectural Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
@@ -995,7 +995,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               <button
                 onClick={() => setCurrency("INR")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                  currency === "INR" ? "bg-[#1c1917] text-gold-accent" : "text-stone-500 hover:text-stone-900"
+                  currency === "INR" ? "bg-surface-dark text-gold-accent" : "text-stone-500 hover:text-stone-900"
                 }`}
               >
                 ₹ INR
@@ -1003,7 +1003,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               <button
                 onClick={() => setCurrency("USD")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
-                  currency === "USD" ? "bg-[#1c1917] text-gold-accent" : "text-stone-500 hover:text-stone-900"
+                  currency === "USD" ? "bg-surface-dark text-gold-accent" : "text-stone-500 hover:text-stone-900"
                 }`}
               >
                 $ USD
@@ -1057,7 +1057,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   onClick={() => handleCategorySelect(origIdx)}
                   className={`inline-flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-300 shrink-0 cursor-pointer border ${
                     isActive
-                      ? "bg-[#1c1917] text-stone-100 border-[#1c1917] shadow-sm"
+                      ? "bg-surface-dark text-stone-100 border-surface-dark shadow-sm"
                       : "bg-white text-stone-700 hover:text-stone-900 border-stone-200/80 hover:border-stone-300"
                   }`}
                 >
@@ -1099,7 +1099,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   placeholder="Filter category (e.g., Kitchen, Villa)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-7 py-2 text-xs bg-[#faf9f6] border border-stone-200/80 rounded-xl text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-gold-accent focus:bg-white transition-all font-sans"
+                  className="w-full pl-8 pr-7 py-2 text-xs bg-bg-base border border-stone-200/80 rounded-xl text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-gold-accent focus:bg-white transition-all font-sans"
                 />
                 {searchQuery && (
                   <button
@@ -1125,8 +1125,8 @@ export default function ProjectInvestmentGuide({ setView }) {
                       onClick={() => handleCategorySelect(origIdx)}
                       className={`w-full p-3.5 rounded-2xl text-left transition-all duration-300 cursor-pointer border flex items-center justify-between group ${
                         isActive
-                          ? "bg-[#1c1917] text-white border-[#1c1917] shadow-md ring-1 ring-gold-accent"
-                          : "bg-[#faf9f6] hover:bg-white text-stone-800 border-stone-200/80 hover:border-stone-300"
+                          ? "bg-surface-dark text-white border-surface-dark shadow-md ring-1 ring-gold-accent"
+                          : "bg-bg-base hover:bg-white text-stone-800 border-stone-200/80 hover:border-stone-300"
                       }`}
                     >
                       <div className="flex items-center space-x-3 min-w-0 pr-2">
@@ -1164,7 +1164,7 @@ export default function ProjectInvestmentGuide({ setView }) {
 
               {/* Consultation Prompt in Left Sidebar */}
               <div className="pt-2 border-t border-stone-200/80">
-                <div className="bg-[#faf9f6] p-3.5 rounded-xl border border-stone-200/80 space-y-2">
+                <div className="bg-bg-base p-3.5 rounded-xl border border-stone-200/80 space-y-2">
                   <span className="text-[10px] font-mono text-stone-500 uppercase font-bold block">
                     CUSTOM SCOPE REQUIREMENT?
                   </span>
@@ -1173,7 +1173,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   </p>
                   <button
                     onClick={handleConsultationClick}
-                    className="w-full bg-[#1c1917] hover:bg-stone-800 text-gold-accent px-3 py-2 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer flex items-center justify-center space-x-1.5"
+                    className="w-full bg-surface-dark hover:bg-stone-800 text-gold-accent px-3 py-2 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer flex items-center justify-center space-x-1.5"
                   >
                     <span>Request Custom CAD Quote</span>
                     <ArrowRight size={12} />
@@ -1198,7 +1198,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               >
                 
                 {/* 1. CLEAN DEMO PRICING CARD */}
-                <div className="bg-gradient-to-br from-[#1c1917] via-[#24201c] to-[#1c1917] text-stone-100 p-6 sm:p-8 rounded-3xl border border-stone-800 space-y-6 shadow-xl relative">
+                <div className="bg-gradient-to-br from-surface-dark via-[#24201c] to-surface-dark text-stone-100 p-6 sm:p-8 rounded-3xl border border-stone-800 space-y-6 shadow-xl relative">
                   
                   {/* Category Header & Currency Selector */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-800/80 pb-5">
@@ -1315,7 +1315,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                     {activeCategory.scope.slice(0, 4).map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-2xl bg-[#faf9f6] border border-stone-200/70 flex items-start space-x-3"
+                        className="p-4 rounded-2xl bg-bg-base border border-stone-200/70 flex items-start space-x-3"
                       >
                         <CheckCircle2 size={18} className="text-gold-accent shrink-0 mt-0.5" />
                         <span className="text-xs text-stone-800 font-medium leading-relaxed">
@@ -1345,7 +1345,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
                     <button
                       onClick={() => setShowTierCompareModal(true)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#1c1917] hover:bg-stone-800 text-gold-accent px-5 py-3.5 rounded-xl font-mono font-bold text-xs uppercase transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-surface-dark hover:bg-stone-800 text-gold-accent px-5 py-3.5 rounded-xl font-mono font-bold text-xs uppercase transition-colors cursor-pointer"
                     >
                       <PieChart size={14} />
                       <span>Know More & View BOQ</span>
@@ -1409,8 +1409,8 @@ export default function ProjectInvestmentGuide({ setView }) {
                     key={tierKey}
                     className={`p-5 rounded-2xl border space-y-4 flex flex-col justify-between ${
                       selectedTier === tierKey
-                        ? "bg-[#1c1917] text-stone-100 border-[#1c1917] shadow-md ring-2 ring-gold-accent/40"
-                        : "bg-[#faf9f6] text-stone-800 border-stone-200"
+                        ? "bg-surface-dark text-stone-100 border-surface-dark shadow-md ring-2 ring-gold-accent/40"
+                        : "bg-bg-base text-stone-800 border-stone-200"
                     }`}
                   >
                     <div className="space-y-2">

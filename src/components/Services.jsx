@@ -70,7 +70,7 @@ export default function Services({ setView }) {
           </span>
         </div>
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-950 leading-[1.15] font-serif">
-          Master Architectural &amp; <span className="text-[#c5a880]">Interior Services</span>
+          Master Architectural &amp; <span className="text-primary">Interior Services</span>
         </h2>
       </div>
 
@@ -103,7 +103,7 @@ export default function Services({ setView }) {
                 
                 {/* Top Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="bg-stone-950/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-[#c5a880] font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+                  <div className="bg-stone-950/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-primary font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest">
                     DISCIPLINE {currentNum} / 0{servicesList.length} &bull; {current.category}
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function Services({ setView }) {
                   <div className="pt-2 flex items-center space-x-3">
                     <button
                       onClick={() => setSpecModalService(current)}
-                      className="inline-flex items-center space-x-2 bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 px-6 py-3 rounded-full text-xs font-mono font-bold uppercase tracking-widest shadow-lg transition-all cursor-pointer border border-[#c5a880] hover:scale-105"
+                      className="inline-flex items-center space-x-2 bg-primary hover:bg-primary-hover text-stone-950 px-6 py-3 rounded-full text-xs font-mono font-bold uppercase tracking-widest shadow-lg transition-all cursor-pointer border border-primary hover:scale-105"
                     >
                       <span>KNOW MORE</span>
                       <ArrowUpRight size={15} />
@@ -131,7 +131,7 @@ export default function Services({ setView }) {
                       onClick={() => setSpecModalService(current)}
                       className="inline-flex items-center space-x-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-4 py-3 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer"
                     >
-                      <Eye size={14} className="text-[#c5a880]" />
+                      <Eye size={14} className="text-primary" />
                       <span>View Specifications</span>
                     </button>
                   </div>
@@ -160,7 +160,7 @@ export default function Services({ setView }) {
                   isLastOdd ? "col-span-2 md:col-span-1" : "col-span-1"
                 } ${
                   isActive
-                    ? "bg-white text-stone-950 shadow-xl border-[#c5a880] ring-2 ring-[#c5a880] scale-[1.02] z-20"
+                    ? "bg-white text-stone-950 shadow-xl border-primary ring-2 ring-primary scale-[1.02] z-20"
                     : "bg-white/80 text-stone-800 hover:text-stone-950 hover:bg-white border-stone-200/90 shadow-2xs"
                 }`}
               >
@@ -179,17 +179,17 @@ export default function Services({ setView }) {
 
                 {/* Single Clean Active Progress Bar Animation in Gold */}
                 {isActive && (
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#c5a880]/30 z-30">
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-primary/30 z-30">
                     {!isPaused && (
                       <motion.div
                         key={activeTab}
                         initial={{ width: "0%" }}
                         animate={{ width: "100%" }}
                         transition={{ duration: 6, ease: "linear" }}
-                        className="h-full bg-[#c5a880] shadow-[0_0_8px_rgba(197,168,128,0.8)]"
+                        className="h-full bg-primary shadow-[0_0_8px_rgba(197,168,128,0.8)]"
                       />
                     )}
-                    {isPaused && <div className="h-full w-full bg-[#c5a880]" />}
+                    {isPaused && <div className="h-full w-full bg-primary" />}
                   </div>
                 )}
 
@@ -198,7 +198,7 @@ export default function Services({ setView }) {
                   <div className="flex items-center justify-between w-full">
                     <span
                       className={`text-xs font-mono font-bold tracking-widest ${
-                        isActive ? "text-[#b0936b] scale-105" : "text-stone-500 group-hover:text-stone-900"
+                        isActive ? "text-primary-hover scale-105" : "text-stone-500 group-hover:text-stone-900"
                       }`}
                     >
                       {itemNum}
@@ -208,14 +208,14 @@ export default function Services({ setView }) {
                       <span
                         className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-md uppercase transition-colors ${
                           isActive
-                            ? "bg-[#c5a880] text-stone-950 shadow-xs font-bold"
+                            ? "bg-primary text-stone-950 shadow-xs font-bold"
                             : "bg-[#f8f2ec] text-stone-700 border border-stone-300"
                         }`}
                       >
                         {service.category}
                       </span>
                       {isActive && (
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#c5a880] shadow-[0_0_10px_rgba(197,168,128,1)] animate-pulse" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(197,168,128,1)] animate-pulse" />
                       )}
                     </div>
                   </div>
@@ -245,7 +245,7 @@ export default function Services({ setView }) {
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 cursor-pointer ${
                       isActive
                         ? "bg-[#488b82] text-white scale-110 shadow-md"
-                        : "bg-[#c5a880] text-stone-950 group-hover:scale-110 group-hover:bg-white shadow-xs font-bold"
+                        : "bg-primary text-stone-950 group-hover:scale-110 group-hover:bg-white shadow-xs font-bold"
                     }`}
                   >
                     <ArrowUpRight size={14} strokeWidth={2.5} />
@@ -271,7 +271,7 @@ export default function Services({ setView }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white via-[#fcfaf7] to-[#f4eee4] border-2 border-[#c5a880] text-stone-900 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10 text-left space-y-8"
+              className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white via-[#fcfaf7] to-[#f4eee4] border-2 border-primary text-stone-900 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative z-10 text-left space-y-8"
             >
               {/* Modal Close Button */}
               <button
@@ -307,7 +307,7 @@ export default function Services({ setView }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-[#c5a880] font-bold uppercase tracking-widest">
+                  <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-primary font-bold uppercase tracking-widest">
                     FIG 01.0 // {specModalService.id}
                   </div>
                 </div>
@@ -346,7 +346,7 @@ export default function Services({ setView }) {
                         handleOpenConsultation();
                       }
                     }}
-                    className="w-full inline-flex items-center justify-center space-x-2 text-xs font-bold uppercase tracking-widest bg-[#c5a880] hover:bg-[#b0936b] text-stone-950 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer"
+                    className="w-full inline-flex items-center justify-center space-x-2 text-xs font-bold uppercase tracking-widest bg-primary hover:bg-primary-hover text-stone-950 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer"
                   >
                     <span>Request Consultation For This Service</span>
                     <ArrowRight size={15} />

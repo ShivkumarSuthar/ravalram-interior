@@ -253,14 +253,14 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
   const currentTimeline = timelineEvents[activeTimeline] || timelineEvents[0];
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[72px] sm:pt-[80px]">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[72px] sm:pt-[80px]">
       
       {/* 
         ====================================================================
         1. EDITORIAL MONOGRAPH HERO: MAGAZINE MASTHEAD & ASYMMETRICAL ARTWORK
         ====================================================================
       */}
-      <section className="relative w-full bg-[#0c0a09] text-white overflow-hidden border-b border-stone-800">
+      <section className="relative w-full bg-bg-dark text-white overflow-hidden border-b border-stone-800">
         
         {/* Subtle Architectural Wireframe Grid Overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-10 z-0">
@@ -387,7 +387,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   initial={{ opacity: 0, x: 30, y: 30 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="w-[68%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#0c0a09] absolute -right-4 -bottom-8 z-20 hidden sm:block cursor-pointer group"
+                  className="w-[68%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-bg-dark absolute -right-4 -bottom-8 z-20 hidden sm:block cursor-pointer group"
                   onClick={() => setActiveLightbox(SITE_IMAGES.isometricFloorPlan)}
                 >
                   <img
@@ -428,7 +428,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         2. INTERACTIVE EDITORIAL CHAPTER SPREADS (MAGAZINE CHAPTER EXPLORER)
         ====================================================================
       */}
-      <section className="py-10 md:py-32 bg-[#0c0a09] text-white relative overflow-hidden border-b border-stone-800">
+      <section className="py-10 md:py-32 bg-bg-dark text-white relative overflow-hidden border-b border-stone-800">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 md:space-y-12">
           
           {/* Section Header */}
@@ -640,7 +640,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer space-y-4 flex flex-col justify-between group ${
                     isActive
                       ? "bg-[var(--color-surface-dark)] text-white border-gold-accent shadow-2xl scale-[1.02]"
-                      : "bg-[#faf9f6] border-stone-200 text-stone-900 hover:border-gold-accent/60 hover:bg-white"
+                      : "bg-bg-base border-stone-200 text-stone-900 hover:border-gold-accent/60 hover:bg-white"
                   }`}
                 >
                   <div className="space-y-3">
@@ -676,7 +676,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
           </div>
 
           {/* Active Swatch Detail Spotlight Panel */}
-          <div className="bg-[#faf9f6] border border-stone-200/80 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-md">
+          <div className="bg-bg-base border border-stone-200/80 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-md">
             <div className="lg:col-span-5 aspect-[4/3] rounded-2xl overflow-hidden border border-stone-200 relative">
               <img
                 src={currentSwatch.image}
@@ -720,7 +720,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         4. CURATED MAGAZINE GALLERY SPREAD (MASONRY COMPOSITION)
         ====================================================================
       */}
-      <section className="py-20 md:py-32 bg-[#0c0a09] text-white relative overflow-hidden border-b border-stone-800">
+      <section className="py-20 md:py-32 bg-bg-dark text-white relative overflow-hidden border-b border-stone-800">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           
           <div className="text-left space-y-3 max-w-2xl">
@@ -780,7 +780,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         5. PASSAGE OF TIME TIMELINE (MAGAZINE HISTORICAL CHRONICLE)
         ====================================================================
       */}
-      <section className="py-20 md:py-32 bg-[#faf9f6] border-b border-stone-200/60 relative overflow-hidden">
+      <section className="py-20 md:py-32 bg-bg-base border-b border-stone-200/60 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 text-center space-y-12 relative z-10">
           
           <div className="space-y-3">
@@ -881,7 +881,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="bg-[#faf9f6] border border-stone-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 text-left group flex flex-col justify-between"
+                className="bg-bg-base border border-stone-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 text-left group flex flex-col justify-between"
               >
                 <div>
                   <div className="aspect-[4/3] bg-[var(--color-surface-dark)] overflow-hidden relative border-b border-stone-100">
@@ -931,7 +931,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         7. FINAL CALL TO ACTION (DARK LUXURY MONOGRAPH SHOWCASE)
         ====================================================================
       */}
-      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-[#0c0a09] text-white border-t border-stone-800">
+      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-bg-dark text-white border-t border-stone-800">
         <div className="absolute inset-0 z-0">
           <img
             src={SITE_IMAGES.ctaBg}
@@ -939,7 +939,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
             className="w-full h-full object-cover opacity-20 filter brightness-[0.3]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/90 to-[#0c0a09]/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/90 to-bg-dark/50" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">

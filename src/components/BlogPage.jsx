@@ -525,7 +525,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden">
       
       {/* ==================================================== */}
       {/* PAGE HERO                                            */}
@@ -627,7 +627,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
             </p>
           </div>
 
-          <div className="bg-[#faf9f6] rounded-3xl overflow-hidden border border-stone-200/40 shadow-sm hover:shadow-2xl transition-all duration-500">
+          <div className="bg-bg-base rounded-3xl overflow-hidden border border-stone-200/40 shadow-sm hover:shadow-2xl transition-all duration-500">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
               
               {/* Left Column: Premium Image frame */}
@@ -705,7 +705,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       {/* SECTION 02: BLOG CATEGORIES FILTER BAR               */}
       {/* ==================================================== */}
-      <section ref={articlesSectionRef} className="py-12 bg-[#faf9f6] border-b border-stone-100 sticky top-[80px] z-30 shadow-sm" id="articles-section">
+      <section ref={articlesSectionRef} className="py-12 bg-bg-base border-b border-stone-100 sticky top-[80px] z-30 shadow-sm" id="articles-section">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center justify-between gap-6">
           
           <div className="flex items-center space-x-2.5 text-stone-400 font-mono text-[10px] sm:text-xs tracking-widest uppercase shrink-0">
@@ -754,7 +754,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
 
           {/* Fallback for empty categories */}
           {totalArticles === 0 ? (
-            <div className="py-20 text-center space-y-4 bg-[#faf9f6] rounded-3xl border border-dashed border-stone-200">
+            <div className="py-20 text-center space-y-4 bg-bg-base rounded-3xl border border-dashed border-stone-200">
               <BookOpen size={40} className="mx-auto text-[var(--color-text-muted)]" />
               <h3 className="text-lg font-serif font-medium text-stone-800 uppercase">No publications found</h3>
               <p className="text-stone-500 text-xs font-light max-w-md mx-auto">
@@ -780,7 +780,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                     whileTap={{ scale: 0.98 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="group bg-[#faf9f6] border border-stone-200/60 hover:border-[#c5a880] rounded-2xl overflow-hidden hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] hover:bg-white transition-all duration-500 flex flex-col justify-between text-left"
+                    className="group bg-bg-base border border-stone-200/60 hover:border-primary rounded-2xl overflow-hidden hover:shadow-[0_20px_50px_rgba(197,168,128,0.2)] hover:bg-white transition-all duration-500 flex flex-col justify-between text-left"
                   >
                     <div className="space-y-6">
                       {/* Featured Image */}
@@ -908,7 +908,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       {/* SECTION 04: POPULAR TOPICS                           */}
       {/* ==================================================== */}
-      <section className="py-24 bg-[#faf9f6] border-t border-b border-stone-100" id="popular-topics">
+      <section className="py-24 bg-bg-base border-t border-b border-stone-100" id="popular-topics">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -933,7 +933,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                   className="bg-white border border-stone-200/40 p-6 rounded-2xl text-left space-y-4 hover:shadow-lg hover:border-gold-accent/30 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
                 >
                   <div className="space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-stone-200/30 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/10 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-bg-base border border-stone-200/30 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/10 transition-colors">
                       <IconComponent size={18} />
                     </div>
                     <div className="space-y-1">
@@ -982,7 +982,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
               return (
                 <div
                   key={idx}
-                  className="bg-[#faf9f6] border border-stone-200/40 p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:shadow-xl hover:border-gold-accent/20 transition-all duration-500"
+                  className="bg-bg-base border border-stone-200/40 p-8 rounded-2xl text-left space-y-4 hover:bg-white hover:shadow-xl hover:border-gold-accent/20 transition-all duration-500"
                 >
                   <div className="w-12 h-12 rounded-xl bg-white border border-stone-200/30 flex items-center justify-center text-gold-accent shadow-sm">
                     <IconComp size={20} />
@@ -1090,7 +1090,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
       {/* ==================================================== */}
       {/* FINAL CTA                                            */}
       {/* ==================================================== */}
-      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-[#faf9f6]" id="final-cta">
+      <section className="relative w-full overflow-hidden py-24 md:py-32 bg-bg-base" id="final-cta">
         <div className="absolute inset-0 z-0 opacity-[0.03]">
           <div className="h-full w-full bg-[radial-gradient(var(--color-gold-accent)_1px,transparent_1px)] [background-size:16px_16px]" />
         </div>
@@ -1256,7 +1256,7 @@ export default function BlogPage({ onBackToHome, onOpenQuote }) {
                 </div>
 
                 {/* Call-to-action bottom panel */}
-                <div className="bg-[#faf9f6] border border-stone-200/50 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 mt-16 text-center md:text-left">
+                <div className="bg-bg-base border border-stone-200/50 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 mt-16 text-center md:text-left">
                   <div className="space-y-1">
                     <span className="text-gold-accent text-[10px] tracking-widest font-mono font-bold uppercase flex items-center justify-center md:justify-start gap-1">
                       <Sparkles size={12} className="animate-pulse" />

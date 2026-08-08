@@ -30,7 +30,7 @@ export default function FaqSection({ setView }) {
   };
 
   return (
-    <section id="faq" className="bg-[#faf9f6] py-8 sm:py-12 lg:py-16 relative overflow-hidden select-none border-t border-stone-200/80">
+    <section id="faq" className="bg-bg-base py-8 sm:py-12 lg:py-16 relative overflow-hidden select-none border-t border-stone-200/80">
       
       {/* Container Wrapper */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 sm:space-y-10">
@@ -146,7 +146,7 @@ export default function FaqSection({ setView }) {
               {/* Action Button */}
               <button
                 onClick={handleContactClick}
-                className="w-full inline-flex items-center justify-center space-x-2 bg-[#0c0a09] hover:bg-gold-accent text-white hover:text-stone-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-300 cursor-pointer shadow-md group"
+                className="w-full inline-flex items-center justify-center space-x-2 bg-bg-dark hover:bg-gold-accent text-white hover:text-stone-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-300 cursor-pointer shadow-md group"
               >
                 <span>Ask Architect Directly</span>
                 <ArrowUpRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

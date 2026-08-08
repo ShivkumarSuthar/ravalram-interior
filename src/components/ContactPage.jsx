@@ -145,7 +145,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px]">
       
       {/* PAGE HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-[var(--color-surface-dark)] text-white">
@@ -263,7 +263,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
-                  className="bg-[#faf9f6] border border-stone-200/50 hover:border-gold-accent/40 p-6 rounded-2xl text-left block space-y-4 hover:shadow-xl transition-all duration-300 group"
+                  className="bg-bg-base border border-stone-200/50 hover:border-gold-accent/40 p-6 rounded-2xl text-left block space-y-4 hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className={`w-10 h-10 rounded-xl ${method.color} flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
                     <Icon size={18} />
@@ -321,7 +321,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
       </section>
 
       {/* SECTION 02: CONTACT FORM */}
-      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden" id="showroom-map">
+      <section className="py-24 md:py-32 bg-bg-base relative overflow-hidden" id="showroom-map">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -598,7 +598,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
       </section>
 
       {/* SECTION 04: OUR PROCESS (PREMIUM TIMELINE) */}
-      <section className="py-24 md:py-32 bg-[#faf9f6] relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-bg-base relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
@@ -679,7 +679,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           </div>
 
           {/* Under Areas Message */}
-          <div className="mt-12 text-center max-w-xl mx-auto space-y-3 bg-[#faf9f6] border border-stone-200/50 p-6 rounded-xl">
+          <div className="mt-12 text-center max-w-xl mx-auto space-y-3 bg-bg-base border border-stone-200/50 p-6 rounded-xl">
             <h4 className="text-xs uppercase font-mono tracking-wider font-bold text-stone-800">
               Don't see your location?
             </h4>
@@ -701,7 +701,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
       </section>
 
       {/* SECTION 06: GOOGLE MAP */}
-      <section className="py-24 bg-[#faf9f6] relative overflow-hidden" id="showroom-address-grid">
+      <section className="py-24 bg-bg-base relative overflow-hidden" id="showroom-address-grid">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-12">
@@ -725,7 +725,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               
               {/* Left Column: Flagship Showroom HQ */}
-              <div className="space-y-4 text-left p-6 rounded-2xl bg-[#faf9f6] border border-stone-200/80">
+              <div className="space-y-4 text-left p-6 rounded-2xl bg-bg-base border border-stone-200/80">
                 <span className="text-gold-accent text-[10px] font-mono tracking-widest font-bold uppercase block">
                   FLAGSHIP HEADQUARTERS
                 </span>
@@ -809,7 +809,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
-            <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
+            <div className="bg-bg-base border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center shadow-md">
                 <Clock size={18} />
               </div>
@@ -824,7 +824,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               </p>
             </div>
 
-            <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
+            <div className="bg-bg-base border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center shadow-md">
                 <Calendar size={18} />
               </div>
@@ -839,7 +839,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               </p>
             </div>
 
-            <div className="bg-[#faf9f6] border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
+            <div className="bg-bg-base border border-stone-200/50 p-6 md:p-8 rounded-2xl text-left space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center shadow-md">
                 <Globe size={18} />
               </div>

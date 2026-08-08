@@ -109,7 +109,7 @@ export default function Blog({ setView }) {
   };
 
   return (
-    <section id="blog" className="bg-[#faf9f6] py-16 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
+    <section id="blog" className="bg-bg-base py-16 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
       
       {/* Container Wrapper */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-10 sm:space-y-16">

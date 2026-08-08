@@ -86,7 +86,7 @@ export default function CreativeProjects() {
   };
 
   return (
-    <section id="portfolio" className="bg-[#faf9f6] py-16 sm:py-24 lg:py-32 relative overflow-hidden select-none">
+    <section id="portfolio" className="bg-bg-base py-16 sm:py-24 lg:py-32 relative overflow-hidden select-none">
       
       {/* 3D Wireframe Architectural Blueprint Background Sketch on Right */}
       <div className="absolute right-0 top-0 w-2/3 h-full pointer-events-none opacity-[0.08] z-0 overflow-hidden hidden lg:block">
@@ -139,7 +139,7 @@ export default function CreativeProjects() {
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 shadow-md ${
                 activeIndex === 0
                   ? "opacity-35 cursor-not-allowed border-stone-200/80 bg-stone-100/80 text-stone-400"
-                  : "bg-white border-stone-300/90 hover:bg-[#c5a880] text-stone-800 hover:text-stone-950 hover:border-[#c5a880] cursor-pointer"
+                  : "bg-white border-stone-300/90 hover:bg-primary text-stone-800 hover:text-stone-950 hover:border-primary cursor-pointer"
               }`}
               aria-label="Scroll Left"
             >
@@ -151,7 +151,7 @@ export default function CreativeProjects() {
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 shadow-md ${
                 activeIndex === projects.length - 1
                   ? "opacity-35 cursor-not-allowed border-stone-200/80 bg-stone-100/80 text-stone-400"
-                  : "bg-white border-stone-300/90 hover:bg-[#c5a880] text-stone-800 hover:text-stone-950 hover:border-[#c5a880] cursor-pointer"
+                  : "bg-white border-stone-300/90 hover:bg-primary text-stone-800 hover:text-stone-950 hover:border-primary cursor-pointer"
               }`}
               aria-label="Scroll Right"
             >
@@ -194,8 +194,8 @@ export default function CreativeProjects() {
                   }}
                   className={`shrink-0 group cursor-pointer flex flex-col justify-between rounded-[32px] p-4 transition-all duration-700 ease-[0.16,1,0.3,1] ${
                     isFocused
-                      ? "w-[300px] sm:w-[340px] md:w-[370px] lg:w-[400px] bg-gradient-to-b from-white via-[#fcfaf7] to-[#f5efe4] border-t-4 border-t-[#c5a880] border-x border-b border-[#c5a880]/80 shadow-[0_30px_70px_rgba(197,168,128,0.32)] scale-[1.03] z-20"
-                      : "w-[250px] sm:w-[280px] md:w-[300px] lg:w-[320px] bg-white border border-stone-200 hover:border-[#c5a880]/50 shadow-sm hover:shadow-md scale-100"
+                      ? "w-[300px] sm:w-[340px] md:w-[370px] lg:w-[400px] bg-gradient-to-b from-white via-[#fcfaf7] to-[#f5efe4] border-t-4 border-t-primary border-x border-b border-primary/80 shadow-[0_30px_70px_rgba(197,168,128,0.32)] scale-[1.03] z-20"
+                      : "w-[250px] sm:w-[280px] md:w-[300px] lg:w-[320px] bg-white border border-stone-200 hover:border-primary/50 shadow-sm hover:shadow-md scale-100"
                   }`}
                 >
                   <div className="space-y-4">
@@ -222,7 +222,7 @@ export default function CreativeProjects() {
                       <div className={`absolute inset-0 bg-stone-950/20 backdrop-blur-[2px] flex items-center justify-center transition-all duration-500 z-10 ${
                         isFocused ? "opacity-100 scale-100" : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100"
                       }`}>
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#c5a880] text-stone-950 flex items-center justify-center shadow-2xl font-bold border-2 border-white/60">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary text-stone-950 flex items-center justify-center shadow-2xl font-bold border-2 border-white/60">
                           <ArrowUpRight size={24} strokeWidth={2.5} />
                         </div>
                       </div>
@@ -234,7 +234,7 @@ export default function CreativeProjects() {
                         <h3 className={`font-serif tracking-tight leading-snug transition-all duration-500 line-clamp-2 ${
                           isFocused 
                             ? "text-stone-950 text-lg sm:text-2xl md:text-3xl font-bold" 
-                            : "text-stone-500 text-base sm:text-xl font-medium group-hover:text-[#c5a880]"
+                            : "text-stone-500 text-base sm:text-xl font-medium group-hover:text-primary"
                         }`}>
                           {proj.title}
                         </h3>

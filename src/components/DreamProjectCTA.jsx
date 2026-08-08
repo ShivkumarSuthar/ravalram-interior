@@ -19,7 +19,7 @@ export default function DreamProjectCTA({ setView }) {
   };
 
   return (
-    <section className="relative w-full py-20 sm:py-28 lg:py-36 bg-[#0c0a09] text-white overflow-hidden select-none border-y border-stone-800">
+    <section className="relative w-full py-20 sm:py-28 lg:py-36 bg-bg-dark text-white overflow-hidden select-none border-y border-stone-800">
       
       {/* Background High-End Architecture Image with Vignetting & Parallax feel */}
       <div className="absolute inset-0 z-0">
@@ -32,8 +32,8 @@ export default function DreamProjectCTA({ setView }) {
           decoding="async"
         />
         {/* Soft dark gradient overlays for cinematic mood and high text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/50 to-[#0c0a09]/70 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/80 via-transparent to-[#0c0a09]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/50 to-bg-dark/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/80 via-transparent to-bg-dark/80 pointer-events-none" />
       </div>
 
       {/* Subtle Architectural Wireframe / Blueprint Grid Lines Overlay */}

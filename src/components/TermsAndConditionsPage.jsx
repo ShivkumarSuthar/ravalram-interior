@@ -109,7 +109,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* PAGE HERO */}
       <section className="relative py-20 bg-[var(--color-surface-dark)] text-white overflow-hidden" id="terms-hero">
@@ -173,7 +173,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* LEFT COLUMN: STICKY NAVIGATION (TABLE OF CONTENTS) */}
-          <div className="lg:col-span-4 sticky top-[120px] z-20 bg-[#faf9f6] lg:bg-transparent -mx-6 px-6 py-4 lg:p-0 border-b border-stone-200/50 lg:border-none">
+          <div className="lg:col-span-4 sticky top-[120px] z-20 bg-bg-base lg:bg-transparent -mx-6 px-6 py-4 lg:p-0 border-b border-stone-200/50 lg:border-none">
             <div className="bg-white rounded-2xl border border-stone-200/40 p-6 shadow-sm space-y-6 hidden lg:block">
               <div className="flex items-center space-x-2.5 pb-4 border-b border-stone-100">
                 <Scale size={18} className="text-gold-accent" />
@@ -404,7 +404,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { label: "Site Access & Clearances", desc: "Securing appropriate permissions, keys, and contractor entrance passes." },
                   { label: "Open Channels of Communication", desc: "Participating in site reviews and raising concerns immediately before paint finishes." }
                 ].map((resp, idx) => (
-                  <div key={idx} className="p-5 bg-[#faf9f6]/40 border border-stone-200/20 rounded-2xl space-y-1.5">
+                  <div key={idx} className="p-5 bg-bg-base/40 border border-stone-200/20 rounded-2xl space-y-1.5">
                     <h4 className="text-stone-900 font-bold font-mono text-xs uppercase tracking-wider">{idx+1}. {resp.label}</h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">{resp.desc}</p>
                   </div>
@@ -533,7 +533,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   const InfoIcon = info.icon;
                   return (
                     <div key={idx} className="p-5 border border-stone-200/60 rounded-2xl flex items-start space-x-4 hover:border-gold-accent transition-colors duration-300">
-                      <div className="w-10 h-10 rounded-full bg-[#faf9f6] flex items-center justify-center text-gold-accent border border-stone-100 shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-bg-base flex items-center justify-center text-gold-accent border border-stone-100 shrink-0">
                         <InfoIcon size={16} />
                       </div>
                       <div className="space-y-1">

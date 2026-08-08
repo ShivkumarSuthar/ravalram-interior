@@ -38,7 +38,7 @@ export default function Hero({ setView }) {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-[#0c0a09] text-white select-none font-sans pt-20 sm:pt-32 md:pt-36 pb-10 sm:pb-8"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-bg-dark text-white select-none font-sans pt-20 sm:pt-32 md:pt-36 pb-10 sm:pb-8"
     >
       {/* BACKGROUND IMAGE WITH RESPONSIVE GRADIENT & SOFT WARM BLUR */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -77,7 +77,7 @@ export default function Hero({ setView }) {
         />
 
         {/* Mobile Bright & Airy Subtle Gradient Overlay */}
-        <div className="block md:hidden absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-[#0c0a09]/35 backdrop-blur-[1px]" />
+        <div className="block md:hidden absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-bg-dark/35 backdrop-blur-[1px]" />
       </div>
 
       {/* CONTENT AREA */}
@@ -89,26 +89,26 @@ export default function Hero({ setView }) {
           className="max-w-4xl text-left space-y-3.5 sm:space-y-6 md:space-y-8 w-full"
         >
           {/* Subtitle / Eyebrow Tag - Mobile Specific (Ultra-Compact Glass Badge) */}
-          <div className="inline-flex sm:hidden items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c5a880]/20 border border-[#c5a880]/45 backdrop-blur-md shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880] shrink-0" />
-            <span className="text-[9.5px] font-mono tracking-[0.14em] uppercase text-[#c5a880] font-bold">
+          <div className="inline-flex sm:hidden items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/20 border border-primary/45 backdrop-blur-md shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+            <span className="text-[9.5px] font-mono tracking-[0.14em] uppercase text-primary font-bold">
               EST. {COMPANY_INFO.foundedYear} • CRAFTING SPACES
             </span>
           </div>
 
           {/* Subtitle / Eyebrow Tag - Desktop (Unchanged) */}
           <div className="hidden sm:flex items-center gap-4">
-            <span className="text-xs md:text-sm font-serif uppercase tracking-[0.25em] text-[#c5a880] font-bold drop-shadow-sm">
+            <span className="text-xs md:text-sm font-serif uppercase tracking-[0.25em] text-primary font-bold drop-shadow-sm">
               CRAFTING EXCEPTIONAL SPACES SINCE {COMPANY_INFO.foundedYear}
             </span>
-            <div className="h-[1px] w-20 md:w-28 bg-[#c5a880]/60 shrink-0" />
+            <div className="h-[1px] w-20 md:w-28 bg-primary/60 shrink-0" />
           </div>
 
           {/* Main Headline - Larger & Bright with wider tracking on Mobile */}
           <h1 className="font-serif text-[34px] xs:text-[40px] sm:text-[80px] md:text-[100px] lg:text-[80px] font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.12] sm:leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
             Designing Spaces <br className="hidden xs:inline" />
             People Love{" "}
-            <span className="text-[#c5a880] inline-block">Coming Home To</span>
+            <span className="text-primary inline-block">Coming Home To</span>
           </h1>
 
           {/* Body Description - Luminous Frosted Glass Capsule with wider tracking on Mobile */}
@@ -133,8 +133,8 @@ export default function Hero({ setView }) {
                 h-11 xs:h-12 sm:h-16
                 rounded-full
                 bg-white
-                hover:bg-[#faf9f6]
-                border border-[#c5a880]
+                hover:bg-bg-base
+                border border-primary
                 pl-4 pr-1.5 xs:pl-5 xs:pr-1.5 sm:pl-8 sm:pr-2
                 transition-all duration-300
                 shadow-md shadow-black/20
@@ -145,7 +145,7 @@ export default function Hero({ setView }) {
                 Start Your Project
               </span>
 
-              <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full bg-[#c5a880] group-hover/btn:bg-[#b0936b] flex items-center justify-center transition-all duration-300 shrink-0 ml-2 sm:ml-0">
+              <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full bg-primary group-hover/btn:bg-primary-hover flex items-center justify-center transition-all duration-300 shrink-0 ml-2 sm:ml-0">
                 <ArrowUpRight className="text-stone-950 sm:text-white group-hover/btn:scale-110 transition-transform" size={15} />
               </div>
             </button>
@@ -159,9 +159,9 @@ export default function Hero({ setView }) {
                 inline-flex items-center justify-center sm:justify-between
                 w-11 h-11 xs:w-12 xs:h-12 sm:w-auto sm:h-16 sm:min-w-[280px]
                 rounded-full
-                bg-[#c5a880] sm:bg-white/10
-                hover:bg-[#b0936b] sm:hover:bg-white/20
-                border border-[#c5a880] sm:border-white/70
+                bg-primary sm:bg-white/10
+                hover:bg-primary-hover sm:hover:bg-white/20
+                border border-primary sm:border-white/70
                 p-0 sm:pl-8 sm:pr-2
                 transition-all duration-300
                 shadow-md shadow-black/20
@@ -173,7 +173,7 @@ export default function Hero({ setView }) {
                 View Portfolio
               </span>
 
-              <div className="h-full w-full sm:h-12 sm:w-12 rounded-full bg-transparent sm:bg-[#c5a880] flex items-center justify-center transition-all duration-300 shrink-0">
+              <div className="h-full w-full sm:h-12 sm:w-12 rounded-full bg-transparent sm:bg-primary flex items-center justify-center transition-all duration-300 shrink-0">
                 <Play
                   size={14}
                   className="fill-stone-950 text-stone-950 sm:fill-white sm:text-white translate-x-[1px] group-hover/btn:scale-110 transition-transform"
@@ -188,8 +188,8 @@ export default function Hero({ setView }) {
       <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full pt-1 sm:pt-4 pb-3 sm:pb-2">
         <div className="flex flex-col items-center justify-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="h-[1px] w-8 sm:w-12 bg-[#c5a880]/40" />
-            <div className="w-5 h-7 rounded-full border border-[#c5a880]/70 flex items-start justify-center p-1 bg-black/20 backdrop-blur-sm">
+            <div className="h-[1px] w-8 sm:w-12 bg-primary/40" />
+            <div className="w-5 h-7 rounded-full border border-primary/70 flex items-start justify-center p-1 bg-black/20 backdrop-blur-sm">
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{
@@ -197,10 +197,10 @@ export default function Hero({ setView }) {
                   duration: 1.6,
                   ease: "easeInOut",
                 }}
-                className="w-1 h-1.5 bg-[#c5a880] rounded-full"
+                className="w-1 h-1.5 bg-primary rounded-full"
               />
             </div>
-            <div className="h-[1px] w-8 sm:w-12 bg-[#c5a880]/40" />
+            <div className="h-[1px] w-8 sm:w-12 bg-primary/40" />
           </div>
           <span className="text-[10px] sm:text-[10px] font-serif uppercase tracking-[0.25em] text-white/90 drop-shadow-sm font-semibold">
             SCROLL TO EXPLORE

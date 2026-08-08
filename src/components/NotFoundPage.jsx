@@ -36,7 +36,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
   };
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* SECTION 1: EDITORIAL ERROR HEADER & BLUEPRINT ILLUSTRATION */}
       <section className="relative min-h-[75vh] flex items-center bg-[var(--color-surface-dark)] text-white overflow-hidden py-16" id="not-found-hero">

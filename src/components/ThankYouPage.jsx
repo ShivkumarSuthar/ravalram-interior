@@ -106,7 +106,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
   ];
 
   return (
-    <div className="bg-[#faf9f6] text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
+    <div className="bg-bg-base text-stone-900 font-sans selection:bg-gold-accent/30 selection:text-stone-950 pt-[80px] overflow-hidden min-h-screen text-left">
       
       {/* HEADER SECTION WITH DESIGN BLUEPRINT BACKDROP */}
       <section className="relative min-h-[60vh] flex items-center bg-[var(--color-surface-dark)] text-white overflow-hidden py-16" id="thank-you-hero">

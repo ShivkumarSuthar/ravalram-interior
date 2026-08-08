@@ -26,7 +26,7 @@ export default function BrandLogo({ className = "", iconOnly = false, size = "md
           <defs>
             <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#d4af37" />
-              <stop offset="50%" stopColor="#c5a880" />
+              <stop offset="50%" stopColor="var(--color-primary)" />
               <stop offset="100%" stopColor="#9a7b4f" />
             </linearGradient>
             <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -91,10 +91,10 @@ export default function BrandLogo({ className = "", iconOnly = false, size = "md
       {/* Brand Text */}
       {!iconOnly && (
         <div className="flex flex-col justify-center">
-          <span className={`font-serif font-black tracking-[0.18em] uppercase ${darkText ? "text-stone-950" : "text-white"} leading-tight transition-colors group-hover:text-[#c5a880] ${dimensions.title}`}>
+          <span className={`font-serif font-black tracking-[0.18em] uppercase ${darkText ? "text-stone-950" : "text-white"} leading-tight transition-colors group-hover:text-primary ${dimensions.title}`}>
             SUTHAR
           </span>
-          <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-[#c5a880] leading-none mt-0.5 ${dimensions.subtitle}`}>
+          <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-primary leading-none mt-0.5 ${dimensions.subtitle}`}>
             INTERIOR STUDIO
           </span>
         </div>
