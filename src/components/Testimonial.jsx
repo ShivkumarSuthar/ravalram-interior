@@ -26,7 +26,7 @@ function Stars({ count = 5, size = 13 }) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function Testimonial({ setView }) {
   const [active, setActive] = useState(0);
-  const [dir, setDir]       = useState(1);   // 1 = forward, -1 = backward
+  const [dir, setDir] = useState(1);   // 1 = forward, -1 = backward
 
   const go = useCallback(
     (next) => {
@@ -166,11 +166,10 @@ export default function Testimonial({ setView }) {
                           key={i}
                           onClick={() => go(i)}
                           aria-label={`Review ${i + 1}`}
-                          className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${
-                            active === i
+                          className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${active === i
                               ? "w-6 bg-[#c5a880]"
                               : "w-1.5 bg-stone-200 hover:bg-[#c5a880]/50"
-                          }`}
+                            }`}
                         />
                       ))}
                     </div>
@@ -333,11 +332,10 @@ export default function Testimonial({ setView }) {
                         key={i}
                         onClick={() => go(i)}
                         aria-label={`Review ${i + 1}`}
-                        className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${
-                          active === i
+                        className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${active === i
                             ? "w-8 bg-[#c5a880]"
                             : "w-2 bg-stone-300 hover:bg-[#c5a880]/60"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -428,19 +426,17 @@ export default function Testimonial({ setView }) {
                 >
                   {/* Active accent line */}
                   <div
-                    className={`h-px mb-4 rounded-full transition-all duration-500 ${
-                      active === i
+                    className={`h-px mb-4 rounded-full transition-all duration-500 ${active === i
                         ? "bg-[#c5a880] w-8"
                         : "bg-stone-300 w-4 group-hover:w-6 group-hover:bg-[#c5a880]/50"
-                    }`}
+                      }`}
                   />
 
                   {/* Author row */}
                   <div className="flex items-center gap-3 mb-2.5">
                     <div
-                      className={`w-8 h-8 rounded-full overflow-hidden border shrink-0 transition-all duration-300 ${
-                        active === i ? "border-[#c5a880]/60" : "border-stone-300 group-hover:border-[#c5a880]/40"
-                      }`}
+                      className={`w-8 h-8 rounded-full overflow-hidden border shrink-0 transition-all duration-300 ${active === i ? "border-[#c5a880]/60" : "border-stone-300 group-hover:border-[#c5a880]/40"
+                        }`}
                     >
                       <img
                         src={t.avatar}
@@ -453,9 +449,8 @@ export default function Testimonial({ setView }) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p
-                        className={`text-[11px] font-bold uppercase tracking-wider truncate transition-colors duration-300 ${
-                          active === i ? "text-stone-900" : "text-stone-400 group-hover:text-stone-600"
-                        }`}
+                        className={`text-[11px] font-bold uppercase tracking-wider truncate transition-colors duration-300 ${active === i ? "text-stone-900" : "text-stone-400 group-hover:text-stone-600"
+                          }`}
                       >
                         {t.author}
                       </p>
@@ -468,9 +463,8 @@ export default function Testimonial({ setView }) {
 
                   {/* Snippet */}
                   <p
-                    className={`text-[12px] leading-relaxed line-clamp-2 transition-colors duration-300 ${
-                      active === i ? "text-stone-600" : "text-stone-300 group-hover:text-stone-500"
-                    }`}
+                    className={`text-[12px] leading-relaxed line-clamp-2 transition-colors duration-300 ${active === i ? "text-stone-600" : "text-stone-300 group-hover:text-stone-500"
+                      }`}
                     style={{
                       fontFamily: "'Crimson Pro','Playfair Display',Georgia,serif",
                       fontStyle: "italic",
@@ -486,7 +480,7 @@ export default function Testimonial({ setView }) {
         </div>{/* /desktop */}
       </section>
 
-      <ExperienceShowcase setView={setView} />
+      {/* <ExperienceShowcase setView={setView} /> */}
     </>
   );
 }
