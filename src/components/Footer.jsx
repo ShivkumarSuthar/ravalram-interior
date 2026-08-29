@@ -1,3 +1,5 @@
+"use client";
+
 import { Instagram, Linkedin, Facebook, Twitter, ArrowUp, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "../lib/data.js";
 import BrandLogo from "./BrandLogo.jsx";
@@ -37,7 +39,10 @@ export default function Footer({ onNavigate = () => { } }) {
               <BrandLogo size="lg" />
             </button>
             <p className="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
-              We engineer quiet, sophisticated architectural layouts. Each design synthesizes raw organic textures with luxurious material palettes to co-create spatial masterpieces.
+              Designed with purpose. Crafted with care. Made for living.
+            </p>
+            <p className="text-primary text-xs font-mono font-bold uppercase tracking-wider">
+              Crafting Spaces Since 1987
             </p>
 
             {/* Social Connectors — rounded on mobile */}
@@ -57,16 +62,24 @@ export default function Footer({ onNavigate = () => { } }) {
             </div>
           </div>
 
-          {/* Column 2: Studio links */}
+          {/* Column 2: Quick Links */}
           <div className="col-span-1 lg:col-span-2 space-y-3">
-            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Studio</h4>
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Quick Links</h4>
             <ul className="space-y-2 text-sm font-light">
               <li>
                 <button
-                  onClick={() => handleNavigate("about-us", null)}
+                  onClick={() => handleNavigate("home", null)}
                   className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Our Story
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("services", null)}
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
+                >
+                  Services
                 </button>
               </li>
               <li>
@@ -74,7 +87,23 @@ export default function Footer({ onNavigate = () => { } }) {
                   onClick={() => handleNavigate("gallery", null)}
                   className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Our Projects
+                  Portfolio
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("our-process", null)}
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
+                >
+                  Process
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("why-us", null)}
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
+                >
+                  Why Us
                 </button>
               </li>
               <li>
@@ -87,18 +116,10 @@ export default function Footer({ onNavigate = () => { } }) {
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigate("blog", null)}
-                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
-                >
-                  Blog & Journal
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => handleNavigate("contact", null)}
                   className="hover:text-primary transition-colors duration-300 cursor-pointer text-left font-semibold text-primary text-sm"
                 >
-                  Contact Us
+                  Contact
                 </button>
               </li>
             </ul>
@@ -110,41 +131,10 @@ export default function Footer({ onNavigate = () => { } }) {
             <ul className="space-y-2 text-sm font-light">
               <li>
                 <button
-                  onClick={() => {
-                    handleNavigate("services", null);
-                    setTimeout(() => {
-                      window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "designer" } }));
-                    }, 150);
-                  }}
+                  onClick={() => handleNavigate("services", null)}
                   className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Interior Designer
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    handleNavigate("services", null);
-                    setTimeout(() => {
-                      window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "contractor" } }));
-                    }, 150);
-                  }}
-                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
-                >
-                  Interior Contractor
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    handleNavigate("services", null);
-                    setTimeout(() => {
-                      window.dispatchEvent(new CustomEvent("services-tab-change", { detail: { tab: "layouts" } }));
-                    }, 150);
-                  }}
-                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
-                >
-                  2D & 3D Layouts
+                  Interior Design
                 </button>
               </li>
               <li>
@@ -152,7 +142,31 @@ export default function Footer({ onNavigate = () => { } }) {
                   onClick={() => handleNavigate("services", null)}
                   className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
                 >
-                  Services Overview
+                  Custom Furniture
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("services", null)}
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
+                >
+                  Home Renovation
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("services", null)}
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
+                >
+                  Turnkey Interior Solutions
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate("services", null)}
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer text-left text-sm"
+                >
+                  Commercial Interior Design
                 </button>
               </li>
             </ul>
@@ -160,7 +174,7 @@ export default function Footer({ onNavigate = () => { } }) {
 
           {/* Column 4: Showroom contact — full width on mobile */}
           <div className="col-span-2 lg:col-span-4 space-y-3">
-            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Showroom Contact</h4>
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Contact Info</h4>
             <ul className="space-y-2.5 text-sm font-light">
               <li className="flex items-start">
                 <MapPin size={13} className="text-primary mr-2 shrink-0 mt-0.5" />
@@ -180,17 +194,10 @@ export default function Footer({ onNavigate = () => { } }) {
         </div>
       </div>
 
-      {/* SECTION 2: MAJESTIC typography backdrop */}
-      {/* <div className="relative w-full h-20 md:h-52 flex items-center justify-center select-none overflow-hidden border-b border-white/5">
-        <h2 className="text-[14vw] font-serif tracking-[0.1em] text-stone-900/60 font-bold leading-none text-center select-none uppercase pointer-events-none">
-          {COMPANY_INFO.shortName}
-        </h2>
-      </div> */}
-
       {/* SECTION 3: COPYRIGHT BOTTOM BAR */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-5 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-stone-600">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-5 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-stone-600 border-t border-white/5">
         <div>
-          <span>© 1989-{new Date().getFullYear()} {COMPANY_INFO.name}. All Rights Reserved.</span>
+          <span>© 2026 Suthar Living. All rights reserved.</span>
         </div>
 
         <div className="flex items-center space-x-5">

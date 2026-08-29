@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";

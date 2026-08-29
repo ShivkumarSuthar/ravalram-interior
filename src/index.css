@@ -60,6 +60,10 @@
 }
 
 /* Base style overrides */
+html {
+  scroll-behavior: smooth !important;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -305,4 +309,27 @@ select:focus-visible,
 .btn-secondary-premium:hover .play-icon {
   color: var(--color-primary);
   fill: var(--color-primary);
+}
+
+/* ===========================
+   Lenis Smooth Scrolling
+=========================== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

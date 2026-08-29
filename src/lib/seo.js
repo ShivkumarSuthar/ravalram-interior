@@ -1,80 +1,44 @@
 /**
- * Suthar Interior Studio & Architecture - Enterprise SEO Specification & Helpers
+ * Suthar Living - Enterprise SEO Specification & Helpers
  * Complies with Next.js App Router Metadata API & Google Structured Data Guidelines
  */
 
 export const siteConfig = {
-  name: "Suthar Interior Studio & Architecture",
-  url: "https://www.sutharinterior.com",
-  fallbackUrl: "https://ais-pre-va7jl2suqjecrzuzdna26a-536272334133.asia-east1.run.app", // Dev preview fallback
-  logo: "https://www.sutharinterior.com/logo.png",
-  founder: "Ravalram H. Suthar",
-  coFounder: "Shivkumar Suthar",
-  leadArchitect: "Padam P. Sutar & Team",
-  establishedYear: "1989",
+  name: "Suthar Living",
+  tagline: "Designed with purpose. Crafted with care. Made for living.",
+  coreMessage: "Spaces Designed to Feel Like Home",
+  url: "https://www.sutharinteriorstudio.in",
+  fallbackUrl: "https://www.sutharinteriorstudio.in",
+  logo: "https://www.sutharinteriorstudio.in/logo.png",
   contact: {
-    phone: "+91 98200 12345",
-    phoneUSA: "+1 (480) 456-0789",
-    email: "studio@sutharinterior.com",
+    phone: "[PHONE NUMBER]",
+    email: "contact@sutharinteriorstudio.in",
     address: {
-      streetAddress: "Linking Road, Santacruz West",
-      addressLocality: "Mumbai",
-      addressRegion: "Maharashtra",
-      postalCode: "400054",
+      streetAddress: "[ADDRESS]",
+      addressLocality: "[LOCATION]",
       addressCountry: "IN",
-    },
-    geo: {
-      latitude: "19.0818",
-      longitude: "72.8398",
     },
   },
   socials: {
-    whatsapp: "https://wa.me/919820012345",
-    facebook: "https://facebook.com/sutharinterior",
-    instagram: "https://instagram.com/sutharinterior",
-    linkedin: "https://linkedin.com/company/sutharinterior",
+    whatsapp: "https://wa.me/[PHONE NUMBER]",
+    facebook: "https://facebook.com/sutharliving",
+    instagram: "https://instagram.com/sutharliving",
+    linkedin: "https://linkedin.com/company/sutharliving",
   },
   primaryKeywords: [
-    "Suthar Interior Studio",
     "Interior Designer",
-    "Interior Designer Mumbai",
-    "Interior Designer Pune",
-    "Interior Designer Goa",
-    "Interior Designer Bangalore",
-    "Interior Designer Hyderabad",
-    "Architect",
-    "Architect Near Me",
-    "Architect Mumbai",
-    "Architect Pune",
-    "Architect Goa",
-    "Architect Bangalore",
-    "Architect Hyderabad",
-    "Furniture Manufacturer",
-    "Furniture Maker",
+    "Interior Design",
+    "Interior Contractor",
+    "Home Interior Design",
+    "Residential Interior Design",
+    "Commercial Interior Design",
     "Custom Furniture",
-    "Furniture Contractor",
-    "Carpenter",
-    "Professional Carpenter",
+    "Modular Furniture",
     "Home Renovation",
-    "House Renovation",
-    "Commercial Interior",
-    "Residential Interior",
-    "Turnkey Interior",
-    "Office Interior",
-    "Villa Interior",
-    "Apartment Interior",
-    "Kitchen Designer",
-    "Wardrobe Designer",
-    "Luxury Interior",
-    "Budget Interior",
-    "Space Planning",
-    "Furniture Design",
-    "Painting Contractor",
-    "Electrical Contractor",
-    "Civil Contractor",
-    "False Ceiling",
-    "Interior Execution",
-    "Architecture Studio",
+    "Interior Renovation",
+    "Home Décor",
+    "Turnkey Interior Solutions",
+    "Interior Design & Execution",
   ],
 };
 
@@ -150,7 +114,6 @@ export function getPageMetadata({
     },
     // Device & layout preferences
     category: "Interior Design & Architecture",
-    themeColor: "#0c0a09", // Warm Charcoal
     appleWebApp: {
       capable: true,
       title: siteConfig.name,
@@ -158,6 +121,12 @@ export function getPageMetadata({
     },
   };
 }
+
+export const viewport = {
+  themeColor: "#0c0a09",
+  width: "device-width",
+  initialScale: 1,
+};
 
 /**
  * Builds enterprise JSON-LD structured data schemas
@@ -244,8 +213,8 @@ export function generateSchema(type, data = {}) {
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": data.latitude || siteConfig.contact.geo.latitude,
-          "longitude": data.longitude || siteConfig.contact.geo.longitude,
+          "latitude": data.latitude || siteConfig.contact.geo?.latitude || "19.0760",
+          "longitude": data.longitude || siteConfig.contact.geo?.longitude || "72.8777",
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",

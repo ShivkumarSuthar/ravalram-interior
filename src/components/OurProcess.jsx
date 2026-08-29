@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import {
   MessageSquare,
@@ -14,59 +16,41 @@ import {
 const steps = [
   {
     num: "01",
-    title: "Consultation",
-    desc: "We begin by understanding your ideas, lifestyle, functional requirements, design preferences, and overall budget.",
+    title: "Discover",
+    desc: "We start by understanding your requirements, lifestyle, preferences, space, and overall vision.",
     icon: MessageSquare
   },
   {
     num: "02",
-    title: "Site Visit & Measurement",
-    desc: "Our team visits your site to take accurate measurements, evaluate the space, and understand the project's technical requirements.",
+    title: "Plan",
+    desc: "We develop the design direction, spatial planning, materials, finishes, furniture requirements, and project scope.",
     icon: Ruler
   },
   {
     num: "03",
-    title: "Design & Space Planning",
-    desc: "Our architects create layouts, concepts, and design solutions that balance aesthetics, comfort, and functionality while reflecting your vision.",
+    title: "Design",
+    desc: "Ideas are translated into a cohesive interior concept with attention to aesthetics, functionality, and detail.",
     icon: PenTool
   },
   {
     num: "04",
-    title: "Material & Budget Planning",
-    desc: "Choose from premium, standard, or budget-friendly materials. We guide you through every option while maintaining complete pricing transparency.",
-    icon: Layers
-  },
-  {
-    num: "05",
-    title: "Furniture Manufacturing",
-    desc: "Custom furniture is crafted with precision using carefully selected materials, premium hardware, and expert workmanship.",
+    title: "Execute",
+    desc: "Our team coordinates the execution, furniture, finishes, installations, and other project requirements.",
     icon: Hammer
   },
   {
-    num: "06",
-    title: "On-Site Execution",
-    desc: "Our experienced team carries out electrical work, painting, furniture installation, finishing, and all interior execution under architect supervision.",
-    icon: HardHat
-  },
-  {
-    num: "07",
-    title: "Quality Inspection",
-    desc: "Every detail is carefully inspected to ensure workmanship, finishes, dimensions, and overall quality meet our standards before delivery.",
-    icon: ClipboardCheck
-  },
-  {
-    num: "08",
-    title: "Project Handover & Support",
-    desc: "Once everything is completed, we hand over your finished space and remain available for guidance and post-project support whenever needed.",
+    num: "05",
+    title: "Complete",
+    desc: "Every element comes together to create a finished space that is ready to live, work, and experience.",
     icon: Key
   }
 ];
 
 const stats = [
-  { value: "30+", label: "Years of Family Craftsmanship" },
-  { value: "20+", label: "Experienced Professionals" },
-  { value: "100%", label: "Customized Solutions" },
-  { value: "Multi-City", label: "Projects Across India" }
+  { value: "5-Step", label: "Clear Execution Pipeline" },
+  { value: "100%", label: "In-House Coordination" },
+  { value: "Design", label: "Purpose & Functionality" },
+  { value: "Living", label: "Spaces Crafted For You" }
 ];
 
 export default function OurProcess({ setView }) {
@@ -100,11 +84,11 @@ export default function OurProcess({ setView }) {
             </span>
           </div>
           <h2 className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-stone-900 leading-tight">
-            From Your Vision <br />
-            <span className="text-gold-accent">To A Beautiful Reality.</span>
+            From Your Idea <br />
+            <span className="text-primary">to Your Finished Space</span>
           </h2>
           <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl pt-2">
-            Every successful project begins with understanding your vision. From the first conversation to the final handover, our architects, designers, and skilled craftsmen work together to deliver spaces that are functional, beautiful, and built to last.
+            A clear process helps turn an ambitious idea into a beautifully executed interior.
           </p>
         </div>
 
@@ -231,28 +215,23 @@ export default function OurProcess({ setView }) {
 
             <div className="pt-4 flex flex-col sm:flex-row gap-4 sm:items-center">
               {/* Primary button */}
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center space-x-3 text-stone-900 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-gold-accent hover:bg-gold-accent px-6 py-4 rounded-none cursor-pointer"
+              <button
+                onClick={() => setView ? setView("contact") : window.dispatchEvent(new CustomEvent("open-consultation"))}
+                className="inline-flex items-center justify-center space-x-3 text-stone-950 font-bold text-xs tracking-widest uppercase transition-all duration-300 bg-primary hover:bg-primary-hover px-7 py-3.5 rounded-full cursor-pointer shadow-md group"
               >
                 <span>Book a Free Consultation</span>
-                <div className="w-8 h-8 rounded-full border border-stone-950/20 bg-[var(--color-surface-dark)]/10 flex items-center justify-center text-stone-950 group-hover:bg-[var(--color-surface-dark)] group-hover:text-gold-accent transition-all duration-300">
-                  <ArrowRight size={12} strokeWidth={2.5} />
+                <div className="w-6 h-6 rounded-full border border-stone-950/20 bg-stone-950 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <ArrowRight size={13} strokeWidth={2.5} />
                 </div>
-              </motion.a>
+              </button>
 
               {/* Secondary button */}
-              <motion.a
-                href="#portfolio"
-                onClick={() => setView && setView("home")}
-                whileHover={{ scale: 1.02, borderColor: "var(--color-gold-accent)", color: "var(--color-gold-accent)" }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer"
+              <button
+                onClick={() => setView && setView("gallery")}
+                className="inline-flex items-center justify-center px-7 py-3.5 border border-stone-300 hover:border-stone-900 bg-white hover:bg-stone-900 text-stone-900 hover:text-white text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300 rounded-full cursor-pointer shadow-xs"
               >
                 View Our Projects
-              </motion.a>
+              </button>
             </div>
           </div>
         </motion.div>

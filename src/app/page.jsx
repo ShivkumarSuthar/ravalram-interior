@@ -3,17 +3,23 @@ import HomeClient from "./HomeClient";
 
 export async function generateMetadata() {
   return getPageMetadata({
-    title: "Luxury Interior Designer & Architects Mumbai | Suthar Interior Studio",
-    description: "Suthar Interior Studio & Architecture delivers high-end residential interiors, custom furniture manufacturing, and turnkey execution in Mumbai, Pune, Goa & Bengaluru since 1989.",
+    title: "Suthar Living | Interior Design, Furniture & Renovation",
+    description: "Suthar Living offers interior design, custom furniture, home décor, renovation and complete interior solutions for residential and commercial spaces.",
     path: "/",
     keywords: [
-      "Suthar Interior Studio",
-      "Interior Designer Mumbai",
-      "Interior Designer Pune",
-      "Interior Designer Goa",
-      "Best Architect Mumbai",
-      "Custom Furniture Manufacturer",
-      "Turnkey Interior Contractor",
+      "Interior Designer",
+      "Interior Design",
+      "Interior Contractor",
+      "Home Interior Design",
+      "Residential Interior Design",
+      "Commercial Interior Design",
+      "Custom Furniture",
+      "Modular Furniture",
+      "Home Renovation",
+      "Interior Renovation",
+      "Home Décor",
+      "Turnkey Interior Solutions",
+      "Interior Design & Execution",
     ],
   });
 }
@@ -22,8 +28,7 @@ export default function HomePage() {
   const orgSchema = generateSchema("Organization");
   const websiteSchema = generateSchema("WebSite");
   const localBusinessSchema = generateSchema("LocalBusiness", {
-    city: "Mumbai",
-    title: "Suthar Interior Studio & Architecture Headquarters",
+    title: "Suthar Living | Interior Design, Furniture & Renovation",
   });
 
   return (

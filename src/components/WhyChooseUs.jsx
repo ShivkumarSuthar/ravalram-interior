@@ -23,69 +23,53 @@ const HERO_IMG = "/assets/images/AI_images/antra_project_loft_1782744318019.jpg"
 // ─── Feature data ─────────────────────────────────────────────────────────────
 const FEATURES = [
   {
-    id: "excellence",
+    id: "thoughtful-design",
     num: "01",
     icon: Award,
-    title: "35+ Years of Excellence",
+    title: "01 — Thoughtful Design",
     description:
-      "Decades of experience delivering premium residential and commercial interiors with uncompromising craftsmanship.",
+      "Every project begins by understanding your space, lifestyle, requirements, and vision. The result is a design that feels personal rather than predictable.",
     image: HERO_IMG,
   },
   {
-    id: "solutions",
+    id: "end-to-end",
     num: "02",
     icon: Layers,
-    title: "End-to-End Solutions",
+    title: "02 — End-to-End Solutions",
     description:
-      "From consultation to execution, custom furniture, and final handover — all under one roof.",
+      "From design and planning to furniture, finishing, and execution, we bring the essential elements of your project together under one roof.",
   },
   {
-    id: "bespoke",
+    id: "quality-craftsmanship",
     num: "03",
-    icon: Paintbrush2,
-    title: "Bespoke Design",
-    description:
-      "Every project is crafted around your lifestyle, preferences, and budget. No templates — only you.",
-  },
-  {
-    id: "craftsmanship",
-    num: "04",
     icon: Gem,
-    title: "Premium Craftsmanship",
+    title: "03 — Quality Craftsmanship",
     description:
-      "Skilled craftsmen, high-quality materials, and refined finishing standards on every detail.",
+      "We pay close attention to materials, construction, proportions, finishes, and the small details that make a finished interior feel exceptional.",
   },
   {
-    id: "transparent",
+    id: "personalized-approach",
+    num: "04",
+    icon: Paintbrush2,
+    title: "04 — Personalized Approach",
+    description:
+      "No two spaces—or clients—are the same. Our solutions are tailored around your needs, aesthetic preferences, functionality, and budget.",
+  },
+  {
+    id: "clear-communication",
     num: "05",
     icon: FileText,
-    title: "Transparent Process",
+    title: "05 — Clear Communication",
     description:
-      "Clear quotations, milestone-based execution, honest communication with no hidden charges.",
+      "We believe a smooth project starts with clear expectations. We keep the process organized and communicate important decisions throughout the journey.",
   },
   {
-    id: "delivery",
+    id: "built-for-everyday",
     num: "06",
     icon: Clock,
-    title: "On-Time Delivery",
+    title: "06 — Built for Everyday Life",
     description:
-      "Well-planned workflows and dedicated project management ensure strict delivery timelines.",
-  },
-  {
-    id: "quality",
-    num: "07",
-    icon: Shield,
-    title: "Quality That Lasts",
-    description:
-      "Durable materials and meticulous attention to detail — interiors that stay beautiful for years.",
-  },
-  {
-    id: "trusted",
-    num: "08",
-    icon: Users,
-    title: "Trusted Since 1989",
-    description:
-      "Thousands of families and businesses have relied on our expertise for over three decades.",
+      "Beautiful interiors should also be comfortable and practical. We design spaces that work as well in everyday life as they look in photographs.",
   },
 ];
 
@@ -300,25 +284,22 @@ export default function WhyChooseUs({ setView }) {
               <div className="flex items-center gap-3">
                 <div className="w-8 h-px bg-primary" />
                 <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-primary">
-                  Why Choose Us
+                  WHY CHOOSE US
                 </span>
               </div>
 
               {/* Main heading — large, editorial */}
               <h2 className="text-[2.6rem] sm:text-[3.2rem] lg:text-[3rem] xl:text-[3.4rem]
                              font-extrabold tracking-[-0.02em] text-stone-900 leading-[1.06]">
-                Why Clients Trust{" "}
-                <span
-                  className="text-primary"
-                >
-                  Suthar Interior Studio
+                Design That Looks Good.{" "}
+                <span className="text-primary">
+                  Craftsmanship That Lasts.
                 </span>
-
               </h2>
 
               {/* Subtitle */}
               <p className="text-[15px] sm:text-base text-stone-500 leading-[1.75]">
-                We combine decades of craftsmanship with contemporary design to create interiors that are elegant, functional, and thoughtfully tailored to every client. Every detail is carefully considered, ensuring spaces that inspire today and endure for years to come.
+                We combine thoughtful design with practical execution to create interiors that are beautiful, functional, and made for everyday living.
               </p>
             </motion.div>
 

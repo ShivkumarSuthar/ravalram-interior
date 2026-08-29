@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -113,14 +115,21 @@ export default function ContactForm({ setView }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (setView) { setView("thank-you"); window.scrollTo({ top: 0, behavior: "smooth" }); }
-    else setDone(true);
+    if (typeof setView === "function") {
+      setView("thank-you");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      setDone(true);
+      if (typeof window !== "undefined") {
+        window.location.href = "/thank-you";
+      }
+    }
   };
 
   const stepHeadings = [
-    { tag: "01 / 03", title: "Tell Us About", accent: "Your Space.", subtitle: "Let\u2019s start with the big picture." },
-    { tag: "02 / 03", title: "Who Should We", accent: "Reach Out To?", subtitle: "So our architect can get in touch." },
-    { tag: "03 / 03", title: "Describe Your", accent: "Vision.", subtitle: "Budget, timeline, and any details that matter." },
+    { tag: "01 / 03", title: "Let's Talk About", accent: "Your Space.", subtitle: "Tell us a little about your project, and our team will get in touch to understand your requirements and discuss the next steps." },
+    { tag: "02 / 03", title: "Who Should We", accent: "Reach Out To?", subtitle: "So our team can get in touch with you." },
+    { tag: "03 / 03", title: "Describe Your", accent: "Vision.", subtitle: "Any details, preferences, or requirements you have in mind." },
   ];
 
   const heading = stepHeadings[step] || stepHeadings[0];
@@ -383,7 +392,7 @@ export default function ContactForm({ setView }) {
                             className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-stone-950 px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-xl group"
                           >
                             <Sparkles size={14} />
-                            Submit My Brief
+                            Send Project Enquiry
                             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                           </button>
                         </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus, MessageSquare, ArrowUpRight, HelpCircle } from "lucide-react";
@@ -35,7 +37,7 @@ export default function FaqSection({ setView }) {
       {/* Container Wrapper */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 sm:space-y-10">
         
-        {/* HEADER SECTION (Matching exact screenshot structure) */}
+        {/* HEADER SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start text-left border-b border-stone-200/80 pb-6">
           
           {/* Left Eyebrow Pill Badge */}
@@ -43,7 +45,7 @@ export default function FaqSection({ setView }) {
             <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
               <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
               <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
-                POPULAR QUERIES
+                FAQ
               </span>
             </div>
           </div>
@@ -51,8 +53,7 @@ export default function FaqSection({ setView }) {
           {/* Right Main Headline */}
           <div className="lg:col-span-8">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12]">
-              Quick And Clear <span className="text-gold-accent">Answers</span> <br />
-              To Your Key <span className="text-gold-accent">Questions</span>
+              Frequently Asked <span className="text-primary">Questions</span>
             </h2>
           </div>
 

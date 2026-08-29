@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Phone, Menu, X, Calendar, Clock, User, Mail, Sparkles, Check, Search, Grid, LayoutGrid, ArrowUpRight, ChevronDown, Compass, Award, Users, Star, ArrowRight, Paintbrush, Hammer, Ruler, HelpCircle, BookOpen } from "lucide-react";
@@ -83,6 +85,18 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
     setIsMobileMenuOpen(false);
     setTimeout(() => {
       try {
+        if (typeof window !== "undefined" && window.lenis) {
+          if (hash && typeof hash === "string") {
+            const element = document.querySelector(hash);
+            if (element) {
+              window.lenis.scrollTo(element, { duration: 1.2 });
+              return;
+            }
+          }
+          window.lenis.scrollTo(0, { duration: 1.2 });
+          return;
+        }
+
         if (hash && typeof hash === "string") {
           const element = document.querySelector(hash);
           if (element) {
@@ -98,7 +112,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }
-    }, 120);
+    }, 10);
   };
 
   return (

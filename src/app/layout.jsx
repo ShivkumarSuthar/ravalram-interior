@@ -1,11 +1,16 @@
 import "../index.css";
 import ScrollNavigation from "../components/ScrollNavigation";
 import AntraPreloader from "../components/AntraPreloader";
+import QuotationModal from "../components/QuotationModal";
+import SmoothScroll from "../components/SmoothScroll";
 import { ThemeProvider } from "../lib/theme";
+import { viewport } from "../lib/seo";
+
+export { viewport };
 
 export const metadata = {
-  title: "Suthar Interior Studio & Architecture | Bespoke Woodworking & Luxury Interiors",
-  description: "Architect-supervised high-end residential interiors, luxury commercial showrooms, and bespoke woodworking joinery since 1989.",
+  title: "Suthar Living | Interior Design, Furniture & Renovation",
+  description: "Thoughtful interiors that bring together design, craftsmanship, functionality, and lasting quality since 1987.",
 };
 
 export default function RootLayout({ children }) {
@@ -19,18 +24,21 @@ export default function RootLayout({ children }) {
       <body className="relative min-h-screen bg-bg-base text-stone-900 selection:bg-gold-accent selection:text-stone-950" suppressHydrationWarning>
         <AntraPreloader />
         <ThemeProvider>
-          {/* Fixed subtle grid layout accents */}
-          <div className="fixed inset-0 pointer-events-none z-30 opacity-5">
-            <div className="max-w-7xl mx-auto h-full w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="border-l border-stone-400 h-full" />
-              <div className="border-l border-stone-400 h-full" />
-              <div className="border-l border-stone-400 h-full border-r" />
+          <SmoothScroll>
+            {/* Fixed subtle grid layout accents */}
+            <div className="fixed inset-0 pointer-events-none z-30 opacity-5">
+              <div className="max-w-7xl mx-auto h-full w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="border-l border-stone-400 h-full" />
+                <div className="border-l border-stone-400 h-full" />
+                <div className="border-l border-stone-400 h-full border-r" />
+              </div>
             </div>
-          </div>
 
-          {children}
-          
-          <ScrollNavigation />
+            {children}
+            
+            <ScrollNavigation />
+            <QuotationModal />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

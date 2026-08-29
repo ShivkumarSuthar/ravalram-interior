@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useRef } from "react";
 import Image from "./Image.jsx";
 import { motion, AnimatePresence } from "motion/react";

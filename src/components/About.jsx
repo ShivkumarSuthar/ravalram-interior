@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Image from "./Image.jsx";
 import { motion, AnimatePresence } from "motion/react";
@@ -92,7 +94,7 @@ export default function About({ setView }) {
             <div className="inline-flex items-center gap-2 border border-[#c88b80]/40 bg-[#c88b80]/12 px-4 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c88b80] animate-pulse" />
               <span className="text-[10px] tracking-[0.22em] uppercase font-bold text-[#9e5d53] font-mono">
-                Who We Are · Suthar Studio Est. 1989
+                WHO WE ARE
               </span>
             </div>
 
@@ -100,7 +102,7 @@ export default function About({ setView }) {
               onClick={() => { if (typeof setView === "function") { setView("about-us"); window.scrollTo({ top: 0, behavior: "smooth" }); } }}
               className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary-hover text-stone-950 px-5 py-2.5 rounded-full transition-all duration-300 group cursor-pointer shadow-md shrink-0 self-start"
             >
-              <span className="text-[11px] font-bold tracking-widest uppercase font-mono">Explore Full Studio Page</span>
+              <span className="text-[11px] font-bold tracking-widest uppercase font-mono">Discover Suthar Living</span>
               <div className="w-6 h-6 rounded-full bg-stone-950 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
                 <ArrowUpRight size={13} strokeWidth={2.5} />
               </div>
@@ -109,22 +111,23 @@ export default function About({ setView }) {
 
           {/* Big headline */}
           <h2 className="text-[2.2rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12] max-w-4xl">
-            Master Artisans &amp; Senior Architects{" "}
-            <span className="text-primary italic font-serif">Building Timeless</span>{" "}
-            Spaces
+            Creating Spaces With Purpose,{" "}
+            <span className="text-primary italic font-serif">Character &amp; Craftsmanship</span>
           </h2>
 
           {/* Bio + Stats row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start pt-1">
-            <p className="lg:col-span-6 text-stone-600 font-light text-sm sm:text-base leading-relaxed">
-              Suthar Interior Studio is a multi-generational architecture and interior design firm combining over{" "}
-              <strong className="font-semibold text-stone-950">35 years of timber joinery lineage</strong> with
-              modern CAD architectural supervision. Guided by founder{" "}
-              <strong className="font-semibold text-stone-950">Ravalram H. Suthar</strong> alongside Lead Architect{" "}
-              <strong className="font-semibold text-stone-950">Padam P. Sutar &amp; Shivkumar Suthar</strong>, we deliver
-              luxury residential penthouses, sea-facing villas, commercial flagships, and turnkey design-build solutions
-              across Mumbai, Goa, and Pune.
-            </p>
+            <div className="lg:col-span-6 space-y-4 text-stone-600 font-light text-sm sm:text-base leading-relaxed">
+              <p>
+                At Suthar Living, we believe a well-designed space should do more than look beautiful—it should work beautifully for the people who live and work in it.
+              </p>
+              <p>
+                We bring together interior design, furniture, craftsmanship, and project execution to create spaces that feel considered from every angle. Whether it is a new home, a renovation, a commercial space, or a single room, we approach every project with the same focus on thoughtful planning, quality materials, refined detailing, and practical functionality.
+              </p>
+              <p className="font-normal text-stone-900">
+                Our approach is simple: understand your vision, design with purpose, execute with precision, and create a space you can truly call your own.
+              </p>
+            </div>
 
             {/* Stat strip */}
             <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3">

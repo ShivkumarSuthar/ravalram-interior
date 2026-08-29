@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -66,12 +68,15 @@ export default function Services({ setView }) {
         <div className="inline-flex items-center space-x-2 border border-[#488b82]/40 bg-[#488b82]/10 px-3.5 py-1.5 rounded-full shadow-2xs mb-2">
           <Sparkles size={13} className="text-[#2f635c] shrink-0" />
           <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold text-[#2f635c] font-mono">
-            OUR EXPERTISE &bull; 5 ARCHITECTURAL DISCIPLINES
+            WHAT WE DO
           </span>
         </div>
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-950 leading-[1.15] font-serif">
-          Master Architectural &amp; <span className="text-primary">Interior Services</span>
+          Complete Interior Solutions, <span className="text-primary">From Concept to Completion</span>
         </h2>
+        <p className="text-stone-600 text-sm sm:text-base font-light max-w-3xl mt-2 leading-relaxed">
+          From the first idea to the final detail, Suthar Living provides the design, furniture, finishing, and execution services needed to transform a space into something complete.
+        </p>
       </div>
 
       {/* 1. HERO BACKGROUND STAGE (Text sits directly inside/over high-res background photo) */}

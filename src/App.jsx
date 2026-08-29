@@ -30,6 +30,7 @@ import NotFoundPage from "./components/NotFoundPage.jsx";
 import ThankYouPage from "./components/ThankYouPage.jsx";
 import SEOHelper from "./components/SEOHelper.jsx";
 import AntraPreloader from "./components/AntraPreloader.jsx";
+import QuotationModal from "./components/QuotationModal.jsx";
 
 export default function App() {
   const [currentView, setView] = useState("home"); // "home" | "about-us" | "services" | "gallery" | "faqs" | "blog" | "coming-soon" | "contact" | "privacy" | "terms"
@@ -292,8 +293,9 @@ export default function App() {
           {/* 16. Footers */}
           <Footer onNavigate={setView} />
 
-          {/* Scroll navigation controls (Scroll to top / Scroll to bottom) */}
+          {/* Scroll navigation controls & Quotation Request Modal */}
           <ScrollNavigation />
+          <QuotationModal />
         </div>
       )}
     </ThemeProvider>
