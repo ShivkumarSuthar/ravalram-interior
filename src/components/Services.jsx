@@ -72,10 +72,10 @@ export default function Services({ setView }) {
           </span>
         </div>
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-950 leading-[1.15] font-serif">
-          Complete Interior Solutions, <span className="text-primary">From Concept to Completion</span>
+          Comprehensive Disciplines, <span className="text-primary">Flawlessly Executed</span>
         </h2>
         <p className="text-stone-600 text-sm sm:text-base font-light max-w-3xl mt-2 leading-relaxed">
-          From the first idea to the final detail, Suthar Living provides the design, furniture, finishing, and execution services needed to transform a space into something complete.
+          Operating at the intersection of civil engineering and bespoke millwork, our studio provides a complete turnkey package. We manage every specialized discipline to deliver uncompromising, 100% pure execution.
         </p>
       </div>
 

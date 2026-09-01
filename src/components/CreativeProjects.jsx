@@ -130,7 +130,7 @@ export default function CreativeProjects() {
 
           {/* Subtitle */}
           <p className="text-stone-500 font-light text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Our portfolio showcases a diverse range of projects, from beautifully crafted residential spaces to functional and stylish commercial interiors.
+            A curated monograph of our architectural and timber joinery legacy. Every space is a testament to millimetric precision and uncompromising material purity.
           </p>
 
           {/* Left / Right Scroll Controls centered under header */}

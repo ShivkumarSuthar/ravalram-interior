@@ -111,21 +111,21 @@ export default function About({ setView }) {
 
           {/* Big headline */}
           <h2 className="text-[2.2rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12] max-w-4xl">
-            Creating Spaces With Purpose,{" "}
-            <span className="text-primary italic font-serif">Character &amp; Craftsmanship</span>
+            A 35-Year Lineage of{" "}
+            <span className="text-primary italic font-serif">Spatial Mastery &amp; Purity</span>
           </h2>
 
           {/* Bio + Stats row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start pt-1">
             <div className="lg:col-span-6 space-y-4 text-stone-600 font-light text-sm sm:text-base leading-relaxed">
               <p>
-                At Suthar Living, we believe a well-designed space should do more than look beautiful—it should work beautifully for the people who live and work in it.
+                Founded as a master woodworking guild in 1989, Suthar Interior Studio was built on a singular philosophy: true spatial design must honor the raw structure and the natural grain of every material. We reject generic aesthetics in favor of 100% pure, uncompromised craftsmanship.
               </p>
               <p>
-                We bring together interior design, furniture, craftsmanship, and project execution to create spaces that feel considered from every angle. Whether it is a new home, a renovation, a commercial space, or a single room, we approach every project with the same focus on thoughtful planning, quality materials, refined detailing, and practical functionality.
+                Today, guided by lead architects and master craftsmen, we provide a complete, turnkey architectural package. We don't just supply furniture or draft 2D plans—we orchestrate the entire lifecycle of your project, from civil alterations to the final placement of bespoke millwork.
               </p>
               <p className="font-normal text-stone-900">
-                Our approach is simple: understand your vision, design with purpose, execute with precision, and create a space you can truly call your own.
+                Every layout we draft, and every millimeter of teak we season, is subjected to rigorous on-site audits. Connect with us to experience execution fidelity that leaves absolutely nothing to chance.
               </p>
             </div>
 

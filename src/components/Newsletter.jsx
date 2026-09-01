@@ -21,7 +21,7 @@ export default function Newsletter() {
 
   return (
     <section className="bg-bg-base py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
-      
+
       {/* Background Blueprint Grid Lines Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
         <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 sm:grid-cols-6 gap-6">
@@ -35,7 +35,7 @@ export default function Newsletter() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-8 sm:space-y-10">
-        
+
         {/* Centered Headline & Description */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

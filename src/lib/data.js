@@ -95,10 +95,10 @@ export const COMPANY_INFO = {
 // Hero Section Content
 export const HERO_DATA = {
   badgeText: "",
-  titlePart1: "Crafting Timeless",
-  titlePart2: "Spatial Excellence",
-  titleHighlighted: "Architecture & Bespoke Joinery",
-  description: "For over 35 years, Suthar Interior Studio has been designing and building exceptional residential, commercial, and hospitality interiors through thoughtful architecture, bespoke furniture, and complete turnkey execution. Every project is carefully planned to reflect your lifestyle, maximise functionality, and stand the test of time.",
+  titlePart1: "We Don't Just Design Spaces.",
+  titlePart2: "We Breathe Life Into Them.",
+  titleHighlighted: "100% Pure Turnkey Execution",
+  description: "More than just an interior studio, we are a complete turnkey architectural powerhouse. From bespoke timber millwork to structural civil execution, we deliver a 100% pure, uncompromised end-to-end experience. Connect with us, and watch your vision unfold with absolute precision.",
   primaryCtaText: "Explore Our Portfolio",
   secondaryCtaText: "Book Free Consultation",
   statsBadge: "30+ Years Legacy",
@@ -127,13 +127,13 @@ export const HERO_DATA = {
 // About Section Content
 export const ABOUT_DATA = {
   badgeText: "OUR GENERATIONAL HERITAGE",
-  headline: "30+ Years of Passionate Architectural Woodcraft",
+  headline: "A 35-Year Lineage of Spatial Mastery & Purity",
   quote: "“True spatial design does not obscure raw structure; it honors the grain of every wood timber and the flow of natural ambient light.”",
   quoteAuthor: "Ravalram H. Suthar",
   quoteTitle: "Founder & Master Woodcrafter (1989)",
   paragraphs: [
-    "Suthar Interior Studio was established in 1989 with a foundational commitment to uncompromised woodworking mastery and honest architectural execution. What began as a master joinery guild in Mumbai has evolved into a premier full-scale interior design and architecture studio.",
-    "Led today by Shivkumar Suthar and lead architect Padam P. Sutar, our studio bridges traditional artisan joinery techniques with contemporary computational CAD, 3D spatial modeling, and end-to-end turnkey site execution."
+    "Founded as a master woodworking guild in 1989, Suthar Interior Studio was built on a singular philosophy: true spatial design must honor the raw structure and the natural grain of every material. We reject generic aesthetics in favor of 100% pure, uncompromised craftsmanship.",
+    "Today, guided by lead architects and master craftsmen, we provide a complete, turnkey architectural package. We don't just supply furniture or draft 2D plans—we orchestrate the entire lifecycle of your project, from civil alterations to the final placement of bespoke millwork."
   ],
   highlights: [
     "Architect-Supervised Site Construction",

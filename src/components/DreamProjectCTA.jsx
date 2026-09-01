@@ -22,7 +22,7 @@ export default function DreamProjectCTA({ setView }) {
 
   return (
     <section className="relative w-full py-20 sm:py-28 lg:py-36 bg-bg-dark text-white overflow-hidden select-none border-y border-stone-800">
-      
+
       {/* Background High-End Architecture Image with Vignetting & Parallax feel */}
       <div className="absolute inset-0 z-0">
         <img
@@ -51,7 +51,7 @@ export default function DreamProjectCTA({ setView }) {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center justify-center space-y-8 sm:space-y-10">
-        
+
         {/* Top Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -78,7 +78,7 @@ export default function DreamProjectCTA({ setView }) {
             Have a Space in Mind? <br />
             <span className="text-primary">Let's Bring It to Life.</span>
           </h2>
-          
+
           <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed">
             Whether you're building a new home, renovating an existing space, furnishing a commercial property, or simply looking for the right design direction, we're here to help you take the next step.
           </p>
