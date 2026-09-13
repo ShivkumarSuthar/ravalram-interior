@@ -13,15 +13,15 @@ import {
 } from "lucide-react";
 import { SITE_IMAGES } from "../lib/data.js";
 
-const aboutImg    = SITE_IMAGES.aboutSide;
+const aboutImg = SITE_IMAGES.aboutSide;
 const transitionImg = SITE_IMAGES.transitionLuxury;
-const cadImg      = SITE_IMAGES.isometricFloorPlan;
+const cadImg = SITE_IMAGES.isometricFloorPlan;
 
 const STATS = [
-  { value: "35+",  label: "Years Lineage",      sub: "Est. 1989 Master Guild",   accent: "var(--color-primary)" },
-  { value: "500+", label: "Turnkey Projects",   sub: "Villas & Penthouses",      accent: "var(--color-primary)" },
-  { value: "100%", label: "Architect Audited",  sub: "Zero Tolerance CAD",       accent: "#488b82" },
-  { value: "10-Yr",label: "Teak Warranty",      sub: "IS 710 Marine Ply",        accent: "var(--color-primary)" },
+  { value: "35+", label: "Years Lineage", sub: "Est. 1989 Master Guild", accent: "var(--color-primary)" },
+  { value: "500+", label: "Turnkey Projects", sub: "Villas & Penthouses", accent: "var(--color-primary)" },
+  { value: "100%", label: "Architect Audited", sub: "Zero Tolerance CAD", accent: "#488b82" },
+  { value: "10-Yr", label: "Teak Warranty", sub: "IS 710 Marine Ply", accent: "var(--color-primary)" },
 ];
 
 const PILLARS = [
@@ -162,11 +162,10 @@ export default function About({ setView }) {
               <button
                 key={p.id}
                 onClick={() => setActive(i)}
-                className={`py-2.5 rounded-xl text-[10px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap overflow-hidden ${
-                  i === active
-                    ? "bg-primary text-stone-950 shadow-md"
-                    : "text-stone-600 hover:text-stone-900"
-                }`}
+                className={`py-2.5 rounded-xl text-[10px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap overflow-hidden ${i === active
+                  ? "bg-primary text-stone-950 shadow-md"
+                  : "text-stone-600 hover:text-stone-900"
+                  }`}
               >
                 {p.num}. {p.short}
               </button>
@@ -200,11 +199,10 @@ export default function About({ setView }) {
                     <button
                       key={m}
                       onClick={() => setViewMode(m)}
-                      className={`px-2.5 py-1 rounded-full text-[9px] font-mono font-bold uppercase transition-all cursor-pointer ${
-                        viewMode === m
-                          ? m === "photo" ? "bg-primary text-stone-950" : "bg-[#488b82] text-white"
-                          : "text-stone-400 hover:text-white"
-                      }`}
+                      className={`px-2.5 py-1 rounded-full text-[9px] font-mono font-bold uppercase transition-all cursor-pointer ${viewMode === m
+                        ? m === "photo" ? "bg-primary text-stone-950" : "bg-[#488b82] text-white"
+                        : "text-stone-400 hover:text-white"
+                        }`}
                     >
                       {m === "photo" ? "Photo" : "Blueprint"}
                     </button>
@@ -267,11 +265,10 @@ export default function About({ setView }) {
                     onClick={() => setActive(i)}
                     whileHover={{ x: isActive ? 0 : 4 }}
                     transition={{ duration: 0.2 }}
-                    className={`w-full text-left rounded-3xl border transition-all duration-400 cursor-pointer overflow-hidden ${
-                      isActive
-                        ? "bg-gradient-to-br from-white via-[#fcfaf7] to-[#f4eee4] border-2 border-primary shadow-[0_16px_48px_rgba(197,168,128,0.2)] scale-[1.01]"
-                        : "bg-white/80 border-[#e5dcd3] hover:border-primary/50 hover:bg-white hover:shadow-md"
-                    }`}
+                    className={`w-full text-left rounded-3xl border transition-all duration-400 cursor-pointer overflow-hidden ${isActive
+                      ? "bg-gradient-to-br from-white via-[#fcfaf7] to-[#f4eee4] border-2 border-primary shadow-[0_16px_48px_rgba(197,168,128,0.2)] scale-[1.01]"
+                      : "bg-white/80 border-[#e5dcd3] hover:border-primary/50 hover:bg-white hover:shadow-md"
+                      }`}
                   >
                     {/* Gold top bar — active only */}
                     {isActive && (
@@ -360,11 +357,10 @@ export default function About({ setView }) {
                   <button
                     key={key}
                     onClick={() => setViewMode(key)}
-                    className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${
-                      viewMode === key
-                        ? key === "photo" ? "bg-primary text-stone-950 shadow-sm" : "bg-[#488b82] text-white shadow-sm"
-                        : "text-stone-500 hover:text-stone-900"
-                    }`}
+                    className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${viewMode === key
+                      ? key === "photo" ? "bg-primary text-stone-950 shadow-sm" : "bg-[#488b82] text-white shadow-sm"
+                      : "text-stone-500 hover:text-stone-900"
+                      }`}
                   >
                     {label}
                   </button>
