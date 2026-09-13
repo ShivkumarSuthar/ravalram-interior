@@ -6,7 +6,7 @@ import { Phone, Menu, X, Calendar, Clock, User, Mail, Sparkles, Check, Search, G
 import { COMPANY_INFO, NAV_LINKS } from "../lib/data.js";
 import BrandLogo from "./BrandLogo.jsx";
 
-export default function Header({ currentView = "home", setView = () => {}, onOpenQuote = null }) {
+export default function Header({ currentView = "home", setView = () => { }, onOpenQuote = null }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
@@ -33,19 +33,20 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    const handleOpenEvent = () => {
+    const handleOpenConsultEvent = () => {
       setIsConsultModalOpen(true);
     };
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("open-consultation", handleOpenEvent);
+    window.addEventListener("open-consultation", handleOpenConsultEvent);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("open-consultation", handleOpenEvent);
+      window.removeEventListener("open-consultation", handleOpenConsultEvent);
     };
   }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
+    if (typeof window === "undefined") return;
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
@@ -60,11 +61,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
   }, [isMobileMenuOpen]);
 
   const handleOpenConsultModal = () => {
-    if (onOpenQuote) {
-      onOpenQuote();
-    } else {
-      setIsConsultModalOpen(true);
-    }
+    setIsConsultModalOpen(true);
+  };
+
+  const handleOpenQuotationModal = () => {
+    window.dispatchEvent(new CustomEvent("open-quotation"));
   };
 
   const handleConsultSubmit = (e) => {
@@ -121,21 +122,22 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 text-white ${
-          isScrolled
-            ? "bg-bg-dark/80 backdrop-blur-xl py-3 border-b border-white/10 shadow-2xl"
-            : "py-4"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 text-white ${isScrolled
+          ? "bg-bg-dark/80 backdrop-blur-xl py-5 shadow-2xl"
+          : "py-4"
+          }`}
         id="app-header"
       >
+        <div className={`absolute bottom-0 left-0 w-full h-[1px] ${isScrolled ? "bg-white/10" : "bg-transparent"}`} />
+
         <div className={`max-w-7xl mx-auto transition-all duration-500 px-5 sm:px-8 md:px-12 lg:px-16`}>
-          
-          <div className={`flex items-center justify-between transition-all duration-500 ${
-            isScrolled
-              ? "py-0"
-              : "rounded-full border border-white/30 bg-white/20 backdrop-blur-xl py-3 px-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]"
-          }`}>
-            
+
+          <div className={`relative flex items-center justify-between transition-[padding] duration-500 ease-out ${isScrolled
+            ? "py-0"
+            : "rounded-full bg-white/20 backdrop-blur-xl py-3 px-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]"
+            }`}>
+            <div className={`absolute inset-0 pointer-events-none rounded-full ${isScrolled ? "hidden" : "border border-white/30"}`} />
+
             {/* 1. Logo (Left) */}
             <div className="flex-shrink-0">
               <button
@@ -148,39 +150,37 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
             </div>
 
             {/* 2. Desktop Navigation (Center) */}
-            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/20" id="header-desktop-nav">
-              
+            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 relative z-10" id="header-desktop-nav">
+
               {/* 1. Studio */}
               <button
                 onClick={() => navigateToSection("home", null)}
-                className={`text-[12px] font-semibold tracking-wider transition-all duration-300 px-4 py-1.5 rounded-full cursor-pointer flex items-center gap-1.5 group ${
-                  currentView === "home"
-                    ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
-                    : "text-white/90 hover:text-white hover:bg-white/20"
-                }`}
+                className={`text-[12px] font-semibold tracking-wider transition-all duration-300 px-4 py-1.5 rounded-full cursor-pointer flex items-center gap-1.5 group ${currentView === "home"
+                  ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
+                  : "text-white/90 hover:text-white hover:bg-white/20"
+                  }`}
               >
                 <span className={`font-mono text-[9px] ${currentView === "home" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>01.</span>
                 <span>Studio</span>
               </button>
 
               {/* 2. Expertise Dropdown */}
-              <div 
+              <div
                 className="relative group/nav"
                 onMouseLeave={() => setActiveServices("INTERIOR WORK")}
               >
                 <button
                   onClick={() => navigateToSection("services", null)}
-                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
-                    currentView === "services"
-                      ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
-                      : "text-white/90 hover:text-white hover:bg-white/20"
-                  }`}
+                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${currentView === "services"
+                    ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
+                    }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "services" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>02.</span>
                   <span>Expertise</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "services" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
-                
+
                 {/* Dropdown Box */}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[740px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-primary border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
                   {/* Left Column */}
@@ -188,9 +188,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveServices("INTERIOR WORK")}
                       onClick={() => navigateToSection("services", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "INTERIOR WORK" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeServices === "INTERIOR WORK" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Interior Work</span>
                       <Paintbrush size={14} className={activeServices === "INTERIOR WORK" ? "text-primary" : "text-stone-400"} />
@@ -199,9 +198,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveServices("CARPENTRY")}
                       onClick={() => navigateToSection("services", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "CARPENTRY" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeServices === "CARPENTRY" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Carpentry</span>
                       <Hammer size={14} className={activeServices === "CARPENTRY" ? "text-primary" : "text-stone-400"} />
@@ -210,9 +208,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveServices("PAINTING & FINISHING")}
                       onClick={() => navigateToSection("services", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "PAINTING & FINISHING" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeServices === "PAINTING & FINISHING" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Painting & Finishing</span>
                       <Sparkles size={14} className={activeServices === "PAINTING & FINISHING" ? "text-primary" : "text-stone-400"} />
@@ -221,9 +218,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveServices("FLOORING")}
                       onClick={() => navigateToSection("services", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeServices === "FLOORING" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeServices === "FLOORING" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Flooring</span>
                       <Ruler size={14} className={activeServices === "FLOORING" ? "text-primary" : "text-stone-400"} />
@@ -325,34 +321,32 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </div>
 
               {/* 3. Portfolio Dropdown */}
-              <div 
+              <div
                 className="relative group/nav"
                 onMouseLeave={() => setActiveWork("RESIDENTIAL PROJECTS")}
               >
                 <button
                   onClick={() => navigateToSection("gallery", null)}
-                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
-                    currentView === "gallery"
-                      ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
-                      : "text-white/90 hover:text-white hover:bg-white/20"
-                  }`}
+                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${currentView === "gallery"
+                    ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
+                    }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "gallery" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>03.</span>
                   <span>Portfolio</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "gallery" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
-                
+
                 {/* Dropdown Box */}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[720px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-primary border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
-                  
+
                   {/* Left Column */}
                   <div className="w-[250px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveWork("RESIDENTIAL PROJECTS")}
                       onClick={() => navigateToSection("gallery", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "RESIDENTIAL PROJECTS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeWork === "RESIDENTIAL PROJECTS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Residential</span>
                       <Compass size={14} className={activeWork === "RESIDENTIAL PROJECTS" ? "text-primary" : "text-stone-400"} />
@@ -361,9 +355,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveWork("COMMERCIAL PROJECTS")}
                       onClick={() => navigateToSection("gallery", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "COMMERCIAL PROJECTS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeWork === "COMMERCIAL PROJECTS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Commercial</span>
                       <Grid size={14} className={activeWork === "COMMERCIAL PROJECTS" ? "text-primary" : "text-stone-400"} />
@@ -372,9 +365,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveWork("BEFORE & AFTER")}
                       onClick={() => navigateToSection("gallery", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "BEFORE & AFTER" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeWork === "BEFORE & AFTER" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Before & After</span>
                       <Sparkles size={14} className={activeWork === "BEFORE & AFTER" ? "text-primary" : "text-stone-400"} />
@@ -383,9 +375,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveWork("CLIENT CASE STUDIES")}
                       onClick={() => navigateToSection("blog", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeWork === "CLIENT CASE STUDIES" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeWork === "CLIENT CASE STUDIES" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Case Studies</span>
                       <BookOpen size={14} className={activeWork === "CLIENT CASE STUDIES" ? "text-primary" : "text-stone-400"} />
@@ -465,34 +456,32 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </div>
 
               {/* 4. Heritage Dropdown */}
-              <div 
+              <div
                 className="relative group/nav"
                 onMouseLeave={() => setActiveAbout("OUR STORY")}
               >
                 <button
                   onClick={() => navigateToSection("about-us", null)}
-                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
-                    currentView === "about-us" || currentView === "faqs"
-                      ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
-                      : "text-white/90 hover:text-white hover:bg-white/20"
-                  }`}
+                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${currentView === "about-us" || currentView === "faqs"
+                    ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
+                    }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "about-us" || currentView === "faqs" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>04.</span>
                   <span>Heritage</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "about-us" || currentView === "faqs" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
-                
+
                 {/* Dropdown Box */}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-primary border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
-                  
+
                   {/* Left Column */}
                   <div className="w-[240px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveAbout("OUR STORY")}
                       onClick={() => navigateToSection("about-us", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "OUR STORY" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeAbout === "OUR STORY" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>About Us</span>
                       <Compass size={14} className={activeAbout === "OUR STORY" ? "text-primary" : "text-stone-400"} />
@@ -501,9 +490,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveAbout("OUR TEAM")}
                       onClick={() => navigateToSection("about-us", "#team")}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "OUR TEAM" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeAbout === "OUR TEAM" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Our Team</span>
                       <Users size={14} className={activeAbout === "OUR TEAM" ? "text-primary" : "text-stone-400"} />
@@ -512,9 +500,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveAbout("WHY CHOOSE US")}
                       onClick={() => navigateToSection("about-us", "#about-story")}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "WHY CHOOSE US" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeAbout === "WHY CHOOSE US" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Why Choose Us</span>
                       <Award size={14} className={activeAbout === "WHY CHOOSE US" ? "text-primary" : "text-stone-400"} />
@@ -523,9 +510,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveAbout("TESTIMONIALS")}
                       onClick={() => navigateToSection("faqs", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeAbout === "TESTIMONIALS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeAbout === "TESTIMONIALS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>FAQs & Info</span>
                       <Check size={14} className={activeAbout === "TESTIMONIALS" ? "text-primary" : "text-stone-400"} />
@@ -540,7 +526,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeAbout}
                       </h4>
-                      
+
                       {activeAbout === "OUR STORY" && (
                         <div className="space-y-3">
                           <span className="text-[10px] text-primary font-bold tracking-[0.2em] uppercase block">GENERATIONAL HERITAGE SINCE 1989</span>
@@ -594,11 +580,10 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               <div className="relative group/nav">
                 <button
                   onClick={() => navigateToSection("blog", null)}
-                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
-                    currentView === "blog"
-                      ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
-                      : "text-white/90 hover:text-white hover:bg-white/20"
-                  }`}
+                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${currentView === "blog"
+                    ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
+                    }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "blog" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>05.</span>
                   <span>Journal</span>
@@ -616,7 +601,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div 
+                    <div
                       onClick={() => navigateToSection("blog", null)}
                       className="p-3.5 rounded-2xl bg-stone-50/90 hover:bg-white border border-stone-200 hover:border-primary/50 transition-all duration-300 cursor-pointer group/card shadow-sm"
                     >
@@ -629,7 +614,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       </p>
                     </div>
 
-                    <div 
+                    <div
                       onClick={() => navigateToSection("blog", null)}
                       className="p-3.5 rounded-2xl bg-stone-50/90 hover:bg-white border border-stone-200 hover:border-primary/50 transition-all duration-300 cursor-pointer group/card shadow-sm"
                     >
@@ -646,34 +631,32 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               </div>
 
               {/* 6. Inquire Dropdown */}
-              <div 
+              <div
                 className="relative group/nav"
                 onMouseLeave={() => setActiveContact("REQUEST A QUOTE")}
               >
                 <button
                   onClick={() => navigateToSection("contact", null)}
-                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${
-                    currentView === "contact"
-                      ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
-                      : "text-white/90 hover:text-white hover:bg-white/20"
-                  }`}
+                  className={`text-[12px] font-semibold tracking-wider flex items-center gap-1.5 px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 group ${currentView === "contact"
+                    ? "bg-primary text-stone-950 font-extrabold shadow-md shadow-primary/30"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
+                    }`}
                 >
                   <span className={`font-mono text-[9px] ${currentView === "contact" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>06.</span>
                   <span>Inquire</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "contact" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
-                
+
                 {/* Dropdown Box */}
                 <div className="absolute top-full right-0 mt-4 w-[700px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-primary border-x border-b border-stone-200/80 flex overflow-hidden opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-stone-900">
-                  
+
                   {/* Left Column */}
                   <div className="w-[240px] bg-stone-50/90 p-3 flex flex-col space-y-1.5 border-r border-stone-200/80 shrink-0">
                     <button
                       onMouseEnter={() => setActiveContact("REQUEST A QUOTE")}
                       onClick={() => navigateToSection("contact", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "REQUEST A QUOTE" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeContact === "REQUEST A QUOTE" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Request A Quote</span>
                       <Sparkles size={14} className={activeContact === "REQUEST A QUOTE" ? "text-primary" : "text-stone-400"} />
@@ -682,9 +665,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveContact("BOOK A CONSULTATION")}
                       onClick={handleOpenConsultModal}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "BOOK A CONSULTATION" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeContact === "BOOK A CONSULTATION" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Consultation</span>
                       <Calendar size={14} className={activeContact === "BOOK A CONSULTATION" ? "text-primary" : "text-stone-400"} />
@@ -693,9 +675,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveContact("FAQS")}
                       onClick={() => navigateToSection("faqs", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "FAQS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeContact === "FAQS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>FAQs</span>
                       <HelpCircle size={14} className={activeContact === "FAQS" ? "text-primary" : "text-stone-400"} />
@@ -704,9 +685,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveContact("SERVICE AREAS")}
                       onClick={() => navigateToSection("contact", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "SERVICE AREAS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeContact === "SERVICE AREAS" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Service Areas</span>
                       <Compass size={14} className={activeContact === "SERVICE AREAS" ? "text-primary" : "text-stone-400"} />
@@ -715,9 +695,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <button
                       onMouseEnter={() => setActiveContact("FEEDBACK")}
                       onClick={() => navigateToSection("contact", null)}
-                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                        activeContact === "FEEDBACK" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
-                      }`}
+                      className={`w-full text-left px-4 py-3 text-xs tracking-wider font-semibold uppercase rounded-2xl transition-all duration-200 flex items-center justify-between cursor-pointer ${activeContact === "FEEDBACK" ? "bg-primary/20 text-stone-950 font-bold border-l-2 border-primary shadow-sm" : "text-stone-600 hover:text-stone-950 hover:bg-white"
+                        }`}
                     >
                       <span>Feedback</span>
                       <Mail size={14} className={activeContact === "FEEDBACK" ? "text-primary" : "text-stone-400"} />
@@ -814,12 +793,12 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 </div>
               </a>
 
-              {/* Get A Quote! Button */}
+              {/* Get Free Quote Button */}
               <button
-                onClick={() => navigateToSection("contact", null)}
+                onClick={handleOpenQuotationModal}
                 className="bg-primary hover:bg-primary-hover text-stone-950 font-extrabold text-xs px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-primary/20 cursor-pointer"
               >
-                Get A Quote!
+                Get Free Quote
               </button>
             </div>
 
@@ -839,8 +818,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
       {/* Full-Width Mobile Menu Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 top-0 left-0 right-0 bottom-0 z-[100] lg:hidden text-stone-900 overflow-y-auto overscroll-contain bg-white/95 backdrop-blur-3xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="mobile-menu-drawer-portal">
-            
+          <div className="fixed inset-0 top-0 left-0 right-0 bottom-0 z-[100] lg:hidden text-stone-900 overflow-hidden bg-white/95 backdrop-blur-3xl" id="mobile-menu-drawer-portal">
+
             {/* White Glassy Backdrop */}
             <div className="absolute inset-0 bg-white/90 backdrop-blur-3xl" />
             <div className="absolute inset-0 bg-gradient-to-b from-stone-100/90 via-white/95 to-stone-50/95" />
@@ -850,11 +829,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="relative z-10 w-full min-h-full p-5 xs:p-6 sm:p-8 pb-16 xs:pb-24 sm:pb-14 flex flex-col justify-between max-w-3xl mx-auto"
+              className="relative z-10 w-full h-[100dvh] flex flex-col max-w-3xl mx-auto"
             >
-              {/* Header Bar */}
-              <div>
-                <div className="flex items-center justify-between pb-5 mb-6 border-b border-stone-200/80">
+              {/* Header Bar (Fixed) */}
+              <div className="flex-shrink-0 p-5 xs:p-6 sm:p-8 pb-0">
+                <div className="flex items-center justify-between pb-5 border-b border-stone-200/80">
                   <button
                     onClick={() => {
                       navigateToSection("home", null);
@@ -864,7 +843,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   >
                     <BrandLogo size="md" darkText={true} />
                   </button>
-                  
+
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -875,19 +854,21 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     </button>
                   </div>
                 </div>
+              </div>
 
+              {/* Scrollable Nav Area */}
+              <div className="flex-1 overflow-y-auto modal-scroll p-5 xs:p-6 sm:p-8 pt-6 pb-24" data-lenis-prevent="true">
                 {/* Mobile Navigation Cards Grid */}
                 <div className="space-y-3.5 text-left">
-                  
+
                   {/* Card 01: Studio (Home) */}
                   <div
                     onClick={() => {
                       navigateToSection("home", null);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
-                      currentView === "home" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
-                    }`}
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${currentView === "home" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
+                      }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
@@ -925,9 +906,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div>
                     <div
                       onClick={() => setIsServicesSubOpen(!isServicesSubOpen)}
-                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
-                        currentView === "services" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
-                      }`}
+                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${currentView === "services" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
+                        }`}
                     >
                       <img
                         src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop"
@@ -1012,9 +992,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   {/* Card 03: Portfolio */}
                   <div
                     onClick={() => { navigateToSection("gallery", null); setIsMobileMenuOpen(false); }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
-                      currentView === "gallery" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
-                    }`}
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${currentView === "gallery" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
+                      }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
@@ -1052,9 +1031,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <div>
                     <div
                       onClick={() => setIsPagesSubOpen(!isPagesSubOpen)}
-                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
-                        currentView === "about-us" || currentView === "faqs" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
-                      }`}
+                      className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${currentView === "about-us" || currentView === "faqs" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
+                        }`}
                     >
                       <img
                         src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop"
@@ -1129,9 +1107,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   {/* Card 05: Journal */}
                   <div
                     onClick={() => { navigateToSection("blog", null); setIsMobileMenuOpen(false); }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
-                      currentView === "blog" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
-                    }`}
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${currentView === "blog" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
+                      }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=800&auto=format&fit=crop"
@@ -1168,9 +1145,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   {/* Card 06: Inquire */}
                   <div
                     onClick={() => { navigateToSection("contact", null); setIsMobileMenuOpen(false); }}
-                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${
-                      currentView === "contact" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
-                    }`}
+                    className={`relative h-20 xs:h-22 sm:h-24 w-full rounded-2xl overflow-hidden border transition-all duration-300 shadow-md group text-left cursor-pointer ${currentView === "contact" ? "border-primary bg-white ring-1 ring-primary/50" : "border-stone-200 bg-stone-50/90 hover:border-primary/60"
+                      }`}
                   >
                     <img
                       src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800&auto=format&fit=crop"
@@ -1205,31 +1181,31 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   </div>
 
                 </div>
-              </div>
 
-              {/* Bottom Quick Contact & Action Bar */}
-              <div className="border-t border-stone-200 pt-6 mt-8 space-y-4">
-                <div className="flex flex-col items-center justify-center gap-1.5 text-center text-xs text-stone-600 font-mono">
-                  <a
-                    href={`tel:${COMPANY_INFO.phoneFormatted}`}
-                    className="flex items-center text-stone-900 hover:text-primary transition-colors duration-300 font-bold"
+                {/* Bottom Quick Contact & Action Bar */}
+                <div className="border-t border-stone-200 pt-6 mt-8 space-y-4">
+                  <div className="flex flex-col items-center justify-center gap-1.5 text-center text-xs text-stone-600 font-mono">
+                    <a
+                      href={`tel:${COMPANY_INFO.phoneFormatted}`}
+                      className="flex items-center text-stone-900 hover:text-primary transition-colors duration-300 font-bold"
+                    >
+                      <Phone size={13} className="mr-2 text-primary" />
+                      <span>{COMPANY_INFO.phone}</span>
+                    </a>
+                    <span className="text-stone-500 text-[11px]">
+                      Linking Rd, Santacruz W, Mumbai
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => { setIsMobileMenuOpen(false); handleOpenQuotationModal(); }}
+                    className="w-full py-4 text-center text-xs tracking-widest uppercase font-bold text-stone-950 bg-primary hover:bg-primary-hover rounded-full transition-all duration-300 cursor-pointer shadow-lg shadow-primary/20 flex items-center justify-center space-x-2 my-2"
                   >
-                    <Phone size={13} className="mr-2 text-primary" />
-                    <span>{COMPANY_INFO.phone}</span>
-                  </a>
-                  <span className="text-stone-500 text-[11px]">
-                    Linking Rd, Santacruz W, Mumbai
-                  </span>
+                    <span>Get Free Quote</span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
-
-                <button
-                  onClick={() => { setIsMobileMenuOpen(false); handleOpenConsultModal(); }}
-                  className="w-full py-4 text-center text-xs tracking-widest uppercase font-bold text-stone-950 bg-primary hover:bg-primary-hover rounded-full transition-all duration-300 cursor-pointer shadow-lg shadow-primary/20 flex items-center justify-center space-x-2 my-2"
-                >
-                  <span>Book Private Consultation</span>
-                  <ArrowRight size={14} />
-                </button>
-              </div>
+              </div> {/* Close scrollable nav area */}
             </motion.div>
           </div>
         )}
@@ -1322,11 +1298,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           Select Date
                         </label>
                         <div className="relative">
-                          <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
+                          <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none" />
                           <input
                             type="date"
                             required
-                            className="w-full bg-stone-50 border border-stone-200 focus:border-primary px-10 py-2 text-sm text-stone-900 outline-none transition-colors duration-300 [color-scheme:light] rounded-lg"
+                            className="w-full bg-stone-50 border border-stone-200 focus:border-primary pl-9 pr-3 py-2 text-sm text-stone-900 outline-none transition-colors duration-300 [color-scheme:light] rounded-lg"
                           />
                         </div>
                       </div>
@@ -1335,11 +1311,11 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                           Select Time
                         </label>
                         <div className="relative">
-                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
+                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none" />
                           <input
                             type="time"
                             required
-                            className="w-full bg-stone-50 border border-stone-200 focus:border-primary px-10 py-2 text-sm text-stone-900 outline-none transition-colors duration-300 [color-scheme:light] rounded-lg"
+                            className="w-full bg-stone-50 border border-stone-200 focus:border-primary pl-9 pr-3 py-2 text-sm text-stone-900 outline-none transition-colors duration-300 [color-scheme:light] rounded-lg"
                           />
                         </div>
                       </div>

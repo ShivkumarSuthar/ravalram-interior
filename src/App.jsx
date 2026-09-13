@@ -67,7 +67,7 @@ export default function App() {
           <Header
             currentView={currentView}
             setView={setView}
-            onOpenQuote={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
+            onOpenQuote={() => window.dispatchEvent(new CustomEvent("open-quotation"))}
           />
 
           {/* Main Content Areas with fluid view switching */}
