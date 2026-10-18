@@ -159,7 +159,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     : "text-white/90 hover:text-white hover:bg-white/20"
                 }`}
               >
-                <span className={`font-mono text-[9px] ${currentView === "home" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>01.</span>
+                <span className={`font-sans text-[9px] ${currentView === "home" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>01.</span>
                 <span>Studio</span>
               </button>
 
@@ -176,7 +176,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
-                  <span className={`font-mono text-[9px] ${currentView === "services" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>02.</span>
+                  <span className={`font-sans text-[9px] ${currentView === "services" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>02.</span>
                   <span>Expertise</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "services" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
@@ -235,7 +235,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeServices}
                       </h4>
 
@@ -337,7 +337,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
-                  <span className={`font-mono text-[9px] ${currentView === "gallery" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>03.</span>
+                  <span className={`font-sans text-[9px] ${currentView === "gallery" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>03.</span>
                   <span>Portfolio</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "gallery" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
@@ -397,7 +397,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeWork}
                       </h4>
 
@@ -408,9 +408,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                             Step inside our curated catalog of ultra-luxury residential properties, sea-facing duplexes in Bandra, high-end penthouses, and bespoke timber integrations.
                           </p>
                           <div className="pt-2 flex flex-wrap gap-2">
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Sea-Facing Duplexes</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Penthouses</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Villas</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Sea-Facing Duplexes</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Penthouses</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Villas</span>
                           </div>
                         </div>
                       )}
@@ -422,9 +422,9 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                             Explore ergonomically structured workspaces, high-end design galleries, custom retail flagships, and premium offices curated for optimal flow and luxury aesthetic.
                           </p>
                           <div className="pt-2 flex flex-wrap gap-2">
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Corporate HQ</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Retail Flagships</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Galleries</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Corporate HQ</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Retail Flagships</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Galleries</span>
                           </div>
                         </div>
                       )}
@@ -436,8 +436,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                             Examine high-fidelity case portfolios of on-site structural magic, transitioning hollow concrete shells into meticulously tailored luxury spaces.
                           </p>
                           <div className="pt-2 flex flex-wrap gap-2">
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Turnkey Remodels</span>
-                            <span className="text-[9px] uppercase font-mono px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Raw Shells</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Turnkey Remodels</span>
+                            <span className="text-[9px] uppercase font-sans px-2.5 py-1 bg-stone-100 rounded border border-stone-200 text-primary-hover font-semibold">Raw Shells</span>
                           </div>
                         </div>
                       )}
@@ -477,7 +477,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
-                  <span className={`font-mono text-[9px] ${currentView === "about-us" || currentView === "faqs" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>04.</span>
+                  <span className={`font-sans text-[9px] ${currentView === "about-us" || currentView === "faqs" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>04.</span>
                   <span>Heritage</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "about-us" || currentView === "faqs" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
@@ -537,7 +537,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeAbout}
                       </h4>
                       
@@ -600,7 +600,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
-                  <span className={`font-mono text-[9px] ${currentView === "blog" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>05.</span>
+                  <span className={`font-sans text-[9px] ${currentView === "blog" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>05.</span>
                   <span>Journal</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "blog" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
@@ -609,7 +609,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[640px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.12)] rounded-3xl border-t-2 border-t-primary border-x border-b border-stone-200/80 p-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50 text-left text-stone-900">
                   <div className="flex items-center justify-between pb-3 border-b border-stone-200/80 mb-4">
                     <span className="text-[10px] text-primary font-bold tracking-[0.2em] uppercase">Architectural Journal & Insights</span>
-                    <button onClick={() => navigateToSection("blog", null)} className="text-[10px] font-mono uppercase tracking-widest text-stone-600 hover:text-primary flex items-center gap-1 cursor-pointer">
+                    <button onClick={() => navigateToSection("blog", null)} className="text-[10px] font-sans uppercase tracking-widest text-stone-600 hover:text-primary flex items-center gap-1 cursor-pointer">
                       <span>View All Articles</span>
                       <ArrowRight size={10} />
                     </button>
@@ -620,8 +620,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       onClick={() => navigateToSection("blog", null)}
                       className="p-3.5 rounded-2xl bg-stone-50/90 hover:bg-white border border-stone-200 hover:border-primary/50 transition-all duration-300 cursor-pointer group/card shadow-sm"
                     >
-                      <span className="text-[9px] font-mono text-primary uppercase tracking-widest block mb-1">Woodcraft Blueprints</span>
-                      <h5 className="text-xs font-serif font-bold text-stone-900 group-hover/card:text-primary transition-colors line-clamp-1 mb-1">
+                      <span className="text-[9px] font-sans text-primary uppercase tracking-widest block mb-1">Woodcraft Blueprints</span>
+                      <h5 className="text-xs font-bold text-stone-900 group-hover/card:text-primary transition-colors line-clamp-1 mb-1">
                         Mastering Teak Joinery & Timber Durability
                       </h5>
                       <p className="text-[11px] text-stone-600 leading-snug line-clamp-2 font-light">
@@ -633,8 +633,8 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       onClick={() => navigateToSection("blog", null)}
                       className="p-3.5 rounded-2xl bg-stone-50/90 hover:bg-white border border-stone-200 hover:border-primary/50 transition-all duration-300 cursor-pointer group/card shadow-sm"
                     >
-                      <span className="text-[9px] font-mono text-primary uppercase tracking-widest block mb-1">Spatial Design</span>
-                      <h5 className="text-xs font-serif font-bold text-stone-900 group-hover/card:text-primary transition-colors line-clamp-1 mb-1">
+                      <span className="text-[9px] font-sans text-primary uppercase tracking-widest block mb-1">Spatial Design</span>
+                      <h5 className="text-xs font-bold text-stone-900 group-hover/card:text-primary transition-colors line-clamp-1 mb-1">
                         2026 Luxury Villa Architecture Trends
                       </h5>
                       <p className="text-[11px] text-stone-600 leading-snug line-clamp-2 font-light">
@@ -658,7 +658,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       : "text-white/90 hover:text-white hover:bg-white/20"
                   }`}
                 >
-                  <span className={`font-mono text-[9px] ${currentView === "contact" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>06.</span>
+                  <span className={`font-sans text-[9px] ${currentView === "contact" ? "text-stone-950/80" : "text-primary group-hover:text-primary"}`}>06.</span>
                   <span>Inquire</span>
                   <ChevronDown size={11} className={`opacity-70 group-hover/nav:translate-y-0.5 transition-transform duration-300 ${currentView === "contact" ? "text-stone-950/80" : "text-primary"}`} />
                 </button>
@@ -729,7 +729,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h4 className="text-lg font-serif font-bold text-stone-900 tracking-wide uppercase mb-1">
+                      <h4 className="text-lg font-bold text-stone-900 tracking-wide uppercase mb-1">
                         {activeContact}
                       </h4>
 
@@ -899,15 +899,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 shadow-inner">
-                          <span className="font-mono text-xs font-bold text-primary">01</span>
+                          <span className="font-sans text-xs font-bold text-primary">01</span>
                         </div>
                         <div className="flex flex-col">
                           <div className="flex items-center space-x-2">
-                            <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-primary transition-colors">
+                            <h3 className="text-base xs:text-lg font-semibold text-white group-hover:text-primary transition-colors">
                               Studio
                             </h3>
                             {currentView === "home" && (
-                              <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
+                              <span className="text-[9px] font-sans font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
                           <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
@@ -939,14 +939,14 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                         <div className="flex items-center space-x-3.5">
                           <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 shadow-inner">
-                            <span className="font-mono text-xs font-bold text-primary">02</span>
+                            <span className="font-sans text-xs font-bold text-primary">02</span>
                           </div>
                           <div className="flex flex-col">
                             <div className="flex items-center space-x-2">
-                              <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-primary transition-colors">
+                              <h3 className="text-base xs:text-lg font-semibold text-white group-hover:text-primary transition-colors">
                                 Expertise
                               </h3>
-                              <span className="text-[9px] font-mono font-medium text-primary bg-primary/20 px-2 py-0.5 rounded-full border border-primary/30">
+                              <span className="text-[9px] font-sans font-medium text-primary bg-primary/20 px-2 py-0.5 rounded-full border border-primary/30">
                                 Turnkey & Joinery
                               </span>
                             </div>
@@ -1026,15 +1026,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 shadow-inner">
-                          <span className="font-mono text-xs font-bold text-primary">03</span>
+                          <span className="font-sans text-xs font-bold text-primary">03</span>
                         </div>
                         <div className="flex flex-col">
                           <div className="flex items-center space-x-2">
-                            <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-primary transition-colors">
+                            <h3 className="text-base xs:text-lg font-semibold text-white group-hover:text-primary transition-colors">
                               Portfolio
                             </h3>
                             {currentView === "gallery" && (
-                              <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
+                              <span className="text-[9px] font-sans font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
                           <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
@@ -1066,14 +1066,14 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                       <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                         <div className="flex items-center space-x-3.5">
                           <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 shadow-inner">
-                            <span className="font-mono text-xs font-bold text-primary">04</span>
+                            <span className="font-sans text-xs font-bold text-primary">04</span>
                           </div>
                           <div className="flex flex-col">
                             <div className="flex items-center space-x-2">
-                              <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-primary transition-colors">
+                              <h3 className="text-base xs:text-lg font-semibold text-white group-hover:text-primary transition-colors">
                                 Heritage
                               </h3>
-                              <span className="text-[9px] font-mono font-medium text-primary bg-primary/20 px-2 py-0.5 rounded-full border border-primary/30">
+                              <span className="text-[9px] font-sans font-medium text-primary bg-primary/20 px-2 py-0.5 rounded-full border border-primary/30">
                                 Since 1989
                               </span>
                             </div>
@@ -1143,15 +1143,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 shadow-inner">
-                          <span className="font-mono text-xs font-bold text-primary">05</span>
+                          <span className="font-sans text-xs font-bold text-primary">05</span>
                         </div>
                         <div className="flex flex-col">
                           <div className="flex items-center space-x-2">
-                            <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-primary transition-colors">
+                            <h3 className="text-base xs:text-lg font-semibold text-white group-hover:text-primary transition-colors">
                               Journal
                             </h3>
                             {currentView === "blog" && (
-                              <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
+                              <span className="text-[9px] font-sans font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
                           <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
@@ -1182,15 +1182,15 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                     <div className="relative z-10 h-full px-4 xs:px-5 flex items-center justify-between">
                       <div className="flex items-center space-x-3.5">
                         <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 shadow-inner">
-                          <span className="font-mono text-xs font-bold text-primary">06</span>
+                          <span className="font-sans text-xs font-bold text-primary">06</span>
                         </div>
                         <div className="flex flex-col">
                           <div className="flex items-center space-x-2">
-                            <h3 className="text-base xs:text-lg font-serif font-semibold text-white group-hover:text-primary transition-colors">
+                            <h3 className="text-base xs:text-lg font-semibold text-white group-hover:text-primary transition-colors">
                               Inquire
                             </h3>
                             {currentView === "contact" && (
-                              <span className="text-[9px] font-mono font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
+                              <span className="text-[9px] font-sans font-bold tracking-widest text-stone-950 bg-primary px-2 py-0.5 rounded-full uppercase">Active</span>
                             )}
                           </div>
                           <p className="text-[11px] text-stone-200 font-sans tracking-wide line-clamp-1">
@@ -1209,7 +1209,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
 
               {/* Bottom Quick Contact & Action Bar */}
               <div className="border-t border-stone-200 pt-6 mt-8 space-y-4">
-                <div className="flex flex-col items-center justify-center gap-1.5 text-center text-xs text-stone-600 font-mono">
+                <div className="flex flex-col items-center justify-center gap-1.5 text-center text-xs text-stone-600 font-sans">
                   <a
                     href={`tel:${COMPANY_INFO.phoneFormatted}`}
                     className="flex items-center text-stone-900 hover:text-primary transition-colors duration-300 font-bold"
@@ -1269,7 +1269,7 @@ export default function Header({ currentView = "home", setView = () => {}, onOpe
                   <Sparkles size={12} />
                   <span>Exclusive Session</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-serif text-stone-900 font-semibold text-left">
+                <h3 className="text-2xl md:text-3xl text-stone-900 font-semibold text-left">
                   Book A Consultation
                 </h3>
                 <p className="text-stone-600 text-xs mt-1 text-left">

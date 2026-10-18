@@ -67,11 +67,11 @@ export default function Services({ setView }) {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full pb-4 sm:pb-6 text-left">
         <div className="inline-flex items-center space-x-2 border border-[#488b82]/40 bg-[#488b82]/10 px-3.5 py-1.5 rounded-full shadow-2xs mb-2">
           <Sparkles size={13} className="text-[#2f635c] shrink-0" />
-          <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold text-[#2f635c] font-mono">
+          <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold text-[#2f635c] font-sans">
             WHAT WE DO
           </span>
         </div>
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-950 leading-[1.15] font-serif">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-950 leading-[1.15]">
           Comprehensive Disciplines, <span className="text-primary">Flawlessly Executed</span>
         </h2>
         <p className="text-stone-600 text-sm sm:text-base font-light max-w-3xl mt-2 leading-relaxed">
@@ -108,14 +108,14 @@ export default function Services({ setView }) {
                 
                 {/* Top Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="bg-stone-950/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-primary font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+                  <div className="bg-stone-950/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-primary font-sans text-[10px] sm:text-xs font-bold uppercase tracking-widest">
                     DISCIPLINE {currentNum} / 0{servicesList.length} &bull; {current.category}
                   </div>
                 </div>
 
                 {/* Bottom Title, Description & KNOW MORE Button inside Image */}
                 <div className="space-y-3 max-w-2xl">
-                  <h3 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white font-serif tracking-tight leading-snug drop-shadow-md">
+                  <h3 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-snug drop-shadow-md">
                     {current.title}
                   </h3>
 
@@ -126,7 +126,7 @@ export default function Services({ setView }) {
                   <div className="pt-2 flex items-center space-x-3">
                     <button
                       onClick={() => setSpecModalService(current)}
-                      className="inline-flex items-center space-x-2 bg-primary hover:bg-primary-hover text-stone-950 px-6 py-3 rounded-full text-xs font-mono font-bold uppercase tracking-widest shadow-lg transition-all cursor-pointer border border-primary hover:scale-105"
+                      className="inline-flex items-center space-x-2 bg-primary hover:bg-primary-hover text-stone-950 px-6 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-widest shadow-lg transition-all cursor-pointer border border-primary hover:scale-105"
                     >
                       <span>KNOW MORE</span>
                       <ArrowUpRight size={15} />
@@ -134,7 +134,7 @@ export default function Services({ setView }) {
 
                     <button
                       onClick={() => setSpecModalService(current)}
-                      className="inline-flex items-center space-x-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-4 py-3 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer"
+                      className="inline-flex items-center space-x-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-4 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all cursor-pointer"
                     >
                       <Eye size={14} className="text-primary" />
                       <span>View Specifications</span>
@@ -202,7 +202,7 @@ export default function Services({ setView }) {
                 <div className="relative z-10 space-y-1.5">
                   <div className="flex items-center justify-between w-full">
                     <span
-                      className={`text-xs font-mono font-bold tracking-widest ${
+                      className={`text-xs font-sans font-bold tracking-widest ${
                         isActive ? "text-primary-hover scale-105" : "text-stone-500 group-hover:text-stone-900"
                       }`}
                     >
@@ -211,7 +211,7 @@ export default function Services({ setView }) {
 
                     <div className="flex items-center space-x-1.5">
                       <span
-                        className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-md uppercase transition-colors ${
+                        className={`text-[9px] font-sans font-bold px-2 py-0.5 rounded-md uppercase transition-colors ${
                           isActive
                             ? "bg-primary text-stone-950 shadow-xs font-bold"
                             : "bg-[#f8f2ec] text-stone-700 border border-stone-300"
@@ -228,7 +228,7 @@ export default function Services({ setView }) {
                   {/* Service Title */}
                   <h3
                     className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase leading-snug transition-colors ${
-                      isActive ? "text-[#1c3e38] font-serif text-sm sm:text-base" : "text-stone-900 group-hover:text-[#488b82]"
+                      isActive ? "text-[#1c3e38] text-sm sm:text-base" : "text-stone-900 group-hover:text-[#488b82]"
                     }`}
                   >
                     {service.title}
@@ -289,12 +289,12 @@ export default function Services({ setView }) {
 
               {/* Header */}
               <div className="space-y-2 border-b border-stone-200/80 pb-6 pr-12">
-                <div className="inline-flex items-center space-x-2 text-[#2f635c] text-xs font-mono font-bold tracking-widest uppercase">
+                <div className="inline-flex items-center space-x-2 text-[#2f635c] text-xs font-sans font-bold tracking-widest uppercase">
                   <span>DISCIPLINE SPECIFICATION</span>
                   <span>&bull;</span>
                   <span>{specModalService.category}</span>
                 </div>
-                <h3 className="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight font-serif">
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight">
                   {specModalService.title}
                 </h3>
               </div>
@@ -312,7 +312,7 @@ export default function Services({ setView }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-primary font-bold uppercase tracking-widest">
+                  <div className="absolute bottom-4 left-4 right-4 text-xs font-sans text-primary font-bold uppercase tracking-widest">
                     FIG 01.0 // {specModalService.id}
                   </div>
                 </div>
@@ -320,7 +320,7 @@ export default function Services({ setView }) {
                 {/* Specs Details */}
                 <div className="md:col-span-6 space-y-6">
                   <div className="space-y-2">
-                    <h4 className="text-xs font-bold font-mono text-[#2f635c] uppercase tracking-widest">
+                    <h4 className="text-xs font-bold text-[#2f635c] uppercase tracking-widest">
                       ARCHITECTURAL SCOPE &amp; FIDELITY
                     </h4>
                     <p className="text-sm font-light text-stone-700 leading-relaxed">
@@ -329,7 +329,7 @@ export default function Services({ setView }) {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xs font-bold font-mono text-[#2f635c] uppercase tracking-widest">
+                    <h4 className="text-xs font-bold text-[#2f635c] uppercase tracking-widest">
                       DELIVERABLES &amp; STANDARDS
                     </h4>
                     <div className="grid grid-cols-1 gap-2">

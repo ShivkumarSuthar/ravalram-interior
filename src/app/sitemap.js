@@ -9,6 +9,7 @@ export default function sitemap() {
     "/about-us",
     "/services",
     "/gallery",
+    "/pricing",
     "/faqs",
     "/blog",
     "/contact",

@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, Sparkles, CheckCircle2, Phone, Mail, User, MapPin, Compass, Building2, AlertCircle } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import sendEnquiry from "../lib/send-enquiry";
+import { CONTACT } from "../lib/home-content";
 
 const SERVICES_OPTIONS = [
   "Interior Design",
@@ -60,20 +61,8 @@ export default function QuotationModal() {
     }
   }, []);
 
-  // 1. Auto-open modal after a small delay (5 seconds) unless previously closed in session
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const hasClosed = sessionStorage.getItem("suthar_quote_modal_closed");
-    if (!hasClosed) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  // 2. Global event listeners for manual triggers ("open-consultation", "open-quotation")
+  // Opens only on request (e.g. the header's "Get In Touch" button), never by itself
+  // Global event listeners for manual triggers ("open-consultation", "open-quotation")
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -100,35 +89,21 @@ export default function QuotationModal() {
     setIsSubmitting(true);
     setErrorMessage("");
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_suthar";
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_suthar_quote";
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key_suthar";
-
-    const templateParams = {
-      from_name: formData.user_name,
-      from_email: formData.user_email,
-      from_phone: formData.user_phone,
-      service_needed: formData.service_needed,
-      city: formData.city,
-      message: formData.message || "No additional notes provided.",
-      site_name: "Suthar Living"
-    };
-
     try {
-      if (publicKey && publicKey !== "public_key_suthar") {
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      } else {
-        // Fallback simulation when EmailJS env vars are not set
-        console.log("EmailJS Submission Payload (Configure NEXT_PUBLIC_EMAILJS_* keys in .env):", templateParams);
-        await new Promise((resolve) => setTimeout(resolve, 800));
-      }
-      setIsSubmitting(false);
+      await sendEnquiry({
+        from_name: formData.user_name,
+        from_email: formData.user_email,
+        from_phone: formData.user_phone,
+        service_needed: formData.service_needed,
+        city: formData.city,
+        message: formData.message || "No additional notes provided.",
+      });
       setIsSubmitted(true);
-    } catch (error) {
-      console.warn("EmailJS error fallback activated:", error);
-      // Still notify user of submission receipt
+    } catch {
+      // Only confirm when the request actually went out; otherwise point to direct contact
+      setErrorMessage(`Your request couldn't be sent just now. Please call ${CONTACT.phone} or email ${CONTACT.email}.`);
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
     }
   };
 
@@ -167,11 +142,11 @@ export default function QuotationModal() {
               <div className="space-y-6">
                 {/* Header */}
                 <div className="space-y-2 pr-8">
-                  <div className="inline-flex items-center space-x-2 bg-[#c5a880]/15 border border-[#c5a880]/30 px-3.5 py-1 rounded-full text-[#c5a880] text-[10px] font-mono font-bold uppercase tracking-widest">
+                  <div className="inline-flex items-center space-x-2 bg-[#c5a880]/15 border border-[#c5a880]/30 px-3.5 py-1 rounded-full text-[#c5a880] text-[10px] font-sans font-bold uppercase tracking-widest">
                     <Sparkles size={12} className="animate-pulse" />
                     <span>GET AN INSTANT QUOTATION</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-serif tracking-tight leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
                     Request a Project Estimate
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed">
@@ -183,7 +158,7 @@ export default function QuotationModal() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Name Input */}
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
                       <User size={12} className="text-[#c5a880]" />
                       Full Name *
                     </label>
@@ -202,7 +177,7 @@ export default function QuotationModal() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Phone Input */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                      <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
                         <Phone size={12} className="text-[#c5a880]" />
                         Phone / WhatsApp *
                       </label>
@@ -219,7 +194,7 @@ export default function QuotationModal() {
 
                     {/* Email Input */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                      <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
                         <Mail size={12} className="text-[#c5a880]" />
                         Email Address *
                       </label>
@@ -237,7 +212,7 @@ export default function QuotationModal() {
 
                   {/* Service Needed Selection */}
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
                       <Compass size={12} className="text-[#c5a880]" />
                       Service Required
                     </label>
@@ -264,7 +239,7 @@ export default function QuotationModal() {
 
                   {/* City Selection */}
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
                       <MapPin size={12} className="text-[#c5a880]" />
                       Project Location
                     </label>
@@ -284,7 +259,7 @@ export default function QuotationModal() {
 
                   {/* Message Input */}
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400">
                       Project Details / Carpet Area (Optional)
                     </label>
                     <textarea
@@ -302,7 +277,7 @@ export default function QuotationModal() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center space-x-2 bg-[#c5a880] hover:bg-[#b0936b] disabled:opacity-50 text-stone-950 py-3.5 px-6 rounded-full font-mono font-bold text-xs uppercase tracking-widest transition-all cursor-pointer shadow-lg hover:scale-[1.01]"
+                      className="w-full inline-flex items-center justify-center space-x-2 bg-[#c5a880] hover:bg-[#b0936b] disabled:opacity-50 text-stone-950 py-3.5 px-6 rounded-full font-sans font-bold text-xs uppercase tracking-widest transition-all cursor-pointer shadow-lg hover:scale-[1.01]"
                     >
                       {isSubmitting ? (
                         <>
@@ -318,7 +293,22 @@ export default function QuotationModal() {
                     </button>
                   </div>
 
-                  <p className="text-[10px] text-stone-500 font-mono text-center pt-1">
+                  <AnimatePresence>
+                    {errorMessage && (
+                      <motion.p
+                        role="alert"
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-start gap-2 text-sm text-stone-300"
+                      >
+                        <AlertCircle size={16} className="mt-0.5 shrink-0 text-primary" />
+                        {errorMessage}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+
+                  <p className="text-[10px] text-stone-500 font-sans text-center pt-1">
                     🔒 Direct connection with Suthar Living lead architects. No spam guaranteed.
                   </p>
                 </form>
@@ -335,7 +325,7 @@ export default function QuotationModal() {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-serif">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                     Quotation Request Sent!
                   </h3>
                   <p className="text-sm text-stone-300 font-light max-w-md mx-auto leading-relaxed">
@@ -345,7 +335,7 @@ export default function QuotationModal() {
 
                 <button
                   onClick={handleClose}
-                  className="inline-flex items-center space-x-2 bg-stone-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer border border-stone-700"
+                  className="inline-flex items-center space-x-2 bg-stone-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-colors cursor-pointer border border-stone-700"
                 >
                   <span>Continue Exploring</span>
                 </button>

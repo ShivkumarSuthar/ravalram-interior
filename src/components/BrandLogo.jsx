@@ -23,7 +23,7 @@ export default function BrandLogo({ className = "", iconOnly = false, size = "md
       {/* Brand Text */}
       {!iconOnly && (
         <div className="flex flex-col justify-center">
-          <span className={`font-serif font-black tracking-[0.18em] uppercase ${darkText ? "text-stone-950" : "text-white"} leading-tight transition-colors group-hover:text-primary ${dimensions.title}`}>
+          <span className={`font-sans font-black tracking-[0.18em] uppercase ${darkText ? "text-stone-950" : "text-white"} leading-tight transition-colors group-hover:text-primary ${dimensions.title}`}>
             SUTHAR
           </span>
           <span className={`font-sans font-semibold tracking-[0.28em] uppercase text-primary leading-none mt-0.5 ${dimensions.subtitle}`}>

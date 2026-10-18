@@ -304,7 +304,7 @@ export default function LuxuryChatbot() {
                         {msg.text}
                       </div>
                       
-                      <span className={`text-[9px] text-stone-500 block font-mono ${
+                      <span className={`text-[9px] text-stone-500 block font-sans ${
                         !isBot ? "text-right" : ""
                       }`}>
                         {msg.time}
@@ -337,7 +337,7 @@ export default function LuxuryChatbot() {
                 <button
                   key={idx}
                   onClick={() => handlePresetClick(preset)}
-                  className="px-3 py-1.5 bg-stone-900 hover:bg-stone-800 text-gold-accent hover:text-white border border-white/5 hover:border-gold-accent text-[10px] font-mono tracking-wide uppercase transition-all cursor-pointer inline-block rounded-none shrink-0"
+                  className="px-3 py-1.5 bg-stone-900 hover:bg-stone-800 text-gold-accent hover:text-white border border-white/5 hover:border-gold-accent text-[10px] font-sans tracking-wide uppercase transition-all cursor-pointer inline-block rounded-none shrink-0"
                 >
                   {preset.keywords[0]} ?
                 </button>
@@ -366,9 +366,9 @@ export default function LuxuryChatbot() {
             </form>
 
             {/* Branded Footer accent */}
-            <div className="bg-[var(--color-surface-dark)] py-1.5 px-4 border-t border-white/5 text-[9px] text-stone-600 font-mono tracking-widest uppercase flex items-center justify-between select-none">
+            <div className="bg-[var(--color-surface-dark)] py-1.5 px-4 border-t border-white/5 text-[9px] text-stone-600 font-sans tracking-widest uppercase flex items-center justify-between select-none">
               <span>Padam AI Advisor</span>
-              <div className="flex items-center space-x-1 text-gold-accent/60 font-serif lowercase">
+              <div className="flex items-center space-x-1 text-gold-accent/60 font-sans lowercase">
                 <span>suthar</span>
                 <span className="w-1 h-1 bg-gold-accent rounded-full" />
               </div>

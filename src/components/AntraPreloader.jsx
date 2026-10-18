@@ -15,6 +15,8 @@ export default function AntraPreloader() {
 
     if (typeof window !== "undefined") {
       const hasPreloaded = sessionStorage.getItem("suthar_preloaded");
+      // Read by the hero so its entrance waits for the curtain
+      window.__sutharPreloading = !hasPreloaded;
       if (hasPreloaded) {
         setIsHidden(true);
         return;
@@ -85,7 +87,7 @@ export default function AntraPreloader() {
             className="absolute inset-0 flex flex-col items-center justify-between py-12 px-6 pointer-events-auto z-10"
           >
             {/* Top Minimal Tagline */}
-            <div className="flex items-center space-x-3 text-[10px] font-mono tracking-[0.3em] uppercase text-stone-400 font-bold">
+            <div className="flex items-center space-x-3 text-[10px] font-sans tracking-[0.3em] uppercase text-stone-400 font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880] animate-ping" />
               <span>SUTHAR LIVING • ARCHITECTURE &amp; INTERIORS</span>
             </div>
@@ -111,14 +113,14 @@ export default function AntraPreloader() {
               </div>
 
               {/* Percentage Display */}
-              <div className="flex items-center space-x-2 font-mono text-xs font-bold tracking-widest text-[#c5a880]">
+              <div className="flex items-center space-x-2 font-sans text-xs font-bold tracking-widest text-[#c5a880]">
                 <span>{Math.min(progress, 100)}%</span>
                 <span className="text-stone-500 font-normal">| CRAFTING SPACES SINCE 1987</span>
               </div>
             </div>
 
             {/* Bottom Coordinate Signature */}
-            <div className="text-[9px] font-mono text-stone-500 tracking-[0.25em] uppercase">
+            <div className="text-[9px] font-sans text-stone-500 tracking-[0.25em] uppercase">
               MUMBAI • GOA • PUNE • TURNKEY CONTRACTING
             </div>
           </motion.div>

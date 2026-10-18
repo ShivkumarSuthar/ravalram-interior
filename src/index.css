@@ -22,11 +22,42 @@
 }
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
-  --font-serif: "Outfit", "Plus Jakarta Sans", sans-serif;
-  --font-mono: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  
+  /* Fonts (loaded in src/app/layout.jsx via next/font/google) */
+  --font-sans: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-cal-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Site surfaces and hairlines */
+  --color-bg-soft: #F6F6F6;
+  --color-line: #9F9FA4;
+  --color-whatsapp: #25D366;
+
+  /* Type scale (fluid: phone → 1440px desktop) */
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.0625rem;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.75rem;
+  --text-lead-lg: 1.25rem;
+  --text-lead-lg--line-height: 1.75rem;
+  --text-card: clamp(1.25rem, 0.9rem + 1vw, 1.75rem);
+  --text-card--line-height: 1.3;
+  --text-card-lg: clamp(1.5rem, 1rem + 1.4vw, 2.25rem);
+  --text-card-lg--line-height: 1.2;
+  --text-section: clamp(2rem, 1.1rem + 3vw, 3.75rem);
+  --text-section--line-height: 1.1;
+  --text-section-lg: clamp(2.25rem, 1rem + 4.4vw, 5rem);
+  --text-section-lg--line-height: 1.1;
+  --text-hero: clamp(2.75rem, 0.9rem + 7.2vw, 6.875rem);
+  --text-hero--line-height: 1.1;
+  --text-display: clamp(2.5rem, 0.6rem + 8vw, 7.5rem);
+  --text-display--line-height: 1.2;
+  --text-watermark: clamp(6rem, 1rem + 26vw, 26.25rem);
+  --text-watermark--line-height: 1;
+
+  /* Layout widths */
+  --container-site: 100rem;
+  --container-heading: 74.5rem;
+
   /* Semantic Color Utilities */
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
@@ -78,20 +109,12 @@ body {
   color: var(--color-dark-charcoal);
 }
 
-h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display);
-}
-
-.font-serif {
-  font-family: var(--font-serif);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-.font-sans {
-  font-family: var(--font-sans);
+/* Headings use Cal Sans; it has one weight, so never fake bold over it */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-synthesis-weight: none;
+  }
 }
 
 /* Custom scrollbar - Transparent track so dark/light backgrounds blend seamlessly without light stripes */

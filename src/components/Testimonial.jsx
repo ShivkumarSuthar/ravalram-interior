@@ -90,7 +90,7 @@ export default function Testimonial({ setView }) {
                 <em
                   className="font-normal text-primary"
                   style={{
-                    fontFamily: "'Crimson Pro','Playfair Display',Georgia,serif",
+                    fontFamily: "var(--font-heading)",
                     fontStyle: "italic",
                   }}
                 >
@@ -115,8 +115,8 @@ export default function Testimonial({ setView }) {
                   {/* Decorative large quote mark */}
                   <span
                     aria-hidden
-                    className="block text-[5rem] leading-[0.8] text-primary/25 font-serif -mb-1"
-                    style={{ fontFamily: "Georgia,serif" }}
+                    className="block text-[5rem] leading-[0.8] text-primary/25 font-sans -mb-1"
+                    style={{ fontFamily: "var(--font-sans)" }}
                   >
                     &ldquo;
                   </span>
@@ -125,7 +125,7 @@ export default function Testimonial({ setView }) {
                   <p
                     className="text-[1.45rem] leading-[1.5] text-stone-800"
                     style={{
-                      fontFamily: "'Crimson Pro','Playfair Display',Georgia,serif",
+                      fontFamily: "var(--font-sans)",
                       fontStyle: "italic",
                     }}
                   >
@@ -225,14 +225,14 @@ export default function Testimonial({ setView }) {
           <div className="relative z-10 max-w-none px-12 xl:px-20 pt-20 pb-10 flex items-center justify-between border-b border-stone-200/70">
             <div className="flex items-center gap-4">
               <Medal size={15} strokeWidth={1.4} className="text-primary" />
-              <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-primary">
+              <span className="text-[10px] font-sans font-bold tracking-[0.3em] uppercase text-primary">
                 Client Reflections
               </span>
               <div className="w-12 h-px bg-primary/40" />
             </div>
             <div className="flex items-center gap-3">
               <Stars count={5} size={12} />
-              <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-stone-400">
+              <span className="text-[10px] font-sans tracking-[0.22em] uppercase text-stone-400">
                 2,650+ Verified Reviews
               </span>
             </div>
@@ -258,8 +258,8 @@ export default function Testimonial({ setView }) {
                   {/* Huge decorative opening mark */}
                   <span
                     aria-hidden
-                    className="block text-[9rem] leading-[0.65] text-primary/30 font-serif select-none"
-                    style={{ fontFamily: "Georgia,serif" }}
+                    className="block text-[9rem] leading-[0.65] text-primary/30 font-sans select-none"
+                    style={{ fontFamily: "var(--font-sans)" }}
                   >
                     &ldquo;
                   </span>
@@ -268,7 +268,7 @@ export default function Testimonial({ setView }) {
                   <h2
                     className="text-[2rem] xl:text-[2.4rem] 2xl:text-[2.8rem] text-stone-900 leading-[1.3] max-w-2xl"
                     style={{
-                      fontFamily: "'Crimson Pro','Playfair Display',Georgia,serif",
+                      fontFamily: "var(--font-heading)",
                       fontStyle: "italic",
                       fontWeight: 400,
                     }}
@@ -310,7 +310,7 @@ export default function Testimonial({ setView }) {
                       <p className="text-[13px] font-bold text-stone-900 uppercase tracking-widest">
                         {current.author}
                       </p>
-                      <p className="text-[11px] text-stone-400 font-mono">
+                      <p className="text-[11px] text-stone-400 font-sans">
                         {current.role} &bull; {current.location}
                       </p>
                       <div className="flex items-center gap-2 pt-0.5">
@@ -402,7 +402,7 @@ export default function Testimonial({ setView }) {
               {/* Architect badge — bottom left */}
               <div className="absolute bottom-6 left-6">
                 <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-stone-200
-                                 text-stone-700 text-[10px] font-mono font-bold uppercase tracking-[0.2em]
+                                 text-stone-700 text-[10px] font-sans font-bold uppercase tracking-[0.2em]
                                  px-4 py-2 rounded-full shadow-sm">
                   ✦ Architect Supervised
                 </span>
@@ -454,7 +454,7 @@ export default function Testimonial({ setView }) {
                       >
                         {t.author}
                       </p>
-                      <p className="text-[10px] text-stone-400 font-mono truncate">{t.location}</p>
+                      <p className="text-[10px] text-stone-400 font-sans truncate">{t.location}</p>
                     </div>
                     {active === i && (
                       <div className="w-2 h-2 rounded-full bg-primary shrink-0 animate-pulse" />
@@ -466,7 +466,7 @@ export default function Testimonial({ setView }) {
                     className={`text-[12px] leading-relaxed line-clamp-2 transition-colors duration-300 ${active === i ? "text-stone-600" : "text-stone-300 group-hover:text-stone-500"
                       }`}
                     style={{
-                      fontFamily: "'Crimson Pro','Playfair Display',Georgia,serif",
+                      fontFamily: "var(--font-sans)",
                       fontStyle: "italic",
                     }}
                   >

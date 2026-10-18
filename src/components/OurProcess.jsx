@@ -120,7 +120,7 @@ export default function OurProcess({ setView }) {
                   {/* Timeline Dot Indicator */}
                   <div className="absolute left-4 sm:left-1/2 top-6 -translate-x-1/2 z-20 flex items-center justify-center pointer-events-none">
                     <div className="w-8 h-8 rounded-full bg-white border border-stone-200 flex items-center justify-center shadow-sm group-hover:border-gold-accent group-hover:scale-110 transition-all duration-300">
-                      <span className="text-[10px] font-bold text-gold-accent font-mono">{step.num}</span>
+                      <span className="text-[10px] font-bold text-gold-accent font-sans">{step.num}</span>
                     </div>
                   </div>
 
@@ -139,14 +139,14 @@ export default function OurProcess({ setView }) {
                           <div className="w-10 h-10 rounded-lg bg-stone-50 group-hover:bg-gold-accent/10 flex items-center justify-center text-stone-800 group-hover:text-gold-accent transition-colors duration-500 border border-stone-100 group-hover:border-gold-accent/20">
                             <IconComponent className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" />
                           </div>
-                          <span className="text-xs font-mono font-bold text-stone-400 group-hover:text-gold-accent transition-colors duration-300">
+                          <span className="text-xs font-sans font-bold text-stone-400 group-hover:text-gold-accent transition-colors duration-300">
                             STEP {step.num}
                           </span>
                         </div>
 
                         {/* Title & Description */}
                         <div className="space-y-2">
-                          <h3 className="text-lg font-serif font-medium text-stone-950 group-hover:text-gold-accent transition-colors duration-300">
+                          <h3 className="text-lg font-medium text-stone-950 group-hover:text-gold-accent transition-colors duration-300">
                             {step.title}
                           </h3>
                           <p className="text-stone-500 text-xs md:text-sm font-light leading-relaxed">
@@ -174,7 +174,7 @@ export default function OurProcess({ setView }) {
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="space-y-3 text-center md:text-left group"
               >
-                <div className="text-4xl md:text-6xl font-serif text-gold-accent font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
+                <div className="text-4xl md:text-6xl font-sans text-gold-accent font-light leading-none group-hover:scale-105 transition-transform duration-300 inline-block">
                   {st.value}
                 </div>
                 <div className="space-y-1">
@@ -202,10 +202,10 @@ export default function OurProcess({ setView }) {
           <div className="absolute right-0 bottom-0 w-[40%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-80 pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-6">
-            <span className="text-primary-hover text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-primary-hover text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               LET'S BUILD SOMETHING EXTRAORDINARY
             </span>
-            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-stone-950 leading-tight font-serif">
+            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-stone-950 leading-tight">
               Ready to Start Your <br />
               <span className="text-primary-hover">Dream Project</span>?
             </h3>
@@ -228,7 +228,7 @@ export default function OurProcess({ setView }) {
               {/* Secondary button */}
               <button
                 onClick={() => setView && setView("gallery")}
-                className="inline-flex items-center justify-center px-7 py-3.5 border border-stone-300 hover:border-stone-900 bg-white hover:bg-stone-900 text-stone-900 hover:text-white text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300 rounded-full cursor-pointer shadow-xs"
+                className="inline-flex items-center justify-center px-7 py-3.5 border border-stone-300 hover:border-stone-900 bg-white hover:bg-stone-900 text-stone-900 hover:text-white text-xs font-sans tracking-widest uppercase font-bold transition-all duration-300 rounded-full cursor-pointer shadow-xs"
               >
                 View Our Projects
               </button>

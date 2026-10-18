@@ -21,8 +21,8 @@ export default function ProjectDetailsClient({ project }) {
   if (!project) {
     return (
       <div className="min-h-screen bg-bg-base text-stone-900 flex flex-col items-center justify-center p-6 font-sans">
-        <h1 className="text-2xl font-serif text-stone-900 mb-4">Project Not Found</h1>
-        <button onClick={() => handleNavigate("home")} className="text-gold-accent hover:underline font-mono uppercase tracking-widest text-xs">
+        <h1 className="text-2xl text-stone-900 mb-4">Project Not Found</h1>
+        <button onClick={() => handleNavigate("home")} className="text-gold-accent hover:underline font-sans uppercase tracking-widest text-xs">
           Back to Projects
         </button>
       </div>
@@ -39,7 +39,7 @@ export default function ProjectDetailsClient({ project }) {
           {/* Back button */}
           <button
             onClick={() => handleNavigate("gallery")}
-            className="inline-flex items-center space-x-2 text-stone-500 hover:text-gold-accent transition-colors cursor-pointer text-xs font-mono tracking-widest uppercase mb-12"
+            className="inline-flex items-center space-x-2 text-stone-500 hover:text-gold-accent transition-colors cursor-pointer text-xs font-sans tracking-widest uppercase mb-12"
           >
             <ArrowLeft size={14} />
             <span>Back to Portfolio</span>
@@ -48,7 +48,7 @@ export default function ProjectDetailsClient({ project }) {
           {/* Title & Metadata Header */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 items-start">
             <div className="lg:col-span-8 space-y-4 text-left">
-              <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold uppercase block">
+              <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold uppercase block">
                 {project.category}
               </span>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-stone-950 leading-tight uppercase">
@@ -61,7 +61,7 @@ export default function ProjectDetailsClient({ project }) {
 
             {/* Quick Metrics Side Card */}
             <div className="lg:col-span-4 bg-white border border-stone-200/50 p-6 rounded-2xl space-y-4 text-left shadow-sm">
-              <h3 className="text-xs font-mono font-bold tracking-[0.2em] text-gold-accent uppercase border-b border-stone-100 pb-2">
+              <h3 className="text-xs font-bold tracking-[0.2em] text-gold-accent uppercase border-b border-stone-100 pb-2">
                 PROJECT DETAIL SHEET
               </h3>
               
@@ -108,7 +108,7 @@ export default function ProjectDetailsClient({ project }) {
             {project.content.split("\n\n").map((para, pIdx) => {
               if (para.startsWith("###")) {
                 return (
-                  <h3 key={pIdx} className="text-2xl sm:text-3xl font-serif text-stone-950 font-medium pt-6 tracking-tight">
+                  <h3 key={pIdx} className="text-2xl sm:text-3xl text-stone-950 font-medium pt-6 tracking-tight">
                     {para.replace("###", "").trim()}
                   </h3>
                 );
@@ -136,7 +136,7 @@ export default function ProjectDetailsClient({ project }) {
           <div className="mt-24 border-t border-stone-200/50 pt-16 flex flex-col sm:flex-row items-center justify-between gap-6">
             <button
               onClick={() => handleNavigate("gallery")}
-              className="inline-flex items-center space-x-2 text-stone-800 hover:text-gold-accent transition-colors cursor-pointer text-xs font-mono tracking-widest uppercase"
+              className="inline-flex items-center space-x-2 text-stone-800 hover:text-gold-accent transition-colors cursor-pointer text-xs font-sans tracking-widest uppercase"
             >
               <ArrowLeft size={14} />
               <span>Explore More Projects</span>

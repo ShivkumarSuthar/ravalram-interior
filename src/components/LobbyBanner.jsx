@@ -38,10 +38,10 @@ export default function LobbyBanner() {
             <path d="M8 5v14l11-7z" />
           </svg>
         </motion.button>
-        <span className="text-white/80 text-[10px] uppercase tracking-[0.3em] font-bold font-mono mt-5 block">
+        <span className="text-white/80 text-[10px] uppercase tracking-[0.3em] font-bold font-sans mt-5 block">
           PLAY CINEMATIC SHOWCASE
         </span>
-        <span className="text-stone-400 text-[9px] uppercase tracking-[0.2em] font-light font-mono mt-1 block">
+        <span className="text-stone-400 text-[9px] uppercase tracking-[0.2em] font-light font-sans mt-1 block">
           35 Years of Architectural Craftsmanship
         </span>
       </div>

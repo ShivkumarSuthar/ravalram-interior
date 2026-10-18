@@ -44,7 +44,7 @@ export default function Newsletter() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-5 max-w-4xl mx-auto"
         >
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-stone-900">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-stone-900">
             <span>Join </span>
             <span className="text-gold-accent">Our Newsletter</span> <br />
             <span className="text-gold-accent">Stay </span>
@@ -99,7 +99,7 @@ export default function Newsletter() {
                 <div className="w-5 h-5 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center">
                   <Check size={12} strokeWidth={3} />
                 </div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider">
+                <span className="text-xs font-sans font-bold uppercase tracking-wider">
                   Successfully Subscribed To Newsletter!
                 </span>
               </motion.div>

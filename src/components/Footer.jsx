@@ -41,7 +41,7 @@ export default function Footer({ onNavigate = () => { } }) {
             <p className="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
               Designed with purpose. Crafted with care. Made for living.
             </p>
-            <p className="text-primary text-xs font-mono font-bold uppercase tracking-wider">
+            <p className="text-primary text-xs font-sans font-bold uppercase tracking-wider">
               Crafting Spaces Since 1987
             </p>
 
@@ -64,7 +64,7 @@ export default function Footer({ onNavigate = () => { } }) {
 
           {/* Column 2: Quick Links */}
           <div className="col-span-1 lg:col-span-2 space-y-3">
-            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Quick Links</h4>
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold">Quick Links</h4>
             <ul className="space-y-2 text-sm font-light">
               <li>
                 <button
@@ -127,7 +127,7 @@ export default function Footer({ onNavigate = () => { } }) {
 
           {/* Column 3: Services links */}
           <div className="col-span-1 lg:col-span-2 space-y-3">
-            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Services</h4>
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold">Services</h4>
             <ul className="space-y-2 text-sm font-light">
               <li>
                 <button
@@ -174,7 +174,7 @@ export default function Footer({ onNavigate = () => { } }) {
 
           {/* Column 4: Showroom contact — full width on mobile */}
           <div className="col-span-2 lg:col-span-4 space-y-3">
-            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold font-mono">Contact Info</h4>
+            <h4 className="text-white text-[10px] uppercase tracking-widest font-bold">Contact Info</h4>
             <ul className="space-y-2.5 text-sm font-light">
               <li className="flex items-start">
                 <MapPin size={13} className="text-primary mr-2 shrink-0 mt-0.5" />
@@ -185,7 +185,7 @@ export default function Footer({ onNavigate = () => { } }) {
                 <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-primary transition-colors duration-300">{COMPANY_INFO.email}</a>
               </li>
               <li className="flex items-center">
-                <span className="text-primary text-[10px] font-bold uppercase tracking-wider mr-2 font-mono">TEL:</span>
+                <span className="text-primary text-[10px] font-bold uppercase tracking-wider mr-2 font-sans">TEL:</span>
                 <a href={`tel:${COMPANY_INFO.phoneFormatted}`} className="hover:text-primary transition-colors duration-300 font-medium">{COMPANY_INFO.phone}</a>
               </li>
             </ul>
@@ -195,7 +195,7 @@ export default function Footer({ onNavigate = () => { } }) {
       </div>
 
       {/* SECTION 3: COPYRIGHT BOTTOM BAR */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-5 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-stone-600 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-5 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-sans text-stone-600 border-t border-white/5">
         <div>
           <span>© 2026 Suthar Living. All rights reserved.</span>
         </div>
@@ -203,13 +203,13 @@ export default function Footer({ onNavigate = () => { } }) {
         <div className="flex items-center space-x-5">
           <button
             onClick={() => handleNavigate("terms", null)}
-            className="hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+            className="hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-sans text-xs"
           >
             Terms
           </button>
           <button
             onClick={() => handleNavigate("privacy", null)}
-            className="hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-mono text-xs"
+            className="hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none text-left font-sans text-xs"
           >
             Privacy
           </button>

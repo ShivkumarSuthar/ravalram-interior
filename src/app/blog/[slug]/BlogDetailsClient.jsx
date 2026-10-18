@@ -21,8 +21,8 @@ export default function BlogDetailsClient({ article }) {
   if (!article) {
     return (
       <div className="min-h-screen bg-bg-base text-stone-900 flex flex-col items-center justify-center p-6 font-sans">
-        <h1 className="text-2xl font-serif text-stone-900 mb-4">Article Not Found</h1>
-        <button onClick={() => handleNavigate("blog")} className="text-gold-accent hover:underline font-mono uppercase tracking-widest text-xs">
+        <h1 className="text-2xl text-stone-900 mb-4">Article Not Found</h1>
+        <button onClick={() => handleNavigate("blog")} className="text-gold-accent hover:underline font-sans uppercase tracking-widest text-xs">
           Back to Articles
         </button>
       </div>
@@ -39,14 +39,14 @@ export default function BlogDetailsClient({ article }) {
           {/* Back button */}
           <button
             onClick={() => handleNavigate("blog")}
-            className="inline-flex items-center space-x-2 text-stone-500 hover:text-gold-accent transition-colors cursor-pointer text-xs font-mono tracking-widest uppercase mb-12"
+            className="inline-flex items-center space-x-2 text-stone-500 hover:text-gold-accent transition-colors cursor-pointer text-xs font-sans tracking-widest uppercase mb-12"
           >
             <ArrowLeft size={14} />
             <span>Back to Journal</span>
           </button>
 
           {/* Category badge */}
-          <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold uppercase block mb-4">
+          <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold uppercase block mb-4">
             {article.categoryLabel}
           </span>
 
@@ -86,7 +86,7 @@ export default function BlogDetailsClient({ article }) {
             {article.content.split("\n\n").map((para, pIdx) => {
               if (para.startsWith("###")) {
                 return (
-                  <h3 key={pIdx} className="text-xl sm:text-2xl font-serif text-stone-950 font-medium pt-4 tracking-tight">
+                  <h3 key={pIdx} className="text-xl sm:text-2xl text-stone-950 font-medium pt-4 tracking-tight">
                     {para.replace("###", "").trim()}
                   </h3>
                 );
@@ -114,9 +114,9 @@ export default function BlogDetailsClient({ article }) {
           <div className="mt-20 border-t border-stone-200/50 pt-16 text-center max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center space-x-2 text-gold-accent">
               <Sparkles size={16} />
-              <span className="text-xs tracking-[0.2em] font-mono font-bold uppercase">SUTHAR EXPERT ADVICE</span>
+              <span className="text-xs tracking-[0.2em] font-sans font-bold uppercase">SUTHAR EXPERT ADVICE</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-stone-950 uppercase leading-snug">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-950 uppercase leading-snug">
               Inspired by Elena's Insight? <br />
               <span className="text-gold-accent">Let's blueprint your custom spatial architecture.</span>
             </h2>

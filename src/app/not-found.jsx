@@ -1,43 +1,11 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-import { motion } from "motion/react";
-import Header from "../components/Header";
-import NotFoundPage from "../components/NotFoundPage";
-import Footer from "../components/Footer";
+import PageShell from "../components/site/PageShell";
+import NotFoundContent from "../components/site/pages/NotFoundContent";
+import { BANNERS } from "../lib/pages-content";
 
 export default function NotFound() {
-  const router = useRouter();
-
-  const handleNavigate = (view) => {
-    if (view === "home") {
-      router.push("/");
-    } else {
-      router.push(`/${view}`);
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <>
-      <Header currentView="not-found" setView={handleNavigate} />
-      
-      <main className="relative z-10">
-        <motion.div
-          key="notfound-subpage"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <NotFoundPage
-            onBackToHome={() => handleNavigate("home")}
-            setView={handleNavigate}
-          />
-        </motion.div>
-      </main>
-
-      <Footer onNavigate={handleNavigate} />
-    </>
+    <PageShell title="Page Not Found" crumbs={[{ label: "404" }]} image={BANNERS.utility} newsletter={false}>
+      <NotFoundContent />
+    </PageShell>
   );
 }

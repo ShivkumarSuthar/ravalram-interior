@@ -1,6 +1,6 @@
 import { getProjectBySlug, projects } from "../../../lib/project-data";
 import { getPageMetadata, generateSchema } from "../../../lib/seo";
-import ProjectDetailsClient from "./ProjectDetailsClient";
+import ProjectDetailPage from "../../../components/site/pages/ProjectDetailPage";
 
 export async function generateStaticParams() {
   return projects.map((p) => ({
@@ -33,7 +33,7 @@ export default async function ProjectDetailsPage(props) {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {
-    return <ProjectDetailsClient project={null} />;
+    return <ProjectDetailPage project={null} />;
   }
 
   // Create customized LocalBusiness/ProfessionalService schema detailing the project
@@ -62,7 +62,7 @@ export default async function ProjectDetailsPage(props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <ProjectDetailsClient project={project} />
+      <ProjectDetailPage project={project} />
     </>
   );
 }

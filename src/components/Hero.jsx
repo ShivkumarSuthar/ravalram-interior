@@ -91,21 +91,21 @@ export default function Hero({ setView }) {
           {/* Subtitle / Eyebrow Tag - Mobile Specific (Ultra-Compact Glass Badge) */}
           <div className="inline-flex sm:hidden items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/20 border border-primary/45 backdrop-blur-md shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-            <span className="text-[9.5px] font-mono tracking-[0.14em] uppercase text-primary font-bold">
+            <span className="text-[9.5px] font-sans tracking-[0.14em] uppercase text-primary font-bold">
               EST. {COMPANY_INFO.foundedYear} • CRAFTING SPACES
             </span>
           </div>
 
           {/* Subtitle / Eyebrow Tag - Desktop (Unchanged) */}
           <div className="hidden sm:flex items-center gap-4">
-            <span className="text-xs md:text-sm font-serif uppercase tracking-[0.25em] text-primary font-bold drop-shadow-sm">
+            <span className="text-xs md:text-sm font-sans uppercase tracking-[0.25em] text-primary font-bold drop-shadow-sm">
               CRAFTING EXCEPTIONAL SPACES SINCE {COMPANY_INFO.foundedYear}
             </span>
             <div className="h-[1px] w-20 md:w-28 bg-primary/60 shrink-0" />
           </div>
 
           {/* Main Headline - Larger & Bright with wider tracking on Mobile */}
-          <h1 className="font-serif text-[34px] xs:text-[40px] sm:text-[80px] md:text-[100px] lg:text-[80px] font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.12] sm:leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
+          <h1 className="text-[34px] xs:text-[40px] sm:text-[80px] md:text-[100px] lg:text-[80px] font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.12] sm:leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
             Designing Spaces <br className="hidden xs:inline" />
             People Love{" "}
             <span className="text-primary inline-block">Coming Home To</span>
@@ -197,7 +197,7 @@ export default function Hero({ setView }) {
             </div>
             <div className="h-[1px] w-8 sm:w-12 bg-primary/40" />
           </div>
-          <span className="text-[10px] sm:text-[10px] font-serif uppercase tracking-[0.25em] text-white/90 drop-shadow-sm font-semibold">
+          <span className="text-[10px] sm:text-[10px] font-sans uppercase tracking-[0.25em] text-white/90 drop-shadow-sm font-semibold">
             SCROLL TO EXPLORE
           </span>
         </div>

@@ -39,7 +39,7 @@ export default function CityClient({ city }) {
           </div>
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full text-left space-y-6 py-20">
-            <div className="inline-flex items-center space-x-2 text-gold-accent text-xs tracking-[0.25em] font-mono uppercase">
+            <div className="inline-flex items-center space-x-2 text-gold-accent text-xs tracking-[0.25em] font-sans uppercase">
               <span>SUTHAR INTERIOR STUDIO</span>
               <span>/</span>
               <span>LOCATIONS</span>
@@ -76,7 +76,7 @@ export default function CityClient({ city }) {
 
               <button
                 onClick={() => handleNavigate("gallery")}
-                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
+                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
               >
                 View Our Portfolio
               </button>
@@ -110,7 +110,7 @@ export default function CityClient({ city }) {
 
                 <div className="border-l-2 border-gold-accent pl-6 py-2 bg-stone-100/80 text-stone-800 text-sm rounded-r-lg font-light leading-relaxed">
                   &ldquo;Every Suthar space in {formattedCity} is treated like our flagship gallery—no compromised tolerances, completely authentic material cataloging, and transparent execution schedules.&rdquo;
-                  <span className="block text-xs uppercase font-mono tracking-widest text-gold-accent font-bold mt-2">— Shivkumar Suthar, Co-Founder</span>
+                  <span className="block text-xs uppercase font-sans tracking-widest text-gold-accent font-bold mt-2">— Shivkumar Suthar, Co-Founder</span>
                 </div>
               </div>
 
@@ -168,7 +168,7 @@ export default function CityClient({ city }) {
                   <Phone size={18} />
                 </div>
                 <div className="space-y-1">
-                  <span className="text-stone-400 font-mono text-[10px] tracking-widest block font-bold uppercase">TALK TO US</span>
+                  <span className="text-stone-400 font-sans text-[10px] tracking-widest block font-bold uppercase">TALK TO US</span>
                   <p className="text-base font-medium text-stone-950">{COMPANY_INFO?.phone || COMPANY_INFO?.alternatePhone}</p>
                 </div>
               </div>
@@ -178,7 +178,7 @@ export default function CityClient({ city }) {
                   <Mail size={18} />
                 </div>
                 <div className="space-y-1">
-                  <span className="text-stone-400 font-mono text-[10px] tracking-widest block font-bold uppercase">EMAIL ENQUIRIES</span>
+                  <span className="text-stone-400 font-sans text-[10px] tracking-widest block font-bold uppercase">EMAIL ENQUIRIES</span>
                   <p className="text-base font-medium text-stone-950">{COMPANY_INFO?.email || COMPANY_INFO?.supportEmail}</p>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function CityClient({ city }) {
                   <Clock size={18} />
                 </div>
                 <div className="space-y-1">
-                  <span className="text-stone-400 font-mono text-[10px] tracking-widest block font-bold uppercase">STUDIO SLA ASSURANCE</span>
+                  <span className="text-stone-400 font-sans text-[10px] tracking-widest block font-bold uppercase">STUDIO SLA ASSURANCE</span>
                   <p className="text-base font-medium text-stone-950">Initial consult blueprint in 48h</p>
                 </div>
               </div>

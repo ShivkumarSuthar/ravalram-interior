@@ -43,7 +43,7 @@ function labelHtml(label, isHQ = false) {
   const badge = isHQ
     ? `<span style="display:inline-block;margin-left:5px;padding:1px 5px;font-size:8px;font-weight:800;font-family:'JetBrains Mono',monospace;background:var(--color-primary);color:var(--color-bg-dark);border-radius:3px;vertical-align:middle;">HQ</span>`
     : "";
-  return `<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:${isHQ ? 13 : 11}px;font-weight:${isHQ ? 700 : 500};color:#44403c;white-space:nowrap;">${label}${badge}</span>`;
+  return `<span style="font-family:var(--font-sans);font-size:${isHQ ? 13 : 11}px;font-weight:${isHQ ? 700 : 500};color:#44403c;white-space:nowrap;">${label}${badge}</span>`;
 }
 
 export default function RegionsMap() {

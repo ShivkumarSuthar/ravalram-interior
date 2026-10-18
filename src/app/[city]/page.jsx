@@ -1,22 +1,20 @@
+import { notFound } from "next/navigation";
 import { getPageMetadata, generateSchema } from "../../lib/seo";
-import CityClient from "./CityClient";
+import CityLanding from "../../components/site/pages/CityPage";
+
+const CITIES = ["mumbai", "goa", "pune", "bangalore", "hyderabad", "hubli", "kumta", "honnavar"];
+
+// Only the cities listed above get a page; any other single-segment URL falls through to the 404
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return [
-    { city: "mumbai" },
-    { city: "goa" },
-    { city: "pune" },
-    { city: "bangalore" },
-    { city: "hyderabad" },
-    { city: "hubli" },
-    { city: "kumta" },
-    { city: "honnavar" },
-  ];
+  return CITIES.map((city) => ({ city }));
 }
 
 export async function generateMetadata(props) {
   const params = await props.params;
   const rawCity = params.city || "mumbai";
+  if (!CITIES.includes(rawCity)) return {};
   const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
   return getPageMetadata({
@@ -38,6 +36,7 @@ export async function generateMetadata(props) {
 export default async function CityPage(props) {
   const params = await props.params;
   const rawCity = params.city || "mumbai";
+  if (!CITIES.includes(rawCity)) notFound();
   const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
   // Create JSON-LD schema
@@ -65,7 +64,7 @@ export default async function CityPage(props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <CityClient city={rawCity} />
+      <CityLanding slug={rawCity} />
     </>
   );
 }

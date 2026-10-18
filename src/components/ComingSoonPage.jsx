@@ -92,14 +92,14 @@ export default function ComingSoonPage({ onBackToHome }) {
       {/* 1. HEADER BRANDING */}
       <header className="relative z-20 max-w-7xl w-full mx-auto px-6 py-8 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <span className="text-xl md:text-2xl font-serif tracking-[0.2em] font-light text-white uppercase">
+          <span className="text-xl md:text-2xl font-sans tracking-[0.2em] font-light text-white uppercase">
             SUTHAR<span className="text-gold-accent font-normal">.</span>
           </span>
         </div>
         
         <button
           onClick={onBackToHome}
-          className="group inline-flex items-center space-x-2 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-[var(--color-text-muted)] hover:text-gold-accent transition-colors cursor-pointer"
+          className="group inline-flex items-center space-x-2 text-[10px] md:text-xs font-sans font-bold tracking-widest uppercase text-[var(--color-text-muted)] hover:text-gold-accent transition-colors cursor-pointer"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           <span>Return To Main Workspace</span>
@@ -118,7 +118,7 @@ export default function ComingSoonPage({ onBackToHome }) {
           {/* Animated luxury badge */}
           <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
             <Sparkles size={11} className="text-gold-accent animate-pulse" />
-            <span className="text-[9px] font-mono font-bold tracking-[0.2em] uppercase text-gold-accent">
+            <span className="text-[9px] font-sans font-bold tracking-[0.2em] uppercase text-gold-accent">
               NEW EXPERTISE CHANNEL COMING SOON
             </span>
           </div>
@@ -143,34 +143,34 @@ export default function ComingSoonPage({ onBackToHome }) {
         >
           {/* Days */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col items-center justify-center space-y-1">
-            <span className="text-3xl sm:text-5xl font-serif font-light text-gold-accent">
+            <span className="text-3xl sm:text-5xl font-sans font-light text-gold-accent">
               {String(timeLeft.days).padStart(2, "0")}
             </span>
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-500 font-bold">Days</span>
+            <span className="text-[9px] sm:text-[10px] font-sans tracking-widest uppercase text-stone-500 font-bold">Days</span>
           </div>
 
           {/* Hours */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col items-center justify-center space-y-1">
-            <span className="text-3xl sm:text-5xl font-serif font-light text-white">
+            <span className="text-3xl sm:text-5xl font-sans font-light text-white">
               {String(timeLeft.hours).padStart(2, "0")}
             </span>
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-500 font-bold">Hours</span>
+            <span className="text-[9px] sm:text-[10px] font-sans tracking-widest uppercase text-stone-500 font-bold">Hours</span>
           </div>
 
           {/* Minutes */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col items-center justify-center space-y-1">
-            <span className="text-3xl sm:text-5xl font-serif font-light text-white">
+            <span className="text-3xl sm:text-5xl font-sans font-light text-white">
               {String(timeLeft.minutes).padStart(2, "0")}
             </span>
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-500 font-bold">Mins</span>
+            <span className="text-[9px] sm:text-[10px] font-sans tracking-widest uppercase text-stone-500 font-bold">Mins</span>
           </div>
 
           {/* Seconds */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col items-center justify-center space-y-1">
-            <span className="text-3xl sm:text-5xl font-serif font-light text-gold-accent">
+            <span className="text-3xl sm:text-5xl font-sans font-light text-gold-accent">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-500 font-bold">Secs</span>
+            <span className="text-[9px] sm:text-[10px] font-sans tracking-widest uppercase text-stone-500 font-bold">Secs</span>
           </div>
         </motion.div>
 
@@ -216,7 +216,7 @@ export default function ComingSoonPage({ onBackToHome }) {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="flex items-center space-x-2 text-gold-accent text-[10px] font-mono tracking-wider text-left bg-gold-accent/10 p-3 rounded-lg border border-gold-accent/20"
+                className="flex items-center space-x-2 text-gold-accent text-[10px] font-sans tracking-wider text-left bg-gold-accent/10 p-3 rounded-lg border border-gold-accent/20"
               >
                 <CheckCircle size={12} className="shrink-0" />
                 <span>Success! You have registered for pre-launch notifications.</span>
@@ -229,7 +229,7 @@ export default function ComingSoonPage({ onBackToHome }) {
 
       {/* 5. FOOTER SOCIAL LINKS */}
       <footer className="relative z-20 max-w-7xl w-full mx-auto px-6 py-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-stone-500 text-[10px] font-mono uppercase tracking-widest text-center sm:text-left">
+        <p className="text-stone-500 text-[10px] font-sans uppercase tracking-widest text-center sm:text-left">
           &copy; {new Date().getFullYear()} Suthar Interior Studio. All rights reserved.
         </p>
 

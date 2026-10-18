@@ -276,12 +276,12 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-8 md:pt-12 pb-4 flex flex-wrap items-center justify-between border-b border-white/10 gap-4 text-left">
           <div className="flex items-center space-x-3">
             <span className="w-2.5 h-2.5 rounded-full bg-gold-accent animate-pulse" />
-            <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-[var(--color-text-muted)]">
+            <span className="text-[10px] sm:text-[11px] font-sans font-bold tracking-[0.3em] uppercase text-[var(--color-text-muted)]">
               SUTHAR INTERIOR STUDIO &bull; ARCHITECTURAL MONOGRAPH VOL. 35
             </span>
           </div>
 
-          <div className="flex items-center space-x-6 text-[10px] font-mono text-stone-400 tracking-widest uppercase">
+          <div className="flex items-center space-x-6 text-[10px] font-sans text-stone-400 tracking-widest uppercase">
             <span>MUMBAI &bull; GOA &bull; PUNE</span>
             <span className="text-gold-accent font-bold">LAT 19.0596° N</span>
           </div>
@@ -294,13 +294,13 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
             {/* Left Column: Big Editorial Headline & Narrative Monologue */}
             <div className="lg:col-span-7 text-left space-y-5 md:space-y-6">
               
-              <div className="inline-flex items-center space-x-2 bg-gold-accent/15 border border-gold-accent/30 text-gold-accent text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-lg">
+              <div className="inline-flex items-center space-x-2 bg-gold-accent/15 border border-gold-accent/30 text-gold-accent text-[10px] sm:text-xs font-sans font-bold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-lg">
                 <Sparkles size={13} />
                 <span>ESTABLISHED 1989 &bull; GENERATIONAL JOINERY</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-md">
-                Where <span className="font-serif italic font-normal text-gold-accent">Craftsmanship</span> Meets Architectural Art.
+                Where <span className="italic font-normal text-gold-accent">Craftsmanship</span> Meets Architectural Art.
               </h1>
 
               <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-lg leading-relaxed max-w-2xl pt-1">
@@ -310,18 +310,18 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               {/* Quick Spec Badge Bar */}
               <div className="pt-1 sm:pt-2 flex flex-wrap gap-2.5 sm:gap-3">
                 <div className="bg-stone-900/90 border border-stone-800 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-left flex items-center space-x-2.5 sm:space-x-3 shadow-md">
-                  <div className="text-gold-accent font-serif text-xl sm:text-2xl font-bold">35+</div>
-                  <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-stone-400">YEARS CRAFT<br/>HERITAGE</div>
+                  <div className="text-gold-accent font-sans text-xl sm:text-2xl font-bold">35+</div>
+                  <div className="text-[8px] sm:text-[9px] font-sans uppercase tracking-wider text-stone-400">YEARS CRAFT<br/>HERITAGE</div>
                 </div>
 
                 <div className="bg-stone-900/90 border border-stone-800 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-left flex items-center space-x-2.5 sm:space-x-3 shadow-md">
-                  <div className="text-gold-accent font-serif text-xl sm:text-2xl font-bold">100%</div>
-                  <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-stone-400">CAD-TO-SITE<br/>FIDELITY</div>
+                  <div className="text-gold-accent font-sans text-xl sm:text-2xl font-bold">100%</div>
+                  <div className="text-[8px] sm:text-[9px] font-sans uppercase tracking-wider text-stone-400">CAD-TO-SITE<br/>FIDELITY</div>
                 </div>
 
                 <div className="bg-stone-900/90 border border-stone-800 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-left flex items-center space-x-2.5 sm:space-x-3 shadow-md">
-                  <div className="text-gold-accent font-serif text-xl sm:text-2xl font-bold">500+</div>
-                  <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-stone-400">DELIVERED<br/>SPACES</div>
+                  <div className="text-gold-accent font-sans text-xl sm:text-2xl font-bold">500+</div>
+                  <div className="text-[8px] sm:text-[9px] font-sans uppercase tracking-wider text-stone-400">DELIVERED<br/>SPACES</div>
                 </div>
               </div>
 
@@ -368,7 +368,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   
                   {/* Floating Photo Caption Tag */}
                   <div className="absolute bottom-5 left-5 right-5 text-left text-white space-y-1">
-                    <span className="text-[10px] font-mono text-gold-accent font-bold uppercase tracking-widest block">
+                    <span className="text-[10px] font-sans text-gold-accent font-bold uppercase tracking-widest block">
                       FIG 01.1 &bull; BANDRA SEA-FACING VILLA
                     </span>
                     <p className="text-xs font-light text-stone-200">
@@ -397,7 +397,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-[var(--color-surface-dark)]/30" />
-                  <div className="absolute top-2 left-2 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[8px] font-mono font-bold uppercase px-2 py-0.5 rounded border border-stone-700">
+                  <div className="absolute top-2 left-2 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[8px] font-sans font-bold uppercase px-2 py-0.5 rounded border border-stone-700">
                     CAD BLUEPRINT 0.5MM
                   </div>
                 </motion.div>
@@ -406,10 +406,10 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 <div className="absolute -left-6 top-10 z-30 bg-gold-accent text-stone-950 p-4 rounded-2xl shadow-2xl border-2 border-white/20 hidden sm:flex items-center space-x-3 max-w-[200px]">
                   <ShieldCheck size={28} className="shrink-0 text-stone-950" />
                   <div className="text-left leading-tight">
-                    <span className="text-[10px] font-mono font-bold uppercase block tracking-wider">
+                    <span className="text-[10px] font-sans font-bold uppercase block tracking-wider">
                       ARCHITECT SUPERVISED
                     </span>
-                    <span className="text-xs font-serif font-extrabold">
+                    <span className="text-xs font-sans font-extrabold">
                       Site Execution
                     </span>
                   </div>
@@ -434,7 +434,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-stone-800 pb-4 md:pb-8 text-left gap-4 md:gap-6">
             <div className="space-y-2 sm:space-y-3 max-w-2xl">
-              <div className="inline-flex items-center space-x-2 bg-gold-accent/15 border border-gold-accent/30 text-gold-accent px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase">
+              <div className="inline-flex items-center space-x-2 bg-gold-accent/15 border border-gold-accent/30 text-gold-accent px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-sans font-bold tracking-widest uppercase">
                 <Layers size={13} className="sm:w-3.5 sm:h-3.5" />
                 <span>MAGAZINE CHAPTERS &bull; SUTHAR STUDIO MONOGRAPH</span>
               </div>
@@ -446,7 +446,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setIsPaused(!isPaused)}
-                className="inline-flex items-center space-x-2 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-stone-400 hover:text-gold-accent transition-colors cursor-pointer bg-stone-900 border border-stone-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full"
+                className="inline-flex items-center space-x-2 text-[10px] sm:text-xs font-sans uppercase tracking-widest text-stone-400 hover:text-gold-accent transition-colors cursor-pointer bg-stone-900 border border-stone-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full"
               >
                 {isPaused ? <Play size={11} className="text-gold-accent" /> : <Pause size={11} />}
                 <span>{isPaused ? "RESUME" : "PAUSE"}</span>
@@ -482,14 +482,14 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                   )}
 
                   <div className="flex items-center justify-between">
-                    <span className={`text-[10px] sm:text-xs font-mono font-bold ${isActive ? "text-gold-accent" : "text-stone-500"}`}>
+                    <span className={`text-[10px] sm:text-xs font-sans font-bold ${isActive ? "text-gold-accent" : "text-stone-500"}`}>
                       CH {chap.num}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] font-mono text-stone-500 uppercase">{chap.statsNum}</span>
+                    <span className="text-[9px] sm:text-[10px] font-sans text-stone-500 uppercase">{chap.statsNum}</span>
                   </div>
 
                   <div>
-                    <span className={`text-[9px] sm:text-[11px] font-mono font-bold tracking-widest block uppercase ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
+                    <span className={`text-[9px] sm:text-[11px] font-sans font-bold tracking-widest block uppercase ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
                       {chap.label}
                     </span>
                     <h3 className={`text-xs sm:text-base font-bold mt-0.5 line-clamp-1 ${isActive ? "text-white" : "text-[var(--color-text-muted)]"}`}>
@@ -521,7 +521,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent opacity-60" />
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[var(--color-surface-dark)]/80 border border-stone-700 text-gold-accent text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[var(--color-surface-dark)]/80 border border-stone-700 text-gold-accent text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg">
                     {currentChapter.badgeText}
                   </div>
                 </div>
@@ -538,7 +538,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-[var(--color-surface-dark)]/20" />
-                  <div className="absolute bottom-2 left-2 bg-[var(--color-surface-dark)]/90 text-white text-[8px] font-mono uppercase px-2 py-0.5 rounded">
+                  <div className="absolute bottom-2 left-2 bg-[var(--color-surface-dark)]/90 text-white text-[8px] font-sans uppercase px-2 py-0.5 rounded">
                     DETAIL MACRO
                   </div>
                 </div>
@@ -547,7 +547,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               {/* Right Side: Editorial Text & Quote Monologue */}
               <div className="lg:col-span-6 space-y-4 lg:space-y-6 text-left">
                 <div className="space-y-1.5 sm:space-y-2">
-                  <span className="text-gold-accent text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
+                  <span className="text-gold-accent text-[10px] sm:text-xs font-sans font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
                     CHAPTER {currentChapter.num} &bull; {currentChapter.subtitle}
                   </span>
                   <h3 className="text-xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
@@ -571,7 +571,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 {/* Mobile Compact Highlight Pills */}
                 <div className="flex flex-wrap gap-1.5 lg:hidden pt-0.5">
                   {currentChapter.highlights.map((item, hIdx) => (
-                    <span key={hIdx} className="inline-flex items-center space-x-1.5 text-[10px] font-mono bg-[var(--color-surface-dark)] border border-stone-800 text-stone-200 px-2.5 py-1 rounded-md">
+                    <span key={hIdx} className="inline-flex items-center space-x-1.5 text-[10px] font-sans bg-[var(--color-surface-dark)] border border-stone-800 text-stone-200 px-2.5 py-1 rounded-md">
                       <CheckCircle2 size={11} className="text-gold-accent shrink-0" />
                       <span>{item}</span>
                     </span>
@@ -580,10 +580,10 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
 
                 {/* Editorial Quote Monologue Card */}
                 <div className="border-l-2 border-gold-accent pl-3 sm:pl-4 py-1.5 sm:py-2 bg-[var(--color-surface-dark)]/70 border border-stone-800/80 rounded-r-xl space-y-0.5">
-                  <p className="text-xs sm:text-sm font-serif italic text-[var(--color-text-muted)]">
+                  <p className="text-xs sm:text-sm font-sans italic text-[var(--color-text-muted)]">
                     {currentChapter.quote}
                   </p>
-                  <span className="text-[9px] sm:text-[10px] font-mono font-bold text-gold-accent uppercase tracking-wider block">
+                  <span className="text-[9px] sm:text-[10px] font-sans font-bold text-gold-accent uppercase tracking-wider block">
                     — {currentChapter.quoteAuthor}
                   </span>
                 </div>
@@ -651,13 +651,13 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute top-2 left-2 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[8px] font-mono font-bold uppercase px-2 py-0.5 rounded">
+                      <div className="absolute top-2 left-2 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[8px] font-sans font-bold uppercase px-2 py-0.5 rounded">
                         {swatch.tag}
                       </div>
                     </div>
 
                     <div>
-                      <span className={`text-[10px] font-mono font-bold uppercase tracking-widest block ${isActive ? "text-gold-accent" : "text-stone-500"}`}>
+                      <span className={`text-[10px] font-sans font-bold uppercase tracking-widest block ${isActive ? "text-gold-accent" : "text-stone-500"}`}>
                         {swatch.category}
                       </span>
                       <h3 className={`text-base font-bold mt-0.5 ${isActive ? "text-white" : "text-stone-950"}`}>
@@ -666,7 +666,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                     </div>
                   </div>
 
-                  <div className="border-t border-stone-200/40 pt-3 flex items-center justify-between text-xs font-mono">
+                  <div className="border-t border-stone-200/40 pt-3 flex items-center justify-between text-xs font-sans">
                     <span className={isActive ? "text-stone-400" : "text-stone-500"}>{swatch.specCode}</span>
                     <ArrowUpRight size={14} className={isActive ? "text-gold-accent" : "text-stone-400"} />
                   </div>
@@ -684,13 +684,13 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute bottom-3 left-3 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-lg">
+              <div className="absolute bottom-3 left-3 bg-[var(--color-surface-dark)]/80 text-gold-accent text-[10px] font-sans font-bold uppercase px-3 py-1 rounded-lg">
                 ORIGIN &bull; {currentSwatch.origin}
               </div>
             </div>
 
             <div className="lg:col-span-7 space-y-4 text-left">
-              <span className="text-gold-accent text-xs font-mono font-bold uppercase tracking-widest block">
+              <span className="text-gold-accent text-xs font-sans font-bold uppercase tracking-widest block">
                 SPECIFICATION BLUEPRINT &bull; {currentSwatch.specCode}
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-stone-950">
@@ -701,10 +701,10 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-3">
-                <div className="bg-white border border-stone-200 px-3.5 py-2 rounded-xl text-xs font-mono font-bold text-stone-800">
+                <div className="bg-white border border-stone-200 px-3.5 py-2 rounded-xl text-xs font-sans font-bold text-stone-800">
                   ORIGIN: {currentSwatch.origin}
                 </div>
-                <div className="bg-white border border-stone-200 px-3.5 py-2 rounded-xl text-xs font-mono font-bold text-gold-accent">
+                <div className="bg-white border border-stone-200 px-3.5 py-2 rounded-xl text-xs font-sans font-bold text-gold-accent">
                   GUARANTEE: {currentSwatch.tag}
                 </div>
               </div>
@@ -724,7 +724,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           
           <div className="text-left space-y-3 max-w-2xl">
-            <div className="inline-flex items-center space-x-2 bg-gold-accent/15 border border-gold-accent/30 text-gold-accent px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center space-x-2 bg-gold-accent/15 border border-gold-accent/30 text-gold-accent px-3.5 py-1.5 rounded-full text-xs font-sans font-bold tracking-widest uppercase">
               <Eye size={14} />
               <span>SPATIAL GALLERY &bull; CURATED MONOGRAPH</span>
             </div>
@@ -753,7 +753,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
                 
                 <div className="absolute bottom-6 left-6 right-6 text-left space-y-1">
-                  <span className="text-[10px] font-mono text-gold-accent font-bold uppercase tracking-widest block">
+                  <span className="text-[10px] font-sans text-gold-accent font-bold uppercase tracking-widest block">
                     {item.category} &bull; {item.location}
                   </span>
                   <h3 className="text-lg sm:text-xl font-bold text-white">
@@ -803,7 +803,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 <button
                   key={idx}
                   onClick={() => setActiveTimeline(idx)}
-                  className={`px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 shrink-0 cursor-pointer border ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shrink-0 cursor-pointer border ${
                     isActive
                       ? "bg-[var(--color-surface-dark)] text-gold-accent border-gold-accent shadow-md scale-105"
                       : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-900"
@@ -826,10 +826,10 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
               className="bg-white border border-stone-200/80 rounded-3xl p-8 sm:p-12 text-left shadow-xl space-y-4 relative max-w-3xl mx-auto"
             >
               <div className="flex items-center justify-between border-b border-stone-100 pb-4">
-                <span className="text-2xl sm:text-3xl font-serif font-bold text-gold-accent">
+                <span className="text-2xl sm:text-3xl font-sans font-bold text-gold-accent">
                   {currentTimeline.year}
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-stone-400 uppercase font-bold">
+                <span className="text-[10px] font-sans tracking-widest text-stone-400 uppercase font-bold">
                   MILESTONE {activeTimeline + 1} OF {timelineEvents.length}
                 </span>
               </div>
@@ -842,7 +842,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                 {currentTimeline.description}
               </p>
 
-              <div className="pt-2 flex items-center justify-between text-xs font-mono text-stone-500">
+              <div className="pt-2 flex items-center justify-between text-xs font-sans text-stone-500">
                 <span>Suthar Interior Studio History</span>
                 <span className="text-gold-accent font-bold">1989 &ndash; Present</span>
               </div>
@@ -891,14 +891,14 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
                       className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-700"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute top-3 right-3 bg-[var(--color-surface-dark)]/80 backdrop-blur-md text-gold-accent text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded">
+                    <div className="absolute top-3 right-3 bg-[var(--color-surface-dark)]/80 backdrop-blur-md text-gold-accent text-[9px] font-sans font-bold uppercase tracking-widest px-2.5 py-1 rounded">
                       {leader.experience}
                     </div>
                   </div>
 
                   <div className="p-6 space-y-3">
                     <div>
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-gold-accent uppercase block">
+                      <span className="text-[10px] font-sans font-bold tracking-widest text-gold-accent uppercase block">
                         {leader.role}
                       </span>
                       <h3 className="text-lg font-bold text-stone-950 mt-0.5">
@@ -944,7 +944,7 @@ export default function AboutPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-3xl mx-auto">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               LET'S CREATE A SPATIAL MASTERPIECE
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight uppercase">

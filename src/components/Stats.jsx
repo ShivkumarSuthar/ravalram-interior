@@ -35,7 +35,7 @@ export default function Stats() {
       
       {/* Subtle Section Header Label */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8 text-center">
-        <span className="text-[10px] font-mono font-bold tracking-[0.3em] text-stone-400 uppercase">
+        <span className="text-[10px] font-sans font-bold tracking-[0.3em] text-stone-400 uppercase">
           SELECTED ARCHITECTURAL ALLIANCES &amp; DISCIPLINE PARTNERSHIPS
         </span>
       </div>
@@ -66,7 +66,7 @@ export default function Stats() {
                   <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#2B2B2B] group-hover/brand:text-stone-950 uppercase block font-sans transition-colors whitespace-nowrap">
                     {brand.name}
                   </span>
-                  <span className="text-[9px] sm:text-[10px] font-mono text-stone-400 font-medium tracking-widest uppercase block transition-colors whitespace-nowrap">
+                  <span className="text-[9px] sm:text-[10px] font-sans text-stone-400 font-medium tracking-widest uppercase block transition-colors whitespace-nowrap">
                     {brand.subtitle}
                   </span>
                 </div>
