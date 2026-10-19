@@ -979,11 +979,11 @@ export default function ProjectInvestmentGuide({ setView }) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-200/80 pb-8 text-left">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center space-x-2 bg-gold-accent/15 text-gold-accent px-3 py-1 rounded-md text-[11px] font-mono tracking-[0.25em] font-bold uppercase">
+            <div className="inline-flex items-center space-x-2 bg-gold-accent/15 text-gold-accent px-3 py-1 rounded-md text-[11px] font-sans tracking-[0.25em] font-bold uppercase">
               <Compass className="w-3.5 h-3.5" />
               <span>PROJECT INVESTMENT GUIDE</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-stone-900 leading-tight uppercase">
               Understand The <span className="text-gold-accent">Value & Scope</span> Of Your Vision
             </h2>
           </div>
@@ -991,10 +991,10 @@ export default function ProjectInvestmentGuide({ setView }) {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             {/* Currency Selector Toggle */}
             <div className="bg-white border border-stone-200/80 rounded-xl p-1 flex items-center space-x-1 shadow-xs">
-              <span className="text-[10px] font-mono text-stone-400 uppercase font-bold px-2">Currency:</span>
+              <span className="text-[10px] font-sans text-stone-400 uppercase font-bold px-2">Currency:</span>
               <button
                 onClick={() => setCurrency("INR")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-sans font-bold transition-colors cursor-pointer ${
                   currency === "INR" ? "bg-surface-dark text-gold-accent" : "text-stone-500 hover:text-stone-900"
                 }`}
               >
@@ -1002,7 +1002,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               </button>
               <button
                 onClick={() => setCurrency("USD")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-sans font-bold transition-colors cursor-pointer ${
                   currency === "USD" ? "bg-surface-dark text-gold-accent" : "text-stone-500 hover:text-stone-900"
                 }`}
               >
@@ -1019,7 +1019,7 @@ export default function ProjectInvestmentGuide({ setView }) {
         {/* Horizontal Category Tab Bar */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-stone-400 tracking-[0.2em] uppercase font-bold flex items-center gap-1.5">
+            <span className="text-[10px] font-sans text-stone-400 tracking-[0.2em] uppercase font-bold flex items-center gap-1.5">
               <Sliders className="w-3 h-3 text-gold-accent" />
               <span>SELECT ARCHITECTURAL SCOPE ({INVESTMENT_CATEGORIES.length})</span>
             </span>
@@ -1062,8 +1062,8 @@ export default function ProjectInvestmentGuide({ setView }) {
                   }`}
                 >
                   <ItemIcon size={15} className={isActive ? "text-gold-accent" : "text-stone-400"} />
-                  <span className="font-display font-semibold whitespace-nowrap">{cat.title}</span>
-                  <span className={`text-[9px] font-mono uppercase px-1.5 py-0.5 rounded ${
+                  <span className="font-sans font-semibold whitespace-nowrap">{cat.title}</span>
+                  <span className={`text-[9px] font-sans uppercase px-1.5 py-0.5 rounded ${
                     isActive ? "bg-white/10 text-gold-accent" : "bg-stone-100 text-stone-500"
                   }`}>
                     {cat.tag.split(" ")[0]}
@@ -1082,11 +1082,11 @@ export default function ProjectInvestmentGuide({ setView }) {
             <div className="bg-white border border-stone-200/80 rounded-3xl p-5 shadow-sm space-y-4">
               
               <div className="flex items-center justify-between border-b border-stone-200/80 pb-3">
-                <span className="text-xs font-mono text-stone-900 font-bold tracking-wider uppercase flex items-center gap-2">
+                <span className="text-xs font-sans text-stone-900 font-bold tracking-wider uppercase flex items-center gap-2">
                   <Sliders className="w-4 h-4 text-gold-accent" />
                   <span>WORK CATEGORIES</span>
                 </span>
-                <span className="text-[10px] font-mono text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] font-sans text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full font-bold">
                   {filteredCategories.length} AVAILABLE
                 </span>
               </div>
@@ -1139,15 +1139,15 @@ export default function ProjectInvestmentGuide({ setView }) {
                         </div>
 
                         <div className="min-w-0">
-                          <h4 className={`text-xs font-bold leading-tight truncate ${isActive ? "text-white font-display" : "text-stone-900"}`}>
+                          <h4 className={`text-xs font-bold leading-tight truncate ${isActive ? "text-white" : "text-stone-900"}`}>
                             {cat.title}
                           </h4>
                           <div className="flex items-center space-x-2 pt-0.5">
-                            <span className={`text-[9px] font-mono uppercase tracking-wider ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
+                            <span className={`text-[9px] font-sans uppercase tracking-wider ${isActive ? "text-gold-accent" : "text-stone-400"}`}>
                               {cat.tag.split(" ")[0]}
                             </span>
-                            <span className="text-[9px] font-mono text-stone-400">•</span>
-                            <span className={`text-[9px] font-mono ${isActive ? "text-[var(--color-text-muted)]" : "text-gold-accent"}`}>
+                            <span className="text-[9px] font-sans text-stone-400">•</span>
+                            <span className={`text-[9px] font-sans ${isActive ? "text-[var(--color-text-muted)]" : "text-gold-accent"}`}>
                               From {formatRateLabel(minRate)}
                             </span>
                           </div>
@@ -1165,7 +1165,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               {/* Consultation Prompt in Left Sidebar */}
               <div className="pt-2 border-t border-stone-200/80">
                 <div className="bg-bg-base p-3.5 rounded-xl border border-stone-200/80 space-y-2">
-                  <span className="text-[10px] font-mono text-stone-500 uppercase font-bold block">
+                  <span className="text-[10px] font-sans text-stone-500 uppercase font-bold block">
                     CUSTOM SCOPE REQUIREMENT?
                   </span>
                   <p className="text-[11px] text-stone-600 font-light leading-snug">
@@ -1173,7 +1173,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   </p>
                   <button
                     onClick={handleConsultationClick}
-                    className="w-full bg-surface-dark hover:bg-stone-800 text-gold-accent px-3 py-2 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer flex items-center justify-center space-x-1.5"
+                    className="w-full bg-surface-dark hover:bg-stone-800 text-gold-accent px-3 py-2 rounded-lg text-xs font-sans font-bold transition-colors cursor-pointer flex items-center justify-center space-x-1.5"
                   >
                     <span>Request Custom CAD Quote</span>
                     <ArrowRight size={12} />
@@ -1203,11 +1203,11 @@ export default function ProjectInvestmentGuide({ setView }) {
                   {/* Category Header & Currency Selector */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-800/80 pb-5">
                     <div>
-                      <div className="text-[10px] font-mono text-gold-accent tracking-widest uppercase font-bold flex items-center gap-2">
+                      <div className="text-[10px] font-sans text-gold-accent tracking-widest uppercase font-bold flex items-center gap-2">
                         <CategoryIcon size={14} className="text-gold-accent" />
                         <span>{activeCategory.tag} • DEMO ESTIMATOR</span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-light text-white font-display pt-1">
+                      <h3 className="text-2xl sm:text-3xl font-light text-white pt-1">
                         {activeCategory.title}
                       </h3>
                     </div>
@@ -1215,7 +1215,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                     <div className="bg-white/10 p-1 rounded-xl flex items-center space-x-1 border border-white/10 self-start sm:self-center">
                       <button
                         onClick={() => setCurrency("INR")}
-                        className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
+                        className={`px-3 py-1 rounded-lg text-xs font-sans font-bold transition-colors cursor-pointer ${
                           currency === "INR" ? "bg-gold-accent text-stone-950" : "text-[var(--color-text-muted)] hover:text-white"
                         }`}
                       >
@@ -1223,7 +1223,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                       </button>
                       <button
                         onClick={() => setCurrency("USD")}
-                        className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer ${
+                        className={`px-3 py-1 rounded-lg text-xs font-sans font-bold transition-colors cursor-pointer ${
                           currency === "USD" ? "bg-gold-accent text-stone-950" : "text-[var(--color-text-muted)] hover:text-white"
                         }`}
                       >
@@ -1234,13 +1234,13 @@ export default function ProjectInvestmentGuide({ setView }) {
 
                   {/* Estimated Range Display */}
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-stone-400 uppercase font-bold tracking-wider">
+                    <span className="text-[10px] font-sans text-stone-400 uppercase font-bold tracking-wider">
                       ESTIMATED DEMO INVESTMENT RANGE:
                     </span>
-                    <div className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-gold-accent tracking-tight font-display">
+                    <div className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-gold-accent tracking-tight font-sans">
                       {formatCurrencyRange()}
                     </div>
-                    <div className="text-xs font-mono text-stone-400 pt-1">
+                    <div className="text-xs font-sans text-stone-400 pt-1">
                       Carpet Area: <strong className="text-stone-200">{areaSqFt.toLocaleString()} sq.ft</strong> • Finish Level: <strong className="text-gold-accent">{currentTierObj.name}</strong> ({formatRateLabel(currentTierObj.ratePerSqFt)})
                     </div>
                   </div>
@@ -1248,7 +1248,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   {/* Quick Scale Presets */}
                   {activeCategory.presets && activeCategory.presets.length > 0 && (
                     <div className="space-y-2 pt-2 border-t border-white/10">
-                      <span className="text-[10px] font-mono text-stone-400 uppercase font-bold block">
+                      <span className="text-[10px] font-sans text-stone-400 uppercase font-bold block">
                         SELECT AREA SCALE:
                       </span>
                       <div className="flex flex-wrap gap-2">
@@ -1256,7 +1256,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                           <button
                             key={idx}
                             onClick={() => setCustomAreaSqFt(preset.area)}
-                            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer border ${
+                            className={`px-3.5 py-1.5 rounded-xl text-xs font-sans transition-all duration-200 cursor-pointer border ${
                               areaSqFt === preset.area
                                 ? "bg-gold-accent text-stone-950 font-bold border-gold-accent"
                                 : "bg-white/10 text-[var(--color-text-muted)] hover:bg-white/20 border-white/10"
@@ -1271,7 +1271,7 @@ export default function ProjectInvestmentGuide({ setView }) {
 
                   {/* Specification Tier Quick Selector Pills */}
                   <div className="space-y-2 pt-2 border-t border-white/10">
-                    <span className="text-[10px] font-mono text-stone-400 uppercase font-bold block">
+                    <span className="text-[10px] font-sans text-stone-400 uppercase font-bold block">
                       SELECT FINISH SPECIFICATION:
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -1287,8 +1287,8 @@ export default function ProjectInvestmentGuide({ setView }) {
                                 : "bg-white/5 text-[var(--color-text-muted)] hover:bg-white/10 border-white/10"
                             }`}
                           >
-                            <span className="text-xs font-mono">{tierVal.name}</span>
-                            <span className="text-[10px] font-mono opacity-80">{formatRateLabel(tierVal.ratePerSqFt)}</span>
+                            <span className="text-xs font-sans">{tierVal.name}</span>
+                            <span className="text-[10px] font-sans opacity-80">{formatRateLabel(tierVal.ratePerSqFt)}</span>
                           </button>
                         );
                       })}
@@ -1301,11 +1301,11 @@ export default function ProjectInvestmentGuide({ setView }) {
                 <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-8 space-y-5 shadow-sm">
                   
                   <div className="flex items-center justify-between border-b border-stone-200/80 pb-4">
-                    <span className="text-xs font-mono text-stone-900 font-bold tracking-widest uppercase flex items-center gap-2">
+                    <span className="text-xs font-sans text-stone-900 font-bold tracking-widest uppercase flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-gold-accent" />
                       <span>WHAT YOU WILL ACHIEVE WITH THIS BLUEPRINT</span>
                     </span>
-                    <span className="text-xs font-mono text-gold-accent bg-gold-accent/15 px-3 py-1 rounded-md font-bold">
+                    <span className="text-xs font-sans text-gold-accent bg-gold-accent/15 px-3 py-1 rounded-md font-bold">
                       Timeline: {activeCategory.timeline}
                     </span>
                   </div>
@@ -1331,10 +1331,10 @@ export default function ProjectInvestmentGuide({ setView }) {
                 <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
                   
                   <div className="space-y-1 text-center sm:text-left">
-                    <span className="text-[10px] font-mono text-gold-accent tracking-wider uppercase font-bold block">
+                    <span className="text-[10px] font-sans text-gold-accent tracking-wider uppercase font-bold block">
                       NEED FULL ITEMIZED BREAKDOWN?
                     </span>
-                    <h4 className="text-lg font-bold text-stone-900 font-display">
+                    <h4 className="text-lg font-bold text-stone-900">
                       Explore Full Pricing Page & Component BOQ
                     </h4>
                     <p className="text-xs text-stone-500 font-light max-w-md">
@@ -1345,7 +1345,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                   <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
                     <button
                       onClick={() => setShowTierCompareModal(true)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-surface-dark hover:bg-stone-800 text-gold-accent px-5 py-3.5 rounded-xl font-mono font-bold text-xs uppercase transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-surface-dark hover:bg-stone-800 text-gold-accent px-5 py-3.5 rounded-xl font-sans font-bold text-xs uppercase transition-colors cursor-pointer"
                     >
                       <PieChart size={14} />
                       <span>Know More & View BOQ</span>
@@ -1387,10 +1387,10 @@ export default function ProjectInvestmentGuide({ setView }) {
             >
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <span className="text-[10px] font-mono text-gold-accent tracking-widest font-bold uppercase block">
+                  <span className="text-[10px] font-sans text-gold-accent tracking-widest font-bold uppercase block">
                     {activeCategory.title.toUpperCase()}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-display font-light text-stone-900">
+                  <h3 className="text-xl sm:text-2xl font-light text-stone-900">
                     Compare Specification <span className="text-gold-accent">Tiers</span>
                   </h3>
                 </div>
@@ -1415,19 +1415,19 @@ export default function ProjectInvestmentGuide({ setView }) {
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className={`text-[10px] font-mono uppercase font-bold ${
+                        <span className={`text-[10px] font-sans uppercase font-bold ${
                           selectedTier === tierKey ? "text-gold-accent" : "text-stone-400"
                         }`}>
                           {tierVal.badge}
                         </span>
                         {selectedTier === tierKey && (
-                          <span className="bg-gold-accent text-stone-950 text-[9px] font-mono font-extrabold px-2 py-0.5 rounded-full">
+                          <span className="bg-gold-accent text-stone-950 text-[9px] font-sans font-extrabold px-2 py-0.5 rounded-full">
                             Active
                           </span>
                         )}
                       </div>
-                      <h4 className={`text-lg font-bold font-display ${selectedTier === tierKey ? "text-white" : "text-stone-900"}`}>{tierVal.name}</h4>
-                      <p className={`text-xl font-mono font-bold ${selectedTier === tierKey ? "text-gold-accent" : "text-stone-900"}`}>
+                      <h4 className={`text-lg font-bold ${selectedTier === tierKey ? "text-white" : "text-stone-900"}`}>{tierVal.name}</h4>
+                      <p className={`text-xl font-sans font-bold ${selectedTier === tierKey ? "text-gold-accent" : "text-stone-900"}`}>
                         {formatRateLabel(tierVal.ratePerSqFt)}
                       </p>
                       <p className={`text-xs font-light leading-relaxed pt-1 ${selectedTier === tierKey ? "text-[var(--color-text-muted)]" : "text-stone-600"}`}>
@@ -1436,7 +1436,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                     </div>
 
                     <div className={`space-y-2 pt-3 border-t ${selectedTier === tierKey ? "border-stone-800" : "border-stone-200"}`}>
-                      <span className={`text-[10px] font-mono uppercase font-bold block ${
+                      <span className={`text-[10px] font-sans uppercase font-bold block ${
                         selectedTier === tierKey ? "text-stone-400" : "text-stone-500"
                       }`}>
                         Included Specifications:
@@ -1458,7 +1458,7 @@ export default function ProjectInvestmentGuide({ setView }) {
                         setSelectedTier(tierKey);
                         setShowTierCompareModal(false);
                       }}
-                      className={`w-full py-2.5 rounded-xl text-xs font-mono font-bold uppercase transition-colors cursor-pointer ${
+                      className={`w-full py-2.5 rounded-xl text-xs font-sans font-bold uppercase transition-colors cursor-pointer ${
                         selectedTier === tierKey
                           ? "bg-gold-accent text-stone-950"
                           : "bg-stone-200 hover:bg-stone-300 text-stone-900"
@@ -1473,7 +1473,7 @@ export default function ProjectInvestmentGuide({ setView }) {
               <div className="pt-2 text-center">
                 <button
                   onClick={() => setShowTierCompareModal(false)}
-                  className="text-xs font-mono text-stone-500 hover:text-gold-accent underline cursor-pointer"
+                  className="text-xs font-sans text-stone-500 hover:text-gold-accent underline cursor-pointer"
                 >
                   Close Specification Comparison Matrix
                 </button>

@@ -80,7 +80,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-center md:text-left space-y-4">
           {/* Breadcrumbs */}
-          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
+          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase">
             <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">HOME</button>
             <span>/</span>
             <span className="text-gold-accent font-bold">HELP & FAQS</span>
@@ -127,7 +127,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
-                    className={`px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-2 border transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider flex items-center space-x-2 border transition-all duration-300 cursor-pointer ${
                       selectedCategory === cat.id
                         ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md"
                         : "bg-bg-base text-stone-600 border-stone-200/80 hover:border-gold-accent/40 hover:text-stone-950"
@@ -161,7 +161,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                         onClick={() => toggleFaq(faq.id)}
                         className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none cursor-pointer"
                       >
-                        <span className="text-sm md:text-base font-serif font-semibold text-stone-900 pr-4">
+                        <span className="text-sm md:text-base font-sans font-semibold text-stone-900 pr-4">
                           {faq.question}
                         </span>
                         <div className={`p-1.5 rounded-full bg-stone-200/50 text-stone-800 transition-transform duration-300 shrink-0 ${isExpanded ? "rotate-180 bg-gold-accent text-stone-950" : ""}`}>
@@ -192,7 +192,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                   <p className="text-stone-500 font-light text-sm">No FAQs match your search criteria.</p>
                   <button
                     onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}
-                    className="text-xs font-mono font-bold text-gold-accent hover:text-stone-950 underline uppercase tracking-widest cursor-pointer"
+                    className="text-xs font-sans font-bold text-gold-accent hover:text-stone-950 underline uppercase tracking-widest cursor-pointer"
                   >
                     Reset Filter
                   </button>
@@ -207,7 +207,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
       {/* 3. CONTACT BANNER HELPDESK */}
       <section className="bg-[var(--color-surface-dark)] text-white py-24 relative overflow-hidden border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
-          <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold block uppercase">
+          <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold block uppercase">
             STILL HAVE QUESTIONS?
           </span>
           <h2 className="text-3xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase">
@@ -224,7 +224,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                 <Phone size={16} />
               </div>
               <div>
-                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-mono block">Call Us</span>
+                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-sans block">Call Us</span>
                 <span className="text-xs font-medium text-stone-200">+1 (509) 555-0199</span>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                 <Mail size={16} />
               </div>
               <div>
-                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-mono block">Email Us</span>
+                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-sans block">Email Us</span>
                 <span className="text-xs font-medium text-stone-200">contact@suthar-studio.com</span>
               </div>
             </div>
@@ -244,7 +244,7 @@ export default function FaqPage({ onBackToHome, onOpenQuote }) {
                 <MapPin size={16} />
               </div>
               <div>
-                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-mono block">Visit Studio</span>
+                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-sans block">Visit Studio</span>
                 <span className="text-xs font-medium text-stone-200">Spokane, Washington</span>
               </div>
             </div>

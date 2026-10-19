@@ -120,7 +120,7 @@ function HeroCard({ feature }) {
         <div className="w-9 h-9 rounded-xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center">
           <Icon size={16} strokeWidth={1.6} className="text-primary" />
         </div>
-        <span className="text-[10px] font-mono font-bold text-white/50 tracking-[0.2em] uppercase">
+        <span className="text-[10px] font-sans font-bold text-white/50 tracking-[0.2em] uppercase">
           {feature.num}
         </span>
       </div>
@@ -164,7 +164,7 @@ function FeatureCard({ feature, delay }) {
       {/* Number tag — hidden on mobile, visible on sm+ */}
       <span
         aria-hidden
-        className="hidden sm:block absolute top-4 right-5 text-[11px] font-mono font-bold
+        className="hidden sm:block absolute top-4 right-5 text-[11px] font-sans font-bold
                    text-stone-200 group-hover:text-primary/40
                    select-none pointer-events-none transition-colors duration-400 tracking-[0.1em]"
       >
@@ -235,10 +235,10 @@ function StatBlock({ stat, index }) {
 
       {/* Sublabel + label */}
       <div className="space-y-0.5">
-        <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-primary">
+        <p className="text-[9px] font-sans font-bold uppercase tracking-[0.2em] text-primary">
           {stat.sublabel}
         </p>
-        <p className="text-[9px] font-mono font-semibold uppercase tracking-[0.2em] text-stone-400">
+        <p className="text-[9px] font-sans font-semibold uppercase tracking-[0.2em] text-stone-400">
           {stat.label}
         </p>
       </div>
@@ -283,7 +283,7 @@ export default function WhyChooseUs({ setView }) {
               {/* Label */}
               <div className="flex items-center gap-3">
                 <div className="w-8 h-px bg-primary" />
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.3em] uppercase text-primary">
+                <span className="text-[10px] sm:text-[11px] font-sans font-bold tracking-[0.3em] uppercase text-primary">
                   WHY CHOOSE US
                 </span>
               </div>

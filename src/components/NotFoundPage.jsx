@@ -48,18 +48,18 @@ export default function NotFoundPage({ onBackToHome, setView }) {
           {/* Main Grid Lines */}
           <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 md:grid-cols-8 gap-12 px-6 md:px-12 absolute inset-y-0 left-1/2 -translate-x-1/2">
             <div className="border-l border-white/5 h-full relative">
-              <span className="absolute top-10 left-2 text-[8px] font-mono text-white/25">X: 0.00</span>
+              <span className="absolute top-10 left-2 text-[8px] font-sans text-white/25">X: 0.00</span>
             </div>
             <div className="border-l border-white/5 h-full relative" />
             <div className="border-l border-white/5 h-full relative" />
             <div className="border-l border-white/5 h-full relative">
-              <span className="absolute bottom-10 left-2 text-[8px] font-mono text-white/25">AXIS_04</span>
+              <span className="absolute bottom-10 left-2 text-[8px] font-sans text-white/25">AXIS_04</span>
             </div>
             <div className="border-l border-white/5 h-full relative" />
             <div className="border-l border-white/5 h-full relative" />
             <div className="border-l border-white/5 h-full relative" />
             <div className="border-l border-white/5 h-full border-r border-white/5 relative">
-              <span className="absolute top-24 right-2 text-[8px] font-mono text-white/25">GRID_REF_A9</span>
+              <span className="absolute top-24 right-2 text-[8px] font-sans text-white/25">GRID_REF_A9</span>
             </div>
           </div>
 
@@ -138,7 +138,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               </g>
 
               {/* Blueprint annotation markers */}
-              <g className="text-white/40 font-mono text-[9px] uppercase tracking-widest">
+              <g className="text-white/40 font-sans text-[9px] uppercase tracking-widest">
                 <text x="260" y="240">SCALE: 1:20</text>
                 <text x="560" y="240">REVISION_4.04</text>
                 <text x="260" y="570">SECTION A-A</text>
@@ -174,7 +174,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
             {/* Left side text presentation */}
             <div className="lg:col-span-7 space-y-6">
               
-              <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
+              <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase">
                 <button 
                   onClick={onBackToHome} 
                   className="hover:text-gold-accent transition-colors cursor-pointer font-bold"
@@ -191,14 +191,14 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-5xl md:text-[11rem] font-light leading-none tracking-tighter text-white/10 select-none font-serif block text-left"
+                  className="text-5xl md:text-[11rem] font-light leading-none tracking-tighter text-white/10 select-none block text-left"
                 >
                   404
                 </motion.h2>
                 
                 <div className="inline-flex items-center space-x-2.5 bg-stone-900 border border-white/5 rounded-full px-4 py-1.5 mt-[-10px]">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold-accent animate-pulse" />
-                  <span className="text-gold-accent text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
+                  <span className="text-gold-accent text-[10px] md:text-xs font-sans tracking-[0.3em] font-bold uppercase">
                     PAGE NOT FOUND
                   </span>
                 </div>
@@ -231,7 +231,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="hidden sm:flex items-center space-x-6 text-[10px] font-mono text-stone-500 pt-2"
+                className="hidden sm:flex items-center space-x-6 text-[10px] font-sans text-stone-500 pt-2"
               >
                 <div className="flex items-center space-x-2">
                   <Maximize2 size={10} className="text-gold-accent" />
@@ -259,7 +259,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         <div className="text-center sm:text-left space-y-3 mb-16">
-          <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold block uppercase">
             RE-ROUTING SCHEMATICS
           </span>
           <h3 className="text-2xl sm:text-3xl font-light uppercase text-stone-900 tracking-tight">
@@ -289,7 +289,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 <Compass size={20} />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-gold-accent transition-colors duration-300">
+                <h4 className="text-lg font-bold text-stone-950 uppercase group-hover:text-gold-accent transition-colors duration-300">
                   Explore Our Projects
                 </h4>
                 <p className="text-stone-500 font-light text-sm leading-relaxed">
@@ -326,7 +326,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 <Layout size={20} />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-gold-accent transition-colors duration-300">
+                <h4 className="text-lg font-bold text-stone-950 uppercase group-hover:text-gold-accent transition-colors duration-300">
                   Our Services
                 </h4>
                 <p className="text-stone-500 font-light text-sm leading-relaxed">
@@ -363,7 +363,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
                 <Mail size={20} />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-serif font-bold text-stone-950 uppercase group-hover:text-gold-accent transition-colors duration-300">
+                <h4 className="text-lg font-bold text-stone-950 uppercase group-hover:text-gold-accent transition-colors duration-300">
                   Contact Us
                 </h4>
                 <p className="text-stone-500 font-light text-sm leading-relaxed">
@@ -392,7 +392,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
           
           <div className="flex items-center space-x-2.5 shrink-0">
             <Sparkles size={14} className="text-gold-accent" />
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-400">
+            <span className="text-xs font-sans font-bold uppercase tracking-widest text-stone-400">
               Quick Directory Links
             </span>
           </div>
@@ -410,7 +410,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               <button
                 key={idx}
                 onClick={() => handleNavigate(link.view)}
-                className="text-stone-600 hover:text-gold-accent transition-colors font-mono text-xs uppercase tracking-wider cursor-pointer font-bold relative group py-1"
+                className="text-stone-600 hover:text-gold-accent transition-colors font-sans text-xs uppercase tracking-wider cursor-pointer font-bold relative group py-1"
               >
                 <span>{link.label}</span>
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gold-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -419,7 +419,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
           </div>
 
           <div className="hidden lg:block text-right">
-            <span className="text-[10px] font-mono text-stone-400">
+            <span className="text-[10px] font-sans text-stone-400">
               SUTHAR_SYSTEMS_404_READY
             </span>
           </div>
@@ -438,7 +438,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold block uppercase">
             SUTHAR STUDIO ARCHITECTURE
           </span>
           
@@ -466,7 +466,7 @@ export default function NotFoundPage({ onBackToHome, setView }) {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent("open-consultation"));
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               Book Consultation
             </button>

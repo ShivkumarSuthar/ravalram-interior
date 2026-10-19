@@ -171,14 +171,14 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
-          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
+          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase">
             <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">HOME</button>
             <span>/</span>
             <span className="text-gold-accent font-bold">CONTACT US</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               CONTACT US
             </span>
             <motion.h1
@@ -218,7 +218,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
             <a
               href="tel:+14804560789"
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent text-center"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent text-center"
             >
               Call Our Team
             </a>
@@ -269,13 +269,13 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     <Icon size={18} />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-[10px] uppercase font-mono tracking-wider text-stone-400 block font-bold">
+                    <span className="text-[10px] uppercase font-sans tracking-wider text-stone-400 block font-bold">
                       {method.title}
                     </span>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-950 group-hover:text-gold-accent transition-colors">
                       {method.action}
                     </h3>
-                    <p className="text-gold-accent font-mono text-xs font-semibold select-all pt-1 leading-tight">
+                    <p className="text-gold-accent font-sans text-xs font-semibold select-all pt-1 leading-tight">
                       {method.detail}
                     </p>
                     <p className="text-stone-400 text-[10px] font-light leading-tight">
@@ -291,10 +291,10 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           <div className="mt-12 bg-stone-50 border border-stone-200/30 p-6 md:p-8 rounded-2xl text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2">
-                <span className="text-gold-accent text-[10px] uppercase font-mono tracking-widest block font-bold">
+                <span className="text-gold-accent text-[10px] uppercase font-sans tracking-widest block font-bold">
                   REGIONAL OUTREACH
                 </span>
-                <h4 className="text-lg font-serif text-stone-900">
+                <h4 className="text-lg text-stone-900">
                   Active Architectural Execution Regions
                 </h4>
                 <p className="text-xs text-stone-500 font-light max-w-xl">
@@ -308,7 +308,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 ].map((region, idx) => (
                   <span
                     key={idx}
-                    className="bg-white border border-stone-200 text-stone-700 text-[10px] font-mono font-bold tracking-wider px-3 py-1.5 rounded uppercase shadow-sm"
+                    className="bg-white border border-stone-200 text-stone-700 text-[10px] font-sans font-bold tracking-wider px-3 py-1.5 rounded uppercase shadow-sm"
                   >
                     {region}
                   </span>
@@ -343,15 +343,15 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               </p>
 
               <div className="space-y-4 pt-4 border-t border-stone-200/50">
-                <div className="flex items-center space-x-3 text-stone-700 text-xs font-mono">
+                <div className="flex items-center space-x-3 text-stone-700 text-xs font-sans">
                   <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>Free initial design analysis & ballpark pricing</span>
                 </div>
-                <div className="flex items-center space-x-3 text-stone-700 text-xs font-mono">
+                <div className="flex items-center space-x-3 text-stone-700 text-xs font-sans">
                   <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>Interactive screen-share reviews for floorplans</span>
                 </div>
-                <div className="flex items-center space-x-3 text-stone-700 text-xs font-mono">
+                <div className="flex items-center space-x-3 text-stone-700 text-xs font-sans">
                   <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>No pushy marketing; only high-fidelity advice</span>
                 </div>
@@ -372,7 +372,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                           Full Name *
                         </label>
                         <input
@@ -387,7 +387,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                       </div>
 
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                           Phone Number *
                         </label>
                         <input
@@ -404,7 +404,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                           Email Address *
                         </label>
                         <input
@@ -419,7 +419,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                       </div>
 
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                           Your City *
                         </label>
                         <input
@@ -436,7 +436,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                           Project Type
                         </label>
                         <div className="relative">
@@ -459,7 +459,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                       </div>
 
                       <div>
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                           Approximate Budget
                         </label>
                         <div className="relative">
@@ -480,7 +480,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     </div>
 
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-mono font-bold">
+                      <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2 font-sans font-bold">
                         Message / Preferred Timeline
                       </label>
                       <textarea
@@ -530,17 +530,17 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                       <Check size={32} strokeWidth={2.5} />
                     </div>
                     <div className="space-y-2 max-w-lg">
-                      <h3 className="text-2xl font-serif text-stone-950">
+                      <h3 className="text-2xl text-stone-950">
                         Consultation Request Submitted!
                       </h3>
                       <p className="text-stone-600 text-sm font-light leading-relaxed">
                         Thank you, <span className="font-semibold text-stone-900">{formData.fullName}</span>. Suthar Interior Studio has registered your project enquiry. 
                       </p>
                       <p className="text-stone-500 text-xs font-light">
-                        Our lead design architects are analyzing your parameters (Approximate budget: <span className="font-medium text-stone-800">{formData.budget}</span> for <span className="font-medium text-gold-accent">{formData.projectType}</span>). An architect will contact you within 1-2 hours on <span className="font-mono text-stone-800">{formData.phone}</span>.
+                        Our lead design architects are analyzing your parameters (Approximate budget: <span className="font-medium text-stone-800">{formData.budget}</span> for <span className="font-medium text-gold-accent">{formData.projectType}</span>). An architect will contact you within 1-2 hours on <span className="font-sans text-stone-800">{formData.phone}</span>.
                       </p>
                     </div>
-                    <div className="bg-stone-50 border border-stone-200/50 p-4 rounded-xl w-full text-xs text-stone-400 font-mono text-center">
+                    <div className="bg-stone-50 border border-stone-200/50 p-4 rounded-xl w-full text-xs text-stone-400 font-sans text-center">
                       ESTIMATED CONTACT WINDOW: TODAY &bull; WITHIN 120 MINUTES
                     </div>
                   </motion.div>
@@ -558,7 +558,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               OUR SERVICE PROMISE
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -602,7 +602,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               ONBOARDING PATH
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -627,7 +627,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
                 className="bg-white border border-stone-200/50 p-4 rounded-2xl text-center flex flex-col justify-between space-y-3 shadow-sm hover:shadow-md transition-all duration-300 relative group z-10"
               >
-                <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-mono font-bold text-xs text-gold-accent mx-auto group-hover:bg-gold-accent group-hover:text-stone-900 transition-colors duration-300">
+                <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center font-sans font-bold text-xs text-gold-accent mx-auto group-hover:bg-gold-accent group-hover:text-stone-900 transition-colors duration-300">
                   {step.num}
                 </div>
                 
@@ -651,7 +651,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-left max-w-3xl mb-16 md:mb-24 space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               SERVICE COVERAGE
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -668,7 +668,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 <div className="absolute top-6 right-6 text-gold-accent opacity-40 group-hover:opacity-100 transition-opacity">
                   <MapPin size={16} />
                 </div>
-                <h3 className="text-base sm:text-lg font-serif font-medium text-stone-950 group-hover:text-gold-accent transition-colors duration-300 mb-2">
+                <h3 className="text-base sm:text-lg font-medium text-stone-950 group-hover:text-gold-accent transition-colors duration-300 mb-2">
                   {city.name}
                 </h3>
                 <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed">
@@ -680,7 +680,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
           {/* Under Areas Message */}
           <div className="mt-12 text-center max-w-xl mx-auto space-y-3 bg-bg-base border border-stone-200/50 p-6 rounded-xl">
-            <h4 className="text-xs uppercase font-mono tracking-wider font-bold text-stone-800">
+            <h4 className="text-xs uppercase tracking-wider font-bold text-stone-800">
               Don't see your location?
             </h4>
             <p className="text-stone-500 text-xs font-light leading-relaxed">
@@ -706,7 +706,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-12">
             <div className="lg:col-span-6 text-left space-y-4">
-              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
                 PHYSICAL ATELIER
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -726,7 +726,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               
               {/* Left Column: Flagship Showroom HQ */}
               <div className="space-y-4 text-left p-6 rounded-2xl bg-bg-base border border-stone-200/80">
-                <span className="text-gold-accent text-[10px] font-mono tracking-widest font-bold uppercase block">
+                <span className="text-gold-accent text-[10px] font-sans tracking-widest font-bold uppercase block">
                   FLAGSHIP HEADQUARTERS
                 </span>
                 <h4 className="text-xl font-extrabold text-stone-900">
@@ -735,7 +735,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 <p className="text-stone-600 text-sm font-light leading-relaxed">
                   Linking Road, Near Sacred Heart Church, Santacruz West, Mumbai, Maharashtra 400054
                 </p>
-                <div className="pt-2 text-xs font-mono text-stone-500 space-y-1">
+                <div className="pt-2 text-xs font-sans text-stone-500 space-y-1">
                   <p><strong className="text-stone-800">Phone:</strong> +91 98200 12345 / +1 (480) 456-0789</p>
                   <p><strong className="text-stone-800">Email:</strong> Support@SutharInterior.com</p>
                   <p><strong className="text-stone-800">Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM</p>
@@ -745,10 +745,10 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               {/* Right Column: Major Active Cities with Interactive Spec Preview */}
               <div className="space-y-4 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-stone-400 text-[10px] font-mono tracking-widest font-bold uppercase block">
+                  <span className="text-stone-400 text-[10px] font-sans tracking-widest font-bold uppercase block">
                     ACTIVE CITIES &amp; REGIONS
                   </span>
-                  <span className="text-[10px] font-mono text-gold-accent font-bold uppercase">
+                  <span className="text-[10px] font-sans text-gold-accent font-bold uppercase">
                     TAP CITY TO PREVIEW
                   </span>
                 </div>
@@ -777,7 +777,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                 {cities[activeCityIdx] && (
                   <div className="p-4 rounded-xl bg-gold-accent/10 border border-gold-accent/30 space-y-1 transition-all">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-extrabold text-stone-900 uppercase">
+                      <span className="text-xs font-sans font-extrabold text-stone-900 uppercase">
                         {cities[activeCityIdx].name} REGIONAL SCOPE
                       </span>
                       <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
@@ -800,7 +800,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               AVAILABILITY MATRIX
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -816,7 +816,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
                 Monday – Saturday
               </h4>
-              <p className="text-gold-accent text-lg font-serif font-medium leading-none">
+              <p className="text-gold-accent text-lg font-sans font-medium leading-none">
                 9:00 AM – 7:00 PM
               </p>
               <p className="text-stone-400 text-xs font-light leading-tight">
@@ -831,7 +831,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
                 Sunday
               </h4>
-              <p className="text-stone-600 text-lg font-serif font-medium leading-none">
+              <p className="text-stone-600 text-lg font-sans font-medium leading-none">
                 By Appointment Only
               </p>
               <p className="text-stone-400 text-xs font-light leading-tight">
@@ -846,7 +846,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
               <h4 className="text-sm font-semibold uppercase tracking-wider text-stone-950">
                 Emergency Consults
               </h4>
-              <p className="text-stone-600 text-lg font-serif font-medium leading-none">
+              <p className="text-stone-600 text-lg font-sans font-medium leading-none">
                 Available on Request
               </p>
               <p className="text-stone-400 text-xs font-light leading-tight">
@@ -863,7 +863,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20 space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               REDUCING HESITATION
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -884,7 +884,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="w-full flex items-center justify-between p-6 text-left focus:outline-none group cursor-pointer"
                   >
-                    <span className="font-serif text-base sm:text-lg font-medium text-stone-900 group-hover:text-gold-accent transition-colors">
+                    <span className="font-sans text-base sm:text-lg font-medium text-stone-900 group-hover:text-gold-accent transition-colors">
                       {faq.q}
                     </span>
                     <motion.div
@@ -932,7 +932,7 @@ export default function ContactPage({ onBackToHome, onOpenQuote, setView }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               LET'S START THE JOURNEY
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase">

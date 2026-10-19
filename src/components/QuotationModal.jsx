@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, Sparkles, CheckCircle2, Phone, Mail, User, MapPin, Compass, Building2, AlertCircle } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import sendEnquiry from "../lib/send-enquiry";
+import { CONTACT } from "../lib/home-content";
 
 const SERVICES_OPTIONS = [
   "Interior Design",
@@ -57,22 +58,8 @@ export default function QuotationModal() {
     setIsOpen(false);
   }, []);
 
-  // 1. Auto-open modal after a small delay (5 seconds)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const hasSeenModal = localStorage.getItem("hasSeenQuotationModal");
-    
-    if (!hasSeenModal) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        localStorage.setItem("hasSeenQuotationModal", "true");
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  // 2. Global event listeners for manual triggers ("open-quotation")
+  // Opens only on request (e.g. the header's "Get In Touch" button), never by itself
+  // Global event listeners for manual triggers ("open-consultation", "open-quotation")
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -114,35 +101,21 @@ export default function QuotationModal() {
     setIsSubmitting(true);
     setErrorMessage("");
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_suthar";
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_suthar_quote";
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key_suthar";
-
-    const templateParams = {
-      from_name: formData.user_name,
-      from_email: formData.user_email,
-      from_phone: formData.user_phone,
-      service_needed: formData.service_needed,
-      city: formData.city,
-      message: formData.message || "No additional notes provided.",
-      site_name: "Suthar Living"
-    };
-
     try {
-      if (publicKey && publicKey !== "public_key_suthar") {
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      } else {
-        // Fallback simulation when EmailJS env vars are not set
-        console.log("EmailJS Submission Payload (Configure NEXT_PUBLIC_EMAILJS_* keys in .env):", templateParams);
-        await new Promise((resolve) => setTimeout(resolve, 800));
-      }
-      setIsSubmitting(false);
+      await sendEnquiry({
+        from_name: formData.user_name,
+        from_email: formData.user_email,
+        from_phone: formData.user_phone,
+        service_needed: formData.service_needed,
+        city: formData.city,
+        message: formData.message || "No additional notes provided.",
+      });
       setIsSubmitted(true);
-    } catch (error) {
-      console.warn("EmailJS error fallback activated:", error);
-      // Still notify user of submission receipt
+    } catch {
+      // Only confirm when the request actually went out; otherwise point to direct contact
+      setErrorMessage(`Your request couldn't be sent just now. Please call ${CONTACT.phone} or email ${CONTACT.email}.`);
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
     }
   };
 
@@ -178,27 +151,47 @@ export default function QuotationModal() {
             </button>
 
             {!isSubmitted ? (
-              <>
-                {/* Fixed Header */}
-                <div className="p-6 pb-5 sm:p-8 sm:pb-6 md:p-10 md:pb-6 pr-16 sm:pr-16 md:pr-16 border-b border-stone-200/60 bg-[#faf9f6] relative z-10">
-                  <div className="space-y-2.5">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-stone-900 font-serif tracking-tight leading-tight pt-1">
-                      Request Free Estimate
-                    </h3>
-                    <p className="text-xs sm:text-sm text-stone-500 font-light leading-relaxed">
-                      Tell us about your space and requirements. Our team will review your details and send a personalized design & cost blueprint.
-                    </p>
+              <div className="space-y-6">
+                {/* Header */}
+                <div className="space-y-2 pr-8">
+                  <div className="inline-flex items-center space-x-2 bg-[#c5a880]/15 border border-[#c5a880]/30 px-3.5 py-1 rounded-full text-[#c5a880] text-[10px] font-sans font-bold uppercase tracking-widest">
+                    <Sparkles size={12} className="animate-pulse" />
+                    <span>GET AN INSTANT QUOTATION</span>
                   </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                    Request a Project Estimate
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed">
+                    Tell us about your space and requirements. Our team will review your details and send a personalized design & cost blueprint.
+                  </p>
                 </div>
 
-                {/* Scrollable Form Container */}
-                <div className="overflow-y-auto max-h-[60vh] sm:max-h-[65vh] modal-scroll p-6 sm:p-8 md:p-10" data-lenis-prevent="true">
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                    {/* Name Input */}
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Name Input */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                      <User size={12} className="text-[#c5a880]" />
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="user_name"
+                      required
+                      value={formData.user_name}
+                      onChange={handleChange}
+                      placeholder="e.g. Rajesh Suthar"
+                      className="w-full bg-stone-900/90 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-[#c5a880] transition-colors"
+                    />
+                  </div>
+
+                  {/* Phone & Email Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Phone Input */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1.5">
-                        <User size={12} className="text-primary" />
-                        Full Name *
+                      <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                        <Phone size={12} className="text-[#c5a880]" />
+                        Phone / WhatsApp *
                       </label>
                       <input
                         type="text"
@@ -211,128 +204,149 @@ export default function QuotationModal() {
                       />
                     </div>
 
-                    {/* Phone & Email Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Phone Input */}
-                      <div className="space-y-1.5">
-                        <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1.5">
-                          <Phone size={12} className="text-primary" />
-                          Phone / WhatsApp *
-                        </label>
-                        <input
-                          type="tel"
-                          name="user_phone"
-                          required
-                          value={formData.user_phone}
-                          onChange={handleChange}
-                          placeholder="e.g. +91 7020104354"
-                          className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all shadow-sm"
-                        />
-                      </div>
-
-                      {/* Email Input */}
-                      <div className="space-y-1.5">
-                        <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1.5">
-                          <Mail size={12} className="text-primary" />
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          name="user_email"
-                          required
-                          value={formData.user_email}
-                          onChange={handleChange}
-                          placeholder="e.g. rajesh@example.com"
-                          className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all shadow-sm"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Service Needed Selection */}
+                    {/* Email Input */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1.5">
-                        <Compass size={12} className="text-primary" />
-                        Service Required
+                      <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                        <Mail size={12} className="text-[#c5a880]" />
+                        Email Address *
                       </label>
-                      <select
-                        name="service_needed"
-                        value={formData.service_needed}
+                      <input
+                        type="email"
+                        name="user_email"
+                        required
+                        value={formData.user_email}
                         onChange={handleChange}
-                        className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-stone-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all shadow-sm cursor-pointer"
-                      >
-                        {SERVICES_OPTIONS.map((srv) => (
-                          <option key={srv} value={srv} className="bg-white text-stone-900">
+                        placeholder="e.g. rajesh@example.com"
+                        className="w-full bg-stone-900/90 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-[#c5a880] transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Service Needed Selection */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                      <Compass size={12} className="text-[#c5a880]" />
+                      Service Required
+                    </label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {SERVICES_OPTIONS.map((srv) => {
+                        const isSelected = formData.service_needed === srv;
+                        return (
+                          <button
+                            key={srv}
+                            type="button"
+                            onClick={() => setFormData((prev) => ({ ...prev, service_needed: srv }))}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer border ${
+                              isSelected
+                                ? "bg-[#c5a880] text-stone-950 border-[#c5a880] font-bold shadow-sm"
+                                : "bg-stone-900/80 text-stone-300 border-stone-800 hover:border-stone-700"
+                            }`}
+                          >
                             {srv}
                           </option>
                         ))}
                       </select>
                     </div>
 
-                    {/* City Selection */}
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1.5">
-                        <MapPin size={12} className="text-primary" />
-                        Project Location
-                      </label>
-                      <select
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-stone-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all shadow-sm cursor-pointer"
-                      >
-                        {CITIES_OPTIONS.map((c) => (
-                          <option key={c} value={c} className="bg-white text-stone-900">
-                            {c}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                  {/* City Selection */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1.5">
+                      <MapPin size={12} className="text-[#c5a880]" />
+                      Project Location
+                    </label>
+                    <select
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      className="w-full bg-stone-900/90 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#c5a880] transition-colors cursor-pointer"
+                    >
+                      {CITIES_OPTIONS.map((c) => (
+                        <option key={c} value={c} className="bg-stone-900 text-white">
+                          {c}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                    {/* Message Input */}
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-500">
-                        Project Details / Carpet Area (Optional)
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={2}
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="e.g. 3 BHK renovation..."
-                        className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all shadow-sm resize-none"
-                      />
-                    </div>
+                  {/* Message Input */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400">
+                      Project Details / Carpet Area (Optional)
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={2}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="e.g. 3 BHK renovation, approx 1400 sq.ft in Bandra West..."
+                      className="w-full bg-stone-900/90 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white placeholder-stone-600 focus:outline-none focus:border-[#c5a880] transition-colors resize-none"
+                    />
+                  </div>
 
-                    {/* Submit Button */}
-                    <div className="pt-3 sm:pt-4">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full inline-flex items-center justify-center space-x-2 bg-primary hover:bg-primary-hover disabled:opacity-50 text-stone-950 py-4 px-6 rounded-full font-mono font-bold text-xs uppercase tracking-widest transition-all cursor-pointer shadow-lg hover:scale-[1.01]"
+                  {/* Submit Button */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full inline-flex items-center justify-center space-x-2 bg-[#c5a880] hover:bg-[#b0936b] disabled:opacity-50 text-stone-950 py-3.5 px-6 rounded-full font-sans font-bold text-xs uppercase tracking-widest transition-all cursor-pointer shadow-lg hover:scale-[1.01]"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-stone-950 border-t-transparent rounded-full animate-spin" />
+                          <span>Sending Request...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Submit Quotation Request</span>
+                          <Send size={14} />
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  <AnimatePresence>
+                    {errorMessage && (
+                      <motion.p
+                        role="alert"
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-start gap-2 text-sm text-stone-300"
                       >
-                        {isSubmitting ? (
-                          <>
-                            <div className="w-4 h-4 border-2 border-stone-950 border-t-transparent rounded-full animate-spin" />
-                            <span>Sending Request...</span>
-                          </>
-                        ) : (
-                          <>
-                            <span>Submit Quotation Request</span>
-                            <Send size={14} />
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </>
+                        <AlertCircle size={16} className="mt-0.5 shrink-0 text-primary" />
+                        {errorMessage}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+
+                  <p className="text-[10px] text-stone-500 font-sans text-center pt-1">
+                    🔒 Direct connection with Suthar Living lead architects. No spam guaranteed.
+                  </p>
+                </form>
+              </div>
             ) : (
               /* Success State */
-              <div className="p-6 sm:p-8 md:p-10 flex items-center justify-center">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="py-10 text-center space-y-5 w-full"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="py-10 text-center space-y-5"
+              >
+                <div className="w-16 h-16 rounded-full bg-[#c5a880]/20 border border-[#c5a880] text-[#c5a880] flex items-center justify-center mx-auto">
+                  <CheckCircle2 size={36} />
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                    Quotation Request Sent!
+                  </h3>
+                  <p className="text-sm text-stone-300 font-light max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong className="text-white">{formData.user_name}</strong>. Our lead architect and team will review your project details for <strong className="text-[#c5a880]">{formData.service_needed}</strong> in <strong className="text-white">{formData.city}</strong> and get back to you within 24 hours.
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleClose}
+                  className="inline-flex items-center space-x-2 bg-stone-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-colors cursor-pointer border border-stone-700"
                 >
                   <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary text-primary flex items-center justify-center mx-auto">
                     <CheckCircle2 size={36} />

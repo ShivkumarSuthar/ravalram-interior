@@ -1,5 +1,5 @@
 /**
- * Suthar Interior Studio & Architecture - Unified Blog Content Registry
+ * Suthar Brothers - Unified Blog Content Registry
  */
 
 export const blogArticles = [
@@ -9,12 +9,12 @@ export const blogArticles = [
     title: "Complete Guide to Planning Your Dream Home Interior",
     category: "interior-design",
     categoryLabel: "Interior Design",
-    image: "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
+    image: "/assets/images/AI_images/antra_hero_bg_1782744248753.jpg",
     date: "June 28, 2026",
-    author: "Elena Suthar",
+    author: "Suthar Brothers Team",
     readTime: "8 min read",
     excerpt: "Everything you should know before starting your interior project—from budgeting and planning to choosing materials and hiring the right professionals.",
-    content: `Starting an interior design project for your dream home is a deeply personal and exciting journey. However, without a structured approach, it can quickly become overwhelming. At Suthar Interior Studio, we believe that flawless execution is the result of thorough planning and alignment of vision. Here is our complete step-by-step guide to successfully planning your home interior.
+    content: `Starting an interior design project for your dream home is a deeply personal and exciting journey. However, without a structured approach, it can quickly become overwhelming. At Suthar Brothers, we believe that flawless execution is the result of thorough planning and alignment of vision. Here is our complete step-by-step guide to successfully planning your home interior.
 
 ### 1. Define Your Vision & Functional Scope
 Before diving into materials, take the time to analyze how you live. Do you entertain guests frequently? Do you need a dedicated quiet space for remote work? Collect inspiration images, but focus more on the "feeling" and functionality of the spaces rather than copying catalog pages. A home should be tailored to your daily rituals.
@@ -40,9 +40,9 @@ Lighting should never be an afterthought. We recommend layering your light sourc
     title: "How to Choose the Right Interior Designer",
     category: "interior-design",
     categoryLabel: "Interior Design",
-    image: "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg",
+    image: "/assets/images/living_01.png",
     date: "June 25, 2026",
-    author: "Elena Suthar",
+    author: "Suthar Brothers Team",
     readTime: "6 min read",
     excerpt: "Finding a designer who understands your aesthetic and respects your budget is crucial. Learn the essential questions you must ask.",
     content: `Choosing an interior designer is like choosing a long-term collaborator for one of your most valuable assets: your home. It goes far beyond matching color palettes; it requires technical synergy, shared timelines, and absolute budget transparency.
@@ -62,9 +62,9 @@ Your designer will be in your life for months. You must feel comfortable discuss
     title: "Modern Living Room Design Ideas",
     category: "living-rooms",
     categoryLabel: "Living Rooms",
-    image: "/assets/images/AI_images/antra_project_coastal_1782744299850.jpg",
+    image: "/assets/images/14.png",
     date: "June 22, 2026",
-    author: "Rajesh Suthar",
+    author: "Suthar Brothers Team",
     readTime: "5 min read",
     excerpt: "Explore contemporary layouts that maximize natural light, embrace custom wooden dividers, and highlight hand-picked furniture.",
     content: `The modern living room has evolved from a formal receiving room into a fluid, multi-purpose pavilion. Designing this space requires balancing comfort with high-impact visual statements that define the home's identity.
@@ -84,9 +84,9 @@ An elegant living room needs an anchor point. A book-matched marble slab or a te
     title: "Best Materials for Custom Furniture",
     category: "furniture",
     categoryLabel: "Furniture",
-    image: "/assets/images/AI_images/antra_project_loft_1782744318019.jpg",
+    image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1600&q=80",
     date: "June 19, 2026",
-    author: "Karan Suthar",
+    author: "Suthar Brothers Team",
     readTime: "7 min read",
     excerpt: "A deep dive into solid American Walnut, European Oak, and Indian Teak wood, exploring how grain selection dictates longevity.",
     content: `In an era of mass-produced MDF furniture, choosing custom-built timber furniture is an investment in family heritage. The materials you select dictate not only the final aesthetic but how the piece will age and handle natural atmosphere changes.
@@ -108,9 +108,9 @@ Avoid heavy polyurethane coatings that suffocate wood. Instead, opt for hand-pol
     title: "How Much Does Interior Design Cost?",
     category: "budget-planning",
     categoryLabel: "Budget Planning",
-    image: "/assets/images/AI_images/architectural_pavilion_1784821025997.jpg",
+    image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1600&q=80",
     date: "June 14, 2026",
-    author: "Elena Suthar",
+    author: "Suthar Brothers Team",
     readTime: "9 min read",
     excerpt: "Demystifying pricing models, materials estimates, and turnkey contractor fees to help you budget transparently for your home.",
     content: `Understanding where your investment goes is the foundation of a stress-free home transformation. Let's pull back the curtain on interior design pricing and technical budgeting.
@@ -132,9 +132,9 @@ If you need to optimize costs, do not do it on your kitchen base cabinets or bat
     title: "Kitchen Design Trends for Modern Homes",
     category: "modular-kitchen",
     categoryLabel: "Modular Kitchen",
-    image: "/assets/images/AI_images/isometric_floor_plan_1784822786880.jpg",
+    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1600&q=80",
     date: "June 10, 2026",
-    author: "Rajesh Suthar",
+    author: "Suthar Brothers Team",
     readTime: "6 min read",
     excerpt: "Discover how matte black cabinets, touchless hardware, and integrated spice carousels are transforming today's kitchens.",
     content: `The modern kitchen has transcended utility; it is the social heart of the contemporary residence. Contemporary design blends smart storage systems with ultra-clean surfaces that conceal appliances until needed.
@@ -157,9 +157,9 @@ Instead of traditional tiled walls with grout lines that accumulate oils, run th
     title: "Wardrobe Design Ideas",
     category: "bedrooms",
     categoryLabel: "Bedrooms",
-    image: "/assets/images/bedroom/bedroom_02.jpg",
+    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1600&q=80",
     date: "June 05, 2026",
-    author: "Karan Suthar",
+    author: "Suthar Brothers Team",
     readTime: "5 min read",
     excerpt: "Maximize your storage with floor-to-ceiling slatted wood doors, automatic sensor-led wardrobe hang rails, and hidden velvet drawers.",
     content: `A master wardrobe is far more than a place to store clothing; it is a personalized boutique dressing experience. By utilizing custom layouts and integrated technology, your closet can simplify your morning routines while adding premium aesthetic value.

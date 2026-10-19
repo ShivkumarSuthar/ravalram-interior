@@ -119,8 +119,8 @@ export default function ThankYouPage({ onBackToHome, setView }) {
           <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 md:grid-cols-8 gap-12 px-6 md:px-12 absolute inset-y-0 left-1/2 -translate-x-1/2">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="border-l border-white/5 h-full relative">
-                {i === 0 && <span className="absolute top-10 left-2 text-[8px] font-mono text-white/20">X: {coordinates.x}</span>}
-                {i === 4 && <span className="absolute bottom-10 left-2 text-[8px] font-mono text-white/20">GRID_SUTHAR_09</span>}
+                {i === 0 && <span className="absolute top-10 left-2 text-[8px] font-sans text-white/20">X: {coordinates.x}</span>}
+                {i === 4 && <span className="absolute bottom-10 left-2 text-[8px] font-sans text-white/20">GRID_SUTHAR_09</span>}
               </div>
             ))}
           </div>
@@ -163,7 +163,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               />
               
               {/* Blueprint Labels */}
-              <g className="text-white/30 font-mono text-[9px] uppercase tracking-widest">
+              <g className="text-white/30 font-sans text-[9px] uppercase tracking-widest">
                 <text x="300" y="270">SCALE: 1:100</text>
                 <text x="530" y="270">DOC_CONFIRMED_OK</text>
                 <text x="300" y="540">SEC_ELEVATION_B</text>
@@ -201,7 +201,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             <div className="space-y-3">
               <div className="inline-flex items-center space-x-2 bg-stone-900 border border-white/5 rounded-full px-4 py-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-accent animate-pulse" />
-                <span className="text-gold-accent text-[10px] md:text-xs font-mono tracking-[0.3em] font-bold uppercase">
+                <span className="text-gold-accent text-[10px] md:text-xs font-sans tracking-[0.3em] font-bold uppercase">
                   REQUEST RECEIVED
                 </span>
               </div>
@@ -229,7 +229,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             </motion.p>
 
             {/* Coordinate bar */}
-            <div className="flex items-center space-x-6 text-[10px] font-mono text-stone-500 pt-2 select-none">
+            <div className="flex items-center space-x-6 text-[10px] font-sans text-stone-500 pt-2 select-none">
               <div className="flex items-center space-x-2">
                 <span className="w-1.5 h-1.5 bg-gold-accent rounded-full animate-ping" />
                 <span>STATUS:</span>
@@ -250,7 +250,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center sm:text-left space-y-3 mb-16 max-w-2xl">
-            <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+            <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold block uppercase">
               YOUR ONBOARDING PATHWAY
             </span>
             <h2 className="text-2xl sm:text-4xl font-light uppercase text-stone-900 tracking-tight">
@@ -307,7 +307,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                     {/* Step Text Info */}
                     <div className="space-y-1.5 pt-1 lg:pt-0">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[10px] font-mono font-bold text-gold-accent">0{idx + 1}</span>
+                        <span className="text-[10px] font-sans font-bold text-gold-accent">0{idx + 1}</span>
                         <h4 className="text-sm font-bold text-stone-900 uppercase tracking-wider group-hover:text-gold-accent transition-colors duration-300">
                           {step.title}
                         </h4>
@@ -317,12 +317,12 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       </p>
                       
                       {step.status === "completed" && (
-                        <span className="inline-flex text-[9px] font-mono font-bold text-gold-accent uppercase tracking-wider bg-gold-accent/10 px-2 py-0.5 rounded-full">
+                        <span className="inline-flex text-[9px] font-sans font-bold text-gold-accent uppercase tracking-wider bg-gold-accent/10 px-2 py-0.5 rounded-full">
                           COMPLETED
                         </span>
                       )}
                       {step.status === "active" && (
-                        <span className="inline-flex text-[9px] font-mono font-bold text-gold-accent uppercase tracking-wider bg-gold-accent/10 px-2 py-0.5 rounded-full animate-pulse">
+                        <span className="inline-flex text-[9px] font-sans font-bold text-gold-accent uppercase tracking-wider bg-gold-accent/10 px-2 py-0.5 rounded-full animate-pulse">
                           IN PROGRESS
                         </span>
                       )}
@@ -360,12 +360,12 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   </div>
 
                   <div className="space-y-2">
-                    <span className={`text-[10px] uppercase font-mono tracking-widest font-bold block ${
+                    <span className={`text-[10px] uppercase font-sans tracking-widest font-bold block ${
                       isDark ? "text-stone-400" : "text-stone-400"
                     }`}>
                       {card.title}
                     </span>
-                    <h3 className={`text-xl font-serif font-bold uppercase tracking-tight leading-tight ${
+                    <h3 className={`text-xl font-bold uppercase tracking-tight leading-tight ${
                       isDark ? "text-white" : "text-stone-900"
                     }`}>
                       {card.value}
@@ -382,7 +382,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   {card.detail && (
                     <a 
                       href={card.link}
-                      className="font-mono text-sm font-semibold text-gold-accent hover:underline flex items-center space-x-1"
+                      className="font-sans text-sm font-semibold text-gold-accent hover:underline flex items-center space-x-1"
                     >
                       <span>{card.detail}</span>
                       <ArrowUpRight size={14} />
@@ -394,7 +394,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                       href={card.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-1.5 text-stone-900 hover:text-gold-accent text-xs font-mono font-bold uppercase tracking-wider"
+                      className="inline-flex items-center space-x-1.5 text-stone-900 hover:text-gold-accent text-xs font-sans font-bold uppercase tracking-wider"
                     >
                       <span>Chat Online</span>
                       <ArrowRight size={12} />
@@ -404,7 +404,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
                   {card.action === "view-projects" && (
                     <button
                       onClick={() => handleNavigate("gallery")}
-                      className="inline-flex items-center space-x-1.5 text-gold-accent hover:text-white text-xs font-mono font-bold uppercase tracking-wider cursor-pointer"
+                      className="inline-flex items-center space-x-1.5 text-gold-accent hover:text-white text-xs font-sans font-bold uppercase tracking-wider cursor-pointer"
                     >
                       <span>See Our Work</span>
                       <ArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
@@ -422,7 +422,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           
           <div className="space-y-1">
-            <h4 className="text-lg font-serif font-semibold text-stone-950 uppercase tracking-tight">
+            <h4 className="text-lg font-semibold text-stone-950 uppercase tracking-tight">
               Looking for our showrooms?
             </h4>
             <p className="text-stone-500 text-xs font-light">
@@ -436,7 +436,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* Return Home Button */}
             <button
               onClick={onBackToHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-stone-300 text-stone-900 text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 bg-white hover:border-gold-accent hover:text-gold-accent cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 border border-stone-300 text-stone-900 text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 bg-white hover:border-gold-accent hover:text-gold-accent cursor-pointer shadow-sm"
             >
               <Home size={14} />
               <span>Return Home</span>
@@ -445,7 +445,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
             {/* View Projects Button */}
             <button
               onClick={() => handleNavigate("gallery")}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-stone-900 hover:bg-[var(--color-surface-dark)] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-stone-900 hover:bg-[var(--color-surface-dark)] text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
               <Compass size={14} className="text-gold-accent" />
               <span>View Projects</span>
@@ -456,7 +456,7 @@ export default function ThankYouPage({ onBackToHome, setView }) {
               href="https://wa.me/919820012345"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-gold-accent hover:bg-[var(--color-primary-hover)] text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer shadow-sm"
             >
               <MessageSquare size={14} />
               <span>Chat on WhatsApp</span>

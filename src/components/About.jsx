@@ -79,7 +79,7 @@ export default function About({ setView }) {
       <span
         aria-hidden
         className="pointer-events-none absolute -right-8 top-0 text-[22vw] font-black text-stone-900/[0.03] leading-none select-none hidden lg:block"
-        style={{ fontFamily: "serif", letterSpacing: "-0.05em" }}
+        style={{ fontFamily: "var(--font-sans)", letterSpacing: "-0.05em" }}
       >
         1989
       </span>
@@ -93,7 +93,7 @@ export default function About({ setView }) {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="inline-flex items-center gap-2 border border-[#c88b80]/40 bg-[#c88b80]/12 px-4 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c88b80] animate-pulse" />
-              <span className="text-[10px] tracking-[0.22em] uppercase font-bold text-[#9e5d53] font-mono">
+              <span className="text-[10px] tracking-[0.22em] uppercase font-bold text-[#9e5d53] font-sans">
                 WHO WE ARE
               </span>
             </div>
@@ -102,7 +102,7 @@ export default function About({ setView }) {
               onClick={() => { if (typeof setView === "function") { setView("about-us"); window.scrollTo({ top: 0, behavior: "smooth" }); } }}
               className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary-hover text-stone-950 px-5 py-2.5 rounded-full transition-all duration-300 group cursor-pointer shadow-md shrink-0 self-start"
             >
-              <span className="text-[11px] font-bold tracking-widest uppercase font-mono">Discover Suthar Living</span>
+              <span className="text-[11px] font-bold tracking-widest uppercase font-sans">Discover Suthar Living</span>
               <div className="w-6 h-6 rounded-full bg-stone-950 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
                 <ArrowUpRight size={13} strokeWidth={2.5} />
               </div>
@@ -111,21 +111,21 @@ export default function About({ setView }) {
 
           {/* Big headline */}
           <h2 className="text-[2.2rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.12] max-w-4xl">
-            Creating Spaces With Purpose,{" "}
-            <span className="text-primary italic font-serif">Character &amp; Craftsmanship</span>
+            A 35-Year Lineage of{" "}
+            <span className="text-primary">Spatial Mastery &amp; Purity</span>
           </h2>
 
           {/* Bio + Stats row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start pt-1">
             <div className="lg:col-span-6 space-y-4 text-stone-600 font-light text-sm sm:text-base leading-relaxed">
               <p>
-                At Suthar Living, we believe a well-designed space should do more than look beautiful—it should work beautifully for the people who live and work in it.
+                Founded as a master woodworking guild in 1989, Suthar Interior Studio was built on a singular philosophy: true spatial design must honor the raw structure and the natural grain of every material. We reject generic aesthetics in favor of 100% pure, uncompromised craftsmanship.
               </p>
               <p>
-                We bring together interior design, furniture, craftsmanship, and project execution to create spaces that feel considered from every angle. Whether it is a new home, a renovation, a commercial space, or a single room, we approach every project with the same focus on thoughtful planning, quality materials, refined detailing, and practical functionality.
+                Today, guided by lead architects and master craftsmen, we provide a complete, turnkey architectural package. We don't just supply furniture or draft 2D plans—we orchestrate the entire lifecycle of your project, from civil alterations to the final placement of bespoke millwork.
               </p>
               <p className="font-normal text-stone-900">
-                Our approach is simple: understand your vision, design with purpose, execute with precision, and create a space you can truly call your own.
+                Every layout we draft, and every millimeter of teak we season, is subjected to rigorous on-site audits. Connect with us to experience execution fidelity that leaves absolutely nothing to chance.
               </p>
             </div>
 
@@ -143,7 +143,7 @@ export default function About({ setView }) {
                   >
                     {s.value}
                   </span>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-stone-700 block">
+                  <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-stone-700 block">
                     {s.label}
                   </span>
                   <span className="text-[10px] text-stone-400 block font-light">{s.sub}</span>
@@ -162,7 +162,7 @@ export default function About({ setView }) {
               <button
                 key={p.id}
                 onClick={() => setActive(i)}
-                className={`py-2.5 rounded-xl text-[10px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap overflow-hidden ${i === active
+                className={`py-2.5 rounded-xl text-[10px] font-sans font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap overflow-hidden ${i === active
                   ? "bg-primary text-stone-950 shadow-md"
                   : "text-stone-600 hover:text-stone-900"
                   }`}
@@ -199,7 +199,7 @@ export default function About({ setView }) {
                     <button
                       key={m}
                       onClick={() => setViewMode(m)}
-                      className={`px-2.5 py-1 rounded-full text-[9px] font-mono font-bold uppercase transition-all cursor-pointer ${viewMode === m
+                      className={`px-2.5 py-1 rounded-full text-[9px] font-sans font-bold uppercase transition-all cursor-pointer ${viewMode === m
                         ? m === "photo" ? "bg-primary text-stone-950" : "bg-[#488b82] text-white"
                         : "text-stone-400 hover:text-white"
                         }`}
@@ -210,7 +210,7 @@ export default function About({ setView }) {
                 </div>
 
                 <div className="absolute bottom-3 left-4 right-4">
-                  <span className="text-[9px] font-mono text-primary uppercase tracking-widest font-bold">
+                  <span className="text-[9px] font-sans text-primary uppercase tracking-widest font-bold">
                     FIG 01.{active + 1} · {current.tag}
                   </span>
                 </div>
@@ -218,16 +218,16 @@ export default function About({ setView }) {
 
               {/* Text */}
               <div className="p-5 space-y-3">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-primary-hover">
+                <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-primary-hover">
                   Pillar {current.num}
                 </span>
-                <h3 className="text-lg font-extrabold text-stone-950 leading-snug font-serif">
+                <h3 className="text-lg font-extrabold text-stone-950 leading-snug">
                   {current.heading}
                 </h3>
                 <p className="text-xs text-stone-600 font-light leading-relaxed">{current.desc}</p>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {current.chips.map((c, i) => (
-                    <span key={i} className="inline-flex items-center gap-1 text-[10px] font-mono bg-[#488b82]/10 border border-[#488b82]/25 text-[#2f635c] px-2.5 py-1 rounded-lg font-semibold">
+                    <span key={i} className="inline-flex items-center gap-1 text-[10px] font-sans bg-[#488b82]/10 border border-[#488b82]/25 text-[#2f635c] px-2.5 py-1 rounded-lg font-semibold">
                       <CheckCircle2 size={10} className="text-[#488b82] shrink-0" />{c}
                     </span>
                   ))}
@@ -236,10 +236,10 @@ export default function About({ setView }) {
 
               {/* Quote strip */}
               <div className="mx-5 mb-5 p-4 rounded-2xl bg-[#f3e9df] border-l-4 border-primary space-y-1">
-                <p className="text-xs font-serif italic text-stone-800 leading-relaxed">
+                <p className="text-xs font-sans italic text-stone-800 leading-relaxed">
                   &ldquo;{current.quote}&rdquo;
                 </p>
-                <span className="text-[9px] font-mono uppercase tracking-widest text-primary-hover font-bold">
+                <span className="text-[9px] font-sans uppercase tracking-widest text-primary-hover font-bold">
                   — {current.author}
                 </span>
               </div>
@@ -252,7 +252,7 @@ export default function About({ setView }) {
 
           {/* LEFT: Pillar selector */}
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-[10px] font-mono font-bold text-stone-400 uppercase tracking-[0.25em] block">
+            <span className="text-[10px] font-sans font-bold text-stone-400 uppercase tracking-[0.25em] block">
               Select a Studio Pillar
             </span>
 
@@ -277,7 +277,7 @@ export default function About({ setView }) {
 
                     <div className="p-5 space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <span className={`text-[9px] font-mono font-bold tracking-[0.2em] uppercase ${isActive ? "text-primary-hover" : "text-stone-400"}`}>
+                        <span className={`text-[9px] font-sans font-bold tracking-[0.2em] uppercase ${isActive ? "text-primary-hover" : "text-stone-400"}`}>
                           {p.num} · {p.tag}
                         </span>
                         <ChevronRight
@@ -286,7 +286,7 @@ export default function About({ setView }) {
                         />
                       </div>
 
-                      <h3 className={`text-lg font-extrabold leading-snug ${isActive ? "text-stone-950 font-serif" : "text-stone-800"}`}>
+                      <h3 className={`text-lg font-extrabold leading-snug ${isActive ? "text-stone-950" : "text-stone-800"}`}>
                         {p.heading}
                       </h3>
 
@@ -302,7 +302,7 @@ export default function About({ setView }) {
                             <p className="text-sm font-light text-stone-600 leading-relaxed">{p.desc}</p>
                             <div className="flex flex-wrap gap-2">
                               {p.chips.map((c, ci) => (
-                                <span key={ci} className="inline-flex items-center gap-1.5 text-[10px] font-mono bg-[#488b82]/10 border border-[#488b82]/25 text-[#2f635c] px-3 py-1 rounded-lg font-semibold">
+                                <span key={ci} className="inline-flex items-center gap-1.5 text-[10px] font-sans bg-[#488b82]/10 border border-[#488b82]/25 text-[#2f635c] px-3 py-1 rounded-lg font-semibold">
                                   <CheckCircle2 size={11} className="text-[#488b82] shrink-0" />{c}
                                 </span>
                               ))}
@@ -327,16 +327,16 @@ export default function About({ setView }) {
                 className="relative p-5 rounded-3xl bg-gradient-to-br from-[#f3e9df] to-[#ede0d4] border border-[#e5d4c5] shadow-sm overflow-hidden"
               >
                 {/* Decorative large quotation mark */}
-                <span className="absolute -top-3 -left-1 text-[80px] text-primary/20 font-serif leading-none select-none pointer-events-none">&ldquo;</span>
+                <span className="absolute -top-3 -left-1 text-[80px] text-primary/20 font-sans leading-none select-none pointer-events-none">&ldquo;</span>
                 <div className="relative z-10 flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-primary/25 border border-primary/40 flex items-center justify-center shrink-0 mt-0.5">
                     <Quote size={16} className="text-primary-hover" />
                   </div>
                   <div className="space-y-1.5">
-                    <p className="text-sm font-serif italic text-stone-800 leading-relaxed">
+                    <p className="text-sm font-sans italic text-stone-800 leading-relaxed">
                       &ldquo;{current.quote}&rdquo;
                     </p>
-                    <span className="block text-[10px] font-mono uppercase tracking-widest text-primary-hover font-bold">
+                    <span className="block text-[10px] font-sans uppercase tracking-widest text-primary-hover font-bold">
                       — {current.author}
                     </span>
                   </div>
@@ -349,7 +349,7 @@ export default function About({ setView }) {
           <div className="lg:col-span-7 relative">
             {/* View mode toggle */}
             <div className="flex items-center justify-between mb-4 px-1">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.22em] text-stone-400">
+              <span className="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-stone-400">
                 Specification View
               </span>
               <div className="flex gap-1 bg-[#ede4da] p-1 rounded-full shadow-inner">
@@ -357,7 +357,7 @@ export default function About({ setView }) {
                   <button
                     key={key}
                     onClick={() => setViewMode(key)}
-                    className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${viewMode === key
+                    className={`px-3.5 py-1.5 rounded-full text-[10px] font-sans font-bold uppercase transition-all cursor-pointer ${viewMode === key
                       ? key === "photo" ? "bg-primary text-stone-950 shadow-sm" : "bg-[#488b82] text-white shadow-sm"
                       : "text-stone-500 hover:text-stone-900"
                       }`}
@@ -392,7 +392,7 @@ export default function About({ setView }) {
                   <div className="absolute top-5 right-5 bg-[#488b82] text-white px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 border border-white/20">
                     <ShieldCheck size={16} className="shrink-0" />
                     <div className="text-left leading-tight">
-                      <span className="text-[8px] font-mono font-bold uppercase tracking-wider text-emerald-100 block">Architect Supervised</span>
+                      <span className="text-[8px] font-sans font-bold uppercase tracking-wider text-emerald-100 block">Architect Supervised</span>
                       <span className="text-xs font-bold">100% Site Audit</span>
                     </div>
                   </div>
@@ -400,10 +400,10 @@ export default function About({ setView }) {
                   {/* Bottom caption */}
                   <div className="absolute bottom-5 left-6 right-6 flex items-end justify-between">
                     <div className="text-white text-left">
-                      <span className="text-[10px] font-mono text-primary uppercase tracking-widest font-bold block">
+                      <span className="text-[10px] font-sans text-primary uppercase tracking-widest font-bold block">
                         {viewMode === "photo" ? "Suthar Studio Monograph" : "Isometric CAD Blueprint"} · Fig 01.{active + 1}
                       </span>
-                      <span className="text-base font-bold text-white font-serif block leading-snug">{current.heading}</span>
+                      <span className="text-base font-bold text-white font-sans block leading-snug">{current.heading}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -414,8 +414,8 @@ export default function About({ setView }) {
                 {...fadeUp(0.2)}
                 className="absolute -bottom-6 -left-5 z-20 bg-gradient-to-br from-primary to-primary-hover text-stone-950 px-5 py-4 rounded-2xl shadow-2xl border-2 border-white flex items-center gap-3"
               >
-                <span className="text-4xl font-extrabold tracking-tight leading-none font-serif">35+</span>
-                <div className="leading-tight font-mono text-left">
+                <span className="text-4xl font-extrabold tracking-tight leading-none font-sans">35+</span>
+                <div className="leading-tight font-sans text-left">
                   <span className="text-xs font-bold uppercase tracking-wider block">Years</span>
                   <span className="text-xs font-bold uppercase tracking-wider block">Legacy</span>
                 </div>
@@ -426,8 +426,8 @@ export default function About({ setView }) {
                 {...fadeUp(0.3)}
                 className="absolute -right-4 top-1/3 z-20 bg-white border border-[#e5dcd3] shadow-xl rounded-2xl p-4 max-w-[160px]"
               >
-                <span className="text-[9px] font-mono text-primary-hover font-bold uppercase tracking-wider block mb-1">Active Pillar</span>
-                <span className="text-sm font-extrabold text-stone-900 font-serif block leading-tight">{current.num}. {current.tag.split(" ").slice(0, 2).join(" ")}</span>
+                <span className="text-[9px] font-sans text-primary-hover font-bold uppercase tracking-wider block mb-1">Active Pillar</span>
+                <span className="text-sm font-extrabold text-stone-900 font-sans block leading-tight">{current.num}. {current.tag.split(" ").slice(0, 2).join(" ")}</span>
                 <div className="mt-2 h-1 rounded-full bg-[#e5dcd3] overflow-hidden">
                   <motion.div
                     key={active}
@@ -437,7 +437,7 @@ export default function About({ setView }) {
                     className="h-full bg-primary rounded-full"
                   />
                 </div>
-                <span className="text-[9px] text-stone-400 font-mono block mt-1">{active + 1} of {PILLARS.length}</span>
+                <span className="text-[9px] text-stone-400 font-sans block mt-1">{active + 1} of {PILLARS.length}</span>
               </motion.div>
             </div>
           </div>

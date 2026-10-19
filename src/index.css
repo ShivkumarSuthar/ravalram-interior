@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Dark mode is class-based (.dark on <html>), set before paint by the script in layout.jsx:
+   it follows the system setting unless the visitor picks Light or Dark in the header toggle */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* Semantic Design Tokens (Color-agnostic) */
   --color-primary: #CAA05C;
@@ -21,12 +25,56 @@
   --color-stone-gray: var(--color-text-muted);
 }
 
+/* Dark theme: page surfaces go dark, text goes light; gold, photos and the always-dark
+   panels (surface-dark, bg-dark) keep their look */
+.dark {
+  color-scheme: dark;
+  --color-bg-base: #1C1C1D;
+  --color-bg-dark: #0A0A0A;
+  --color-text-muted: #A9A9AE;
+  --color-bg-soft: #121212;
+  --color-line: #77777C;
+  --color-ink: #F2F2F2;
+}
+
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
-  --font-serif: "Outfit", "Plus Jakarta Sans", sans-serif;
-  --font-mono: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  
+  /* Fonts (loaded in src/app/layout.jsx via next/font/google) */
+  --font-sans: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-cal-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Site surfaces, hairlines and text on page backgrounds (all flip in dark mode) */
+  --color-bg-soft: #F6F6F6;
+  --color-line: #9F9FA4;
+  --color-ink: #191919;
+  --color-whatsapp: #25D366;
+
+  /* Type scale (fluid: phone → 1440px desktop) */
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.0625rem;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.75rem;
+  --text-lead-lg: 1.25rem;
+  --text-lead-lg--line-height: 1.75rem;
+  --text-card: clamp(1.25rem, 0.9rem + 1vw, 1.75rem);
+  --text-card--line-height: 1.3;
+  --text-card-lg: clamp(1.5rem, 1rem + 1.4vw, 2.25rem);
+  --text-card-lg--line-height: 1.2;
+  --text-section: clamp(2rem, 1.1rem + 3vw, 3.75rem);
+  --text-section--line-height: 1.1;
+  --text-section-lg: clamp(2.25rem, 1rem + 4.4vw, 5rem);
+  --text-section-lg--line-height: 1.1;
+  --text-hero: clamp(2.75rem, 0.9rem + 7.2vw, 6.875rem);
+  --text-hero--line-height: 1.1;
+  --text-display: clamp(2.5rem, 0.6rem + 8vw, 7.5rem);
+  --text-display--line-height: 1.2;
+  --text-watermark: clamp(6rem, 1rem + 26vw, 26.25rem);
+  --text-watermark--line-height: 1;
+
+  /* Layout widths */
+  --container-site: 100rem;
+  --container-heading: 74.5rem;
+
   /* Semantic Color Utilities */
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
@@ -78,20 +126,12 @@ body {
   color: var(--color-dark-charcoal);
 }
 
-h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display);
-}
-
-.font-serif {
-  font-family: var(--font-serif);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-.font-sans {
-  font-family: var(--font-sans);
+/* Headings use Cal Sans; it has one weight, so never fake bold over it */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-synthesis-weight: none;
+  }
 }
 
 /* Custom scrollbar - Transparent track so dark/light backgrounds blend seamlessly without light stripes */
@@ -165,108 +205,75 @@ select:focus-visible,
 }
 
 
+/* ===========================
+   Brand loader
+   The Suthar Brothers mark draws itself: the S first, then the B passing behind it.
+   One 3.2s cycle; the S finishes at 24.5% and the B at 62%.
+=========================== */
 
-
-
-
-
-
-
-
-.preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  overflow: hidden;
-  background: #000;
-
-  perspective: 2200px;
+.sb-stroke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-duration: 3.2s;
+  animation-iteration-count: infinite;
 }
 
-.slats {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-
-  transform-style: preserve-3d;
+.sb-s {
+  animation-name: sb-draw-s;
 }
 
-.slat {
-  position: relative;
-
-  flex: 1;
-
-  transform-style: preserve-3d;
-
-  will-change: transform;
-
-  transition:
-    transform 1.15s cubic-bezier(.83,0,.17,1);
-
-  transition-delay: var(--delay);
+.sb-b {
+  animation-name: sb-draw-b;
 }
 
-.front,
-.back {
-  position: absolute;
-  inset: 0;
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.sb-mark {
+  animation: sb-fade 3.2s ease infinite;
 }
 
-.front {
-  background: #000;
-
-  border-right: 1px solid rgba(255,255,255,.06);
+@keyframes sb-draw-s {
+  0% {
+    stroke-dashoffset: 1;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.8, 0.6);
+  }
+  24.5%, 100% {
+    stroke-dashoffset: 0;
+  }
 }
 
-.back {
-  background: #fff;
-
-  transform: rotateY(180deg);
-
-  border-right: 1px solid rgba(0,0,0,.05);
+@keyframes sb-draw-b {
+  0%, 24.5% {
+    stroke-dashoffset: 1;
+    animation-timing-function: cubic-bezier(0.2, 0.4, 0.3, 1);
+  }
+  62%, 100% {
+    stroke-dashoffset: 0;
+  }
 }
 
-/* Exit Animation */
-
-.preloader.exit .slat {
-  transform: rotateY(180deg);
+@keyframes sb-fade {
+  0%, 88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-/* Logo */
-
-.logo {
-  position: absolute;
-  inset: 0;
-
-  display: grid;
-  place-items: center;
-
-  font-size: clamp(64px,12vw,180px);
-  font-weight: 900;
-  letter-spacing: -.06em;
-
-  color: white;
-
-  mix-blend-mode: difference;
-
-  user-select: none;
-  pointer-events: none;
-
-  transition:
-      opacity .45s ease,
-      transform .45s ease;
+@media (prefers-reduced-motion: reduce) {
+  .sb-stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .sb-mark {
+    animation: none;
+  }
 }
 
-.preloader.exit .logo {
-  opacity: 0;
-  transform: scale(.92);
+/* The intro loader plays on the first visit of a session; the head script sets
+   html[data-loader="skip"] for every later page load */
+html[data-loader="skip"] .site-loader {
+  display: none;
 }
-
-
 
 /* ===========================
    Premium Button

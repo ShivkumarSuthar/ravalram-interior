@@ -1,27 +1,25 @@
+import { notFound } from "next/navigation";
 import { getPageMetadata, generateSchema } from "../../lib/seo";
-import CityClient from "./CityClient";
+import CityLanding from "../../components/site/pages/CityPage";
+
+const CITIES = ["mumbai", "goa", "pune", "bangalore", "hyderabad", "hubli", "kumta", "honnavar"];
+
+// Only the cities listed above get a page; any other single-segment URL falls through to the 404
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return [
-    { city: "mumbai" },
-    { city: "goa" },
-    { city: "pune" },
-    { city: "bangalore" },
-    { city: "hyderabad" },
-    { city: "hubli" },
-    { city: "kumta" },
-    { city: "honnavar" },
-  ];
+  return CITIES.map((city) => ({ city }));
 }
 
 export async function generateMetadata(props) {
   const params = await props.params;
   const rawCity = params.city || "mumbai";
+  if (!CITIES.includes(rawCity)) return {};
   const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
   return getPageMetadata({
-    title: `Best Interior Designer in ${city} | Suthar Interior Studio & Architecture`,
-    description: `Looking for top-tier residential & commercial interior design in ${city}? Suthar Interior Studio offers architect-supervised, custom furniture manufacturing and turnkey solutions since 1989.`,
+    title: `Interior Designer in ${city} | Suthar Brothers`,
+    description: `Home, office and commercial interiors in ${city} by Suthar Brothers: modular kitchens, wardrobes, custom furniture, renovation and turnkey projects, with 30+ years of experience.`,
     path: `/${rawCity}`,
     keywords: [
       `Interior Designer ${city}`,
@@ -38,13 +36,14 @@ export async function generateMetadata(props) {
 export default async function CityPage(props) {
   const params = await props.params;
   const rawCity = params.city || "mumbai";
+  if (!CITIES.includes(rawCity)) notFound();
   const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
   // Create JSON-LD schema
   const localBusinessSchema = generateSchema("LocalBusiness", {
     city: city,
-    title: `Suthar Interior Studio & Architecture - ${city} Team`,
-    description: `Architect-supervised high-end residential interiors, luxury commercial showrooms, and bespoke woodworking joinery in ${city}.`,
+    title: `Suthar Brothers - ${city} Team`,
+    description: `Interior design and execution for homes, offices and commercial spaces in ${city}.`,
   });
 
   const breadcrumbSchema = generateSchema("Breadcrumb", {
@@ -65,7 +64,7 @@ export default async function CityPage(props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <CityClient city={rawCity} />
+      <CityLanding slug={rawCity} />
     </>
   );
 }

@@ -125,14 +125,14 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
-          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase mb-8">
+          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase mb-8">
             <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer uppercase font-bold">HOME</button>
             <span>/</span>
             <span className="text-gold-accent font-bold">PRIVACY POLICY</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <span className="text-gold-accent text-xs sm:text-sm tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs sm:text-sm tracking-[0.3em] font-sans font-bold block uppercase">
               LEGAL INFORMATION
             </span>
             <motion.h1
@@ -156,7 +156,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center space-x-2.5 pt-4 text-xs font-mono text-stone-400"
+              className="flex items-center space-x-2.5 pt-4 text-xs font-sans text-stone-400"
             >
               <Calendar size={13} className="text-gold-accent" />
               <span>LAST UPDATED:</span>
@@ -175,7 +175,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
             <div className="bg-white rounded-2xl border border-stone-200/40 p-6 shadow-sm space-y-6 hidden lg:block">
               <div className="flex items-center space-x-2.5 pb-4 border-b border-stone-100">
                 <Shield size={18} className="text-gold-accent" />
-                <h3 className="text-sm font-mono tracking-widest uppercase font-bold text-stone-900">Document Outline</h3>
+                <h3 className="text-sm tracking-widest uppercase font-bold text-stone-900">Document Outline</h3>
               </div>
               <nav className="flex flex-col space-y-1.5 text-left">
                 {sections.map((section) => {
@@ -185,7 +185,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`group flex items-center space-x-3 px-4 py-3 text-xs tracking-wider uppercase font-mono font-bold transition-all duration-300 rounded-lg cursor-pointer ${
+                      className={`group flex items-center space-x-3 px-4 py-3 text-xs tracking-wider uppercase font-sans font-bold transition-all duration-300 rounded-lg cursor-pointer ${
                         isActive
                           ? "bg-[var(--color-surface-dark)] text-gold-accent shadow-md shadow-stone-950/5 translate-x-1"
                           : "text-stone-500 hover:text-stone-900 hover:bg-stone-100"
@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest whitespace-nowrap border rounded-none transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-2.5 text-[10px] font-sans font-bold uppercase tracking-widest whitespace-nowrap border rounded-none transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-sm"
                         : "bg-white text-stone-500 border-stone-200 hover:border-stone-400"
@@ -231,8 +231,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Database size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 01</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Information We Collect</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 01</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Information We Collect</h2>
                 </div>
               </div>
 
@@ -253,11 +253,11 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   { title: "Technical Session Logging", desc: "Data automatically recorded during your website interaction.", items: ["Browser Information", "Device Information", "IP Address"] }
                 ].map((group, idx) => (
                   <div key={idx} className="p-5 bg-stone-50/50 border border-stone-100 rounded-2xl space-y-3">
-                    <h4 className="text-stone-900 font-mono text-xs font-bold uppercase tracking-wider">{group.title}</h4>
+                    <h4 className="text-stone-900 text-xs font-bold uppercase tracking-wider">{group.title}</h4>
                     <p className="text-stone-500 text-xs font-light">{group.desc}</p>
                     <div className="flex flex-wrap gap-2 pt-1.5">
                       {group.items.map((item, itemIdx) => (
-                        <span key={itemIdx} className="bg-white px-2.5 py-1 text-[10px] font-mono font-medium text-stone-600 border border-stone-200/50 rounded-full">
+                        <span key={itemIdx} className="bg-white px-2.5 py-1 text-[10px] font-sans font-medium text-stone-600 border border-stone-200/50 rounded-full">
                           {item}
                         </span>
                       ))}
@@ -275,8 +275,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <UserCheck size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 02</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">How We Use Your Information</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 02</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">How We Use Your Information</h2>
                 </div>
               </div>
 
@@ -311,8 +311,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Users size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 03</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Information Sharing</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 03</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Information Sharing</h2>
                 </div>
               </div>
 
@@ -335,8 +335,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Cookie size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 04</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Cookies & Web Analytics</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 04</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Cookies & Web Analytics</h2>
                 </div>
               </div>
 
@@ -351,14 +351,14 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   { title: "User Preferences", desc: "Securing input values so you don't re-enter consultation details." }
                 ].map((item, idx) => (
                   <div key={idx} className="p-5 border border-stone-100 rounded-2xl space-y-2.5 text-left bg-bg-base/30">
-                    <span className="text-[10px] font-mono font-bold text-gold-accent tracking-wider uppercase block">TYPE 0{idx+1}</span>
-                    <h4 className="text-stone-900 font-bold text-xs uppercase font-mono">{item.title}</h4>
+                    <span className="text-[10px] font-sans font-bold text-gold-accent tracking-wider uppercase block">TYPE 0{idx+1}</span>
+                    <h4 className="text-stone-900 font-bold text-xs uppercase">{item.title}</h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-xs text-stone-400 font-light font-mono">
+              <p className="text-xs text-stone-400 font-light font-sans">
                 *You can modify cookie preferences entirely within your individual browser settings. Note that disabling cookies might disable some premium interactive visual modules.
               </p>
             </div>
@@ -371,8 +371,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Lock size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 05</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Data Security Measures</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 05</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Data Security Measures</h2>
                 </div>
               </div>
 
@@ -389,8 +389,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Globe size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 06</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Third Party Services</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 06</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Third Party Services</h2>
                 </div>
               </div>
 
@@ -400,7 +400,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
 
               <div className="flex flex-wrap gap-3">
                 {["Google Maps API", "Google Analytics", "WhatsApp API", "Corporate Email Relays"].map((item, idx) => (
-                  <span key={idx} className="inline-flex items-center space-x-1.5 px-4 py-2.5 bg-stone-50 border border-stone-200/50 rounded-xl text-stone-700 text-xs font-mono font-medium">
+                  <span key={idx} className="inline-flex items-center space-x-1.5 px-4 py-2.5 bg-stone-50 border border-stone-200/50 rounded-xl text-stone-700 text-xs font-sans font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold-accent" />
                     <span>{item}</span>
                   </span>
@@ -420,8 +420,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Shield size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 07</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Your Legal Rights</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 07</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Your Legal Rights</h2>
                 </div>
               </div>
 
@@ -437,7 +437,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   { title: "Withdraw Consent", desc: "Revoke permission for newsletters and design-build updates instantly." }
                 ].map((right, idx) => (
                   <div key={idx} className="p-5 bg-stone-50 rounded-2xl border border-stone-100 space-y-2">
-                    <h4 className="text-stone-900 font-bold font-mono text-xs uppercase tracking-wider">{right.title}</h4>
+                    <h4 className="text-stone-900 font-bold text-xs uppercase tracking-wider">{right.title}</h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">{right.desc}</p>
                   </div>
                 ))}
@@ -452,8 +452,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <AlertCircle size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 08</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Children's Privacy</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 08</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Children's Privacy</h2>
                 </div>
               </div>
 
@@ -470,8 +470,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <RefreshCw size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 09</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Policy Updates</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 09</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Policy Updates</h2>
                 </div>
               </div>
 
@@ -488,8 +488,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                   <Mail size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 10</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Contact Information</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 10</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Contact Information</h2>
                 </div>
               </div>
 
@@ -512,8 +512,8 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
                         <CardIcon size={16} />
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-stone-950 font-bold font-mono text-[11px] uppercase tracking-wider">{card.title}</h4>
-                        <span className="text-gold-accent text-[10px] font-mono font-bold block">{card.label}</span>
+                        <h4 className="text-stone-950 font-bold text-[11px] uppercase tracking-wider">{card.title}</h4>
+                        <span className="text-gold-accent text-[10px] font-sans font-bold block">{card.label}</span>
                         <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">{card.val}</p>
                       </div>
                     </div>
@@ -536,7 +536,7 @@ export default function PrivacyPolicyPage({ onBackToHome, setView, onOpenQuote }
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold block uppercase">
             ANY REMAINING INQUIRIES?
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase max-w-3xl mx-auto">

@@ -1,49 +1,14 @@
-"use client";
+import { getPageMetadata } from "../../lib/seo";
+import AboutPage from "../../components/site/pages/AboutPage";
 
-import { useRouter } from "next/navigation";
-import { motion } from "motion/react";
-import SEOHelper from "../../components/SEOHelper";
-import Header from "../../components/Header";
-import AboutPage from "../../components/AboutPage";
-import Footer from "../../components/Footer";
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: "About Us",
+    description: "Suthar Brothers: a family business with 30+ years of interior experience, designing and building homes, offices and commercial spaces.",
+    path: "/about-us",
+  });
+}
 
-export default function AboutUs() {
-  const router = useRouter();
-
-  const handleNavigate = (view) => {
-    if (!view || view === "home" || view === "/") {
-      router.push("/");
-    } else if (typeof view === "string" && view.startsWith("/")) {
-      router.push(view);
-    } else {
-      router.push(`/${view}`);
-    }
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  return (
-    <>
-      <SEOHelper currentView="about-us" />
-      <Header currentView="about-us" setView={handleNavigate} />
-      
-      <main className="relative z-10">
-        <motion.div
-          key="about-us-subpage"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <AboutPage
-            onBackToHome={() => handleNavigate("home")}
-            onOpenQuote={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
-          />
-        </motion.div>
-      </main>
-
-      <Footer onNavigate={handleNavigate} />
-    </>
-  );
+export default function AboutRoute() {
+  return <AboutPage />;
 }

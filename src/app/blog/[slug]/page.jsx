@@ -1,6 +1,6 @@
 import { getBlogArticleBySlug, blogArticles } from "../../../lib/blog-data";
 import { getPageMetadata, generateSchema } from "../../../lib/seo";
-import BlogDetailsClient from "./BlogDetailsClient";
+import BlogDetailPage from "../../../components/site/pages/BlogDetailPage";
 
 export async function generateStaticParams() {
   return blogArticles.map((art) => ({
@@ -15,12 +15,12 @@ export async function generateMetadata(props) {
   if (!article) {
     return getPageMetadata({
       title: "Article Not Found",
-      description: "The requested blog article could not be located on Suthar Interior Studio.",
+      description: "The requested blog article could not be located on Suthar Brothers.",
     });
   }
 
   return getPageMetadata({
-    title: `${article.title} | Suthar Interior Studio`,
+    title: `${article.title} | Suthar Brothers`,
     description: article.excerpt,
     path: `/blog/${article.slug}`,
     keywords: [article.categoryLabel, "Interior Design Blog", "Woodworking Article", "Suthar Insights"],
@@ -35,7 +35,7 @@ export default async function BlogDetailsPage(props) {
   const article = getBlogArticleBySlug(params.slug);
 
   if (!article) {
-    return <BlogDetailsClient article={null} />;
+    return <BlogDetailPage article={null} />;
   }
 
   // Create article schema
@@ -66,7 +66,7 @@ export default async function BlogDetailsPage(props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <BlogDetailsClient article={article} />
+      <BlogDetailPage article={article} />
     </>
   );
 }

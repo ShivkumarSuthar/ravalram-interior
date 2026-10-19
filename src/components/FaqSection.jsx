@@ -44,7 +44,7 @@ export default function FaqSection({ setView }) {
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-5 py-2 rounded-full shadow-sm">
               <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
-              <span className="text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
+              <span className="text-[11px] uppercase tracking-[0.2em] font-sans font-bold text-stone-700">
                 FAQ
               </span>
             </div>
@@ -75,7 +75,7 @@ export default function FaqSection({ setView }) {
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center space-x-4 pr-4">
-                      <span className="text-xs font-mono font-bold text-stone-400 group-hover:text-gold-accent transition-colors shrink-0">
+                      <span className="text-xs font-sans font-bold text-stone-400 group-hover:text-gold-accent transition-colors shrink-0">
                         {faq.num}
                       </span>
                       <h3 className={`text-base sm:text-lg md:text-xl font-extrabold tracking-tight transition-colors duration-300 ${

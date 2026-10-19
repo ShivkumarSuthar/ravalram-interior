@@ -21,7 +21,7 @@ export default function Newsletter() {
 
   return (
     <section className="bg-bg-base py-20 sm:py-28 lg:py-32 relative overflow-hidden select-none border-t border-stone-200/80">
-      
+
       {/* Background Blueprint Grid Lines Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
         <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 sm:grid-cols-6 gap-6">
@@ -35,7 +35,7 @@ export default function Newsletter() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-8 sm:space-y-10">
-        
+
         {/* Centered Headline & Description */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function Newsletter() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-5 max-w-4xl mx-auto"
         >
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-stone-900">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-stone-900">
             <span>Join </span>
             <span className="text-gold-accent">Our Newsletter</span> <br />
             <span className="text-gold-accent">Stay </span>
@@ -99,7 +99,7 @@ export default function Newsletter() {
                 <div className="w-5 h-5 rounded-full bg-gold-accent text-stone-950 flex items-center justify-center">
                   <Check size={12} strokeWidth={3} />
                 </div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider">
+                <span className="text-xs font-sans font-bold uppercase tracking-wider">
                   Successfully Subscribed To Newsletter!
                 </span>
               </motion.div>

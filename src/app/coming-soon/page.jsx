@@ -1,26 +1,15 @@
-"use client";
+import { getPageMetadata } from "../../lib/seo";
+import ComingSoonPage from "../../components/site/pages/ComingSoonPage";
 
-import { useRouter } from "next/navigation";
-import { motion } from "motion/react";
-import SEOHelper from "../../components/SEOHelper";
-import ComingSoonPage from "../../components/ComingSoonPage";
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: "Coming Soon",
+    description: "Something new from Suthar Brothers is on the way.",
+    path: "/coming-soon",
+    noIndex: true,
+  });
+}
 
-export default function ComingSoon() {
-  const router = useRouter();
-
-  const handleNavigate = (view) => {
-    if (view === "home") {
-      router.push("/");
-    } else {
-      router.push(`/${view}`);
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  return (
-    <>
-      <SEOHelper currentView="coming-soon" />
-      <ComingSoonPage onBackToHome={() => handleNavigate("home")} />
-    </>
-  );
+export default function ComingSoonRoute() {
+  return <ComingSoonPage />;
 }

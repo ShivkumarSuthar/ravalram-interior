@@ -1,46 +1,15 @@
-"use client";
+import { getPageMetadata } from "../../lib/seo";
+import LegalPage from "../../components/site/pages/LegalPage";
+import { TERMS } from "../../lib/legal-content";
 
-import { useRouter } from "next/navigation";
-import { motion } from "motion/react";
-import SEOHelper from "../../components/SEOHelper";
-import Header from "../../components/Header";
-import TermsAndConditionsPage from "../../components/TermsAndConditionsPage";
-import Footer from "../../components/Footer";
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: "Terms & Conditions",
+    description: "The terms that apply to the Suthar Brothers website and our interior design and execution services.",
+    path: "/terms",
+  });
+}
 
-export default function Terms() {
-  const router = useRouter();
-
-  const handleNavigate = (view) => {
-    if (view === "home") {
-      router.push("/");
-    } else {
-      router.push(`/${view}`);
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  return (
-    <>
-      <SEOHelper currentView="terms" />
-      <Header currentView="terms" setView={handleNavigate} />
-      
-      <main className="relative z-10">
-        <motion.div
-          key="terms-subpage"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <TermsAndConditionsPage
-            onBackToHome={() => handleNavigate("home")}
-            setView={handleNavigate}
-            onOpenQuote={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
-          />
-        </motion.div>
-      </main>
-
-      <Footer onNavigate={handleNavigate} />
-    </>
-  );
+export default function TermsRoute() {
+  return <LegalPage doc={TERMS} />;
 }

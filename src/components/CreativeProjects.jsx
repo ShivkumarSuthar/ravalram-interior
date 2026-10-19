@@ -130,7 +130,7 @@ export default function CreativeProjects() {
 
           {/* Subtitle */}
           <p className="text-stone-500 font-light text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Our portfolio showcases a diverse range of projects, from beautifully crafted residential spaces to functional and stylish commercial interiors.
+            A curated monograph of our architectural and timber joinery legacy. Every space is a testament to millimetric precision and uncompromising material purity.
           </p>
 
           {/* Left / Right Scroll Controls centered under header */}
@@ -233,7 +233,7 @@ export default function CreativeProjects() {
                     {/* Below Image Text Info */}
                     <div className="text-left space-y-1.5 px-1 pt-0.5">
                       <div className="min-h-[2.6rem] sm:min-h-[3.2rem] flex items-center">
-                        <h3 className={`font-serif tracking-tight leading-snug transition-all duration-500 line-clamp-2 ${
+                        <h3 className={`tracking-tight leading-snug transition-all duration-500 line-clamp-2 ${
                           isFocused 
                             ? "text-stone-950 text-lg sm:text-2xl md:text-3xl font-bold" 
                             : "text-stone-500 text-base sm:text-xl font-medium group-hover:text-primary"
@@ -299,7 +299,7 @@ export default function CreativeProjects() {
                 />
 
                 <div className="mt-4 text-center text-white space-y-1.5 max-w-xl">
-                  <span className="inline-block bg-gold-accent text-stone-950 font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-mono">
+                  <span className="inline-block bg-gold-accent text-stone-950 font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-sans">
                     {projects[lightboxIndex].badge} • {projects[lightboxIndex].year}
                   </span>
                   <h4 className="text-2xl font-extrabold text-white tracking-tight">{projects[lightboxIndex].title}</h4>

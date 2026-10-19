@@ -123,7 +123,7 @@ export default function Blog({ setView }) {
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center space-x-2 border border-stone-300/80 bg-white px-4 sm:px-5 py-2 rounded-full shadow-sm">
               <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-mono font-bold text-stone-700">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-sans font-bold text-stone-700">
                 STRAIGHT FROM THE NEWSROOM
               </span>
             </div>
@@ -138,7 +138,7 @@ export default function Blog({ setView }) {
 
             {/* Mobile Carousel Arrow Buttons (Mobile Only) */}
             <div className="flex sm:hidden items-center justify-between w-full pt-2 border-t border-stone-200/60">
-              <span className="text-[11px] font-mono text-stone-500 font-bold uppercase tracking-wider">
+              <span className="text-[11px] font-sans text-stone-500 font-bold uppercase tracking-wider">
                 Article {activeCardIndex + 1} of {allArticles.length}
               </span>
               <div className="flex items-center space-x-2">
@@ -200,7 +200,7 @@ export default function Blog({ setView }) {
 
                     {/* Tag Pill Badge Overlaid on Top Left */}
                     <div className="absolute top-3 left-3 z-10">
-                      <span className="bg-gold-accent text-stone-950 font-mono text-[9px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                      <span className="bg-gold-accent text-stone-950 font-sans text-[9px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
                         {art.tag}
                       </span>
                     </div>
@@ -213,7 +213,7 @@ export default function Blog({ setView }) {
 
                   {/* Text Details */}
                   <div className="space-y-1.5 text-left px-1">
-                    <div className="flex items-center space-x-2 text-[11px] font-mono text-stone-400">
+                    <div className="flex items-center space-x-2 text-[11px] font-sans text-stone-400">
                       <span>{art.date}</span>
                       <span>&bull;</span>
                       <span>By <strong className="text-gold-accent font-bold">{art.author}</strong></span>
@@ -230,7 +230,7 @@ export default function Blog({ setView }) {
                 </div>
 
                 {/* Bottom Read Action Bar */}
-                <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between text-xs font-mono font-bold text-stone-900 group-hover:text-gold-accent transition-colors px-1">
+                <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between text-xs font-sans font-bold text-stone-900 group-hover:text-gold-accent transition-colors px-1">
                   <span>READ PUBLICATION</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -288,7 +288,7 @@ export default function Blog({ setView }) {
 
               {/* Tag Pill Badge Overlaid on Image Top Left */}
               <div className="absolute top-4 left-4 z-10">
-                <span className="bg-gold-accent text-stone-950 font-mono text-[10px] sm:text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
+                <span className="bg-gold-accent text-stone-950 font-sans text-[10px] sm:text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
                   {mainArticle.tag}
                 </span>
               </div>
@@ -296,7 +296,7 @@ export default function Blog({ setView }) {
 
             {/* Content Details Below Image — flex-1 so it fills remaining height */}
             <div className="flex-1 flex flex-col justify-end space-y-3 px-1">
-              <div className="flex items-center space-x-2 text-xs font-mono text-stone-500">
+              <div className="flex items-center space-x-2 text-xs font-sans text-stone-500">
                 <span>By</span>
                 <span className="text-gold-accent font-extrabold">{mainArticle.author}</span>
               </div>
@@ -336,7 +336,7 @@ export default function Blog({ setView }) {
 
                   {/* Tag Pill Badge Overlaid on Thumbnail Top Left */}
                   <div className="absolute top-2.5 left-2.5 z-10">
-                    <span className="bg-gold-accent text-stone-950 font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                    <span className="bg-gold-accent text-stone-950 font-sans text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
                       {art.tag}
                     </span>
                   </div>
@@ -344,7 +344,7 @@ export default function Blog({ setView }) {
 
                 {/* Article Info Right */}
                 <div className="space-y-2 text-left flex-1">
-                  <div className="flex items-center space-x-2 text-[11px] font-mono text-stone-400">
+                  <div className="flex items-center space-x-2 text-[11px] font-sans text-stone-400">
                     <span>{art.date}</span>
                     <span>&bull;</span>
                     <span>By</span>

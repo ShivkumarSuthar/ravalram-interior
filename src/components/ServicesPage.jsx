@@ -154,7 +154,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           
           {/* Breadcrumb & Navigation Anchor */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
+            <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase">
               <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">
                 HOME
               </button>
@@ -162,7 +162,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               <span className="text-gold-accent font-bold">SERVICES MONOGRAPH</span>
             </div>
 
-            <div className="flex items-center space-x-3 text-[10px] font-mono uppercase text-stone-400">
+            <div className="flex items-center space-x-3 text-[10px] font-sans uppercase text-stone-400">
               <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
               <span>EST. 1989 &bull; ARCHITECT SUPERVISED</span>
             </div>
@@ -171,7 +171,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
             
             <div className="lg:col-span-8 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-gold-accent/20 border border-gold-accent/40 text-gold-accent text-xs tracking-[0.3em] font-mono font-bold px-4 py-1.5 rounded-full uppercase">
+              <div className="inline-flex items-center space-x-2 bg-gold-accent/20 border border-gold-accent/40 text-gold-accent text-xs tracking-[0.3em] font-sans font-bold px-4 py-1.5 rounded-full uppercase">
                 <Sparkles size={14} className="shrink-0" />
                 <span>ARCHITECTURAL &amp; INTERIOR DISCIPLINES</span>
               </div>
@@ -183,7 +183,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]"
               >
                 Complete Interior &amp; <br />
-                <span className="font-serif italic font-normal text-gold-accent">Architectural</span> Solutions.
+                <span className="italic font-normal text-gold-accent">Architectural</span> Solutions.
               </motion.h1>
 
               <motion.p
@@ -214,7 +214,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
                 <a
                   href="#investment-planner"
-                  className="inline-flex items-center space-x-2 px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
+                  className="inline-flex items-center space-x-2 px-6 py-4 border border-white/20 text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
                 >
                   <Calculator size={16} className="text-gold-accent" />
                   <span>Estimate Project Scope</span>
@@ -227,27 +227,27 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               <div className="bg-stone-900/90 border border-stone-800 p-6 rounded-3xl space-y-4 shadow-2xl backdrop-blur-md text-left">
                 <div className="flex items-center space-x-3 border-b border-stone-800 pb-3">
                   <Award className="text-gold-accent" size={24} />
-                  <span className="text-xs font-mono font-bold text-gold-accent uppercase tracking-widest">
+                  <span className="text-xs font-sans font-bold text-gold-accent uppercase tracking-widest">
                     STUDIO STANDARDS
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 text-left">
                   <div>
-                    <span className="text-2xl sm:text-3xl font-serif font-bold text-white block">35+ Yrs</span>
-                    <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Joinery Heritage</span>
+                    <span className="text-2xl sm:text-3xl font-sans font-bold text-white block">35+ Yrs</span>
+                    <span className="text-[10px] font-sans text-stone-400 uppercase tracking-wider block">Joinery Heritage</span>
                   </div>
                   <div>
-                    <span className="text-2xl sm:text-3xl font-serif font-bold text-white block">100%</span>
-                    <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Architect Audited</span>
+                    <span className="text-2xl sm:text-3xl font-sans font-bold text-white block">100%</span>
+                    <span className="text-[10px] font-sans text-stone-400 uppercase tracking-wider block">Architect Audited</span>
                   </div>
                   <div>
-                    <span className="text-2xl sm:text-3xl font-serif font-bold text-white block">10-Yr</span>
-                    <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Structural Guarantee</span>
+                    <span className="text-2xl sm:text-3xl font-sans font-bold text-white block">10-Yr</span>
+                    <span className="text-[10px] font-sans text-stone-400 uppercase tracking-wider block">Structural Guarantee</span>
                   </div>
                   <div>
-                    <span className="text-2xl sm:text-3xl font-serif font-bold text-white block">IS 710</span>
-                    <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Marine BWR Plywood</span>
+                    <span className="text-2xl sm:text-3xl font-sans font-bold text-white block">IS 710</span>
+                    <span className="text-[10px] font-sans text-stone-400 uppercase tracking-wider block">Marine BWR Plywood</span>
                   </div>
                 </div>
               </div>
@@ -264,14 +264,14 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-5 text-left space-y-4">
-              <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100 px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase text-stone-700">
+              <div className="inline-flex items-center space-x-2 border border-stone-200 bg-stone-100 px-3.5 py-1 rounded-full text-[10px] font-sans font-bold tracking-widest uppercase text-stone-700">
                 <span className="w-2 h-2 rounded-full bg-gold-accent" />
                 <span>SINGLE-POINT ACCOUNTABILITY</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-950 leading-tight">
                 Everything You Need. <br />
-                <span className="font-serif italic font-normal text-gold-accent">Under One Studio</span> Roof.
+                <span className="italic font-normal text-gold-accent">Under One Studio</span> Roof.
               </h2>
             </div>
 
@@ -281,15 +281,15 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               </p>
               
               <div className="flex flex-wrap gap-3 pt-2">
-                <span className="inline-flex items-center space-x-2 text-xs font-mono font-semibold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-md border border-stone-200">
+                <span className="inline-flex items-center space-x-2 text-xs font-sans font-semibold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-md border border-stone-200">
                   <ShieldCheck size={14} className="text-gold-accent" />
                   <span>On-Site Architect Supervision</span>
                 </span>
-                <span className="inline-flex items-center space-x-2 text-xs font-mono font-semibold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-md border border-stone-200">
+                <span className="inline-flex items-center space-x-2 text-xs font-sans font-semibold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-md border border-stone-200">
                   <CheckCircle2 size={14} className="text-gold-accent" />
                   <span>Transparent BOQ Pricing</span>
                 </span>
-                <span className="inline-flex items-center space-x-2 text-xs font-mono font-semibold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-md border border-stone-200">
+                <span className="inline-flex items-center space-x-2 text-xs font-sans font-semibold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-md border border-stone-200">
                   <Hammer size={14} className="text-gold-accent" />
                   <span>Factory Timber Millwork</span>
                 </span>
@@ -317,11 +317,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
           {/* Header & Category Tabs */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between text-left gap-8 border-b border-stone-200/80 pb-8">
             <div className="space-y-3 max-w-3xl">
-              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
                 DETAILED ARCHITECTURAL DISCIPLINE CATALOG
               </span>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-950">
-                Our Core <span className="font-serif italic font-normal text-gold-accent">Creative</span> Offerings
+                Our Core <span className="italic font-normal text-gold-accent">Creative</span> Offerings
               </h2>
             </div>
 
@@ -333,7 +333,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    className={`text-[10px] sm:text-xs font-sans font-bold tracking-wider uppercase px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                       isSelected
                         ? "bg-[var(--color-surface-dark)] text-white shadow-md border border-stone-800"
                         : "bg-white text-stone-600 border border-stone-200 hover:border-gold-accent hover:text-gold-accent"
@@ -375,17 +375,17 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                       <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
                       
                       {/* Top Accent Pill */}
-                      <div className="absolute top-4 left-4 bg-[var(--color-surface-dark)]/80 backdrop-blur-md border border-white/20 text-white font-mono text-[9px] font-bold tracking-widest px-3 py-1 rounded-full uppercase z-10">
+                      <div className="absolute top-4 left-4 bg-[var(--color-surface-dark)]/80 backdrop-blur-md border border-white/20 text-white font-sans text-[9px] font-bold tracking-widest px-3 py-1 rounded-full uppercase z-10">
                         {service.accent}
                       </div>
 
                       {/* Number Marker */}
-                      <div className="absolute top-4 right-4 bg-gold-accent text-stone-950 font-mono text-xs font-bold px-2.5 py-1 rounded-full z-10">
+                      <div className="absolute top-4 right-4 bg-gold-accent text-stone-950 font-sans text-xs font-bold px-2.5 py-1 rounded-full z-10">
                         0{index + 1}
                       </div>
 
                       <div className="absolute bottom-3 left-4 right-4 text-white">
-                        <span className="text-[10px] font-mono text-gold-accent font-bold uppercase tracking-widest block">
+                        <span className="text-[10px] font-sans text-gold-accent font-bold uppercase tracking-widest block">
                           SUTHAR SPECIFICATION &bull; VERIFIED
                         </span>
                       </div>
@@ -404,7 +404,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                         <button
                           type="button"
                           onClick={() => setExpandedCards(prev => ({ ...prev, [service.id]: !prev[service.id] }))}
-                          className="inline-flex items-center space-x-1 text-[11px] font-mono font-bold uppercase tracking-wider text-gold-accent hover:text-stone-950 transition-colors cursor-pointer py-0.5"
+                          className="inline-flex items-center space-x-1 text-[11px] font-sans font-bold uppercase tracking-wider text-gold-accent hover:text-stone-950 transition-colors cursor-pointer py-0.5"
                         >
                           <span>{expandedCards[service.id] ? "Show Less" : "See More..."}</span>
                           <ChevronDown size={12} className={`transition-transform duration-300 ${expandedCards[service.id] ? "rotate-180" : ""}`} />
@@ -413,12 +413,12 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
                       {/* Key Capabilities Pills */}
                       <div className="pt-2 space-y-2 border-t border-stone-100">
-                        <span className="text-[10px] font-mono font-bold text-stone-400 uppercase tracking-widest block">
+                        <span className="text-[10px] font-sans font-bold text-stone-400 uppercase tracking-widest block">
                           CORE DELIVERABLES:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {service.features.map((feature, idx) => (
-                            <span key={idx} className="inline-flex items-center space-x-1 text-[10px] font-mono bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md border border-stone-200">
+                            <span key={idx} className="inline-flex items-center space-x-1 text-[10px] font-sans bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md border border-stone-200">
                               <CheckCircle2 size={10} className="text-gold-accent shrink-0" />
                               <span>{feature}</span>
                             </span>
@@ -466,11 +466,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               FLEXIBLE PROCUREMENT &amp; CONTRACTING FORMATS
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-950">
-              How We <span className="font-serif italic font-normal text-gold-accent">Contract &amp; Work</span> With You
+              How We <span className="italic font-normal text-gold-accent">Contract &amp; Work</span> With You
             </h2>
             <p className="text-stone-600 font-light text-sm sm:text-base max-w-2xl mx-auto leading-relaxed pt-1">
               We offer multiple execution contracting formats to match your specific procurement comfort, budget control, and project stage.
@@ -489,10 +489,10 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-9 h-9 rounded-2xl bg-[var(--color-surface-dark)] text-gold-accent font-mono font-bold text-xs flex items-center justify-center shadow-md">
+                    <div className="w-9 h-9 rounded-2xl bg-[var(--color-surface-dark)] text-gold-accent font-sans font-bold text-xs flex items-center justify-center shadow-md">
                       0{idx + 1}
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 group-hover:text-gold-accent transition-colors">
+                    <span className="text-[10px] font-sans uppercase tracking-widest text-stone-400 group-hover:text-gold-accent transition-colors">
                       CONTRACT MODEL
                     </span>
                   </div>
@@ -506,7 +506,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-stone-200/80 flex items-center justify-between text-xs font-mono">
+                <div className="pt-4 border-t border-stone-200/80 flex items-center justify-between text-xs font-sans">
                   <span className="text-stone-500 font-medium">Suthar Guarantee:</span>
                   <span className="text-gold-accent font-bold">100% Verified</span>
                 </div>
@@ -522,11 +522,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               WORKFLOW PIPELINE &bull; CONCEPT TO HANDOVER
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-950">
-              Our Design &amp; <span className="font-serif italic font-normal text-gold-accent">Execution</span> Process
+              Our Design &amp; <span className="italic font-normal text-gold-accent">Execution</span> Process
             </h2>
             <p className="text-stone-600 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed pt-1">
               Click any step below to explore the detailed architectural milestones, deliverables, and quality checks.
@@ -547,7 +547,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                       : "bg-white text-stone-900 border-stone-200 hover:border-gold-accent/50 hover:bg-stone-50"
                   }`}
                 >
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-mono font-bold text-xs ${
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs ${
                     isActive ? "bg-gold-accent text-stone-950" : "bg-stone-100 text-stone-600 group-hover:text-gold-accent"
                   }`}>
                     {step.num}
@@ -574,7 +574,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
               className="bg-[var(--color-surface-dark)] text-white border border-stone-800 p-8 sm:p-10 rounded-3xl shadow-2xl text-left grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
             >
               <div className="md:col-span-8 space-y-4">
-                <div className="inline-flex items-center space-x-2 text-gold-accent font-mono text-xs font-bold tracking-widest uppercase">
+                <div className="inline-flex items-center space-x-2 text-gold-accent font-sans text-xs font-bold tracking-widest uppercase">
                   <span>PHASE {currentWorkflowStep.num} OF 08</span>
                   <span>&bull;</span>
                   <span>ARCHITECTURAL MILESTONE</span>
@@ -589,11 +589,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-2">
-                  <span className="inline-flex items-center space-x-1.5 text-[10px] font-mono bg-stone-900 border border-stone-800 text-stone-200 px-3 py-1 rounded-md">
+                  <span className="inline-flex items-center space-x-1.5 text-[10px] font-sans bg-stone-900 border border-stone-800 text-stone-200 px-3 py-1 rounded-md">
                     <CheckCircle2 size={12} className="text-gold-accent" />
                     <span>Millimeter Laser Audit</span>
                   </span>
-                  <span className="inline-flex items-center space-x-1.5 text-[10px] font-mono bg-stone-900 border border-stone-800 text-stone-200 px-3 py-1 rounded-md">
+                  <span className="inline-flex items-center space-x-1.5 text-[10px] font-sans bg-stone-900 border border-stone-800 text-stone-200 px-3 py-1 rounded-md">
                     <CheckCircle2 size={12} className="text-gold-accent" />
                     <span>Architect Certified Sign-off</span>
                   </span>
@@ -620,7 +620,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         
         {/* Subtle Section Header Label */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8 text-center">
-          <span className="text-[10px] font-mono font-bold tracking-[0.3em] text-stone-400 uppercase">
+          <span className="text-[10px] font-sans font-bold tracking-[0.3em] text-stone-400 uppercase">
             SELECTED ARCHITECTURAL ALLIANCES &amp; DISCIPLINE PARTNERSHIPS
           </span>
         </div>
@@ -673,7 +673,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                     <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-stone-800 group-hover/brand:text-stone-950 uppercase block font-sans transition-colors whitespace-nowrap">
                       {brand.name}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] font-mono text-stone-400 font-medium tracking-widest uppercase block transition-colors whitespace-nowrap">
+                    <span className="text-[9px] sm:text-[10px] font-sans text-stone-400 font-medium tracking-widest uppercase block transition-colors whitespace-nowrap">
                       {brand.subtitle}
                     </span>
                   </div>
@@ -692,11 +692,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           
           <div className="text-left max-w-3xl space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               OUR SPATIAL DIVERSITY
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
-              Industries <span className="font-serif italic font-normal text-gold-accent">We</span> Serve
+              Industries <span className="italic font-normal text-gold-accent">We</span> Serve
             </h2>
             <p className="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
               Our architects and master carpenters adapt to specific residential codes, corporate acoustic requirements, retail circulation flows, and luxury hospitality finishes.
@@ -713,7 +713,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
                 className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 hover:border-gold-accent/40 transition-all duration-300 text-left relative group cursor-default"
               >
-                <div className="text-stone-500 font-mono text-[10px] group-hover:text-gold-accent transition-colors block mb-4 font-bold">
+                <div className="text-stone-500 font-sans text-[10px] group-hover:text-gold-accent transition-colors block mb-4 font-bold">
                   {ind.count}
                 </div>
                 <h3 className="text-sm sm:text-base font-bold tracking-wide text-white group-hover:text-gold-accent transition-colors">
@@ -731,11 +731,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           
           <div className="text-left max-w-3xl space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               REGIONAL OPERATIONS &amp; SITE SURVEY NETWORK
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-950">
-              Service <span className="font-serif italic font-normal text-gold-accent">Areas &amp;</span> Locations
+              Service <span className="italic font-normal text-gold-accent">Areas &amp;</span> Locations
             </h2>
             <p className="text-stone-600 font-light text-sm sm:text-base leading-relaxed">
               We travel directly to verify laser measurements, supervise carpentry mockups, and run turnkey White-Glove handovers across major Indian metros.
@@ -760,7 +760,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-stone-100 mt-4 flex items-center justify-between text-[10px] font-mono text-stone-400">
+                <div className="pt-4 border-t border-stone-100 mt-4 flex items-center justify-between text-[10px] font-sans text-stone-400">
                   <span>On-Site Survey:</span>
                   <span className="text-stone-900 font-bold">24-48 Hr SLA</span>
                 </div>
@@ -776,11 +776,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-4xl mx-auto px-6 relative z-10 space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               TRANSPARENT ARCHITECTURAL INSIGHTS
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-stone-950">
-              Service <span className="font-serif italic font-normal text-gold-accent">Insights &amp;</span> FAQ
+              Service <span className="italic font-normal text-gold-accent">Insights &amp;</span> FAQ
             </h2>
           </div>
 
@@ -858,11 +858,11 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               LET'S START YOUR JOURNEY
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Let's Build Your <span className="font-serif italic font-normal text-gold-accent">Dream</span> Space.
+              Let's Build Your <span className="italic font-normal text-gold-accent">Dream</span> Space.
             </h2>
             <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
               Whether you're planning a home, office, renovation, or custom furniture project, our team is ready to create spaces that combine thoughtful design with exceptional craftsmanship.
@@ -882,7 +882,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 border border-white/20 text-white text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 rounded-full bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               Get Itemized BOQ Estimate
             </button>
@@ -916,7 +916,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
               {/* Header */}
               <div className="space-y-2 border-b border-stone-800 pb-6 pr-12">
-                <div className="inline-flex items-center space-x-2 text-gold-accent text-xs font-mono font-bold tracking-widest uppercase">
+                <div className="inline-flex items-center space-x-2 text-gold-accent text-xs font-sans font-bold tracking-widest uppercase">
                   <span>ARCHITECTURAL SPECIFICATION</span>
                   <span>&bull;</span>
                   <span>{selectedSpecService.accent}</span>
@@ -939,7 +939,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-gold-accent font-bold uppercase tracking-widest">
+                  <div className="absolute bottom-4 left-4 right-4 text-xs font-sans text-gold-accent font-bold uppercase tracking-widest">
                     FIG 01.0 // {selectedSpecService.id}
                   </div>
                 </div>
@@ -947,7 +947,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                 {/* Specs Details */}
                 <div className="md:col-span-6 space-y-6">
                   <div className="space-y-2">
-                    <h4 className="text-xs font-bold font-mono text-stone-400 uppercase tracking-widest">
+                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-widest">
                       ARCHITECTURAL SCOPE &amp; FIDELITY
                     </h4>
                     <p className="text-sm font-light text-[var(--color-text-muted)] leading-relaxed">
@@ -956,7 +956,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
                   </div>
 
                   <div className="bg-stone-900 border border-stone-800 p-5 rounded-2xl space-y-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-gold-accent flex items-center space-x-2 font-mono">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-gold-accent flex items-center space-x-2">
                       <Sparkles size={14} />
                       <span>PRIMARY DELIVERABLES</span>
                     </h4>
@@ -984,7 +984,7 @@ export default function ServicesPage({ onBackToHome, onOpenQuote }) {
 
                     <button
                       onClick={() => setSelectedSpecService(null)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 border border-stone-700 text-[var(--color-text-muted)] hover:text-white rounded-full text-xs font-mono tracking-wider uppercase transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 border border-stone-700 text-[var(--color-text-muted)] hover:text-white rounded-full text-xs font-sans tracking-wider uppercase transition-colors cursor-pointer"
                     >
                       Close Window
                     </button>

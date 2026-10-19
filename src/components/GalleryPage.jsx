@@ -477,14 +477,14 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full text-left space-y-8 py-20">
-          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase">
+          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase">
             <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer">HOME</button>
             <span>/</span>
             <span className="text-gold-accent font-bold">GALLERY</span>
           </div>
 
           <div className="space-y-4 max-w-4xl">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               OUR GALLERY
             </span>
             <motion.h1
@@ -524,7 +524,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
             <button
               onClick={handleOpenConsultation}
-              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
+              className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               Book Consultation
             </button>
@@ -554,7 +554,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               <p className="text-stone-600 font-light text-base sm:text-lg leading-relaxed">
                 Every project is unique. From elegant homes and modern offices to handcrafted furniture and premium architectural details, our gallery showcases the quality, creativity, and craftsmanship behind every Suthar Interior Studio project.
               </p>
-              <p className="text-stone-400 text-xs font-mono tracking-widest mt-4 uppercase">
+              <p className="text-stone-400 text-xs font-sans tracking-widest mt-4 uppercase">
                 HANDCRAFTED HERITAGE &bull; MODERN ENGINEERING &bull; DESIGN RECTITUDE
               </p>
             </div>
@@ -566,7 +566,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
       {/* SECTION 02: GALLERY CATEGORIES (STICKY FILTER BAR) */}
       <section className="py-6 bg-white sticky top-[80px] z-30 border-b border-stone-100 shadow-sm" id="gallery-categories-bar">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-2 text-stone-400 font-mono text-[10px] tracking-widest uppercase shrink-0">
+          <div className="flex items-center space-x-2 text-stone-400 font-sans text-[10px] tracking-widest uppercase shrink-0">
             <Sliders size={12} className="text-gold-accent" />
             <span>Filter Categories</span>
           </div>
@@ -576,7 +576,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
+                className={`px-4 py-2 text-[11px] font-sans font-bold uppercase tracking-widest transition-all duration-300 rounded-none border whitespace-nowrap cursor-pointer ${
                   activeFilter === tab.id
                     ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-md scale-95"
                     : "bg-stone-50 text-stone-600 border-stone-200/80 hover:border-gold-accent/50 hover:text-stone-950"
@@ -594,10 +594,10 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="flex justify-between items-center mb-8 border-b border-stone-200/50 pb-4">
-            <div className="text-xs font-mono text-stone-400">
+            <div className="text-xs font-sans text-stone-400">
               SHOWING <span className="text-stone-950 font-bold">{filteredProjects.length}</span> OUT OF {projects.length} CURATED SHOTS
             </div>
-            <div className="hidden sm:flex items-center space-x-2 text-xs font-mono text-stone-400">
+            <div className="hidden sm:flex items-center space-x-2 text-xs font-sans text-stone-400">
               <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
               <span>Click to view in immersive fullscreen mode</span>
             </div>
@@ -639,7 +639,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       {/* Premium Hover Overlay */}
                       <div className="absolute inset-0 bg-stone-950/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10">
                         <div className="flex justify-between items-start">
-                          <span className="bg-gold-accent text-stone-950 text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
+                          <span className="bg-gold-accent text-stone-950 text-[9px] font-sans font-bold tracking-widest px-2.5 py-1 uppercase rounded-sm shadow-sm">
                             {project.category}
                           </span>
                           <button
@@ -654,18 +654,18 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                         </div>
 
                         <div className="space-y-2 text-left">
-                          <div className="inline-flex items-center space-x-1 text-stone-300 font-mono text-[9px] uppercase tracking-wider">
+                          <div className="inline-flex items-center space-x-1 text-stone-300 font-sans text-[9px] uppercase tracking-wider">
                             <MapPin size={10} className="text-gold-accent" />
                             <span>{project.location}</span>
                           </div>
-                          <h4 className="text-white text-lg font-serif font-light leading-tight">
+                          <h4 className="text-white text-lg font-light leading-tight">
                             {project.name}
                           </h4>
                           <div className="pt-2 border-t border-white/15 flex items-center justify-between">
                             <span className="text-[10px] text-stone-400 font-light leading-tight line-clamp-1 max-w-[70%]">
                               {project.materials.split(",")[0]}...
                             </span>
-                            <span className="text-gold-accent text-[9px] font-mono tracking-widest uppercase font-bold flex items-center space-x-1 hover:text-white transition-colors">
+                            <span className="text-gold-accent text-[9px] font-sans tracking-widest uppercase font-bold flex items-center space-x-1 hover:text-white transition-colors">
                               <span>Expand</span>
                               <ChevronRight size={10} />
                             </span>
@@ -676,11 +676,11 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
                     {/* Outer label card (visible by default) */}
                     <div className="p-5 text-left border-t border-stone-100 bg-white">
-                      <div className="flex justify-between items-center text-[10px] font-mono text-stone-400 uppercase tracking-widest mb-1.5">
+                      <div className="flex justify-between items-center text-[10px] font-sans text-stone-400 uppercase tracking-widest mb-1.5">
                         <span>{project.category}</span>
                         <span>{project.location}</span>
                       </div>
-                      <h3 className="font-serif text-stone-950 text-base font-medium group-hover:text-gold-accent transition-colors duration-300">
+                      <h3 className="text-stone-950 text-base font-medium group-hover:text-gold-accent transition-colors duration-300">
                         {project.name}
                       </h3>
                       <p className="text-stone-500 text-xs font-light leading-relaxed mt-1 line-clamp-2">
@@ -690,12 +690,12 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                       <div className="pt-4 border-t border-stone-100 mt-4 flex justify-between items-center">
                         <button
                           onClick={() => setLightboxIndex(localIndex)}
-                          className="bg-primary group-hover:bg-primary-hover text-stone-950 text-xs font-bold font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 cursor-pointer shadow-sm transition-all duration-300"
+                          className="bg-primary group-hover:bg-primary-hover text-stone-950 text-xs font-bold font-sans tracking-widest uppercase px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 cursor-pointer shadow-sm transition-all duration-300"
                         >
                           <span>Explore Project</span>
                           <ArrowRight size={12} strokeWidth={2.5} />
                         </button>
-                        <span className="text-[9px] font-mono text-stone-400">
+                        <span className="text-[9px] font-sans text-stone-400">
                           ID: {project.id}
                         </span>
                       </div>
@@ -718,7 +718,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-16">
             <div className="text-left space-y-4">
-              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block animate-pulse">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block animate-pulse">
                 EDITOR'S SELECTION
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-white uppercase leading-none">
@@ -753,28 +753,28 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
               </div>
 
               <div className="p-6 relative z-10 flex justify-between items-start">
-                <span className="bg-white/10 backdrop-blur-md text-gold-accent text-[9px] font-mono tracking-widest font-bold uppercase px-3 py-1.5 rounded border border-white/10">
+                <span className="bg-white/10 backdrop-blur-md text-gold-accent text-[9px] font-sans tracking-widest font-bold uppercase px-3 py-1.5 rounded border border-white/10">
                   FEATURED WORK
                 </span>
-                <span className="text-stone-400 font-mono text-[10px]">Mumbai Atelier</span>
+                <span className="text-stone-400 font-sans text-[10px]">Mumbai Atelier</span>
               </div>
 
               <div className="p-8 relative z-10 text-left space-y-3 max-w-xl">
-                <span className="text-gold-accent text-xs font-mono tracking-wider font-bold block uppercase">
+                <span className="text-gold-accent text-xs font-sans tracking-wider font-bold block uppercase">
                   MONOLITHIC PENTHOUSE PAVILION
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif text-white">
+                <h3 className="text-2xl md:text-3xl text-white">
                   The Lodha World One Apartment
                 </h3>
                 <p className="text-[var(--color-text-muted)] text-xs sm:text-sm font-light leading-relaxed">
                   A comprehensive architectural interior layout executed inside India's premier high-rise. Focused entirely on bespoke walnut veneers and seamless marble slabs.
                 </p>
                 <div className="pt-4 flex items-center space-x-4">
-                  <div className="text-[11px] font-mono text-stone-400">
+                  <div className="text-[11px] font-sans text-stone-400">
                     <span className="text-white font-medium block">Area Size:</span> 4,500 sq. ft.
                   </div>
                   <div className="w-[1px] h-8 bg-white/10" />
-                  <div className="text-[11px] font-mono text-stone-400">
+                  <div className="text-[11px] font-sans text-stone-400">
                     <span className="text-white font-medium block">Duration:</span> 120 Days
                   </div>
                   <div className="w-[1px] h-8 bg-white/10" />
@@ -817,8 +817,8 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 text-left">
                     <div className="space-y-0.5">
-                      <span className="text-gold-accent text-[8px] font-mono tracking-widest font-bold uppercase">PREVIEW</span>
-                      <h4 className="text-white text-xs font-serif font-light leading-none">Inspect Details</h4>
+                      <span className="text-gold-accent text-[8px] font-sans tracking-widest font-bold uppercase">PREVIEW</span>
+                      <h4 className="text-white text-xs font-light leading-none">Inspect Details</h4>
                     </div>
                   </div>
                 </div>
@@ -835,7 +835,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
-            <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+            <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
               OUR EXPERT CAPABILITIES
             </span>
             <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -883,10 +883,10 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-stone-200/80">
             {statistics.map((stat, idx) => (
               <div key={idx} className="space-y-2 pt-6 lg:pt-0 lg:px-4 text-center">
-                <span className="text-3xl sm:text-4xl md:text-6xl font-light font-serif tracking-tight text-gold-accent block">
+                <span className="text-3xl sm:text-4xl md:text-6xl font-light font-sans tracking-tight text-gold-accent block">
                   {stat.value}
                 </span>
-                <span className="text-[10px] md:text-xs font-mono tracking-widest text-stone-500 uppercase block font-bold">
+                <span className="text-[10px] md:text-xs font-sans tracking-widest text-stone-500 uppercase block font-bold">
                   {stat.label}
                 </span>
               </div>
@@ -901,7 +901,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
           
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16">
             <div className="text-left space-y-4">
-              <span className="text-gold-accent text-xs tracking-[0.25em] font-mono font-bold uppercase block">
+              <span className="text-gold-accent text-xs tracking-[0.25em] font-sans font-bold uppercase block">
                 BEHIND THE CRAFT
               </span>
               <h2 className="text-3xl md:text-6xl font-light tracking-tight text-stone-900 uppercase">
@@ -940,7 +940,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     referrerPolicy="no-referrer"
                   />
                   {/* Instagram hover layer */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-mono font-bold">
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-sans font-bold">
                     <div className="flex items-center space-x-1.5">
                       <Heart size={16} className="text-rose-500 fill-rose-500" />
                       <span>{post.likes}</span>
@@ -957,7 +957,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                   <p className="text-xs text-stone-600 font-light leading-relaxed line-clamp-2">
                     {post.title}
                   </p>
-                  <div className="flex items-center justify-between text-[10px] font-mono text-stone-400 pt-3 border-t border-stone-100 mt-3 uppercase">
+                  <div className="flex items-center justify-between text-[10px] font-sans text-stone-400 pt-3 border-t border-stone-100 mt-3 uppercase">
                     <span className="text-gold-accent font-semibold">@SutharStudio</span>
                     <span>1d ago</span>
                   </div>
@@ -983,7 +983,7 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <span className="text-gold-accent text-xs tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs tracking-[0.3em] font-sans font-bold block uppercase">
               START YOUR OWN COMMISSION
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase">
@@ -1026,16 +1026,16 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             {/* Header toolbar */}
             <div className="p-6 flex items-center justify-between text-white border-b border-white/5 z-20">
               <div className="text-left">
-                <span className="text-gold-accent font-mono text-[9px] font-bold tracking-widest uppercase block">
+                <span className="text-gold-accent font-sans text-[9px] font-bold tracking-widest uppercase block">
                   {filteredProjects[lightboxIndex].category} &bull; {filteredProjects[lightboxIndex].location}
                 </span>
-                <h4 className="text-sm font-serif font-light uppercase tracking-wide">
+                <h4 className="text-sm font-light uppercase tracking-wide">
                   {filteredProjects[lightboxIndex].name}
                 </h4>
               </div>
 
               <div className="flex items-center space-x-4">
-                <span className="text-xs font-mono text-stone-400">
+                <span className="text-xs font-sans text-stone-400">
                   {lightboxIndex + 1} / {filteredProjects.length}
                 </span>
                 <button
@@ -1088,10 +1088,10 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
             {/* Footer Specifications Info Bar */}
             <div className="p-6 bg-[var(--color-surface-dark)] border-t border-white/5 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4 z-20">
               <div className="text-left max-w-2xl space-y-1.5">
-                <span className="text-[10px] uppercase font-mono tracking-widest text-stone-500 font-bold block">
+                <span className="text-[10px] uppercase font-sans tracking-widest text-stone-500 font-bold block">
                   CRAFTSMAN MATERIAL SPECIFICATION
                 </span>
-                <p className="text-xs text-[var(--color-text-muted)] font-light font-mono">
+                <p className="text-xs text-[var(--color-text-muted)] font-light font-sans">
                   {filteredProjects[lightboxIndex].materials}
                 </p>
                 <p className="text-stone-400 text-xs font-light max-w-xl">
@@ -1105,13 +1105,13 @@ export default function GalleryPage({ onBackToHome, onOpenQuote }) {
                     setLightboxIndex(null);
                     handleOpenConsultation();
                   }}
-                  className="flex-1 md:flex-none py-3 px-6 bg-gold-accent hover:bg-gold-accent text-stone-950 text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-mono"
+                  className="flex-1 md:flex-none py-3 px-6 bg-gold-accent hover:bg-gold-accent text-stone-950 text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-sans"
                 >
                   Discuss Project
                 </button>
                 <button
                   onClick={() => setLightboxIndex(null)}
-                  className="flex-1 md:flex-none py-3 px-6 border border-white/10 hover:border-white text-white text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-mono"
+                  className="flex-1 md:flex-none py-3 px-6 border border-white/10 hover:border-white text-white text-[10px] font-bold uppercase tracking-widest transition-all text-center cursor-pointer font-sans"
                 >
                   Close View
                 </button>

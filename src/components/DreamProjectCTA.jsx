@@ -22,7 +22,7 @@ export default function DreamProjectCTA({ setView }) {
 
   return (
     <section className="relative w-full py-20 sm:py-28 lg:py-36 bg-bg-dark text-white overflow-hidden select-none border-y border-stone-800">
-      
+
       {/* Background High-End Architecture Image with Vignetting & Parallax feel */}
       <div className="absolute inset-0 z-0">
         <img
@@ -51,7 +51,7 @@ export default function DreamProjectCTA({ setView }) {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center justify-center space-y-8 sm:space-y-10">
-        
+
         {/* Top Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -61,7 +61,7 @@ export default function DreamProjectCTA({ setView }) {
           className="inline-flex items-center space-x-2 bg-stone-900/80 backdrop-blur-md border border-gold-accent/30 px-5 py-2 rounded-full shadow-2xl"
         >
           <span className="w-2 h-2 rounded-full bg-gold-accent animate-pulse" />
-          <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.25em] uppercase text-gold-accent">
+          <span className="text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] uppercase text-gold-accent">
             LET'S CREATE SOMETHING BEAUTIFUL
           </span>
         </motion.div>
@@ -74,11 +74,11 @@ export default function DreamProjectCTA({ setView }) {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-3 max-w-4xl"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-xl font-serif">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-xl">
             Have a Space in Mind? <br />
             <span className="text-primary">Let's Bring It to Life.</span>
           </h2>
-          
+
           <p className="text-[var(--color-text-muted)] font-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed">
             Whether you're building a new home, renovating an existing space, furnishing a commercial property, or simply looking for the right design direction, we're here to help you take the next step.
           </p>
@@ -112,7 +112,7 @@ export default function DreamProjectCTA({ setView }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-[var(--color-text-muted)] border-t border-white/10 w-full max-w-3xl"
+          className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-sans text-[var(--color-text-muted)] border-t border-white/10 w-full max-w-3xl"
         >
           <div className="flex items-center space-x-2">
             <Sparkles size={14} className="text-gold-accent" />

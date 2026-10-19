@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "motion/react";
 import Image from "./Image.jsx";
 import {
@@ -90,41 +88,40 @@ export default function Hero({ setView }) {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl text-left space-y-3.5 sm:space-y-6 md:space-y-8 w-full"
         >
-          {/* Subtitle / Eyebrow Tag - Mobile Specific */}
+          {/* Subtitle / Eyebrow Tag - Mobile Specific (Ultra-Compact Glass Badge) */}
           <div className="inline-flex sm:hidden items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/20 border border-primary/45 backdrop-blur-md shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-            <span className="text-[9.5px] font-mono tracking-[0.14em] uppercase text-primary font-bold">
-              INTERIORS • FURNITURE • RENOVATION
+            <span className="text-[9.5px] font-sans tracking-[0.14em] uppercase text-primary font-bold">
+              EST. {COMPANY_INFO.foundedYear} • CRAFTING SPACES
             </span>
           </div>
 
-          {/* Subtitle / Eyebrow Tag - Desktop */}
+          {/* Subtitle / Eyebrow Tag - Desktop (Unchanged) */}
           <div className="hidden sm:flex items-center gap-4">
-            <span className="text-xs md:text-sm font-serif uppercase tracking-[0.25em] text-primary font-bold drop-shadow-sm">
-              INTERIORS • FURNITURE • RENOVATION
+            <span className="text-xs md:text-sm font-sans uppercase tracking-[0.25em] text-primary font-bold drop-shadow-sm">
+              CRAFTING EXCEPTIONAL SPACES SINCE {COMPANY_INFO.foundedYear}
             </span>
             <div className="h-[1px] w-20 md:w-28 bg-primary/60 shrink-0" />
           </div>
 
-          {/* Main Headline */}
-          <h1 className="font-serif text-[34px] xs:text-[40px] sm:text-[70px] md:text-[90px] lg:text-[80px] font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.12] sm:leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
-            Spaces Designed to <br className="hidden xs:inline" />
-            <span className="text-primary inline-block">Feel Like Home</span>
+          {/* Main Headline - Larger & Bright with wider tracking on Mobile */}
+          <h1 className="text-[34px] xs:text-[40px] sm:text-[80px] md:text-[100px] lg:text-[80px] font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.12] sm:leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
+            Designing Spaces <br className="hidden xs:inline" />
+            People Love{" "}
+            <span className="text-primary inline-block">Coming Home To</span>
           </h1>
 
-          {/* Body Description */}
+          {/* Body Description - Luminous Frosted Glass Capsule with wider tracking on Mobile */}
           <div className="p-3.5 xs:p-4 sm:p-0 rounded-2xl bg-white/15 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none border border-white/25 sm:border-0 shadow-lg sm:shadow-none">
             <p className="text-white font-sans text-xs xs:text-sm sm:text-base md:text-xl leading-relaxed sm:leading-relaxed max-w-3xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)] font-medium sm:font-normal tracking-wide sm:tracking-normal">
-              Suthar Living creates thoughtful interiors that bring together design, craftsmanship, functionality, and lasting quality. From complete home interiors and custom furniture to renovation and finishing, we take your space from idea to completion.
+              Every project begins with understanding how you live. We combine
+              architecture, craftsmanship, and timeless design to create homes,
+              workplaces, and experiences that feel as extraordinary as they
+              look.
             </p>
           </div>
 
-          {/* Supporting line */}
-          <div className="text-xs sm:text-sm text-stone-300 font-mono tracking-wider">
-            Interior Design · Custom Furniture · Renovation · Complete Execution
-          </div>
-
-          {/* Action CTA Buttons */}
+          {/* Action CTA Buttons - Fully Harmonized Mobile Layout */}
           <div className="flex flex-row items-center gap-2.5 xs:gap-3 pt-2 sm:pt-3">
             {/* Start Your Project Button */}
             <button
@@ -132,7 +129,7 @@ export default function Hero({ setView }) {
               className="
                 group/btn
                 inline-flex items-center justify-between
-                w-auto sm:min-w-[260px]
+                w-auto sm:min-w-[280px]
                 h-11 xs:h-12 sm:h-16
                 rounded-full
                 bg-white
@@ -153,33 +150,28 @@ export default function Hero({ setView }) {
               </div>
             </button>
 
-            {/* Explore Our Work Button */}
+            {/* View Portfolio Play Button - Icon Only */}
             <button
               onClick={handleViewPortfolio}
-              aria-label="Explore Our Work"
+              aria-label="View Portfolio"
               className="
                 group/btn
-                inline-flex items-center justify-center sm:justify-between
-                w-11 h-11 xs:w-12 xs:h-12 sm:w-auto sm:h-16 sm:min-w-[260px]
+                inline-flex items-center justify-center
+                w-12 h-12 sm:w-16 sm:h-16
                 rounded-full
                 bg-primary sm:bg-white/10
                 hover:bg-primary-hover sm:hover:bg-white/20
-                border border-primary sm:border-white/70
-                p-0 sm:pl-8 sm:pr-2
+                p-0
                 transition-all duration-300
                 shadow-md shadow-black/20
                 cursor-pointer
                 shrink-0
               "
             >
-              <span className="hidden sm:inline text-xs xs:text-sm sm:text-lg font-bold text-white">
-                Explore Our Work
-              </span>
-
               <div className="h-full w-full sm:h-12 sm:w-12 rounded-full bg-transparent sm:bg-primary flex items-center justify-center transition-all duration-300 shrink-0">
                 <Play
-                  size={14}
-                  className="fill-stone-950 text-stone-950 sm:fill-white sm:text-white translate-x-[1px] group-hover/btn:scale-110 transition-transform"
+                  size={16}
+                  className="fill-stone-950 text-stone-950 sm:fill-white sm:text-white translate-x-[2px] group-hover/btn:scale-110 transition-transform"
                 />
               </div>
             </button>
@@ -205,7 +197,7 @@ export default function Hero({ setView }) {
             </div>
             <div className="h-[1px] w-8 sm:w-12 bg-primary/40" />
           </div>
-          <span className="text-[10px] sm:text-[10px] font-serif uppercase tracking-[0.25em] text-white/90 drop-shadow-sm font-semibold">
+          <span className="text-[10px] sm:text-[10px] font-sans uppercase tracking-[0.25em] text-white/90 drop-shadow-sm font-semibold">
             SCROLL TO EXPLORE
           </span>
         </div>

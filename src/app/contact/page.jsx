@@ -1,50 +1,14 @@
-"use client";
+import { getPageMetadata } from "../../lib/seo";
+import ContactPage from "../../components/site/pages/ContactPage";
 
-import { useRouter } from "next/navigation";
-import { motion } from "motion/react";
-import SEOHelper from "../../components/SEOHelper";
-import Header from "../../components/Header";
-import ContactPage from "../../components/ContactPage";
-import Footer from "../../components/Footer";
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: "Contact Us",
+    description: "Talk to Suthar Brothers about your home, office or commercial interior project. Call, WhatsApp or send us your project details.",
+    path: "/contact",
+  });
+}
 
-export default function Contact() {
-  const router = useRouter();
-
-  const handleNavigate = (view) => {
-    if (!view || view === "home" || view === "/") {
-      router.push("/");
-    } else if (typeof view === "string" && view.startsWith("/")) {
-      router.push(view);
-    } else {
-      router.push(`/${view}`);
-    }
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  return (
-    <>
-      <SEOHelper currentView="contact" />
-      <Header currentView="contact" setView={handleNavigate} />
-      
-      <main className="relative z-10">
-        <motion.div
-          key="contact-subpage"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <ContactPage
-            onBackToHome={() => handleNavigate("home")}
-            onOpenQuote={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
-            setView={handleNavigate}
-          />
-        </motion.div>
-      </main>
-
-      <Footer onNavigate={handleNavigate} />
-    </>
-  );
+export default function ContactRoute() {
+  return <ContactPage />;
 }

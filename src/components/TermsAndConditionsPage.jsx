@@ -127,14 +127,14 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
-          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-mono uppercase mb-8">
+          <div className="inline-flex items-center space-x-2 text-stone-400 text-xs tracking-[0.25em] font-sans uppercase mb-8">
             <button onClick={onBackToHome} className="hover:text-gold-accent transition-colors cursor-pointer uppercase font-bold">HOME</button>
             <span>/</span>
             <span className="text-gold-accent font-bold">TERMS & CONDITIONS</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <span className="text-gold-accent text-xs sm:text-sm tracking-[0.3em] font-mono font-bold block uppercase">
+            <span className="text-gold-accent text-xs sm:text-sm tracking-[0.3em] font-sans font-bold block uppercase">
               LEGAL INFORMATION
             </span>
             <motion.h1
@@ -158,7 +158,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center space-x-2.5 pt-4 text-xs font-mono text-stone-400"
+              className="flex items-center space-x-2.5 pt-4 text-xs font-sans text-stone-400"
             >
               <Calendar size={13} className="text-gold-accent" />
               <span>LAST UPDATED:</span>
@@ -177,7 +177,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
             <div className="bg-white rounded-2xl border border-stone-200/40 p-6 shadow-sm space-y-6 hidden lg:block">
               <div className="flex items-center space-x-2.5 pb-4 border-b border-stone-100">
                 <Scale size={18} className="text-gold-accent" />
-                <h3 className="text-sm font-mono tracking-widest uppercase font-bold text-stone-900">Terms Index</h3>
+                <h3 className="text-sm tracking-widest uppercase font-bold text-stone-900">Terms Index</h3>
               </div>
               <nav className="flex flex-col space-y-1.5 text-left">
                 {sections.map((section) => {
@@ -187,7 +187,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`group flex items-center space-x-3 px-4 py-3 text-xs tracking-wider uppercase font-mono font-bold transition-all duration-300 rounded-lg cursor-pointer ${
+                      className={`group flex items-center space-x-3 px-4 py-3 text-xs tracking-wider uppercase font-sans font-bold transition-all duration-300 rounded-lg cursor-pointer ${
                         isActive
                           ? "bg-[var(--color-surface-dark)] text-gold-accent shadow-md shadow-stone-950/5 translate-x-1"
                           : "text-stone-500 hover:text-stone-900 hover:bg-stone-100"
@@ -209,7 +209,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest whitespace-nowrap border rounded-none transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-2.5 text-[10px] font-sans font-bold uppercase tracking-widest whitespace-nowrap border rounded-none transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-[var(--color-surface-dark)] text-gold-accent border-stone-950 shadow-sm"
                         : "bg-white text-stone-500 border-stone-200 hover:border-stone-400"
@@ -233,8 +233,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Scale size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 01</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Acceptance of Terms</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 01</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Acceptance of Terms</h2>
                 </div>
               </div>
 
@@ -256,8 +256,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Layout size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 02</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Our Services</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 02</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Our Services</h2>
                 </div>
               </div>
 
@@ -277,11 +277,11 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { title: "Technical Material Guidance", desc: "Rigorous grade comparisons including BWR, BWP marine ply, and stone selection." }
                 ].map((serv, idx) => (
                   <div key={idx} className="p-5 bg-stone-50 border border-stone-100 rounded-2xl flex items-start space-x-3.5">
-                    <div className="w-5 h-5 rounded-full bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center text-[9px] shrink-0 font-mono font-bold mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[var(--color-surface-dark)] text-gold-accent flex items-center justify-center text-[9px] shrink-0 font-sans font-bold mt-0.5">
                       {idx+1}
                     </div>
                     <div className="space-y-1">
-                      <h4 className="text-stone-900 font-bold font-mono text-xs uppercase tracking-wider">{serv.title}</h4>
+                      <h4 className="text-stone-900 font-bold text-xs uppercase tracking-wider">{serv.title}</h4>
                       <p className="text-stone-500 text-xs font-light leading-relaxed">{serv.desc}</p>
                     </div>
                   </div>
@@ -297,8 +297,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Calculator size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 03</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Consultations & Estimates</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 03</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Consultations & Estimates</h2>
                 </div>
               </div>
 
@@ -320,8 +320,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Coins size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 04</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Pricing Variables</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 04</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Pricing Variables</h2>
                 </div>
               </div>
 
@@ -339,7 +339,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { title: "Site Conditions", desc: "Plaster level, dampness, or remote locations." }
                 ].map((item, idx) => (
                   <div key={idx} className="p-4 border border-stone-100 rounded-2xl bg-stone-50/50 space-y-1">
-                    <h5 className="text-stone-900 font-bold font-mono text-[11px] uppercase tracking-wider">{item.title}</h5>
+                    <h5 className="text-stone-900 font-bold text-[11px] uppercase tracking-wider">{item.title}</h5>
                     <p className="text-stone-500 text-[10px] font-light leading-snug">{item.val || item.desc}</p>
                   </div>
                 ))}
@@ -354,8 +354,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Clock size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 05</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Project Timelines</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 05</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Project Timelines</h2>
                 </div>
               </div>
 
@@ -371,7 +371,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   "Underlying physical site conditions (e.g. wet concrete)",
                   "Force majeure (unexpected global shipping or natural halts)"
                 ].map((item, idx) => (
-                  <span key={idx} className="inline-flex items-center space-x-1.5 px-3.5 py-2.5 bg-stone-50 border border-stone-200/50 rounded-xl text-stone-700 text-xs font-mono font-medium">
+                  <span key={idx} className="inline-flex items-center space-x-1.5 px-3.5 py-2.5 bg-stone-50 border border-stone-200/50 rounded-xl text-stone-700 text-xs font-sans font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold-accent" />
                     <span>{item}</span>
                   </span>
@@ -387,8 +387,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Users size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 06</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Client Responsibilities</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 06</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Client Responsibilities</h2>
                 </div>
               </div>
 
@@ -405,7 +405,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   { label: "Open Channels of Communication", desc: "Participating in site reviews and raising concerns immediately before paint finishes." }
                 ].map((resp, idx) => (
                   <div key={idx} className="p-5 bg-bg-base/40 border border-stone-200/20 rounded-2xl space-y-1.5">
-                    <h4 className="text-stone-900 font-bold font-mono text-xs uppercase tracking-wider">{idx+1}. {resp.label}</h4>
+                    <h4 className="text-stone-900 font-bold text-xs uppercase tracking-wider">{idx+1}. {resp.label}</h4>
                     <p className="text-stone-500 text-xs font-light leading-relaxed">{resp.desc}</p>
                   </div>
                 ))}
@@ -420,8 +420,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <PenTool size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 07</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Intellectual Property</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 07</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Intellectual Property</h2>
                 </div>
               </div>
 
@@ -441,8 +441,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <ShieldAlert size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 08</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Limitation of Liability</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 08</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Limitation of Liability</h2>
                 </div>
               </div>
 
@@ -459,8 +459,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <XCircle size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 09</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Cancellation Policy</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 09</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Cancellation Policy</h2>
                 </div>
               </div>
 
@@ -477,8 +477,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Compass size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 10</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Website Usage</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 10</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Website Usage</h2>
                 </div>
               </div>
 
@@ -495,8 +495,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <RefreshCw size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 11</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Changes to Terms</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 11</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Changes to Terms</h2>
                 </div>
               </div>
 
@@ -513,8 +513,8 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                   <Mail size={20} />
                 </div>
                 <div>
-                  <span className="text-gold-accent text-[10px] font-mono tracking-[0.2em] font-bold block uppercase">SECTION 12</span>
-                  <h2 className="text-xl sm:text-2xl font-serif text-stone-950 font-bold uppercase">Contact Information</h2>
+                  <span className="text-gold-accent text-[10px] font-sans tracking-[0.2em] font-bold block uppercase">SECTION 12</span>
+                  <h2 className="text-xl sm:text-2xl text-stone-950 font-bold uppercase">Contact Information</h2>
                 </div>
               </div>
 
@@ -537,7 +537,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
                         <InfoIcon size={16} />
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-stone-950 font-bold font-mono text-[11px] uppercase tracking-wider">{info.title}</h4>
+                        <h4 className="text-stone-950 font-bold text-[11px] uppercase tracking-wider">{info.title}</h4>
                         <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">{info.val}</p>
                       </div>
                     </div>
@@ -560,7 +560,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <span className="text-gold-accent text-xs font-mono tracking-[0.3em] font-bold block uppercase">
+          <span className="text-gold-accent text-xs font-sans tracking-[0.3em] font-bold block uppercase">
             SUTHAR CONTRACT BRIEFING
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-white leading-tight uppercase max-w-3xl mx-auto">
@@ -584,7 +584,7 @@ export default function TermsAndConditionsPage({ onBackToHome, setView, onOpenQu
 
             <button
               onClick={handleOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4.5 border border-white/20 text-white text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all duration-300 rounded-none bg-white/5 backdrop-blur-md cursor-pointer hover:border-gold-accent hover:text-gold-accent"
             >
               Book Free Consultation
             </button>

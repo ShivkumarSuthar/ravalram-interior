@@ -38,7 +38,7 @@ function Dropdown({ label, value, options, onChange }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="space-y-2 relative">
-      <span className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase text-stone-400 block truncate">{label}</span>
+      <span className="text-[10px] font-sans font-bold tracking-[0.22em] uppercase text-stone-400 block truncate">{label}</span>
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -81,7 +81,7 @@ function FormInput({ label, type = "text", value, onChange, required = true, mul
 
   return (
     <div className={`relative border-b pb-3 pt-6 transition-colors duration-300 ${focused ? "border-primary" : "border-stone-200"}`}>
-      <label className={`absolute left-0 font-mono text-[10px] uppercase tracking-[0.22em] font-bold transition-all duration-300 pointer-events-none ${active ? "top-0 text-primary" : "top-6 text-stone-400 text-xs"}`}>
+      <label className={`absolute left-0 font-sans text-[10px] uppercase tracking-[0.22em] font-bold transition-all duration-300 pointer-events-none ${active ? "top-0 text-primary" : "top-6 text-stone-400 text-xs"}`}>
         {label}
       </label>
       {multiline ? (
@@ -165,7 +165,7 @@ export default function ContactForm({ setView }) {
             {/* Brand footer */}
             <div className="relative z-10 mt-auto p-10 sm:p-14 space-y-1.5">
               <h4 className="text-lg sm:text-xl font-extrabold tracking-tight text-white">Suthar Interiors</h4>
-              <p className="text-[11px] font-mono font-medium uppercase tracking-[0.3em] text-stone-400">Spaces With Intent</p>
+              <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-stone-400">Spaces With Intent</p>
             </div>
           </div>
 
@@ -174,8 +174,8 @@ export default function ContactForm({ setView }) {
 
             {/* Top bar */}
             <div className="flex items-center justify-between px-5 sm:px-12 lg:px-16 pt-6 sm:pt-10 pb-4 sm:pb-6 border-b border-stone-200/60">
-              <span className="text-[10px] font-mono font-bold tracking-[0.25em] uppercase text-primary">Project Brief</span>
-              <span className="text-[11px] font-mono font-bold text-stone-400">{heading.tag}</span>
+              <span className="text-[10px] font-sans font-bold tracking-[0.25em] uppercase text-primary">Project Brief</span>
+              <span className="text-[11px] font-sans font-bold text-stone-400">{heading.tag}</span>
             </div>
 
             {/* Form content area */}
@@ -200,12 +200,12 @@ export default function ContactForm({ setView }) {
                             <br />
                             <span className="block">{heading.accent}</span>
                           </h2>
-                          <p className="text-primary-hover italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
+                          <p className="text-primary-hover italic font-sans text-sm sm:text-lg">{heading.subtitle}</p>
                         </div>
 
                         {/* Service type selector */}
                         <div className="space-y-3">
-                          <span className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase text-stone-400 block">
+                          <span className="text-[10px] font-sans font-bold tracking-[0.22em] uppercase text-stone-400 block">
                             What are you looking to create?
                           </span>
                           <div className="grid grid-cols-2 gap-2 sm:gap-3">
@@ -221,7 +221,7 @@ export default function ContactForm({ setView }) {
                                     : "border-stone-200 bg-white hover:border-stone-300 hover:shadow-sm"
                                     }`}
                                 >
-                                  <span className={`text-[10px] font-mono font-bold block mb-1 sm:mb-2 ${active ? "text-primary" : "text-stone-300"}`}>{num}</span>
+                                  <span className={`text-[10px] font-sans font-bold block mb-1 sm:mb-2 ${active ? "text-primary" : "text-stone-300"}`}>{num}</span>
                                   <span className={`text-sm sm:text-lg font-extrabold block mb-0.5 sm:mb-1 tracking-tight ${active ? "text-stone-900" : "text-stone-700"}`}>{label}</span>
                                   <span className="text-[10px] sm:text-[11px] text-stone-400 font-light hidden sm:block">{sub}</span>
                                   {/* Arrow icon */}
@@ -236,7 +236,7 @@ export default function ContactForm({ setView }) {
 
                         {/* Project details */}
                         <div className="space-y-4 sm:space-y-6">
-                          <span className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase text-stone-400 block">Your Project</span>
+                          <span className="text-[10px] font-sans font-bold tracking-[0.22em] uppercase text-stone-400 block">Your Project</span>
 
                           {/* Timeline slider */}
                           <div className="relative pt-2 pb-8 sm:pb-10">
@@ -266,7 +266,7 @@ export default function ContactForm({ setView }) {
                                 return (
                                   <span 
                                     key={t.id} 
-                                    className={`absolute top-0 text-[8.5px] sm:text-[9px] font-mono font-bold whitespace-nowrap transition-colors ${timeline === t.id ? "text-primary-hover" : "text-stone-400"}`}
+                                    className={`absolute top-0 text-[8.5px] sm:text-[9px] font-sans font-bold whitespace-nowrap transition-colors ${timeline === t.id ? "text-primary-hover" : "text-stone-400"}`}
                                     style={{ 
                                       left: `${pos}%`, 
                                       transform: pos === 0 ? 'translateX(0)' : pos === 100 ? 'translateX(-100%)' : 'translateX(-50%)' 
@@ -293,7 +293,7 @@ export default function ContactForm({ setView }) {
                             type="button"
                             disabled={!service}
                             onClick={() => go(1)}
-                            className="inline-flex items-center gap-3 bg-bg-dark disabled:opacity-30 hover:bg-primary hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
+                            className="inline-flex items-center gap-3 bg-bg-dark disabled:opacity-30 hover:bg-primary hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-sans font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
                           >
                             Continue
                             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -317,7 +317,7 @@ export default function ContactForm({ setView }) {
                             <br />
                             <span className="block">{heading.accent}</span>
                           </h2>
-                          <p className="text-primary-hover italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
+                          <p className="text-primary-hover italic font-sans text-sm sm:text-lg">{heading.subtitle}</p>
                         </div>
 
                         <div className="space-y-8">
@@ -329,14 +329,14 @@ export default function ContactForm({ setView }) {
                         </div>
 
                         <div className="flex items-center justify-between pt-4">
-                          <button type="button" onClick={() => go(0)} className="inline-flex items-center gap-2 text-stone-400 hover:text-stone-700 text-xs font-mono font-bold uppercase tracking-widest transition-colors cursor-pointer">
+                          <button type="button" onClick={() => go(0)} className="inline-flex items-center gap-2 text-stone-400 hover:text-stone-700 text-xs font-sans font-bold uppercase tracking-widest transition-colors cursor-pointer">
                             <ArrowLeft size={13} /> Back
                           </button>
                           <button
                             type="button"
                             disabled={!form.name || !form.phone || !form.email}
                             onClick={() => go(2)}
-                            className="inline-flex items-center gap-3 bg-bg-dark disabled:opacity-30 hover:bg-primary hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
+                            className="inline-flex items-center gap-3 bg-bg-dark disabled:opacity-30 hover:bg-primary hover:text-stone-950 text-white px-10 py-4 rounded-full text-xs font-sans font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg group disabled:cursor-not-allowed"
                           >
                             Continue
                             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -361,7 +361,7 @@ export default function ContactForm({ setView }) {
                             <br />
                             <span className="block">{heading.accent}</span>
                           </h2>
-                          <p className="text-primary-hover italic font-serif text-sm sm:text-lg">{heading.subtitle}</p>
+                          <p className="text-primary-hover italic font-sans text-sm sm:text-lg">{heading.subtitle}</p>
                         </div>
 
                         <FormInput
@@ -372,7 +372,7 @@ export default function ContactForm({ setView }) {
                         />
 
                         {/* Brief summary */}
-                        <div className="p-4 rounded-xl bg-white border border-stone-200/80 flex flex-wrap gap-3 text-[11px] font-mono">
+                        <div className="p-4 rounded-xl bg-white border border-stone-200/80 flex flex-wrap gap-3 text-[11px] font-sans">
                           <span className="text-stone-400">Brief for:</span>
                           <span className="text-stone-900 font-bold">{form.name}</span>
                           <span className="text-stone-300">·</span>
@@ -384,12 +384,12 @@ export default function ContactForm({ setView }) {
                         </div>
 
                         <div className="flex items-center justify-between pt-2">
-                          <button type="button" onClick={() => go(1)} className="inline-flex items-center gap-2 text-stone-400 hover:text-stone-700 text-xs font-mono font-bold uppercase tracking-widest transition-colors cursor-pointer">
+                          <button type="button" onClick={() => go(1)} className="inline-flex items-center gap-2 text-stone-400 hover:text-stone-700 text-xs font-sans font-bold uppercase tracking-widest transition-colors cursor-pointer">
                             <ArrowLeft size={13} /> Back
                           </button>
                           <button
                             type="submit"
-                            className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-stone-950 px-10 py-4 rounded-full text-xs font-mono font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-xl group"
+                            className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-stone-950 px-10 py-4 rounded-full text-xs font-sans font-extrabold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-xl group"
                           >
                             <Sparkles size={14} />
                             Send Project Enquiry
@@ -429,7 +429,7 @@ export default function ContactForm({ setView }) {
 
             {/* Bottom bar */}
             <div className="mt-auto px-5 sm:px-12 lg:px-16 py-3 sm:py-5 border-t border-stone-200/60 flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-[0.2em] text-stone-400 overflow-hidden">
+              <div className="flex items-center gap-1.5 text-[9px] font-sans uppercase tracking-[0.2em] text-stone-400 overflow-hidden">
                 <span className="text-stone-500 font-bold whitespace-nowrap">Suthar Interiors</span>
                 {["Mumbai", "Goa", "Bengaluru", "Hyderabad"].map((c) => (
                   <span key={c} className="hidden sm:inline">
@@ -438,7 +438,7 @@ export default function ContactForm({ setView }) {
                   </span>
                 ))}
               </div>
-              <span className="text-primary text-sm font-mono font-bold">0{step + 1}</span>
+              <span className="text-primary text-sm font-sans font-bold">0{step + 1}</span>
             </div>
           </div>
         </div>
