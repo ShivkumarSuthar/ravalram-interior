@@ -20,7 +20,7 @@ export default function Lightbox({ images, index, onChange, onClose }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, index, images.length, onChange]);
 
-  const navButton = "grid size-12.5 place-items-center rounded-full bg-primary text-white transition-colors hover:bg-bg-base hover:text-surface-dark";
+  const navButton = "grid size-12.5 place-items-center rounded-full bg-primary text-white transition-colors hover:bg-bg-base hover:text-ink";
 
   return (
     <AnimatePresence>

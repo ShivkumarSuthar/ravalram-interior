@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 // Outlined pill with a gold arrow circle; gold fills in from the left on hover
 export default function ArrowButton({ href, children, tone = "dark", className = "" }) {
-  const toneClass = tone === "light" ? "border-white text-white" : "border-line/60 text-surface-dark";
+  const toneClass = tone === "light" ? "border-white text-white" : "border-line/60 text-ink";
 
   return (
     <Link

@@ -5,7 +5,7 @@ import { Fragment } from "react";
 function inline(text) {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
     part.startsWith("**") && part.endsWith("**") ? (
-      <strong key={i} className="font-semibold text-surface-dark">{part.slice(2, -2)}</strong>
+      <strong key={i} className="font-semibold text-ink">{part.slice(2, -2)}</strong>
     ) : (
       <Fragment key={i}>{part}</Fragment>
     )
@@ -37,7 +37,7 @@ export default function ArticleBody({ source }) {
     <div className="space-y-5">
       {toBlocks(source || "").map((block, i) => {
         if (block.type === "h3")
-          return <h3 key={i} className="pt-4 font-heading text-card-lg text-surface-dark">{block.text}</h3>;
+          return <h3 key={i} className="pt-4 font-heading text-card-lg text-ink">{block.text}</h3>;
         if (block.type === "list")
           return (
             <ul key={i} className="space-y-2.5">
@@ -51,7 +51,7 @@ export default function ArticleBody({ source }) {
           );
         if (block.type === "quote")
           return (
-            <blockquote key={i} className="rounded-3xl bg-bg-base p-8 text-center font-heading text-card text-surface-dark">
+            <blockquote key={i} className="rounded-3xl bg-bg-base p-8 text-center font-heading text-card text-ink">
               “{block.text}”
             </blockquote>
           );

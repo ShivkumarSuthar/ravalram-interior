@@ -1,5 +1,3 @@
-"use client";
-
 import { Check } from "lucide-react";
 import PageShell from "../PageShell";
 import Reveal from "../Reveal";
@@ -23,13 +21,13 @@ export default function CityPage({ slug }) {
         <div className="mx-auto grid max-w-site items-center gap-12 px-5 lg:grid-cols-2 lg:gap-20">
           <Reveal direction="left">
             <Eyebrow>{city.eyebrow}</Eyebrow>
-            <h2 data-cursor="lg" className="mt-5 font-heading text-section capitalize text-surface-dark">
+            <h2 data-cursor="lg" className="mt-5 font-heading text-section capitalize text-ink">
               <TitleParts parts={city.title} />
             </h2>
             <p className="mt-6 text-base leading-7 text-text-muted">{city.text}</p>
             <ul className="mt-8 grid gap-x-6 gap-y-3 sm:grid-cols-2">
               {city.points.map((point) => (
-                <li key={point} className="flex items-center gap-2.5 font-heading text-lead text-surface-dark">
+                <li key={point} className="flex items-center gap-2.5 font-heading text-lead text-ink">
                   <Check className="size-4.5 shrink-0 text-primary" strokeWidth={2.5} />
                   {point}
                 </li>

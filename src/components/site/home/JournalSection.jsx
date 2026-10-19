@@ -38,7 +38,7 @@ export default function JournalSection() {
             </Link>
             <div className="mt-6">
               <Meta post={featured} />
-              <h3 className="mt-3 font-heading text-card-lg leading-[1.3] text-surface-dark">
+              <h3 className="mt-3 font-heading text-card-lg leading-[1.3] text-ink">
                 <Link href={featured.href} className="transition-colors duration-300 hover:text-primary">
                   {featured.title}
                 </Link>
@@ -56,7 +56,7 @@ export default function JournalSection() {
                 </Link>
                 <div>
                   <Meta post={post} />
-                  <h3 className="mt-3 font-heading text-card text-surface-dark">
+                  <h3 className="mt-3 font-heading text-card text-ink">
                     <Link href={post.href} className="transition-colors duration-300 hover:text-primary">
                       {post.title}
                     </Link>

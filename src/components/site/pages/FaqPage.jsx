@@ -1,5 +1,3 @@
-"use client";
-
 import PageShell from "../PageShell";
 import Reveal from "../Reveal";
 import SectionHeading from "../SectionHeading";
@@ -11,7 +9,7 @@ export default function FaqPage() {
   const { help } = FAQ_PAGE;
 
   return (
-    <PageShell seoView="faqs" title="FAQs" crumbs={[{ label: "FAQs" }]} image={BANNERS.faqs}>
+    <PageShell title="FAQs" crumbs={[{ label: "FAQs" }]} image={BANNERS.faqs}>
       <section className="py-24 lg:py-32.5">
         <div className="mx-auto max-w-site px-5">
           <SectionHeading eyebrow={FAQ_PAGE.eyebrow} title={FAQ_PAGE.title} />
@@ -23,7 +21,7 @@ export default function FaqPage() {
               <div className="h-60 overflow-hidden rounded-3xl">
                 <img src={help.image.src} alt={help.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
               </div>
-              <h2 className="mt-7 font-heading text-card-lg text-surface-dark">{help.title}</h2>
+              <h2 className="mt-7 font-heading text-card-lg text-ink">{help.title}</h2>
               <p className="mt-3 text-base leading-7 text-text-muted">{help.text}</p>
               <ArrowButton href="/contact" className="mt-8">Ask Our Team</ArrowButton>
             </Reveal>

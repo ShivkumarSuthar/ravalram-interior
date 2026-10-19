@@ -18,8 +18,8 @@ export async function generateMetadata(props) {
   const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
   return getPageMetadata({
-    title: `Best Interior Designer in ${city} | Suthar Interior Studio & Architecture`,
-    description: `Looking for top-tier residential & commercial interior design in ${city}? Suthar Interior Studio offers architect-supervised, custom furniture manufacturing and turnkey solutions since 1989.`,
+    title: `Interior Designer in ${city} | Suthar Brothers`,
+    description: `Home, office and commercial interiors in ${city} by Suthar Brothers: modular kitchens, wardrobes, custom furniture, renovation and turnkey projects, with 30+ years of experience.`,
     path: `/${rawCity}`,
     keywords: [
       `Interior Designer ${city}`,
@@ -42,8 +42,8 @@ export default async function CityPage(props) {
   // Create JSON-LD schema
   const localBusinessSchema = generateSchema("LocalBusiness", {
     city: city,
-    title: `Suthar Interior Studio & Architecture - ${city} Team`,
-    description: `Architect-supervised high-end residential interiors, luxury commercial showrooms, and bespoke woodworking joinery in ${city}.`,
+    title: `Suthar Brothers - ${city} Team`,
+    description: `Interior design and execution for homes, offices and commercial spaces in ${city}.`,
   });
 
   const breadcrumbSchema = generateSchema("Breadcrumb", {

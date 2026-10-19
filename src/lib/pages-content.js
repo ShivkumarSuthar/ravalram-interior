@@ -3,7 +3,7 @@
  * Reuses the studio data in data.js; title arrays follow the same { gold } convention as home-content.js.
  */
 
-import { SITE_IMAGES, ABOUT_PAGE_DATA, SERVICES_PAGE_DATA, FAQ_DATA, TEAM_DATA } from "./data.js";
+import { SITE_IMAGES, STOCK_IMAGES, ABOUT_PAGE_DATA, SERVICES_PAGE_DATA, FAQ_DATA, TEAM_DATA } from "./data.js";
 import { GALLERY_IMAGES } from "./home-content.js";
 import { INVESTMENT_CATEGORIES } from "./investment-data.js";
 
@@ -11,10 +11,10 @@ export const FOUNDED = 1989;
 
 export const BANNERS = {
   about: SITE_IMAGES.transitionLuxury,
-  services: SITE_IMAGES.projectLoft,
+  services: SITE_IMAGES.livingBright,
   gallery: SITE_IMAGES.heroSlide3,
   blog: SITE_IMAGES.heroSlide2,
-  contact: SITE_IMAGES.contactHeroBg,
+  contact: SITE_IMAGES.heroBg,
   faqs: SITE_IMAGES.aboutSide,
   legal: SITE_IMAGES.projectCoastal,
   city: SITE_IMAGES.projectCoastal,
@@ -24,16 +24,17 @@ export const BANNERS = {
 export const ABOUT_PAGE = {
   intro: {
     eyebrow: "Our Story",
-    title: ["A Family Workshop ", { gold: "That Became" }, " A Complete Interior Studio"],
+    title: ["A Family Business ", { gold: "Built On" }, " Craftsmanship"],
     paragraphs: [
-      "Suthar began in 1989 as a woodworking workshop run by Ravalram H. Suthar. Wardrobes, kitchens and furniture built with care earned the trust of families, and that trust grew into full interior projects.",
-      "Today Shivkumar Suthar leads project delivery, and our architects led by Padam P. Sutar plan every layout. Design, joinery and site work stay with one team, so nothing gets lost between the drawing and the finished room.",
+      "Suthar Brothers grew out of the woodworking business Ravalram H. Suthar started in 1989. Furniture, wardrobes and kitchens made with care earned the trust of families, and that trust grew into complete interior projects.",
+      "Today co-founder Shivkumar Suthar leads project delivery and Padam P. Sutar leads our design team. With 30+ years of interior work, our team has the experience and a keen eye for quality that every home, office and commercial space deserves.",
     ],
-    yearsLabel: "Years Of Craft",
+    years: "30+",
+    yearsLabel: "Years Of Experience",
     cta: { label: "Talk To Our Team", href: "/contact" },
-    image: { src: SITE_IMAGES.aboutSide, alt: "Suthar living room with custom side table and lighting" },
+    image: { src: SITE_IMAGES.aboutSide, alt: "Reading corner with an armchair, side table and brass floor lamp" },
   },
-  band: { src: SITE_IMAGES.projectLoft, alt: "Suthar living room with brick wall and oak furniture" },
+  band: { src: SITE_IMAGES.projectLoft, alt: "Living area with a brick wall, oak furniture and pendant light" },
   history: {
     eyebrow: "Our History",
     title: ["Over Three Decades ", { gold: "Of Steady" }, " Growth"],
@@ -105,20 +106,28 @@ export const PRICING = {
   },
   // Studio photos per category (the investment data uses stock photos, which aren't shown)
   images: {
-    "full-home": SITE_IMAGES.contactHeroBg,
-    "apartment-interior": SITE_IMAGES.projectLoft,
+    "full-home": SITE_IMAGES.heroBg,
+    "apartment-interior": SITE_IMAGES.livingBright,
     "villa-interior": SITE_IMAGES.transitionLuxury,
     "kitchen-custom": SITE_IMAGES.heroSlide2,
-    "bathroom-sanctuary": SITE_IMAGES.aboutSide,
-    "living-lounge": SITE_IMAGES.projectCoastal,
+    "bathroom-sanctuary": STOCK_IMAGES.bathroom,
+    "living-lounge": SITE_IMAGES.livingGreen,
     "bedroom-suite": SITE_IMAGES.bedroomTwo,
-    "home-office": SITE_IMAGES.heroSlide3,
-    "commercial-office": SITE_IMAGES.projectLoft,
-    "retail-showroom": SITE_IMAGES.architecturalPavilion,
+    "home-office": STOCK_IMAGES.homeOffice,
+    "commercial-office": STOCK_IMAGES.officeLounge,
+    "retail-showroom": STOCK_IMAGES.showroomLounge,
   },
   tierNames: { curated: "Essential", signature: "Signature", masterpiece: "Luxury" },
   featured: "signature",
-  note: "Rates are indicative starting prices per sq ft. Your final quote follows a site visit and depends on the materials, finishes and scope you choose.",
+  // Ways to engage the studio; every quote is itemised and options can be combined
+  models: [
+    { title: "With Materials", tag: "Complete Turnkey", text: "We supply the materials, make the furniture and carry out the site work. One quote covers everything." },
+    { title: "Without Materials", tag: "You Buy Materials", text: "You buy the materials you prefer; we provide design, craftsmen and site execution." },
+    { title: "Labour Only", tag: "Skilled Team", text: "Our carpenters, painters and site team working with materials you have already arranged." },
+    { title: "Per Sq Ft Or Per Item", tag: "Flexible", text: "Area-based rates for full projects, or per-item pricing for kitchens, wardrobes and furniture." },
+  ],
+  modelsText: "Choose the arrangement that suits your budget, or combine them. Every quote is itemised, so you see exactly what you are paying for.",
+  note: "The rates below are indicative starting prices per sq ft with materials. Without-material and labour-only work is quoted separately after a site visit, based on your scope.",
   categories: INVESTMENT_CATEGORIES.filter((c) => c.id !== "bespoke-furniture"),
   homeCategories: ["apartment-interior", "full-home", "villa-interior", "kitchen-custom"],
   faq: {
@@ -142,7 +151,7 @@ export const CONTACT_PAGE = {
   eyebrow: "Get In Touch",
   title: ["Have A Project In Mind? ", { gold: "Let's Make" }, " It Happen"],
   hours: "Mon - Sat: 9:30 AM - 7:30 PM",
-  image: { src: SITE_IMAGES.contactHeroBg, alt: "Suthar living room designed and built by the studio" },
+  image: { src: SITE_IMAGES.heroBg, alt: "Living room with timber wall panelling and a garden view" },
   formTitle: "Tell Us About Your Space",
   formText: "Share a few details and our team will call you to discuss your project and arrange a site visit.",
   cities: ["Mumbai", "Pune", "Goa", "Bengaluru", "Hyderabad", "Hubballi", "Kumta", "Honnavar", "Other"],
@@ -156,14 +165,14 @@ export const FAQ_PAGE = {
   help: {
     title: "Still Have A Question?",
     text: "Our team will talk you through process, materials, costs and timelines for your space.",
-    image: { src: SITE_IMAGES.heroSlide2, alt: "Suthar kitchen and dining interior" },
+    image: { src: SITE_IMAGES.heroSlide2, alt: "Open kitchen with island seating and a dining table" },
   },
 };
 
 export const THANK_YOU_PAGE = {
   title: "Thank You",
   heading: ["We Have Received ", { gold: "Your Enquiry" }],
-  text: "Thank you for reaching out to Suthar Living. A member of our team will contact you soon to understand your requirements.",
+  text: "Thank you for reaching out to Suthar Brothers. A member of our team will contact you soon to understand your requirements.",
   steps: [
     { title: "We Review Your Brief", text: "Our team reads through your project details and requirements." },
     { title: "We Call You", text: "We discuss your space, budget and timeline, and arrange a site visit." },
@@ -211,10 +220,10 @@ export function getCity(slug) {
     eyebrow: `Interior Design In ${name}`,
     title: ["Homes And Workplaces ", { gold: "Designed And Built" }, ` In ${name}`],
     text: entry
-      ? `${entry.detail} Our architects plan each layout, our workshop builds the furniture, and our site team handles execution from start to handover.`
-      : `Our architects plan each layout, our workshop builds the furniture, and our site team handles execution in ${name} from start to handover.`,
-    points: ["Free First Consultation", "Architect-Led Planning", "Furniture From Our Workshop", "Itemised Quotes"],
-    image: { src: SITE_IMAGES.heroSlide2, alt: `Suthar interior project in ${name}` },
+      ? `${entry.detail} Our design team plans each layout, our craftsmen make the furniture, and our site team handles execution from start to handover.`
+      : `Our design team plans each layout, our craftsmen make the furniture, and our site team handles execution in ${name} from start to handover.`,
+    points: ["Homes, Offices & Shops", "Planned By Our Design Team", "Furniture Made To Measure", "Flexible Pricing Options"],
+    image: { src: SITE_IMAGES.livingGreen, alt: "Living room with a sage green wall and wooden furniture" },
   };
 }
 

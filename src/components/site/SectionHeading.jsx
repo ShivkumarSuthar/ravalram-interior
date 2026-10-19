@@ -21,7 +21,7 @@ export default function SectionHeading({ eyebrow, title, text, className = "" })
       </div>
 
       <div className="relative lg:col-span-2">
-        <h2 data-cursor="lg" className="font-heading text-section capitalize text-surface-dark">
+        <h2 data-cursor="lg" className="font-heading text-section capitalize text-ink">
           <TitleParts parts={title} />
         </h2>
         {text && <p className="mt-6 max-w-3xl text-base leading-7 text-text-muted">{text}</p>}

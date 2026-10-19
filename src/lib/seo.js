@@ -1,42 +1,45 @@
 /**
- * Suthar Living - Enterprise SEO Specification & Helpers
- * Complies with Next.js App Router Metadata API & Google Structured Data Guidelines
+ * Suthar Brothers - SEO helpers (Next.js Metadata API + schema.org JSON-LD)
+ * Business details come from COMPANY_INFO in data.js so there is one source of truth.
  */
 
+import { COMPANY_INFO, SITE_IMAGES } from "./data.js";
+
+const office = COMPANY_INFO.address.indianShowroom;
+
 export const siteConfig = {
-  name: "Suthar Living",
-  tagline: "Designed with purpose. Crafted with care. Made for living.",
-  coreMessage: "Spaces Designed to Feel Like Home",
-  url: "https://www.sutharinteriorstudio.in",
-  fallbackUrl: "https://www.sutharinteriorstudio.in",
-  logo: "https://www.sutharinteriorstudio.in/logo.png",
+  name: "Suthar Brothers",
+  tagline: "Interior Design & Execution",
+  // Set NEXT_PUBLIC_SITE_URL to the live domain; this fallback is the domain used so far in the project
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.sutharinteriorstudio.in",
+  logo: "/assets/images/logo.png",
+  ogImage: SITE_IMAGES.heroBg,
+  establishedYear: COMPANY_INFO.foundedYear,
+  founder: COMPANY_INFO.founder,
+  coFounder: COMPANY_INFO.coFounder,
   contact: {
-    phone: "[PHONE NUMBER]",
-    email: "contact@sutharinteriorstudio.in",
+    phone: office.phone,
+    email: COMPANY_INFO.email,
     address: {
-      streetAddress: "[ADDRESS]",
-      addressLocality: "[LOCATION]",
+      streetAddress: office.street,
+      addressLocality: office.city,
+      addressRegion: office.state,
+      postalCode: office.pincode,
       addressCountry: "IN",
     },
   },
-  socials: {
-    whatsapp: "https://wa.me/[PHONE NUMBER]",
-    facebook: "https://facebook.com/sutharliving",
-    instagram: "https://instagram.com/sutharliving",
-    linkedin: "https://linkedin.com/company/sutharliving",
-  },
+  socials: COMPANY_INFO.socialLinks,
   primaryKeywords: [
     "Interior Designer",
     "Interior Design",
     "Interior Contractor",
     "Home Interior Design",
-    "Residential Interior Design",
+    "Office Interior Design",
     "Commercial Interior Design",
+    "Modular Kitchen",
+    "Wardrobes",
     "Custom Furniture",
-    "Modular Furniture",
     "Home Renovation",
-    "Interior Renovation",
-    "Home Décor",
     "Turnkey Interior Solutions",
     "Interior Design & Execution",
   ],
@@ -62,10 +65,10 @@ export function getPageMetadata({
   description,
   path = "",
   keywords = [],
-  ogImage = "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
+  ogImage = siteConfig.ogImage,
   ogType = "website",
   noIndex = false,
-  authors = [{ name: "Suthar Interior Studio" }],
+  authors = [{ name: siteConfig.name }],
 } = {}) {
   const finalUrl = `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
   const fullTitle = title.includes("|") ? title : `${title} | ${siteConfig.name}`;
@@ -113,7 +116,7 @@ export function getPageMetadata({
       images: [ogImage],
     },
     // Device & layout preferences
-    category: "Interior Design & Architecture",
+    category: "Interior Design",
     appleWebApp: {
       capable: true,
       title: siteConfig.name,
@@ -146,22 +149,19 @@ export function generateSchema(type, data = {}) {
         "@id": `${siteConfig.url}/#organization`,
         "name": siteConfig.name,
         "url": siteConfig.url,
-        "logo": siteConfig.logo,
+        "logo": `${siteConfig.url}${siteConfig.logo}`,
         "foundingDate": siteConfig.establishedYear,
         "founder": {
           "@type": "Person",
           "name": siteConfig.founder,
         },
-        "sameAs": [
-          siteConfig.socials.facebook,
-          siteConfig.socials.instagram,
-          siteConfig.socials.linkedin,
-        ],
+        "sameAs": Object.values(siteConfig.socials),
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": siteConfig.contact.phone,
+          "email": siteConfig.contact.email,
           "contactType": "sales",
-          "areaServed": ["IN", "US"],
+          "areaServed": "IN",
           "availableLanguage": ["en", "hi", "mr"],
         },
       };
@@ -173,7 +173,7 @@ export function generateSchema(type, data = {}) {
         "@id": `${siteConfig.url}/#website`,
         "url": siteConfig.url,
         "name": siteConfig.name,
-        "description": "Exquisite spatial layouts and master timber joinery. Elevating luxury residential and commercial spaces with generational woodworking heritage.",
+        "description": "Interior design and execution for homes, offices and commercial spaces: modular kitchens, wardrobes, custom furniture, renovation and turnkey interiors.",
         "publisher": {
           "@id": `${siteConfig.url}/#organization`,
         },
@@ -195,14 +195,14 @@ export function generateSchema(type, data = {}) {
       const specificType = type === "LocalBusiness" ? "InteriorDesigner" : type;
       return {
         ...baseSchema,
-        "@type": ["ProfessionalService", "Architect", "InteriorDesigner", "FurnitureManufacturer"],
+        "@type": ["ProfessionalService", "InteriorDesigner"],
         "@id": `${siteConfig.url}/#localbusiness-${data.city?.toLowerCase() || "mumbai"}`,
         "name": data.title || `${siteConfig.name} - ${data.city || "Mumbai"}`,
-        "description": data.description || "Architect-supervised high-end residential interiors, luxury commercial showrooms, and bespoke woodworking joinery.",
+        "description": data.description || "Interior design and execution for homes, offices and commercial spaces, with furniture made to measure.",
         "url": `${siteConfig.url}/${data.city?.toLowerCase() || ""}`,
         "telephone": siteConfig.contact.phone,
-        "priceRange": "$$$$",
-        "image": data.image || "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
+        "email": siteConfig.contact.email,
+        "image": data.image || siteConfig.ogImage,
         "address": {
           "@type": "PostalAddress",
           "streetAddress": data.street || siteConfig.contact.address.streetAddress,
@@ -235,13 +235,9 @@ export function generateSchema(type, data = {}) {
         "employee": {
           "@type": "Person",
           "name": "Padam P. Sutar",
-          "jobTitle": "Lead Architect",
+          "jobTitle": "Design Lead",
         },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "148",
-        },
+        // No aggregateRating: only add one when it comes from real, published customer reviews
       };
 
     case "Breadcrumb":
@@ -278,12 +274,12 @@ export function generateSchema(type, data = {}) {
         "@type": "BlogPosting",
         "headline": data.title,
         "description": data.description,
-        "image": data.image || "/assets/images/AI_images/antra_about_side_1782744266546.jpg",
+        "image": data.image || siteConfig.ogImage,
         "datePublished": data.datePublished || "2026-06-28",
         "dateModified": data.dateModified || "2026-06-30",
         "author": {
-          "@type": "Person",
-          "name": data.author || "Elena Suthar",
+          "@type": "Organization",
+          "name": data.author || siteConfig.name,
           "url": `${siteConfig.url}/about-us`,
         },
         "publisher": {
@@ -291,7 +287,7 @@ export function generateSchema(type, data = {}) {
           "name": siteConfig.name,
           "logo": {
             "@type": "ImageObject",
-            "url": siteConfig.logo,
+            "url": `${siteConfig.url}${siteConfig.logo}`,
           },
         },
         "mainEntityOfPage": {
@@ -310,12 +306,7 @@ export function generateSchema(type, data = {}) {
           "name": siteConfig.name,
         },
         "description": data.description,
-        "areaServed": ["Mumbai", "Goa", "Pune", "Bengaluru", "Hyderabad"],
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "INR",
-          "availability": "https://schema.org/InStock",
-        },
+        "areaServed": ["Mumbai", "Pune", "Goa"],
       };
 
     default:

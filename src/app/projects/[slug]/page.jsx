@@ -15,12 +15,12 @@ export async function generateMetadata(props) {
   if (!project) {
     return getPageMetadata({
       title: "Project Not Found",
-      description: "The requested project case study could not be located on Suthar Interior Studio.",
+      description: "The requested project case study could not be located on Suthar Brothers.",
     });
   }
 
   return getPageMetadata({
-    title: `${project.title} - ${project.category} Portfolio | Suthar Interior Studio`,
+    title: `${project.title} - ${project.category} Portfolio | Suthar Brothers`,
     description: project.description,
     path: `/projects/${project.slug}`,
     keywords: [project.category, "Luxury Portfolio", "Teak Carpentry case study", "Suthar interior construction"],
@@ -39,7 +39,7 @@ export default async function ProjectDetailsPage(props) {
   // Create customized LocalBusiness/ProfessionalService schema detailing the project
   const serviceSchema = generateSchema("LocalBusiness", {
     city: project.location.split(",").pop().trim(),
-    title: `Suthar Interior Studio - ${project.title} Case Study`,
+    title: `Suthar Brothers - ${project.title} Case Study`,
     description: project.description,
     image: project.image,
   });

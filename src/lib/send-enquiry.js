@@ -10,5 +10,5 @@ export default async function sendEnquiry(params) {
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     throw new Error("EmailJS is not configured");
   }
-  await emailjs.send(SERVICE_ID, TEMPLATE_ID, { site_name: "Suthar Living", ...params }, PUBLIC_KEY);
+  await emailjs.send(SERVICE_ID, TEMPLATE_ID, { site_name: "Suthar Brothers", ...params }, PUBLIC_KEY);
 }

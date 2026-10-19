@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import PageShell from "../PageShell";
@@ -13,7 +11,7 @@ import { BANNERS } from "../../../lib/pages-content";
 function SidebarBlock({ title, children }) {
   return (
     <div className="rounded-3xl bg-bg-base p-8">
-      <h2 className="font-heading text-card text-surface-dark">{title}</h2>
+      <h2 className="font-heading text-card text-ink">{title}</h2>
       <div className="mt-5">{children}</div>
     </div>
   );
@@ -51,11 +49,11 @@ export default function BlogDetailPage({ article }) {
               </span>
               {article.readTime && <span>{article.readTime}</span>}
             </p>
-            <h2 data-cursor="lg" className="mt-5 font-heading text-section text-surface-dark">{article.title}</h2>
+            <h2 data-cursor="lg" className="mt-5 font-heading text-section text-ink">{article.title}</h2>
             <div className="mt-10 h-75 overflow-hidden rounded-3xl sm:h-125">
               <img src={article.image} alt={article.title} fetchPriority="high" className="size-full object-cover" />
             </div>
-            <p className="mt-10 font-heading text-card text-surface-dark">{article.excerpt}</p>
+            <p className="mt-10 font-heading text-card text-ink">{article.excerpt}</p>
             <div className="mt-8">
               <ArticleBody source={article.content} />
             </div>
@@ -64,13 +62,13 @@ export default function BlogDetailPage({ article }) {
               {prev ? (
                 <Link href={`/blog/${prev.slug}`} className="group">
                   <span className="flex items-center gap-2 text-sm uppercase text-text-muted"><ArrowLeft className="size-4" /> Previous</span>
-                  <span className="mt-2 block font-heading text-lead-lg text-surface-dark transition-colors group-hover:text-primary">{prev.title}</span>
+                  <span className="mt-2 block font-heading text-lead-lg text-ink transition-colors group-hover:text-primary">{prev.title}</span>
                 </Link>
               ) : <span />}
               {next && (
                 <Link href={`/blog/${next.slug}`} className="group sm:text-right">
                   <span className="flex items-center gap-2 text-sm uppercase text-text-muted sm:justify-end">Next <ArrowRight className="size-4" /></span>
-                  <span className="mt-2 block font-heading text-lead-lg text-surface-dark transition-colors group-hover:text-primary">{next.title}</span>
+                  <span className="mt-2 block font-heading text-lead-lg text-ink transition-colors group-hover:text-primary">{next.title}</span>
                 </Link>
               )}
             </nav>
@@ -99,7 +97,7 @@ export default function BlogDetailPage({ article }) {
                       </span>
                       <span>
                         <time className="block text-sm text-text-muted">{post.date}</time>
-                        <span className="mt-1 block font-heading text-base text-surface-dark transition-colors group-hover:text-primary">{post.title}</span>
+                        <span className="mt-1 block font-heading text-base text-ink transition-colors group-hover:text-primary">{post.title}</span>
                       </span>
                     </Link>
                   </li>

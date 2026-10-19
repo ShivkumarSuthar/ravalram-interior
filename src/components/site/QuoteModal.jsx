@@ -13,7 +13,7 @@ import { CONTACT_PAGE } from "../../lib/pages-content";
 
 // Corner radius is added per element: rounded-full for inputs/selects, rounded-3xl for the textarea
 const FIELD_BASE =
-  "w-full border border-line/30 bg-bg-soft px-5 py-3 text-base text-surface-dark outline-none transition-colors placeholder:text-text-muted focus:border-primary focus-visible:outline-none!";
+  "w-full border border-line/30 bg-bg-soft px-5 py-3 text-base text-ink outline-none transition-colors placeholder:text-text-muted focus:border-primary focus-visible:outline-none!";
 
 const FIELD = `${FIELD_BASE} rounded-full`;
 const EMPTY ={ name: "", phone: "", email: "", city: "", service: "", message: "" };
@@ -92,13 +92,13 @@ export default function QuoteModal() {
               onClick={close}
               autoFocus
               aria-label="Close"
-              className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-line/30 text-surface-dark transition-colors hover:border-primary hover:bg-primary hover:text-white"
+              className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-line/30 text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
             >
               <X className="size-4.5" />
             </button>
 
             <Eyebrow>Free Consultation</Eyebrow>
-            <h2 id="quote-title" className="mt-4 pr-12 font-heading text-card-lg text-surface-dark">
+            <h2 id="quote-title" className="mt-4 pr-12 font-heading text-card-lg text-ink">
               Tell Us About Your Space
             </h2>
             <p className="mt-2 text-base leading-7 text-text-muted">
@@ -107,33 +107,33 @@ export default function QuoteModal() {
 
             <form onSubmit={submit} className="mt-7 grid gap-4 sm:grid-cols-2">
               <div className="sm:col-span-2">
-                <label htmlFor="q-name" className="mb-1.5 block font-heading text-base text-surface-dark">Full Name <span className="text-primary">*</span></label>
+                <label htmlFor="q-name" className="mb-1.5 block font-heading text-base text-ink">Full Name <span className="text-primary">*</span></label>
                 <input id="q-name" name="name" required autoComplete="name" value={form.name} onChange={update} placeholder="Your name" className={FIELD} />
               </div>
               <div>
-                <label htmlFor="q-phone" className="mb-1.5 block font-heading text-base text-surface-dark">Phone / WhatsApp <span className="text-primary">*</span></label>
+                <label htmlFor="q-phone" className="mb-1.5 block font-heading text-base text-ink">Phone / WhatsApp <span className="text-primary">*</span></label>
                 <input id="q-phone" name="phone" type="tel" required autoComplete="tel" value={form.phone} onChange={update} placeholder="+91" className={FIELD} />
               </div>
               <div>
-                <label htmlFor="q-email" className="mb-1.5 block font-heading text-base text-surface-dark">Email <span className="text-primary">*</span></label>
+                <label htmlFor="q-email" className="mb-1.5 block font-heading text-base text-ink">Email <span className="text-primary">*</span></label>
                 <input id="q-email" name="email" type="email" required autoComplete="email" value={form.email} onChange={update} placeholder="you@example.com" className={FIELD} />
               </div>
               <div>
-                <label htmlFor="q-service" className="mb-1.5 block font-heading text-base text-surface-dark">Service</label>
+                <label htmlFor="q-service" className="mb-1.5 block font-heading text-base text-ink">Service</label>
                 <select id="q-service" name="service" value={form.service} onChange={update} className={FIELD}>
                   <option value="">Select a service</option>
                   {CONTACT_PAGE.services.map((s) => <option key={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label htmlFor="q-city" className="mb-1.5 block font-heading text-base text-surface-dark">City</label>
+                <label htmlFor="q-city" className="mb-1.5 block font-heading text-base text-ink">City</label>
                 <select id="q-city" name="city" value={form.city} onChange={update} className={FIELD}>
                   <option value="">Select your city</option>
                   {CONTACT_PAGE.cities.map((c) => <option key={c}>{c}</option>)}
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="q-message" className="mb-1.5 block font-heading text-base text-surface-dark">Project Details</label>
+                <label htmlFor="q-message" className="mb-1.5 block font-heading text-base text-ink">Project Details</label>
                 <textarea id="q-message" name="message" rows={3} value={form.message} onChange={update} placeholder="Size of the space, rooms, budget range, timeline..." className={`${FIELD_BASE} rounded-3xl`} />
               </div>
 

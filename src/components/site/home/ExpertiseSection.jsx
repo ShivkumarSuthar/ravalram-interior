@@ -13,12 +13,12 @@ export default function ExpertiseSection() {
       <div className="mx-auto grid max-w-site items-center gap-14 px-5 lg:grid-cols-2 lg:gap-20">
         <Reveal direction="left">
           <Eyebrow>{EXPERTISE.eyebrow}</Eyebrow>
-          <h2 data-cursor="lg" className="mt-5 max-w-172.5 font-heading text-section capitalize text-surface-dark">
+          <h2 data-cursor="lg" className="mt-5 max-w-172.5 font-heading text-section capitalize text-ink">
             <TitleParts parts={EXPERTISE.title} />
           </h2>
           <ul className="mt-8 max-w-172.5 border-t border-line/30">
             {EXPERTISE.points.map((point) => (
-              <li key={point} className="flex items-center gap-2.5 border-b border-line/30 py-5 font-heading text-lead-lg text-surface-dark">
+              <li key={point} className="flex items-center gap-2.5 border-b border-line/30 py-5 font-heading text-lead-lg text-ink">
                 <span aria-hidden className="grid size-4.5 place-items-center rounded-full bg-primary text-white">
                   <ChevronRight className="size-3" strokeWidth={3} />
                 </span>

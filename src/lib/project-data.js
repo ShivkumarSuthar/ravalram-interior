@@ -1,5 +1,5 @@
 /**
- * Suthar Interior Studio & Architecture - Unified Portfolio Project Registry
+ * Suthar Brothers - Unified Portfolio Project Registry
  */
 
 export const projects = [
@@ -20,7 +20,7 @@ export const projects = [
 To make the flow of the duplex feel coherent, we demolished redundant partition walls to create an open-plan lounge, dining pavilion, and show-kitchen suite. The entry vestibule features a floating vertical slatted partition screen hand-carved in solid Indian Teak wood, acting as a functional room divider while preserving ambient wind currents.
 
 ### Materials & Craftsmanship Details
-For the core cabinetry, Suthar's master craftsmen selected marine BWR plywood finished with premium American Walnut veneers. The grains of the Walnut were meticulously hand-aligned across cabinet faces to maintain a continuous, fluid wave. Solid brass insert handles were flushed directly into wardrobe doors for a sleek tactile experience.
+For the core cabinetry, our craftsmen selected marine BWR plywood finished with premium American Walnut veneers. The grains of the Walnut were meticulously hand-aligned across cabinet faces to maintain a continuous, fluid wave. Solid brass insert handles were flushed directly into wardrobe doors for a sleek tactile experience.
 
 ### Architectural Illumination Layers
 We rejected direct downlight glare in favor of subtle indirect illumination layers. Integrated 2700K warm LED runs graze custom fluted plaster wall backdrops, casting soft golden glows. Track spotlights pinpoint the custom teak dining table, ensuring a comfortable, cozy dining atmosphere at twilight.`
@@ -50,12 +50,12 @@ The boardroom is centered around a massive 14-foot boat-shaped conference table 
     title: "Premium Modular Kitchen",
     category: "Custom Furniture",
     filterKey: "Furniture",
-    image: "/assets/images/AI_images/architectural_pavilion_1784821025997.jpg",
+    image: "/assets/images/AI_images/antra_hero_slide2_1782747378004.jpg",
     description: "A beautifully crafted modular kitchen designed around efficiency, premium materials, and timeless style.",
     location: "Donapaula, Goa",
     scope: "Modular kitchen design, customized BWR cabinetry fabrication, German soft-close fittings, and quartz continuous slab backsplashes.",
     year: "2026",
-    content: `Designed to withstand heavy daily use and coastal humidity, this premium modular kitchen combines cutting-edge European functional hardware with Suthar's authentic joinery workmanship.
+    content: `Designed to withstand heavy daily use and coastal humidity, this premium modular kitchen combines cutting-edge European functional hardware with our own joinery workmanship.
 
 ### Moisture-Resistant Construction
 Standard kitchen cabinets warp or decay when exposed to Goa's intense humidity. We utilized premium 100% waterproof Marine Grade plywood (IS 710) for all cabinet carcasses. Cabinet drawers run on Blumotion soft-close tandemboxes with a load capacity of up to 50kg per drawer.
@@ -69,7 +69,7 @@ The external door shutters utilize ultra-matte acrylic sheets in slate gray. The
     title: "Home Renovation",
     category: "Renovation",
     filterKey: "Renovation",
-    image: "/assets/images/AI_images/antra_transition_luxury_1782747459033.jpg",
+    image: "/assets/images/14.png",
     description: "Transforming an existing home into a brighter, more functional, and contemporary living environment while preserving its character.",
     location: "Candolim, Goa",
     scope: "Total structural renovation, plumbing overhauls, custom modular wardrobes, floor tiling, and decorative finishes.",

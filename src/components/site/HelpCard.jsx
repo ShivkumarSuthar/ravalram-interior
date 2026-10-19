@@ -19,7 +19,7 @@ export default function HelpCard({ title = "Do You Need Help?", text, image, cla
       <a href={`mailto:${CONTACT.email}`} className="mt-1 block text-base text-white/80 transition-colors hover:text-primary">
         {CONTACT.email}
       </a>
-      <Link href="/contact" className="mt-7 inline-flex rounded-full bg-primary px-6 py-3 font-heading text-base text-white transition-colors hover:bg-bg-base hover:text-surface-dark">
+      <Link href="/contact" className="mt-7 inline-flex rounded-full bg-primary px-6 py-3 font-heading text-base text-white transition-colors hover:bg-bg-base hover:text-ink">
         Get A Call Back
       </Link>
     </div>

@@ -62,12 +62,12 @@ export default function SearchPopup({ open, onClose }) {
                 type="button"
                 onClick={close}
                 aria-label="Close search"
-                className="absolute right-5 top-4 grid size-10 place-items-center rounded-full text-surface-dark transition-colors hover:bg-primary hover:text-white"
+                className="absolute right-5 top-4 grid size-10 place-items-center rounded-full text-ink transition-colors hover:bg-primary hover:text-white"
               >
                 <X className="size-5" />
               </button>
 
-              <form onSubmit={submit} className="relative border-b border-surface-dark/30 transition-colors focus-within:border-primary">
+              <form onSubmit={submit} className="relative border-b border-ink/30 transition-colors focus-within:border-primary">
                 <label htmlFor="site-search" className="sr-only">Search pages, projects and articles</label>
                 <input
                   id="site-search"
@@ -76,7 +76,7 @@ export default function SearchPopup({ open, onClose }) {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search pages, projects and articles"
-                  className="w-full bg-transparent py-4 pr-12 font-heading text-card-lg text-surface-dark outline-none placeholder:text-line focus-visible:outline-none!"
+                  className="w-full bg-transparent py-4 pr-12 font-heading text-card-lg text-ink outline-none placeholder:text-line focus-visible:outline-none!"
                 />
                 <button type="submit" aria-label="Search" className="absolute right-0 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-primary text-white">
                   <Search className="size-4.5" />
@@ -91,7 +91,7 @@ export default function SearchPopup({ open, onClose }) {
                         <Link
                           href={r.href}
                           onClick={close}
-                          className="group flex items-center justify-between gap-4 border-b border-line/20 py-3 font-heading text-base text-surface-dark transition-colors hover:text-primary"
+                          className="group flex items-center justify-between gap-4 border-b border-line/20 py-3 font-heading text-base text-ink transition-colors hover:text-primary"
                         >
                           {r.label}
                           <ArrowRight className="size-4 shrink-0 -rotate-45 transition-transform group-hover:rotate-0" />

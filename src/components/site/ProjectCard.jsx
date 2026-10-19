@@ -15,7 +15,7 @@ export default function ProjectCard({ project }) {
           ))}
         </ul>
       </div>
-      <h3 className="mt-5.5 font-heading text-card-lg leading-none text-surface-dark transition-colors duration-300 group-hover:text-primary">
+      <h3 className="mt-5.5 font-heading text-card-lg leading-none text-ink transition-colors duration-300 group-hover:text-primary">
         {project.title}
       </h3>
       <p className="mt-2.5 text-base leading-7 text-text-muted">{project.location}</p>

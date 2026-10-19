@@ -1,5 +1,3 @@
-"use client";
-
 import PageShell from "../PageShell";
 import Reveal from "../Reveal";
 import SectionHeading from "../SectionHeading";

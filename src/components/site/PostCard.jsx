@@ -17,7 +17,7 @@ export default function PostCard({ post }) {
           By <span className="text-primary">{post.author}</span>
         </span>
       </p>
-      <h3 className="mt-3 font-heading text-card text-surface-dark">
+      <h3 className="mt-3 font-heading text-card text-ink">
         <Link href={href} className="transition-colors duration-300 hover:text-primary">
           {post.title}
         </Link>

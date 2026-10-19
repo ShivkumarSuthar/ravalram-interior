@@ -1,5 +1,5 @@
 /**
- * Suthar Interior Studio & Architecture - Investment Categories Data Store
+ * Suthar Brothers - Investment Categories Data Store
  * Centralized data management for project investment tiers, cost breakdowns, and specifications.
  */
 

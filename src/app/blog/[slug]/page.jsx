@@ -15,12 +15,12 @@ export async function generateMetadata(props) {
   if (!article) {
     return getPageMetadata({
       title: "Article Not Found",
-      description: "The requested blog article could not be located on Suthar Interior Studio.",
+      description: "The requested blog article could not be located on Suthar Brothers.",
     });
   }
 
   return getPageMetadata({
-    title: `${article.title} | Suthar Interior Studio`,
+    title: `${article.title} | Suthar Brothers`,
     description: article.excerpt,
     path: `/blog/${article.slug}`,
     keywords: [article.categoryLabel, "Interior Design Blog", "Woodworking Article", "Suthar Insights"],

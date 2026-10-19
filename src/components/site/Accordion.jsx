@@ -24,13 +24,13 @@ export default function Accordion({ items }) {
                 onClick={() => setOpen(isOpen ? -1 : i)}
                 className="group flex w-full items-center gap-4 py-6 text-left"
               >
-                <span className={`w-8 shrink-0 font-heading text-base transition-colors ${isOpen ? "text-primary" : "text-surface-dark"}`}>
+                <span className={`w-8 shrink-0 font-heading text-base transition-colors ${isOpen ? "text-primary" : "text-ink"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className={`flex-1 font-heading text-card transition-colors group-hover:text-primary ${isOpen ? "text-primary" : "text-surface-dark"}`}>
+                <span className={`flex-1 font-heading text-card transition-colors group-hover:text-primary ${isOpen ? "text-primary" : "text-ink"}`}>
                   {item.question}
                 </span>
-                <Plus className={`size-5 shrink-0 text-surface-dark transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`} />
+                <Plus className={`size-5 shrink-0 text-ink transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`} />
               </button>
             </h3>
             <AnimatePresence initial={false}>

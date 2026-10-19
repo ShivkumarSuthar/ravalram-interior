@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Check, Compass, Hammer, Heart, Layers, ShieldCheck, Sparkles } from "lucide-react";
 import PageShell from "../PageShell";
@@ -10,24 +8,23 @@ import ArrowButton from "../ArrowButton";
 import SectionHeading from "../SectionHeading";
 import ProcessSection from "../home/ProcessSection";
 import GallerySection from "../home/GallerySection";
-import { ABOUT_PAGE, BANNERS, FOUNDED } from "../../../lib/pages-content";
+import { ABOUT_PAGE, BANNERS } from "../../../lib/pages-content";
 
 const VALUE_ICONS = { Compass, Hammer, Heart, Layers, ShieldCheck, Sparkles };
 const CITY_PAGES ={ Mumbai: "/mumbai", Pune: "/pune", Goa: "/goa", Bengaluru: "/bangalore", Hyderabad: "/hyderabad", Hubballi: "/hubli", Kumta: "/kumta", Honnavar: "/honnavar" };
 
 export default function AboutPage() {
   const { intro, band, history, values, team, cities } = ABOUT_PAGE;
-  const years = new Date().getFullYear() - FOUNDED;
 
   return (
-    <PageShell seoView="about-us" title="About Us" crumbs={[{ label: "About Us" }]} image={BANNERS.about}>
+    <PageShell title="About Us" crumbs={[{ label: "About Us" }]} image={BANNERS.about}>
       {/* Story */}
       <section className="py-24 lg:py-32.5">
         <div className="mx-auto max-w-site px-5">
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_auto] lg:gap-16">
             <Reveal direction="left" className="max-w-215">
               <Eyebrow>{intro.eyebrow}</Eyebrow>
-              <h2 data-cursor="lg" className="mt-5 font-heading text-section capitalize text-surface-dark">
+              <h2 data-cursor="lg" className="mt-5 font-heading text-section capitalize text-ink">
                 <TitleParts parts={intro.title} />
               </h2>
             </Reveal>
@@ -37,8 +34,8 @@ export default function AboutPage() {
 
             <Reveal direction="bottom" className="grid items-center gap-10 md:grid-cols-[auto_1fr] lg:gap-14">
               <div>
-                <p className="font-heading text-watermark leading-none text-primary">{years}</p>
-                <p className="mt-2 font-heading text-lead-lg text-surface-dark">{intro.yearsLabel}</p>
+                <p className="font-heading text-watermark leading-none text-primary">{intro.years}</p>
+                <p className="mt-2 font-heading text-lead-lg text-ink">{intro.yearsLabel}</p>
               </div>
               <div className="max-w-150 space-y-4">
                 {intro.paragraphs.map((p) => (
@@ -64,7 +61,7 @@ export default function AboutPage() {
             {history.events.map((event, i) => (
               <Reveal as="li" key={event.year} delay={i * 0.08} duration={1} className="relative border-t border-line/30 pt-8">
                 <span aria-hidden className="absolute -top-1.5 left-0 size-3 rounded-full bg-primary" />
-                <p className="font-heading text-card-lg text-surface-dark">{event.year}</p>
+                <p className="font-heading text-card-lg text-ink">{event.year}</p>
                 <h3 className="mt-3 font-heading text-lead-lg text-primary">{event.title}</h3>
                 <p className="mt-2 text-base leading-7 text-text-muted">{event.description}</p>
               </Reveal>
@@ -109,7 +106,7 @@ export default function AboutPage() {
             {team.people.map((person, i) => (
               <Reveal as="li" key={person.id} delay={i * 0.08} duration={1} className="rounded-3xl bg-bg-base p-8">
                 <p className="font-heading text-eyebrow uppercase text-primary">{person.role}</p>
-                <h3 className="mt-3 font-heading text-card-lg text-surface-dark">{person.name}</h3>
+                <h3 className="mt-3 font-heading text-card-lg text-ink">{person.name}</h3>
                 <p className="mt-4 text-base leading-7 text-text-muted">{person.bio}</p>
               </Reveal>
             ))}
@@ -128,7 +125,7 @@ export default function AboutPage() {
               const href = CITY_PAGES[city.name];
               const body = (
                 <>
-                  <span className="font-heading text-card text-surface-dark transition-colors group-hover:text-primary">{city.name}</span>
+                  <span className="font-heading text-card text-ink transition-colors group-hover:text-primary">{city.name}</span>
                   <span className="mt-1 block text-base leading-7 text-text-muted">{city.detail}</span>
                 </>
               );

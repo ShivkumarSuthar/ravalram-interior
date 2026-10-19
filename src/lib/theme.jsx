@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Suthar Interior Studio - Theme Engine
+ * Suthar Brothers - Theme Engine
  *
  * Brand Colors:
  * Primary: #CAA05C
@@ -16,7 +16,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 export const THEME_PRESETS = [
   {
     id: "suthar",
-    name: "Suthar Interior Studio",
+    name: "Suthar Brothers",
     description: "Official Suthar Brand Theme",
 
     // Brand Accent

@@ -3,7 +3,7 @@
  * Title arrays mix plain strings with { gold: "..." } parts, which render in the primary color.
  */
 
-import { COMPANY_INFO, SITE_IMAGES, SERVICES_PAGE_DATA } from "./data.js";
+import { COMPANY_INFO, SITE_IMAGES, STOCK_IMAGES, SERVICES_PAGE_DATA } from "./data.js";
 import { projects } from "./project-data.js";
 import { blogArticles } from "./blog-data.js";
 
@@ -16,7 +16,7 @@ export const CONTACT = {
   address: COMPANY_INFO.address.full,
   // WhatsApp chat number in international format, digits only
   whatsapp: "919819776030",
-  whatsappMessage: "Hi Suthar Living, I'd like to discuss an interior project.",
+  whatsappMessage: "Hi Suthar Brothers, I'd like to discuss an interior project.",
   socials: [
     { label: "Instagram", href: COMPANY_INFO.socialLinks.instagram },
     { label: "Facebook", href: COMPANY_INFO.socialLinks.facebook },
@@ -78,75 +78,65 @@ export const SEARCH_INDEX = [
   ...blogArticles.map((a) => ({ label: a.title, href: `/blog/${a.slug}` })),
 ];
 
-// SITE_IMAGES.heroBg (hero_living_room.jpg) does not decode in browsers, so it is not used here
+// Studio images only (no stock photos here: this set represents our own work)
 export const GALLERY_IMAGES = [
-  { src: SITE_IMAGES.contactHeroBg, alt: "Suthar living room with warm timber panelling" },
-  { src: SITE_IMAGES.heroSlide2, alt: "Suthar bespoke timber joinery and modular storage" },
-  { src: SITE_IMAGES.heroSlide3, alt: "Suthar contemporary apartment interior" },
-  { src: SITE_IMAGES.projectCoastal, alt: "Suthar sea-facing residence living area" },
-  { src: SITE_IMAGES.projectLoft, alt: "Suthar office interior with custom cabinetry" },
-  { src: SITE_IMAGES.transitionLuxury, alt: "Suthar luxury lounge with layered lighting" },
-  { src: SITE_IMAGES.bedroomTwo, alt: "Suthar bedroom with made-to-measure wardrobe" },
-  { src: SITE_IMAGES.aboutSide, alt: "Suthar reading corner with custom side table" },
+  { src: SITE_IMAGES.heroBg, alt: "Living room with timber wall panelling and a garden view" },
+  { src: SITE_IMAGES.heroSlide2, alt: "Open kitchen with island seating and a dining table" },
+  { src: SITE_IMAGES.heroSlide3, alt: "Bedroom suite with a fireplace and forest view" },
+  { src: SITE_IMAGES.livingBright, alt: "Bright living room with a corner sofa and large windows" },
+  { src: SITE_IMAGES.projectCoastal, alt: "Dining room with a sea view at dusk" },
+  { src: SITE_IMAGES.bedroomTwo, alt: "Bedroom with an upholstered bed and side tables" },
+  { src: SITE_IMAGES.livingGreen, alt: "Living room with a sage green wall and wooden furniture" },
+  { src: SITE_IMAGES.projectLoft, alt: "Living area with a brick wall and oak furniture" },
+  { src: SITE_IMAGES.aboutSide, alt: "Reading corner with an armchair and a brass floor lamp" },
 ];
 
 export const SIDEBAR = {
-  title: "We Shape Interiors, Crafting Timeless Spaces That Last",
+  title: "Interior Design & Execution For Homes, Offices And Commercial Spaces",
   gallery: GALLERY_IMAGES.slice(0, 6),
 };
 
 export const HERO = {
-  eyebrow: "Interior Studio Since 1989",
-  title: ["Timeless Spaces", { gold: "Crafted With Care" }],
-  text: "From a single room to a complete turnkey home, our architects and craftsmen design, build and finish every detail under one roof.",
+  eyebrow: "30+ Years Of Interior Experience",
+  title: ["Spaces Designed", { gold: "& Built With Care" }],
+  text: "Suthar Brothers designs and builds interiors for homes, offices and commercial spaces, from modular kitchens and wardrobes to complete turnkey projects.",
   cta: { label: "View Our Services", href: "/services" },
-  smallImage: { src: SITE_IMAGES.heroSlide2, alt: "Suthar double-height living room with timber screens" },
-  largeImage: { src: SITE_IMAGES.contactHeroBg, alt: "Suthar living room with custom sofa and warm ambient lighting" },
+  smallImage: { src: SITE_IMAGES.livingGreen, alt: "Living room with a sage green wall and wooden furniture" },
+  largeImage: { src: SITE_IMAGES.heroBg, alt: "Living room with timber wall panelling, a corner sofa and a garden view" },
 };
 
 export const SERVICES = {
   eyebrow: "What We Do",
-  title: ["Explore Our ", { gold: "Interior Design & Build" }, " Services"],
-  text: "We plan, design and build interiors for homes and workplaces, with our own joinery workshop and architect-led site teams handling every stage.",
-  watermark: "suthar",
-  floatingImage: { src: SITE_IMAGES.isometricFloorPlan, alt: "Isometric floor plan of a Suthar apartment layout" },
-  items: [
-    {
-      title: "Residential Interiors",
-      text: "Complete homes, single-room makeovers and villa interiors planned around how your family lives.",
-      image: SITE_IMAGES.projectCoastal,
-    },
-    {
-      title: "Commercial & Office Interiors",
-      text: "Offices, showrooms and retail spaces designed for daily work, client visits and easy upkeep.",
-      image: SITE_IMAGES.projectLoft,
-    },
-    {
-      title: "Custom Furniture & Joinery",
-      text: "Wardrobes, kitchens, beds and loose furniture made to measure in our own workshop.",
-      image: SITE_IMAGES.bedroomTwo,
-    },
-    {
-      title: "Home Renovation",
-      text: "Civil changes, electrical, plumbing and new finishes for homes that need a full refresh.",
-      image: "/assets/images/living_01.png",
-    },
-    {
-      title: "Turnkey Design & Build",
-      text: "One team from first sketch to handover: design, materials, site work and styling.",
-      image: SITE_IMAGES.heroSlide3,
-    },
-  ],
+  title: ["Explore Our ", { gold: "Interior Design & Execution" }, " Services"],
+  text: "We plan, design and build interiors for homes and workplaces, with furniture, finishes and site work handled by one team.",
+  // Same seven services as the Services page, so the two never drift apart
+  items: SERVICES_PAGE_DATA.coreServices.map((s) => ({
+    title: s.title,
+    text: s.summary,
+    image: s.image,
+    alt: s.imageAlt,
+    href: `/services#${s.id}`,
+  })),
+};
+
+// Comparison slider. This pair shows a design plan and a finished interior (the labels say so); to show a real
+// project, replace it with that project's own before/after photos and use the labels "Before" and "After".
+export const BEFORE_AFTER = {
+  eyebrow: "Plan To Finished Space",
+  title: ["See How A ", { gold: "Plan Becomes" }, " A Finished Space"],
+  text: "Drag the handle to compare a design plan with the finished interior.",
+  before: { src: SITE_IMAGES.isometricFloorPlan, alt: "Isometric floor plan of an apartment layout", label: "Design Plan" },
+  after: { src: SITE_IMAGES.heroSlide2, alt: "Finished open kitchen with island seating and a dining table", label: "Finished Space" },
 };
 
 export const ABOUT = {
   eyebrow: "Since 1989",
-  title: ["We Shape ", { gold: "Homes & Workplaces," }, " ", { gold: "Crafting Timeless" }, " And Lasting Spaces"],
-  lead: "Whether it is a new apartment, a family home or a busy office, we treat every project with the care our workshop has been known for since 1989.",
-  points: ["Architect-Supervised Sites", "In-House Joinery Workshop", "Clear Itemised Quotes", "Homes & Workplaces"],
-  text: "Suthar began as a woodworking workshop founded by Ravalram H. Suthar. Today our architects, designers and craftsmen work as one team, so the furniture, finishes and site work all meet the same standard.",
+  title: ["We Design ", { gold: "Homes & Workplaces," }, " ", { gold: "And Build Them" }, " With Care"],
+  lead: "With more than 30 years of interior work behind us, we bring an experienced team and a keen eye for quality to every home, office and commercial space.",
+  points: ["30+ Years Of Experience", "Design & Execution Together", "Furniture Made To Measure", "Flexible Pricing Options"],
+  text: "Suthar Brothers grew out of the woodworking business Ravalram H. Suthar started in 1989. Today our designers, craftsmen and site team work together, so furniture, finishes and site work all meet the same standard.",
   cta: { label: "More About Us", href: "/about-us" },
-  image: { src: SITE_IMAGES.aboutSide, alt: "Suthar living room finished with custom joinery" },
+  image: { src: SITE_IMAGES.aboutSide, alt: "Reading corner with an armchair, side table and brass floor lamp" },
 };
 
 export const PROJECTS = {
@@ -164,20 +154,20 @@ export const PROJECTS = {
 
 export const EXPERTISE = {
   eyebrow: "Our Expertise",
-  title: ["Suthar Has Crafted ", { gold: "Lasting Interiors" }, " Since 1989."],
-  points: ["Apartments & Villas", "Modular Kitchens & Wardrobes", "Offices & Showrooms"],
-  text: "Every project is drawn by our architects, built by our own craftsmen and checked on site before handover, so what you approve on paper is what you live with.",
+  title: ["Interiors ", { gold: "Planned Carefully," }, " Built To Last."],
+  points: ["Homes, Apartments & Villas", "Offices & Commercial Spaces", "Kitchens, Wardrobes & Furniture"],
+  text: "Our experienced team checks the details at every stage, from materials and joinery to finishing, so what you approve on paper is what you get.",
   cta: { label: "View Our Projects", href: "/gallery" },
   images: [
-    { src: SITE_IMAGES.heroSlide3, alt: "Suthar open kitchen with handleless cabinetry" },
-    { src: SITE_IMAGES.transitionLuxury, alt: "Suthar lounge with custom seating and pendant lights" },
+    { src: SITE_IMAGES.bedroomTwo, alt: "Bedroom with an upholstered bed and side tables" },
+    { src: SITE_IMAGES.livingBright, alt: "Bright living room with a corner sofa and large windows" },
   ],
 };
 
 export const VIDEO = {
   title: "Start Your Dream Home Today!",
-  text: "Visit our studio, share your plans and see material samples in person. We walk you through layouts, finishes and costs before any work begins.",
-  background: { src: SITE_IMAGES.projectCoastal, alt: "Suthar sea-facing dining room at dusk" },
+  text: "Share your plans with us and see material samples in person. We walk you through layouts, finishes and costs before any work begins.",
+  background: { src: SITE_IMAGES.projectCoastal, alt: "Dining room with a sea view at dusk" },
   // Paste the YouTube video ID of a studio walkthrough here to show the play button.
   // (The old ID 5U2zB9mR_Qc is no longer available on YouTube.)
   youtubeId: "",
@@ -187,19 +177,19 @@ export const PROCESS = {
   eyebrow: "How We Work",
   title: ["A Clear Process ", { gold: "From First Sketch" }, " To Handover."],
   text: "Every project follows the same steps, so you always know what is happening, what it costs and when it will be done.",
-  image: { src: SITE_IMAGES.architecturalPavilion, alt: "Suthar architect reviewing a project on site" },
+  image: { src: STOCK_IMAGES.homeOffice, alt: "Design desk with a computer and drawings" },
   steps: [
     { title: "Consultation & Site Visit", text: "We visit your space, take measurements and understand how you want to use it, along with your budget." },
-    { title: "Design & Planning", text: "Floor plans, 3D views and a material board, revised with you until every room feels right." },
-    { title: "Workshop & Site Work", text: "Furniture is built in our workshop while our site team handles civil, electrical and finishing work." },
-    { title: "Handover", text: "A final quality check, deep clean and walkthrough before we hand over the keys and a care guide." },
+    { title: "Design & Planning", text: "Floor plans, 3D views and material choices, revised with you until every room feels right." },
+    { title: "Production & Site Work", text: "Furniture is made to measure while our site team handles civil, electrical and finishing work." },
+    { title: "Handover", text: "A final quality check, cleaning and walkthrough before we hand the space over to you." },
   ],
 };
 
 export const GALLERY = {
   eyebrow: "Our Gallery",
   title: "Inside Our Work",
-  text: "Living rooms, kitchens, bedrooms and workspaces we have designed and built across Mumbai, Goa and Pune.",
+  text: "Living rooms, kitchens, bedrooms and workspaces designed and built by our team.",
   background: { src: SITE_IMAGES.heroSlide3, alt: "" },
   images: GALLERY_IMAGES,
 };
@@ -221,12 +211,11 @@ export const JOURNAL = {
 export const NEWSLETTER = {
   eyebrow: "Subscribe To Our Newsletter",
   title: ["Design Notes ", { gold: "In Your" }, " Inbox"],
-  text: "Seasonal design ideas, material guides and new project stories from our studio.",
+  text: "Design ideas, material guides and project updates from Suthar Brothers.",
 };
 
 export const FOOTER = {
-  tagline: "Interiors, furniture and renovation, designed and built by one team since 1989.",
-  watermark: "suthar",
+  tagline: "Interior design and execution for homes, offices and commercial spaces, backed by 30+ years of experience.",
   background: { src: SITE_IMAGES.contactFooterBg, alt: "" },
   columns: [
     [

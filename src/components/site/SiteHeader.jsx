@@ -8,6 +8,7 @@ import { ChevronDown, Phone, Search } from "lucide-react";
 import Logo from "./Logo";
 import Sidebar from "./Sidebar";
 import SearchPopup from "./SearchPopup";
+import ThemeToggle from "./ThemeToggle";
 import { NAV, CONTACT } from "../../lib/home-content";
 
 const isActive = (pathname, href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
@@ -28,9 +29,9 @@ export default function SiteHeader({ tone = "dark" }) {
   }, []);
 
   const light = tone === "light";
-  const ink = light ? "text-white" : "text-surface-dark";
+  const ink = light ? "text-white" : "text-ink";
   const iconButton = `grid size-12 place-items-center rounded-full border transition-colors duration-300 hover:border-primary hover:bg-primary hover:text-white sm:size-14 ${
-    light ? "border-white/30 text-white" : "border-surface-dark text-surface-dark"
+    light ? "border-white/30 text-white" : "border-ink text-ink"
   }`;
   const fixedBar = light ? "bg-surface-dark" : "bg-bg-base shadow-sm";
 
@@ -47,7 +48,7 @@ export default function SiteHeader({ tone = "dark" }) {
           <div className="flex items-center gap-14">
             <Logo tone={light ? "light" : "dark"} />
             <nav aria-label="Main" className="hidden xl:block">
-              <ul className="flex items-center gap-8.5">
+              <ul className="flex items-center gap-6 2xl:gap-8.5">
                 {NAV.map((item) => (
                   <li key={item.label} className="group relative">
                     <Link
@@ -66,7 +67,7 @@ export default function SiteHeader({ tone = "dark" }) {
                           <li key={child.label}>
                             <Link
                               href={child.href}
-                              className="block rounded-xl px-4 py-2.5 font-heading text-base text-surface-dark transition-all duration-300 hover:translate-x-1 hover:text-primary"
+                              className="block rounded-xl px-4 py-2.5 font-heading text-base text-ink transition-all duration-300 hover:translate-x-1 hover:text-primary"
                             >
                               {child.label}
                             </Link>
@@ -81,7 +82,7 @@ export default function SiteHeader({ tone = "dark" }) {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <a href={CONTACT.phoneHref} className="group mr-1 hidden items-center gap-3 min-[1400px]:flex">
+            <a href={CONTACT.phoneHref} className="group mr-1 hidden items-center gap-3 min-[1600px]:flex">
               <Phone className={`size-7 ${ink}`} strokeWidth={1.4} />
               <span>
                 <span className={`block text-sm ${ink}`}>Call Us</span>
@@ -99,6 +100,7 @@ export default function SiteHeader({ tone = "dark" }) {
             >
               Get In Touch
             </button>
+            <ThemeToggle className={`${iconButton} hidden sm:grid`} />
             <button
               type="button"
               onClick={() => setSearchOpen(true)}

@@ -1,5 +1,3 @@
-"use client";
-
 import { Check } from "lucide-react";
 import PageShell from "../PageShell";
 import Reveal from "../Reveal";
@@ -16,7 +14,7 @@ export default function ServicesPage() {
   const { core, models, steps, faq } = SERVICES_PAGE;
 
   return (
-    <PageShell seoView="services" title="Services" crumbs={[{ label: "Services" }]} image={BANNERS.services}>
+    <PageShell title="Services" crumbs={[{ label: "Services" }]} image={BANNERS.services}>
       <ServicesSection />
 
       {/* Each service in detail, alternating image side */}
@@ -27,15 +25,15 @@ export default function ServicesPage() {
             {core.items.map((service, i) => (
               <article key={service.id} id={service.id} className="grid scroll-mt-32 items-center gap-10 lg:grid-cols-2 lg:gap-20">
                 <Reveal direction={i % 2 ? "right" : "left"} className={`h-80 overflow-hidden rounded-3xl sm:h-115 ${i % 2 ? "lg:order-2" : ""}`}>
-                  <img src={service.image} alt={`Suthar ${service.title.toLowerCase()}`} loading="lazy" decoding="async" className="size-full object-cover" />
+                  <img src={service.image} alt={service.imageAlt} loading="lazy" decoding="async" className="size-full object-cover" />
                 </Reveal>
                 <Reveal direction={i % 2 ? "left" : "right"}>
                   <p className="font-heading text-eyebrow uppercase text-primary">{String(i + 1).padStart(2, "0")} / {service.accent}</p>
-                  <h3 className="mt-4 font-heading text-section text-surface-dark">{service.title}</h3>
+                  <h3 className="mt-4 font-heading text-section text-ink">{service.title}</h3>
                   <p className="mt-5 text-base leading-7 text-text-muted">{service.description}</p>
                   <ul className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2.5 font-heading text-lead text-surface-dark">
+                      <li key={feature} className="flex items-center gap-2.5 font-heading text-lead text-ink">
                         <Check className="size-4.5 shrink-0 text-primary" strokeWidth={2.5} />
                         {feature}
                       </li>
@@ -79,8 +77,8 @@ export default function ServicesPage() {
           <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.items.map((step, i) => (
               <Reveal as="li" key={step.num} delay={(i % 4) * 0.08} duration={1} className="rounded-3xl bg-bg-base p-8">
-                <span className="grid size-16 place-items-center rounded-full bg-bg-soft font-heading text-card text-surface-dark">{step.num}</span>
-                <h3 className="mt-6 font-heading text-card text-surface-dark">{step.name}</h3>
+                <span className="grid size-16 place-items-center rounded-full bg-bg-soft font-heading text-card text-ink">{step.num}</span>
+                <h3 className="mt-6 font-heading text-card text-ink">{step.name}</h3>
                 <p className="mt-2 text-base leading-7 text-text-muted">{step.desc}</p>
               </Reveal>
             ))}

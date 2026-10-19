@@ -59,16 +59,9 @@ export default function SiteFooter() {
 
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-site px-5 py-10 text-center text-base text-white/80">
-          © {new Date().getFullYear()} Suthar Living. All Rights Reserved.
+          © {new Date().getFullYear()} Suthar Brothers. All Rights Reserved.
         </p>
       </div>
-
-      <p
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -bottom-[0.2em] select-none text-center font-heading text-watermark leading-none text-white/30"
-      >
-        {FOOTER.watermark}
-      </p>
     </footer>
   );
 }

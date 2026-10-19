@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 // Small pill label above section titles; its letters slide in from the right one by one
 export default function Eyebrow({ children, tone = "dark", className = "" }) {
   const reduceMotion = useReducedMotion();
-  const toneClass = tone === "light" ? "border-white/20 text-white" : "border-line/30 text-surface-dark";
+  const toneClass = tone === "light" ? "border-white/20 text-white" : "border-line/30 text-ink";
 
   return (
     <motion.p

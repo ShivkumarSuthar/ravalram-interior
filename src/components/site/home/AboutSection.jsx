@@ -9,6 +9,8 @@ export default function AboutSection() {
   return (
     <section className="relative isolate overflow-hidden bg-bg-dark py-24 lg:py-32.5">
       <div aria-hidden className="absolute inset-0 -z-10 bg-radial-[at_80%_20%] from-surface-dark to-bg-dark" />
+      {/* Fades the top edge into plain dark so it meets the before/after section's dark band without a seam */}
+      <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-48 bg-linear-to-b from-bg-dark to-transparent" />
 
       <div className="mx-auto max-w-site px-5">
         <Reveal delay={0} duration={1} className="max-w-180">

@@ -7,12 +7,12 @@ export const PRIVACY = {
   title: "Privacy Policy",
   updated: "June 30, 2026",
   intro:
-    "Your privacy matters to us. This Privacy Policy explains how Suthar Interior Studio collects, uses, stores, and protects your personal information when you visit our website or contact our team.",
+    "Your privacy matters to us. This Privacy Policy explains how Suthar Brothers collects, uses, stores, and protects your personal information when you visit our website or contact our team.",
   sections: [
     {
       title: "Information We Collect",
       paragraphs: [
-        "At Suthar Interior Studio, we are committed to protecting your personal data. We collect the information needed to design, plan, and deliver architecture and interior projects.",
+        "At Suthar Brothers, we are committed to protecting your personal data. We collect the information needed to design, plan, and deliver interior projects.",
         "We may collect personal details that you voluntarily submit to us, which include:",
       ],
       list: [
@@ -36,7 +36,7 @@ export const PRIVACY = {
     {
       title: "Information Sharing",
       quote:
-        "Suthar Interior Studio never sells, leases, trades, or distributes your personal details to external marketing agencies.",
+        "Suthar Brothers never sells, leases, trades, or distributes your personal details to external marketing agencies.",
       paragraphs: [
         "Your data is only shared with trusted subcontractors or partners (such as transport providers, cabinetry manufacturers and lighting installers) when required to carry out your project, or when we are legally obliged to do so.",
       ],
@@ -61,7 +61,7 @@ export const PRIVACY = {
       title: "Third Party Services",
       paragraphs: ["The website uses a small number of external services for maps, messaging and analytics, including:"],
       list: ["Google Maps", "Google Analytics", "WhatsApp", "Email delivery services"],
-      note: "These services follow their own privacy policies and terms. Suthar Interior Studio has no control over how they store data.",
+      note: "These services follow their own privacy policies and terms. Suthar Brothers has no control over how they store data.",
     },
     {
       title: "Your Legal Rights",
@@ -97,27 +97,27 @@ export const TERMS = {
   title: "Terms & Conditions",
   updated: "June 30, 2026",
   intro:
-    "These Terms & Conditions govern your use of the Suthar Interior Studio website and our architecture, interior design, furniture manufacturing, renovation, and turnkey services.",
+    "These Terms & Conditions govern your use of the Suthar Brothers website and our interior design, furniture, renovation and turnkey services for homes, offices and commercial spaces.",
   sections: [
     {
       title: "Acceptance of Terms",
       paragraphs: [
-        "By visiting our website, using its resources, or engaging our studio for architecture, interior design, renovation or manufacturing work, you agree to these Terms & Conditions.",
-        "These Terms form a legally binding agreement between you and Suthar Interior Studio. If you disagree with any part of them, please stop using this website.",
+        "By visiting our website, using its resources, or engaging us for interior design, furniture, renovation or turnkey work, you agree to these Terms & Conditions.",
+        "These Terms form a legally binding agreement between you and Suthar Brothers. If you disagree with any part of them, please stop using this website.",
       ],
     },
     {
       title: "Our Services",
-      paragraphs: ["Suthar Interior Studio provides design-build services for residential and commercial spaces, including:"],
+      paragraphs: ["Suthar Brothers provides design-build services for residential and commercial spaces, including:"],
       list: [
-        { title: "Architectural Planning", text: "Layouts, space planning and working drawings." },
-        { title: "Interior Design", text: "Colour, material and lighting design." },
-        { title: "Custom Furniture", text: "Furniture made to order in our own workshop." },
-        { title: "Renovation", text: "Civil work, electrical rewiring and waterproofing." },
-        { title: "Commercial Interiors", text: "Offices, retail spaces and showrooms." },
-        { title: "Turnkey Projects", text: "End-to-end management from design and sourcing to site work." },
-        { title: "Consultations", text: "Layout reviews and design discussions." },
-        { title: "Material Guidance", text: "Help comparing plywood grades, veneers, stone and hardware." },
+        { title: "Home Interiors", text: "Apartments, villas and independent homes, from single rooms to complete homes." },
+        { title: "Office & Commercial Interiors", text: "Offices, showrooms, retail and other commercial spaces." },
+        { title: "Modular Kitchens", text: "Kitchens planned and built to fit your space." },
+        { title: "Wardrobes", text: "Made-to-measure wardrobes and walk-in closets." },
+        { title: "Custom Furniture", text: "Beds, TV units, tables and storage made to order." },
+        { title: "Renovation", text: "Civil changes, electrical and plumbing work, flooring and finishes." },
+        { title: "Turnkey Interior Solutions", text: "Design, materials, site work and handover by one team." },
+        { title: "Labour-Only Work", text: "Our craftsmen and site team working with materials you supply." },
       ],
     },
     {
@@ -166,7 +166,7 @@ export const TERMS = {
     {
       title: "Intellectual Property",
       paragraphs: [
-        "All content on this website, including renderings, drawings, photographs, text, code and logos, is the property of Suthar Interior Studio.",
+        "All content on this website, including renderings, drawings, photographs, text, code and logos, is the property of Suthar Brothers.",
         "Copying, reproducing or using our designs or portfolio for other projects without written permission from the studio is not allowed.",
       ],
     },

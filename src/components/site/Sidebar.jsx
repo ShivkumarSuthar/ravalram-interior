@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronDown, MapPin, Phone, Mail } from "lucide-react";
 import Logo from "./Logo";
 import useOverlay from "./useOverlay";
+import ThemeToggle from "./ThemeToggle";
 import { NAV, SIDEBAR, CONTACT } from "../../lib/home-content";
 
 export default function Sidebar({ open, onClose }) {
@@ -98,6 +99,11 @@ export default function Sidebar({ open, onClose }) {
                 ))}
               </ul>
             </nav>
+
+            <ThemeToggle
+              showLabel
+              className="mt-8 inline-flex items-center rounded-full border border-white/20 px-5 py-3 text-white transition-colors hover:border-primary hover:bg-primary"
+            />
 
             <p className="mt-12 font-heading text-card-lg text-white">{SIDEBAR.title}</p>
 

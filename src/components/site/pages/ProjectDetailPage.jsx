@@ -1,5 +1,3 @@
-"use client";
-
 import PageShell from "../PageShell";
 import Reveal from "../Reveal";
 import ArticleBody from "../ArticleBody";
@@ -37,12 +35,12 @@ export default function ProjectDetailPage({ project }) {
       <section className="py-24 lg:py-32.5">
         <div className="mx-auto max-w-site px-5">
           <Reveal delay={0} duration={1}>
-            <h2 data-cursor="lg" className="font-heading text-section text-surface-dark">{project.title}</h2>
+            <h2 data-cursor="lg" className="font-heading text-section text-ink">{project.title}</h2>
             <dl className="mt-10 grid grid-cols-2 gap-6 border-y border-line/30 py-7 lg:grid-cols-4">
               {facts.map((fact) => (
                 <div key={fact.label}>
                   <dt className="text-sm text-text-muted">{fact.label}:</dt>
-                  <dd className="mt-1 font-heading text-lead text-surface-dark">{fact.value}</dd>
+                  <dd className="mt-1 font-heading text-lead text-ink">{fact.value}</dd>
                 </div>
               ))}
             </dl>
@@ -54,14 +52,14 @@ export default function ProjectDetailPage({ project }) {
 
           <div className="mt-16 grid items-start gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
             <Reveal direction="left">
-              <p className="font-heading text-card-lg text-surface-dark">{project.description}</p>
+              <p className="font-heading text-card-lg text-ink">{project.description}</p>
               <div className="mt-8">
                 <ArticleBody source={project.content} />
               </div>
             </Reveal>
             <Reveal direction="right" className="space-y-6 lg:sticky lg:top-32">
               <div className="rounded-3xl bg-bg-base p-8">
-                <h3 className="font-heading text-card text-surface-dark">Project Scope</h3>
+                <h3 className="font-heading text-card text-ink">Project Scope</h3>
                 <p className="mt-3 text-base leading-7 text-text-muted">{project.scope}</p>
                 <ArrowButton href="/contact" className="mt-7">Start A Similar Project</ArrowButton>
               </div>
