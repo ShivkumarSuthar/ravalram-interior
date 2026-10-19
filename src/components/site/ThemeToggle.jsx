@@ -1,59 +1,59 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Monitor, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { THEME_STORAGE_KEY } from "../../lib/theme-script";
 
-const ORDER = ["system", "light", "dark"];
-const META = {
-  system: { Icon: Monitor, label: "System theme" },
-  light: { Icon: Sun, label: "Light theme" },
-  dark: { Icon: Moon, label: "Dark theme" },
-};
-
-const systemPrefersDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-function apply(mode) {
-  const dark = mode === "dark" || (mode === "system" && systemPrefersDark());
+// Only two themes: light and dark. Until the visitor picks one, the site follows the system setting
+// (and keeps following it live); the first click stores an explicit choice that is never overridden.
+function apply(dark) {
   const root = document.documentElement;
   root.classList.toggle("dark", dark);
-  root.dataset.theme = mode;
+  root.dataset.theme = dark ? "dark" : "light";
 }
 
-// Cycles System -> Light -> Dark. "System" follows the OS setting live, including changes while open.
 export default function ThemeToggle({ className = "", showLabel = false }) {
-  const [mode, setMode] = useState("system");
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    setMode(document.documentElement.dataset.theme || "system");
-  }, []);
+    setDark(document.documentElement.classList.contains("dark"));
 
-  useEffect(() => {
-    if (mode !== "system") return;
+    let stored = null;
+    try {
+      stored = localStorage.getItem(THEME_STORAGE_KEY);
+    } catch {}
+    // An explicit light/dark choice from before: nothing else changes it
+    if (stored === "light" || stored === "dark") return;
+
+    // No choice yet: follow the system theme, including changes while the page is open
     const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => apply("system");
+    const onChange = (e) => {
+      apply(e.matches);
+      setDark(e.matches);
+    };
     media.addEventListener("change", onChange);
     return () => media.removeEventListener("change", onChange);
-  }, [mode]);
+  }, []);
 
-  const next = () => {
-    const nextMode = ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length];
+  const toggle = () => {
+    const next = !dark;
     try {
-      localStorage.setItem(THEME_STORAGE_KEY, nextMode);
+      localStorage.setItem(THEME_STORAGE_KEY, next ? "dark" : "light");
     } catch {}
-    apply(nextMode);
-    setMode(nextMode);
+    apply(next);
+    setDark(next);
   };
 
-  const { Icon, label } = META[mode];
-  const nextLabel = META[ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length]].label;
+  const Icon = dark ? Moon : Sun;
+  const label = dark ? "Dark theme" : "Light theme";
+  const nextLabel = dark ? "light" : "dark";
 
   return (
     <button
       type="button"
-      onClick={next}
-      aria-label={`${label}. Switch to ${nextLabel.toLowerCase()}`}
-      title={`${label} (click to change)`}
+      onClick={toggle}
+      aria-label={`${label}. Switch to ${nextLabel} theme`}
+      title={`${label} (click to switch)`}
       className={className}
     >
       <Icon className="size-4.5" strokeWidth={2.2} />

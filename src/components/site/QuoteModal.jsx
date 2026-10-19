@@ -7,6 +7,7 @@ import { ArrowRight, X } from "lucide-react";
 import useOverlay from "./useOverlay";
 import Eyebrow from "./Eyebrow";
 import { EASE_OUT } from "./Reveal";
+import Select from "./Select";
 import sendEnquiry from "../../lib/send-enquiry";
 import { CONTACT } from "../../lib/home-content";
 import { CONTACT_PAGE } from "../../lib/pages-content";
@@ -120,17 +121,11 @@ export default function QuoteModal() {
               </div>
               <div>
                 <label htmlFor="q-service" className="mb-1.5 block font-heading text-base text-ink">Service</label>
-                <select id="q-service" name="service" value={form.service} onChange={update} className={FIELD}>
-                  <option value="">Select a service</option>
-                  {CONTACT_PAGE.services.map((s) => <option key={s}>{s}</option>)}
-                </select>
+                <Select id="q-service" name="service" value={form.service} onChange={update} options={CONTACT_PAGE.services} placeholder="Select a service" className={FIELD} />
               </div>
               <div>
                 <label htmlFor="q-city" className="mb-1.5 block font-heading text-base text-ink">City</label>
-                <select id="q-city" name="city" value={form.city} onChange={update} className={FIELD}>
-                  <option value="">Select your city</option>
-                  {CONTACT_PAGE.cities.map((c) => <option key={c}>{c}</option>)}
-                </select>
+                <Select id="q-city" name="city" value={form.city} onChange={update} options={CONTACT_PAGE.cities} placeholder="Select your city" className={FIELD} />
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="q-message" className="mb-1.5 block font-heading text-base text-ink">Project Details</label>

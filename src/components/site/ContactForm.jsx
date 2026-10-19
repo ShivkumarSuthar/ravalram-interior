@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import Select from "./Select";
 import sendEnquiry from "../../lib/send-enquiry";
 import { CONTACT } from "../../lib/home-content";
 import { CONTACT_PAGE } from "../../lib/pages-content";
@@ -64,17 +65,11 @@ export default function ContactForm() {
           <input id="c-email" name="email" type="email" required autoComplete="email" value={form.email} onChange={update} placeholder="you@example.com" className={FIELD} />
         </Field>
         <Field label="City" id="c-city">
-          <select id="c-city" name="city" value={form.city} onChange={update} className={FIELD}>
-            <option value="">Select your city</option>
-            {CONTACT_PAGE.cities.map((c) => <option key={c}>{c}</option>)}
-          </select>
+          <Select id="c-city" name="city" value={form.city} onChange={update} options={CONTACT_PAGE.cities} placeholder="Select your city" className={FIELD} />
         </Field>
         <div className="sm:col-span-2">
           <Field label="Service Needed" id="c-service">
-            <select id="c-service" name="service" value={form.service} onChange={update} className={FIELD}>
-              <option value="">Select a service</option>
-              {CONTACT_PAGE.services.map((s) => <option key={s}>{s}</option>)}
-            </select>
+            <Select id="c-service" name="service" value={form.service} onChange={update} options={CONTACT_PAGE.services} placeholder="Select a service" className={FIELD} />
           </Field>
         </div>
         <div className="sm:col-span-2">
