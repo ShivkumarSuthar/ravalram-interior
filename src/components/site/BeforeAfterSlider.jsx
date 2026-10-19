@@ -7,7 +7,8 @@ const clamp = (n) => Math.min(100, Math.max(0, n));
 
 // Before/after comparison: drag anywhere on the image (mouse or touch), or focus the handle and use
 // the arrow keys. `before` is revealed on the left of the handle, `after` on the right.
-export default function BeforeAfterSlider({ before, after }) {
+// `className` sets the size and shape (aspect ratio / height, corners), so the slider can be a card or full width.
+export default function BeforeAfterSlider({ before, after, className = "" }) {
   const boxRef = useRef(null);
   const dragging = useRef(false);
   const [pos, setPos] = useState(50);
@@ -18,19 +19,37 @@ export default function BeforeAfterSlider({ before, after }) {
     setPos(clamp(((clientX - rect.left) / rect.width) * 100));
   }, []);
 
-  const onPointerDown = (e) => {
+  const startDragging = (e) => {
     dragging.current = true;
     setTouched(true);
     e.currentTarget.setPointerCapture(e.pointerId);
     moveTo(e.clientX);
   };
 
+  // Mouse: grab at once, wherever you press. Touch/pen: wait until the finger moves sideways, so
+  // scrolling the page with a finger on the slider never makes the handle jump.
+  const touchStart = useRef(null);
+
+  const onPointerDown = (e) => {
+    if (e.pointerType === "mouse") startDragging(e);
+    else touchStart.current = { x: e.clientX, y: e.clientY };
+  };
+
   const onPointerMove = (e) => {
-    if (dragging.current) moveTo(e.clientX);
+    if (dragging.current) {
+      moveTo(e.clientX);
+      return;
+    }
+    const start = touchStart.current;
+    if (!start) return;
+    const dx = e.clientX - start.x;
+    const dy = e.clientY - start.y;
+    if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) startDragging(e);
   };
 
   const stopDragging = () => {
     dragging.current = false;
+    touchStart.current = null;
   };
 
   const onKeyDown = (e) => {
@@ -49,7 +68,7 @@ export default function BeforeAfterSlider({ before, after }) {
       onPointerMove={onPointerMove}
       onPointerUp={stopDragging}
       onPointerCancel={stopDragging}
-      className="relative aspect-4/3 w-full cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-3xl bg-surface-dark shadow-2xl sm:aspect-video"
+      className={`relative w-full cursor-ew-resize touch-pan-y select-none overflow-hidden bg-surface-dark ${className}`}
     >
       {/* After: full image underneath, with its label on the right */}
       <div className="pointer-events-none absolute inset-0">
