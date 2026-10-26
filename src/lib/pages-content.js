@@ -3,11 +3,9 @@
  * Reuses the studio data in data.js; title arrays follow the same { gold } convention as home-content.js.
  */
 
-import { SITE_IMAGES, STOCK_IMAGES, ABOUT_PAGE_DATA, SERVICES_PAGE_DATA, FAQ_DATA, TEAM_DATA } from "./data.js";
+import { SITE_IMAGES, STOCK_IMAGES, ABOUT_PAGE_DATA, SERVICES_PAGE_DATA, FAQ_DATA } from "./data.js";
 import { GALLERY_IMAGES } from "./home-content.js";
 import { INVESTMENT_CATEGORIES } from "./investment-data.js";
-
-export const FOUNDED = 1989;
 
 export const BANNERS = {
   about: SITE_IMAGES.transitionLuxury,
@@ -26,8 +24,8 @@ export const ABOUT_PAGE = {
     eyebrow: "Our Story",
     title: ["A Family Business ", { gold: "Built On" }, " Craftsmanship"],
     paragraphs: [
-      "Suthar Brothers grew out of the woodworking business Ravalram H. Suthar started in 1989. Furniture, wardrobes and kitchens made with care earned the trust of families, and that trust grew into complete interior projects.",
-      "Today co-founder Shivkumar Suthar leads project delivery and Padam P. Sutar leads our design team. With 30+ years of interior work, our team has the experience and a keen eye for quality that every home, office and commercial space deserves.",
+      "Suthar Brothers began as a family woodworking business in 1989. Furniture, wardrobes and kitchens made with care earned the trust of families, and that trust grew into complete interior projects.",
+      "Today our designers, craftsmen and site team work together on every project. With 30+ years of interior work, we bring the experience and a keen eye for quality that every home, office and commercial space deserves.",
     ],
     years: "30+",
     yearsLabel: "Years Of Experience",
@@ -44,12 +42,6 @@ export const ABOUT_PAGE = {
     eyebrow: "What We Stand For",
     title: ["The Values ", { gold: "Behind" }, " Every Project"],
     items: ABOUT_PAGE_DATA.values,
-  },
-  team: {
-    eyebrow: "Our Team",
-    title: ["The People ", { gold: "Who Lead" }, " Your Project"],
-    // Leadership named in the studio profile; add photos here when available
-    people: TEAM_DATA.slice(0, 3),
   },
   cities: {
     eyebrow: "Where We Work",
@@ -104,7 +96,7 @@ export const PRICING = {
     text: "Every quote is itemised, so you see exactly what goes into your space before work begins.",
     image: SITE_IMAGES.heroSlide3,
   },
-  // Studio photos per category (the investment data uses stock photos, which aren't shown)
+  // Photo per category
   images: {
     "full-home": SITE_IMAGES.heroBg,
     "apartment-interior": SITE_IMAGES.livingBright,
@@ -128,7 +120,7 @@ export const PRICING = {
   ],
   modelsText: "Choose the arrangement that suits your budget, or combine them. Every quote is itemised, so you see exactly what you are paying for.",
   note: "The rates below are indicative starting prices per sq ft with materials. Without-material and labour-only work is quoted separately after a site visit, based on your scope.",
-  categories: INVESTMENT_CATEGORIES.filter((c) => c.id !== "bespoke-furniture"),
+  categories: INVESTMENT_CATEGORIES,
   homeCategories: ["apartment-interior", "full-home", "villa-interior", "kitchen-custom"],
   faq: {
     eyebrow: "Pricing Questions",
@@ -154,7 +146,7 @@ export const CONTACT_PAGE = {
   image: { src: SITE_IMAGES.heroBg, alt: "Living room with timber wall panelling and a garden view" },
   formTitle: "Tell Us About Your Space",
   formText: "Share a few details and our team will call you to discuss your project and arrange a site visit.",
-  cities: ["Mumbai", "Pune", "Goa", "Bengaluru", "Hyderabad", "Hubballi", "Kumta", "Honnavar", "Other"],
+  cities: ABOUT_PAGE_DATA.cities.filter((c) => c.name !== "Nearby Areas").map((c) => c.name).concat("Other"),
   services: SERVICES_PAGE_DATA.coreServices.map((s) => s.title),
 };
 
@@ -200,20 +192,20 @@ export const COMING_SOON_PAGE = {
   background: SITE_IMAGES.transitionLuxury,
 };
 
-// City landing pages, keyed by the URL slug used in src/app/[city]/page.jsx
-const CITY_NAMES = {
+// City landing pages: URL slug → city name. The [city] route, sitemap and about page all read this list
+export const CITY_PAGES = {
   mumbai: "Mumbai",
   pune: "Pune",
   goa: "Goa",
+  madgaon: "Madgaon",
+  panaji: "Panaji",
   bangalore: "Bengaluru",
-  hyderabad: "Hyderabad",
-  hubli: "Hubballi",
-  kumta: "Kumta",
   honnavar: "Honnavar",
+  kumta: "Kumta",
 };
 
 export function getCity(slug) {
-  const name = CITY_NAMES[slug] || slug.charAt(0).toUpperCase() + slug.slice(1);
+  const name = CITY_PAGES[slug];
   const entry = ABOUT_PAGE_DATA.cities.find((c) => c.name === name);
   return {
     name,

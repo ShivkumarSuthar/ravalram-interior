@@ -5,7 +5,7 @@
 
 import { COMPANY_INFO, SITE_IMAGES } from "./data.js";
 
-const office = COMPANY_INFO.address.indianShowroom;
+const office = COMPANY_INFO.address;
 
 export const siteConfig = {
   name: "Suthar Brothers",
@@ -15,10 +15,8 @@ export const siteConfig = {
   logo: "/assets/images/logo.png",
   ogImage: SITE_IMAGES.heroBg,
   establishedYear: COMPANY_INFO.foundedYear,
-  founder: COMPANY_INFO.founder,
-  coFounder: COMPANY_INFO.coFounder,
   contact: {
-    phone: office.phone,
+    phone: COMPANY_INFO.phone,
     email: COMPANY_INFO.email,
     address: {
       streetAddress: office.street,
@@ -44,16 +42,6 @@ export const siteConfig = {
     "Interior Design & Execution",
   ],
 };
-
-/**
- * Gets the base URL dynamically or falls back to production
- */
-export function getBaseUrl() {
-  if (typeof window !== "undefined") {
-    return window.location.origin;
-  }
-  return process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url;
-}
 
 /**
  * Generates custom, enterprise-level metadata for any page in Next.js App Router
@@ -151,10 +139,6 @@ export function generateSchema(type, data = {}) {
         "url": siteConfig.url,
         "logo": `${siteConfig.url}${siteConfig.logo}`,
         "foundingDate": siteConfig.establishedYear,
-        "founder": {
-          "@type": "Person",
-          "name": siteConfig.founder,
-        },
         "sameAs": Object.values(siteConfig.socials),
         "contactPoint": {
           "@type": "ContactPoint",
@@ -199,7 +183,7 @@ export function generateSchema(type, data = {}) {
         "@id": `${siteConfig.url}/#localbusiness-${data.city?.toLowerCase() || "mumbai"}`,
         "name": data.title || `${siteConfig.name} - ${data.city || "Mumbai"}`,
         "description": data.description || "Interior design and execution for homes, offices and commercial spaces, with furniture made to measure.",
-        "url": `${siteConfig.url}/${data.city?.toLowerCase() || ""}`,
+        "url": `${siteConfig.url}/${data.slug || data.city?.toLowerCase() || ""}`,
         "telephone": siteConfig.contact.phone,
         "email": siteConfig.contact.email,
         "image": data.image || siteConfig.ogImage,
@@ -221,21 +205,6 @@ export function generateSchema(type, data = {}) {
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           "opens": "09:00",
           "closes": "19:00",
-        },
-        "founder": [
-          {
-            "@type": "Person",
-            "name": siteConfig.founder,
-          },
-          {
-            "@type": "Person",
-            "name": siteConfig.coFounder,
-          },
-        ],
-        "employee": {
-          "@type": "Person",
-          "name": "Padam P. Sutar",
-          "jobTitle": "Design Lead",
         },
         // No aggregateRating: only add one when it comes from real, published customer reviews
       };

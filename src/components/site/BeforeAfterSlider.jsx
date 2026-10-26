@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
+import Image from "next/image";
 
 const clamp = (n) => Math.min(100, Math.max(0, n));
 
@@ -72,7 +73,7 @@ export default function BeforeAfterSlider({ before, after, className = "" }) {
     >
       {/* After: full image underneath, with its label on the right */}
       <div className="pointer-events-none absolute inset-0">
-        <img src={after.src} alt={after.alt} draggable={false} loading="lazy" decoding="async" className="size-full object-cover" />
+        <Image src={after.src} alt={after.alt} draggable={false} fill sizes="(min-width: 1600px) 1560px, 100vw" className="object-cover" />
         <span className="absolute right-4 top-4 rounded-full bg-black/55 px-4 py-1.5 font-heading text-eyebrow uppercase text-white backdrop-blur-md sm:right-6 sm:top-6">
           {after.label}
         </span>
@@ -81,7 +82,7 @@ export default function BeforeAfterSlider({ before, after, className = "" }) {
       {/* Before: same size, clipped so only the part left of the handle shows; its label is clipped with it,
           so a label disappears as the handle passes over it */}
       <div className="pointer-events-none absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <img src={before.src} alt={before.alt} draggable={false} loading="lazy" decoding="async" className="size-full object-cover" />
+        <Image src={before.src} alt={before.alt} draggable={false} fill sizes="(min-width: 1600px) 1560px, 100vw" className="object-cover" />
         <span className="absolute left-4 top-4 rounded-full bg-black/55 px-4 py-1.5 font-heading text-eyebrow uppercase text-white backdrop-blur-md sm:left-6 sm:top-6">
           {before.label}
         </span>

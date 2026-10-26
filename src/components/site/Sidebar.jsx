@@ -8,6 +8,7 @@ import Logo from "./Logo";
 import useOverlay from "./useOverlay";
 import ThemeToggle from "./ThemeToggle";
 import { NAV, SIDEBAR, CONTACT } from "../../lib/home-content";
+import Image from "next/image";
 
 export default function Sidebar({ open, onClose }) {
   const [expanded, setExpanded] = useState(null);
@@ -110,8 +111,8 @@ export default function Sidebar({ open, onClose }) {
             <ul className="mt-8 grid grid-cols-3 gap-2.5">
               {SIDEBAR.gallery.map((img) => (
                 <li key={img.src} className="aspect-square overflow-hidden rounded-xl">
-                  <Link href="/gallery" onClick={onClose} className="block size-full">
-                    <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 hover:scale-105" />
+                  <Link href="/gallery" onClick={onClose} className="relative block size-full">
+                    <Image src={img.src} alt={img.alt} fill sizes="150px" className="object-cover transition-transform duration-700 hover:scale-105" />
                   </Link>
                 </li>
               ))}

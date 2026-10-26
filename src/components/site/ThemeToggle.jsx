@@ -16,6 +16,8 @@ export default function ThemeToggle({ className = "", showLabel = false }) {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
+    // The head script already set the theme class; read it after hydration so server and client match
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDark(document.documentElement.classList.contains("dark"));
 
     let stored = null;

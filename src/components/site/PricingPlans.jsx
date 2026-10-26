@@ -6,6 +6,7 @@ import { Check, Clock } from "lucide-react";
 import Reveal from "./Reveal";
 import TitleParts from "./TitleParts";
 import { PRICING } from "../../lib/pages-content";
+import Image from "next/image";
 
 const TIERS = ["curated", "signature", "masterpiece"];
 const rupees = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
@@ -94,7 +95,7 @@ export default function PricingPlans({ categoryIds, detailed = false }) {
       >
         {/* Intro card */}
         <div className="relative isolate flex min-h-100 flex-col justify-end overflow-hidden rounded-3xl bg-surface-dark p-8">
-          <img src={PRICING.images[category.id] || PRICING.intro.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 size-full object-cover" />
+          <Image src={PRICING.images[category.id] || PRICING.intro.image} alt="" fill sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" className="-z-20 object-cover" />
           <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-t from-black/90 via-black/60 to-black/20" />
           <p className="font-heading text-eyebrow uppercase text-primary">{category.tag}</p>
           <h3 className="mt-3 font-heading text-card-lg text-white">

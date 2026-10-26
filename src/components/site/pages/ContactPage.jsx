@@ -6,6 +6,7 @@ import SectionHeading from "../SectionHeading";
 import ContactForm from "../ContactForm";
 import { CONTACT } from "../../../lib/home-content";
 import { CONTACT_PAGE, BANNERS } from "../../../lib/pages-content";
+import Image from "next/image";
 
 export default function ContactPage() {
   const details = [
@@ -47,8 +48,8 @@ export default function ContactPage() {
           </ul>
 
           <div className="mt-16 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal direction="left" className="h-80 overflow-hidden rounded-3xl lg:h-auto">
-              <img src={CONTACT_PAGE.image.src} alt={CONTACT_PAGE.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+            <Reveal direction="left" className="relative h-80 overflow-hidden rounded-3xl lg:h-auto">
+              <Image src={CONTACT_PAGE.image.src} alt={CONTACT_PAGE.image.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </Reveal>
 
             <Reveal direction="right">

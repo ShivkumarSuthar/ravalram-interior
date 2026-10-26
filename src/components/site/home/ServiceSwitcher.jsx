@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Reveal from "../Reveal";
+import Image from "next/image";
 
 // Service list whose hovered/focused item swaps the image and caption beside it
 export default function ServiceSwitcher({ items }) {
@@ -24,7 +25,7 @@ export default function ServiceSwitcher({ items }) {
               exit={{ opacity: 0, y: -8, scale: 0.985 }}
               transition={{ duration: 0.28, ease: "easeOut" }}
             >
-              <img src={current.image} alt={current.alt} loading="lazy" decoding="async" className="size-full rounded-3xl object-cover" />
+              <Image src={current.image} alt={current.alt} fill sizes="(min-width: 1024px) 720px, 100vw" className="rounded-3xl object-cover" />
               <div className="absolute bottom-2.5 left-2.5 max-w-70 rounded-3xl border border-white/10 bg-surface-dark/45 p-7.5 backdrop-blur-2xl sm:bottom-5 sm:left-5 sm:max-w-105">
                 <p className="text-base leading-7 text-white">{current.text}</p>
               </div>

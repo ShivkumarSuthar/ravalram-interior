@@ -1,20 +1,19 @@
-# Suthar Interior Studio & Architecture
+# Suthar Brothers — Interior Design & Execution
 ## Enterprise AI Agent Engineering Handbook & Codebase Source of Truth
 
-This handbook defines the architectural patterns, styling methodologies, design philosophies, and coding standards for the Suthar Interior Studio digital platform. Every AI agent, system architect, or developer must read, understand, and strictly adhere to this specification before initiating any code edits, directory restructurings, or feature implementations.
+This handbook defines the architectural patterns, styling methodologies, design philosophies, and coding standards for the Suthar Brothers website. Every AI agent, system architect, or developer must read, understand, and strictly adhere to this specification before initiating any code edits, directory restructurings, or feature implementations.
 
 ---
 
 ## 1. Project Overview & Company Background
 
-Suthar Interior Studio is a world-class, premium architecture and interior design firm committed to delivering luxury, highly animated, conversion-focused residential and commercial spaces. The digital showroom serves to reflect this 30+ year design lineage, providing an exquisite, immersive layout comparable to elite international architecture journals.
+Suthar Brothers is a family interior design and execution business for homes, offices and commercial spaces. The website reflects its 30+ years of woodworking and interior work with a warm, editorial layout, and its job is to turn visitors into enquiries.
 
 ### Company Heritage & Background
-*   **Established Woodworking Heritage**: Multi-generational craftsmanship since **1989**.
-*   **Founder**: Ravalram H. Suthar, pioneering master artisan of bespoke timber joinery.
-*   **Co-Founder**: Shivkumar Suthar, spearheading technical integration and modern project orchestration.
-*   **Lead Architects**: Padam P. Sutar & Team, driving contemporary spatial layouts and high-end residential conceptualization.
-*   **Quality Guarantee**: Architect-supervised site execution paired with a dedicated guild of experienced craftsmen.
+*   **Established Woodworking Heritage**: A family woodworking business since **1989**.
+*   **People**: The site names no individuals (no founders, team or staff bios). Always speak as "Suthar Brothers" or "our team".
+*   **Service Area**: Mumbai, Pune, Goa (Madgaon, Panaji), Bengaluru, Honnavar, Kumta and nearby towns.
+*   **Content Honesty**: No invented stats, awards, testimonials or guarantees. Stock photos only illustrate services; never present them (or AI images) as completed projects.
 *   **Scope of Competency**:
     *   **Residential Interiors**: Sea-facing villas, luxury double-height penthouses, modern duplexes.
     *   **Commercial Design**: Ergonomic corporate headquarters, luxury showrooms, retail flagships.
@@ -29,15 +28,14 @@ Suthar Interior Studio is a world-class, premium architecture and interior desig
 The platform is designed as an ultra-high performance, lightweight full-stack application built for instant loads, fluid responsive scaling, and maximum crawlability.
 
 ### Primary Stack Details
-*   **Core Framework**: React 18+ (Single Page Application) powered by Vite.
-*   **Language**: Strict TypeScript (ES Modules, fully typed components, clean interface separations).
-*   **Styling Engine**: Tailwind CSS Utility-First styling.
-*   **Animation System**: `motion` (imported from `motion/react`) for physical rendering layout shifts, transitions, and stagger fades.
+*   **Core Framework**: Next.js 16 (App Router) with React 19, hosted on Vercel. Pages are server components; only interactive leaves (forms, carousels, popups, animations) are client components.
+*   **Language**: JavaScript with JSX (ES Modules). No TypeScript source files.
+*   **Styling Engine**: Tailwind CSS v4. Every color, font, type size and width is a token in the `@theme` block of `src/index.css` (dark mode overrides in its `.dark` block).
+*   **Animation System**: `motion` (imported from `motion/react`), mostly through the shared `Reveal` and `HeroReveal` wrappers. Smooth scrolling via `lenis`; carousels via `swiper`.
 *   **Icon Library**: Lucide React exclusively (uniform stroke widths, no inline SVG clutter).
-*   **Asset Performance**: Optimized lazy loaded responsive media with `loading="lazy"` and `decoding="async"` attributes to minimize Layout Shifts (CLS).
-*   **Static Asset Strategy**: Pre-resolved assets stored in `/public` or imported relative to `/src/assets`.
-*   **Quality Assurance**: ESLint validation coupled with TypeScript compiler `tsc --noEmit` checks.
-*   **Modernization Target Roadmap**: Standard preparation for next-phase migration to Next.js (App Router) utilizing `next/image`, React Server Components (RSC), and server-side metadata generation.
+*   **Images**: `next/image` everywhere (resized WebP per screen, reserved space, lazy loading by default).
+*   **Static Asset Strategy**: Media in `/public/assets` (reference by path), fonts in `/src/fonts`, content and data in `/src/lib`.
+*   **Quality Assurance**: `npm run lint` (ESLint with `eslint-config-next`) and `npm run build` (compiles and type-checks).
 
 ---
 
@@ -61,32 +59,31 @@ Every pixel must reflect artisanal precision. The interface must not resemble a 
 
 The color palette is deliberately restricted, high-contrast, and tuned for premium visual comfort on modern high-brightness displays.
 
-| Palette Name | Hex Code | Ideal Application Areas |
-| :--- | :--- | :--- |
-| **Warm Off-White** | `#faf9f6` | Default body background. Sets a premium, gallery-like canvas. |
-| **Gold Accent** | `#c5a880` | Interactive states, subtle borders, sub-headings, badges, and focus frames. |
-| **Gold Hover** | `#b0936b` | Active button hovers and highlighted active navigation anchors. |
-| **Dark Charcoal** | `#0c0a09` | Headers, footers, dark bento panels, hero backdrops, and solid primary CTA buttons. |
-| **Neutral Slate** | `#1c1917` | secondary cards, dark background sections, and high-impact editorial dividers. |
-| **Stone Gray** | `#78716c` | Body copy, secondary info descriptions, and inactive states. |
+Use the token classes only (e.g. `bg-primary`, `text-ink`); never hex, rgba or arbitrary values in components. Values live in `src/index.css`.
 
-*Note: Avoid vibrant colors, bright primary blues, neon greens, or generic purple/indigo gradients. Keep gradients restricted to subtle opacity fades (e.g., `#0c0a09` to transparent) for text legibility over media backdrops.*
+| Token | Light | Ideal Application Areas |
+| :--- | :--- | :--- |
+| `primary` | `#CAA05C` | Gold accent: buttons, highlighted title words, eyebrows, icons, focus rings. |
+| `primary-hover` | `#B88D48` | Hover state of gold elements. |
+| `ink` | `#191919` | Headings and strong text on page backgrounds (flips light in dark mode). |
+| `text-muted` | `#4D4D52` | Body copy and secondary descriptions. |
+| `bg-base` / `bg-soft` | `#FFFFFF` / `#F6F6F6` | Page and alternate section backgrounds. |
+| `bg-dark` / `surface-dark` | `#0F0F0F` / `#191919` | Always-dark panels: footer, banners, dark cards. |
+| `line` | `#9F9FA4` | Hairlines and borders (usually with opacity, e.g. `border-line/30`). |
+
+*Note: Avoid vibrant colors, bright primary blues, neon greens, or generic purple/indigo gradients. Keep gradients restricted to subtle opacity fades (e.g., `bg-dark` to transparent) for text legibility over media backdrops.*
 
 ---
 
 ## 5. Typography Rules
 
-Our type hierarchy balances high-end modern sans-serif fonts with elegant, editorial serif accents.
-
 ### Font Pairings
-*   **Primary Sans-Serif**: `Plus Jakarta Sans` or `Inter` (sans-serif) for high legibility, clean interface buttons, grids, forms, and technical metrics.
-*   **Display / Serif Headings**: `Crimson Pro` (with `Playfair Display` or `Georgia` fallbacks) used for grand statements, section titles, and italicized emphasis points (e.g., *"Hasn't Been Designed"*).
-*   **Data / Code Mono**: `JetBrains Mono` or `Fira Code` (monospace) used sparingly for numerical steps (`01`, `02`), dates, tags, and small coordinate trackers.
+*   **Headings**: `Cal Sans` (`font-heading`), a single-weight display face. Never apply bold to it.
+*   **Body**: `Golos Text` (`font-sans`) for paragraphs, buttons, forms and labels.
 
 ### Typographic Specifications
-*   **Standard Spacing**:
-    *   Display Titles: `tracking-tight` or `tracking-tighter` with `font-light` weights.
-    *   Sub-labels / Tags: `tracking-[0.2em]` or `tracking-[0.3em]` in `uppercase` and `font-bold` for a premium, spacious vibe.
+*   **Type Scale**: Use the scale tokens (`text-hero`, `text-section`, `text-card`, `text-lead`, `text-eyebrow`...) rather than arbitrary sizes.
+*   **Highlighted Words**: Section titles are arrays with `{ gold: "..." }` parts, rendered in `primary` by `TitleParts`.
 *   **Max Content Widths**: Keep text blocks to a maximum width of `max-w-xl` or `max-w-2xl` to guarantee a comfortable, highly readable line length (60-75 characters per line).
 *   **Leading (Line Heights)**: Use `leading-relaxed` for body paragraphs and `leading-tight` or `leading-none` for tight display headings.
 
@@ -96,8 +93,8 @@ Our type hierarchy balances high-end modern sans-serif fonts with elegant, edito
 
 The interface must behave as a cohesive system of fluid blocks. Content must align perfectly to an invisible architectural grid.
 
-*   **Max Container Width**: Standardize page-level wrappers to `max-w-7xl mx-auto px-6 md:px-12 lg:px-16`.
-*   **Section Spacing**: Keep vertical breathing room spacious. Standardize section padding to `py-16 sm:py-24 lg:py-32`.
+*   **Max Container Width**: Standardize page-level wrappers to `mx-auto max-w-site px-5`.
+*   **Section Spacing**: Keep vertical breathing room spacious. Standardize section padding to `py-24 lg:py-32.5`.
 *   **Grid Spacing**: Standard grids must use `gap-8` or `gap-12` to preserve high visual breathing room.
 *   **Card Spacing**: Component cards inside galleries must use `space-y-4` or `space-y-6`.
 *   **Responsive Breakpoints**:
@@ -114,12 +111,12 @@ Every building block must be designed with architectural precision, rounded corn
 
 ### Key Visual Components
 1.  **Buttons**:
-    *   *Primary Gold CTA*: Flat `#c5a880` background, dark text, sharp or slightly rounded corners (`rounded-none` or `rounded-full` depending on the surrounding section context, but never clumsy mid-rounded boxes). Always include a small visual circle enclosing an icon (e.g., `ArrowRight`).
+    *   *Primary Gold CTA*: Flat `primary` background (see `ArrowButton`), sharp or slightly rounded corners (`rounded-none` or `rounded-full` depending on the surrounding section context, but never clumsy mid-rounded boxes). Always include a small visual circle enclosing an icon (e.g., `ArrowRight`).
     *   *Secondary Bordered CTA*: Transparent background, border border-white/20 or border-stone-300, transition states that expand border gold colors on hover.
 2.  **Cards**:
     *   Rounded corners must use `rounded-3xl` for modern, elegant structures.
     *   Include a subtle top gold gradient accent line that scales on hover (`group-hover:scale-x-100`).
-    *   Backgrounds must be pristine white (`bg-white`) or deep dark charcoal (`bg-stone-900`) with ultra-light border definitions (`border-stone-200/50`). No harsh shadows.
+    *   Backgrounds must be `bg-bg-base` / `bg-bg-soft` or `bg-surface-dark`, with ultra-light borders (`border-line/30`). No harsh shadows.
 3.  **Forms**:
     *   Input fields must have flat backgrounds, minimal borders on active states, and beautiful custom labels.
     *   Errors and success feedbacks must animate in via AnimatePresence.
@@ -147,9 +144,10 @@ We use animations to reinforce hierarchy, signify spatial relationships, and ref
 
 ## 9. Coding Standards
 
-*   **Strict Typing**: No `any` type variables. Always define exact interfaces for component props, API responses, and local states inside `/src/types.ts`.
+*   **Server First**: Keep pages and sections as server components. Add `"use client"` only to the small interactive piece that needs it.
+*   **Content In Data Files**: Text, images and links live in `/src/lib` (`home-content.js`, `pages-content.js`, `data.js`...), not hard-coded in components. Business details (phone, email, address, socials) come only from `COMPANY_INFO` in `data.js`.
 *   **Clean Named Imports**: Import individual elements cleanly (e.g., `import { useState } from "react";` and `import { motion } from "motion/react"`). Do not use object destructuring on entire default packages.
-*   **Modularity**: Keep components clean and separate. Avoid giant, monolithic single-file implementations. Place independent blocks inside `/src/components/`.
+*   **Modularity**: Keep components clean and separate. Shared UI goes in `/src/components/site/`, homepage sections in `site/home/`, page bodies in `site/pages/`.
 *   **Semantic HTML**: Ensure proper landmarks: use `<header>` for global bars, `<main>` for core views, `<section>` for page sections, `<article>` for blog posts, and `<footer>` for copyrights.
 *   **No Inline Styles**: Style strictly via Tailwind classes. Use inline style bindings ONLY for highly dynamic values (like absolute cursor coordinates or drag percentages).
 *   **Console Cleanliness**: Remove all active `console.log` statements before compiling.
@@ -160,13 +158,12 @@ We use animations to reinforce hierarchy, signify spatial relationships, and ref
 
 Images represent our primary product: high-end physical spaces. They must load immediately, razor-sharp, and without causing structural shifts.
 
+*   **Use `next/image`**: Never a plain `<img>`. Put it in a positioned, sized box (`relative` + height or aspect ratio) and use `fill` with an accurate `sizes` value so phones get small files.
 *   **Loading Protocols**:
-    *   All images below-the-fold MUST use `loading="lazy"` and `decoding="async"`.
-    *   Critical hero banner images MUST be preloaded and omit lazy-loading to secure a stellar LCP (Largest Contentful Paint) score.
-*   **HTML Safety**: Always define accurate parent layout sizing or default `aspect-ratio` bounds on images to minimize CLS (Cumulative Layout Shift).
-*   **Format Standards**: Prefer highly compressed WebP formats or modern optimized Unsplash source variables with appropriate quality caps (`q=80`).
-*   **Access Requirements**: Always include JSX `referrerPolicy="no-referrer"` to guarantee reliable external CDN image resolution.
-*   **Descriptions**: Every `<img>` tag must have a descriptive, search-optimized `alt` value (e.g., "Suthar bespoke timber dining table detail") rather than generic terms like "image" or "interior".
+    *   Below-the-fold images lazy-load by default; leave that alone.
+    *   The hero / banner image of each page uses `loading="eager" fetchPriority="high"` for a good LCP score.
+*   **Formats**: Source photos can be JPG or PNG; Next serves resized WebP automatically. New remote hosts must be added to `images.remotePatterns` in `next.config.mjs`.
+*   **Descriptions**: Every image must have a descriptive, search-optimized `alt` value (e.g., "Suthar bespoke timber dining table detail") rather than generic terms like "image" or "interior".
 
 ---
 
@@ -174,9 +171,9 @@ Images represent our primary product: high-end physical spaces. They must load i
 
 Our platform is engineered to rank at the absolute top of organic searches for architectural services in our target regions.
 
-*   **Meta Engine (`SEOHelper`)**: Our dedicated `<SEOHelper />` component dynamically handles document titles, description overrides, Open Graph parameters, and canonical links upon view transitions.
+*   **Meta Engine**: Every route's `page.jsx` exports `generateMetadata()` built with `getPageMetadata()` from `src/lib/seo.js` (title, description, canonical, Open Graph). JSON-LD comes from `generateSchema()` in the same file. `robots.js` and `sitemap.js` in `src/app` generate those files.
 *   **Target Core Keywords**:
-    *   *Primary Location Hooks*: "Interior Designer Mumbai", "Interior Designer Goa", "Interior Designer Pune".
+    *   *Primary Location Hooks*: "Interior Designer" + Mumbai, Pune, Goa, Madgaon, Panaji, Bengaluru, Honnavar, Kumta (one landing page each via `CITY_PAGES` in `src/lib/pages-content.js`).
     *   *Service Category Hooks*: "Turnkey Interior Solutions", "Custom Furniture Manufacture", "Residential Interior Design", "Commercial Office Design", "Architecture Studio", "Home Renovation".
 *   **Structured Schema (JSON-LD)**:
     *   **LocalBusiness Schema**: Declares Suthar's flagship Linking Road showroom coordinates, phone numbers, and operational hours.
@@ -191,7 +188,7 @@ Our platform is engineered to rank at the absolute top of organic searches for a
 
 The digital showroom must be fully accessible to all individuals, matching the high standards of our physical spaces.
 
-*   **Contrast Ratios**: Keep text contrast high. Slate body text (`#78716c` or `#0c0a09`) on Warm Off-White (`#faf9f6`) surpasses the WCAG AAA standard of 4.5:1.
+*   **Contrast Ratios**: Keep text contrast high. Body text (`text-muted`) and headings (`ink`) on `bg-base` must meet WCAG AA (4.5:1) in both light and dark mode.
 *   **Keyboard Navigation**:
     *   Every interactive button, anchor link, and form element must be focusable.
     *   A custom high-contrast gold outline is registered globally in CSS (`focus-visible`) for keyboard navigators.
@@ -225,25 +222,26 @@ Our target Lighthouse/Pagespeed metrics are absolute:
 
 1.  **Scope Discipline**: Build exactly what the user requested. Never create unprompted secondary sidebars, custom backends, or unrequested features.
 2.  **No Structural Destructions**: Do not alter or delete completed design elements, headers, footers, or hero banners unless explicitly commanded to do so.
-3.  **Read-Before-Write (Mandatory)**: Always call `view_file` on any existing component file before generating code edits. Never assume structure based on common conventions.
-4.  **Preserve State Hooks**: When modifying routing elements, ensure you pass state hooks like `setView` or `setView` handlers properly to avoid snapping page loads or breaking deep linking.
-5.  **Clean Compilation**: Always run `lint_applet` followed by `compile_applet` to confirm successful builds. If an error is caught, fix it immediately before ending your turn.
+3.  **Read-Before-Write (Mandatory)**: Always read an existing file before editing it. Never assume structure based on common conventions.
+4.  **Routing**: Each page is a folder in `src/app`; link with `next/link`. Keep pages server-rendered with their metadata.
+5.  **Clean Compilation**: Always run `npm run lint` and `npm run build` to confirm a clean build. If an error is caught, fix it immediately before ending your turn.
 
 ---
 
 ## 16. Project Roadmap
 
 ### Completed System Pages
-*   `Home`: Full editorial homepage with lobby banner, creative bento highlights, custom custom furniture stories, and lead contact forms.
-*   `About`: Generational legacy storytelling detailing Ravalram Suthar's 1989 inception, guild craftsmanship, and lead architect bio boards.
-*   `Services`: Detailed deep-dive into Residential, Commercial, Renovation, and Turnkey Design-Build.
-*   `Gallery`: High-performance 28-project structural portfolio divided across 14 specialized categories with interactive lightboxes.
-*   `Blog`: Architecture and woodworking insights with individual modal article readings and SEO dispatch integrations.
-*   `FAQs`: Detailed FAQ page addressing estimates, warranty coverage, design-only requests, and structural timelines.
-*   `Contact`: Premium Indian/US showroom details, phone lines, map references, and comprehensive onboarding intake forms.
-*   `Privacy Policy` & `Terms of Service`: Legal compliance documents addressing turnkey material schedules and site-survey survey adjustments.
-*   `404 (NotFoundPage)`: Architectural wireframe blueprint background, interactive coordinates tracker, premium action cards, and directional directory menus.
-*   `Thank You (ThankYouPage)`: Onboarding pathway timeline mapping, response SLA assurances, and direct coordinate logging.
+*   `Home` (`/`): Hero, services, before/after slider, about, projects carousel, expertise, video, process, pricing, gallery, journal and newsletter.
+*   `About` (`/about-us`): Family story since 1989, history timeline, values, process, gallery and the cities we serve.
+*   `Services` (`/services`) and `Pricing` (`/pricing`): Service details, ways to work with us, and indicative per-sq-ft rates by category and tier.
+*   `Gallery` (`/gallery`) and `Projects` (`/projects/[slug]`): Image grid with lightbox, and project detail pages.
+*   `Blog` (`/blog`, `/blog/[slug]`): Articles with category filter.
+*   `City Pages` (`/[city]`): Local landing pages for each service city.
+*   `FAQs`, `Contact`, `Privacy`, `Terms`, `Thank You`, `Coming Soon` and the 404 page.
+
+### Open Content Gaps
+*   Real project photos and project details (current project and gallery images are AI-generated placeholders).
+*   Real email, address and social links in `COMPANY_INFO`, and the live domain in `NEXT_PUBLIC_SITE_URL`.
 
 ### Future Expansion Board
 *   **CMS Integration**: Secure server-side routes to dynamically pull portfolio assets from headless databases.

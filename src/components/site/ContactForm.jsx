@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Select from "./Select";
+import Honeypot from "./Honeypot";
 import sendEnquiry from "../../lib/send-enquiry";
 import { CONTACT } from "../../lib/home-content";
 import { CONTACT_PAGE } from "../../lib/pages-content";
@@ -45,7 +46,7 @@ export default function ContactForm() {
         city: form.city,
         service_needed: form.service,
         message: form.message || "No additional notes provided.",
-      });
+      }, e.currentTarget);
       router.push("/thank-you");
     } catch {
       setStatus("error");
@@ -55,6 +56,7 @@ export default function ContactForm() {
   return (
     <>
       <form onSubmit={submit} className="mt-8 grid gap-5 sm:grid-cols-2">
+        <Honeypot />
         <Field label="Full Name" id="c-name" required>
           <input id="c-name" name="name" required autoComplete="name" value={form.name} onChange={update} placeholder="Your name" className={FIELD} />
         </Field>

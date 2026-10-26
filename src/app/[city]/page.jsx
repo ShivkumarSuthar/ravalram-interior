@@ -1,21 +1,20 @@
 import { notFound } from "next/navigation";
 import { getPageMetadata, generateSchema } from "../../lib/seo";
 import CityLanding from "../../components/site/pages/CityPage";
+import { CITY_PAGES } from "../../lib/pages-content";
 
-const CITIES = ["mumbai", "goa", "pune", "bangalore", "hyderabad", "hubli", "kumta", "honnavar"];
-
-// Only the cities listed above get a page; any other single-segment URL falls through to the 404
+// Only the cities in CITY_PAGES get a page; any other single-segment URL falls through to the 404
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return CITIES.map((city) => ({ city }));
+  return Object.keys(CITY_PAGES).map((city) => ({ city }));
 }
 
 export async function generateMetadata(props) {
   const params = await props.params;
   const rawCity = params.city || "mumbai";
-  if (!CITIES.includes(rawCity)) return {};
-  const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
+  const city = CITY_PAGES[rawCity];
+  if (!city) return {};
 
   return getPageMetadata({
     title: `Interior Designer in ${city} | Suthar Brothers`,
@@ -36,12 +35,13 @@ export async function generateMetadata(props) {
 export default async function CityPage(props) {
   const params = await props.params;
   const rawCity = params.city || "mumbai";
-  if (!CITIES.includes(rawCity)) notFound();
-  const city = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
+  const city = CITY_PAGES[rawCity];
+  if (!city) notFound();
 
   // Create JSON-LD schema
   const localBusinessSchema = generateSchema("LocalBusiness", {
     city: city,
+    slug: rawCity,
     title: `Suthar Brothers - ${city} Team`,
     description: `Interior design and execution for homes, offices and commercial spaces in ${city}.`,
   });
@@ -49,7 +49,7 @@ export default async function CityPage(props) {
   const breadcrumbSchema = generateSchema("Breadcrumb", {
     items: [
       { name: "Home", path: "/" },
-      { name: "Locations", path: "/services" },
+      { name: "Locations", path: "/about-us" },
       { name: city, path: `/${rawCity}` },
     ],
   });

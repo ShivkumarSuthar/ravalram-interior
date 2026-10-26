@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
+import Image from "next/image";
 
 // Dark photo banner with a centered title and breadcrumb, used at the top of every inner page
 export default function PageBanner({ title, crumbs = [], image }) {
@@ -8,7 +9,7 @@ export default function PageBanner({ title, crumbs = [], image }) {
   return (
     <section className="relative isolate overflow-hidden bg-bg-dark pb-20 pt-40 text-center lg:pb-29 lg:pt-44">
       {image && (
-        <img src={image} alt="" fetchPriority="high" className="absolute inset-0 -z-20 size-full object-cover" />
+        <Image src={image} alt="" fill loading="eager" fetchPriority="high" sizes="100vw" className="-z-20 object-cover" />
       )}
       <div aria-hidden className="absolute inset-0 -z-10 bg-black/55" />
 

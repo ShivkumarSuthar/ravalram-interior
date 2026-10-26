@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { CONTACT } from "../../lib/home-content";
+import Image from "next/image";
 
 // Dark sidebar card inviting a call, with an optional background photo
 export default function HelpCard({ title = "Do You Need Help?", text, image, className = "" }) {
   return (
     <div className={`relative isolate overflow-hidden rounded-3xl bg-surface-dark px-8 py-12 text-center ${className}`}>
-      {image && <img src={image} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 size-full object-cover" />}
+      {image && <Image src={image} alt="" fill sizes="(min-width: 1024px) 33vw, 100vw" className="-z-20 object-cover" />}
       <div aria-hidden className="absolute inset-0 -z-10 bg-black/65" />
       <span className="mx-auto grid size-14 place-items-center rounded-full bg-primary text-white">
         <Phone className="size-6" />

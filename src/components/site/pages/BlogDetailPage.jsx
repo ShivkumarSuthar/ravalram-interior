@@ -7,6 +7,7 @@ import HelpCard from "../HelpCard";
 import NotFoundContent from "./NotFoundContent";
 import { blogArticles } from "../../../lib/blog-data";
 import { BANNERS } from "../../../lib/pages-content";
+import Image from "next/image";
 
 function SidebarBlock({ title, children }) {
   return (
@@ -50,8 +51,8 @@ export default function BlogDetailPage({ article }) {
               {article.readTime && <span>{article.readTime}</span>}
             </p>
             <h2 data-cursor="lg" className="mt-5 font-heading text-section text-ink">{article.title}</h2>
-            <div className="mt-10 h-75 overflow-hidden rounded-3xl sm:h-125">
-              <img src={article.image} alt={article.title} fetchPriority="high" className="size-full object-cover" />
+            <div className="relative mt-10 h-75 overflow-hidden rounded-3xl sm:h-125">
+              <Image src={article.image} alt={article.title} fill loading="eager" fetchPriority="high" sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" />
             </div>
             <p className="mt-10 font-heading text-card text-ink">{article.excerpt}</p>
             <div className="mt-8">
@@ -92,8 +93,8 @@ export default function BlogDetailPage({ article }) {
                 {recent.map((post) => (
                   <li key={post.slug}>
                     <Link href={`/blog/${post.slug}`} className="group flex gap-4">
-                      <span className="size-20 shrink-0 overflow-hidden rounded-xl">
-                        <img src={post.image} alt="" loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <span className="relative size-20 shrink-0 overflow-hidden rounded-xl">
+                        <Image src={post.image} alt="" fill sizes="80px" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                       </span>
                       <span>
                         <time className="block text-sm text-text-muted">{post.date}</time>

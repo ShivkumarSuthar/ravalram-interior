@@ -95,7 +95,7 @@ export default function ChatWidget() {
 
             <div className="mt-5 grid gap-2.5">
               <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={OPTION}>
-                <WhatsAppIcon className="size-5 shrink-0 text-[#25D366]" />
+                <WhatsAppIcon className="size-5 shrink-0 text-whatsapp" />
                 Chat on WhatsApp
               </a>
               <a href={CONTACT.phoneHref} className={OPTION}>

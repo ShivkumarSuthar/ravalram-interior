@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import Image from "next/image";
 
 // Draggable looping project carousel; details slide up on hover (always shown on touch screens)
 export default function ProjectsCarousel({ items }) {
@@ -22,7 +23,7 @@ export default function ProjectsCarousel({ items }) {
       {slides.map((project, i) => (
         <SwiperSlide key={`${project.href}-${i}`}>
           <Link href={project.href} className="group relative block h-112.5 overflow-hidden rounded-3xl lg:h-170">
-            <img src={project.image} alt={`${project.title}, ${project.location}`} loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src={project.image} alt={`${project.title}, ${project.location}`} fill sizes="(min-width: 1024px) 41vw, (min-width: 767px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
             <div
               aria-hidden
               className="absolute inset-x-0 -bottom-2.5 top-0 bg-linear-to-t from-black/85 to-transparent to-60% opacity-0 transition-all duration-300 group-hover:bottom-0 group-hover:opacity-100 group-focus-visible:bottom-0 group-focus-visible:opacity-100 pointer-coarse:bottom-0 pointer-coarse:opacity-100"

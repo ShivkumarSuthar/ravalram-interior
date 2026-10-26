@@ -4,6 +4,7 @@ import Eyebrow from "../Eyebrow";
 import TitleParts from "../TitleParts";
 import ArrowButton from "../ArrowButton";
 import { EXPERTISE } from "../../../lib/home-content";
+import Image from "next/image";
 
 export default function ExpertiseSection() {
   const [back, front] = EXPERTISE.images;
@@ -34,10 +35,10 @@ export default function ExpertiseSection() {
 
         <Reveal direction="right" className="relative h-110 sm:h-154">
           <div className="absolute right-0 top-0 h-60 w-3/4 overflow-hidden rounded-3xl sm:h-90 sm:w-105">
-            <img src={back.src} alt={back.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+            <Image src={back.src} alt={back.alt} fill sizes="(min-width: 640px) 420px, 75vw" className="object-cover" />
           </div>
           <div className="absolute bottom-0 left-0 z-10 h-64 w-4/5 overflow-hidden rounded-3xl sm:h-105 sm:w-110">
-            <img src={front.src} alt={front.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+            <Image src={front.src} alt={front.alt} fill sizes="(min-width: 640px) 440px, 80vw" className="object-cover" />
           </div>
         </Reveal>
       </div>

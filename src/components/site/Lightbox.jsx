@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { getImageProps } from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ArrowLeft, ArrowRight } from "lucide-react";
 import useOverlay from "./useOverlay";
@@ -21,6 +22,8 @@ export default function Lightbox({ images, index, onChange, onClose }) {
   }, [open, index, images.length, onChange]);
 
   const navButton = "grid size-12.5 place-items-center rounded-full bg-primary text-white transition-colors hover:bg-bg-base hover:text-ink";
+  // Resized, modern-format source for the full-screen view; the box keeps the photo's own proportions (w-auto h-auto)
+  const photo = open ? getImageProps({ src: images[index].src, alt: images[index].alt, width: 1920, height: 1280, sizes: "100vw" }).props : null;
 
   return (
     <AnimatePresence>
@@ -42,10 +45,12 @@ export default function Lightbox({ images, index, onChange, onClose }) {
           <AnimatePresence mode="wait">
             <motion.img
               key={images[index].src}
-              src={images[index].src}
-              alt={images[index].alt}
+              src={photo.src}
+              srcSet={photo.srcSet}
+              sizes={photo.sizes}
+              alt={photo.alt}
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[78vh] max-w-full rounded-3xl object-contain"
+              className="h-auto max-h-[78vh] w-auto max-w-full rounded-3xl object-contain"
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}

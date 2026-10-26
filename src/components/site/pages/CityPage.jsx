@@ -11,6 +11,7 @@ import ServicesSection from "../home/ServicesSection";
 import ProjectsSection from "../home/ProjectsSection";
 import ProcessSection from "../home/ProcessSection";
 import { getCity, CITY_FAQ, BANNERS } from "../../../lib/pages-content";
+import Image from "next/image";
 
 export default function CityPage({ slug }) {
   const city = getCity(slug);
@@ -35,8 +36,8 @@ export default function CityPage({ slug }) {
             </ul>
             <ArrowButton href="/contact" className="mt-10">Book A Consultation</ArrowButton>
           </Reveal>
-          <Reveal direction="right" className="h-80 overflow-hidden rounded-3xl sm:h-125">
-            <img src={city.image.src} alt={city.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+          <Reveal direction="right" className="relative h-80 overflow-hidden rounded-3xl sm:h-125">
+            <Image src={city.image.src} alt={city.image.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </Reveal>
         </div>
       </section>

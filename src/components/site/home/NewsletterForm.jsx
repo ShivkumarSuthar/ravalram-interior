@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import Honeypot from "../Honeypot";
 import sendEnquiry from "../../../lib/send-enquiry";
 import { CONTACT } from "../../../lib/home-content";
 
@@ -19,7 +20,7 @@ export default function NewsletterForm() {
         from_name: "Newsletter subscriber",
         from_email: email,
         message: "Please add this address to the Suthar Brothers newsletter.",
-      });
+      }, e.currentTarget);
       setStatus("done");
       setEmail("");
     } catch {
@@ -30,6 +31,7 @@ export default function NewsletterForm() {
   return (
     <>
       <form onSubmit={submit} className="relative mx-auto mt-14 max-w-112.5 border-b border-ink/60 text-left transition-colors focus-within:border-primary">
+        <Honeypot />
         <label htmlFor="newsletter-email" className="sr-only">Email address</label>
         <input
           id="newsletter-email"

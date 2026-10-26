@@ -8,6 +8,7 @@ import ProjectCard from "../ProjectCard";
 import NotFoundContent from "./NotFoundContent";
 import { projects } from "../../../lib/project-data";
 import { BANNERS } from "../../../lib/pages-content";
+import Image from "next/image";
 
 export default function ProjectDetailPage({ project }) {
   if (!project) {
@@ -46,8 +47,8 @@ export default function ProjectDetailPage({ project }) {
             </dl>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-12 h-80 overflow-hidden rounded-3xl sm:h-125 lg:h-175">
-            <img src={project.image} alt={`${project.title}, ${project.location}`} fetchPriority="high" className="size-full object-cover" />
+          <Reveal delay={0.1} className="relative mt-12 h-80 overflow-hidden rounded-3xl sm:h-125 lg:h-175">
+            <Image src={project.image} alt={`${project.title}, ${project.location}`} fill loading="eager" fetchPriority="high" sizes="100vw" className="object-cover" />
           </Reveal>
 
           <div className="mt-16 grid items-start gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">

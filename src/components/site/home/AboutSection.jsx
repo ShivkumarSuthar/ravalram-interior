@@ -4,6 +4,7 @@ import Eyebrow from "../Eyebrow";
 import TitleParts from "../TitleParts";
 import ArrowButton from "../ArrowButton";
 import { ABOUT } from "../../../lib/home-content";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
@@ -21,8 +22,8 @@ export default function AboutSection() {
         </Reveal>
 
         <div className="mt-12 grid items-start gap-10 lg:mt-15 lg:grid-cols-2 lg:gap-20">
-          <Reveal direction="left" className="h-80 overflow-hidden rounded-3xl sm:h-115">
-            <img src={ABOUT.image.src} alt={ABOUT.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+          <Reveal direction="left" className="relative h-80 overflow-hidden rounded-3xl sm:h-115">
+            <Image src={ABOUT.image.src} alt={ABOUT.image.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </Reveal>
 
           <Reveal direction="right">

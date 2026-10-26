@@ -1,4 +1,5 @@
 import { siteConfig } from "../lib/seo";
+import { CITY_PAGES } from "../lib/pages-content";
 
 export default function sitemap() {
   const baseUrl = siteConfig.url;
@@ -25,8 +26,7 @@ export default function sitemap() {
   }));
 
   // Dynamic Geo-located City pages
-  const cities = ["mumbai", "goa", "pune", "bangalore", "hyderabad", "hubli", "kumta", "honnavar"];
-  const cityRoutes = cities.map((city) => ({
+  const cityRoutes = Object.keys(CITY_PAGES).map((city) => ({
     url: `${baseUrl}/${city}`,
     lastModified: new Date(),
     changeFrequency: "weekly",

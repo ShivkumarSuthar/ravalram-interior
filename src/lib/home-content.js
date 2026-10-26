@@ -7,15 +7,13 @@ import { COMPANY_INFO, SITE_IMAGES, STOCK_IMAGES, SERVICES_PAGE_DATA } from "./d
 import { projects } from "./project-data.js";
 import { blogArticles } from "./blog-data.js";
 
-const showroom = COMPANY_INFO.address.indianShowroom;
-
 export const CONTACT = {
-  phone: showroom.phone,
-  phoneHref: `tel:${showroom.phone.replace(/\s+/g, "")}`,
+  phone: COMPANY_INFO.phone,
+  phoneHref: `tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`,
   email: COMPANY_INFO.email,
   address: COMPANY_INFO.address.full,
   // WhatsApp chat number in international format, digits only
-  whatsapp: "919819776030",
+  whatsapp: COMPANY_INFO.whatsapp,
   whatsappMessage: "Hi Suthar Brothers, I'd like to discuss an interior project.",
   socials: [
     { label: "Instagram", href: COMPANY_INFO.socialLinks.instagram },
@@ -134,7 +132,7 @@ export const ABOUT = {
   title: ["We Design ", { gold: "Homes & Workplaces," }, " ", { gold: "And Build Them" }, " With Care"],
   lead: "With more than 30 years of interior work behind us, we bring an experienced team and a keen eye for quality to every home, office and commercial space.",
   points: ["30+ Years Of Experience", "Design & Execution Together", "Furniture Made To Measure", "Flexible Pricing Options"],
-  text: "Suthar Brothers grew out of the woodworking business Ravalram H. Suthar started in 1989. Today our designers, craftsmen and site team work together, so furniture, finishes and site work all meet the same standard.",
+  text: "Suthar Brothers began as a family woodworking business in 1989. Today our designers, craftsmen and site team work together, so furniture, finishes and site work all meet the same standard.",
   cta: { label: "More About Us", href: "/about-us" },
   image: { src: SITE_IMAGES.aboutSide, alt: "Reading corner with an armchair, side table and brass floor lamp" },
 };

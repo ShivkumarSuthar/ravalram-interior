@@ -4,27 +4,6 @@
    it follows the system setting unless the visitor picks Light or Dark in the header toggle */
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  /* Semantic Design Tokens (Color-agnostic) */
-  --color-primary: #CAA05C;
-  --color-primary-hover: #B88D48;
-  --color-bg-base: #FFFFFF;
-  --color-bg-dark: #0F0F0F;
-  --color-surface-dark: #191919;
-  --color-text-muted: #4D4D52;
-  --color-text-dark: #000000;
-
-  /* Aliases for complete backward compatibility */
-  --color-gold-accent: var(--color-primary);
-  --color-gold-hover: var(--color-primary-hover);
-  --color-orange-accent: var(--color-primary);
-  --color-orange-hover: var(--color-primary-hover);
-  --color-warm-white: var(--color-bg-base);
-  --color-dark-charcoal: var(--color-bg-dark);
-  --color-neutral-slate: var(--color-surface-dark);
-  --color-stone-gray: var(--color-text-muted);
-}
-
 /* Dark theme: page surfaces go dark, text goes light; gold, photos and the always-dark
    panels (surface-dark, bg-dark) keep their look */
 .dark {
@@ -42,7 +21,15 @@
   --font-sans: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-cal-sans), ui-sans-serif, system-ui, sans-serif;
 
+  /* Brand gold, and the always-dark panels (keep their look in dark mode) */
+  --color-primary: #CAA05C;
+  --color-primary-hover: #B88D48;
+  --color-surface-dark: #191919;
+
   /* Site surfaces, hairlines and text on page backgrounds (all flip in dark mode) */
+  --color-bg-base: #FFFFFF;
+  --color-bg-dark: #0F0F0F;
+  --color-text-muted: #4D4D52;
   --color-bg-soft: #F6F6F6;
   --color-line: #9F9FA4;
   --color-ink: #191919;
@@ -74,37 +61,6 @@
   /* Layout widths */
   --container-site: 100rem;
   --container-heading: 74.5rem;
-
-  /* Semantic Color Utilities */
-  --color-primary: var(--color-primary);
-  --color-primary-hover: var(--color-primary-hover);
-  --color-bg-base: var(--color-bg-base);
-  --color-bg-dark: var(--color-bg-dark);
-  --color-surface-dark: var(--color-surface-dark);
-  --color-text-muted: var(--color-text-muted);
-
-  /* Legacy color aliases */
-  --color-gold-accent: var(--color-primary);
-  --color-gold-hover: var(--color-primary-hover);
-  --color-orange-accent: var(--color-primary);
-  --color-orange-hover: var(--color-primary-hover);
-  --color-warm-white: var(--color-bg-base);
-  --color-dark-charcoal: var(--color-bg-dark);
-  --color-neutral-slate: var(--color-surface-dark);
-  --color-stone-gray: var(--color-text-muted);
-
-  /* Accent Mappings */
-  --color-gold-500: var(--color-primary);
-  --color-gold-600: var(--color-primary-hover);
-  --color-gold-400: var(--color-primary);
-  --color-teal-400: var(--color-primary);
-  --color-teal-500: var(--color-primary);
-  --color-teal-600: var(--color-primary-hover);
-}
-
-/* Dynamic, Fluid Container Scaling for All Device Screens */
-.max-w-7xl {
-  max-width: min(94%, 1720px) !important;
 }
 
 /* Base style overrides */
@@ -122,8 +78,6 @@ html, body {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-warm-white);
-  color: var(--color-dark-charcoal);
 }
 
 /* Headings use Cal Sans; it has one weight, so never fake bold over it */
@@ -143,11 +97,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gold-accent);
+  background: var(--color-primary);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold-hover);
+  background: var(--color-primary-hover);
 }
 
 /* Hide scrollbars on mobile view to eliminate double slider and side stripe artifacts */
@@ -163,36 +117,6 @@ body {
   }
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Force persistent visible scrollbar for modals on all devices */
-.modal-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #d4c3ae #f7f5f2;
-  -webkit-overflow-scrolling: touch;
-}
-.modal-scroll::-webkit-scrollbar {
-  display: block !important;
-  width: 6px !important;
-  height: 6px !important;
-  -webkit-appearance: none;
-}
-.modal-scroll::-webkit-scrollbar-track {
-  background: #f7f5f2 !important;
-  border-radius: 9999px;
-  margin-block: 4px;
-}
-.modal-scroll::-webkit-scrollbar-thumb {
-  background-color: #d4c3ae !important;
-  border-radius: 9999px !important;
-}
-
 /* Elegant, High-Contrast Focus Visible Outline for Keyboard Accessibility */
 button:focus-visible,
 a:focus-visible,
@@ -200,7 +124,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid var(--color-gold-accent) !important;
+  outline: 2px solid var(--color-primary) !important;
   outline-offset: 3px !important;
 }
 
@@ -273,71 +197,6 @@ select:focus-visible,
    html[data-loader="skip"] for every later page load */
 html[data-loader="skip"] .site-loader {
   display: none;
-}
-
-/* ===========================
-   Premium Button
-=========================== */
-
-.btn-premium {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.btn-premium::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 0;
-}
-
-.btn-premium:hover::before {
-  transform: scaleX(1);
-}
-
-.btn-premium > * {
-  position: relative;
-  z-index: 1;
-}
-
-.btn-premium:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-}
-
-/* ===========================
-   Start Project
-=========================== */
-
-.btn-primary-premium:hover .btn-text {
-  color: white;
-}
-
-.btn-primary-premium:hover .btn-icon {
-  transform: scale(1.08);
-}
-
-/* ===========================
-   View Portfolio
-=========================== */
-
-.btn-secondary-premium:hover {
-  border-color: var(--color-primary);
-}
-
-.btn-secondary-premium:hover .play-circle {
-  background: white;
-  border-color: white;
-}
-
-.btn-secondary-premium:hover .play-icon {
-  color: var(--color-primary);
-  fill: var(--color-primary);
 }
 
 /* ===========================

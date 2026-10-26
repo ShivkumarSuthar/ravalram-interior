@@ -1,11 +1,12 @@
 import VideoPlayButton from "./VideoPlayButton";
 import { VIDEO } from "../../../lib/home-content";
+import Image from "next/image";
 
 // Server-rendered banner; the play button appears only once a video ID is set in home-content.js
 export default function VideoSection() {
   return (
     <section className="relative isolate flex min-h-150 flex-col justify-end overflow-hidden lg:h-224">
-      <img src={VIDEO.background.src} alt={VIDEO.background.alt} loading="lazy" decoding="async" className="absolute inset-0 -z-20 size-full object-cover" />
+      <Image src={VIDEO.background.src} alt={VIDEO.background.alt} fill sizes="100vw" className="-z-20 object-cover" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-black/35" />
 
       {VIDEO.youtubeId && <VideoPlayButton youtubeId={VIDEO.youtubeId} />}

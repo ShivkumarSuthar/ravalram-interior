@@ -11,6 +11,8 @@ export default function HeroReveal({ from, className, children }) {
   const [delay, setDelay] = useState(null);
   useEffect(() => {
     // First visit: start while the intro loader is lifting (it leaves at about 2s, then slides away)
+    // Browser-only flag, read after hydration so server and client render the same markup
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDelay(window.__sutharPreloading ? 2.3 : 0.3);
   }, []);
 

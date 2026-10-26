@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Suthar Brothers website
 
-# Run and deploy your AI Studio app
+Marketing website for Suthar Brothers, interior design and execution for homes, offices and commercial spaces.
 
-This contains everything you need to run your app locally.
+Built with Next.js 16 (App Router), React 19, Tailwind CSS v4 and `motion`. Hosted on Vercel.
 
-View your app in AI Studio: https://ai.studio/apps/da12e04e-7a34-46b6-b272-ee6836982c41
+## Run locally
 
-## Run Locally
+Requires Node.js 20 or newer.
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
 
+Other scripts:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm run lint     # ESLint
+npm run build    # production build (also type-checks)
+npm run start    # serve the production build
+```
+
+## Environment variables
+
+Set these in `.env.local` locally and in the Vercel project settings:
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Live domain, used for canonical links, the sitemap and structured data |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | EmailJS service that delivers the enquiry forms |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | EmailJS template for enquiries |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | EmailJS public key |
+
+## Where to change things
+
+- **Text, images, prices:** `src/lib/` (`home-content.js`, `pages-content.js`, `data.js`, `project-data.js`, `blog-data.js`, `investment-data.js`, `legal-content.js`)
+- **Phone, email, address, social links:** `COMPANY_INFO` in `src/lib/data.js`
+- **City landing pages:** `CITY_PAGES` in `src/lib/pages-content.js`
+- **Colors, fonts, type sizes:** the `@theme` block in `src/index.css`
+- **Pages:** `src/app/` (one folder per route); components in `src/components/site/`
+
+See `AGENTS.md` for the design and coding rules.

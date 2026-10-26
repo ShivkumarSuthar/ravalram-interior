@@ -26,6 +26,8 @@ export default function SiteLoader() {
       seen = sessionStorage.getItem(LOADER_KEY) !== null;
     } catch {}
     if (seen) {
+      // sessionStorage only exists in the browser; the server always renders the loader
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(false);
       return;
     }

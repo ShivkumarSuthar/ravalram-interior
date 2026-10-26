@@ -1,6 +1,7 @@
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import { PROCESS } from "../../../lib/home-content";
+import Image from "next/image";
 
 export default function ProcessSection() {
   return (
@@ -9,8 +10,8 @@ export default function ProcessSection() {
         <SectionHeading eyebrow={PROCESS.eyebrow} title={PROCESS.title} text={PROCESS.text} />
 
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-18">
-          <Reveal direction="left" className="h-80 overflow-hidden rounded-3xl sm:h-115 lg:max-w-160">
-            <img src={PROCESS.image.src} alt={PROCESS.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+          <Reveal direction="left" className="relative h-80 overflow-hidden rounded-3xl sm:h-115 lg:max-w-160">
+            <Image src={PROCESS.image.src} alt={PROCESS.image.alt} fill sizes="(min-width: 1024px) 640px, 100vw" className="object-cover" />
           </Reveal>
 
           <Reveal direction="right" as="ol">

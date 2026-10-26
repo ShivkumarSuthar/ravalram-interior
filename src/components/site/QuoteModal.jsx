@@ -8,6 +8,7 @@ import useOverlay from "./useOverlay";
 import Eyebrow from "./Eyebrow";
 import { EASE_OUT } from "./Reveal";
 import Select from "./Select";
+import Honeypot from "./Honeypot";
 import sendEnquiry from "../../lib/send-enquiry";
 import { CONTACT } from "../../lib/home-content";
 import { CONTACT_PAGE } from "../../lib/pages-content";
@@ -57,7 +58,7 @@ export default function QuoteModal() {
         city: form.city,
         service_needed: form.service,
         message: form.message || "No additional notes provided.",
-      });
+      }, e.currentTarget);
       setOpen(false);
       router.push("/thank-you");
     } catch {
@@ -107,6 +108,7 @@ export default function QuoteModal() {
             </p>
 
             <form onSubmit={submit} className="mt-7 grid gap-4 sm:grid-cols-2">
+              <Honeypot />
               <div className="sm:col-span-2">
                 <label htmlFor="q-name" className="mb-1.5 block font-heading text-base text-ink">Full Name <span className="text-primary">*</span></label>
                 <input id="q-name" name="name" required autoComplete="name" value={form.name} onChange={update} placeholder="Your name" className={FIELD} />

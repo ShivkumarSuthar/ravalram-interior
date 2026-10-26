@@ -4,6 +4,7 @@ import SectionHeading from "../SectionHeading";
 import Accordion from "../Accordion";
 import ArrowButton from "../ArrowButton";
 import { FAQ_PAGE, BANNERS } from "../../../lib/pages-content";
+import Image from "next/image";
 
 export default function FaqPage() {
   const { help } = FAQ_PAGE;
@@ -18,8 +19,8 @@ export default function FaqPage() {
               <Accordion items={FAQ_PAGE.items} />
             </Reveal>
             <Reveal direction="right" className="lg:sticky lg:top-32">
-              <div className="h-60 overflow-hidden rounded-3xl">
-                <img src={help.image.src} alt={help.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+              <div className="relative h-60 overflow-hidden rounded-3xl">
+                <Image src={help.image.src} alt={help.image.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
               </div>
               <h2 className="mt-7 font-heading text-card-lg text-ink">{help.title}</h2>
               <p className="mt-3 text-base leading-7 text-text-muted">{help.text}</p>

@@ -3,6 +3,7 @@ import ArrowButton from "../ArrowButton";
 import TitleParts from "../TitleParts";
 import HeroReveal from "./HeroReveal";
 import { HERO } from "../../../lib/home-content";
+import Image from "next/image";
 
 // Server-rendered hero; HeroReveal only adds the entrance animation
 export default function HeroSection() {
@@ -30,15 +31,15 @@ export default function HeroSection() {
           </HeroReveal>
 
           <HeroReveal from="right" className="lg:w-112.5 lg:pt-6">
-            <div className="h-66.75 overflow-hidden rounded-3xl">
-              <img src={HERO.smallImage.src} alt={HERO.smallImage.alt} fetchPriority="high" className="size-full object-cover" />
+            <div className="relative h-66.75 overflow-hidden rounded-3xl">
+              <Image src={HERO.smallImage.src} alt={HERO.smallImage.alt} fill loading="eager" fetchPriority="high" sizes="(min-width: 1024px) 450px, 100vw" className="object-cover" />
             </div>
             <p className="mt-10 text-lead font-medium text-text-muted">{HERO.text}</p>
           </HeroReveal>
         </div>
 
-        <HeroReveal from="bottom" className="mt-14 h-75 overflow-hidden rounded-3xl sm:h-125 lg:mt-20 lg:h-200">
-          <img src={HERO.largeImage.src} alt={HERO.largeImage.alt} fetchPriority="high" className="size-full object-cover" />
+        <HeroReveal from="bottom" className="relative mt-14 h-75 overflow-hidden rounded-3xl sm:h-125 lg:mt-20 lg:h-200">
+          <Image src={HERO.largeImage.src} alt={HERO.largeImage.alt} fill loading="eager" fetchPriority="high" sizes="100vw" className="object-cover" />
         </HeroReveal>
       </div>
     </section>

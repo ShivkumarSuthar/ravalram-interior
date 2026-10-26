@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { FOOTER, CONTACT } from "../../lib/home-content";
+import Image from "next/image";
 
 export default function SiteFooter() {
   return (
     <footer className="relative isolate overflow-hidden bg-bg-dark pb-40 sm:pb-64 lg:pb-99">
-      <img
+      <Image
         src={FOOTER.background.src}
         alt=""
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 -z-20 size-full object-cover opacity-25 grayscale"
+        fill
+        sizes="100vw"
+        className="-z-20 object-cover opacity-25 grayscale"
       />
       <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-b from-bg-dark/70 via-bg-dark/60 to-bg-dark/40" />
 

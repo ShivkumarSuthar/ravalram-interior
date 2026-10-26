@@ -1,11 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 
 // Portfolio card: image with tag pills, title and location/year underneath
 export default function ProjectCard({ project }) {
   return (
     <Link href={`/projects/${project.slug}`} className="group block">
       <div className="relative h-88 overflow-hidden rounded-3xl lg:h-135">
-        <img src={project.image} alt={`${project.title}, ${project.location}`} loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <Image src={project.image} alt={`${project.title}, ${project.location}`} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
         <div aria-hidden className="absolute inset-0 bg-black/10" />
         <ul className="absolute left-7.5 top-7.5 flex flex-wrap gap-2.5">
           {[project.filterKey, project.location.split(",").pop().trim()].map((tag) => (

@@ -5,12 +5,13 @@ import Reveal from "../Reveal";
 import ComingSoonSignup from "../ComingSoonSignup";
 import { COMING_SOON_PAGE } from "../../../lib/pages-content";
 import { CONTACT } from "../../../lib/home-content";
+import Image from "next/image";
 
 // Full-screen holding page: logo, title, optional countdown, email sign-up
 export default function ComingSoonPage() {
   return (
     <main className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-5 py-20 text-center">
-      <img src={COMING_SOON_PAGE.background} alt="" fetchPriority="high" className="absolute inset-0 -z-20 size-full object-cover" />
+      <Image src={COMING_SOON_PAGE.background} alt="" fill loading="eager" fetchPriority="high" sizes="100vw" className="-z-20 object-cover" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-black/60" />
 
       <Reveal delay={0.2} duration={1} className="w-full max-w-180">

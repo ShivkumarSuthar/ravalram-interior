@@ -18,6 +18,8 @@ export default function PostFilterGrid({ posts }) {
   // Category links from article pages arrive as /blog?category=...
   useEffect(() => {
     const fromUrl = new URLSearchParams(window.location.search).get("category");
+    // Read after hydration (useSearchParams would need a Suspense boundary and drop the cards from the static HTML)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (fromUrl && categories.some(([key]) => key === fromUrl)) setActive(fromUrl);
   }, [categories]);
 

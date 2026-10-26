@@ -13,9 +13,21 @@ const TEMPLATE_FIELDS = {
   service_needed: "project_type",
 };
 
+// No person fills in a form this fast
+const MIN_FILL_MS = 3000;
+
+// True when the form's Honeypot field was filled in, or the form was sent too soon after it appeared
+function looksLikeBot(form) {
+  const trap = form?.elements.namedItem("company_website");
+  if (!trap) return false;
+  return trap.value !== "" || Date.now() - Number(trap.dataset.shownAt || 0) < MIN_FILL_MS;
+}
+
 // Sends a form through the studio's EmailJS template. Throws when EmailJS isn't configured
 // or the send fails, so forms can show their fallback message instead of a false success.
-export default async function sendEnquiry(params) {
+// Pass the <form> element so the Honeypot check runs; spam resolves as if sent, so bots get no signal.
+export default async function sendEnquiry(params, form) {
+  if (looksLikeBot(form)) return;
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     throw new Error("EmailJS is not configured");
   }

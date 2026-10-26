@@ -9,6 +9,7 @@ import Accordion from "../Accordion";
 import HelpCard from "../HelpCard";
 import ServicesSection from "../home/ServicesSection";
 import { SERVICES_PAGE, BANNERS } from "../../../lib/pages-content";
+import Image from "next/image";
 
 export default function ServicesPage() {
   const { core, models, steps, faq } = SERVICES_PAGE;
@@ -24,8 +25,8 @@ export default function ServicesPage() {
           <div className="space-y-20 lg:space-y-28">
             {core.items.map((service, i) => (
               <article key={service.id} id={service.id} className="grid scroll-mt-32 items-center gap-10 lg:grid-cols-2 lg:gap-20">
-                <Reveal direction={i % 2 ? "right" : "left"} className={`h-80 overflow-hidden rounded-3xl sm:h-115 ${i % 2 ? "lg:order-2" : ""}`}>
-                  <img src={service.image} alt={service.imageAlt} loading="lazy" decoding="async" className="size-full object-cover" />
+                <Reveal direction={i % 2 ? "right" : "left"} className={`relative h-80 overflow-hidden rounded-3xl sm:h-115 ${i % 2 ? "lg:order-2" : ""}`}>
+                  <Image src={service.image} alt={service.imageAlt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
                 </Reveal>
                 <Reveal direction={i % 2 ? "left" : "right"}>
                   <p className="font-heading text-eyebrow uppercase text-primary">{String(i + 1).padStart(2, "0")} / {service.accent}</p>
@@ -49,7 +50,7 @@ export default function ServicesPage() {
 
       {/* Ways to work with us: numbered tiles over a dark photo */}
       <section className="relative isolate overflow-hidden py-24 lg:py-32.5">
-        <img src={models.image.src} alt={models.image.alt} loading="lazy" decoding="async" className="absolute inset-0 -z-20 size-full object-cover" />
+        <Image src={models.image.src} alt={models.image.alt} fill sizes="100vw" className="-z-20 object-cover" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-black/70" />
         <div className="mx-auto max-w-site px-5">
           <Reveal delay={0} duration={1} className="max-w-180">

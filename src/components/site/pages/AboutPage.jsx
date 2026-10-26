@@ -8,13 +8,15 @@ import ArrowButton from "../ArrowButton";
 import SectionHeading from "../SectionHeading";
 import ProcessSection from "../home/ProcessSection";
 import GallerySection from "../home/GallerySection";
-import { ABOUT_PAGE, BANNERS } from "../../../lib/pages-content";
+import { ABOUT_PAGE, BANNERS, CITY_PAGES } from "../../../lib/pages-content";
+import Image from "next/image";
 
 const VALUE_ICONS = { Compass, Hammer, Heart, Layers, ShieldCheck, Sparkles };
-const CITY_PAGES ={ Mumbai: "/mumbai", Pune: "/pune", Goa: "/goa", Bengaluru: "/bangalore", Hyderabad: "/hyderabad", Hubballi: "/hubli", Kumta: "/kumta", Honnavar: "/honnavar" };
+// City name → its landing page
+const CITY_LINKS = Object.fromEntries(Object.entries(CITY_PAGES).map(([slug, name]) => [name, `/${slug}`]));
 
 export default function AboutPage() {
-  const { intro, band, history, values, team, cities } = ABOUT_PAGE;
+  const { intro, band, history, values, cities } = ABOUT_PAGE;
 
   return (
     <PageShell title="About Us" crumbs={[{ label: "About Us" }]} image={BANNERS.about}>
@@ -28,8 +30,8 @@ export default function AboutPage() {
                 <TitleParts parts={intro.title} />
               </h2>
             </Reveal>
-            <Reveal direction="right" className="h-80 overflow-hidden rounded-3xl lg:row-span-2 lg:h-155 lg:w-112.5">
-              <img src={intro.image.src} alt={intro.image.alt} loading="lazy" decoding="async" className="size-full object-cover" />
+            <Reveal direction="right" className="relative h-80 overflow-hidden rounded-3xl lg:row-span-2 lg:h-155 lg:w-112.5">
+              <Image src={intro.image.src} alt={intro.image.alt} fill sizes="(min-width: 1024px) 450px, 100vw" className="object-cover" />
             </Reveal>
 
             <Reveal direction="bottom" className="grid items-center gap-10 md:grid-cols-[auto_1fr] lg:gap-14">
@@ -50,7 +52,9 @@ export default function AboutPage() {
 
       {/* Full-width photo band */}
       <Reveal delay={0} className="mx-auto h-80 max-w-site overflow-hidden px-5 sm:h-125 lg:h-175">
-        <img src={band.src} alt={band.alt} loading="lazy" decoding="async" className="size-full rounded-3xl object-cover" />
+        <div className="relative size-full overflow-hidden rounded-3xl">
+          <Image src={band.src} alt={band.alt} fill sizes="(min-width: 1600px) 1560px, 100vw" className="object-cover" />
+        </div>
       </Reveal>
 
       {/* History timeline */}
@@ -98,22 +102,6 @@ export default function AboutPage() {
 
       <ProcessSection />
 
-      {/* Leadership */}
-      <section className="pb-24 lg:pb-32.5">
-        <div className="mx-auto max-w-site px-5">
-          <SectionHeading eyebrow={team.eyebrow} title={team.title} />
-          <ul className="grid gap-6 md:grid-cols-3">
-            {team.people.map((person, i) => (
-              <Reveal as="li" key={person.id} delay={i * 0.08} duration={1} className="rounded-3xl bg-bg-base p-8">
-                <p className="font-heading text-eyebrow uppercase text-primary">{person.role}</p>
-                <h3 className="mt-3 font-heading text-card-lg text-ink">{person.name}</h3>
-                <p className="mt-4 text-base leading-7 text-text-muted">{person.bio}</p>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <GallerySection />
 
       {/* Cities */}
@@ -122,7 +110,7 @@ export default function AboutPage() {
           <SectionHeading eyebrow={cities.eyebrow} title={cities.title} />
           <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
             {cities.items.map((city) => {
-              const href = CITY_PAGES[city.name];
+              const href = CITY_LINKS[city.name];
               const body = (
                 <>
                   <span className="font-heading text-card text-ink transition-colors group-hover:text-primary">{city.name}</span>

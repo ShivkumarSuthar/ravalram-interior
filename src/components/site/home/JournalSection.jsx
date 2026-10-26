@@ -2,6 +2,7 @@ import Link from "next/link";
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import { JOURNAL } from "../../../lib/home-content";
+import Image from "next/image";
 
 function Meta({ post }) {
   return (
@@ -34,7 +35,7 @@ export default function JournalSection() {
           <Reveal as="article" delay={0} duration={1} className="group">
             <Link href={featured.href} className="relative block h-75 overflow-hidden rounded-3xl sm:h-125">
               <CategoryPill>{featured.category}</CategoryPill>
-              <img src={featured.image} alt={featured.title} loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={featured.image} alt={featured.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </Link>
             <div className="mt-6">
               <Meta post={featured} />
@@ -52,7 +53,7 @@ export default function JournalSection() {
               <article key={post.href} className="group grid gap-6 py-8 first:pt-0 sm:grid-cols-[17.5rem_1fr] sm:gap-7.5">
                 <Link href={post.href} className="relative block h-50 overflow-hidden rounded-3xl">
                   <CategoryPill>{post.category}</CategoryPill>
-                  <img src={post.image} alt={post.title} loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src={post.image} alt={post.title} fill sizes="(min-width: 640px) 280px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </Link>
                 <div>
                   <Meta post={post} />

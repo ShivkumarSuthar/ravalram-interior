@@ -1,21 +1,23 @@
 import "../index.css";
-import { Cal_Sans, Golos_Text } from "next/font/google";
+import { Golos_Text } from "next/font/google";
+import localFont from "next/font/local";
 import SiteLoader from "../components/site/SiteLoader";
 import QuoteModal from "../components/site/QuoteModal";
-import SmoothScroll from "../components/SmoothScroll";
+import SmoothScroll from "../components/site/SmoothScroll";
 import CustomCursor from "../components/site/CustomCursor";
 import ChatWidget from "../components/site/ChatWidget";
 import { viewport } from "../lib/seo";
 import { headScript } from "../lib/theme-script";
 
 // Brand fonts (self-hosted by next/font at build time)
-// Cal Sans ships a single weight (400); Golos Text is variable
-const calSans = Cal_Sans({
-  subsets: ["latin"],
+// Cal Sans ships a single weight (400). It is a local file (Google Fonts latin subset) because next/font/google
+// has no metrics for it; from the file next/font builds a size-matched Arial fallback, so text doesn't jump on load.
+// Golos Text is variable.
+const calSans = localFont({
+  src: "../fonts/CalSans-Regular.woff2",
   weight: "400",
   variable: "--font-cal-sans",
   display: "swap",
-  adjustFontFallback: false,
 });
 
 const golosText = Golos_Text({

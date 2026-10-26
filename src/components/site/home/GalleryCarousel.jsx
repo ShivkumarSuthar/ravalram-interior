@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import "swiper/css";
+import Image from "next/image";
 
 // Looping photo carousel with previous/next buttons
 export default function GalleryCarousel({ images }) {
@@ -27,8 +28,8 @@ export default function GalleryCarousel({ images }) {
       >
         {[...images, ...images].map((img, i) => (
           <SwiperSlide key={`${img.src}-${i}`}>
-            <Link href="/gallery" className="group block h-90 overflow-hidden rounded-3xl">
-              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Link href="/gallery" className="group relative block h-90 overflow-hidden rounded-3xl">
+              <Image src={img.src} alt={img.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 767px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </Link>
           </SwiperSlide>
         ))}
